@@ -470,6 +470,7 @@ MemoryValueTypes = [
     'RingtoneID',
     'RingtoneFileSystemID',
     'PictureID',
+    'SMSListID',
     ]
 
 CalendarTypes = [
