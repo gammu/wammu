@@ -404,6 +404,7 @@ class WammuFrame(wx.Frame):
             self.browser.Change(k1, data)
         else:
             self.browser.Change(k1, self.values[k1][k2])
+        self.browser.ShowRow(0)
 
     def OnTreeSel(self, event):
         item = event.GetItem()
@@ -782,6 +783,7 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
             try:
+                busy = wx.BusyInfo(_('Deleting contact...'))
                 self.sm.DeleteMemory(v['MemoryType'], v['Location'])
                 if v['MemoryType'] == t:
                     del self.values[self.type[0]][t][evt.index]
@@ -804,6 +806,7 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
             try:
+                busy = wx.BusyInfo(_('Deleting message...'))
                 for loc in v['Location'].split(', '):
                     self.sm.DeleteSMS(v['Folder'], int(loc))
                 if v['State'] == t:
@@ -827,6 +830,7 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
             try:
+                busy = wx.BusyInfo(_('Deleting todo...'))
                 self.sm.DeleteToDo(v['Location'])
                 if '  ' == t:
                     del self.values[self.type[0]][t][evt.index]
@@ -849,6 +853,7 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
             try:
+                busy = wx.BusyInfo(_('Deleting calendar event...'))
                 self.sm.DeleteCalendar(v['Location'])
                 if '  ' == t:
                     del self.values[self.type[0]][t][evt.index]

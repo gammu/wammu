@@ -20,16 +20,17 @@ def GetItemType(str):
         
 def SearchLocation(list, loc, second = None):
     result = -1
+    print 'loc: "%s"' % str(loc)
     for i in range(len(list)):
         if second != None:
             if not list[i][second[0]] == second[1]:
                 continue
-        if type(list[i]['Location']) == type(''):
-            if str(loc) in list[i].split(', '):
+        if type(list[i]['Location']) == type(loc):
+            if loc == list[i]['Location']:
                 result = i
                 break
         else:
-            if loc == list[i]['Location']:
+            if str(loc) in list[i]['Location'].split(', '):
                 result = i
                 break
     return result
