@@ -29,17 +29,20 @@ def StrConv(txt):
     So if wxPython supports unicode, we give it unicode, otherwise locale
     dependant text.
     """
-    if wx.USE_UNICODE:
-        if type(txt) == type(u''):
-            return txt
-        if type(txt) == type(''):
-            return unicode(txt, localecharset)
-    else:
-        if type(txt) == type(''):
-            return txt
-        if type(txt) == type(u''):
-            return str(charsetencoder(txt)[0])
-    return str(txt)
+    try:
+        if wx.USE_UNICODE:
+            if type(txt) == type(u''):
+                return txt
+            if type(txt) == type(''):
+                return unicode(txt, localecharset)
+        else:
+            if type(txt) == type(''):
+                return txt
+            if type(txt) == type(u''):
+                return str(charsetencoder(txt)[0])
+        return str(txt)
+    except UnicodeEncodeError:
+        return '???'
 
 
 def GetItemType(str):
@@ -87,20 +90,23 @@ def SearchNumber(list, number):
                 return i
     return -1
 
+def GetContactLink(list, i, txt):
+    return StrConv('<a href="memory://%s/%d">%s</a> (%s)</a>' % (list[i]['MemoryType'], list[i]['Location'], list[i]['Name'], txt))
+    
 def GetNumberLink(list, number):
     i = SearchNumber(list, number)
     if i == -1:
         return number
-    return '<a href="memory://%s/%d">%s</a> (%s)</a>' % (list[i]['MemoryType'], list[i]['Location'], list[i]['Name'], number)
+    return getcontactlink(list, i, number)
 
 def GetTypeString(type, value, values, linkphone = True):
     t = GetItemType(type)
     if t == 'contact':
-        i = Wammu.Utils.SearchLocation(values['contact']['ME'], i['Value'])
+        i = SearchLocation(values['contact']['ME'], value)
         if i == -1:
             return '%d' % value
         else:
-            return StrConv('%s (%d)' % (values['contact']['ME'][l]['Name'], value))
+            return GetContactLink([] + values['contact']['ME'], i, str(value))
     elif linkphone and t == 'phone':
         return StrConv(GetNumberLink([] + values['contact']['ME'] + values['contact']['SM'], value))
     elif t == 'id':

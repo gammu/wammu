@@ -1,58 +1,23 @@
-import Wammu.Thread
+import Wammu.Reader
 import Wammu.Utils
 import gammu
 
-class GetCalendar(Wammu.Thread.Thread):
-    def run(self):
-        self.ShowProgress(0)
+class GetCalendar(Wammu.Reader.Reader):
+    def GetStatus(self):
+        status = self.sm.GetCalendarStatus()
+        return status['Used'] 
         
-        try:
-            status = self.sm.GetCalendarStatus()
-            total = remain = status['Used'] 
-        except gammu.GSMError, val:
-            total = remain = 999
+    def GetNextStart(self):
+        return self.sm.GetNextCalendar(Start = True)
 
-        data = []
-        
-        try:
-            start = True
-            while remain > 0:
-                self.ShowProgress(100 * (total - remain) / total)
-                if self.canceled:
-                    self.Canceled()
-                    return
-                try:
-                    if start:
-                        value = self.sm.GetNextCalendar(Start = True)
-                        start = False
-                    else:
-                        value = self.sm.GetNextCalendar(Location = value['Location'])
-                except gammu.ERR_EMPTY:
-                    break
-                Wammu.Utils.ParseCalendar(value)
-                data.append(value)
-                remain = remain - 1
-        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            location = 1
-            while remain > 0:
-                self.ShowProgress(100 * (total - remain) / total)
-                if self.canceled:
-                    self.Canceled()
-                    return
-                try:
-                    value = self.sm.GetCalendar(Location = location)
-                    Wammu.Utils.ParseCalendar(value)
-                    data.append(value)
-                    remain = remain - 1
-                except gammu.ERR_EMPTY:
-                    pass
-                except gammu.GSMError, val:
-                    self.ShowError(val[0], True)
-                    return
-                location = location + 1
-        except gammu.GSMError, val:
-            self.ShowError(val[0], True)
-            return
+    def GetNext(self, location):
+        return self.sm.GetNextCalendar(Location = location)
+                        
+    def Get(self, location):
+        return self.sm.GetCalendar(Location = location)
 
-        self.ShowProgress(100)
+    def Parse(self, value):
+        Wammu.Utils.ParseCalendar(value)
+
+    def Send(self, data):
         self.SendData(['calendar', '  '], data)

@@ -1,58 +1,25 @@
-import Wammu.Thread
+import Wammu.Reader
 import Wammu.Utils
 import gammu
 
-class GetMessage(Wammu.Thread.Thread):
-    def run(self):
-        self.ShowProgress(0)
+class GetMessage(Wammu.Reader.Reader):
+    def GetStatus(self):
+        status = self.sm.GetSMSStatus()
+        return status['SIMUsed'] + status['PhoneUsed'] + status['TemplatesUsed']
         
-        try:
-            status = self.sm.GetSMSStatus()
-            total = remain = status['SIMUsed'] + status['PhoneUsed'] + status['TemplatesUsed']
-        except gammu.GSMError, val:
-            total = remain = 999
+    def GetNextStart(self):
+        return self.sm.GetNextSMS(Start = True, Folder = 0)
 
-        data = []
-        
-        try:
-            start = True
-            while remain > 0:
-                self.ShowProgress(100 * (total - remain) / total)
-                if self.canceled:
-                    self.Canceled()
-                    return
-                try:
-                    if start:
-                        value = self.sm.GetNextSMS(Start = True, Folder = 0)
-                        start = False
-                    else:
-                        value = self.sm.GetNextSMS(Location = value[0]['Location'], Folder = 0)
-                except gammu.ERR_EMPTY:
-                    break
+    def GetNext(self, location):
+        return self.sm.GetNextSMS(Location = location, Folder = 0)
+                        
+    def Get(self, location):
+        return self.sm.GetSMS(Location = location, Folder = 0)
 
-                data.append(value)
-                remain = remain - len(value)
-        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            location = 1
-            while remain > 0:
-                self.ShowProgress(100 * (total - remain) / total)
-                if self.canceled:
-                    self.Canceled()
-                    return
-                try:
-                    value = self.sm.GetSMS(Folder = 0, Location = location)
-                    data.append(value)
-                    remain = remain - 1
-                except gammu.ERR_EMPTY:
-                    pass
-                except gammu.GSMError, val:
-                    self.ShowError(val[0], True)
-                    return
-                location = location + 1
-        except gammu.GSMError, val:
-            self.ShowError(val[0], True)
-            return
+    def Parse(self, value):
+        return
 
+    def Send(self, data):
         read = []
         unread = []
         sent = []
@@ -79,6 +46,3 @@ class GetMessage(Wammu.Thread.Thread):
         self.SendData(['message', 'UnRead'], unread, False)
         self.SendData(['message', 'Sent'], sent, False)
         self.SendData(['message', 'UnSent'], unsent)
-
-        self.ShowProgress(100)
-

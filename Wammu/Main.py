@@ -106,6 +106,7 @@ class WammuFrame(wx.Frame):
         Wammu.Events.EVT_EDIT(self, self.OnEdit)
         Wammu.Events.EVT_SEND(self, self.OnSend)
         Wammu.Events.EVT_DUPLICATE(self, self.OnDuplicate)
+        Wammu.Events.EVT_REPLY(self, self.OnReply)
         Wammu.Events.EVT_DELETE(self, self.OnDelete)
 
         self.splitter = wx.SplitterWindow(self, -1)
@@ -553,14 +554,7 @@ class WammuFrame(wx.Frame):
         self.EditTodo({})
     
     def NewMessage(self, evt):
-        v = self.ComposeMessage({})
-        if v != None:
-            self.values['message'][v['State']].append(v)
-            self.ActivateView('message', v['State'])
-            try:
-                self.browser.ShowLocation(v['Location'])
-            except KeyError:
-                pass
+        self.ComposeMessage({})
 
     def ComposeMessage(self, v):
         if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values).ShowModal() == wx.ID_OK:
@@ -595,9 +589,12 @@ class WammuFrame(wx.Frame):
                 if info != None:
                     result['SMSInfo'] = info
                 Wammu.Utils.ParseMessage(result, (info != None))
-                return result 
-            else:
-                return None
+                self.values['message'][result['State']].append(result)
+                self.ActivateView('message', result['State'])
+                try:
+                    self.browser.ShowLocation(result['Location'])
+                except KeyError:
+                    pass
 
     def EditContact(self, v):
         backup = copy.deepcopy(v)
@@ -752,6 +749,17 @@ class WammuFrame(wx.Frame):
             print 'Edit not yet implemented!'
             print evt.index
 
+    def OnReply(self, evt): 
+        if self.type[0] == 'message':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']})
+        else: 
+            print 'Reply not yet implemented!'
+            print evt.index
+            
     def OnDuplicate(self, evt): 
         if self.type[0] == 'contact':
             if self.type[1] == '  ':
@@ -783,10 +791,7 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             v = copy.deepcopy(self.values['message'][t][evt.index])
-            r = self.ComposeMessage(v)
-            if r != None:
-                self.values['message'][r['State']].append(r)
-                self.ActivateView('message', r['State'])
+            self.ComposeMessage(v)
         else: 
             print 'Duplicate not yet implemented!'
             print evt.index
