@@ -268,14 +268,14 @@ class WammuFrame(wx.Frame):
                 config = self.sm.GetConfig()
 
                 wx.MessageDialog(self, 
-                    _('Wammu configuration was not found. Gammu settings were read and will be used as defaults. You will now be taken to configuration dialog to check configuration.'),
+                    _('Wammu configuration was not found. Gammu settings were read and will be used as defaults.\nYou will now be taken to configuration dialog to check configuration.'),
                     _('Configuration not found'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             except:
                 config = {}
                 dlg = wx.MessageDialog(self,
-                    _('Wammu configuration was not found. Gammu settings couldn\'t be read.\n' +
-                      'Wammu can try to search for phone. Do you want Wammu to search for phone?\n' +
+                    _('Wammu configuration was not found and Gammu settings couldn\'t be read.\n\n' +
+                      'Wammu can now try to search for phone. Do you want Wammu to search for phone?\n' +
                       'After searching you will now be taken to configuration dialog to check whether it was detected correctly.\n\n' +
                       'If you press cancel, no searching will be performed.'),
                     _('Configuration not found'),
