@@ -1,10 +1,9 @@
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Cihar 
+# Copyright (c) 2003 - 2004 Michal Čihař 
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
-# Software Foundation; either version 2 of the License, or (at your option)
-# any later version.
+# Software Foundation; either version 2 of the License.
 #
 # This program is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
@@ -32,7 +31,7 @@ if wx.USE_UNICODE:
     copyrightline = 'Copyright &copy; 2003 - 2004 Michal &#268;iha&#345;'
     head = ''
 else:
-    copyrightline = 'Copyright (c) 2003-2004 Michal Cihar'
+    copyrightline = 'Copyright (c) 2003-2004 Michal Čihař'
     head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.localecharset
 
 text = '''
