@@ -266,7 +266,7 @@ def ParseMessage(msg, parseinfo = False):
 
 def FormatError(txt, info):
     _ = Str_
-    return StrConv(txt + ('\n\n%s: %s\n%s: %s\n%s: %d' % 
+    return StrConv(txt + ('\n\n%s %s\n%s %s\n%s %d' % 
         (_('Description:'), StrConv(info['Text']),
         _('Function:'), StrConv(info['Where']),
         _('Error code:'), info['Code'])))
