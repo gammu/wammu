@@ -526,9 +526,9 @@ class WammuFrame(wx.Frame):
         text = ''
         for d in data:
             if len(d) == 2:
-                text = text + ('<b>%s</b>: %s<br>' % (d[0], d[1]))
+                text = text + ('<b>%s</b>: %s<br>' % (StrConv(d[0]), StrConv(d[1])))
             else:
-                text = text + ('<br>%s' % d[0])
+                text = text + ('<br>%s' % StrConv(d[0]))
         if wx.USE_UNICODE:
             self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % StrConv(text))
         else:
