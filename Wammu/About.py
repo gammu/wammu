@@ -1,5 +1,3 @@
-# -*- coding: ISO-8859-2 -*-
-
 import wx
 import wx.html
 import wx.lib.wxpTag
@@ -8,15 +6,12 @@ import gammu
 import Wammu
 
 if wx.USE_UNICODE:
-    header = ''
     copyright = 'Copyright &copy; 2003-2004 Michal &#268;iha&#345;'
 else:
-    header = '<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2"></head>'
-    copyright = 'Copyright (c) 2003-2004 Michal Čihař'
+    copyright = 'Copyright (c) 2003-2004 Michal Cihar'
 
 text = '''
 <html>
-%s
 <body>
 <center><table bgcolor="#458154" width="100%%" cellspacing="0"
 cellpadding="0" border="1">
@@ -48,8 +43,7 @@ cellpadding="0" border="1">
 </body>
 </html>
 
-''' % (header,
-    '''
+''' % ('''
     <h2>Wammu %s</h2>
     %s<br>
     %s<br>
