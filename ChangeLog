@@ -2,6 +2,24 @@
 # arch-tag: automatic-ChangeLog--michal@cihar.com--2003-main/wammu--devel--0.1
 #
 
+2003-12-17 21:42:25 GMT	Michal Cihar <michal@cihar.com>	patch-24
+
+    Summary:
+      added editing of memory type
+    Revision:
+      wammu--devel--0.1--patch-24
+
+    - added editing of memory type
+    - smarter passing values to gammu, so that these will be encoded using current locale encoding
+    - changes in setting value in phone:
+        - handles moving between memories
+        - rereads the entry after writing to see what was actually written
+    - removed one extra self.TogglePhoneMenus(True) from connecting to phone
+
+    modified files:
+     ChangeLog Wammu/Editor.py Wammu/Main.py Wammu/__init__.py
+
+
 2003-12-17 19:36:19 GMT	Michal Cihar <michal@cihar.com>	patch-23
 
     Summary:

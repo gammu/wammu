@@ -15,6 +15,8 @@ if sys.platform == 'win32':
 else:
     Devices = ['/dev/ttyS0', '/dev/ttyS1', '/dev/ttyUSB0', '/dev/ircomm0']
 
+ContactMemoryTypes = ['ME', 'SM']
+
 MemoryValueTypes = [
     'Number_General',
     'Number_Mobile',

@@ -343,11 +343,27 @@ class WammuFrame(wx.Frame):
             backup = copy.deepcopy(v)
             if Wammu.Editor.ContactEditor(self, self.sm, v).ShowModal() == wx.ID_OK:
                 busy = wx.BusyInfo(_('Updating memory entry...'))
+                # do the change
                 try:
-                    v['Location'] = self.sm.SetMemory(v)
+                    if v['MemoryType'] != backup['MemoryType']:
+                        self.sm.DeleteMemory(backup['MemoryType'], backup['Location'])
+                        v['Location'] = self.sm.AddMemory(v)
+                        del self.values[self.type[0]][backup['MemoryType']][evt.index]
+                        self.values[self.type[0]][v['MemoryType']].append(v)
+                        t = v['MemoryType']
+                    else:
+                        v['Location'] = self.sm.SetMemory(v)
+
+                    # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                    v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                 except gammu.GSMError, val:
                     v = backup
                     self.ShowError(val[0])
+                    
+                if t == '__':
+                    t = '  '
+                    
+                self.ActivateView('memory', t)
         else: 
             print 'Edit not yet implemented!'
             print evt.index
@@ -477,7 +493,6 @@ class WammuFrame(wx.Frame):
             'Model': self.cfg.Read('/Gammu/Model', Wammu.Models[0])
             }
         self.sm.SetConfig(0, cfg)
-        self.TogglePhoneMenus(True)
         try:
             self.sm.Init()
             self.TogglePhoneMenus(True)
