@@ -23,7 +23,7 @@ import Wammu.Data
 import Wammu.Ringtone
 import string
 import re
-from Wammu.Utils import UnicodeConv, HtmlStrConv, StrConv, Str_ as _
+from Wammu.Utils import UnicodeConv, HtmlStr_ as _, HtmlStrConv
 
 def SmsTextFormat(cfg, txt):
     if cfg.Read('/Wammu/FormatSMS', 'yes') == 'yes':
@@ -80,9 +80,9 @@ def SmsTextFormat(cfg, txt):
                 s = x
             else:
                 ret += a + ' '
-        return StrConv(ret)
+        return ret
     else:
-        return StrConv(txt)
+        return txt
 
 def SmsToHtml(cfg, v):
     if v.has_key('SMSInfo'):
@@ -129,7 +129,7 @@ def SmsToHtml(cfg, v):
                     for name, txt, style in x[1:]:
                         if i.has_key(name) and i[name]:
                             fmt = style % fmt
-                text = text + (fmt % HtmlStrConv(SmsTextFormat(cfg, i['Buffer'])))
+                text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
 
             if i['ID'] in Wammu.Data.SMSIDs['Bitmap']:
                 x = i['Bitmap'][0]
@@ -153,4 +153,4 @@ def SmsToHtml(cfg, v):
     else:
         text = SmsTextFormat(cfg, v['Text'])
 
-    return StrConv(text)
+    return HtmlStrConv(text)

@@ -35,12 +35,7 @@ from Wammu.Utils import UnicodeConv, Str_ as _
 if wx.USE_UNICODE:
     htmlhead = ''
 else:
-    try:
-        loc = locale.getdefaultlocale()
-        charset = loc[1]
-    except:
-        charset = 'iso-8859-1'
-    htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % charset
+    htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
 
 class MessagePreview(wx.Dialog):
     text = '''
