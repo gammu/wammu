@@ -48,7 +48,7 @@ class Thread(threading.Thread):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = _('Got error from phone:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info),
             title = _('Error Occured'),
             type = wx.ICON_ERROR,
             lock = lck)

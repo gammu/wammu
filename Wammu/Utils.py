@@ -264,3 +264,10 @@ def ParseMessage(msg, parseinfo = False):
         loc = loc + str(i['Location'])
     msg['Text'] = txt
     msg['Location'] = loc
+
+def FormatError(txt, info):
+    _ = Str_
+    return StrConv(txt + ('\n\n%s: %s\n%s: %s\n%s: %d' % 
+        (_('Description:'), StrConv(info['Text']),
+        _('Function:'), StrConv(info['Where']),
+        _('Error code:'), info['Code'])))

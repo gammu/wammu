@@ -486,7 +486,7 @@ class WammuFrame(wx.Frame):
 
     def ShowError(self, info):
         evt = Wammu.Events.ShowMessageEvent(
-            message = _('Got error from phone:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info),
             title = _('Error Occured'),
             type = wx.ICON_ERROR)
         wx.PostEvent(self, evt)
@@ -955,7 +955,7 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
-                message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
                 title = _('Error Occured'),
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
@@ -1078,7 +1078,7 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
-                message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
                 title = _('Error Occured'),
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
@@ -1127,7 +1127,7 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
-                message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
                 title = _('Error Occured'),
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
