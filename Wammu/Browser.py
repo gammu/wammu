@@ -13,31 +13,33 @@ class Browser(wx.ListCtrl):
         self.attr1 = wx.ListItemAttr()
 
         self.attr2 = wx.ListItemAttr()
-        self.attr2.SetBackgroundColour("light blue")
+        self.attr2.SetBackgroundColour('light blue')
 
         wx.EVT_LIST_ITEM_SELECTED(self, self.GetId(), self.OnItemSelected)
         wx.EVT_LIST_ITEM_ACTIVATED(self, self.GetId(), self.OnItemActivated)
 
     def ShowHeaders(self):
-        if self.type == "info":
-            self.InsertColumn(0, "Name")
-            self.InsertColumn(1, "Value")
-            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
+        if self.type == 'info':
+            self.InsertColumn(0, 'Name')
+            self.InsertColumn(1, 'Value')
+            self.SetColumnWidth(0, 100)
+            self.SetColumnWidth(1, 200)
+#            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
+#            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
         elif self.type == 'memory':
-            self.InsertColumn(0, "Location")
-            self.InsertColumn(1, "Memory")
-            self.InsertColumn(2, "Name")
-            self.InsertColumn(3, "Number")
+            self.InsertColumn(0, 'Location')
+            self.InsertColumn(1, 'Memory')
+            self.InsertColumn(2, 'Name')
+            self.InsertColumn(3, 'Number')
             self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(3, wx.LIST_AUTOSIZE)
         elif self.type == 'call':
-            self.InsertColumn(0, "Location")
-            self.InsertColumn(1, "Type")
-            self.InsertColumn(2, "Name")
-            self.InsertColumn(3, "Number")
+            self.InsertColumn(0, 'Location')
+            self.InsertColumn(1, 'Type')
+            self.InsertColumn(2, 'Name')
+            self.InsertColumn(3, 'Number')
             self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
@@ -64,29 +66,33 @@ class Browser(wx.ListCtrl):
 
 
     def OnGetItemText(self, item, col):
-        if self.type == "info":
+        if self.type == 'info':
             return self.values[item][col]
-        elif self.type == "memory":
+        elif self.type == 'memory':
             if col == 0:
-                return self.values[item]["Location"]
+                return self.values[item]['Location']
             elif col == 1:
-                return self.values[item]["MemoryType"]
+                return self.values[item]['MemoryType']
             elif col == 2:
-                return Wammu.Utils.GetMemoryEntryName(self.values[item])
+                return self.values[item]['Name']
+#                return Wammu.Utils.GetMemoryEntryName(self.values[item])
             else:
-                return Wammu.Utils.GetMemoryEntryNumber(self.values[item])
-        elif self.type == "call":
+                return self.values[item]['Number']
+#                return Wammu.Utils.GetMemoryEntryNumber(self.values[item])
+        elif self.type == 'call':
             if col == 0:
-                return self.values[item]["Location"]
+                return self.values[item]['Location']
             elif col == 1:
-                return self.values[item]["MemoryType"]
+                return self.values[item]['MemoryType']
             elif col == 2:
-                return Wammu.Utils.GetMemoryEntryName(self.values[item])
+                return self.values[item]['Name']
+#                return Wammu.Utils.GetMemoryEntryName(self.values[item])
             else:
-                return Wammu.Utils.GetMemoryEntryNumber(self.values[item])
+                return self.values[item]['Number']
+#                return Wammu.Utils.GetMemoryEntryNumber(self.values[item])
                 
         else:
-            return "Item %d, column %d" % (item, col)
+            return 'Item %d, column %d' % (item, col)
 
     def OnGetItemAttr(self, item):
         if item % 2 == 1:

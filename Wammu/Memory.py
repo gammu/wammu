@@ -1,4 +1,5 @@
 import Wammu.Thread
+import Wammu.Utils
 import gammu
 
 class GetMemory(Wammu.Thread.Thread):
@@ -16,7 +17,7 @@ class GetMemory(Wammu.Thread.Thread):
             self.ShowError(val[0])
             return
  
-        remain = status["Used"] 
+        remain = status['Used'] 
 
         data = []
         
@@ -26,21 +27,23 @@ class GetMemory(Wammu.Thread.Thread):
             except gammu.GSMError, val:
                 self.ShowError(val[0])
                 return
+            Wammu.Utils.GetMemoryEntryName(value)
+            Wammu.Utils.GetMemoryEntryNumber(value)
             data.append(value)
             remain = remain - 1
             
         while remain > 0:
-            print remain
-            print 100 * (status["Used"] - remain) / status["Used"]
-            self.ShowProgress(100 * (status["Used"] - remain) / status["Used"])
+            self.ShowProgress(100 * (status['Used'] - remain) / status['Used'])
             if self.canceled:
                 self.Canceled()
                 return
             try:
-                value = self.sm.GetNextMemory(Location = value["Location"], Type = self.type)
+                value = self.sm.GetNextMemory(Location = value['Location'], Type = self.type)
             except gammu.GSMError, val:
                 self.ShowError(val[0])
                 return
+            Wammu.Utils.GetMemoryEntryName(value)
+            Wammu.Utils.GetMemoryEntryNumber(value)
             data.append(value)
             remain = remain - 1
 
