@@ -164,7 +164,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def Resort(self, col):
         # remember show item
-        item = self.values[self.itemno]
+        try:
+            item = self.values[self.itemno]
+        except IndexError:
+            item = None
         # find keys and order
         nextsort = self.keys[col]
         if nextsort == self.sortkey:
@@ -197,7 +200,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             last = min(totalcount - 1, top + count)
             self.RefreshItems(top, last)
             
-            self.ShowRow(self.values.index(item))
+            if item != None:
+                self.ShowRow(self.values.index(item))
 
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
