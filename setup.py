@@ -68,5 +68,6 @@ setup(name="wammu",
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
         (os.path.join('share','locale','cs','LC_MESSAGES'), ['locale/cs/LC_MESSAGES/wammu.mo']),
+        (os.path.join('share','man','man1'), ['wammu.1'])
         ]
     )
