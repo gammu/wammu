@@ -1171,40 +1171,70 @@ class WammuFrame(wx.Frame):
             wx.PostEvent(self, evt)
 
     def OnDelete(self, evt):
-        # FIXME: add here confirmation?
-        if self.type[0] == 'contact' or self.type[0] == 'call':
-            if self.type[1] == '  ':
-                t = '__'
+        # first check on supported types
+        if not self.type[0] in ['contact', 'call', 'message', 'todo', 'calendar']:
+            print 'Delete not yet implemented! (items to delete = %s, type = %s)' % (str(evt.lst), self.type[0])
+            return
+
+        # get type
+        if self.type[1] == '  ':
+            t = '__'
+        else:
+            t = self.type[1]
+
+        # create list of items to delete
+        lst = []
+        for i in evt.lst:
+            lst.append(self.values[self.type[0]][t][i])
+        if len(lst) == 0:
+            # nothing to delete
+            return
+
+        # check for confirmation
+        if self.cfg.Read('/Wammu/ConfirmDelete', 'yes') == 'yes':
+            txt = _('Are you sure you want to delete %s?')
+            if len(lst) == 1:
+                v = lst[0]
+                if self.type[0] == 'contact':
+                    txt = txt % (_('contact "%s"') % v['Name'])
+                elif self.type[0] == 'call':
+                    txt = txt % (_('call "%s"') % v['Name'])
+                elif self.type[0] == 'message':
+                    txt = txt % (_('message from "%s"') % v['Number'])
+                elif self.type[0] == 'todo':
+                    txt = txt % (_('todo "%s"') % v['Text'])
+                elif self.type[0] == 'calendar':
+                    txt = txt % (_('calendar entry "%s"') % v['Text'])
             else:
-                t = self.type[1]
-            try:
-                busy = wx.BusyInfo(_('Deleting contact...'))
-                lst = []
-                for i in evt.lst:
-                    lst.append(self.values[self.type[0]][t][i])
+                if self.type[0] == 'contact':
+                    txt = txt % (_('%d contacts') % len(lst))
+                elif self.type[0] == 'call':
+                    txt = txt % (_('%d calls') % len(lst))
+                elif self.type[0] == 'message':
+                    txt = txt % (_('%d messages') % len(lst))
+                elif self.type[0] == 'todo':
+                    txt = txt % (_('%d todo') % len(lst))
+                elif self.type[0] == 'calendar':
+                    txt = txt % (_('%d calendar entries') % len(lst))
+            dlg = wx.MessageDialog(self,
+                txt,
+                _('Confirm deleting'),
+                wx.OK | wx.CANCEL | wx.ICON_WARNING)
+            if dlg.ShowModal() != wx.ID_OK:
+                return
+
+        # do real delete
+        try:
+            if self.type[0] == 'contact' or self.type[0] == 'call':
+                busy = wx.BusyInfo(_('Deleting contact(s)...'))
                 for v in lst:
                     self.sm.DeleteMemory(v['MemoryType'], v['Location'])
                     for idx in range(len(self.values[self.type[0]][v['MemoryType']])):
                         if self.values[self.type[0]][v['MemoryType']][idx] == v:
                             del self.values[self.type[0]][v['MemoryType']][idx]
                             break
-            except gammu.GSMError, val:
-                del busy
-                self.ShowError(val[0])
-
-            if t == '__':
-                t = '  '
-            self.ActivateView(self.type[0], t)
-        elif self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            try:
-                busy = wx.BusyInfo(_('Deleting message...'))
-                lst = []
-                for i in evt.lst:
-                    lst.append(self.values[self.type[0]][t][i])
+            elif self.type[0] == 'message':
+                busy = wx.BusyInfo(_('Deleting message(s)...'))
                 for v in lst:
                     for loc in v['Location'].split(', '):
                         self.sm.DeleteSMS(v['Folder'], int(loc))
@@ -1212,19 +1242,8 @@ class WammuFrame(wx.Frame):
                         if self.values[self.type[0]][v['State']][idx] == v:
                             del self.values[self.type[0]][v['State']][idx]
                             break
-            except gammu.GSMError, val:
-                self.ShowError(val[0])
-
-            if t == '__':
-                t = '  '
-            self.ActivateView(self.type[0], t)
-        elif self.type[0] == 'todo':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            try:
-                busy = wx.BusyInfo(_('Deleting todo...'))
+            elif self.type[0] == 'todo':
+                busy = wx.BusyInfo(_('Deleting todo(s)...'))
                 lst = []
                 for i in evt.lst:
                     lst.append(self.values[self.type[0]][t][i])
@@ -1234,36 +1253,23 @@ class WammuFrame(wx.Frame):
                         if self.values[self.type[0]]['  '][idx] == v:
                             del self.values[self.type[0]]['  '][idx]
                             break
-            except gammu.GSMError, val:
-                self.ShowError(val[0])
-
-            if t == '__':
-                t = '  '
-            self.ActivateView(self.type[0], t)
-        elif self.type[0] == 'calendar':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            try:
-                busy = wx.BusyInfo(_('Deleting calendar event...'))
-                lst = []
-                for i in evt.lst:
-                    lst.append(self.values[self.type[0]][t][i])
+            elif self.type[0] == 'calendar':
+                busy = wx.BusyInfo(_('Deleting calendar event(s)...'))
                 for v in lst:
                     self.sm.DeleteCalendar(v['Location'])
                     for idx in range(len(self.values[self.type[0]]['  '])):
                         if self.values[self.type[0]]['  '][idx] == v:
                             del self.values[self.type[0]]['  '][idx]
                             break
-            except gammu.GSMError, val:
+        except gammu.GSMError, val:
+            try:
+                del busy
+            finally:
                 self.ShowError(val[0])
 
-            if t == '__':
-                t = '  '
-            self.ActivateView(self.type[0], t)
-        else:
-            print 'Delete not yet implemented! (items to delete = %s)' % str(evt.lst)
+        if t == '__':
+            t = '  '
+        self.ActivateView(self.type[0], t)
 
     def OnLink(self, evt):
         v = evt.link.split('://')

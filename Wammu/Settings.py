@@ -216,6 +216,12 @@ class Settings(wx.Dialog):
         self.sizer_other.Add(self.editdebug, pos = (r, 1), colspan = 2)
         r += 1
 
+        self.editconfirm = wx.CheckBox(self.notebook_other, -1, _('Confirm deleting'))
+        self.editconfirm.SetToolTipString(_('Whether to ask for confirmation when deleting entries.'))
+        self.editconfirm.SetValue(config.Read('/Wammu/ConfirmDelete', 'yes') == 'yes')
+        self.sizer_other.Add(self.editconfirm, pos = (r, 1), colspan = 2)
+        r += 1
+
         self.edittime = TimeCtrl( self.notebook_other, -1, config.Read('Wammu/DefaultTime', '9:00:00'), fmt24hr=True)
         self.edittime.SetToolTipString(_('Default time to be used for newly created time fields.'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default time')), pos = (r, 1))
@@ -314,6 +320,11 @@ class Settings(wx.Dialog):
         self.config.Write('/Message/16bitId', value)
         self.config.WriteInt('/Message/ScaleImage', self.editscale.GetValue())
         self.config.WriteInt('/Wammu/RefreshState', self.editrefresh.GetValue())
+        if self.editconfirm.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('Wammu/ConfirmDelete', value)
         self.config.Write('Wammu/DefaultTime', self.edittime.GetValue())
         self.config.WriteInt('/Wammu/DefaultDateOffset', self.editdate.GetValue())
         self.config.WriteInt('/Wammu/DefaultEntries', self.editentries.GetValue())
