@@ -279,11 +279,11 @@ class WammuFrame(wx.Frame):
 
         wx.EVT_MENU(self, 1001, self.About)
 
+        self.timer = None
         self.TogglePhoneMenus(False)
 
         self.type = ['info','  ']
 
-        self.timer = None
         self.TimerId = wx.NewId()
 
         # create state machine
