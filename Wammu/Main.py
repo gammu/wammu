@@ -991,7 +991,7 @@ class WammuFrame(wx.Frame):
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
         if ext in ['.vcf', '.ldif']:
             # these support only one phonebook, so merged it
-            backup['PhoneBackup'] = self.values['contact']['ME'] + self.values['contact']['SM']
+            backup['PhonePhonebook'] = self.values['contact']['ME'] + self.values['contact']['SM']
         else:
             backup['PhonePhonebook'] = self.values['contact']['ME']
             backup['SIMPhonebook'] = self.values['contact']['SM']
@@ -1032,7 +1032,7 @@ class WammuFrame(wx.Frame):
         if self.type[0] == 'contact':
             if ext in ['.vcf', '.ldif']:
                 # these support only one phonebook, so keep it merged
-                backup['PhoneBackup'] = lst
+                backup['PhonePhonebook'] = lst
             else:
                 sim = []
                 phone = []
