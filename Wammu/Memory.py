@@ -52,6 +52,9 @@ class GetMemory(Wammu.Thread.Thread):
                     remain = remain - 1
                 except gammu.ERR_EMPTY:
                     pass
+                except gammu.GSMError, val:
+                    self.ShowError(val[0], True)
+                    return
                 location = location + 1
         except gammu.GSMError, val:
             self.ShowError(val[0], True)
