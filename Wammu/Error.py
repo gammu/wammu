@@ -20,27 +20,69 @@ Unexpected exception handler
 
 import Wammu
 import wx
+import wx.lib.dialogs
 import gammu
 import traceback
 import sys
 import locale
+import md5
+
+# set later in Wammu.App to have correct parent here
+handlerparent = None
 
 def Handler(type, value, tback):
     """User friendly error handling """
-    print '--------------- System information ----------------'
-    print 'Python       %s' % sys.version.split()[0]
-    print 'wxPython     %s' % wx.VERSION_STRING
-    print 'Wammu        %s' % Wammu.__version__
-    ver = gammu.Version()
-    print 'python-gammu %s' % ver[1]
-    print 'Gammu        %s' % ver[0]
-    loc = locale.getdefaultlocale()
-    print 'locales      %s (%s)' % (loc[0], loc[1])
-    print '-------------------- Traceback --------------------'
-    traceback.print_exception(type, value, tback)
-    print '---------------------------------------------------'
+
+    # first get some information
+    pyver = sys.version.split()[0]
+    wxver = wx.VERSION_STRING
+    wammuver = Wammu.__version__
+    (gammuver, pgammuver) = gammu.Version()
+    (loc, charset) = locale.getdefaultlocale()
+
+    # prepare traceback text
+    trace = traceback.extract_tb(tback)
+    linetrace = traceback.format_list(trace)
+    texttrace = ''.join(linetrace)
+    textexc = ''.join(traceback.format_exception_only(type, value))
+
+    # traceback id (md5 sum of last topmost traceback item)
+    try:
+        lasttrace = trace[-1]
+        traceidtext = '%s[%d](%s):%s' % (lasttrace[0][lasttrace[0].rfind('Wammu'):], lasttrace[1], lasttrace[2], lasttrace[3])
+        traceid = md5.new(traceidtext).hexdigest()
+        tracetext = '\nYou can first search for simmilar bugs using http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid
+    except:
+        traceid = 'N/A'
+        tracetext = ''
+
+    # unicode warning
     if type == UnicodeEncodeError:
-        print 'Unicode encoding error appeared, see question 1 in FAQ, how to solve this.'
-        print
-    print 'You have probably found a bug. You might help improving this software by'
-    print 'sending above text and description how it was caused to http://bugs.cihar.com'
+        unicodewarning =  '\nUnicode encoding error appeared, see question 1 in FAQ, how to solve this.\n'
+    else:
+        unicodewarning = ''
+
+    # prepare message
+    text = """Unhandled exception appeared, program will be terminated.
+
+If you want to help improving this program, please submit following infomation and description how did it happen to http://bugs.cihar.com.
+%s%s
+--------------- System information ----------------
+Python       %s
+wxPython     %s
+Wammu        %s
+python-gammu %s
+Gammu        %s
+locales      %s (%s)
+------------------ Traceback ID -------------------
+%s
+-------------------- Traceback --------------------
+%s-------------------- Exception --------------------
+%s---------------------------------------------------
+""" % (tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
+
+    # display error
+    try:
+        wx.lib.dialogs.ScrolledMessageDialog(handlerparent, text, 'Unhandled exception').ShowModal()
+    except:
+        print text
