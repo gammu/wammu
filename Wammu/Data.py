@@ -384,23 +384,85 @@ PredefinedAnimations = [
 
 # FIXME: these definitions probably should be part of gammu module and not this...
 # First is used as default
-Models = ['auto', 'at', 'alcatel', 'nauto', 'obex', 'seobex']
-Connections = ['at19200', 'at115200', 'fbus', 'fbusirda', 'fbusdlr3', 'fbusdku5', 'fbusblue', 'phonetblue', 'mrouterblue', 'mbus', 'irdaphonet', 'irdaat', 'irdaobex', 'bluephonet', 'bluefbus', 'blueat', 'blueobex']
-Conn_Cable = ['at19200', 'fbusdlr3', 'fbus', 'mbus']
-Conn_IrDA_Win = ['irdaphonet']
-Conn_IrDA_Other = ['at19200', 'irdaphonet']
+Models = [
+    'auto',
+    'at',
+    'alcatel',
+    'nauto',
+    'obex',
+    'seobex',
+    ]
+Connections = [
+    'at19200',
+    'at115200',
+    'fbus',
+    'fbusirda',
+    'fbusdlr3',
+    'fbusdku5',
+    'fbusblue',
+    'phonetblue',
+    'mrouterblue',
+    'mbus',
+    'irdaphonet',
+    'irdaat',
+    'irdaobex',
+    'bluephonet',
+    'bluefbus',
+    'blueat',
+    'blueobex',
+    ]
+Conn_Cable = [
+    'at19200',
+    'fbusdlr3',
+    'fbus',
+    'mbus',
+    ]
+Conn_IrDA_Win = [
+    'irdaphonet',
+    ]
+Conn_IrDA_Other = [
+    'at19200',
+    'irdaphonet',
+    ]
 if sys.platform == 'win32':
-    Devices = ['com1:', 'com2:']
-    AllDevices = [(Conn_IrDA_Win, '', None), (Conn_Cable, 'com%d:', (1,4))]
+    Devices = [
+        'com1:',
+        'com2:',
+        ]
+    AllDevices = [
+        (Conn_IrDA_Win, '', None),
+        (Conn_Cable, 'com%d:', (1,4)),
+        ]
 # FIXME: support more platforms?
 else:
-    Devices = ['/dev/ttyS0', '/dev/ttyS1', '/dev/ttyUSB0', '/dev/ircomm0', '/dev/usb/tts/0']
-    AllDevices = [(Conn_Cable, '/dev/ttyS%d', (0, 4)), (Conn_Cable, '/dev/ttyUSB%d', (0, 4)), (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1)), (Conn_Cable, '/dev/usb/tts/%d', (0, 4))]
+    Devices = [
+        '/dev/ttyS0',
+        '/dev/ttyS1',
+        '/dev/ttyUSB0',
+        '/dev/ttyUSB1',
+        '/dev/ttyACM0',
+        '/dev/ttyACM1',
+        '/dev/ircomm0',
+        '/dev/usb/tts/0',
+        ]
+    AllDevices = [
+        (Conn_Cable, '/dev/ttyS%d', (0, 3)),
+        (Conn_Cable, '/dev/ttyUSB%d', (0, 3)),
+        (Conn_Cable, '/dev/ttyACM%d', (0, 3)),
+        (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1)),
+        (Conn_Cable, '/dev/usb/tts/%d', (0, 3)),
+        ]
 
 ContactMemoryTypes = ['ME', 'SM']
 
 SMSIDs = {
-    'Text':                 ['Text', 'ConcatenatedTextLong', 'ConcatenatedAutoTextLong', 'ConcatenatedTextLong16bit', 'ConcatenatedAutoTextLong16bit'],
+    'Text':                 [
+        'Text',
+        'ConcatenatedTextLong',
+        'ConcatenatedAutoTextLong',
+        'ConcatenatedTextLong16bit',
+        'ConcatenatedAutoTextLong16bit',
+        ],
     'Sound':                [
         'NokiaProfileLong',
         'NokiaRingtone',
@@ -430,8 +492,12 @@ SMSIDs = {
         'AlcatelMonoBitmapLong',
         'AlcatelSMSTemplateName',
         ],
-    'PredefinedAnimation':  ['EMSPredefinedAnimation'],
-    'PredefinedSound':      ['EMSPredefinedSound'],
+    'PredefinedAnimation':  [
+        'EMSPredefinedAnimation',
+        ],
+    'PredefinedSound':      [
+        'EMSPredefinedSound',
+        ],
     }
 
 
@@ -525,7 +591,11 @@ CalendarValueTypes = [
     'REPEAT_STOPDATE',
     ]
 
-TodoPriorities = ['High', 'Medium', 'Low']
+TodoPriorities = [
+    'High',
+    'Medium',
+    'Low',
+    ]
 
 TodoValueTypes = [
     'END_DATETIME',
@@ -540,10 +610,15 @@ TodoValueTypes = [
     ]
 
 TextFormats = [
-    [(_('Alignment'), _('None')), ('Left', _('Left'), '<div align="left">%s</div>'), ('Right', _('Right'), '<div align="right">%s</div>'), ('Center', _('Center'), '<div align="center">%s</div>')],
-
-    [(_('Text Size'), _('Normal')), ('Large', _('Large'), '<font size="+2">%s</font>'), ('Small', _('Small'), '<font size="-2">%s</font>')],
-
+    [(_('Alignment'), _('None')),
+        ('Left', _('Left'), '<div align="left">%s</div>'),
+        ('Right', _('Right'), '<div align="right">%s</div>'),
+        ('Center', _('Center'), '<div align="center">%s</div>'),
+        ],
+    [(_('Text Size'), _('Normal')),
+        ('Large', _('Large'), '<font size="+2">%s</font>'),
+        ('Small', _('Small'), '<font size="-2">%s</font>'),
+        ],
     ['', ('Bold', _('Bold'), '<b>%s</b>')],
     ['', ('Italic', _('Italic'), '<i>%s</i>')],
     ['', ('Underlined', _('Underlined'), '<u>%s</u>')],
