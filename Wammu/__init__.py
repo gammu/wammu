@@ -3,7 +3,7 @@
 
 import sys
 import gettext
-__version__ = '0.2'
+__version__ = '0.2+'
 
 # FIXME: these definitions probably should be part of gammu module and not this...
 # First is used as default

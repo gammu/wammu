@@ -31,35 +31,41 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def ShowHeaders(self):
         if self.type == 'info':
-            self.InsertColumn(0, 'Name')
-            self.InsertColumn(1, 'Value')
+            self.InsertColumn(0, _('Name'))
+            self.InsertColumn(1, _('Value'))
             self.keys = (0, 1)
         elif self.type == 'memory':
-            self.InsertColumn(0, 'Location')
-            self.InsertColumn(1, 'Memory')
-            self.InsertColumn(2, 'Name')
-            self.InsertColumn(3, 'Number')
+            self.InsertColumn(0, _('Location'))
+            self.InsertColumn(1, _('Memory'))
+            self.InsertColumn(2, _('Name'))
+            self.InsertColumn(3, _('Number'))
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'call':
-            self.InsertColumn(0, 'Location')
-            self.InsertColumn(1, 'Type')
-            self.InsertColumn(2, 'Name')
-            self.InsertColumn(3, 'Number')
+            self.InsertColumn(0, _('Location'))
+            self.InsertColumn(1, _('Type'))
+            self.InsertColumn(2, _('Name'))
+            self.InsertColumn(3, _('Number'))
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'message':
-            self.InsertColumn(0, 'Location') 
-            self.InsertColumn(1, 'State')
-            self.InsertColumn(2, 'Number')
-            self.InsertColumn(3, 'Date')
-            self.InsertColumn(4, 'Text')
+            self.InsertColumn(0, _('Location'))
+            self.InsertColumn(1, _('State'))
+            self.InsertColumn(2, _('Number'))
+            self.InsertColumn(3, _('Date'))
+            self.InsertColumn(4, _('Text'))
             self.keys = ('Location', 'State', 'Number', 'DateTime', 'Text')
         elif self.type == 'todo':
-            self.InsertColumn(0, 'Location')
-            self.InsertColumn(1, 'Completed')
-            self.InsertColumn(2, 'Priority')
-            self.InsertColumn(3, 'Text')
-            self.InsertColumn(4, 'Date')
+            self.InsertColumn(0, _('Location'))
+            self.InsertColumn(1, _('Completed'))
+            self.InsertColumn(2, _('Priority'))
+            self.InsertColumn(3, _('Text'))
+            self.InsertColumn(4, _('Date'))
             self.keys = ('Location', 'Completed', 'Priority', 'Text', 'Date')
+        elif self.type == 'calendar':
+            self.InsertColumn(0, _('Location'))
+            self.InsertColumn(1, _('Start'))
+            self.InsertColumn(2, _('End'))
+            self.InsertColumn(3, _('Text'))
+            self.keys = ('Location', 'Start', 'End', 'Text')
 
         # resize columns to fit content
         

@@ -2,11 +2,21 @@ import wx
 import wx.html
 import gammu
 import sys
+import os
+import time
 import datetime
 import Wammu
 import Wammu.Events
 import Wammu.Displayer
 import Wammu.Browser
+import Wammu.Editor
+import Wammu.Info
+import Wammu.Message
+import Wammu.Memory
+import Wammu.Todo
+import Wammu.Calendar
+import Wammu.Logger
+import Wammu.Settings
 from Wammu.Paths import *
 import threading
 import copy
@@ -33,6 +43,7 @@ displaydata['call'] = {}
 displaydata['memory'] = {}
 displaydata['message'] = {}
 displaydata['todo'] = {}
+displaydata['calendar'] = {}
 
 #information
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()[0]], [_('python-gammu version'), gammu.Version()[1]]])
@@ -56,14 +67,24 @@ displaydata['message'][' S'] = ('message', _('Sent'), _('Sent Messages'), 'messa
 displaydata['message']['US'] = ('message', _('Unsent'), _('Unsent Messages'), 'message-unsent', [])
 
 #todos
-displaydata['todo']['  '] = ('info', _('Todos'), _('All Todos'), 'todo', [])
+displaydata['todo']['  '] = ('info', _('Todos'), _('All Todo Items'), 'todo', [])
+
+#calendar
+displaydata['calendar']['  '] = ('info', _('Calendar'), _('All Calendar Events'), 'calendar', [])
 
 
 ## Create a new frame class, derived from the wxPython Frame.
 class WammuFrame(wx.Frame):
 
     def __init__(self, parent, id):
-        wx.Frame.__init__(self, parent, id, 'Wammu', wx.DefaultPosition, wx.Size(640,480), wx.DEFAULT_FRAME_STYLE)
+        self.cfg = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
+        if self.cfg.HasEntry('/Main/X') and self.cfg.HasEntry('/Main/Y'):
+            pos = wx.Point(self.cfg.ReadInt('/Main/X', 0), self.cfg.ReadInt('/Main/Y', 0))
+        else:
+            pos =wx.DefaultPosition
+        size = wx.Size(self.cfg.ReadInt('/Main/Width', 640), self.cfg.ReadInt('/Main/Height', 480))
+
+        wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
         self.CreateStatusBar(2)
         self.SetStatusWidths([-1,100])
 
@@ -175,6 +196,8 @@ class WammuFrame(wx.Frame):
         menu3.Append(330, _('&Messages'), _('Messages'))
         menu3.AppendSeparator()
         menu3.Append(340, _('&Todos'), _('Todos'))
+        menu3.AppendSeparator()
+        menu3.Append(350, _('Calenda&r'), _('Calendar'))
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
@@ -202,6 +225,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 320, self.ShowCalls)
         wx.EVT_MENU(self, 330, self.ShowMessages)
         wx.EVT_MENU(self, 340, self.ShowTodos)
+        wx.EVT_MENU(self, 350, self.ShowCalendar)
         
         wx.EVT_MENU(self, 401, self.NewContact)
 
@@ -214,11 +238,11 @@ class WammuFrame(wx.Frame):
         # create state machine
         self.sm = gammu.StateMachine()
 
+        self.showdebug = ''
+
 
     def PostInit(self):
         # things that need window opened
-        self.cfg = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
-
         if not self.cfg.HasGroup('/Gammu'):
             try:
                 self.sm.ReadConfig()
@@ -256,6 +280,47 @@ class WammuFrame(wx.Frame):
             self.cfg.Write('/Gammu/StartInfo', config['StartInfo'])
 
             self.Settings()
+        else:
+            self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
+
+    def DoDebug(self, newdebug):
+        if newdebug != self.showdebug:
+            self.showdebug = newdebug
+            if hasattr(self, 'piper'):
+                gammu.SetDebugFile(None)
+                self.logger.canceled = True
+                del self.logger
+                self.SaveWinSize(self.logwin, '/Debug')
+                self.logwin.Destroy()
+                del self.logwin
+                del self.piper
+                del self.pipew
+
+            if self.showdebug == 'yes':
+                piper, pipew = os.pipe()
+                self.piper = os.fdopen(piper, 'r')
+                self.pipew = os.fdopen(pipew, 'w')
+                gammu.SetDebugFile(self.pipew)
+                self.logwin = Wammu.Logger.LogFrame(self, self.cfg)
+                self.logwin.Show(True)
+                wx.EVT_CLOSE(self.logwin, self.LogClose)
+                self.logger = Wammu.Logger.Logger(self.logwin, self.piper)
+                self.logger.start()
+                
+    def SaveWinSize(self, win, key):
+        x,y = win.GetPositionTuple()
+        w,h = win.GetSizeTuple()
+        
+        self.cfg.WriteInt(key + '/X', x)
+        self.cfg.WriteInt(key + '/Y', y)
+        self.cfg.WriteInt(key + '/Width', w)
+        self.cfg.WriteInt(key + '/Height', h)
+        
+
+    def LogClose(self, evt):
+        self.cfg.Write('/Debug/Show', 'no')
+        self.DoDebug('no')
+        self.SaveWinSize(self.logwin, '/Debug')
 
     def TogglePhoneMenus(self, enable):
         self.connected = enable
@@ -281,6 +346,8 @@ class WammuFrame(wx.Frame):
         mb.Enable(330, enable);
         
         mb.Enable(340, enable);
+        
+        mb.Enable(350, enable);
         
         mb.Enable(401, enable);
 
@@ -312,14 +379,18 @@ class WammuFrame(wx.Frame):
                     self.ChangeView(k1, k2)
 
     def Settings(self, event = None):
-        import Wammu.Settings
-        if Wammu.Settings.Settings(self, self.cfg).ShowModal() == wx.ID_OK and self.connected:
-            wx.MessageDialog(self, 
-                _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
-                _('Notice'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+        result = Wammu.Settings.Settings(self, self.cfg).ShowModal()
+        if result == wx.ID_OK:
+            if self.connected:
+                wx.MessageDialog(self, 
+                    _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
+                    _('Notice'),
+                    wx.OK | wx.ICON_INFORMATION).ShowModal()
+            self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
 
     def CloseWindow(self, event):
+        self.SaveWinSize(self, '/Main')
+        self.DoDebug('no')
         # tell the window to kill itself
         self.Destroy()
 
@@ -398,12 +469,22 @@ class WammuFrame(wx.Frame):
                 (_('Priority'), v['Priority'])]
             for i in v['Values']:
                 data.append((i['Type'], str(i['Value'])))
+        elif self.type[0] == 'calendar':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            data = [
+                (_('Location'), str(v['Location'])),
+                (_('Type'), v['Type'])]
+            for i in v['Values']:
+                data.append((i['Type'], str(i['Value'])))
         else:
             data = [('Show not yet implemented! (id = %d)' % evt.index,)]
         self.ShowData(data)
 
     def NewContact(self, evt):
-        import Wammu.Editor
         v = {}
         if Wammu.Editor.ContactEditor(self, self.sm, v).ShowModal() == wx.ID_OK:
             busy = wx.BusyInfo(_('Creating memory entry...'))
@@ -423,7 +504,6 @@ class WammuFrame(wx.Frame):
 
     def OnEdit(self, evt): 
         if self.type[0] == 'memory':
-            import Wammu.Editor
             if self.type[1] == '  ':
                 t = '__'
             else:
@@ -536,6 +616,28 @@ class WammuFrame(wx.Frame):
             if t == '__':
                 t = '  '
             self.ActivateView(self.type[0], t)
+        elif self.type[0] == 'calendar':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            try:
+                self.sm.DeleteCalendar(v['Location'])
+                if '  ' == t:
+                    del self.values[self.type[0]][t][evt.index]
+                else:
+                    # we are showing merged list, delete just from the original
+                    for idx in range(len(self.values[self.type[0]]['  '])):
+                        if self.values[self.type[0]]['  '][idx] == v:
+                            del self.values[self.type[0]]['  '][idx]
+                            break
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+
+            if t == '__':
+                t = '  '
+            self.ActivateView(self.type[0], t)
         else: 
             print 'Delete not yet implemented!'
             print evt.index
@@ -577,7 +679,6 @@ class WammuFrame(wx.Frame):
 
     def ShowInfo(self, event):
         self.ShowProgress(_('Reading phone information'))
-        import Wammu.Info
         Wammu.Info.GetInfo(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('info', '  ')
@@ -603,7 +704,6 @@ class WammuFrame(wx.Frame):
         
     def GetCallsType(self, type):
         self.ShowProgress(_('Reading calls of type %s') % type)
-        import Wammu.Memory
         Wammu.Memory.GetMemory(self, self.sm, 'call', type).start()
         
     #
@@ -632,7 +732,6 @@ class WammuFrame(wx.Frame):
         
     def GetContactsType(self, type):
         self.ShowProgress(_('Reading contacts from %s') % type)
-        import Wammu.Memory
         Wammu.Memory.GetMemory(self, self.sm, 'memory', type).start()
         
     #
@@ -641,7 +740,6 @@ class WammuFrame(wx.Frame):
 
     def ShowMessages(self, event):
         self.ShowProgress(_('Reading messages'))
-        import Wammu.Message
         Wammu.Message.GetMessage(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('message', '  ')
@@ -652,10 +750,19 @@ class WammuFrame(wx.Frame):
 
     def ShowTodos(self, event):
         self.ShowProgress(_('Reading todos'))
-        import Wammu.Todo
         Wammu.Todo.GetTodo(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('todo', '  ')
+        
+    #
+    # Calendars
+    #
+
+    def ShowCalendar(self, event):
+        self.ShowProgress(_('Reading calendar'))
+        Wammu.Calendar.GetCalendar(self, self.sm).start()
+        self.nextfun = self.ActivateView
+        self.nextarg = ('calendar', '  ')
         
     #
     # Time
@@ -678,7 +785,7 @@ class WammuFrame(wx.Frame):
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'), 
             'UseGlobalDebugFile': 1, 
-            'DebugFile': '/tmp/gammu.log', #FIXME
+            'DebugFile': None, #FIXME
             'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'), 
             'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Connections[0]), 
             'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'), 

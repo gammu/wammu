@@ -47,3 +47,19 @@ def ParseTodo(entry):
     entry['Completed'] = completed 
     entry['Text'] = text
     entry['Date'] = dt
+
+def ParseCalendar(entry):
+    start = ''
+    end = ''
+    text = ''
+    completed = ''
+    for i in entry['Values']:
+        if i['Type'] == 'END_DATETIME':
+            end = str(i['Value'])
+        elif i['Type'] == 'START_DATETIME':
+            start = str(i['Value'])
+        elif i['Type'] == 'TEXT':
+            text = i['Value']
+    entry['Text'] = text
+    entry['Start'] = start
+    entry['End'] = end
