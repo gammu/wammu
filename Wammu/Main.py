@@ -514,14 +514,14 @@ class WammuFrame(wx.Frame):
             else:
                 text = text + ('<br>%s' % d[0])
         if wx.USE_UNICODE:
-            self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % text)
+            self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % StrConv(text))
         else:
             try:
                 loc = locale.getdefaultlocale()
                 charset = loc[1]
             except:
                 charset = 'iso-8859-1'
-            self.content.SetPage('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (charset, text))
+            self.content.SetPage('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (charset, StrConv(text)))
             
     def OnShow(self, evt): 
         if self.type == ['info','  ']:
