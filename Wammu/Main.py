@@ -976,9 +976,9 @@ class WammuFrame(wx.Frame):
         wildcard += _('All files') + ' (*.*)|*.*;*'
 
         if save:
-            dlg = wx.FileDialog(self, "Save backup as...", os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+            dlg = wx.FileDialog(self, _('Save backup as...'), os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
         else:
-            dlg = wx.FileDialog(self, "Import backup", os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
+            dlg = wx.FileDialog(self, _('Import backup'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             return path
