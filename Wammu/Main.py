@@ -186,9 +186,8 @@ class WammuFrame(wx.Frame):
         # values displayer
         self.content = Wammu.Displayer.Displayer(self.rightsplitter, self)
 
-        self.rightsplitter.SplitHorizontally(self.rightwin, self.content, self.cfg.ReadInt('/Main/SplitRight', -200))
-
         self.splitter.SplitVertically(self.tree, self.rightsplitter, self.cfg.ReadInt('/Main/Split', 160))
+        self.rightsplitter.SplitHorizontally(self.rightwin, self.content, self.cfg.ReadInt('/Main/SplitRight', -200))
 
         # initial content
         self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ +
