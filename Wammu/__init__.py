@@ -3,7 +3,7 @@
 
 import sys
 import gettext
-__version__ = '0.4'
+__version__ = '0.4.1'
 
 gettext.install('wammu')
 
