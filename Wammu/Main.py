@@ -162,7 +162,8 @@ class WammuFrame(wx.Frame):
         # Set menu bar
         self.SetMenuBar(self.menuBar)
 
-        # some menu events
+        # menu events
+        wx.EVT_MENU(self, 150, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
         
         wx.EVT_MENU(self, 201, self.PhoneConnect)
@@ -180,11 +181,52 @@ class WammuFrame(wx.Frame):
 
         self.type = ['info','  ']
         self.ActivateView('info', '  ')
-
+        
         # create state machine
         self.sm = gammu.StateMachine()
-        # read configuration, FIXME: this should be done from GUI
-        self.sm.ReadConfig()
+
+
+    def PostInit(self):
+        # things that need window opened
+        self.cfg = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
+
+        if not self.cfg.HasGroup('/Gammu'):
+            try:
+                self.sm.ReadConfig()
+                config = self.sm.GetConfig()
+
+                wx.MessageDialog(self, 
+                    _('Wammu configuration was not found. Gammu settings were read and will be used. You will now be taken to configuration dialog to check configuration.'),
+                    _('Configuration not found'),
+                    wx.OK | wx.ICON_INFORMATION).ShowModal()
+            except:
+                wx.MessageDialog(self, 
+                    _('Wammu configuration was not found. Gammu settings couldn\'t be read. You will now be taken to configuration dialog to confige Wammu.'),
+                    _('Configuration not found'),
+                    wx.OK | wx.ICON_WARNING).ShowModal()
+                    
+            # make some defaults
+            if config['Model'] == None:
+                config['Model'] = Wammu.Models[0]
+            if config['Connection'] == None:
+                config['Connection'] = Wammu.Connections[0]
+            if config['Device'] == None:
+                config['Device'] = Wammu.Devices[0]
+            if not config['SyncTime'] == 'yes':
+                config['SyncTime'] = 'no'
+            if not config['LockDevice'] == 'yes':
+                config['LockDevice'] = 'no'
+            if not config['StartInfo'] == 'yes':
+                config['StartInfo'] = 'no'
+
+            self.cfg.Write('/Gammu/Model', config['Model'])
+            self.cfg.Write('/Gammu/Device', config['Device'])
+            self.cfg.Write('/Gammu/Connection', config['Connection'])
+            self.cfg.Write('/Gammu/SyncTime', config['SyncTime'])
+            self.cfg.Write('/Gammu/LockDevice', config['LockDevice'])
+            self.cfg.Write('/Gammu/StartInfo', config['StartInfo'])
+
+            self.Settings()
 
     def TogglePhoneMenus(self, enable):
         if enable:
@@ -232,6 +274,10 @@ class WammuFrame(wx.Frame):
             for k2, v2 in v1.iteritems():
                 if v2 == item:
                     self.ChangeView(k1, k2)
+
+    def Settings(self, event = None):
+        import Wammu.Settings
+        Wammu.Settings.Settings(self, self.cfg).ShowModal()
 
     def CloseWindow(self, event):
         # tell the window to kill itself
@@ -313,9 +359,7 @@ class WammuFrame(wx.Frame):
         dlg = wx.MessageDialog(self, 
             evt.message,
             evt.title,
-            wx.OK | evt.type)
-        dlg.ShowModal()
-        dlg.Destroy()
+            wx.OK | evt.type).ShowModal()
         try:
             evt.lock.release()
         except AttributeError:
@@ -398,6 +442,21 @@ class WammuFrame(wx.Frame):
 
     def PhoneConnect(self, event):
         busy = wx.BusyInfo('One moment please, connecting to phone...')
+        cfg = {
+            'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'), 
+            'UseGlobalDebugFile': 1, 
+            'DebugFile': '/tmp/gammu.log', #FIXME
+            'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'), 
+            'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Connections[0]), 
+            'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'), 
+            'DebugLevel': 'textall', #FIXME
+            'Device': self.cfg.Read('/Gammu/Device', Wammu.Devices[0]), 
+            'Localize': None,  #FIXME
+            'Model': self.cfg.Read('/Gammu/Model', Wammu.Models[0])
+            }
+        print cfg
+        self.sm.SetConfig(0, cfg)
+        self.TogglePhoneMenus(True)
         try:
             self.sm.Init()
             self.TogglePhoneMenus(True)

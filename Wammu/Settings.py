@@ -7,33 +7,13 @@ class Settings(wx.Dialog):
         self.sizer = wx.GridSizer(6, 2, 5, 5)  # rows, cols, hgap, vgap
         
         self.config = config
-      
-        if config['Model'] == None:
-            config['Model'] = Wammu.Models[0]
-     
-        if config['Connection'] == None:
-            config['Connection'] = Wammu.Connections[0]
-      
-        if config['Device'] == None:
-            config['Device'] = Wammu.Devices[0]
-       
-        if config['SyncTime'] == 'yes':
-            sync = 0
-        else:
-            sync = 1
 
-        if config['LockDevice'] == 'yes':
-            lock = 0
-        else:
-            lock = 1
-
-        self.editdev = wx.ComboBox(self, -1, config['Device'], choices = Wammu.Devices)
-        self.editconn = wx.ComboBox(self, -1, config['Connection'], choices = Wammu.Connections)
-        self.editmodel = wx.ComboBox(self, -1, config['Model'], choices = Wammu.Models)
-        self.editsync = wx.Choice(self, -1, (0,0), (0,0), [_('Yes'), _('No')])
-        self.editsync.SetSelection(sync)
-        self.editlock = wx.Choice(self, -1, (0,0), (0,0), [_('Yes'), _('No')])
-        self.editlock.SetSelection(lock)
+        self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Devices[0]), choices = Wammu.Devices)
+        self.editconn = wx.ComboBox(self, -1, config.Read('/Gammu/Connection', Wammu.Connections[0]), choices = Wammu.Connections)
+        self.editmodel = wx.ComboBox(self, -1, config.Read('/Gammu/Model', Wammu.Models[0]), choices = Wammu.Models)
+        self.editsync = wx.ComboBox(self, -1, config.Read('/Gammu/SyncTime', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
+        self.editlock = wx.ComboBox(self, -1, config.Read('/Gammu/LockDevice', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
+        self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
 
         self.sizer.AddMany([ 
             (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),
@@ -51,11 +31,31 @@ class Settings(wx.Dialog):
             (wx.StaticText(self, -1, _('Lock device')), 0, wx.EXPAND),
             (self.editlock, 0, wx.EXPAND),
 
+            (wx.StaticText(self, -1, _('Startup information')), 0, wx.EXPAND),
+            (self.editinfo, 0, wx.EXPAND),
 
-            (wx.Button(self, 1001, _('OK')), 0, wx.EXPAND),
-            (wx.Button(self, 1002, _('Cancel')),  0, wx.EXPAND),
+
+            (wx.Button(self, wx.ID_OK, _('OK')), 0, wx.EXPAND),
+            (wx.Button(self, wx.ID_CANCEL, _('Cancel')),  0, wx.EXPAND),
             ])
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+        wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
+        wx.EVT_BUTTON(self, wx.ID_CANCEL, self.Cancel)
 
+    def Okay(self, evt):       
+        self.config.Write('/Gammu/Model', self.editmodel.GetValue())
+        self.config.Write('/Gammu/Device', self.editdev.GetValue())
+        self.config.Write('/Gammu/Connection', self.editconn.GetValue())
+        self.config.Write('/Gammu/SyncTime', self.editsync.GetValue())
+        self.config.Write('/Gammu/LockDevice', self.editlock.GetValue())
+        self.config.Write('/Gammu/StartInfo', self.editinfo.GetValue())
+        wx.MessageDialog(self, 
+            _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
+            _('Notice'),
+            wx.OK | wx.ICON_INFORMATION).ShowModal()
+        self.EndModal(wx.ID_OK)
+    
+    def Cancel(self, evt):
+        self.EndModal(wx.ID_CANCEL)

@@ -2,6 +2,39 @@
 # arch-tag: automatic-ChangeLog--michal@cihar.com--2003-main/wammu--devel--0.1
 #
 
+2003-12-13 14:39:54 GMT	Michal Cihar <michal@cihar.com>	patch-16
+
+    Summary:
+      configuration works!
+    Revision:
+      wammu--devel--0.1--patch-16
+
+    - finished support for configuration
+
+    modified files:
+     ChangeLog Wammu/Main.py Wammu/Settings.py
+
+
+2003-12-13 12:00:14 GMT	Michal Cihar <michal@cihar.com>	patch-15
+
+    Summary:
+      initial work on configuration
+    Revision:
+      wammu--devel--0.1--patch-15
+
+    - added application name
+    - added settings dialog (not completed)
+    - reading of config moved to PostInit and now may invoke settings dialog
+    - added configuratuion choices to Wammu module
+    - simplified showing of dialogs
+
+    new files:
+     Wammu/.arch-ids/Settings.py.id Wammu/Settings.py
+
+    modified files:
+     ChangeLog Wammu/App.py Wammu/Main.py Wammu/__init__.py
+
+
 2003-12-09 18:54:04 GMT	Michal Cihar <michal@cihar.com>	patch-14
 
     Summary:
