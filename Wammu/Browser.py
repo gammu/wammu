@@ -13,7 +13,7 @@ import wx.lib.mixins.listctrl
 class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, win):
         wx.ListCtrl.__init__(self, parent, -1,
-                            style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES|wx.LC_SINGLE_SEL)
+                            style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
         self.win = win
 
         self.attr1 = wx.ListItemAttr()
@@ -28,7 +28,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
         wx.EVT_LIST_ITEM_SELECTED(self, self.GetId(), self.OnItemSelected)
         wx.EVT_LIST_ITEM_ACTIVATED(self, self.GetId(), self.OnItemActivated)
-#        wx.EVT_LIST_DELETE_ITEM(self, self.GetId(), self.OnItemDeleted)
         wx.EVT_LIST_KEY_DOWN(self, self.GetId(), self.OnKey)
         wx.EVT_LIST_COL_CLICK(self, self.GetId(), self.OnColClick)
         wx.EVT_LIST_ITEM_RIGHT_CLICK(self, self.GetId(), self.OnRightClick)
@@ -122,6 +121,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.ShowRow(result)
     
     def ShowRow(self, id):
+        index = self.GetFirstSelected()
+        while index != -1:
+            self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
+            index = self.GetFirstSelected()
+
         self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
         self.EnsureVisible(id)
         
@@ -161,8 +165,19 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
-            evt = Wammu.Events.DeleteEvent(index = evt.m_itemIndex)
-            wx.PostEvent(self.win, evt)
+            self.DoSelectedDelete()
+  
+    def DoSelectedDelete(self):
+        list = []
+        index = self.GetFirstSelected()
+        while index != -1:
+            list.append(index)
+            index = self.GetNextSelected(index)
+        self.DoDelete(list)
+  
+    def DoDelete(self, list):
+        evt = Wammu.Events.DeleteEvent(list = list)
+        wx.PostEvent(self.win, evt)
         
     def OnRightClick(self, evt):
         if self.type == 'info':
@@ -173,12 +188,14 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.popupIDSend        = wx.NewId()
             self.popupIDEdit        = wx.NewId()
             self.popupIDDelete      = wx.NewId()
+            self.popupIDDeleteSel   = wx.NewId()
             self.popupIDDuplicate   = wx.NewId()
             self.popupIDReply       = wx.NewId()
 
             wx.EVT_MENU(self, self.popupIDSend,         self.OnPopupSend)
             wx.EVT_MENU(self, self.popupIDEdit,         self.OnPopupEdit)
             wx.EVT_MENU(self, self.popupIDDelete,       self.OnPopupDelete)
+            wx.EVT_MENU(self, self.popupIDDeleteSel,    self.OnPopupDeleteSel)
             wx.EVT_MENU(self, self.popupIDDuplicate,    self.OnPopupDuplicate)
             wx.EVT_MENU(self, self.popupIDReply,        self.OnPopupReply)
 
@@ -199,6 +216,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             menu.Append(self.popupIDDuplicate,  _('Duplicate'))
 
         menu.Append(self.popupIDDelete,     _('Delete'))
+        menu.AppendSeparator()
+        menu.Append(self.popupIDDeleteSel,  _('Delete selected'))
 
         # Popup the menu.  If an item is selected then its handler
         # will be called before PopupMenu returns.
@@ -222,8 +241,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         wx.PostEvent(self.win, evt)
 
     def OnPopupDelete(self, event):
-        evt = Wammu.Events.DeleteEvent(index = self.popupIndex)
-        wx.PostEvent(self.win, evt)
+        self.DoDelete([self.popupIndex])
+
+    def OnPopupDeleteSel(self, event):
+        self.DoSelectedDelete()
 
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
@@ -234,10 +255,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnItemActivated(self, event):
         evt = Wammu.Events.EditEvent(index = event.m_itemIndex)
-        wx.PostEvent(self.win, evt)
-
-    def OnItemDeleted(self, event):
-        evt = Wammu.Events.DeleteEvent(index = event.m_itemIndex)
         wx.PostEvent(self.win, evt)
 
     def getColumnText(self, index, col):

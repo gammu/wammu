@@ -822,14 +822,13 @@ class WammuFrame(wx.Frame):
                 t = '__'
             else:
                 t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             try:
                 busy = wx.BusyInfo(_('Deleting contact...'))
-                self.sm.DeleteMemory(v['MemoryType'], v['Location'])
-                if v['MemoryType'] == t:
-                    del self.values[self.type[0]][t][evt.index]
-                else:
-                    # we are showing merged list, delete just from the original
+                lst = []
+                for i in evt.list:
+                    lst.append(self.values[self.type[0]][t][i])
+                for v in lst:
+                    self.sm.DeleteMemory(v['MemoryType'], v['Location'])
                     for idx in range(len(self.values[self.type[0]][v['MemoryType']])):
                         if self.values[self.type[0]][v['MemoryType']][idx] == v:
                             del self.values[self.type[0]][v['MemoryType']][idx]
@@ -845,15 +844,14 @@ class WammuFrame(wx.Frame):
                 t = '__'
             else:
                 t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             try:
                 busy = wx.BusyInfo(_('Deleting message...'))
-                for loc in v['Location'].split(', '):
-                    self.sm.DeleteSMS(v['Folder'], int(loc))
-                if v['State'] == t:
-                    del self.values[self.type[0]][t][evt.index]
-                else:
-                    # we are showing merged list, delete just from the original
+                lst = []
+                for i in evt.list:
+                    lst.append(self.values[self.type[0]][t][i])
+                for v in lst:
+                    for loc in v['Location'].split(', '):
+                        self.sm.DeleteSMS(v['Folder'], int(loc))
                     for idx in range(len(self.values[self.type[0]][v['State']])):
                         if self.values[self.type[0]][v['State']][idx] == v:
                             del self.values[self.type[0]][v['State']][idx]
@@ -869,14 +867,13 @@ class WammuFrame(wx.Frame):
                 t = '__'
             else:
                 t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             try:
                 busy = wx.BusyInfo(_('Deleting todo...'))
-                self.sm.DeleteToDo(v['Location'])
-                if '  ' == t:
-                    del self.values[self.type[0]][t][evt.index]
-                else:
-                    # we are showing merged list, delete just from the original
+                lst = []
+                for i in evt.list:
+                    lst.append(self.values[self.type[0]][t][i])
+                for v in lst:
+                    self.sm.DeleteToDo(v['Location'])
                     for idx in range(len(self.values[self.type[0]]['  '])):
                         if self.values[self.type[0]]['  '][idx] == v:
                             del self.values[self.type[0]]['  '][idx]
@@ -892,14 +889,13 @@ class WammuFrame(wx.Frame):
                 t = '__'
             else:
                 t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             try:
                 busy = wx.BusyInfo(_('Deleting calendar event...'))
-                self.sm.DeleteCalendar(v['Location'])
-                if '  ' == t:
-                    del self.values[self.type[0]][t][evt.index]
-                else:
-                    # we are showing merged list, delete just from the original
+                lst = []
+                for i in evt.list:
+                    lst.append(self.values[self.type[0]][t][i])
+                for v in lst:
+                    self.sm.DeleteCalendar(v['Location'])
                     for idx in range(len(self.values[self.type[0]]['  '])):
                         if self.values[self.type[0]]['  '][idx] == v:
                             del self.values[self.type[0]]['  '][idx]
@@ -911,8 +907,7 @@ class WammuFrame(wx.Frame):
                 t = '  '
             self.ActivateView(self.type[0], t)
         else: 
-            print 'Delete not yet implemented!'
-            print evt.index
+            print 'Delete not yet implemented! (items to delete = %s)' % str(evt.list)
 
     def OnLink(self, evt): 
         v = evt.link.split('://')
@@ -933,7 +928,7 @@ class WammuFrame(wx.Frame):
                     pass
 
             elif t[0] in ['MC', 'RC', 'DC']:
-                self.ActivateView('contact', t[0])
+                self.ActivateView('call', t[0])
                 try:
                     self.browser.ShowLocation(int(t[1]))
                 except KeyError:
