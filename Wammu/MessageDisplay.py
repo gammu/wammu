@@ -90,7 +90,7 @@ def SmsToHtml(cfg, v):
         ringno = 0
         Wammu.Ringtone.ringtones = {}
         for i in v['SMSInfo']['Entries']:
-            if i['ID'] in Wammu.SMSIDs['PredefinedAnimation']:
+            if i['ID'] in Wammu.Data.SMSIDs['PredefinedAnimation']:
                 if i['Number'] > len(Wammu.Data.PredefinedAnimations):
                     text = text + \
                         '<wxp module="Wammu.Image" class="Bitmap">' + \
@@ -104,7 +104,7 @@ def SmsToHtml(cfg, v):
                         '<param name="image" value="' + "['" + string.join(Wammu.Data.PredefinedAnimations[i['Number']][1], "', '") + "']" + '">' + \
                         '</wxp>'
 
-            if i['ID'] in Wammu.SMSIDs['PredefinedSound']:
+            if i['ID'] in Wammu.Data.SMSIDs['PredefinedSound']:
                 if i['Number'] >= len(Wammu.Data.PredefinedSounds):
                     desc = _('Unknown predefined sound #%d') % i['Number']
                 else:
@@ -114,7 +114,7 @@ def SmsToHtml(cfg, v):
                     '<param name="image" value="' + "['" + string.join(Wammu.Data.Note, "', '") + "']" + '">' + \
                     '</wxp>' + desc + ']'
 
-            if i['ID'] in Wammu.SMSIDs['Sound']:
+            if i['ID'] in Wammu.Data.SMSIDs['Sound']:
                 Wammu.Ringtone.ringtones[ringno] = i['Ringtone']
                 text = text + \
                     '<wxp module="Wammu.Ringtone" class="Ringtone">' + \
@@ -123,16 +123,16 @@ def SmsToHtml(cfg, v):
                     '</wxp>'
                 ringno += 1
 
-            if i['ID'] in Wammu.SMSIDs['Text']:
+            if i['ID'] in Wammu.Data.SMSIDs['Text']:
                 fmt = '%s'
-                for x in Wammu.TextFormats:
+                for x in Wammu.Data.TextFormats:
                     for name, txt, style in x[1:]:
                         if i.has_key(name) and i[name]:
                             fmt = style % fmt
                 #FIXME: handle special chars
                 text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
 
-            if i['ID'] in Wammu.SMSIDs['Bitmap']:
+            if i['ID'] in Wammu.Data.SMSIDs['Bitmap']:
                 x = i['Bitmap'][0]
                 text = text + \
                     '<wxp module="Wammu.Image" class="Bitmap">' + \
@@ -140,7 +140,7 @@ def SmsToHtml(cfg, v):
                     '<param name="image" value="' + "['" + string.join(x['XPM'], "', '") + "']" + '">' + \
                     '</wxp>'
 
-            if i['ID'] in Wammu.SMSIDs['Animation']:
+            if i['ID'] in Wammu.Data.SMSIDs['Animation']:
                 data = []
                 for x in i['Bitmap']:
                     data.append("['" + string.join(x['XPM'], "', '") + "']")

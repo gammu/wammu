@@ -23,6 +23,7 @@ import wx.lib.rcsizer
 import wx.lib.editor.editor
 import wx.lib.mixins.listctrl
 import Wammu
+import Wammu.Data
 import Wammu.MessageDisplay
 import Wammu.Utils
 import Wammu.PhoneValidator
@@ -82,7 +83,7 @@ class StyleEdit(wx.Dialog):
         col = 1
         maxcol = 1
 
-        for x in Wammu.TextFormats:
+        for x in Wammu.Data.TextFormats:
             if len(x) == 2:
                 name = x[1][0]
                 text = x[1][1]
@@ -132,7 +133,7 @@ class StyleEdit(wx.Dialog):
         self.CentreOnParent(wx.BOTH)
 
     def Okay(self, evt):
-        for x in Wammu.TextFormats:
+        for x in Wammu.Data.TextFormats:
             for name, text, fmt in x[1:]:
                 self.entry[name] = self.fmt[name].GetValue()
         self.EndModal(wx.ID_OK)
@@ -307,9 +308,9 @@ class PredefinedSoundEditor(GenericEditor):
 SMSParts = [
 # FIXME: should support more types...
 #   ID, display text, match types, editor, init type
-    (0, _('Text'), Wammu.SMSIDs['Text'], TextEditor, 'ConcatenatedTextLong16bit'),
-    (1, _('Predefined animation'), Wammu.SMSIDs['PredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
-    (2, _('Predefined sound'), Wammu.SMSIDs['PredefinedSound'], PredefinedSoundEditor, 'EMSPredefinedSound'),
+    (0, _('Text'), Wammu.Data.SMSIDs['Text'], TextEditor, 'ConcatenatedTextLong16bit'),
+    (1, _('Predefined animation'), Wammu.Data.SMSIDs['PredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
+    (2, _('Predefined sound'), Wammu.Data.SMSIDs['PredefinedSound'], PredefinedSoundEditor, 'EMSPredefinedSound'),
     ]
 
 class SMSComposer(wx.Dialog):

@@ -27,6 +27,7 @@ import sys
 import datetime
 import time
 import Wammu
+import Wammu.Data
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
@@ -490,7 +491,7 @@ class ContactEditor(GenericEditor):
             location = ''
         else:
             location = '%s:%d' % (entry['MemoryType'], entry['Location'])
-        GenericEditor.__init__(self, parent, cfg, values, entry, 'contact',  _('contact'), location, 'MemoryType', 'SM', _('Memory type'), Wammu.ContactMemoryTypes, Wammu.MemoryValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'contact',  _('contact'), location, 'MemoryType', 'SM', _('Memory type'), Wammu.Data.ContactMemoryTypes, Wammu.Data.MemoryValueTypes)
 
 class CalendarEditor(GenericEditor):
     def __init__(self, parent, cfg, values, entry):
@@ -498,7 +499,7 @@ class CalendarEditor(GenericEditor):
             location = ''
         else:
             location = '%d' % entry['Location']
-        GenericEditor.__init__(self, parent, cfg, values, entry, 'calendar',  _('calendar event'), location, 'Type', 'MEETING', _('Event type'), Wammu.CalendarTypes, Wammu.CalendarValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'calendar',  _('calendar event'), location, 'Type', 'MEETING', _('Event type'), Wammu.Data.CalendarTypes, Wammu.Data.CalendarValueTypes)
 
 class TodoEditor(GenericEditor):
     def __init__(self, parent, cfg, values, entry):
@@ -506,4 +507,4 @@ class TodoEditor(GenericEditor):
             location = ''
         else:
             location = '%d' % entry['Location']
-        GenericEditor.__init__(self, parent, cfg, values, entry, 'todo',  _('todo item'), location, 'Priority', 'Medium', _('Priority'), Wammu.TodoPriorities, Wammu.TodoValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'todo',  _('todo item'), location, 'Priority', 'Medium', _('Priority'), Wammu.Data.TodoPriorities, Wammu.Data.TodoValueTypes)
