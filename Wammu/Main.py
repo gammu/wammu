@@ -286,6 +286,7 @@ class WammuFrame(wx.Frame):
         self.type = ['info','  ']
 
         self.timer = None
+        self.TimerId = wx.NewId()
 
         # create state machine
         self.sm = gammu.StateMachine()
@@ -376,8 +377,9 @@ class WammuFrame(wx.Frame):
         if repeat == 0:
             self.timer = None
         else:
-            self.timer = wx.Timer(self)
-            wx.EVT_TIMER(self, self.timer.GetId(), self.OnTimer)
+            self.OnTimer()
+            self.timer = wx.Timer(self, self.TimerId)
+            wx.EVT_TIMER(self, self.TimerId, self.OnTimer)
             self.timer.Start(repeat)
 
     def DoDebug(self, newdebug):
