@@ -368,7 +368,7 @@ class SMSComposer(wx.Dialog):
         self.contbut = wx.Button(self, -1, _('Contacts'))
         self.contbut.SetToolTipString(_('Add number of recipient from contacts'))
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number(s):')), pos = (row,1), flag = wx.ALIGN_LEFT)
+        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
         
@@ -392,7 +392,7 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(self.report, pos = (row,2), flag = wx.ALIGN_LEFT)
 
         self.sent = wx.CheckBox(self, -1, _('Sent'))
-        self.sent.SetToolTipString(_('Check to save message as sent (has only effect when only saving message'))
+        self.sent.SetToolTipString(_('Check to save message as sent (has only effect when only saving message)'))
         self.sizer.Add(self.sent, pos = (row,4), flag = wx.ALIGN_LEFT)
 
         self.flash = wx.CheckBox(self, -1, _('Flash'))
