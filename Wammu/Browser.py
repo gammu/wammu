@@ -96,9 +96,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         for i in range(self.GetColumnCount()):
             self.ClearColumnImage(i)
         if self.sortorder == 1:
-            image = self.uparrow
-        else:
             image = self.downarrow
+        else:
+            image = self.uparrow
         self.SetColumnImage(col, image)
 
         # refresh displayed items
