@@ -231,11 +231,43 @@ class PredefinedAnimEditor(GenericEditor):
         self.part['Number'] = self.edit.GetSelection()
         return self.part
 
+class PredefinedSoundEditor(GenericEditor):
+    def __init__(self, parent, part, cfg, unicode): 
+        GenericEditor.__init__(self, parent, part, cfg, unicode)
+        self.sizer = wx.lib.rcsizer.RowColSizer()
+
+        values = []
+        for x in Wammu.Data.PredefinedSounds:
+            values.append(x[0])
+
+        self.sizer.AddGrowableRow(0)
+        self.sizer.AddGrowableCol(1)
+
+        self.edit = wx.Choice(self, -1, choices = values)
+
+        if not self.part.has_key('Number'):
+            self.part['Number'] = 0
+
+        self.edit.SetSelection(self.part['Number'])
+
+        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined sound:')), pos = (0,0), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer.Add(self.edit, pos = (0,1), flag = wx.ALIGN_CENTER)
+
+        self.sizer.Fit(self)
+        self.SetAutoLayout(True)
+        self.SetSizer(self.sizer)
+    
+    def GetValue(self):
+        self.part['ID'] = 'EMSPredefinedSound'
+        self.part['Number'] = self.edit.GetSelection()
+        return self.part
+
 SMSParts = [
 # FIXME: should support more types...
 #   ID, display text, match types, editor, init type
     (0, _('Text'), Wammu.SMSIDs['Text'], TextEditor, 'Text'),
     (1, _('Predefined animation'), Wammu.SMSIDs['PredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
+    (2, _('Predefined sound'), Wammu.SMSIDs['PredefinedSound'], PredefinedSoundEditor, 'EMSPredefinedSound'),
     ]
 
 class SMSComposer(wx.Dialog):

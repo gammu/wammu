@@ -19,10 +19,10 @@ def SmsToHtml(cfg, v):
                         '</wxp>'
 
             if i['ID'] in Wammu.SMSIDs['PredefinedSound']:
-                if i['Number'] >= len(Wammu.Data.PredefinedSoundNames):
+                if i['Number'] >= len(Wammu.Data.PredefinedSounds):
                     desc = _('Unknown predefined sound #%d') % i['Number']
                 else:
-                    desc = Wammu.Data.PredefinedSoundNames[i['Number']]
+                    desc = Wammu.Data.PredefinedSounds[i['Number']][0]
                 text = text + \
                     '[<wxp module="Wammu.Image" class="Bitmap">' + \
                     '<param name="image" value="' + "['" + string.join(Wammu.Data.Note, "', '") + "']" + '">' + \
