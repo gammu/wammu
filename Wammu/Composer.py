@@ -312,7 +312,7 @@ class SMSComposer(wx.Dialog):
         self.number = wx.TextCtrl(self, -1, entry['Number'])
         self.contbut = wx.Button(self, -1, _('Contacts'))
         
-        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number(s):')), pos = (row,1), flag = wx.ALIGN_LEFT)
+        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number:')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
 
@@ -511,4 +511,5 @@ class SMSComposer(wx.Dialog):
         self.entry['Unicode'] = self.unicode.GetValue()
         self.entry['Save'] = self.save.GetValue()
         self.entry['Send'] = self.send.GetValue()
+        self.entry['Folder'] = self.folder.GetValue()
         self.EndModal(wx.ID_OK)

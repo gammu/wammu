@@ -534,27 +534,46 @@ class WammuFrame(wx.Frame):
         self.EditTodo({})
     
     def NewMessage(self, evt):
-        self.ComposeMessage({})
+        v = self.ComposeMessage({})
+        if v != None:
+            self.values['message'][v['State']].append(v)
+            self.ActivateView('message', v['State'])
 
     def ComposeMessage(self, v):
         if Wammu.Composer.SMSComposer(self, self.cfg, v).ShowModal() == wx.ID_OK:
-            print 'composed sms:'
-            print v
             v['SMS'] = gammu.EncodeSMS(v['SMSInfo'])
-            print 'encoded sms:'
-            print v
-            print '==='
+            if v['Save']:
+                result = {}
+                result['SMS'] = []
+                
             for msg in v['SMS']:
-                # FIXME: here set state, smsc...
                 msg['SMSC']['Location'] = 1
+
+                msg['Folder'] = v['Folder']
+                msg['Unicode'] = v['Unicode']
+                msg['Number'] = v['Number']
+
                 busy = wx.BusyInfo(_('Writing message...'))
                 try:
-                    msg['Location'] = self.sm.AddSMS(msg)
+                    if v['Save']:
+                        msg['Location'] = self.sm.AddSMS(msg)
+                        if v['Send']:
+                            self.sm.SendSavedSMS(msg['Folder'], msg['Location'])
+                        result['SMS'].append(self.sm.GetSMS(msg['Folder'], msg['Location'])[0])
+                    elif v['Send']:
+                        msg['MessageReference'] = self.sm.SendSMS(msg)
                 except gammu.GSMError, val:
                     self.ShowError(val[0])
                 del busy
-                print 'wrote'
-                print msg
+                
+            if v['Save']:
+                info = gammu.DecodeSMS(result['SMS'])
+                if info != None:
+                    result['SMSInfo'] = info
+                Wammu.Utils.ParseMessage(result, (info != None))
+                return result 
+            else:
+                return None
 
     def EditContact(self, v):
         backup = copy.deepcopy(v)
@@ -724,7 +743,10 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             v = copy.deepcopy(self.values['message'][t][evt.index])
-            self.ComposeMessage(v)
+            r = self.ComposeMessage(v)
+            if r != None:
+                self.values['message'][r['State']].append(r)
+                self.ActivateView('message', r['State'])
         else: 
             print 'Duplicate not yet implemented!'
             print evt.index
@@ -780,8 +802,7 @@ class WammuFrame(wx.Frame):
             v = self.values[self.type[0]][t][evt.index]
             try:
                 for loc in v['Location'].split(', '):
-                    # FIXME: 0 folder is safe for AT, but I'm not sure with others
-                    self.sm.DeleteSMS(0, int(loc))
+                    self.sm.DeleteSMS(v['Folder'], int(loc))
                 if v['State'] == t:
                     del self.values[self.type[0]][t][evt.index]
                 else:

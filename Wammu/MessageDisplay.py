@@ -58,6 +58,8 @@ def SmsToHtml(cfg, v):
                         '<param name="scale" value="(' + str(cfg.ReadInt('/Wammu/ScaleImage', 1)) + ')">' + \
                         '<param name="images" value="' + "['" + string.join(data, "', '") + "']" + '">' + \
                         '</wxp>'
+            if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:
+                text = ('<i>%s</i><hr>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it')) + text
     else:
         text = v['Text']
 

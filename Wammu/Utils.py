@@ -87,6 +87,7 @@ def ParseCalendar(entry):
 def ParseMessage(msg, parseinfo = False):
     txt = ''
     loc = ''
+    msg['Folder'] = msg['SMS'][0]['Folder']
     msg['State'] = msg['SMS'][0]['State']
     msg['Number'] = msg['SMS'][0]['Number']
     msg['DateTime'] = msg['SMS'][0]['DateTime']
