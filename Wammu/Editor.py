@@ -6,7 +6,8 @@ import Wammu.Utils
 class TextCombo(wx.Panel):
     def __init__(self, parent, text, value, choices): 
         wx.Panel.__init__(self, parent, -1)
-        self.sizer = wx.GridSizer(1, 3, 2, 2)  # rows, cols, hgap, vgap
+        self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
+        self.sizer.AddGrowableCol(1)
         self.combo = wx.ComboBox(self, -1, value, choices = choices, style = wx.CB_READONLY)
         self.sizer.AddMany([ 
             (wx.StaticText(self, -1, text),   0, wx.EXPAND),
@@ -20,7 +21,9 @@ class TextCombo(wx.Panel):
 class OneEdit(wx.Panel):
     def __init__(self, parent, text, type, choices, value): 
         wx.Panel.__init__(self, parent, -1)
-        self.sizer = wx.GridSizer(1, 3, 2, 2)  # rows, cols, hgap, vgap
+        self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
+        self.sizer.AddGrowableCol(1)
+        self.sizer.AddGrowableCol(2)
         self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY)
         self.edit = wx.TextCtrl(self, -1, value)
         self.sizer.AddMany([ 
@@ -36,7 +39,7 @@ class OneEdit(wx.Panel):
 class OkCancelMoreFew(wx.Panel):
     def __init__(self, parent): 
         wx.Panel.__init__(self, parent, -1)
-        self.sizer = wx.GridSizer(1, 4, 2, 2)  # rows, cols, hgap, vgap
+        self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
 
         self.ok = wx.Button(self, wx.ID_OK, _('OK'))
         self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
@@ -64,7 +67,8 @@ class ContactEditor(wx.Dialog):
         wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.sm = sm
         self.entry = entry
-        self.sizer = wx.GridSizer(3, 1, 2, 2)  # rows, cols, hgap, vgap
+        self.sizer = wx.FlexGridSizer(3, 1, 2, 2)
+        self.sizer.AddGrowableCol(0)
         if entry == {}:
             list = [
                 (wx.StaticText(self, -1, _('Creating new entry')),   0, wx.EXPAND)

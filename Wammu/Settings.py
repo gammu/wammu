@@ -4,7 +4,8 @@ import Wammu
 class Settings(wx.Dialog): 
     def __init__(self, parent, config):
         wx.Dialog.__init__(self, parent, -1, _('Settings'), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
-        self.sizer = wx.GridSizer(6, 2, 5, 5)  # rows, cols, hgap, vgap
+        self.sizer = wx.FlexGridSizer(6, 2, 5, 5)
+        self.sizer.AddGrowableCol(1)
         
         self.config = config
 
