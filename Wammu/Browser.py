@@ -1,7 +1,6 @@
 import wx
 import Wammu
 import Wammu.Events
-import Wammu.Utils
 import gammu
 from Wammu.Paths import *
 
@@ -54,6 +53,13 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.InsertColumn(3, 'Date')
             self.InsertColumn(4, 'Text')
             self.keys = ('Location', 'State', 'Number', 'DateTime', 'Text')
+        elif self.type == 'todo':
+            self.InsertColumn(0, 'Location')
+            self.InsertColumn(1, 'Completed')
+            self.InsertColumn(2, 'Priority')
+            self.InsertColumn(3, 'Text')
+            self.InsertColumn(4, 'Date')
+            self.keys = ('Location', 'Completed', 'Priority', 'Text', 'Date')
 
         # resize columns to fit content
         

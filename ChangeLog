@@ -2,6 +2,42 @@
 # arch-tag: automatic-ChangeLog--michal@cihar.com--2003-main/wammu--devel--0.1
 #
 
+2003-12-27 13:55:50 GMT	Michal Cihar <michal@cihar.com>	patch-35
+
+    Summary:
+      fixed memory entry parsing
+    Revision:
+      wammu--devel--0.1--patch-35
+
+    - fixed memory entry parsing
+    - error while reading todos/messages/memories will close progress
+
+    modified files:
+     ChangeLog Wammu/Main.py Wammu/Memory.py Wammu/Message.py
+     Wammu/Thread.py Wammu/Todo.py Wammu/Utils.py
+
+
+2003-12-22 21:11:31 GMT	Michal Cihar <michal@cihar.com>	patch-34
+
+    Summary:
+      support for todos
+    Revision:
+      wammu--devel--0.1--patch-34
+
+    - support for reading, displaying and deleting todos
+    - support for deleting messages
+    - hide busy box before showing error
+    - SendData indicates that this is last (fixes race condition in displaying messages)
+
+    new files:
+     Wammu/.arch-ids/Todo.py.id Wammu/Todo.py
+     images/icons/.arch-ids/todo.png.id images/icons/todo.png
+
+    modified files:
+     ChangeLog Wammu/Browser.py Wammu/Main.py Wammu/Memory.py
+     Wammu/Message.py Wammu/Thread.py Wammu/Utils.py
+
+
 2003-12-22 11:36:08 GMT	Michal Cihar <michal@cihar.com>	patch-33
 
     Summary:

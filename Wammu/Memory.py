@@ -14,7 +14,7 @@ class GetMemory(Wammu.Thread.Thread):
         try:
             status = self.sm.GetMemoryStatus(Type = self.type)
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val[0], True)
             return
  
         remain = status['Used'] 
@@ -34,10 +34,9 @@ class GetMemory(Wammu.Thread.Thread):
                 else:
                     value = self.sm.GetNextMemory(Location = value['Location'], Type = self.type)
             except gammu.GSMError, val:
-                self.ShowError(val[0])
+                self.ShowError(val[0], True)
                 return
-            Wammu.Utils.GetMemoryEntryName(value)
-            Wammu.Utils.GetMemoryEntryNumber(value)
+            Wammu.Utils.ParseMemoryEntry(value)
             data.append(value)
             remain = remain - 1
 

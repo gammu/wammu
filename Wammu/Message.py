@@ -8,7 +8,7 @@ class GetMessage(Wammu.Thread.Thread):
         try:
             status = self.sm.GetSMSStatus()
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val[0], True)
             return
  
         total = remain = status['SIMUsed'] + status['PhoneUsed']
@@ -28,7 +28,7 @@ class GetMessage(Wammu.Thread.Thread):
                 else:
                     value = self.sm.GetNextSMS(Location = value[0]['Location'], Folder = 0)
             except gammu.GSMError, val:
-                self.ShowError(val[0])
+                self.ShowError(val[0], True)
                 return
             data.append(value)
             remain = remain - 1
@@ -38,20 +38,25 @@ class GetMessage(Wammu.Thread.Thread):
         sent = []
         unsent = []
         
-        for i in data:
-            # FIXME: for now we use only first message...
-            if i[0]['State'] == 'Read':
-                read.append(i[0])
-            elif i[0]['State'] == 'UnRead':
-                unread.append(i[0])
-            elif i[0]['State'] == 'Sent':
-                sent.append(i[0])
-            elif i[0]['State'] == 'UnSent':
-                unsent.append(i[0])
+        for x in data:
+            for n in range(len(x)):
+                i = x[n]
+                if i['State'] == 'Read':
+                    i['S'] = ' R'
+                    read.append(i)
+                elif i['State'] == 'UnRead':
+                    i['S'] = 'UR'
+                    unread.append(i)
+                elif i['State'] == 'Sent':
+                    i['S'] = ' S'
+                    sent.append(i)
+                elif i['State'] == 'UnSent':
+                    i['S'] = 'US'
+                    unsent.append(i)
                 
-        self.SendData(['message', ' R'], read)
-        self.SendData(['message', 'UR'], unread)
-        self.SendData(['message', ' S'], sent)
+        self.SendData(['message', ' R'], read, False)
+        self.SendData(['message', 'UR'], unread, False)
+        self.SendData(['message', ' S'], sent, False)
         self.SendData(['message', 'US'], unsent)
 
         self.ShowProgress(100)

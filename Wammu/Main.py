@@ -32,6 +32,7 @@ displaydata['info'] = {}
 displaydata['call'] = {}
 displaydata['memory'] = {}
 displaydata['message'] = {}
+displaydata['todo'] = {}
 
 #information
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()[0]], [_('python-gammu version'), gammu.Version()[1]]])
@@ -53,6 +54,9 @@ displaydata['message'][' R'] = ('message', _('Read'), _('Read Messages'), 'messa
 displaydata['message']['UR'] = ('message', _('Unread'), _('Unread Messages'), 'message-unread', [])
 displaydata['message'][' S'] = ('message', _('Sent'), _('Sent Messages'), 'message-sent', [])
 displaydata['message']['US'] = ('message', _('Unsent'), _('Unsent Messages'), 'message-unsent', [])
+
+#todos
+displaydata['todo']['  '] = ('info', _('Todos'), _('All Todos'), 'todo', [])
 
 
 ## Create a new frame class, derived from the wxPython Frame.
@@ -169,6 +173,8 @@ class WammuFrame(wx.Frame):
         menu3.Append(320, _('C&alls'), _('Calls'))
         menu3.AppendSeparator()
         menu3.Append(330, _('&Messages'), _('Messages'))
+        menu3.AppendSeparator()
+        menu3.Append(340, _('&Todos'), _('Todos'))
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
@@ -195,6 +201,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 312, self.ShowContacts)
         wx.EVT_MENU(self, 320, self.ShowCalls)
         wx.EVT_MENU(self, 330, self.ShowMessages)
+        wx.EVT_MENU(self, 340, self.ShowTodos)
         
         wx.EVT_MENU(self, 401, self.NewContact)
 
@@ -273,6 +280,8 @@ class WammuFrame(wx.Frame):
         
         mb.Enable(330, enable);
         
+        mb.Enable(340, enable);
+        
         mb.Enable(401, enable);
 
     def ActivateView(self, k1, k2):
@@ -331,7 +340,7 @@ class WammuFrame(wx.Frame):
 
     def OnData(self, evt):
         self.values[evt.type[0]][evt.type[1]] = evt.data
-        if hasattr(self, 'nextfun'):
+        if evt.last and hasattr(self, 'nextfun'):
             f = self.nextfun
             a = self.nextarg
             del self.nextfun
@@ -378,6 +387,17 @@ class WammuFrame(wx.Frame):
                 (_('SMSC'), v['SMSCNumber']),
                 (_('State'), v['State']),
                 (v['Text'],)]
+        elif self.type[0] == 'todo':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            data = [
+                (_('Location'), str(v['Location'])),
+                (_('Priority'), v['Priority'])]
+            for i in v['Values']:
+                data.append((i['Type'], str(i['Value'])))
         else:
             data = [('Show not yet implemented! (id = %d)' % evt.index,)]
         self.ShowData(data)
@@ -393,8 +413,7 @@ class WammuFrame(wx.Frame):
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 v = self.sm.GetMemory(v['MemoryType'], v['Location'])
-                Wammu.Utils.GetMemoryEntryName(v)
-                Wammu.Utils.GetMemoryEntryNumber(v)
+                Wammu.Utils.ParseMemoryEntry(v)
                 self.values['memory'][v['MemoryType']].append(v)
                 
             except gammu.GSMError, val:
@@ -449,8 +468,8 @@ class WammuFrame(wx.Frame):
             print evt.index
 
     def OnDelete(self, evt): 
+        # FIXME: add here confirmation?
         if self.type[0] == 'memory' or self.type[0] == 'call':
-            # FIXME: add here confirmation?
             if self.type[1] == '  ':
                 t = '__'
             else:
@@ -472,8 +491,53 @@ class WammuFrame(wx.Frame):
             if t == '__':
                 t = '  '
             self.ActivateView(self.type[0], t)
+        elif self.type[0] == 'message':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            try:
+                # FIXME: 0 folder is safe for AT, but I'm not sure with others
+                self.sm.DeleteSMS(0, v['Location'])
+                if v['S'] == t:
+                    del self.values[self.type[0]][t][evt.index]
+                else:
+                    # we are showing merged list, delete just from the original
+                    for idx in range(len(self.values[self.type[0]][v['S']])):
+                        if self.values[self.type[0]][v['S']][idx] == v:
+                            del self.values[self.type[0]][v['S']][idx]
+                            break
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+
+            if t == '__':
+                t = '  '
+            self.ActivateView(self.type[0], t)
+        elif self.type[0] == 'todo':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            try:
+                self.sm.DeleteToDo(v['Location'])
+                if '  ' == t:
+                    del self.values[self.type[0]][t][evt.index]
+                else:
+                    # we are showing merged list, delete just from the original
+                    for idx in range(len(self.values[self.type[0]]['  '])):
+                        if self.values[self.type[0]]['  '][idx] == v:
+                            del self.values[self.type[0]]['  '][idx]
+                            break
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+
+            if t == '__':
+                t = '  '
+            self.ActivateView(self.type[0], t)
         else: 
-            print 'Edit not yet implemented!'
+            print 'Delete not yet implemented!'
             print evt.index
 
     def OnLink(self, evt): 
@@ -583,6 +647,17 @@ class WammuFrame(wx.Frame):
         self.nextarg = ('message', '  ')
         
     #
+    # Todos
+    #
+
+    def ShowTodos(self, event):
+        self.ShowProgress(_('Reading todos'))
+        import Wammu.Todo
+        Wammu.Todo.GetTodo(self, self.sm).start()
+        self.nextfun = self.ActivateView
+        self.nextarg = ('todo', '  ')
+        
+    #
     # Time
     #
 
@@ -591,6 +666,7 @@ class WammuFrame(wx.Frame):
         try:
             self.sm.SetDateTime(datetime.datetime.now())
         except gammu.GSMError, val:
+            del busy
             self.ShowError(val[0])
     
     #
@@ -616,6 +692,7 @@ class WammuFrame(wx.Frame):
             self.sm.Init()
             self.TogglePhoneMenus(True)
         except gammu.GSMError, val:
+            del busy
             self.ShowError(val[0])
             try:
                 self.sm.Terminate()
@@ -627,6 +704,7 @@ class WammuFrame(wx.Frame):
         try:
             self.sm.Terminate()
         except gammu.GSMError, val:
+            del busy
             self.ShowError(val[0])
         self.TogglePhoneMenus(False)
 

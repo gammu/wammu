@@ -9,7 +9,7 @@ class GetTodo(Wammu.Thread.Thread):
         try:
             status = self.sm.GetToDoStatus()
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val[0], True)
             return
  
         remain = status['Used'] 
@@ -29,7 +29,7 @@ class GetTodo(Wammu.Thread.Thread):
                 else:
                     value = self.sm.GetNextToDo(Location = value['Location'])
             except gammu.GSMError, val:
-                self.ShowError(val[0])
+                self.ShowError(val[0], True)
                 return
             Wammu.Utils.ParseTodo(value)
             data.append(value)
