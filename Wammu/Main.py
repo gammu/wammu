@@ -507,15 +507,17 @@ class WammuFrame(wx.Frame):
                 pass
         if (evt.progress == 100):
             self.progress.Destroy()
+            del self.progress
         if hasattr(evt, 'lock'):
             evt.lock.release()
 
     def OnData(self, evt):
         self.values[evt.type[0]][evt.type[1]] = evt.data
         if evt.last:
-            self.progress.Update(100)
-            self.progress.Destroy()
-            del self.progress
+            if hasattr(self, 'progress'):
+                self.progress.Update(100)
+                self.progress.Destroy()
+                del self.progress
             
             if hasattr(self, 'nextfun'):
                 f = self.nextfun
