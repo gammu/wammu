@@ -23,6 +23,8 @@ SMSIDs = {
     'Text':                 ['Text', 'ConcatenatedTextLong', 'ConcatenatedAutoTextLong', 'ConcatenatedTextLong16bit', 'ConcatenatedAutoTextLong16bit'],
     'Sound':                [
         'NokiaProfileLong',
+        'NokiaRingtone',
+        'NokiaRingtoneLong',
         'EMSSound10',
         'EMSSound12',
         'EMSSonyEricssonSound',
@@ -39,8 +41,6 @@ SMSIDs = {
     'Bitmap':               [
         'NokiaProfileLong',
         'NokiaPictureImageLong',
-        'NokiaRingtone',
-        'NokiaRingtoneLong',
         'NokiaOperatorLogo',
         'NokiaOperatorLogoLong',
         'NokiaCallerLogo',
