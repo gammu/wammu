@@ -9,16 +9,16 @@ class Settings(wx.Dialog):
         
         self.config = config
 
-        self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Devices[0]), choices = Wammu.Devices)
-        self.editconn = wx.ComboBox(self, -1, config.Read('/Gammu/Connection', Wammu.Connections[0]), choices = Wammu.Connections)
-        self.editmodel = wx.ComboBox(self, -1, config.Read('/Gammu/Model', Wammu.Models[0]), choices = Wammu.Models)
-        self.editsync = wx.ComboBox(self, -1, config.Read('/Gammu/SyncTime', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
-        self.editlock = wx.ComboBox(self, -1, config.Read('/Gammu/LockDevice', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
-        self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
-        self.editdebug = wx.ComboBox(self, -1, config.Read('/Debug/Show', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
-        self.editauto = wx.ComboBox(self, -1, config.Read('/Wammu/AutoConnect', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
+        self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Devices[0]), choices = Wammu.Devices, size = (150, -1))
+        self.editconn = wx.ComboBox(self, -1, config.Read('/Gammu/Connection', Wammu.Connections[0]), choices = Wammu.Connections, size = (150, -1))
+        self.editmodel = wx.ComboBox(self, -1, config.Read('/Gammu/Model', Wammu.Models[0]), choices = Wammu.Models, size = (150, -1))
+        self.editsync = wx.ComboBox(self, -1, config.Read('/Gammu/SyncTime', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
+        self.editlock = wx.ComboBox(self, -1, config.Read('/Gammu/LockDevice', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
+        self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
+        self.editdebug = wx.ComboBox(self, -1, config.Read('/Debug/Show', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
+        self.editauto = wx.ComboBox(self, -1, config.Read('/Wammu/AutoConnect', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
         v = config.ReadInt('/Wammu/ScaleImage', 1)
-        self.editscale = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 1, max = 20, initial = v)
+        self.editscale = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 1, max = 20, initial = v, size = (150, -1))
 
         self.sizer.AddMany([ 
             (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),

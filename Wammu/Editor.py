@@ -298,7 +298,7 @@ class OneEdit(wx.Panel):
                 val = bool(value)
             except:
                 val = False
-            self.edit = wx.CheckBox(self, -1, '')
+            self.edit = wx.CheckBox(self, -1, '', size = (200, -1))
             self.edit.SetValue(val)
         elif newt == 'contact':
             try:
@@ -317,7 +317,7 @@ class OneEdit(wx.Panel):
                 val = int(value)
             except:
                 val = 0
-            self.edit = wx.lib.intctrl.IntCtrl(self, -1, val)
+            self.edit = wx.lib.intctrl.IntCtrl(self, -1, val, size = (200, -1))
         elif newt == 'datetime':
             self.edit = wx.lib.timectrl.TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
             self.edit2.Destroy()
@@ -326,10 +326,10 @@ class OneEdit(wx.Panel):
             self.edit = DateControl(self, DateToText(value))
         else:
             print 'warning: creating TextCtrl for %s' % newt
-            self.edit = wx.TextCtrl(self, -1, StrConv(value))
+            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
 
         self.sizer.AddMany([
-            (self.edit,   1, wx.EXPAND|wx.ALL),
+            (self.edit,   1, wx.EXPAND|wx.ALIGN_LEFT|wx.ALL),
             (self.edit2,  1, wx.EXPAND|wx.ALL)
             ])
 
