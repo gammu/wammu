@@ -152,7 +152,7 @@ class WammuFrame(wx.Frame):
         
         # title text
         self.label = wx.StaticText(self.rightwin, -1, 'Wammu')
-        self.rightwin.sizer.Add(self.label, 0, wx.LEFT|wx.ALL, 2)
+        self.rightwin.sizer.Add(self.label, 0, wx.LEFT|wx.ALL|wx.EXPAND, 2)
 
         # line
         self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0 , wx.EXPAND)
@@ -498,7 +498,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Memory type'), v['MemoryType'])]
             for i in v['Entries']:
-                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], str(i['Value']), self.values, linkphone = False)))
+                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)))
         elif self.type[0] == 'message':
             text = ''
             if self.type[1] == '  ':
@@ -527,7 +527,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Priority'), v['Priority'])]
             for i in v['Entries']:
-                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], str(i['Value']), self.values)))
+                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         elif self.type[0] == 'calendar':
             if self.type[1] == '  ':
                 t = '__'
@@ -538,7 +538,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Type'), v['Type'])]
             for i in v['Entries']:
-                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], str(i['Value']), self.values)))
+                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         else:
             data = [('Show not yet implemented! (id = %d)' % evt.index,)]
         self.ShowData(data)

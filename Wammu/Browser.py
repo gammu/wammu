@@ -6,6 +6,7 @@ import gammu
 import sys
 import traceback
 from Wammu.Paths import *
+from Wammu.Utils import StrConv
 
 import wx.lib.mixins.listctrl 
 
@@ -96,14 +97,14 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                     print
                     global ShowWXBroken
                     ShowwxBroken = False
-                size = 100
+                size = 8 * self.GetColumn(i).GetText()
             # 16 bellow is for sort arrrow
             if (size + 16 > max[i]):
                 max[i] = size + 16
             
         for x in self.values:
             for i in range(cnt):
-                size = self.GetTextExtent(str(x[self.keys[i]]))
+                size = self.GetTextExtent(StrConv(x[self.keys[i]]))
                 if (size[0] > max[i]):
                     max[i] = size[0]
         for i in range(cnt - 1):

@@ -1,3 +1,47 @@
+import wx
+import codecs
+import locale
+import sys
+
+# Determine "correct" character set
+try:
+    # works only in python > 2.3
+    localecharset = locale.getpreferredencoding()
+except:
+    try:
+        localecharset = locale.getdefaultlocale()[1]
+    except:
+        try:
+            localecharset = sys.getdefaultencoding()
+        except:
+            localecharset = 'ascii'
+
+charsetencoder = codecs.getencoder(localecharset)
+
+def StrConv(txt):
+    """
+    This function coverts something (txt) to string form usable by wxPython. There
+    is problem that in default configuration in most distros (maybe all) default
+    encoding for unicode objects is ascii. This leads to exception when converting
+    something different than ascii. And this exception is not catched inside
+    wxPython and leads to segfault.
+
+    So if wxPython supports unicode, we give it unicode, otherwise locale
+    dependant text.
+    """
+    if wx.USE_UNICODE:
+        if type(txt) == type(u''):
+            return txt
+        if type(txt) == type(''):
+            return unicode(txt, localecharset)
+    else:
+        if type(txt) == type(''):
+            return txt
+        if type(txt) == type(u''):
+            return str(charsetencoder(txt)[0])
+    return str(txt)
+
+
 def GetItemType(str):
     if str == '':
         return None
@@ -15,6 +59,8 @@ def GetItemType(str):
         return 'bool'
     elif str == 'Category' or str == 'CATEGORY':
         return 'category'
+    elif str == 'PictureID' or str == 'RingtoneID':
+        return 'id'
     else:
         return 'number'
         
@@ -54,11 +100,16 @@ def GetTypeString(type, value, values, linkphone = True):
         if i == -1:
             return '%d' % value
         else:
-            return'%s (%d)' % (values['contact']['ME'][l]['Name'], value)
+            return StrConv('%s (%d)' % (values['contact']['ME'][l]['Name'], value))
     elif linkphone and t == 'phone':
-        return GetNumberLink([] + values['contact']['ME'] + values['contact']['SM'], value)
+        return StrConv(GetNumberLink([] + values['contact']['ME'] + values['contact']['SM'], value))
+    elif t == 'id':
+        v = hex(value)
+        if v[-1] == 'L':
+            v = v[:-1]
+        return v
     else:
-        return str(value)
+        return StrConv(value)
 
 def ParseMemoryEntry(entry):
     first = ''
@@ -89,8 +140,8 @@ def ParseMemoryEntry(entry):
         name_result = last
     if number_result == '':
         number_result = number
-    entry['Number'] = number_result
-    entry['Name'] = name_result
+    entry['Number'] = StrConv(number_result)
+    entry['Name'] = StrConv(name_result)
 
 def ParseTodo(entry):
     dt = ''
@@ -107,7 +158,7 @@ def ParseTodo(entry):
             else:
                 completed = _('No')
     entry['Completed'] = completed 
-    entry['Text'] = text
+    entry['Text'] = StrConv(text)
     entry['Date'] = dt
 
 def ParseCalendar(entry):
@@ -122,7 +173,7 @@ def ParseCalendar(entry):
             start = str(i['Value'])
         elif i['Type'] == 'TEXT':
             text = i['Value']
-    entry['Text'] = text
+    entry['Text'] = StrConv(text)
     entry['Start'] = start
     entry['End'] = end
 
@@ -132,7 +183,7 @@ def ParseMessage(msg, parseinfo = False):
     msg['Folder'] = msg['SMS'][0]['Folder']
     msg['State'] = msg['SMS'][0]['State']
     msg['Number'] = msg['SMS'][0]['Number']
-    msg['Name'] = msg['SMS'][0]['Name']
+    msg['Name'] = StrConv(msg['SMS'][0]['Name'])
     msg['DateTime'] = msg['SMS'][0]['DateTime']
     if parseinfo:
         for i in msg['SMSInfo']['Entries']:
@@ -145,5 +196,5 @@ def ParseMessage(msg, parseinfo = False):
         if loc != '':
             loc = loc + ', '
         loc = loc + str(i['Location'])
-    msg['Text'] = txt
+    msg['Text'] = StrConv(txt)
     msg['Location'] = loc
