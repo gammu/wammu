@@ -332,8 +332,17 @@ class WammuFrame(wx.Frame):
             print evt.index
 
     def OnEdit(self, evt): 
-        print 'Edit not yet implemented!'
-        print evt.index
+        if self.type[0] == 'memory':
+            import Wammu.Editor
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            Wammu.Editor.ContactEditor(self, v).ShowModal()
+        else: 
+            print 'Edit not yet implemented!'
+            print evt.index
 
     def OnLink(self, evt): 
         print 'Links not yet implemented!'
