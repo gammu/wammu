@@ -3,32 +3,29 @@
 %define release 1
 
 %define python_gammu_req 0.6
-%define wxpython_req 2.4.1.2
 
-Summary:    Mobile phone manager
-Name:       %{name}
-Version:    %{version}
-Release:    %{release}
-Source0:    %{name}-%{version}.tar.bz2
-License:    GPL
+Summary:        Mobile phone manager
+Name:           %{name}
+Version:        %{version}
+Release:        %{release}
+Source0:        %{name}-%{version}.tar.bz2
+License:        GPL
 %if %_vendor == "suse"
-Group:      Hardware/Mobile
+Group:          Hardware/Mobile
 %else
-Group:      Applications/Communications
+Group:          Applications/Communications
 %endif
-Packager:   Michal Cihar <michal@cihar.com>
-Vendor:     Michal Cihar <michal@cihar.com>
-Prefix:     %{_prefix}
+Packager:       Michal Cihar <michal@cihar.com>
+Vendor:         Michal Cihar <michal@cihar.com>
+Prefix:         %{_prefix}
 
+# /usr/bin/pycrust is here for make vendor independant dependancy on wxPython.
+# If you know better way, please let me know.
+Requires:       /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
+BuildRequires:  /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
 
-%if %_vendor == "suse"
-Requires:    python-wxGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
-BuildRequires:  python-wxGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
-%else
-Requires:   wxPythonGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
-BuildRequires: wxPythonGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
-%endif
 %py_requires -d
+
 Url:        http://www.cihar.com/gammu/wammu
 Buildroot:  %{_tmppath}/%name-%version-root
 
