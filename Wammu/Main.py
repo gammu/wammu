@@ -130,8 +130,8 @@ class WammuFrame(wx.Frame):
 
         # 1st menu from left
         menu1 = wx.Menu()
-        menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
-        menu1.AppendSeparator()
+#        menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
+#        menu1.AppendSeparator()
         menu1.Append(150, _('&Settings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
         menu1.Append(199, _('E&xit'), _('Exit Wammu'))
@@ -196,7 +196,7 @@ class WammuFrame(wx.Frame):
                 config = self.sm.GetConfig()
 
                 wx.MessageDialog(self, 
-                    _('Wammu configuration was not found. Gammu settings were read and will be used. You will now be taken to configuration dialog to check configuration.'),
+                    _('Wammu configuration was not found. Gammu settings were read and will be used as defaults. You will now be taken to configuration dialog to check configuration.'),
                     _('Configuration not found'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             except:
