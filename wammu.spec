@@ -1,5 +1,5 @@
 %define name wammu
-%define version 0.5.2
+%define version 0.5.3
 %define release 1
 
 Summary:    Mobile phone manager

@@ -23,7 +23,7 @@ import sys
 import os
 import gettext
 from Wammu.Utils import Str_
-__version__ = '0.5.2'
+__version__ = '0.5.3'
 
 if os.getenv('LOCALLOCALE') == 'yes':
     gettext.install('wammu','./locale/', unicode=1)
