@@ -318,9 +318,9 @@ class WammuFrame(wx.Frame):
         
 
     def LogClose(self, evt):
+        self.SaveWinSize(self.logwin, '/Debug')
         self.cfg.Write('/Debug/Show', 'no')
         self.DoDebug('no')
-        self.SaveWinSize(self.logwin, '/Debug')
 
     def TogglePhoneMenus(self, enable):
         self.connected = enable
