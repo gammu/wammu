@@ -366,7 +366,7 @@ class WammuFrame(wx.Frame):
                     power = _('no battery')
                 elif b['ChargeState'] == 'PowerFault':
                     power = _('fault')
-                self.SetStatusText(_('Bat: %d %% (%s), Sig: %d %%, Time: %s') % (b['BatteryPercent'], power, s['SignalPercent'], StrConv(d.strftime('%c'))), 1)
+                self.SetStatusText(_('Bat: %d %% (%s), Sig: %d %%, Time: %s') % (b['BatteryPercent'], power, s['SignalPercent'], d.strftime('%c')), 1)
             except gammu.GSMError:
                 pass
 
