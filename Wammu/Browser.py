@@ -12,7 +12,7 @@ import wx.lib.mixins.listctrl
 class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, win):
         wx.ListCtrl.__init__(self, parent, -1,
-                            style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
+                            style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES|wx.LC_SINGLE_SEL)
         self.win = win
 
         self.attr1 = wx.ListItemAttr()

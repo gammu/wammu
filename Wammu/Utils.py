@@ -20,7 +20,6 @@ def GetItemType(str):
         
 def SearchLocation(list, loc, second = None):
     result = -1
-    print 'loc: "%s"' % str(loc)
     for i in range(len(list)):
         if second != None:
             if not list[i][second[0]] == second[1]:
