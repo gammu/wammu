@@ -1213,8 +1213,8 @@ class WammuFrame(wx.Frame):
             parent = self
 
         dlg = wx.MessageDialog(self, 
-            evt.message,
-            evt.title,
+            StrConv(evt.message),
+            StrConv(evt.title),
             wx.OK | evt.type).ShowModal()
         if hasattr(evt, 'lock'):
             evt.lock.release()
