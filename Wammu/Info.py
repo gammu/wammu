@@ -144,19 +144,6 @@ class GetInfo(Wammu.Thread.Thread):
 
         self.ShowProgress(8*100/progress)
         try:
-            DateTime = self.sm.GetDateTime()
-            data.append([_('Date and time'), DateTime.strftime('%c')])
-        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
-        except gammu.GSMError, val:
-            self.ShowError(val[0])
-           
-        if self.canceled:
-            self.Canceled()
-            return
-            
-        self.ShowProgress(9*100/progress)
-        try:
             info = self.sm.GetHardware()
             data.append([_('Hardware'), info])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
@@ -168,7 +155,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(10*100/progress)
+        self.ShowProgress(9*100/progress)
         try:
             info = self.sm.GetManufactureMonth()
             data.append([_('Manufacture month'), info])
@@ -181,7 +168,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(11*100/progress)
+        self.ShowProgress(10*100/progress)
         try:
             info = self.sm.GetPPM()
             data.append([_('Language packs in phone'), info])

@@ -114,7 +114,7 @@ class WammuFrame(wx.Frame):
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
         self.CreateStatusBar(2)
-        self.SetStatusWidths([-1,300])
+        self.SetStatusWidths([-1,400])
 
         # Associate some events with methods of this class
         wx.EVT_CLOSE(self, self.CloseWindow)
@@ -349,11 +349,13 @@ class WammuFrame(wx.Frame):
 
         self.SetupStatusRefresh()
 
-    def OnTimer(self, evt):
+    def OnTimer(self, evt = None):
         if self.connected:
             try:
                 s = self.sm.GetSignalQuality()
                 b = self.sm.GetBatteryCharge()
+                d = self.sm.GetDateTime()
+            
                 power = _('Unknown')
                 if b['ChargeState'] == 'BatteryPowered':
                     power = _('battery')
@@ -363,7 +365,7 @@ class WammuFrame(wx.Frame):
                     power = _('no battery')
                 elif b['ChargeState'] == 'PowerFault':
                     power = _('fault')
-                self.SetStatusText(_('Battery: %d %%, Power: %s, Signal: %d %%') % (b['BatteryPercent'], power, s['SignalPercent']), 1)
+                self.SetStatusText(_('Bat: %d %% (%s), Sig: %d %%, Time: %s') % (b['BatteryPercent'], power, s['SignalPercent'], d.strftime('%c')), 1)
             except gammu.GSMError:
                 pass
 
@@ -430,6 +432,8 @@ class WammuFrame(wx.Frame):
         self.connected = enable
         if enable:
             self.SetStatusText(_('Connected'), 1)
+            if self.timer != None:
+                self.OnTimer()
         else:
             self.SetStatusText(_('Disconnected'), 1)
         mb = self.menuBar
