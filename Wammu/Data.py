@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 # Wammu - Phone manager
 # Copyright (c) 2003 - 2004 Michal Čihař 
 #

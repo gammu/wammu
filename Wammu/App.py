@@ -1,4 +1,4 @@
-# -*- coding: ISO-8859-2 -*-
+# -*- coding: UTF-8 -*-
 # Wammu - Phone manager
 # Copyright (c) 2003 - 2004 Michal Čihař 
 #
@@ -31,7 +31,7 @@ class WammuApp(wx.App):
     def OnInit(self):
 
         self.SetAppName('Wammu')
-        self.SetVendorName('Michal �iha�')
+        self.SetVendorName('Michal Čihař')
 
         wx.InitAllImageHandlers()
         #spl = wx.SplashScreen(wx.Bitmap(MiscPath('splash')), wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT, 5000, None, -1)
