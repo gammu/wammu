@@ -354,18 +354,18 @@ class WammuFrame(wx.Frame):
             try:
                 s = self.sm.GetSignalQuality()
                 b = self.sm.GetBatteryCharge()
+                power = _('Unknown')
+                if b['ChargeState'] == 'BatteryPowered':
+                    power = _('battery')
+                elif b['ChargeState'] == 'BatteryConnected':
+                    power = _('supply')
+                elif b['ChargeState'] == 'BatteryNotConnected':
+                    power = _('no battery')
+                elif b['ChargeState'] == 'PowerFault':
+                    power = _('fault')
+                self.SetStatusText(_('Battery: %d %%, Power: %s, Signal: %d %%') % (b['BatteryPercent'], power, s['SignalPercent']), 1)
             except gammu.GSMError:
                 pass
-            power = _('Unknown')
-            if b['ChargeState'] == 'BatteryPowered':
-                power = _('battery')
-            elif b['ChargeState'] == 'BatteryConnected':
-                power = _('supply')
-            elif b['ChargeState'] == 'BatteryNotConnected':
-                power = _('no battery')
-            elif b['ChargeState'] == 'PowerFault':
-                power = _('fault')
-            self.SetStatusText(_('Battery: %d %%, Power: %s, Signal: %d %%') % (b['BatteryPercent'], power, s['SignalPercent']), 1)
 
     def SetupStatusRefresh(self):
         repeat = self.cfg.ReadInt('/Wammu/RefreshState', 5000)
