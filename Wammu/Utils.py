@@ -277,6 +277,7 @@ def ParseMemoryEntry(entry):
         number_result = number
     entry['Number'] = number_result
     entry['Name'] = name_result
+    return entry
 
 def ParseTodo(entry):
     _ = Str_
@@ -296,6 +297,7 @@ def ParseTodo(entry):
     entry['Completed'] = completed
     entry['Text'] = text
     entry['Date'] = dt
+    return entry
 
 def ParseCalendar(entry):
     start = ''
@@ -311,6 +313,7 @@ def ParseCalendar(entry):
     entry['Text'] = text
     entry['Start'] = start
     entry['End'] = end
+    return entry
 
 def ParseMessage(msg, parseinfo = False):
     txt = ''
@@ -333,6 +336,7 @@ def ParseMessage(msg, parseinfo = False):
         loc = loc + str(i['Location'])
     msg['Text'] = txt
     msg['Location'] = loc
+    return msg
 
 def FormatError(txt, info):
     _ = Str_

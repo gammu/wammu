@@ -211,9 +211,11 @@ class WammuFrame(wx.Frame):
         self.menuBar = wx.MenuBar()
 
         menu1 = wx.Menu()
-        menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
+        menu1.Append(100, _('&Write data'), _('Writes data to file'))
+        menu1.Append(101, _('&Read data'), _('Reads data from file (does not import to the phone)'))
         menu1.AppendSeparator()
-        menu1.Append(150, _('&Settings'), _('Change Wammu settings'))
+        menu1.Append(150, _('&SearchPhone'), _('Search for phone'))
+        menu1.Append(151, _('&Settings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
         menu1.Append(199, _('E&xit'), _('Exit Wammu'))
         # Add menu to the menu bar
@@ -267,8 +269,10 @@ class WammuFrame(wx.Frame):
         self.SetMenuBar(self.menuBar)
 
         # menu events
-        wx.EVT_MENU(self, 101, self.SearchPhone)
-        wx.EVT_MENU(self, 150, self.Settings)
+        wx.EVT_MENU(self, 100, self.WriteData)
+        wx.EVT_MENU(self, 101, self.ReadData)
+        wx.EVT_MENU(self, 150, self.SearchPhone)
+        wx.EVT_MENU(self, 151, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
 
         wx.EVT_MENU(self, 201, self.PhoneConnect)
@@ -977,48 +981,77 @@ class WammuFrame(wx.Frame):
                 t = '  '
             self.ActivateView(self.type[0], t)
 
-    def SelectBackupFile(self, type, save = True):
+    def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''
         if not save:
             wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
 
         wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
 
-        if type in ['contact', '']:
-            wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
-        if type in ['contact', '']:
-            wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
-        if type in ['contact', '']:
-            wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
-        if type in ['todo', 'calendar', '']:
-            wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
-        if type in ['todo', 'calendar', '']:
-            wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
+        if not data:
+            if type in ['contact', '']:
+                wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
+            if type in ['contact', '']:
+                wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
+            if type in ['contact', '']:
+                wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
+            if type in ['todo', 'calendar', '']:
+                wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
+            if type in ['todo', 'calendar', '']:
+                wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
 
         wildcard += _('All files') + ' (*.*)|*.*;*'
 
-        if save:
-            dlg = wx.FileDialog(self, _('Save backup as...'), os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+        if data:
+            if save:
+                dlg = wx.FileDialog(self, _('Save data as...'), os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+            else:
+                dlg = wx.FileDialog(self, _('Read data'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
         else:
-            dlg = wx.FileDialog(self, _('Import backup'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
+            if save:
+                dlg = wx.FileDialog(self, _('Save backup as...'), os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+            else:
+                dlg = wx.FileDialog(self, _('Import backup'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             return path
         return None
 
-    def Import(self, evt):
-        filename = self.SelectBackupFile('', save = False)
+    def ReadBackup(self, data = False):
+        filename = self.SelectBackupFile('', save = False, data = data)
         if filename == None:
-            return
+            return (None, None)
         try:
             backup = gammu.ReadBackup(filename)
         except gammu.GSMError, val:
             info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
-                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
+                message = Wammu.Utils.FormatError(_('Error while reading backup'), info),
                 title = _('Error Occured'),
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
+            return (None, None)
+        return (filename, backup)
+
+    def ReadData(self, evt):
+        (filename, backup) = self.ReadBackup(True)
+        if backup == None:
+            return
+
+        if len(backup['PhonePhonebook']) > 0:
+            self.values['contact']['ME'] = map(Wammu.Utils.ParseMemoryEntry, backup['PhonePhonebook'])
+        if len(backup['SIMPhonebook']) > 0:
+            self.values['contact']['SM'] = map(Wammu.Utils.ParseMemoryEntry, backup['SIMPhonebook'])
+        if len(backup['ToDo']) > 0:
+            self.values['todo']['  '] = map(Wammu.Utils.ParseTodo, backup['ToDo'])
+        if len(backup['Calendar']) > 0:
+            self.values['calendar']['  '] = map(Wammu.Utils.ParseCalendar, backup['Calendar'])
+
+        self.SetStatusText(_('Data has been read from file "%s"') % filename)
+
+    def Import(self, evt):
+        (filenameme, backup) = self.ReadBackup()
+        if backup == None:
             return
         choices = []
         values = []
@@ -1110,15 +1143,41 @@ class WammuFrame(wx.Frame):
             _('Backup imported'),
             wx.OK | wx.ICON_INFORMATION).ShowModal()
 
+    def WriteData(self, evt):
+        self.DoBackup(True)
+
     def Backup(self, evt):
-        filename = self.SelectBackupFile('')
-        if filename == None:
-            return
-        ext = os.path.splitext(filename)[1].lower()
+        self.DoBackup(False)
+
+    def PrepareBackup(self):
         backup = {}
         backup['Creator'] = 'Wammu ' + Wammu.__version__
         backup['IMEI'] = self.IMEI
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
+        return backup
+
+    def WriteBackup(self, backup, data = False):
+        try:
+            gammu.SaveBackup(filename, backup)
+            if data:
+                self.SetStatusText(_('Backup has been saved to file "%s"') % filename)
+            else:
+                self.SetStatusText(_('Data has been saved to file "%s"') % filename)
+        except gammu.GSMError, val:
+            info = val[0]
+            evt = Wammu.Events.ShowMessageEvent(
+                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
+                title = _('Error Occured'),
+                type = wx.ICON_ERROR)
+            wx.PostEvent(self, evt)
+
+    def DoBackup(self, data):
+        filename = self.SelectBackupFile('', data = data)
+        if filename == None:
+            return
+        ext = os.path.splitext(filename)[1].lower()
+
+        backup = self.PrepareBackup()
         if ext in ['.vcf', '.ldif']:
             # these support only one phonebook, so merged it
             backup['PhonePhonebook'] = self.values['contact']['ME'] + self.values['contact']['SM']
@@ -1128,20 +1187,8 @@ class WammuFrame(wx.Frame):
 
         backup['ToDo'] = self.values['todo']['  ']
         backup['Calendar'] = self.values['calendar']['  ']
+        self.WriteBackup(backup, data)
 
-        try:
-            gammu.SaveBackup(filename, backup)
-            wx.MessageDialog(self,
-                _('Backup has been saved to file "%s"') % filename,
-                _('Backup saved'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
-        except gammu.GSMError, val:
-            info = val[0]
-            evt = Wammu.Events.ShowMessageEvent(
-                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
-                title = _('Error Occured'),
-                type = wx.ICON_ERROR)
-            wx.PostEvent(self, evt)
 
     def OnBackup(self, evt):
         filename = self.SelectBackupFile(self.type[0])
@@ -1155,10 +1202,7 @@ class WammuFrame(wx.Frame):
         lst = []
         for i in evt.lst:
             lst.append(self.values[self.type[0]][t][i])
-        backup = {}
-        backup['Creator'] = 'Wammu ' + Wammu.__version__
-        backup['IMEI'] = self.IMEI
-        backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
+        backup = self.PrepareBackup()
         if self.type[0] == 'contact':
             if ext in ['.vcf', '.ldif']:
                 # these support only one phonebook, so keep it merged
@@ -1178,19 +1222,7 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'calendar':
             backup['Calendar'] = lst
 
-        try:
-            gammu.SaveBackup(filename, backup)
-            wx.MessageDialog(self,
-                _('Backup has been saved to file "%s"') % filename,
-                _('Backup saved'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
-        except gammu.GSMError, val:
-            info = val[0]
-            evt = Wammu.Events.ShowMessageEvent(
-                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
-                title = _('Error Occured'),
-                type = wx.ICON_ERROR)
-            wx.PostEvent(self, evt)
+        self.WriteBackup(backup)
 
     def OnDelete(self, evt):
         # first check on supported types
