@@ -29,8 +29,8 @@ install: build
 binary-indep: build install
 	dh_testdir
 	dh_testroot
-	dh_installdocs
-	dh_installmenu AUTHORS README FAQ NEWS
+	dh_installdocs AUTHORS README FAQ NEWS
+	dh_installmenu
 	dh_installchangelogs ChangeLog
 	install -d debian/wammu/usr/share/bug/wammu
 	install -m644 debian/bug.control debian/wammu/usr/share/bug/wammu/control
