@@ -26,6 +26,8 @@ import Wammu
 import os.path
 import os
 
+PYTHONGAMMU_REQUIRED = (0,4,1)
+
 if os.getenv('SKIPGAMMUCHECK') == 'yes':
     print 'Skipping Gammu check, expecting you know what you are doing!'
 else:
@@ -34,8 +36,9 @@ else:
     except:
         print 'You need python-gammu!'
         sys.exit(1)
-    if gammu.Version()[1] < '0.4':
-        print 'You need python-gammu at least 0.4!'
+    pygver = tuple(map(int, gammu.Version()[1].split('.')))
+    if  pygver < PYTHONGAMMU_REQUIRED:
+        print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
         sys.exit(1)
 
 if os.getenv('SKIPWXCHECK') == 'yes':
