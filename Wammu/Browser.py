@@ -101,6 +101,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def Sorter(self, i1, i2):
         if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
             return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
+        elif i1[self.sortkey] == None:
+            return -self.sortorder
+        elif i2[self.sortkey] == None:
+            return self.sortorder
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
 
     def ShowLocation(self, loc, second = None):
