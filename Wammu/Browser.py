@@ -174,6 +174,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
             self.DoSelectedDelete()
+        elif evt.GetKeyCode() in [114, 82]:
+            self.DoReply()
   
     def DoSelectedDelete(self):
         lst = []
@@ -189,6 +191,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         
     def DoBackup(self, lst):
         evt = Wammu.Events.BackupEvent(lst = lst)
+        wx.PostEvent(self.win, evt)
+        
+    def DoReply(self):
+        evt = Wammu.Events.ReplyEvent(index = self.GetFocusedItem())
         wx.PostEvent(self.win, evt)
         
     def OnRightClick(self, evt):
