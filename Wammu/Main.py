@@ -1287,7 +1287,7 @@ class WammuFrame(wx.Frame):
             self.ShowError(val[0])
     
     #
-    # Connecting / Disconneting
+    # Connecting / Disconnecting
     #
 
     def PhoneConnect(self, event = None):
@@ -1295,13 +1295,13 @@ class WammuFrame(wx.Frame):
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'), 
             'UseGlobalDebugFile': 1, 
-            'DebugFile': None, #FIXME
+            'DebugFile': None, # Set on other place
             'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'), 
             'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Connections[0]), 
             'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'), 
-            'DebugLevel': 'textall', #FIXME
+            'DebugLevel': 'textall', # Set on other place
             'Device': self.cfg.Read('/Gammu/Device', Wammu.Devices[0]), 
-            'Localize': None,  #FIXME
+            'Localize': None,  # Set automatically by python-gammu
             'Model': self.cfg.Read('/Gammu/Model', Wammu.Models[0])
             }
         self.sm.SetConfig(0, cfg)
