@@ -2,10 +2,107 @@ import wx
 import wx.lib.rcsizer
 import wx.lib.editor.editor
 import wx.lib.mixins.listctrl 
+import Wammu
+import Wammu.MessageDisplay
 
+class MessagePreview(wx.Dialog):
+    text = '''
+<html>
+<body>
+%s
+<center>
+<p><wxp module="wx" class="Button">
+    <param name="label" value="%s">
+    <param name="id"    value="ID_OK">
+</wxp></p>
+</center>
+</body>
+</html>
+'''
+    def __init__(self, parent, content):
+        wx.Dialog.__init__(self, parent, -1, _('Message preview'))
+        html = wx.html.HtmlWindow(self, -1, size=(420, -1))
+        html.SetPage(self.text % (content, _('OK')))
+        btn = html.FindWindowById(wx.ID_OK)
+        btn.SetDefault()
+        ir = html.GetInternalRepresentation()
+        html.SetSize( (ir.GetWidth()+25, ir.GetHeight()+25) )
+        self.SetClientSize(html.GetSize())
+        self.CentreOnParent(wx.BOTH)
+        
+class StyleEdit(wx.Dialog):
+    def __init__(self, parent, entry):
+        wx.Dialog.__init__(self, parent, -1, _('Text style'))
+        
+        self.sizer = wx.lib.rcsizer.RowColSizer()
+
+        self.entry = entry
+
+        self.fmt = {}
+        
+        row = 1
+
+        col = 1
+        maxcol = 1
+
+        for x in Wammu.TextFormats:
+            if len(x) == 2:
+                name = x[1][0]
+                text = x[1][1]
+                self.fmt[name] = wx.CheckBox(self, -1, text)
+                if self.entry.has_key(name):
+                    self.fmt[name].SetValue(self.entry[name])
+                self.sizer.Add(self.fmt[name], pos = (row, col))
+                col = col + 2
+            else:
+                if col > 1:
+                    row = row + 2
+                    maxcol = max(col, maxcol)
+                    col = 1
+                    
+                self.sizer.Add(wx.StaticText(self, -1, x[0][0] + ':'), pos = (row, col))
+                col = col + 2
+
+                rb = wx.RadioButton(self, -1, x[0][1], style = wx.RB_GROUP)
+                rb.SetValue(True)
+                self.sizer.Add(rb, pos = (row, col))
+                col = col + 2
+                for name, text, fmt in x[1:]:
+                    self.fmt[name] = wx.RadioButton(self, -1, text)
+                    if self.entry.has_key(name):
+                        self.fmt[name].SetValue(self.entry[name])
+                    self.sizer.Add(self.fmt[name], pos = (row, col))
+                    col = col + 2
+                row = row + 2
+                maxcol = max(col, maxcol)
+                col = 1
+
+        if col > 1:
+            row = row + 2
+            maxcol = max(col, maxcol)
+            col = 1
+
+        self.ok = wx.Button(self, wx.ID_OK, _('OK'))
+        self.sizer.Add(self.ok, pos = (row, 1), colspan = maxcol, flag = wx.ALIGN_CENTER)
+        wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
+        
+        self.sizer.AddSpacer(5,5, pos=(row + 1, maxcol + 1))
+
+        self.sizer.Fit(self)
+        self.SetAutoLayout(True)
+        self.SetSizer(self.sizer)
+
+        self.CentreOnParent(wx.BOTH)
+    
+    def Okay(self, evt):
+        for x in Wammu.TextFormats:
+            for name, text, fmt in x[1:]:
+                self.entry[name] = self.fmt[name].GetValue()
+        self.EndModal(wx.ID_OK)
+        
 class AutoSizeList(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, firstcol):
-        wx.ListCtrl.__init__(self, parent, -1, style=wx.LC_REPORT | wx.LC_HRULES | wx.LC_VRULES | wx.LC_SINGLE_SEL | wx.SUNKEN_BORDER, size = (100, 100))
+        wx.ListCtrl.__init__(self, parent, -1, style=wx.LC_REPORT | wx.LC_HRULES | wx.LC_VRULES | wx.LC_SINGLE_SEL | wx.SUNKEN_BORDER, size = (-1, 100))
         self.InsertColumn(0, firstcol)
         wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
@@ -13,25 +110,40 @@ class GenericEditor(wx.Panel):
     """
     Generic class for static text with some edit control.
     """
-    def __init__(self, parent, part): 
-        wx.Panel.__init__(self, parent, -1)
+    def __init__(self, parent, part, cfg, unicode): 
+        wx.Panel.__init__(self, parent, -1, style = wx.RAISED_BORDER)
         self.part = part
+        self.cfg = cfg
+        self.unicode = unicode
 
 class TextEditor(GenericEditor):
-    def __init__(self, parent, part): 
-        GenericEditor.__init__(self, parent, part)
+    def __init__(self, parent, cfg ,part, unicode): 
+        GenericEditor.__init__(self, parent, cfg, part, unicode)
+        
+        self.backuptext = ''
+
         self.sizer = wx.lib.rcsizer.RowColSizer()
 
         self.edit = wx.TextCtrl(self, -1, style=wx.TE_MULTILINE)
         
-        
         self.sizer.Add(self.edit, pos = (0,0), flag = wx.EXPAND, colspan = 4)
-        self.sizer.AddGrowableCol(0)
+        self.sizer.AddGrowableCol(1)
+        self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableRow(0)
     
-        self.leninfo = wx.StaticText(self, -1, _('Typed %d characters') % 0, style = wx.ALIGN_LEFT)
-        self.sizer.Add(self.leninfo, pos = (1, 3), flag = wx.ALIGN_TOP | wx.ALIGN_RIGHT)
+        self.concat = wx.CheckBox(self, -1, _('Concatenated'))
+        self.concat.SetValue(self.part['ID'] != 'Text')
+        self.sizer.Add(self.concat, pos = (1, 0))
+        wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.CheckTextLen)
+        
+        self.leninfo = wx.StaticText(self, -1, _('%d chars') % 999)
+        self.sizer.Add(self.leninfo, pos = (1, 3), flag = wx.ALIGN_RIGHT)
     
+        self.stylebut = wx.Button(self, -1, _('Style'))
+        wx.EVT_BUTTON(self, self.stylebut.GetId(), self.StylePressed)
+        self.sizer.Add(self.stylebut, pos = (1, 1))
+        
+        
         wx.EVT_TEXT(self.edit, self.edit.GetId(), self.TextChanged)
         if self.part.has_key('Buffer'):
             self.edit.SetValue(self.part['Buffer'])
@@ -39,20 +151,56 @@ class TextEditor(GenericEditor):
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
-        
+
+    def OnUnicode(self, newu):
+        self.unicode = newu
+        self.CheckTextLen()
+
+    def CheckTextLen(self, evt = None):
+        if not self.concat.GetValue():
+            if self.unicode:
+                self.edit.SetValue(self.edit.GetValue()[:70])
+            else:
+                self.edit.SetValue(self.edit.GetValue()[:160])
+    
+    def StylePressed(self, evt):
+        dlg = StyleEdit(self, self.part)
+        dlg.ShowModal()
+        dlg.Destroy()
+    
     def TextChanged(self, evt = None):
-        self.leninfo.SetLabel( _('Typed %d characters') % len(self.edit.GetValue()))
+        txt = self.edit.GetValue()
+        length = len(txt)
+        if not self.concat.GetValue() and ((self.unicode and length > 70) or (not self.unicode and length > 160)):
+            self.edit.SetValue(self.backuptext)
+            return
+        self.leninfo.SetLabel( _('%d chars') % len(self.edit.GetValue()))
+        self.backuptext = txt
 
     def GetValue(self):
-        # FIXME
-        self.part['ID'] = 'Text'
+        if self.concat.GetValue():
+            if self.cfg.ReadInt('/SMS/Text/16bitId', 1):
+                type = 'ConcatenatedTextLong16bit'
+            else:
+                type = 'ConcatenatedTextLong'
+        else:
+            self.part['ID'] = 'Text'
         self.part['Buffer'] = self.edit.GetValue()
         return self.part
 
-class PredefinedAnimEditor(GenericEditor):
-    def __init__(self, parent, part): 
-        GenericEditor.__init__(self, parent, part)
+class PredefinedAnimEditor(GenericEditor, unicode):
+    def __init__(self, parent, part, cfg, unicode): 
+        GenericEditor.__init__(self, parent, part, cfg)
         self.sizer = wx.lib.rcsizer.RowColSizer()
+
+        values = []
+        for x in Wammu.Data.PredefinedAnimations:
+            values.append(x[0])
+
+        self.edit = wx.Choice(self, -1, choices = values)
+
+        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos = (0,0))
+        self.sizer.Add(self.edit, pos = (0,1))
 
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
@@ -64,25 +212,32 @@ class PredefinedAnimEditor(GenericEditor):
 SMSParts = [
 # FIXME: should support more types...
 #   ID, display text, match types, editor, init type
-    (0, _('Text'), ['Text', 'ConcatenatedTextLong', 'ConcatenatedAutoTextLong', 'ConcatenatedTextLong16bit', 'ConcatenatedAutoTextLong16bit'], TextEditor, 'Text'),
-    (1, _('Predefined animation'), ['EMSPredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
+    (0, _('Text'), Wammu.SMSIDs['Text'], TextEditor, 'Text'),
+    (1, _('Predefined animation'), Wammu.SMSIDs['PredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
     ]
 
 class SMSComposer(wx.Dialog):
     def __init__(self, parent, cfg, entry, type = 'send', addtext = True):
         wx.Dialog.__init__(self, parent, -1, _('Composing SMS'), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.entry = entry
+        self.cfg = cfg
         if not entry.has_key('SMSInfo'):
             entry['SMSInfo'] = {}
             entry['SMSInfo']['Entries'] = []
+            if self.cfg.ReadInt('/SMS/Text/Concatenated', 1):
+                if self.cfg.ReadInt('/SMS/Text/16bitId', 1):
+                    type = 'ConcatenatedTextLong16bit'
+                else:
+                    type = 'ConcatenatedTextLong'
+            else:
+                type = 'Text'
             if entry.has_key('Text'):
-                entry['SMSInfo']['Entries'].append({'ID': 'Text', 'Buffer': entry['Text']})
+                entry['SMSInfo']['Entries'].append({'ID': type, 'Buffer': entry['Text']})
             elif addtext:
-                entry['SMSInfo']['Entries'].append({'ID': 'Text', 'Buffer': ''})
+                entry['SMSInfo']['Entries'].append({'ID': type, 'Buffer': ''})
         if not entry.has_key('Number'):
             entry['Number'] = ''
 
-        self.cfg = cfg
         self.sizer = wx.lib.rcsizer.RowColSizer()
       
       
@@ -106,6 +261,17 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number(s):')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
+
+        row = row + 2
+
+        self.unicode = wx.CheckBox(self, -1, _('Unicode'))
+        if self.entry.has_key('Unicode'):
+            self.unicode.SetValue(self.entry['Unicode'])
+        else:
+            self.unicode.SetValue(self.cfg.ReadInt('/SMS/Unicode', 0))
+        self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
+
+        wx.EVT_CHECKBOX(self.unicode, self.unicode.GetId(), self.OnUnicode)
 
         row = row + 2
         self.sizer.AddGrowableRow(row)
@@ -146,14 +312,15 @@ class SMSComposer(wx.Dialog):
         
         self.ok = wx.Button(self, wx.ID_OK, _('OK'))
         self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
-        self.preview = wx.Button(self, wx.ID_OK, _('Preview'))
-        self.advanced = wx.Button(self, wx.ID_OK, _('Advanced'))
+        self.preview = wx.Button(self, -1, _('Preview'))
+        self.advanced = wx.Button(self, -1, _('Advanced'))
         self.sizer.Add(self.ok, pos = (row, 1), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.cancel, pos = (row, 2), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.preview, pos = (row, 6), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.advanced, pos = (row, 7), flag = wx.ALIGN_CENTER)
 
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
+        wx.EVT_BUTTON(self, self.preview.GetId(), self.Preview)
 
         self.sizer.AddSpacer(5,5, pos=(row + 1,8))
         self.sizer.AddGrowableCol(1)
@@ -200,6 +367,10 @@ class SMSComposer(wx.Dialog):
     def AvailableSelected(self, event):
         self.availsel = event.m_itemIndex
 
+    def OnUnicode(self, event):
+        if hasattr(self.editor, 'OnUnicode'):
+            self.editor.OnUnicode(self.unicode.GetValue())
+
     def CurrentSelected(self, event):
         self.StoreEdited()
         if hasattr(self, 'editor'):
@@ -209,7 +380,7 @@ class SMSComposer(wx.Dialog):
         found = False
         for p in SMSParts:
             if self.entry['SMSInfo']['Entries'][event.m_itemIndex]['ID'] in p[2]:
-                self.editor = p[3](self, self.entry['SMSInfo']['Entries'][event.m_itemIndex])
+                self.editor = p[3](self, self.entry['SMSInfo']['Entries'][event.m_itemIndex], self.cfg, self.unicode.GetValue())
                 self.sizer.Add(self.editor, pos = (self.editorrow,1), flag = wx.EXPAND, colspan = 7)
                 found = True
                 break
@@ -226,7 +397,6 @@ class SMSComposer(wx.Dialog):
         next = self.prevedit - 1
         if next < 0:
             return
-        print 'switch %d and %d' % (self.prevedit, next)
         self.StoreEdited()
         v = self.entry['SMSInfo']['Entries'][self.prevedit]
         self.entry['SMSInfo']['Entries'][self.prevedit] = self.entry['SMSInfo']['Entries'][next]
@@ -267,8 +437,20 @@ class SMSComposer(wx.Dialog):
     def StoreEdited(self):
         if self.prevedit != -1:
             self.entry['SMSInfo']['Entries'][self.prevedit] = self.editor.GetValue()
-            
+        
+    def Preview(self, evt):
+        if len(self.entry['SMSInfo']['Entries']) == 0:
+            dlg = wx.MessageDialog(self, _('Nothing to preview, message is empty.'),
+                                  _('Message empty!'), wx.OK | wx.ICON_WARNING)
+        else:
+            self.StoreEdited()
+            dlg = MessagePreview(self, Wammu.MessageDisplay.SmsToHtml(self.cfg, self.entry))
+
+        dlg.ShowModal()
+        dlg.Destroy()
+        
     def Okay(self, evt):       
         self.StoreEdited()
         self.entry['Number'] = self.number.GetValue()
+        self.entry['Unicode'] = self.unicode.GetValue()
         self.EndModal(wx.ID_OK)

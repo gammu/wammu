@@ -5,6 +5,8 @@ import sys
 import gettext
 __version__ = '0.2+'
 
+gettext.install('wammu')
+
 # FIXME: these definitions probably should be part of gammu module and not this...
 # First is used as default
 Models = ['at', 'alcatel', 'nauto', 'obex', 'seobex']
@@ -16,6 +18,15 @@ else:
     Devices = ['/dev/ttyS0', '/dev/ttyS1', '/dev/ttyUSB0', '/dev/ircomm0']
 
 ContactMemoryTypes = ['ME', 'SM']
+
+SMSIDs = {
+    'Text':                 ['Text', 'ConcatenatedTextLong', 'ConcatenatedAutoTextLong', 'ConcatenatedTextLong16bit', 'ConcatenatedAutoTextLong16bit'],
+    'Sound':                ['EMSSound10', 'EMSSound12', 'EMSSonyEricssonSound', 'EMSSound10Long', 'EMSSound12Long', 'EMSSonyEricssonSoundLong'],
+    'Animation':            ['EMSAnimation'],
+    'Bitmap':               ['EMSFixedBitmap', 'EMS_EMSVariableBitmap'],
+    'PredefinedAnimation':  ['EMSPredefinedAnimation'],
+    'PredefinedSound':      ['EMSPredefinedSound'],
+    }
 
 MemoryValueTypes = [
     'Number_General',
@@ -117,7 +128,15 @@ TodoValueTypes = [
     'PHONE',
     ]
 
+TextFormats = [
+    [(_('Alignment'), _('None')), ('Left', _('Left'), '<div align="left">%s</div>'), ('Right', _('Right'), '<div align="right">%s</div>'), ('Center', _('Center'), '<div align="center">%s</div>')],
+    
+    [(_('Text Size'), _('Normal')), ('Large', _('Large'), '<font size="+2">%s</font>'), ('Small', _('Small'), '<font size="-2">%s</font>')],
+
+    ['', ('Bold', _('Bold'), '<b>%s</b>')],
+    ['', ('Italic', _('Italic'), '<i>%s</i>')],
+    ['', ('Underlined', _('Underlined'), '<u>%s</u>')],
+    ['', ('Strikethrough', _('Strikethrough'), '<strike>%s</strike>')],
+]
 
 
-
-gettext.install('wammu')

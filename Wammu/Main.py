@@ -22,9 +22,9 @@ from Wammu.Paths import *
 import threading
 import copy
 import wx.lib.wxpTag
-import Wammu.Images
 import Wammu.Data
 import Wammu.Composer
+import Wammu.MessageDisplay
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -170,7 +170,7 @@ class WammuFrame(wx.Frame):
         self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ + 
         '</b></font><br><a href="contact://ME/1">Mem 1</a>'+
         '''
-        <wxp module="Wammu.Image" class="StaticBitmap">
+        <wxp module="Wammu.Image" class="Bitmap">
             <param name="scale" value="(2)">
         </wxp>
         ''' +
@@ -489,47 +489,6 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
-            if v.has_key('SMSInfo'):
-                text = ''
-                for i in v['SMSInfo']['Entries']:
-                    if i['ID'] == 'EMSPredefinedAnimation':
-                        if i['Number'] > len(Wammu.Images.PredefinedAnimations):
-                            text = text + \
-                                '[<wxp module="Wammu.Image" class="StaticBitmap">' + \
-                                '<param name="image" value="' + "['" + string.join(Wammu.Images.UnknownPredefined, "', '") + "']" + '">' + \
-                                '</wxp>' + str(i['Number']) + ']'
-                        else:
-                            text = text + \
-                                '<wxp module="Wammu.Image" class="StaticBitmap">' + \
-                                '<param name="image" value="' + "['" + string.join(Wammu.Images.PredefinedAnimations[i['Number']], "', '") + "']" + '">' + \
-                                '</wxp>'
-
-                    if i['ID'] == 'EMSPredefinedSound':
-                        if i['Number'] >= len(Wammu.Data.PredefinedSoundNames):
-                            desc = _('Unknown predefined sound #%d') % i['Number']
-                        else:
-                            desc = Wammu.Data.PredefinedSoundNames[i['Number']]
-                        text = text + \
-                            '[<wxp module="Wammu.Image" class="StaticBitmap">' + \
-                            '<param name="image" value="' + "['" + string.join(Wammu.Images.Note, "', '") + "']" + '">' + \
-                            '</wxp>' + desc + ']'
-                    if i['ID'] in ['EMSSound10', 'EMSSound12', 'EMSSonyEricssonSound', 'EMSSound10Long', 'EMSSound12Long', 'EMSSonyEricssonSoundLong']:
-                        text = text + \
-                            '<wxp module="Wammu.Image" class="StaticBitmap">' + \
-                            '<param name="image" value="' + "['" + string.join(Wammu.Images.Note, "', '") + "']" + '">' + \
-                            '</wxp>'
-                    if i['Buffer'] != None:
-                        text = text + i['Buffer']
-                        
-                    if i['Bitmap'] != None:
-                        for x in i['Bitmap']:
-                            text = text + \
-                                '<wxp module="Wammu.Image" class="StaticBitmap">' + \
-                                '<param name="scale" value="(' + str(self.cfg.ReadInt('/Wammu/ScaleImage', 1)) + ')">' + \
-                                '<param name="image" value="' + "['" + string.join(x['XPM'], "', '") + "']" + '">' + \
-                                '</wxp>'
-            else:
-                text = v['Text']
             data = [
                 (_('Number'), str(v['Number'])),
                 (_('Date'), str(v['DateTime'])),
@@ -538,7 +497,7 @@ class WammuFrame(wx.Frame):
                 (_('Memory'), v['SMS'][0]['Memory']),
                 (_('SMSC'), v['SMS'][0]['SMSCNumber']),
                 (_('State'), v['State']),
-                (text,)]
+                (Wammu.MessageDisplay.SmsToHtml(self.cfg, v),)]
         elif self.type[0] == 'todo':
             if self.type[1] == '  ':
                 t = '__'
