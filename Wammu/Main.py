@@ -495,11 +495,11 @@ class WammuFrame(wx.Frame):
         if wx.USE_UNICODE:
             self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % text)
         else:
-            loc = locale.getdefaultlocale()
-            if loc[1]:
+            try:
+                loc = locale.getdefaultlocale()
                 charset = loc[1]
-            else:
-                charset = 'ascii'
+            except:
+                charset = 'iso-8859-1'
             self.content.SetPage('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (charset, text))
             
     def OnShow(self, evt): 
