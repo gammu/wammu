@@ -426,7 +426,7 @@ class WammuFrame(wx.Frame):
         self.nextarg = ('memory', 'SM')
         
     def GetContactsType(self, type):
-        self.ShowProgress('Reading contacts from ' + type)
+        self.ShowProgress(_('Reading contacts from %s') % type)
         import Wammu.Memory
         Wammu.Memory.GetMemory(self, self.sm, 'memory', type).start()
 
@@ -435,7 +435,7 @@ class WammuFrame(wx.Frame):
     #
 
     def SyncTime(self, event):
-        busy = wx.BusyInfo('Setting time in phone...')
+        busy = wx.BusyInfo(_('Setting time in phone...'))
         try:
             self.sm.SetDateTime(datetime.datetime.now())
         except gammu.GSMError, val:
@@ -446,7 +446,7 @@ class WammuFrame(wx.Frame):
     #
 
     def PhoneConnect(self, event):
-        busy = wx.BusyInfo('One moment please, connecting to phone...')
+        busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'), 
             'UseGlobalDebugFile': 1, 
@@ -472,7 +472,7 @@ class WammuFrame(wx.Frame):
                 pass
         
     def PhoneDisconnect(self, event):
-        busy = wx.BusyInfo('One moment please, disconnecting to phone...')
+        busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
         try:
             self.sm.Terminate()
         except gammu.GSMError, val:
