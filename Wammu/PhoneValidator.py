@@ -78,18 +78,23 @@ class PhoneValidator(wx.PyValidator):
 
     def OnChar(self, event):
         key = event.KeyCode()
+
+        # control chars
         if key < wx.WXK_SPACE or key == wx.WXK_DELETE or key > 255:
             event.Skip()
             return
 
-        tc = self.GetWindow()
-        pos = tc.GetInsertionPoint()
-        val = tc.GetValue()
-        newval = val[0:pos] + chr(key) + val[pos:len(val)]
-        if self.CheckText(newval, immediate = True):
-            event.Skip()
-            return
+        # need to check at all?
+        if (key >= ord('0') and key <= ord('9')) or key in [ord('p'), ord('P'), ord('+')]:
+            tc = self.GetWindow()
+            pos = tc.GetInsertionPoint()
+            val = tc.GetValue()
+            newval = val[0:pos] + chr(key) + val[pos:len(val)]
+            if self.CheckText(newval, immediate = True):
+                event.Skip()
+                return
 
+        # should we bell?
         if not wx.Validator_IsSilent():
             wx.Bell()
 
