@@ -32,7 +32,7 @@ class GetMessage(Wammu.Thread.Thread):
                 self.ShowError(val[0], True)
                 return
             data.append(value)
-            remain = remain - 1
+            remain = remain - len(value)
 
         read = []
         unread = []
