@@ -30,6 +30,7 @@ import Wammu.Data
 import Wammu.Composer
 import Wammu.MessageDisplay
 import Wammu.PhoneSearch
+import Wammu.About
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -225,6 +226,11 @@ class WammuFrame(wx.Frame):
         # Add menu to the menu bar
         self.menuBar.Append(menu5, _('&Backups'))
 
+        menuhelp = wx.Menu()
+        menuhelp.Append(1001, _('&About'), _('Information about program'))
+        # Add menu to the menu bar
+        self.menuBar.Append(menuhelp, _('&Help'))
+
         # Set menu bar
         self.SetMenuBar(self.menuBar)
 
@@ -253,6 +259,8 @@ class WammuFrame(wx.Frame):
 
         wx.EVT_MENU(self, 501, self.Backup)
         wx.EVT_MENU(self, 502, self.Import)
+        
+        wx.EVT_MENU(self, 1001, self.About)
 
         self.TogglePhoneMenus(False)
 
@@ -1381,3 +1389,6 @@ class WammuFrame(wx.Frame):
             self.cfg.Write('/Gammu/Model', '')
             self.cfg.Write('/Gammu/Device', x[0])
             self.cfg.Write('/Gammu/Connection', x[1])
+
+    def About(self, evt = None):
+        Wammu.About.AboutBox(self).ShowModal()

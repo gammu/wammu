@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: ISO-8859-2 -*-
+# -*- coding: UTF-8 -*-
 
 from distutils.core import setup
 import sys
@@ -34,7 +34,7 @@ else:
 setup(name="wammu",
     version = Wammu.__version__,
     description = "GUI for gammu.",
-    author = "Michal Èihaø",
+    author = "Michal ÄŒihaÅ™",
     author_email = "michal@cihar.com",
     url = "http://cihar.com/gammu/wammu",
     license = "GPL",

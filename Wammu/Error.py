@@ -1,10 +1,13 @@
 import Wammu
+import wx
 import gammu
 import traceback,sys
 
 def Handler(type, value, tback):
     """User friendly error handling """
     print '--------------------- Version ---------------------'
+    print 'Python       %s' % sys.version.split()[0]
+    print 'wxPython     %s' % wx.VERSION_STRING
     print 'Wammu        %s' % Wammu.__version__
     print 'python-gammu %s' % gammu.Version()[1]
     print 'Gammu        %s' % gammu.Version()[0]
