@@ -106,10 +106,10 @@ class Settings(wx.Dialog):
         self.sizer_connection.AddSpacer(1, 1, pos = (r, 3))
 
         # size connection tab
-        self.sizer_connection.Fit(self.notebook_connection)
-        self.sizer_connection.SetSizeHints(self.notebook_connection)
         self.notebook_connection.SetAutoLayout(True)
         self.notebook_connection.SetSizer(self.sizer_connection)
+        self.sizer_connection.Fit(self.notebook_connection)
+        self.sizer_connection.SetSizeHints(self.notebook_connection)
 
         # messages tab
         self.sizer_messages = wx.lib.rcsizer.RowColSizer()
@@ -165,23 +165,23 @@ class Settings(wx.Dialog):
         self.sizer_message_new_2.Add(self.edit16bit, pos = (r2, 0), colspan = 2)
         r2 += 1
 
-        self.sizer_message_new_2.Fit(self.new_message_panel_2)
-        self.sizer_message_new_2.SetSizeHints(self.new_message_panel_2)
         self.new_message_panel_2.SetAutoLayout(True)
         self.new_message_panel_2.SetSizer(self.sizer_message_new_2)
+        self.sizer_message_new_2.Fit(self.new_message_panel_2)
+        self.sizer_message_new_2.SetSizeHints(self.new_message_panel_2)
 
-        self.sizer_message_new.Fit(self.new_message_panel)
-        self.sizer_message_new.SetSizeHints(self.new_message_panel)
         self.new_message_panel.SetAutoLayout(True)
         self.new_message_panel.SetSizer(self.sizer_message_new)
+        self.sizer_message_new.Fit(self.new_message_panel)
+        self.sizer_message_new.SetSizeHints(self.new_message_panel)
 
         self.sizer_messages.AddSpacer(1, 1, pos = (r, 3))
 
         # size messages tab
-        self.sizer_messages.Fit(self.notebook_messages)
-        self.sizer_messages.SetSizeHints(self.notebook_messages)
         self.notebook_messages.SetAutoLayout(True)
         self.notebook_messages.SetSizer(self.sizer_messages)
+        self.sizer_messages.Fit(self.notebook_messages)
+        self.sizer_messages.SetSizeHints(self.notebook_messages)
 
         # other tab
         self.sizer_other = wx.lib.rcsizer.RowColSizer()
@@ -239,10 +239,10 @@ class Settings(wx.Dialog):
         self.sizer_other.AddSpacer(1, 1, pos = (r, 3))
 
         # size other tab
-        self.sizer_other.Fit(self.notebook_other)
-        self.sizer_other.SetSizeHints(self.notebook_other)
         self.notebook_other.SetAutoLayout(True)
         self.notebook_other.SetSizer(self.sizer_other)
+        self.sizer_other.Fit(self.notebook_other)
+        self.sizer_other.SetSizeHints(self.notebook_other)
 
         # add pages to notebook
         self.notebook.AddPage(self.notebook_connection, _("Connection"))
@@ -250,10 +250,15 @@ class Settings(wx.Dialog):
         self.notebook.AddPage(self.notebook_other, _("Other"))
 
         # size main layout
-        self.sizer.Fit(self)
-        self.sizer.SetSizeHints(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+        self.sizer.Fit(self)
+        self.sizer.SetSizeHints(self)
+
+        # workaround, when sizers don't set correct size
+        sz = self.GetSize()
+        if sz.y < 150:
+            self.SetSize((400, 400))
 
         # event handler
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)

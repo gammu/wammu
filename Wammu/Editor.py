@@ -468,9 +468,12 @@ class GenericEditor(wx.Dialog):
         list.append((self.buttons, 0, wx.ALL|wx.ALIGN_CENTER, 2))
 
         self.sizer.AddMany(list)
-        self.sizer.Fit(self)
+
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+        self.sizer.Fit(self)
+        self.sizer.SetSizeHints(self)
+
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
         wx.EVT_BUTTON(self, self.buttons.more.GetId(), self.More)
 
