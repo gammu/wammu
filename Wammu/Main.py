@@ -100,6 +100,7 @@ class WammuFrame(wx.Frame):
         Wammu.Events.EVT_DATA(self, self.OnData)
         Wammu.Events.EVT_SHOW(self, self.OnShow)
         Wammu.Events.EVT_EDIT(self, self.OnEdit)
+        Wammu.Events.EVT_SEND(self, self.OnSend)
         Wammu.Events.EVT_DUPLICATE(self, self.OnDuplicate)
         Wammu.Events.EVT_DELETE(self, self.OnDelete)
 
@@ -734,6 +735,25 @@ class WammuFrame(wx.Frame):
         else: 
             print 'Duplicate not yet implemented!'
             print evt.index
+
+        
+    def OnSend(self, evt): 
+        if self.type[0] == 'message':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            try:
+                for loc in v['Location'].split(', '):
+                    # FIXME: 0 folder is safe for AT, but I'm not sure with others
+                    self.sm.SendSavedSMS(0, int(loc))
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+
+            if t == '__':
+                t = '  '
+            self.ActivateView(self.type[0], t)
 
     def OnDelete(self, evt): 
         # FIXME: add here confirmation?

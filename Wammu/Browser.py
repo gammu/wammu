@@ -140,9 +140,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.popupIndex = evt.m_itemIndex
         # only do this part the first time so the events are only bound once
         if not hasattr(self, "popupIDEdit"):
+            self.popupIDSend        = wx.NewId()
             self.popupIDEdit        = wx.NewId()
             self.popupIDDelete      = wx.NewId()
             self.popupIDDuplicate   = wx.NewId()
+            wx.EVT_MENU(self, self.popupIDSend,         self.OnPopupSend)
             wx.EVT_MENU(self, self.popupIDEdit,         self.OnPopupEdit)
             wx.EVT_MENU(self, self.popupIDDelete,       self.OnPopupDelete)
             wx.EVT_MENU(self, self.popupIDDuplicate,    self.OnPopupDuplicate)
@@ -150,9 +152,16 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         # make a menu
         menu = wx.Menu()
         # add some items
-        if self.type != 'call':
+        if self.type == 'message':
+            if self.values[evt.m_itemIndex]['State'] == 'Sent':
+                menu.Append(self.popupIDSend,       _('Resend'))
+            if self.values[evt.m_itemIndex]['State'] == 'UnSent':
+                menu.Append(self.popupIDSend,       _('Send'))
+            
+        if not self.type in ['call', 'message']:
             menu.Append(self.popupIDEdit,       _('Edit'))
             menu.Append(self.popupIDDuplicate,  _('Duplicate'))
+
         menu.Append(self.popupIDDelete,     _('Delete'))
 
         # Popup the menu.  If an item is selected then its handler
@@ -162,6 +171,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     
     def OnPopupDuplicate(self, event):
         evt = Wammu.Events.DuplicateEvent(index = self.popupIndex)
+        wx.PostEvent(self.win, evt)
+
+    def OnPopupSend(self, event):
+        evt = Wammu.Events.SendEvent(index = self.popupIndex)
         wx.PostEvent(self.win, evt)
 
     def OnPopupEdit(self, event):
