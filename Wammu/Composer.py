@@ -188,25 +188,47 @@ class TextEditor(GenericEditor):
         self.part['Buffer'] = self.edit.GetValue()
         return self.part
 
-class PredefinedAnimEditor(GenericEditor, unicode):
+class PredefinedAnimEditor(GenericEditor):
     def __init__(self, parent, part, cfg, unicode): 
-        GenericEditor.__init__(self, parent, part, cfg)
+        GenericEditor.__init__(self, parent, part, cfg, unicode)
         self.sizer = wx.lib.rcsizer.RowColSizer()
 
         values = []
         for x in Wammu.Data.PredefinedAnimations:
             values.append(x[0])
 
+        self.sizer.AddGrowableRow(0)
+        self.sizer.AddGrowableCol(1)
+        self.sizer.AddGrowableCol(2)
+
         self.edit = wx.Choice(self, -1, choices = values)
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos = (0,0))
-        self.sizer.Add(self.edit, pos = (0,1))
+        bitmap = wx.BitmapFromXPMData(Wammu.Data.UnknownPredefined)
+        self.bitmap = wx.StaticBitmap(self, -1, bitmap, (0,0))
+        
+        wx.EVT_CHOICE(self.edit, self.edit.GetId(), self.OnChange)
+
+        if not self.part.has_key('Number'):
+            self.part['Number'] = 0
+
+        self.edit.SetSelection(self.part['Number'])
+        self.OnChange()
+
+        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos = (0,0), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer.Add(self.edit, pos = (0,1), flag = wx.ALIGN_CENTER)
+        self.sizer.Add(self.bitmap, pos = (0,2), flag = wx.ALIGN_CENTER)
 
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+    
+    def OnChange(self, evt = None):
+        bitmap = wx.BitmapFromXPMData(Wammu.Data.PredefinedAnimations[self.edit.GetSelection()][1])
+        self.bitmap.SetBitmap(bitmap)
 
     def GetValue(self):
+        self.part['ID'] = 'EMSPredefinedAnimation'
+        self.part['Number'] = self.edit.GetSelection()
         return self.part
 
 SMSParts = [
@@ -422,7 +444,9 @@ class SMSComposer(wx.Dialog):
             return
         self.StoreEdited()
         del self.entry['SMSInfo']['Entries'][self.prevedit]
-        self.GenerateCurrent(max(self.prevedit - 1, 0))
+        next = self.prevedit - 1
+        self.prevedit = -1
+        self.GenerateCurrent(max(next, 0))
 
     def AddPressed(self, evt):
         if self.availsel == -1 or self.prevedit == -1:
