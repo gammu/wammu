@@ -931,7 +931,7 @@ class WammuFrame(wx.Frame):
                         self.values['contact'][v['MemoryType']].append(v)
                     self.ActivateView('contact', 'SM')
                 elif type == 'ToDo':
-                    for v in backup['Todo']:
+                    for v in backup['ToDo']:
                         v['Location'] = self.sm.AddToDo(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetToDo(v['Location'])
