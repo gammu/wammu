@@ -57,68 +57,37 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def ShowHeaders(self):
         if self.type == 'info':
-            self.InsertColumn(0, _('Name'))
-            self.InsertColumn(1, _('Value'))
+            self.columns = (_('Name'), _('Value'))
             self.keys = (0, 1)
         elif self.type == 'contact':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Memory'))
-            self.InsertColumn(2, _('Name'))
-            self.InsertColumn(3, _('Number'))
+            self.columns = ( _('Location'), _('Memory'), _('Name'), _('Number'))
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'call':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Type'))
-            self.InsertColumn(2, _('Name'))
-            self.InsertColumn(3, _('Number'))
+            self.columns = ( _('Location'), _('Type'), _('Name'), _('Number'))
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'message':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('State'))
-            self.InsertColumn(2, _('Number'))
-            self.InsertColumn(3, _('Date'))
-            self.InsertColumn(4, _('Text'))
+            self.columns = ( _('Location'), _('State'), _('Number'), _('Date'), _('Text'))
             self.keys = ('Location', 'State', 'Number', 'DateTime', 'Text')
         elif self.type == 'todo':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Completed'))
-            self.InsertColumn(2, _('Priority'))
-            self.InsertColumn(3, _('Text'))
-            self.InsertColumn(4, _('Date'))
+            self.columns = ( _('Location'), _('Completed'), _('Priority'), _('Text'), _('Date'))
             self.keys = ('Location', 'Completed', 'Priority', 'Text', 'Date')
         elif self.type == 'calendar':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Start'))
-            self.InsertColumn(2, _('End'))
-            self.InsertColumn(3, _('Text'))
+            self.columns = ( _('Location'), _('Start'), _('End'), _('Text'))
             self.keys = ('Location', 'Start', 'End', 'Text')
+
+        cnt = len(self.columns)
+        
+        for i in range(cnt):
+            self.InsertColumn(i, self.columns[i])
 
         # resize columns to fit content
         
         # FIXME: this should be acquired better!
         spc = 10
-        cnt = self.GetColumnCount()
         
         max = [0] * cnt
         for i in range(cnt):
-            try:
-                size = self.GetTextExtent(self.GetColumn(i).GetText())[0]
-            except NameError:
-                if not globals().has_key('ShowWXBroken'):
-                    print '***********************************************'
-                    print '* You seem to have broken version of wxPython *'
-                    print '***********************************************'
-                    print 'wxListCtrl.GetColumn failed, which is probably caused by typo in wxPython/controls2.py'
-                    print 'This is usual bug found on wxPython 2.4.1.2'
-                    print 'You can fix it yourself (just c is missing from string controls2 see traceback bellow), or upgrade wxPython, otherwise columns will not be automatically sized.'
-                    print
-                    print '-------------------- Traceback --------------------'
-                    traceback.print_exc()
-                    print '---------------------------------------------------'
-                    print
-                    global ShowWXBroken
-                    ShowwxBroken = False
-                size = 8 * self.GetColumn(i).GetText()
+            size = self.GetTextExtent(StrConv(self.columns[i]))[0]
             # 16 bellow is for sort arrrow
             if (size + 16 > max[i]):
                 max[i] = size + 16
