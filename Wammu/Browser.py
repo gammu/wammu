@@ -36,6 +36,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                             style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
         self.win = win
 
+        self.itemno = -1
+
         self.attr1 = wx.ListItemAttr()
 
         self.attr2 = wx.ListItemAttr()
@@ -141,7 +143,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.ShowRow(result)
     
     def ShowRow(self, id):
-        if self.GetItemCount() > id:
+        if self.GetItemCount() > id and id >= 0:
+            self.itemno = id
             index = self.GetFirstSelected()
             while index != -1:
                 self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
@@ -160,6 +163,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.Resort(0)
 
     def Resort(self, col):
+        # remember show item
+        item = self.values[self.itemno]
         # find keys and order
         nextsort = self.keys[col]
         if nextsort == self.sortkey:
@@ -183,13 +188,16 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         # refresh displayed items
         if self.GetItemCount() != 0:
             top = self.GetTopItem() 
-            if top == -1:
+            if top < 0:
                 top = 0
             count = self.GetCountPerPage()
-            if count == -1:
-                count = self.GetItemCount()
-            last = min(self.GetItemCount() - 1, top + count)
+            totalcount = self.GetItemCount()
+            if count < 0:
+                count = totalcount
+            last = min(totalcount - 1, top + count)
             self.RefreshItems(top, last)
+            
+            self.ShowRow(self.values.index(item))
 
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
@@ -309,6 +317,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.Resort(evt.GetColumn())
         
     def OnItemSelected(self, event):
+        self.itemno = event.m_itemIndex
         evt = Wammu.Events.ShowEvent(index = event.m_itemIndex)
         wx.PostEvent(self.win, evt)
 

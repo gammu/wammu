@@ -105,6 +105,12 @@ def SearchLocation(list, loc, second = None):
                 break
     return result
 
+def SearchItem(list, item):
+    for i in range(len(list)):
+        if item == list[i]:
+            return result
+    return -1
+
 def SearchNumber(list, number):
     for i in range(len(list)):
         for x in list[i]['Entries']:
