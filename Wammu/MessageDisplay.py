@@ -23,7 +23,7 @@ import Wammu.Data
 import Wammu.Ringtone
 import string
 import re
-from Wammu.Utils import UnicodeConv, StrConv, Str_ as _
+from Wammu.Utils import UnicodeConv, HtmlStrConv, StrConv, Str_ as _
 
 def SmsTextFormat(cfg, txt):
     if cfg.Read('/Wammu/FormatSMS', 'yes') == 'yes':
@@ -129,8 +129,7 @@ def SmsToHtml(cfg, v):
                     for name, txt, style in x[1:]:
                         if i.has_key(name) and i[name]:
                             fmt = style % fmt
-                #FIXME: handle special chars
-                text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
+                text = text + (fmt % HtmlStrConv(SmsTextFormat(cfg, i['Buffer'])))
 
             if i['ID'] in Wammu.Data.SMSIDs['Bitmap']:
                 x = i['Bitmap'][0]
@@ -150,7 +149,7 @@ def SmsToHtml(cfg, v):
                         '<param name="images" value="' + "['" + string.join(data, "', '") + "']" + '">' + \
                         '</wxp>'
         if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:
-            text = ('<i>%s</i><hr>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it')) + text
+            text = ('<table border="1" bgcolor="#dd7777" color="#000000"><tr><td>%s</td></tr></table>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it in Gammu.')) + text
     else:
         text = SmsTextFormat(cfg, v['Text'])
 
