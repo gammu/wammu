@@ -679,8 +679,8 @@ class WammuFrame(wx.Frame):
                     self.ShowError(val[0])
 
             if v['Save']:
-                self.ActivateView('message', result['State'])
                 try:
+                    self.ActivateView('message', result['State'])
                     self.browser.ShowLocation(result['Location'])
                 except KeyError:
                     pass
