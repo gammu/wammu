@@ -1,6 +1,6 @@
 # -*- coding: ISO-8859-2 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003-4 Michal Cihar 
+# Copyright (c) 2003 - 2004 Michal Cihar 
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free

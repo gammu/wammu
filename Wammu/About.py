@@ -1,5 +1,5 @@
 # Wammu - Phone manager
-# Copyright (c) 2003-4 Michal Cihar 
+# Copyright (c) 2003 - 2004 Michal Cihar 
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -29,7 +29,7 @@ import Wammu.Utils
 from Wammu.Utils import Str_ as _
 
 if wx.USE_UNICODE:
-    copyrightline = 'Copyright &copy; 2003-2004 Michal &#268;iha&#345;'
+    copyrightline = 'Copyright &copy; 2003 - 2004 Michal &#268;iha&#345;'
     head = ''
 else:
     copyrightline = 'Copyright (c) 2003-2004 Michal Cihar'
