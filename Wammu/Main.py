@@ -510,7 +510,10 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Priority'), v['Priority'])]
             for i in v['Entries']:
-                data.append((i['Type'], str(i['Value'])))
+                if i['Type'] == 'ContactID':
+                    data.append((i['Type'], '<a href="memory://ME/%d">%d</a>' % (i['Value'], i['Value'])))
+                else:
+                    data.append((i['Type'], str(i['Value'])))
         elif self.type[0] == 'calendar':
             if self.type[1] == '  ':
                 t = '__'
@@ -521,7 +524,10 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Type'), v['Type'])]
             for i in v['Entries']:
-                data.append((i['Type'], str(i['Value'])))
+                if i['Type'] == 'ContactID':
+                    data.append((i['Type'], '<a href="memory://ME/%d">%d</a>' % (i['Value'], i['Value'])))
+                else:
+                    data.append((i['Type'], str(i['Value'])))
         else:
             data = [('Show not yet implemented! (id = %d)' % evt.index,)]
         self.ShowData(data)

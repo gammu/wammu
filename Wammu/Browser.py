@@ -94,7 +94,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
             return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
-    
+
+    def ShowRow(self, id):
+        self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
+        self.EnsureVisible(id)
+        
     def Change(self, type, values):
         self.type = type
         self.values = values
