@@ -113,7 +113,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.ShowRow(result)
 
     def ShowRow(self, id):
-        if self.GetItemCount() > id and id >= 0:
+        if self.GetItemCount() > id and id >= 0 and self.GetCountPerPage() > 0:
             self.itemno = id
             while self.GetSelectedItemCount() > 0:
                 index = self.GetFirstSelected()

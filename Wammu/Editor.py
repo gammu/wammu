@@ -303,8 +303,6 @@ class OneEdit(wx.Panel):
         if oldt == newt:
             return
 
-        self.sizer.Remove(2)
-        self.sizer.Remove(3)
         if hasattr(self, 'edit'):
             self.edit.Destroy()
             del self.edit
