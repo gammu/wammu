@@ -47,6 +47,13 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.InsertColumn(2, 'Name')
             self.InsertColumn(3, 'Number')
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
+        elif self.type == 'message':
+            self.InsertColumn(0, 'Location') 
+            self.InsertColumn(1, 'State')
+            self.InsertColumn(2, 'Number')
+            self.InsertColumn(3, 'Date')
+            self.InsertColumn(4, 'Text')
+            self.keys = ('Location', 'State', 'Number', 'DateTime', 'Text')
 
         # resize columns to fit content
         

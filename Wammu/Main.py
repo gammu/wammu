@@ -31,6 +31,7 @@ displaydata = {}
 displaydata['info'] = {}
 displaydata['call'] = {}
 displaydata['memory'] = {}
+displaydata['message'] = {}
 
 #information
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()[0]], [_('python-gammu version'), gammu.Version()[1]]])
@@ -45,6 +46,14 @@ displaydata['call']['DC'] = ('call', _('Outgoing'), _('Outgoing Calls'), 'call-o
 displaydata['memory']['  '] = ('info', _('Contacts'), _('All Contacts'), 'contact', [])
 displaydata['memory']['SM'] = ('memory', _('SIM'), _('SIM Contacts'), 'contact-sim', [])
 displaydata['memory']['ME'] = ('memory', _('Phone'), _('Phone Contacts'), 'contact-phone', [])
+
+# contacts
+displaydata['message']['  '] = ('info', _('Messages'), _('All Messages'), 'message', [])
+displaydata['message'][' R'] = ('message', _('Read'), _('Read Messages'), 'message-read', [])
+displaydata['message']['UR'] = ('message', _('Unread'), _('Unread Messages'), 'message-unread', [])
+displaydata['message'][' S'] = ('message', _('Sent'), _('Sent Messages'), 'message-sent', [])
+displaydata['message']['US'] = ('message', _('Unsent'), _('Unsent Messages'), 'message-unsent', [])
+
 
 ## Create a new frame class, derived from the wxPython Frame.
 class WammuFrame(wx.Frame):
@@ -158,6 +167,8 @@ class WammuFrame(wx.Frame):
         menu3.Append(312, _('&Contacts (All)'), _('Contacts from phone and SIM memory'))
         menu3.AppendSeparator()
         menu3.Append(320, _('C&alls'), _('Calls'))
+        menu3.AppendSeparator()
+        menu3.Append(330, _('&Messages'), _('Messages'))
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
@@ -183,6 +194,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 311, self.ShowContactsME)
         wx.EVT_MENU(self, 312, self.ShowContacts)
         wx.EVT_MENU(self, 320, self.ShowCalls)
+        wx.EVT_MENU(self, 330, self.ShowMessages)
         
         wx.EVT_MENU(self, 401, self.NewContact)
 
@@ -259,6 +271,8 @@ class WammuFrame(wx.Frame):
         
         mb.Enable(320, enable);
         
+        mb.Enable(330, enable);
+        
         mb.Enable(401, enable);
 
     def ActivateView(self, k1, k2):
@@ -323,25 +337,50 @@ class WammuFrame(wx.Frame):
             del self.nextfun
             del self.nextarg
             f (*a)
+
+    def ShowData(self, data):
+        text = ''
+        for d in data:
+            if len(d) == 2:
+                text = text + ('<b>%s</b>: %s<br>' % (d[0], d[1]))
+            else:
+                text = text + ('<br>%s' % d[0])
+        self.content.SetPage('<body><html>%s</html></body>' % text)
+        
             
     def OnShow(self, evt): 
         if self.type == ['info','  ']:
-            self.content.SetPage('<body><html><b>' + self.values['info']['__'][evt.index][0] + '</b>: ' + self.values['info']['__'][evt.index][1] + '</html></body>')
-        elif self.type[0] == 'memory' or self.type[0] == 'call' :
+            data = [self.values['info']['__'][evt.index]]
+        elif self.type[0] == 'memory' or self.type[0] == 'call':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            data = [
+                (_('Location'), str(v['Location'])),
+                (_('Memory type'), v['MemoryType'])]
+            for i in v['Values']:
+                data.append((i['Type'], str(i['Value'])))
+        elif self.type[0] == 'message':
             text = ''
             if self.type[1] == '  ':
                 t = '__'
             else:
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
-            text =  text + '<tr><td><b>' + _('Location') + ':</b></td><td>' + str(v['Location']) + '</td></tr>'
-            text =  text + '<tr><td><b>' + _('Memory type') + ':</b></td><td>' + v['MemoryType'] + '</td></tr>'
-            for i in v['Values']:
-                text = text + '<tr><td><b>' + i['Type'] + ':</b></td><td>' + str(i['Value']) + '</td></tr>'
-            self.content.SetPage('<body><html><table border=1>' + text + '</table></html></body>')
+            data = [
+                (_('Number'), str(v['Number'])),
+                (_('Date'), str(v['DateTime'])),
+                (_('Location'), str(v['Location'])),
+                (_('Folder'), str(v['Folder'])),
+                (_('Memory'), v['Memory']),
+                (_('SMSC'), v['SMSCNumber']),
+                (_('State'), v['State']),
+                (v['Text'],)]
         else:
-            print 'Show not yet implemented!'
-            print evt.index
+            data = [('Show not yet implemented! (id = %d)' % evt.index,)]
+        self.ShowData(data)
 
     def NewContact(self, evt):
         import Wammu.Editor
@@ -423,7 +462,7 @@ class WammuFrame(wx.Frame):
                     del self.values[self.type[0]][t][evt.index]
                 else:
                     # we are showing merged list, delete just from the original
-                    for idx in self.values[self.type[0]][v['MemoryType']].keys():
+                    for idx in range(len(self.values[self.type[0]][v['MemoryType']])):
                         if self.values[self.type[0]][v['MemoryType']][idx] == v:
                             del self.values[self.type[0]][v['MemoryType']][idx]
                             break
@@ -531,7 +570,18 @@ class WammuFrame(wx.Frame):
         self.ShowProgress(_('Reading contacts from %s') % type)
         import Wammu.Memory
         Wammu.Memory.GetMemory(self, self.sm, 'memory', type).start()
+        
+    #
+    # Messages
+    #
 
+    def ShowMessages(self, event):
+        self.ShowProgress(_('Reading messages'))
+        import Wammu.Message
+        Wammu.Message.GetMessage(self, self.sm).start()
+        self.nextfun = self.ActivateView
+        self.nextarg = ('message', '  ')
+        
     #
     # Time
     #
