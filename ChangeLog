@@ -2,6 +2,59 @@
 # arch-tag: automatic-ChangeLog--michal@cihar.com--2003-main/wammu--devel--0.1
 #
 
+2003-12-06 11:59:30 GMT	Michal Cihar <michal@cihar.com>	patch-8
+
+    Summary:
+      added icons to indicate sorting
+    Revision:
+      wammu--devel--0.1--patch-8
+
+    - added icons for sorting
+    - icons moved to images/icons
+    - optimised Wammu.Memory
+
+    new files:
+     images/.arch-ids/=id images/misc/.arch-ids/=id
+     images/misc/.arch-ids/downarrow.png.id
+     images/misc/.arch-ids/uparrow.png.id images/misc/downarrow.png
+     images/misc/uparrow.png
+
+    modified files:
+     ChangeLog Wammu/Browser.py Wammu/Memory.py Wammu/Paths.py
+     Wammu/__init__.py
+
+    renamed files:
+     icons/.arch-ids/=id
+       ==> images/icons/.arch-ids/=id
+     icons/.arch-ids/call-missed.png.id
+       ==> images/icons/.arch-ids/call-missed.png.id
+     icons/.arch-ids/call-outgoing.png.id
+       ==> images/icons/.arch-ids/call-outgoing.png.id
+     icons/.arch-ids/call-received.png.id
+       ==> images/icons/.arch-ids/call-received.png.id
+     icons/.arch-ids/call.png.id
+       ==> images/icons/.arch-ids/call.png.id
+     icons/.arch-ids/contact-phone.png.id
+       ==> images/icons/.arch-ids/contact-phone.png.id
+     icons/.arch-ids/contact-sim.png.id
+       ==> images/icons/.arch-ids/contact-sim.png.id
+     icons/.arch-ids/contact.png.id
+       ==> images/icons/.arch-ids/contact.png.id
+     icons/.arch-ids/phone.png.id
+       ==> images/icons/.arch-ids/phone.png.id
+
+    new directories:
+     images images/.arch-ids images/icons/.arch-ids images/misc
+     images/misc/.arch-ids
+
+    removed directories:
+     icons/.arch-ids
+
+    renamed directories:
+     icons
+       ==> images/icons
+
+
 2003-12-04 22:51:59 GMT	Michal Cihar <michal@cihar.com>	patch-7
 
     Summary:

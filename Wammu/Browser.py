@@ -3,6 +3,7 @@ import Wammu
 import Wammu.Events
 import Wammu.Utils
 import gammu
+from Wammu.Paths import *
 
 import wx.lib.mixins.listctrl 
 
@@ -10,7 +11,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, win):
         wx.ListCtrl.__init__(self, parent, -1,
                             style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
-#                            style=wx.LC_REPORT|wx.LC_HRULES|wx.LC_VRULES)
         self.win = win
 
         self.attr1 = wx.ListItemAttr()
@@ -18,10 +18,14 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.attr2 = wx.ListItemAttr()
         self.attr2.SetBackgroundColour('light blue')
 
+        il = wx.ImageList(16, 16)
+        self.downarrow = il.Add(wx.Bitmap(MiscPath('downarrow')))
+        self.uparrow = il.Add(wx.Bitmap(MiscPath('uparrow')))
+        self.AssignImageList(il, wx.IMAGE_LIST_SMALL)
+
         wx.EVT_LIST_ITEM_SELECTED(self, self.GetId(), self.OnItemSelected)
         wx.EVT_LIST_ITEM_ACTIVATED(self, self.GetId(), self.OnItemActivated)
         wx.EVT_LIST_COL_CLICK(self, self.GetId(), self.OnColClick)
-##        wx.lib.mixins.listctrl.ColumnSorterMixin
         wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
     def ShowHeaders(self):
@@ -71,14 +75,27 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.Resort(0)
 
     def Resort(self, col):
+        # find keys and order
         nextsort = self.sortkeys[col]
         if nextsort == self.sortkey:
             self.sortorder = -1 * self.sortorder
         else:
             self.sortorder = 1
         self.sortkey = nextsort
+
+        # do the real sort
         self.values.sort(self.Sorter)
-        # FIXME icon in headers
+
+        # set image
+        for i in range(self.GetColumnCount()):
+            self.ClearColumnImage(i)
+        if self.sortorder == 1:
+            image = self.uparrow
+        else:
+            image = self.downarrow
+        self.SetColumnImage(col, image)
+
+        # refresh displayed items
         top = self.GetTopItem() 
         self.RefreshItems(top, top + self.GetCountPerPage())
 
