@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-09 19:22+0200\n"
-"PO-Revision-Date: 2004-09-09 19:24+0200\n"
+"POT-Creation-Date: 2004-09-13 21:10+0200\n"
+"PO-Revision-Date: 2004-09-13 21:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -154,7 +154,7 @@ msgstr "Text"
 msgid "Completed"
 msgstr "Hotovo"
 
-#: Wammu/Browser.py:69 Wammu/Editor.py:538 Wammu/Main.py:604
+#: Wammu/Browser.py:69 Wammu/Editor.py:534 Wammu/Main.py:604
 msgid "Priority"
 msgstr "Priorita"
 
@@ -219,7 +219,7 @@ msgid "Message preview"
 msgstr "Náhled zprávy"
 
 #: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/Composer.py:440
-#: Wammu/About.py:97 Wammu/Editor.py:412
+#: Wammu/About.py:97 Wammu/Editor.py:405
 msgid "OK"
 msgstr "OK"
 
@@ -227,11 +227,11 @@ msgstr "OK"
 msgid "Text style"
 msgstr "Styl textu"
 
-#: Wammu/Composer.py:172 Wammu/Settings.py:145
+#: Wammu/Composer.py:172 Wammu/Settings.py:150
 msgid "Concatenated"
 msgstr "Spojená"
 
-#: Wammu/Composer.py:173 Wammu/Settings.py:146
+#: Wammu/Composer.py:173 Wammu/Settings.py:151
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Vytvoří spojené zprávy, které umožní posílat delší text."
 
@@ -292,14 +292,15 @@ msgstr "Čísla příjemců:"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: Wammu/Composer.py:380 Wammu/Settings.py:152
+#: Wammu/Composer.py:380 Wammu/Settings.py:157
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
 "space, so you can write less characters into single message."
 msgstr ""
 "Zprávy v unicode mohou obsahovat národní a další speciální znaky, "
-"zaškrtněte, pokud používáte jiné znaky než latin-1. Zpráva bude zabírat více místa, takže můžete v jedné zprávě poslat méně znaků."
+"zaškrtněte, pokud používáte jiné znaky než latin-1. Zpráva bude zabírat více "
+"místa, takže můžete v jedné zprávě poslat méně znaků."
 
 #: Wammu/Composer.py:390
 msgid "Delivery report"
@@ -315,7 +316,9 @@ msgstr "Odeslaná"
 
 #: Wammu/Composer.py:395
 msgid "Check to save message as sent (has only effect when only saving message)."
-msgstr "Zaškrtněte pro uložení zprávy jako odeslané (má efekt jen při ukládání zprávy)."
+msgstr ""
+"Zaškrtněte pro uložení zprávy jako odeslané (má efekt jen při ukládání "
+"zprávy)."
 
 #: Wammu/Composer.py:398
 msgid "Flash"
@@ -355,7 +358,7 @@ msgstr "Dolů"
 msgid "Create new message by adding part to left list..."
 msgstr "Vytvořte novou zprávu přidáním částí do levého seznamu"
 
-#: Wammu/Composer.py:441 Wammu/Editor.py:413
+#: Wammu/Composer.py:441 Wammu/Editor.py:406
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -437,6 +440,232 @@ msgstr ""
 msgid "About Wammu"
 msgstr "O Wammu"
 
+#: Wammu/Editor.py:187
+msgid "..."
+msgstr "..."
+
+#: Wammu/Editor.py:211 Wammu/Data.py:543
+msgid "None"
+msgstr "Žádné"
+
+#: Wammu/Editor.py:215 Wammu/Main.py:360
+msgid "Unknown"
+msgstr "Neznámý"
+
+#: Wammu/Editor.py:407
+msgid "More"
+msgstr "Více"
+
+#: Wammu/Editor.py:426
+#, python-format
+msgid "Creating new %s"
+msgstr "Vytvářím nový %s"
+
+#: Wammu/Editor.py:429
+#, python-format
+msgid "Editing %s %s"
+msgstr "Upravuji %s %s"
+
+#: Wammu/Editor.py:446
+msgid "Location (0 = auto):"
+msgstr "Umístění (0 = automaticky):"
+
+#: Wammu/Editor.py:518
+msgid "contact"
+msgstr "kontakt"
+
+#: Wammu/Editor.py:518 Wammu/Main.py:576
+msgid "Memory type"
+msgstr "Typ paměti"
+
+#: Wammu/Editor.py:526
+msgid "calendar event"
+msgstr "událost kalendáře"
+
+#: Wammu/Editor.py:526
+msgid "Event type"
+msgstr "Typ události"
+
+#: Wammu/Editor.py:534
+msgid "todo item"
+msgstr "úkol"
+
+#: Wammu/Settings.py:34
+msgid "Settings"
+msgstr "Nastavení"
+
+#: Wammu/Settings.py:55
+msgid "&OK"
+msgstr "&OK"
+
+#: Wammu/Settings.py:58
+msgid "&Cancel"
+msgstr "&Zrušit"
+
+#: Wammu/Settings.py:73
+msgid "Device, where your phone is connected."
+msgstr "Zařízení na kterém je připojen telefon."
+
+#: Wammu/Settings.py:74
+msgid "Device"
+msgstr "Zařízení"
+
+#: Wammu/Settings.py:79
+msgid ""
+"Connection which your phone understands, check Gammu documentation for "
+"connection details."
+msgstr ""
+"Připojení. kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
+"dostupné možnosti."
+
+#: Wammu/Settings.py:80 Wammu/Settings.py:254
+msgid "Connection"
+msgstr "Připojení"
+
+#: Wammu/Settings.py:85
+msgid "Phone model, you can usually keep here auto unless you have any problems."
+msgstr "Model telefonu obvykle můžete ponechat auto pokud s tím nemáte problémy."
+
+#: Wammu/Settings.py:88
+msgid "Model"
+msgstr "Model"
+
+#: Wammu/Settings.py:94
+msgid "Lock device"
+msgstr "Zamykat zařízení"
+
+#: Wammu/Settings.py:95
+msgid ""
+"Whether to lock device in /var/lock. On some systems you might lack "
+"privileges to do so."
+msgstr ""
+"Jesli má být zařízení zamknuto ve /var/lock. Na některých systémech pro to "
+"nemusíte mít opravnění."
+
+#: Wammu/Settings.py:100
+msgid "Automatically connect to phone on startup"
+msgstr "Automaticky připojit při spuštění programu"
+
+#: Wammu/Settings.py:101
+msgid ""
+"Whether you want application automatically connect to phone when it is "
+"started."
+msgstr "Zda se má aplikace automaticky připojit k telefonu při spuštění"
+
+#: Wammu/Settings.py:124
+msgid ""
+"Whether images in messages should be scaled when displayed. This is usually "
+"good idea as they are pretty small."
+msgstr ""
+"Jestli mají být zvětšeny obrázky ve zprávách. Obvykle to je vhodné, protože "
+"jsou vemli malé."
+
+#: Wammu/Settings.py:125
+msgid "Scale images"
+msgstr "Zvětšení obrázků"
+
+#: Wammu/Settings.py:129
+msgid "Attempt to reformat text"
+msgstr "Pokusit se přeformátovat text"
+
+#: Wammu/Settings.py:130
+msgid ""
+"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
+"interested in this choice."
+msgstr ""
+"Pokud občas dostáváte \"komprimované\" zprávy jakoJEtentoTEXT, měli byste "
+"tuto volbu zapnout."
+
+#: Wammu/Settings.py:156
+msgid "Create unicode message"
+msgstr "Vytvářet zprávu v unicode"
+
+#: Wammu/Settings.py:162
+msgid "Use 16bit Id"
+msgstr "Použít 16-bitové Id"
+
+#: Wammu/Settings.py:163
+msgid "Use 16 bit Id inside message. This is safe for most cases."
+msgstr "Použít 16-bitové Id uvnitř zprávy. Toto je obvykle nejlepší volba."
+
+#: Wammu/Settings.py:196
+msgid ""
+"How often refresh phone state in application status bar. Enter value in "
+"miliseconds, 0 to disable."
+msgstr "Jak často má být aktualizován  stavu telefonu v milisekundách, 0 vypne."
+
+#: Wammu/Settings.py:197
+msgid "Refresh phone state"
+msgstr "Obnovit stav telefonu"
+
+#: Wammu/Settings.py:201
+msgid "Synchronize time"
+msgstr "Synchronizovat čas"
+
+#: Wammu/Settings.py:202
+msgid "Synchronise time in phone with computer time while connecting."
+msgstr "Synchronizovat čas v telefonu s časem v počítači při připojování."
+
+#: Wammu/Settings.py:207
+msgid "Startup information"
+msgstr "Informace o spouštění"
+
+#: Wammu/Settings.py:208
+msgid "Display startup on phone (not supported by all models)."
+msgstr ""
+"Zobrazit na telefonu informace o spuštění komunikace (toto není podporováno "
+"všemi telefony)."
+
+#: Wammu/Settings.py:213
+msgid "Show debug log"
+msgstr "Zobrazit ladicí hlášky"
+
+#: Wammu/Settings.py:214
+msgid "Show debug information on error output."
+msgstr "Zobrazit ladicí informace na chybový výstup."
+
+#: Wammu/Settings.py:219 Wammu/Main.py:1221
+msgid "Confirm deleting"
+msgstr "Potvrzovat mazání"
+
+#: Wammu/Settings.py:220
+msgid "Whether to ask for confirmation when deleting entries."
+msgstr "Zda se má program požadovat potvrzení mazání položek."
+
+#: Wammu/Settings.py:226
+msgid "Default time to be used for newly created time fields."
+msgstr "Výchozí čas, který bude použitý pro nově vytvořené položky."
+
+#: Wammu/Settings.py:227
+msgid "Default time"
+msgstr "Výchozí čas"
+
+#: Wammu/Settings.py:233
+msgid ""
+"Default date to be used for newly created time fields. Enter amount of days "
+"from today (1 = tommorow)."
+msgstr "Výchozí datum požité pro nově vytvořené položky. Zadejte počet dní od dneška (1 = zítra)."
+
+#: Wammu/Settings.py:234
+msgid "Default time = now + x days"
+msgstr "Výchozí datum = dnes + x dní"
+
+#: Wammu/Settings.py:240
+msgid "How many entries will be shown in newly created item."
+msgstr "Kolik záznamů bude v nově vytvořené položce."
+
+#: Wammu/Settings.py:241
+msgid "Entries for new item"
+msgstr "Záznamy v nové položce"
+
+#: Wammu/Settings.py:255 Wammu/Main.py:90 Wammu/Main.py:224
+msgid "Messages"
+msgstr "Zprávy"
+
+#: Wammu/Settings.py:256
+msgid "Other"
+msgstr "Ostatní"
+
 #: Wammu/Info.py:39
 msgid "Manufacturer"
 msgstr "Výrobce"
@@ -492,56 +721,6 @@ msgstr "Měsíc výroby"
 #: Wammu/Info.py:174
 msgid "Language packs in phone"
 msgstr "Jazyky dostupné v telefonu"
-
-#: Wammu/Editor.py:197
-msgid "..."
-msgstr "..."
-
-#: Wammu/Editor.py:221 Wammu/Data.py:543
-msgid "None"
-msgstr "Žádné"
-
-#: Wammu/Editor.py:225 Wammu/Main.py:360
-msgid "Unknown"
-msgstr "Neznámý"
-
-#: Wammu/Editor.py:414
-msgid "More"
-msgstr "Více"
-
-#: Wammu/Editor.py:433
-#, python-format
-msgid "Creating new %s"
-msgstr "Vytvářím nový %s"
-
-#: Wammu/Editor.py:436
-#, python-format
-msgid "Editing %s %s"
-msgstr "Upravuji %s %s"
-
-#: Wammu/Editor.py:453
-msgid "Location (0 = auto):"
-msgstr "Umístění (0 = automaticky):"
-
-#: Wammu/Editor.py:522
-msgid "contact"
-msgstr "kontakt"
-
-#: Wammu/Editor.py:522 Wammu/Main.py:576
-msgid "Memory type"
-msgstr "Typ paměti"
-
-#: Wammu/Editor.py:530
-msgid "calendar event"
-msgstr "událost kalendáře"
-
-#: Wammu/Editor.py:530
-msgid "Event type"
-msgstr "Typ události"
-
-#: Wammu/Editor.py:538
-msgid "todo item"
-msgstr "úkol"
 
 #: Wammu/Data.py:26
 msgid "Chimes high"
@@ -724,148 +903,6 @@ msgstr "Zvolte telefonní číslo vybraného kontaku"
 #: Wammu/Select.py:63
 msgid "Select phone number"
 msgstr "Vyberte telefonní číslo"
-
-#: Wammu/Settings.py:29
-msgid "Settings"
-msgstr "Nastavení"
-
-#: Wammu/Settings.py:50
-msgid "&OK"
-msgstr "&OK"
-
-#: Wammu/Settings.py:53
-msgid "&Cancel"
-msgstr "&Zrušit"
-
-#: Wammu/Settings.py:68
-msgid "Device, where your phone is connected."
-msgstr "Zařízení na kterém je připojen telefon."
-
-#: Wammu/Settings.py:69
-msgid "Device"
-msgstr "Zařízení"
-
-#: Wammu/Settings.py:74
-msgid ""
-"Connection which your phone understands, check Gammu documentation for "
-"connection details."
-msgstr ""
-"Připojení. kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
-"dostupné možnosti."
-
-#: Wammu/Settings.py:75 Wammu/Settings.py:223
-msgid "Connection"
-msgstr "Připojení"
-
-#: Wammu/Settings.py:80
-msgid "Phone model, you can usually keep here auto unless you have any problems."
-msgstr "Model telefonu obvykle můžete ponechat auto pokud s tím nemáte problémy."
-
-#: Wammu/Settings.py:83
-msgid "Model"
-msgstr "Model"
-
-#: Wammu/Settings.py:89
-msgid "Lock device"
-msgstr "Zamykat zařízení"
-
-#: Wammu/Settings.py:90
-msgid ""
-"Whether to lock device in /var/lock. On some systems you might lack "
-"privileges to do so."
-msgstr ""
-"Jesli má být zařízení zamknuto ve /var/lock. Na některých systémech pro to "
-"nemusíte mít opravnění."
-
-#: Wammu/Settings.py:95
-msgid "Automatically connect to phone on startup"
-msgstr "Automaticky připojit při spuštění programu"
-
-#: Wammu/Settings.py:96
-msgid ""
-"Whether you want application automatically connect to phone when it is "
-"started."
-msgstr "Zda se má aplikace automaticky připojit k telefonu při spuštění"
-
-#: Wammu/Settings.py:119
-msgid ""
-"Whether images in messages should be scaled when displayed. This is usually "
-"good idea as they are pretty small."
-msgstr ""
-"Jestli mají být zvětšeny obrázky ve zprávách. Obvykle to je vhodné, protože "
-"jsou vemli malé."
-
-#: Wammu/Settings.py:120
-msgid "Scale images"
-msgstr "Zvětšení obrázků"
-
-#: Wammu/Settings.py:124
-msgid "Attempt to reformat text"
-msgstr "Pokusit se přeformátovat text"
-
-#: Wammu/Settings.py:125
-msgid ""
-"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
-"interested in this choice."
-msgstr ""
-"Pokud občas dostáváte \"komprimované\" zprávy jakoJEtentoTEXT, měli byste "
-"tuto volbu zapnout."
-
-#: Wammu/Settings.py:151
-msgid "Create unicode message"
-msgstr "Vytvářet zprávu v unicode"
-
-#: Wammu/Settings.py:157
-msgid "Use 16bit Id"
-msgstr "Použít 16-bitové Id"
-
-#: Wammu/Settings.py:158
-msgid "Use 16 bit Id inside message. This is safe for most cases."
-msgstr "Použít 16-bitové Id uvnitř zprávy. Toto je obvykle nejlepší volba."
-
-#: Wammu/Settings.py:191
-msgid ""
-"How often refresh phone state in application status bar. Enter value in "
-"miliseconds, 0 to disable."
-msgstr "Jak často má být aktualizován  stavu telefonu v milisekundách, 0 vypne."
-
-#: Wammu/Settings.py:192
-msgid "Refresh phone state"
-msgstr "Obnovit stav telefonu"
-
-#: Wammu/Settings.py:196
-msgid "Synchronize time"
-msgstr "Synchronizovat čas"
-
-#: Wammu/Settings.py:197
-msgid "Synchronise time in phone with computer time while connecting."
-msgstr "Synchronizovat čas v telefonu s časem v počítači při připojování."
-
-#: Wammu/Settings.py:202
-msgid "Startup information"
-msgstr "Informace o spouštění"
-
-#: Wammu/Settings.py:203
-msgid "Display startup on phone (not supported by all models)."
-msgstr ""
-"Zobrazit na telefonu informace o spuštění komunikace (toto není podporováno "
-"všemi telefony)."
-
-#: Wammu/Settings.py:208
-msgid "Show debug log"
-msgstr "Zobrazit ladicí hlášky"
-
-#: Wammu/Settings.py:209
-msgid "Show debug information on error output."
-msgstr "Zobrazit ladicí informace na chybový výstup."
-
-#: Wammu/Settings.py:224 Wammu/Main.py:90 Wammu/Main.py:224
-msgid "Messages"
-msgstr "Zprávy"
-
-#: Wammu/Settings.py:225
-msgid "Other"
-msgstr "Ostatní"
 
 #: Wammu/Main.py:76 Wammu/Main.py:87
 msgid "Phone"
@@ -1385,61 +1422,116 @@ msgstr "Záloha byla uložena do souboru \"%s\""
 msgid "Backup saved"
 msgstr "Záloha uložena"
 
-#: Wammu/Main.py:1181
-msgid "Deleting contact..."
-msgstr "Mažu kontakty..."
+#: Wammu/Main.py:1195
+#, python-format
+msgid "Are you sure you want to delete %s?"
+msgstr "Opravdu chcete smazat %s?"
 
-#: Wammu/Main.py:1204
-msgid "Deleting message..."
-msgstr "Mažu zprávy..."
+#: Wammu/Main.py:1199
+#, python-format
+msgid "contact \"%s\""
+msgstr "kontakt \"%s\""
 
-#: Wammu/Main.py:1227
-msgid "Deleting todo..."
-msgstr "Mažu úkoly..."
+#: Wammu/Main.py:1201
+#, python-format
+msgid "call \"%s\""
+msgstr "hovor \"%s\""
 
-#: Wammu/Main.py:1249
-msgid "Deleting calendar event..."
-msgstr "Mažu události..."
+#: Wammu/Main.py:1203
+#, python-format
+msgid "message from \"%s\""
+msgstr "zprávu od \"%s\""
 
-#: Wammu/Main.py:1316
+#: Wammu/Main.py:1205
+#, python-format
+msgid "todo \"%s\""
+msgstr "úkol \"%s\""
+
+#: Wammu/Main.py:1207
+#, python-format
+msgid "calendar entry \"%s\""
+msgstr "událost v kalendáři \"%s\""
+
+#: Wammu/Main.py:1210
+#, python-format
+msgid "%d contacts"
+msgstr "%d kontaktů"
+
+#: Wammu/Main.py:1212
+#, python-format
+msgid "%d calls"
+msgstr "%d hovorů"
+
+#: Wammu/Main.py:1214
+#, python-format
+msgid "%d messages"
+msgstr "%d zpráv"
+
+#: Wammu/Main.py:1216
+#, python-format
+msgid "%d todo"
+msgstr "%d úkolů"
+
+#: Wammu/Main.py:1218
+#, python-format
+msgid "%d calendar entries"
+msgstr "%d událostí kalendáře"
+
+#: Wammu/Main.py:1229
+msgid "Deleting contact(s)..."
+msgstr "Maži kontakty..."
+
+#: Wammu/Main.py:1237
+msgid "Deleting message(s)..."
+msgstr "Maži zprávy..."
+
+#: Wammu/Main.py:1246
+msgid "Deleting todo(s)..."
+msgstr "Maži úkoly..."
+
+#: Wammu/Main.py:1257
+msgid "Deleting calendar event(s)..."
+msgstr "Maži události..."
+
+#: Wammu/Main.py:1322
 msgid "Reading phone information"
 msgstr "Načítám informace o telefonu"
 
-#: Wammu/Main.py:1341
+#: Wammu/Main.py:1347
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Načítám hovory typu %s"
 
-#: Wammu/Main.py:1369
+#: Wammu/Main.py:1375
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Načítám kontakty z %s"
 
-#: Wammu/Main.py:1377
+#: Wammu/Main.py:1383
 msgid "Reading messages"
 msgstr "Načítám zprávy"
 
-#: Wammu/Main.py:1387
+#: Wammu/Main.py:1393
 msgid "Reading todos"
 msgstr "Načítám úkoly"
 
-#: Wammu/Main.py:1397
+#: Wammu/Main.py:1403
 msgid "Reading calendar"
 msgstr "Načítám kalendář"
 
-#: Wammu/Main.py:1407
+#: Wammu/Main.py:1413
 msgid "Setting time in phone..."
 msgstr "Nastavuji čas v telefonu..."
 
-#: Wammu/Main.py:1419
+#: Wammu/Main.py:1425
 msgid "One moment please, connecting to phone..."
 msgstr "Chvilku strpení, připojuji se k telefonu..."
 
-#: Wammu/Main.py:1468
+#: Wammu/Main.py:1474
 msgid "One moment please, disconnecting from phone..."
 msgstr "Chvilku strpení, odpojuji se od telefonu..."
 
-#: Wammu/Main.py:1498
+#: Wammu/Main.py:1504
 msgid ""
 "No phone could not be found, you still can try to select it manually. Wammu "
 "searches only few ports, so if you are using some unusual, this might "
@@ -1449,20 +1541,20 @@ msgstr ""
 "jen na několika portech, takže pokud máte telefon na nějakém neobvyklém "
 "portu, může se toto stát velmi snadno."
 
-#: Wammu/Main.py:1499
+#: Wammu/Main.py:1505
 msgid "No phone found"
 msgstr "Žádný telefon nenalezen"
 
-#: Wammu/Main.py:1505
+#: Wammu/Main.py:1511
 #, python-format
 msgid "Model %s (%s) on %s port using connection %s"
 msgstr "Model %s (%s) na portu %s používající připojení %s"
 
-#: Wammu/Main.py:1506
+#: Wammu/Main.py:1512
 msgid "Select phone to use from bellow list"
 msgstr "Vyberte telefon, který chcete použít, ze seznamu"
 
-#: Wammu/Main.py:1506
+#: Wammu/Main.py:1512
 msgid "Select phone"
 msgstr "Vyberte telefon"
 
