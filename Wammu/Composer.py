@@ -394,11 +394,11 @@ class SMSComposer(wx.Dialog):
         self.ok = wx.Button(self, wx.ID_OK, _('OK'))
         self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
         self.preview = wx.Button(self, -1, _('Preview'))
-        self.advanced = wx.Button(self, -1, _('Advanced'))
+#        self.advanced = wx.Button(self, -1, _('Advanced'))
         self.sizer.Add(self.ok, pos = (row, 1), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.cancel, pos = (row, 2), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.preview, pos = (row, 6), flag = wx.ALIGN_CENTER)
-        self.sizer.Add(self.advanced, pos = (row, 7), flag = wx.ALIGN_CENTER)
+#        self.sizer.Add(self.advanced, pos = (row, 7), flag = wx.ALIGN_CENTER)
 
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
         wx.EVT_BUTTON(self, self.preview.GetId(), self.Preview)

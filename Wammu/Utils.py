@@ -17,6 +17,22 @@ def GetItemType(str):
         return 'category'
     else:
         return 'number'
+        
+def SearchLocation(list, loc, second = None):
+    result = -1
+    for i in range(len(list)):
+        if second != None:
+            if not list[i][second[0]] == second[1]:
+                continue
+        if type(list[i]['Location']) == type(''):
+            if str(loc) in list[i].split(', '):
+                result = i
+                break
+        else:
+            if loc == list[i]['Location']:
+                result = i
+                break
+    return result
 
 def ParseMemoryEntry(entry):
     first = ''

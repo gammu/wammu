@@ -12,6 +12,7 @@ import Wammu.Displayer
 import Wammu.Browser
 import Wammu.Editor
 import Wammu.Info
+import Wammu.Utils
 import Wammu.Message
 import Wammu.Memory
 import Wammu.Todo
@@ -166,15 +167,9 @@ class WammuFrame(wx.Frame):
 
         self.splitter.SplitVertically(self.tree, self.rightsplitter, self.cfg.ReadInt('/Main/Split', 160))
 
-        # initial content (= playground :-))
+        # initial content
         self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ + 
-        '</b></font><br><a href="contact://ME/1">Mem 1</a>'+
-        '''
-        <wxp module="Wammu.Image" class="Bitmap">
-            <param name="scale" value="(2)">
-        </wxp>
-        ''' +
-        '</html></body>')
+        '</b></font></html></body>')
 
         # Prepare the menu bar
         self.menuBar = wx.MenuBar()
@@ -510,8 +505,13 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Priority'), v['Priority'])]
             for i in v['Entries']:
-                if i['Type'] == 'ContactID':
-                    data.append((i['Type'], '<a href="memory://ME/%d">%d</a>' % (i['Value'], i['Value'])))
+                if Wammu.Utils.GetItemType(i['Type']) == 'contact':
+                    l = Wammu.Utils.SearchLocation(self.values['contact']['ME'], i['Value'])
+                    if l == -1:
+                        s = '%d' % i['Value']
+                    else:
+                        s = '%s (%d)' % (self.values['contact']['ME'][l]['Name'], i['Value'])
+                    data.append((i['Type'], '<a href="memory://ME/%d">%s</a>' % (i['Value'], s)))
                 else:
                     data.append((i['Type'], str(i['Value'])))
         elif self.type[0] == 'calendar':
@@ -524,8 +524,13 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Type'), v['Type'])]
             for i in v['Entries']:
-                if i['Type'] == 'ContactID':
-                    data.append((i['Type'], '<a href="memory://ME/%d">%d</a>' % (i['Value'], i['Value'])))
+                if Wammu.Utils.GetItemType(i['Type']) == 'contact':
+                    l = Wammu.Utils.SearchLocation(self.values['contact']['ME'], i['Value'])
+                    if l == -1:
+                        s = '%d' % i['Value']
+                    else:
+                        s = '%s (%d)' % (self.values['contact']['ME'][l]['Name'], i['Value'])
+                    data.append((i['Type'], '<a href="memory://ME/%d">%s</a>' % (i['Value'], s)))
                 else:
                     data.append((i['Type'], str(i['Value'])))
         else:
@@ -546,6 +551,7 @@ class WammuFrame(wx.Frame):
         if v != None:
             self.values['message'][v['State']].append(v)
             self.ActivateView('message', v['State'])
+            self.browser.ShowLocation(v['Location'])
 
     def ComposeMessage(self, v):
         if Wammu.Composer.SMSComposer(self, self.cfg, v).ShowModal() == wx.ID_OK:
@@ -587,7 +593,7 @@ class WammuFrame(wx.Frame):
     def EditContact(self, v):
         backup = copy.deepcopy(v)
         shoulddelete = (v == {} or v['Location'] == 0)
-        if Wammu.Editor.ContactEditor(self, self.cfg, v).ShowModal() == wx.ID_OK:
+        if Wammu.Editor.ContactEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
                 busy = wx.BusyInfo(_('Writing contact...'))
                 # was entry moved => delete it
@@ -620,13 +626,15 @@ class WammuFrame(wx.Frame):
 
             if (self.type[0] == 'contact' and self.type[1] == '  ') or not v.has_key('MemoryType'):
                 self.ActivateView('contact', '  ')
+                self.browser.ShowLocation(v['Location'], ('MemoryType', v['MemoryType']))
             else:
                 self.ActivateView('contact', v['MemoryType'])
+                self.browser.ShowLocation(v['Location'])
 
     def EditCalendar(self, v):
         backup = copy.deepcopy(v)
         shoulddelete = (v == {} or v['Location'] == 0)
-        if Wammu.Editor.CalendarEditor(self, self.cfg, v).ShowModal() == wx.ID_OK:
+        if Wammu.Editor.CalendarEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
                 busy = wx.BusyInfo(_('Writing calendar...'))
                 # was entry moved => delete it
@@ -658,11 +666,12 @@ class WammuFrame(wx.Frame):
                 self.ShowError(val[0])
 
             self.ActivateView('calendar', '  ')
+            self.browser.ShowLocation(v['Location'])
 
     def EditTodo(self, v):
         backup = copy.deepcopy(v)
         shoulddelete = (v == {} or v['Location'] == 0)
-        if Wammu.Editor.TodoEditor(self, self.cfg, v).ShowModal() == wx.ID_OK:
+        if Wammu.Editor.TodoEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
                 busy = wx.BusyInfo(_('Writing todo...'))
                 # was entry moved => delete it
@@ -693,6 +702,7 @@ class WammuFrame(wx.Frame):
                 self.ShowError(val[0])
 
             self.ActivateView('todo', '  ')
+            self.browser.ShowLocation(v['Location'])
 
 
     def OnEdit(self, evt): 
@@ -875,8 +885,29 @@ class WammuFrame(wx.Frame):
             print evt.index
 
     def OnLink(self, evt): 
-        print 'Links not yet implemented!'
-        print evt.link
+        v = evt.link.split('://')
+        if len(v) != 2:
+            print 'Bad URL!'
+            return
+        if v[0] == 'memory':
+            t = v[1].split('/')
+            if len(t) != 2:
+                print 'Bad URL!'
+                return
+
+            if t[0] in ['ME', 'SM']:
+                self.ActivateView('contact', t[0])
+                self.browser.ShowLocation(int(t[1]))
+
+            elif t[0] in ['MC', 'RC', 'DC']:
+                self.ActivateView('contact', t[0])
+                self.browser.ShowLocation(int(t[1]))
+
+            else:
+                print 'Not supported memory type "%s"' % t[0]
+                return
+        else:
+            print 'This link not yet implemented: "%s"' % evt.link
 
     def OnProgress(self, evt): 
         if not self.progress.Update(evt.progress):

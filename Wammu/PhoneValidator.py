@@ -23,7 +23,6 @@ class PhoneValidator(wx.PyValidator):
         return True
 
     def CheckText(self, val, immediate = False):
-        print 'val "%s"' % val
         if val == '':
             result = self.empty
         elif immediate and val == '+':
@@ -42,7 +41,6 @@ class PhoneValidator(wx.PyValidator):
         return result
 
     def Validate(self, win = None):
-        print 'Called validate'
         tc = self.GetWindow()
         val = tc.GetValue()
 

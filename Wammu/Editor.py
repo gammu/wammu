@@ -10,6 +10,7 @@ import datetime
 import time
 import Wammu
 import Wammu.Utils
+import Wammu.Select
 import Wammu.PhoneValidator
 
 def TextToTime(txt):
@@ -147,6 +148,55 @@ class DateTimeEdit(wx.Panel):
         self.dateed.SetValue(val)
 
 
+class ContactEdit(wx.Panel):
+    """
+    Contact editor
+    """
+    def __init__(self, parent, val, values):
+        wx.Panel.__init__(self, parent, -1)
+        self.values = values
+        self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
+        self.sizer.AddGrowableCol(1)
+        self.edit = wx.lib.intctrl.IntCtrl(self, -1, val, min = 0, limited = True)
+        self.txt = wx.StaticText(self, -1, self.GetText(val))
+        self.btn = wx.Button(self, -1, _('...'), style = wx.BU_EXACTFIT)
+        self.sizer.AddMany([
+            (self.edit,                     0, wx.EXPAND),
+            (self.txt,                      1, wx.EXPAND),
+            (self.btn,                      0, wx.EXPAND),
+            ])
+        wx.EVT_TEXT(self.edit, self.edit.GetId(), self.OnChange)
+        wx.EVT_BUTTON(self.btn, self.btn.GetId(), self.OnContacts)
+        self.sizer.Fit(self)
+        self.SetAutoLayout(True)
+        self.SetSizer(self.sizer)
+
+    def OnChange(self, evt):
+        self.txt.SetLabel(self.GetText(self.edit.GetValue()))
+        self.sizer.Fit(self)
+#        self.sizer.SetSizeHints(self)
+
+    def OnContacts(self, evt):
+        i = Wammu.Select.SelectContact(self, self.values)
+        if i != -1:
+            self.SetValue(i)
+
+    def GetText(self, val):
+        if val < 1:
+            return _('None')
+        else:
+            l = Wammu.Utils.SearchLocation(self.values, val)
+            if l == -1:
+                return _('Unknown')
+            else:
+                return self.values[l]['Name']
+
+    def GetValue(self):
+        return self.edit.GetValue()
+
+    def SetValue(self, value):
+        return self.edit.SetValue(value)
+
 class TextEdit(wx.Panel):
     """
     Generic class for static text with some edit control.
@@ -194,8 +244,9 @@ class OneEdit(wx.Panel):
     """
     Text + Combo + editor for type specified by combo value
     """
-    def __init__(self, parent, text, type, choices, value):
+    def __init__(self, parent, text, type, choices, value, values):
         wx.Panel.__init__(self, parent, -1)
+        self.values = values
         self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
@@ -248,7 +299,14 @@ class OneEdit(wx.Panel):
                 val = False
             self.edit = wx.CheckBox(self, -1, '')
             self.edit.SetValue(val)
-        elif newt == 'contact' or newt == 'category' or newt == 'number':
+        elif newt == 'contact':
+            try:
+                val = int(value)
+            except:
+                val = 0
+            lst = [] + self.values['contact']['ME']
+            self.edit = ContactEdit(self, val, lst)
+        elif newt == 'category' or newt == 'number':
             try:
                 val = int(value)
             except:
@@ -312,7 +370,7 @@ class GenericEditor(wx.Dialog):
     """
     Generic editor customised further by it's descendants
     """
-    def __init__(self, parent, cfg, entry, internalname, name, location, type, typedefault, typename, typevalues, itemtypes ):
+    def __init__(self, parent, cfg, values, entry, internalname, name, location, type, typedefault, typename, typevalues, itemtypes ):
         if entry == {}:
             title = _('Creating new %s') % name
             wasempty = True
@@ -322,6 +380,7 @@ class GenericEditor(wx.Dialog):
 
         wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.entry = entry
+        self.values = values
         self.type = type
         self.cfg = cfg
         self.internalname = internalname
@@ -344,12 +403,12 @@ class GenericEditor(wx.Dialog):
         x = 0
         if wasempty:
             for x in range(3):
-                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '')
+                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '', self.values)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
         else:
             for i in entry['Entries']:
-                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'])
+                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], self.values)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
                 x = x + 1
@@ -370,7 +429,7 @@ class GenericEditor(wx.Dialog):
     def More(self, evt):
         self.sizer.Remove(len(self.edits) + 2)
 
-        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '')
+        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '', self.values)
         self.edits.append(e)
 
         self.sizer.AddMany([
@@ -408,25 +467,25 @@ class GenericEditor(wx.Dialog):
         self.EndModal(wx.ID_OK)
 
 class ContactEditor(GenericEditor):
-    def __init__(self, parent, cfg, entry):
+    def __init__(self, parent, cfg, values, entry):
         if entry == {}:
             location = ''
         else:
             location = '%s:%d' % (entry['MemoryType'], entry['Location'])
-        GenericEditor.__init__(self, parent, cfg, entry, 'contact',  _('contact'), location, 'MemoryType', 'SM', _('Memory type'), Wammu.ContactMemoryTypes, Wammu.MemoryValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'contact',  _('contact'), location, 'MemoryType', 'SM', _('Memory type'), Wammu.ContactMemoryTypes, Wammu.MemoryValueTypes)
 
 class CalendarEditor(GenericEditor):
-    def __init__(self, parent, cfg, entry):
+    def __init__(self, parent, cfg, values, entry):
         if entry == {}:
             location = ''
         else:
             location = '%d' % entry['Location']
-        GenericEditor.__init__(self, parent, cfg, entry, 'calendar',  _('calendar event'), location, 'Type', 'MEETING', _('Event type'), Wammu.CalendarTypes, Wammu.CalendarValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'calendar',  _('calendar event'), location, 'Type', 'MEETING', _('Event type'), Wammu.CalendarTypes, Wammu.CalendarValueTypes)
 
 class TodoEditor(GenericEditor):
-    def __init__(self, parent, cfg, entry):
+    def __init__(self, parent, cfg, values, entry):
         if entry == {}:
             location = ''
         else:
             location = '%d' % entry['Location']
-        GenericEditor.__init__(self, parent, cfg, entry, 'todo',  _('todo item'), location, 'Priority', 'Medium', _('Priority'), Wammu.TodoPriorities, Wammu.TodoValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'todo',  _('todo item'), location, 'Priority', 'Medium', _('Priority'), Wammu.TodoPriorities, Wammu.TodoValueTypes)

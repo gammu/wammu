@@ -1,6 +1,7 @@
 import wx
 import Wammu
 import Wammu.Events
+import Wammu.Utils
 import gammu
 from Wammu.Paths import *
 
@@ -95,6 +96,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
 
+    def ShowLocation(self, loc, second = None):
+        result = Wammu.Utils.SearchLocation(self.values, loc, second)
+        if result != -1:
+            self.ShowRow(result)
+    
     def ShowRow(self, id):
         self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
         self.EnsureVisible(id)
