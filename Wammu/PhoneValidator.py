@@ -25,6 +25,10 @@ from Wammu.Utils import Str_ as _
 validchars = '0123456789+#*'
 matcher = re.compile('^\\+?[0-9*#]+$')
 matcherp = re.compile('^\\+?[P0-9*#]+$')
+matchsplit = re.compile('[\s;,]+')
+
+def SplitNumbers(text):
+    return matchsplit.split(text)
 
 class PhoneValidator(wx.PyValidator):
     def __init__(self, multi=False, pause=False, empty=False):
@@ -43,23 +47,22 @@ class PhoneValidator(wx.PyValidator):
     def TransferFromWindow(self):
         return True
 
-    def CheckText(self, val, immediate = False):
-        if val == '':
-            result = self.empty
-        elif immediate and val == '+':
-            result = True
+    def CheckText(self, text, immediate = False):
+        if self.multi:
+            values = SplitNumbers(text)
         else:
-            if self.pause:
-                if matcherp.match(val) == None:
-                    result = False
+            values = [text]
+        for val in values:
+            if val == '':
+                result = self.empty
+            elif not immediate or val != '+':
+                if self.pause:
+                    if matcherp.match(val) == None:
+                        return False
                 else:
-                    result = True
-            else:
-                if matcher.match(val) == None:
-                    result = False
-                else:
-                    result = True
-        return result
+                    if matcher.match(val) == None:
+                        return False
+        return True
 
     def Validate(self, win = None):
         tc = self.GetWindow()
@@ -84,15 +87,17 @@ class PhoneValidator(wx.PyValidator):
             event.Skip()
             return
 
-        # need to check at all?
-        if (key >= ord('0') and key <= ord('9')) or key in [ord('p'), ord('P'), ord('+')]:
+        try:
+            char = chr(key)
             tc = self.GetWindow()
             pos = tc.GetInsertionPoint()
             val = tc.GetValue()
-            newval = val[0:pos] + chr(key) + val[pos:len(val)]
+            newval = val[0:pos] + char + val[pos:len(val)]
             if self.CheckText(newval, immediate = True):
                 event.Skip()
                 return
+        except UnicodeDecodeError:
+            pass
 
         # should we bell?
         if not wx.Validator_IsSilent():

@@ -361,7 +361,7 @@ class SMSComposer(wx.Dialog):
 
         row = row + 2
 
-        self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator())
+        self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator(multi = True))
         self.contbut = wx.Button(self, -1, _('Contacts'))
 
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number:')), pos = (row,1), flag = wx.ALIGN_LEFT)
@@ -618,7 +618,7 @@ class SMSComposer(wx.Dialog):
         else:
             self.entry['SMSInfo']['Class'] = 1
 
-        self.entry['Number'] = self.number.GetValue()
+        self.entry['Numbers'] = Wammu.PhoneValidator.SplitNumbers(self.number.GetValue())
         self.entry['SMSInfo']['Unicode'] = self.unicode.GetValue()
         self.entry['Save'] = self.save.GetValue()
         self.entry['Send'] = self.send.GetValue()

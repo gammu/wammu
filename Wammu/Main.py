@@ -607,50 +607,55 @@ class WammuFrame(wx.Frame):
 
     def ComposeMessage(self, v):
         if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values).ShowModal() == wx.ID_OK:
-            v['SMS'] = gammu.EncodeSMS(v['SMSInfo'])
-            if v['Save']:
-                result = {}
-                result['SMS'] = []
-                
-            try:
-                for msg in v['SMS']:
-                    msg['SMSC']['Location'] = 1
 
-                    msg['Folder'] = v['Folder']
-                    msg['Number'] = v['Number']
-                    msg['Type'] = v['Type']
-                    msg['State'] = v['State']
+            for number in v['Numbers']:
+                busy = wx.BusyInfo(_('Writing message(s)...'))
+                v['Number'] = number
+                v['SMS'] = gammu.EncodeSMS(v['SMSInfo'])
 
-                    busy = wx.BusyInfo(_('Writing message...'))
+                if v['Save']:
+                    result = {}
+                    result['SMS'] = []
+
+                try:
+                    for msg in v['SMS']:
+                        msg['SMSC']['Location'] = 1
+
+                        msg['Folder'] = v['Folder']
+                        msg['Number'] = v['Number']
+                        msg['Type'] = v['Type']
+                        msg['State'] = v['State']
+
+                        if v['Save']:
+                            msg['Location'] = self.sm.AddSMS(msg)
+                            if v['Send']:
+                                try:
+                                    msg['MessageReference'] = self.sm.SendSavedSMS(msg['Folder'], msg['Location'])
+                                # When sending of saved messages is not supported, send it directly:
+                                except gammu.ERR_NOTSUPPORTED:
+                                    msg['MessageReference'] = self.sm.SendSMS(msg)
+                            result['SMS'].append(self.sm.GetSMS(msg['Folder'], msg['Location'])[0])
+                        elif v['Send']:
+                            msg['MessageReference'] = self.sm.SendSMS(msg)
 
                     if v['Save']:
-                        msg['Location'] = self.sm.AddSMS(msg)
-                        if v['Send']:
-                            try:
-                                msg['MessageReference'] = self.sm.SendSavedSMS(msg['Folder'], msg['Location'])
-                            # When sending of saved messages is not supported, send it directly:
-                            except gammu.ERR_NOTSUPPORTED:
-                                msg['MessageReference'] = self.sm.SendSMS(msg)
-                        result['SMS'].append(self.sm.GetSMS(msg['Folder'], msg['Location'])[0])
-                    elif v['Send']:
-                        msg['MessageReference'] = self.sm.SendSMS(msg)
-                    del busy
-                
-                if v['Save']:
-                    info = gammu.DecodeSMS(result['SMS'])
-                    if info != None:
-                        result['SMSInfo'] = info
-                    Wammu.Utils.ParseMessage(result, (info != None))
-                    self.values['message'][result['State']].append(result)
-                    self.ActivateView('message', result['State'])
-                    try:
-                        self.browser.ShowLocation(result['Location'])
-                    except KeyError:
-                        pass
+                        info = gammu.DecodeSMS(result['SMS'])
+                        if info != None:
+                            result['SMSInfo'] = info
+                        Wammu.Utils.ParseMessage(result, (info != None))
+                        self.values['message'][result['State']].append(result)
 
-            except gammu.GSMError, val:
-                del busy
-                self.ShowError(val[0])
+                except gammu.GSMError, val:
+                    del busy
+                    self.ShowError(val[0])
+
+            del busy
+            if v['Save']:
+                self.ActivateView('message', result['State'])
+                try:
+                    self.browser.ShowLocation(result['Location'])
+                except KeyError:
+                    pass
 
     def EditContact(self, v):
         backup = copy.deepcopy(v)
