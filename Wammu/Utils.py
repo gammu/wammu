@@ -97,7 +97,7 @@ def GetNumberLink(list, number):
     i = SearchNumber(list, number)
     if i == -1:
         return number
-    return getcontactlink(list, i, number)
+    return GetContactLink(list, i, number)
 
 def GetTypeString(type, value, values, linkphone = True):
     t = GetItemType(type)

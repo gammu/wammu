@@ -4,7 +4,7 @@
 import sys
 import os
 import gettext
-__version__ = '0.5'
+__version__ = '0.5.1'
 
 if os.getenv('LOCALLOCALE') == 'yes':
     gettext.install('wammu','./locale/', unicode=1)
