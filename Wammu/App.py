@@ -1,7 +1,7 @@
 # -*- coding: ISO-8859-2 -*-
 import wx
-
 import Wammu.Main
+from Wammu.Paths import *
 
 class WammuApp(wx.App):
 
@@ -12,13 +12,14 @@ class WammuApp(wx.App):
         self.SetVendorName('Michal Čihař')
 
         wx.InitAllImageHandlers()
+        #spl = wx.SplashScreen(wx.Bitmap(MiscPath('splash')), wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT, 5000, None, -1)
         frame = Wammu.Main.WammuFrame(None, -1)
+
         frame.Show(True)
-
-        # Tell wxWindows that this is our main window
-        self.SetTopWindow(frame)
-
         frame.PostInit()
+        self.SetTopWindow(frame)
+        #spl.Destroy()
+
 
         # Return a success flag
         return True

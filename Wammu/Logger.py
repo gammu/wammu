@@ -1,6 +1,7 @@
 import threading
 import time
 import wx
+import os
 import Wammu.Events
 
 class Logger(threading.Thread):
@@ -12,13 +13,11 @@ class Logger(threading.Thread):
 
     def run(self):
         while not self.canceled:
-            txt = self.file.readline()
-            if txt == '':
-                time.sleep(1)
-            else:
-                evt = Wammu.Events.LogEvent(txt = txt)
-                wx.PostEvent(self.win, evt)
-            
+            print 'P:read'
+#            txt = self.file.readline()
+#            print 'P:got ' + txt
+#            evt = Wammu.Events.LogEvent(txt = txt)
+#            wx.PostEvent(self.win, evt)
 
 class LogFrame(wx.Frame):
     def __init__(self, parent, cfg):

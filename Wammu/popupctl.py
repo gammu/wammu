@@ -187,9 +187,8 @@ class wxPopupControl(wxPanel):
     def __init__(self, parent, value):
         wxPanel.__init__(self, parent, -1)
 
-        self.sizer = wxFlexGridSizer(1, 3, 2, 2)
+        self.sizer = wxFlexGridSizer(1, 2)
         self.sizer.AddGrowableCol(0)
-        self.sizer.AddGrowableCol(1)
         self.textCtrl = wxTextCtrl(self,-1,value)
         self.bCtrl = PopButton(self,-1)
         self.sizer.AddMany([

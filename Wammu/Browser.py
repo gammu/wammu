@@ -34,7 +34,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.InsertColumn(0, _('Name'))
             self.InsertColumn(1, _('Value'))
             self.keys = (0, 1)
-        elif self.type == 'memory':
+        elif self.type == 'contact':
             self.InsertColumn(0, _('Location'))
             self.InsertColumn(1, _('Memory'))
             self.InsertColumn(2, _('Name'))

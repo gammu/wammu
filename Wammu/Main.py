@@ -5,6 +5,7 @@ import sys
 import os
 import time
 import datetime
+import string
 import Wammu
 import Wammu.Events
 import Wammu.Displayer
@@ -20,6 +21,7 @@ import Wammu.Settings
 from Wammu.Paths import *
 import threading
 import copy
+import wx.lib.wxpTag
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -40,7 +42,7 @@ def SortDataSubKeys(a, b):
 displaydata = {}
 displaydata['info'] = {}
 displaydata['call'] = {}
-displaydata['memory'] = {}
+displaydata['contact'] = {}
 displaydata['message'] = {}
 displaydata['todo'] = {}
 displaydata['calendar'] = {}
@@ -55,9 +57,9 @@ displaydata['call']['MC'] = ('call', _('Missed'), _('Missed Calls'), 'call-misse
 displaydata['call']['DC'] = ('call', _('Outgoing'), _('Outgoing Calls'), 'call-outgoing', [])
 
 # contacts
-displaydata['memory']['  '] = ('info', _('Contacts'), _('All Contacts'), 'contact', [])
-displaydata['memory']['SM'] = ('memory', _('SIM'), _('SIM Contacts'), 'contact-sim', [])
-displaydata['memory']['ME'] = ('memory', _('Phone'), _('Phone Contacts'), 'contact-phone', [])
+displaydata['contact']['  '] = ('info', _('Contacts'), _('All Contacts'), 'contact', [])
+displaydata['contact']['SM'] = ('contact', _('SIM'), _('SIM Contacts'), 'contact-sim', [])
+displaydata['contact']['ME'] = ('contact', _('Phone'), _('Phone Contacts'), 'contact-phone', [])
 
 # contacts
 displaydata['message']['  '] = ('info', _('Messages'), _('All Messages'), 'message', [])
@@ -158,8 +160,15 @@ class WammuFrame(wx.Frame):
 
         self.splitter.SplitVertically(self.tree, self.rightsplitter, 160)
 
-        # initial content
-        self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ + '</b></font><br><a href="memory://ME/1">Mem 1</a></html></body>')
+        # initial content (just to test possibilities :-))
+        self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ + 
+        '</b></font><br><a href="contact://ME/1">Mem 1</a>'+
+        '''
+        <wxp module="Wammu.Image" class="StaticBitmap">
+            <param name="scale" value="(2)">
+        </wxp>
+        ''' +
+        '</html></body>')
 
         # Prepare the menu bar
         self.menuBar = wx.MenuBar()
@@ -204,6 +213,8 @@ class WammuFrame(wx.Frame):
         # 2st menu from left
         menu4 = wx.Menu()
         menu4.Append(401, _('&Contact'), _('Crates new contact'))
+        menu4.Append(402, _('Calendar &event'), _('Crates new calendar event'))
+        menu4.Append(403, _('&Todo'), _('Crates new todo'))
         # Add menu to the menu bar
         self.menuBar.Append(menu4, _('&New'))
 
@@ -228,6 +239,8 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 350, self.ShowCalendar)
         
         wx.EVT_MENU(self, 401, self.NewContact)
+        wx.EVT_MENU(self, 402, self.NewCalendar)
+        wx.EVT_MENU(self, 403, self.NewTodo)
 
 
         self.TogglePhoneMenus(False)
@@ -290,26 +303,35 @@ class WammuFrame(wx.Frame):
     def DoDebug(self, newdebug):
         if newdebug != self.showdebug:
             self.showdebug = newdebug
-            if hasattr(self, 'piper'):
-                gammu.SetDebugFile(None)
-                self.logger.canceled = True
-                del self.logger
-                self.SaveWinSize(self.logwin, '/Debug')
-                self.logwin.Destroy()
-                del self.logwin
-                del self.piper
-                del self.pipew
-
             if self.showdebug == 'yes':
-                piper, pipew = os.pipe()
-                self.piper = os.fdopen(piper, 'r')
-                self.pipew = os.fdopen(pipew, 'w')
-                gammu.SetDebugFile(self.pipew)
-                self.logwin = Wammu.Logger.LogFrame(self, self.cfg)
-                self.logwin.Show(True)
-                wx.EVT_CLOSE(self.logwin, self.LogClose)
-                self.logger = Wammu.Logger.Logger(self.logwin, self.piper)
-                self.logger.start()
+                gammu.SetDebugFile(sys.stderr)
+                self.sm.SetDebugLevel('textall')
+            else:
+                gammu.SetDebugFile(None)
+                self.sm.SetDebugLevel('nothing')
+
+#            if hasattr(self, 'piper'):
+#                gammu.SetDebugFile(None)
+#                self.logger.canceled = True
+#                del self.logger
+#                self.SaveWinSize(self.logwin, '/Debug')
+#                self.logwin.Destroy()
+#                self.pipew.write('\n')
+#                del self.logwin
+#                del self.piper
+#                del self.pipew
+#
+#            if self.showdebug == 'yes':
+#                piper, pipew = os.pipe()
+#                self.piper = os.fdopen(piper, 'r')
+#                self.pipew = os.fdopen(pipew, 'w')
+#                gammu.SetDebugFile(self.pipew)
+#                self.sm.SetDebugLevel('textall')
+#                self.logwin = Wammu.Logger.LogFrame(self, self.cfg)
+#                self.logwin.Show(True)
+#                wx.EVT_CLOSE(self.logwin, self.LogClose)
+#                self.logger = Wammu.Logger.Logger(self.logwin, self.piper)
+#                self.logger.start()
                 
     def SaveWinSize(self, win, key):
         x,y = win.GetPositionTuple()
@@ -354,6 +376,8 @@ class WammuFrame(wx.Frame):
         mb.Enable(350, enable);
         
         mb.Enable(401, enable);
+        mb.Enable(402, enable);
+        mb.Enable(403, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
@@ -435,7 +459,7 @@ class WammuFrame(wx.Frame):
     def OnShow(self, evt): 
         if self.type == ['info','  ']:
             data = [self.values['info']['__'][evt.index]]
-        elif self.type[0] == 'memory' or self.type[0] == 'call':
+        elif self.type[0] == 'contact' or self.type[0] == 'call':
             if self.type[1] == '  ':
                 t = '__'
             else:
@@ -444,7 +468,7 @@ class WammuFrame(wx.Frame):
             data = [
                 (_('Location'), str(v['Location'])),
                 (_('Memory type'), v['MemoryType'])]
-            for i in v['Values']:
+            for i in v['Entries']:
                 data.append((i['Type'], str(i['Value'])))
         elif self.type[0] == 'message':
             text = ''
@@ -453,15 +477,29 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
+            if v.has_key('SMSInfo'):
+                text = ''
+                for i in v['SMSInfo']['Entries']:
+                    if i['Buffer'] != None:
+                        text = text + i['Buffer']
+                    if i['Bitmap'] != None:
+                        for x in i['Bitmap']:
+                            text = text + \
+                                '<wxp module="Wammu.Image" class="StaticBitmap">' + \
+                                '<param name="scale" value="(' + str(self.cfg.ReadInt('/Wammu/ScaleImage', 1)) + ')">' + \
+                                '<param name="image" value="' + "['" + string.join(x['XPM'], "', '") + "']" + '">' + \
+                                '</wxp>'
+            else:
+                text = v['Text']
             data = [
                 (_('Number'), str(v['Number'])),
                 (_('Date'), str(v['DateTime'])),
                 (_('Location'), str(v['Location'])),
-                (_('Folder'), str(v['Folder'])),
-                (_('Memory'), v['Memory']),
-                (_('SMSC'), v['SMSCNumber']),
+                (_('Folder'), str(v['SMS'][0]['Folder'])),
+                (_('Memory'), v['SMS'][0]['Memory']),
+                (_('SMSC'), v['SMS'][0]['SMSCNumber']),
                 (_('State'), v['State']),
-                (v['Text'],)]
+                (text,)]
         elif self.type[0] == 'todo':
             if self.type[1] == '  ':
                 t = '__'
@@ -471,7 +509,7 @@ class WammuFrame(wx.Frame):
             data = [
                 (_('Location'), str(v['Location'])),
                 (_('Priority'), v['Priority'])]
-            for i in v['Values']:
+            for i in v['Entries']:
                 data.append((i['Type'], str(i['Value'])))
         elif self.type[0] == 'calendar':
             if self.type[1] == '  ':
@@ -482,78 +520,160 @@ class WammuFrame(wx.Frame):
             data = [
                 (_('Location'), str(v['Location'])),
                 (_('Type'), v['Type'])]
-            for i in v['Values']:
+            for i in v['Entries']:
                 data.append((i['Type'], str(i['Value'])))
         else:
             data = [('Show not yet implemented! (id = %d)' % evt.index,)]
         self.ShowData(data)
 
     def NewContact(self, evt):
-        v = {}
-        if Wammu.Editor.ContactEditor(self, self.sm, v).ShowModal() == wx.ID_OK:
-            busy = wx.BusyInfo(_('Creating memory entry...'))
-            # do the change
+        self.EditContact({})
+
+    def NewCalendar(self, evt):
+        self.EditCalendar({})
+
+    def NewTodo(self, evt):
+        self.EditTodo({})
+
+    def EditContact(self, v):
+        backup = copy.deepcopy(v)
+        wasempty = (v == {})
+        if Wammu.Editor.ContactEditor(self, self.cfg, v).ShowModal() == wx.ID_OK:
             try:
-                v['Location'] = self.sm.AddMemory(v)
+                busy = wx.BusyInfo(_('Writing contact...'))
+                # was entry moved => delete it
+                if not wasempty:
+                    # delete from internal list
+                    for idx in range(len(self.values['contact'][backup['MemoryType']])):
+                        if self.values['contact'][backup['MemoryType']][idx] == v:
+                            del self.values['contact'][backup['MemoryType']][idx]
+                            break
+
+                    if v['MemoryType'] != backup['MemoryType'] or  v['Location'] != backup['Location']:
+                        # delete from phone
+                        self.sm.DeleteMemory(backup['MemoryType'], backup['Location'])
+
+                # have we specified location? => add or set
+                if v['Location'] == 0:
+                    v['Location'] = self.sm.AddMemory(v)
+                else:
+                    v['Location'] = self.sm.SetMemory(v)
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                 Wammu.Utils.ParseMemoryEntry(v)
-                self.values['memory'][v['MemoryType']].append(v)
-                
             except gammu.GSMError, val:
+                v = backup
                 self.ShowError(val[0])
-                
-            self.ActivateView('memory', v['MemoryType'])
+
+            # append new value to list
+            self.values['contact'][v['MemoryType']].append(v)
+
+            if self.type[0] == 'contact' and self.type[1] == '  ':
+                self.ActivateView('contact', '  ')
+            else:
+                self.ActivateView('contact', v['MemoryType'])
+
+    def EditCalendar(self, v):
+        backup = copy.deepcopy(v)
+        wasempty = (v == {})
+        if Wammu.Editor.CalendarEditor(self, self.cfg, v).ShowModal() == wx.ID_OK:
+            try:
+                busy = wx.BusyInfo(_('Writing calendar...'))
+                # was entry moved => delete it
+                if not wasempty:
+                    # delete from internal list
+                    for idx in range(len(self.values['calendar']['  '])):
+                        if self.values['calendar']['  '][idx] == v:
+                            del self.values['calendar']['  '][idx]
+                            break
+
+                    if v['Location'] != backup['Location']:
+                        # delete from phone
+                        self.sm.DeleteCalendar(backup['Location'])
+
+                # have we specified location? => add or set
+                if v['Location'] == 0:
+                    v['Location'] = self.sm.AddCalendar(v)
+                else:
+                    v['Location'] = self.sm.SetCalendar(v)
+
+                # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                v = self.sm.GetCalendar(v['Location'])
+                Wammu.Utils.ParseCalendar(v)
+            except gammu.GSMError, val:
+                v = backup
+                self.ShowError(val[0])
+
+            # append new value to list
+            self.values['calendar']['  '].append(v)
+            self.ActivateView('calendar', '  ')
+
+    def EditTodo(self, v):
+        backup = copy.deepcopy(v)
+        wasempty = (v == {})
+        if Wammu.Editor.TodoEditor(self, self.cfg, v).ShowModal() == wx.ID_OK:
+            try:
+                busy = wx.BusyInfo(_('Writing todo...'))
+                # was entry moved => delete it
+                if not wasempty:
+                    # delete from internal list
+                    for idx in range(len(self.values['todo']['  '])):
+                        if self.values['todo']['  '][idx] == v:
+                            del self.values['todo']['  '][idx]
+                            break
+
+                    if v['Location'] != backup['Location']:
+                        # delete from phone
+                        self.sm.DeleteToDo(backup['Location'])
+
+                # have we specified location? => add or set
+                if v['Location'] == 0:
+                    v['Location'] = self.sm.AddToDo(v)
+                else:
+                    v['Location'] = self.sm.SetToDo(v)
+
+                # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                v = self.sm.GetToDo(v['Location'])
+                Wammu.Utils.ParseTodo(v)
+            except gammu.GSMError, val:
+                v = backup
+                self.ShowError(val[0])
+
+            # append new value to list
+            self.values['todo']['  '].append(v)
+            self.ActivateView('todo', '  ')
+
 
     def OnEdit(self, evt): 
-        if self.type[0] == 'memory':
+        if self.type[0] == 'contact':
             if self.type[1] == '  ':
                 t = '__'
             else:
                 t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
-            backup = copy.deepcopy(v)
-            if Wammu.Editor.ContactEditor(self, self.sm, v).ShowModal() == wx.ID_OK:
-                busy = wx.BusyInfo(_('Updating memory entry...'))
-                # do the change
-                try:
-                    if v['MemoryType'] != backup['MemoryType']:
-                        self.sm.DeleteMemory(backup['MemoryType'], backup['Location'])
-                        v['Location'] = self.sm.AddMemory(v)
-                        # delete item from current list:
-                        if backup['MemoryType'] == t:
-                            del self.values[self.type[0]][t][evt.index]
-                        else:
-                            # we are showing merged list, delete just from the original
-                            for idx in self.values[self.type[0]][backup['MemoryType']].keys():
-                                if self.values[self.type[0]][backup['MemoryType']][idx] == v:
-                                    del self.values[self.type[0]][backup['MemoryType']][idx]
-                                    break
-                        self.values[self.type[0]][v['MemoryType']].append(v)
-                        t = v['MemoryType']
-                    else:
-                        v['Location'] = self.sm.SetMemory(v)
-
-                    # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
-                    v = self.sm.GetMemory(v['MemoryType'], v['Location'])
-                    Wammu.Utils.GetMemoryEntryName(v)
-                    Wammu.Utils.GetMemoryEntryNumber(v)
-                except gammu.GSMError, val:
-                    v = backup
-                    self.ShowError(val[0])
-                    
-                if t == '__':
-                    t = '  '
-                    
-                self.ActivateView('memory', t)
+            v = self.values['contact'][t][evt.index]
+            self.EditContact(v);
+        elif self.type[0] == 'calendar':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values['calendar'][t][evt.index]
+            self.EditCalendar(v);
+        elif self.type[0] == 'todo':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values['todo'][t][evt.index]
+            self.EditTodo(v);
         else: 
             print 'Edit not yet implemented!'
             print evt.index
 
     def OnDelete(self, evt): 
         # FIXME: add here confirmation?
-        if self.type[0] == 'memory' or self.type[0] == 'call':
+        if self.type[0] == 'contact' or self.type[0] == 'call':
             if self.type[1] == '  ':
                 t = '__'
             else:
@@ -658,10 +778,8 @@ class WammuFrame(wx.Frame):
                 pass
         if (evt.progress == 100):
             self.progress.Destroy()
-        try:
+        if hasattr(evt, 'lock'):
             evt.lock.release()
-        except AttributeError:
-            pass
 
     def OnShowMessage(self, evt): 
         try:
@@ -676,10 +794,8 @@ class WammuFrame(wx.Frame):
             evt.message,
             evt.title,
             wx.OK | evt.type).ShowModal()
-        try:
+        if hasattr(evt, 'lock'):
             evt.lock.release()
-        except AttributeError:
-            pass
 
     def ShowInfo(self, event):
         self.ShowProgress(_('Reading phone information'))
@@ -722,21 +838,21 @@ class WammuFrame(wx.Frame):
     def ShowContacts2(self):
         self.GetContactsType('ME')
         self.nextfun = self.ActivateView
-        self.nextarg = ('memory', '  ')
+        self.nextarg = ('contact', '  ')
 
     def ShowContactsME(self, event):
         self.GetContactsType('ME')
         self.nextfun = self.ActivateView
-        self.nextarg = ('memory', 'ME')
+        self.nextarg = ('contact', 'ME')
         
     def ShowContactsSM(self, event):
         self.GetContactsType('SM')
         self.nextfun = self.ActivateView
-        self.nextarg = ('memory', 'SM')
+        self.nextarg = ('contact', 'SM')
         
     def GetContactsType(self, type):
         self.ShowProgress(_('Reading contacts from %s') % type)
-        Wammu.Memory.GetMemory(self, self.sm, 'memory', type).start()
+        Wammu.Memory.GetMemory(self, self.sm, 'contact', type).start()
         
     #
     # Messages

@@ -17,6 +17,8 @@ class Settings(wx.Dialog):
         self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
         self.editdebug = wx.ComboBox(self, -1, config.Read('/Debug/Show', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
         self.editauto = wx.ComboBox(self, -1, config.Read('/Wammu/AutoConnect', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
+        v = config.ReadInt('/Wammu/ScaleImage', 1)
+        self.editscale = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 1, max = 20, initial = v)
 
         self.sizer.AddMany([ 
             (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),
@@ -43,6 +45,8 @@ class Settings(wx.Dialog):
             (wx.StaticText(self, -1, _('Automatically connect to phone on startup')), 0, wx.EXPAND),
             (self.editauto, 0, wx.EXPAND),
 
+            (wx.StaticText(self, -1, _('Scale of SMS/EMS images')), 0, wx.EXPAND),
+            (self.editscale, 0, wx.EXPAND),
 
             (wx.Button(self, wx.ID_OK, _('OK')), 0, wx.EXPAND),
             (wx.Button(self, wx.ID_CANCEL, _('Cancel')),  0, wx.EXPAND),
@@ -61,4 +65,5 @@ class Settings(wx.Dialog):
         self.config.Write('/Gammu/StartInfo', self.editinfo.GetValue())
         self.config.Write('/Debug/Show', self.editdebug.GetValue())
         self.config.Write('/Wammu/AutoConnect', self.editauto.GetValue())
+        self.config.WriteInt('/Wammu/ScaleImage', self.editscale.GetValue())
         self.EndModal(wx.ID_OK)

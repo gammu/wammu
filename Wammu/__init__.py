@@ -49,8 +49,75 @@ MemoryValueTypes = [
     'Text_Custom3',
     'Text_Custom4',
     'RingtoneID',
-    'PictureID'
+    'PictureID',
     ]
+
+CalendarTypes = [
+    'REMINDER',
+    'CALL',
+    'MEETING',
+    'BIRTHDAY',
+    'MEMO',
+    'TRAVEL',
+    'VACATION',
+    'T_ATHL',
+    'T_BALL',
+    'T_CYCL',
+    'T_BUDO',
+    'T_DANC',
+    'T_EXTR',
+    'T_FOOT',
+    'T_GOLF',
+    'T_GYM',
+    'T_HORS',
+    'T_HOCK',
+    'T_RACE',
+    'T_RUGB',
+    'T_SAIL',
+    'T_STRE',
+    'T_SWIM',
+    'T_TENN',
+    'T_TRAV',
+    'T_WINT',
+    'ALARM',
+    'DAILY_ALARM',
+    ]
+
+CalendarValueTypes = [
+    'START_DATETIME',
+    'END_DATETIME',
+    'ALARM_DATETIME',
+    'SILENT_ALARM_DATETIME',
+    'RECURRANCE',
+    'TEXT',
+    'LOCATION',
+    'PHONE',
+    'PRIVATE',
+    'CONTACTID',
+    'REPEAT_DAYOFWEEK',
+    'REPEAT_DAY',
+    'REPEAT_WEEKOFMONTH',
+    'REPEAT_MONTH',
+    'REPEAT_FREQUENCY',
+    'REPEAT_STARTDATE',
+    'REPEAT_STOPDATE',
+    ]
+
+TodoPriorities = ['High', 'Medium', 'Low']
+
+TodoValueTypes = [
+    'END_DATETIME',
+    'COMPLETED',
+    'ALARM_DATETIME',
+    'SILENT_ALARM_DATETIME',
+    'TEXT',
+    'PRIVATE',
+    'CATEGORY',
+    'CONTACTID',
+    'PHONE',
+    ]
+
+
 
 
 gettext.install('wammu')

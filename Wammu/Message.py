@@ -1,4 +1,5 @@
 import Wammu.Thread
+import Wammu.Utils
 import gammu
 
 class GetMessage(Wammu.Thread.Thread):
@@ -37,22 +38,25 @@ class GetMessage(Wammu.Thread.Thread):
         unread = []
         sent = []
         unsent = []
+        data = gammu.LinkSMS(data)
         
         for x in data:
-            for n in range(len(x)):
-                i = x[n]
-                if i['State'] == 'Read':
-                    i['S'] = ' R'
-                    read.append(i)
-                elif i['State'] == 'UnRead':
-                    i['S'] = 'UR'
-                    unread.append(i)
-                elif i['State'] == 'Sent':
-                    i['S'] = ' S'
-                    sent.append(i)
-                elif i['State'] == 'UnSent':
-                    i['S'] = 'US'
-                    unsent.append(i)
+            i = {}
+            print x
+            v = gammu.DecodeSMS(x)
+            print v
+            i['SMS'] = x
+            if v != None:
+                i['SMSInfo'] = v
+            Wammu.Utils.ParseMessage(i, (v != None))
+            if i['State'] == 'Read':
+                read.append(i)
+            elif i['State'] == 'UnRead':
+                unread.append(i)
+            elif i['State'] == 'Sent':
+                sent.append(i)
+            elif i['State'] == 'UnSent':
+                unsent.append(i)
                 
         self.SendData(['message', ' R'], read, False)
         self.SendData(['message', 'UR'], unread, False)

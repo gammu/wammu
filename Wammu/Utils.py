@@ -25,7 +25,7 @@ def ParseMemoryEntry(entry):
     number = ''
     number_result = ''
     name_result = ''
-    for i in entry['Values']:
+    for i in entry['Entries']:
         if i['Type'] == 'Text_Name':
             name = i['Value']
         elif i['Type'] == 'Text_FirstName':
@@ -54,7 +54,7 @@ def ParseTodo(entry):
     dt = ''
     text = ''
     completed = ''
-    for i in entry['Values']:
+    for i in entry['Entries']:
         if i['Type'] == 'END_DATETIME':
             dt = str(i['Value'])
         elif i['Type'] == 'TEXT':
@@ -73,7 +73,7 @@ def ParseCalendar(entry):
     end = ''
     text = ''
     completed = ''
-    for i in entry['Values']:
+    for i in entry['Entries']:
         if i['Type'] == 'END_DATETIME':
             end = str(i['Value'])
         elif i['Type'] == 'START_DATETIME':
@@ -83,3 +83,26 @@ def ParseCalendar(entry):
     entry['Text'] = text
     entry['Start'] = start
     entry['End'] = end
+
+def ParseMessage(msg, parseinfo = False):
+    txt = ''
+    loc = ''
+    msg['State'] = msg['SMS'][0]['State']
+    msg['Number'] = msg['SMS'][0]['Number']
+    msg['DateTime'] = msg['SMS'][0]['DateTime']
+    if parseinfo:
+        for i in msg['SMSInfo']['Entries']:
+            if i['Buffer'] != None:
+                txt = txt + i['Buffer']
+        for i in msg['SMS']:
+            if i['Text'] != None:
+                txt = txt + i['Text']
+    else:
+        for i in msg['SMS']:
+            txt = txt + i['Text']
+    for i in msg['SMS']:
+        if loc != '':
+            loc = loc + ', '
+        loc = loc + str(i['Location'])
+    msg['Text'] = txt
+    msg['Location'] = loc
