@@ -10,6 +10,7 @@ import datetime
 import time
 import Wammu
 import Wammu.Utils
+import Wammu.PhoneValidator
 
 def TextToTime(txt):
     hms = txt.split(':')
@@ -99,7 +100,7 @@ class DateTimeEdit(wx.Panel):
     """
     Generic class for static text with some edit control.
     """
-    def __init__(self, parent, value): 
+    def __init__(self, parent, value):
         wx.Panel.__init__(self, parent, -1)
         self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
         self.sizer.AddGrowableCol(1)
@@ -116,7 +117,7 @@ class DateTimeEdit(wx.Panel):
             val = str(datetime.datetime.fromtimestamp(time.time() + 24*60*60).date())
         self.dateed = DateControl(self, val)
         self.SetValue(value)
-        self.sizer.AddMany([ 
+        self.sizer.AddMany([
             (self.dateed, 0, wx.EXPAND),
             (self.timeed, 0, wx.EXPAND),
             ])
@@ -150,14 +151,14 @@ class TextEdit(wx.Panel):
     """
     Generic class for static text with some edit control.
     """
-    def __init__(self, parent): 
+    def __init__(self, parent):
         wx.Panel.__init__(self, parent, -1)
 
     def PostInit(self, text, control):
         self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
         self.sizer.AddGrowableCol(1)
         self.control = control
-        self.sizer.AddMany([ 
+        self.sizer.AddMany([
             (wx.StaticText(self, -1, text),     0, wx.EXPAND),
             (10,10),
             (self.control,                      0, wx.EXPAND),
@@ -177,7 +178,7 @@ class TextCombo(TextEdit):
     """
     Text + Combo edit control
     """
-    def __init__(self, parent, text, value, choices): 
+    def __init__(self, parent, text, value, choices):
         TextEdit.__init__(self, parent)
         self.PostInit(text, wx.ComboBox(self, -1, value, choices = choices, style = wx.CB_READONLY))
 
@@ -185,7 +186,7 @@ class TextNumber(TextEdit):
     """
     Text + Spin edit control
     """
-    def __init__(self, parent, text, value, min = 1, max = sys.maxint): 
+    def __init__(self, parent, text, value, min = 1, max = sys.maxint):
         TextEdit.__init__(self, parent)
         self.PostInit(text, wx.SpinCtrl(self, -1, str(value), style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = min, max = max, initial = value))
 
@@ -193,15 +194,15 @@ class OneEdit(wx.Panel):
     """
     Text + Combo + editor for type specified by combo value
     """
-    def __init__(self, parent, text, type, choices, value): 
+    def __init__(self, parent, text, type, choices, value):
         wx.Panel.__init__(self, parent, -1)
         self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableCol(3)
         self.text = wx.StaticText(self, -1, text)
-        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY)
-        self.sizer.AddMany([ 
+        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY, size = (150, -1))
+        self.sizer.AddMany([
             (self.text,   0, wx.EXPAND|wx.ALL),
             (self.combo,  1, wx.EXPAND|wx.ALL),
             ])
@@ -210,8 +211,8 @@ class OneEdit(wx.Panel):
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
         wx.EVT_TEXT(self.combo, self.combo.GetId(), self.OnChange)
-       
-    def CreateEdit(self, newtype, value = None):       
+
+    def CreateEdit(self, newtype, value = None):
         if value == None and hasattr(self, 'edit'):
             value = self.edit.GetValue()
 
@@ -220,7 +221,7 @@ class OneEdit(wx.Panel):
         else:
             oldt = ''
         newt = Wammu.Utils.GetItemType(newtype)
-        
+
         self.type = newtype
         if oldt == newt:
             return
@@ -236,8 +237,10 @@ class OneEdit(wx.Panel):
             del self.edit2
 
         self.edit2 = wx.StaticText(self, -1, '')
-        if newt == 'text' or newt == 'phone' or newt == None:
+        if newt == 'text' or newt == None:
             self.edit = wx.TextCtrl(self, -1, str(value), size = (200, -1))
+        elif newt == 'phone':
+            self.edit = wx.TextCtrl(self, -1, str(value), size = (200, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
         elif newt == 'bool':
             try:
                 val = bool(value)
@@ -260,12 +263,12 @@ class OneEdit(wx.Panel):
         else:
             print 'warning: creating TextCtrl for %s' % newt
             self.edit = wx.TextCtrl(self, -1, str(value))
-            
+
         self.sizer.AddMany([
-            (self.edit,   1, wx.EXPAND|wx.ALL), 
+            (self.edit,   1, wx.EXPAND|wx.ALL),
             (self.edit2,  1, wx.EXPAND|wx.ALL)
             ])
-       
+
     def OnChange(self, evt):
         self.CreateEdit(evt.GetString())
         self.sizer.SetSizeHints(self)
@@ -282,12 +285,11 @@ class OneEdit(wx.Panel):
     def GetType(self):
         return self.combo.GetValue()
 
-
 class OkCancelMore(wx.Panel):
     """
     OK + Cancel + More buttons
     """
-    def __init__(self, parent): 
+    def __init__(self, parent):
         wx.Panel.__init__(self, parent, -1)
         self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
 
@@ -295,12 +297,12 @@ class OkCancelMore(wx.Panel):
         self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
         self.more = wx.Button(self, -1, _('More'))
 
-        self.sizer.AddMany([ 
+        self.sizer.AddMany([
             (self.ok,       0, wx.EXPAND | wx.ALL),
             (self.cancel,   0, wx.EXPAND | wx.ALL),
             (self.more,     0, wx.EXPAND | wx.ALL),
             ])
-        
+
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
@@ -333,7 +335,7 @@ class GenericEditor(wx.Dialog):
 
         self.locationedit = TextNumber(self,  _('Location (0 = auto):'), entry['Location'], 0)
         self.typeedit = TextCombo(self, typename, entry[type], typevalues)
-        
+
         wx.EVT_TEXT(self.typeedit.control, self.typeedit.control.GetId(), self.OnTypeChange)
 
         list.append((self.locationedit,   0, wx.EXPAND|wx.ALL, 2))
@@ -354,7 +356,7 @@ class GenericEditor(wx.Dialog):
 
         self.buttons = OkCancelMore(self)
         list.append((self.buttons, 0, wx.EXPAND|wx.ALL, 2))
-                
+
         self.sizer.AddMany(list)
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
@@ -367,17 +369,22 @@ class GenericEditor(wx.Dialog):
 
     def More(self, evt):
         self.sizer.Remove(len(self.edits) + 2)
-        
+
         e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '')
         self.edits.append(e)
 
         self.sizer.AddMany([
-            (e, 0, wx.EXPAND|wx.ALL,2), 
+            (e, 0, wx.EXPAND|wx.ALL,2),
             (self.buttons, 0, wx.EXPAND|wx.ALL, 2)
             ])
         self.sizer.Fit(self)
 
-    def Okay(self, evt):       
+    def Okay(self, evt):
+        # FIXME: why it needed to call validators directly?
+        for e in self.edits:
+            if not e.Validate():
+                return
+
         v = []
         for x in self.edits:
             i = {}

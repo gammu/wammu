@@ -1,10 +1,11 @@
 import wx
 import wx.lib.rcsizer
 import wx.lib.editor.editor
-import wx.lib.mixins.listctrl 
+import wx.lib.mixins.listctrl
 import Wammu
 import Wammu.MessageDisplay
 import Wammu.Utils
+import Wammu.PhoneValidator
 import gammu
 
 class MessagePreview(wx.Dialog):
@@ -31,17 +32,17 @@ class MessagePreview(wx.Dialog):
         html.SetSize( (ir.GetWidth()+25, ir.GetHeight()+25) )
         self.SetClientSize(html.GetSize())
         self.CentreOnParent(wx.BOTH)
-        
+
 class StyleEdit(wx.Dialog):
     def __init__(self, parent, entry):
         wx.Dialog.__init__(self, parent, -1, _('Text style'))
-        
+
         self.sizer = wx.lib.rcsizer.RowColSizer()
 
         self.entry = entry
 
         self.fmt = {}
-        
+
         row = 1
 
         col = 1
@@ -61,7 +62,7 @@ class StyleEdit(wx.Dialog):
                     row = row + 2
                     maxcol = max(col, maxcol)
                     col = 1
-                    
+
                 self.sizer.Add(wx.StaticText(self, -1, x[0][0] + ':'), pos = (row, col))
                 col = col + 2
 
@@ -87,7 +88,7 @@ class StyleEdit(wx.Dialog):
         self.ok = wx.Button(self, wx.ID_OK, _('OK'))
         self.sizer.Add(self.ok, pos = (row, 1), colspan = maxcol, flag = wx.ALIGN_CENTER)
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
-        
+
         self.sizer.AddSpacer(5,5, pos=(row + 1, maxcol + 1))
 
         self.sizer.Fit(self)
@@ -95,13 +96,13 @@ class StyleEdit(wx.Dialog):
         self.SetSizer(self.sizer)
 
         self.CentreOnParent(wx.BOTH)
-    
+
     def Okay(self, evt):
         for x in Wammu.TextFormats:
             for name, text, fmt in x[1:]:
                 self.entry[name] = self.fmt[name].GetValue()
         self.EndModal(wx.ID_OK)
-        
+
 class AutoSizeList(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, firstcol):
         wx.ListCtrl.__init__(self, parent, -1, style=wx.LC_REPORT | wx.LC_HRULES | wx.LC_VRULES | wx.LC_SINGLE_SEL | wx.SUNKEN_BORDER, size = (-1, 100))
@@ -112,41 +113,41 @@ class GenericEditor(wx.Panel):
     """
     Generic class for static text with some edit control.
     """
-    def __init__(self, parent, part, cfg, unicode): 
+    def __init__(self, parent, part, cfg, unicode):
         wx.Panel.__init__(self, parent, -1, style = wx.RAISED_BORDER)
         self.part = part
         self.cfg = cfg
         self.unicode = unicode
 
 class TextEditor(GenericEditor):
-    def __init__(self, parent, cfg ,part, unicode): 
+    def __init__(self, parent, cfg ,part, unicode):
         GenericEditor.__init__(self, parent, cfg, part, unicode)
-        
+
         self.backuptext = ''
 
         self.sizer = wx.lib.rcsizer.RowColSizer()
 
         self.edit = wx.TextCtrl(self, -1, style=wx.TE_MULTILINE)
-        
+
         self.sizer.Add(self.edit, pos = (0,0), flag = wx.EXPAND, colspan = 4)
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableRow(0)
-    
+
         self.concat = wx.CheckBox(self, -1, _('Concatenated'))
         self.concat.SetValue(self.part['ID'] != 'Text')
         wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.OnConcatChange)
         self.sizer.Add(self.concat, pos = (1, 0))
-        
+
         self.leninfo = wx.StaticText(self, -1, _('%d chars') % 999)
         self.sizer.Add(self.leninfo, pos = (1, 3), flag = wx.ALIGN_RIGHT)
-    
+
         self.stylebut = wx.Button(self, -1, _('Style'))
         wx.EVT_BUTTON(self, self.stylebut.GetId(), self.StylePressed)
         self.sizer.Add(self.stylebut, pos = (1, 1))
-       
+
         self.OnConcatChange()
-        
+
         wx.EVT_TEXT(self.edit, self.edit.GetId(), self.TextChanged)
         if self.part.has_key('Buffer'):
             self.edit.SetValue(self.part['Buffer'])
@@ -162,19 +163,19 @@ class TextEditor(GenericEditor):
     def OnConcatChange(self, evt = None):
         self.stylebut.Enable(self.concat.GetValue())
         self.CheckTextLen()
-    
+
     def CheckTextLen(self, evt = None):
         if not self.concat.GetValue():
             if self.unicode:
                 self.edit.SetValue(self.edit.GetValue()[:70])
             else:
                 self.edit.SetValue(self.edit.GetValue()[:160])
-    
+
     def StylePressed(self, evt):
         dlg = StyleEdit(self, self.part)
         dlg.ShowModal()
         dlg.Destroy()
-    
+
     def TextChanged(self, evt = None):
         txt = self.edit.GetValue()
         length = len(txt)
@@ -196,7 +197,7 @@ class TextEditor(GenericEditor):
         return self.part
 
 class PredefinedAnimEditor(GenericEditor):
-    def __init__(self, parent, part, cfg, unicode): 
+    def __init__(self, parent, part, cfg, unicode):
         GenericEditor.__init__(self, parent, part, cfg, unicode)
         self.sizer = wx.lib.rcsizer.RowColSizer()
 
@@ -212,7 +213,7 @@ class PredefinedAnimEditor(GenericEditor):
 
         bitmap = wx.BitmapFromXPMData(Wammu.Data.UnknownPredefined)
         self.bitmap = wx.StaticBitmap(self, -1, bitmap, (0,0))
-        
+
         wx.EVT_CHOICE(self.edit, self.edit.GetId(), self.OnChange)
 
         if not self.part.has_key('Number'):
@@ -228,7 +229,7 @@ class PredefinedAnimEditor(GenericEditor):
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
-    
+
     def OnChange(self, evt = None):
         bitmap = wx.BitmapFromXPMData(Wammu.Data.PredefinedAnimations[self.edit.GetSelection()][1])
         self.bitmap.SetBitmap(bitmap)
@@ -239,7 +240,7 @@ class PredefinedAnimEditor(GenericEditor):
         return self.part
 
 class PredefinedSoundEditor(GenericEditor):
-    def __init__(self, parent, part, cfg, unicode): 
+    def __init__(self, parent, part, cfg, unicode):
         GenericEditor.__init__(self, parent, part, cfg, unicode)
         self.sizer = wx.lib.rcsizer.RowColSizer()
 
@@ -263,7 +264,7 @@ class PredefinedSoundEditor(GenericEditor):
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
-    
+
     def GetValue(self):
         self.part['ID'] = 'EMSPredefinedSound'
         self.part['Number'] = self.edit.GetSelection()
@@ -300,25 +301,33 @@ class SMSComposer(wx.Dialog):
             entry['Number'] = ''
 
         self.sizer = wx.lib.rcsizer.RowColSizer()
-      
-      
+
+
         row = 1
-        
+
+        if not action in ['send', 'save']:
+            action = 'save'
+
         self.send = wx.CheckBox(self, -1, _('Send message'))
         self.send.SetValue(action == 'send')
+
         self.save = wx.CheckBox(self, -1, _('Save into folder'))
         self.save.SetValue(action == 'save')
+
+        wx.EVT_CHECKBOX(self.save, self.save.GetId(), self.OnSave)
+        wx.EVT_CHECKBOX(self.send, self.send.GetId(), self.OnSend)
+
         self.folder = wx.SpinCtrl(self, -1, '2', style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = 0, max = 3, initial = 2)
 
         self.sizer.Add(self.send, pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.save, pos = (row,6), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.folder, pos = (row,7), flag = wx.ALIGN_LEFT)
-        
+
         row = row + 2
 
-        self.number = wx.TextCtrl(self, -1, entry['Number'])
+        self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator())
         self.contbut = wx.Button(self, -1, _('Contacts'))
-        
+
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number:')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
@@ -332,7 +341,7 @@ class SMSComposer(wx.Dialog):
             self.unicode.SetValue(self.cfg.ReadInt('/SMS/Unicode', 0))
 
         self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
-        
+
         wx.EVT_CHECKBOX(self.unicode, self.unicode.GetId(), self.OnUnicode)
 
         self.report = wx.CheckBox(self, -1, _('Delivery report'))
@@ -361,27 +370,27 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(self.addbut, pos = (row,4), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.delbut, pos = (row + 1,4), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.available, pos = (row,6), flag = wx.EXPAND, colspan = 2, rowspan = 2)
-        
+
         row = row + 3
-        
+
         self.upbut = wx.Button(self, -1, _('Up'))
         self.dnbut = wx.Button(self, -1, _('Down'))
-        
+
         self.sizer.Add(self.upbut, pos = (row,1), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.dnbut, pos = (row,2), flag = wx.ALIGN_CENTER)
 
         wx.EVT_BUTTON(self, self.upbut.GetId(), self.UpPressed)
         wx.EVT_BUTTON(self, self.dnbut.GetId(), self.DnPressed)
-        
+
         row = row + 2
         self.sizer.AddGrowableRow(row)
         self.editorrow = row
-        
+
         self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list...'), size = (-1, 150))
         self.sizer.Add(self.editor, pos = (row,1), flag = wx.EXPAND, colspan = 7)
 
         row = row + 2
-        
+
         self.ok = wx.Button(self, wx.ID_OK, _('OK'))
         self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
         self.preview = wx.Button(self, -1, _('Preview'))
@@ -409,11 +418,23 @@ class SMSComposer(wx.Dialog):
         wx.EVT_LIST_ITEM_SELECTED(self.current, self.current.GetId(), self.CurrentSelected)
         wx.EVT_LIST_ITEM_SELECTED(self.available, self.available.GetId(), self.AvailableSelected)
 
+        if action == 'send':
+            self.OnSave()
+        else:
+            self.OnSend()
+
         for x in SMSParts:
             self.available.InsertImageStringItem(x[0], x[1], x[0])
         self.available.SetItemState(0, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
 
         self.GenerateCurrent()
+
+    def OnSend(self, evt = None):
+        self.save.Enable(self.send.GetValue())
+        self.number.GetValidator().empty = not self.send.GetValue()
+
+    def OnSave(self, evt = None):
+        self.send.Enable(self.save.GetValue())
 
     def GenerateCurrent(self, select = 0):
         self.current.DeleteAllItems()
@@ -428,9 +449,9 @@ class SMSComposer(wx.Dialog):
             if not found:
                 self.current.InsertImageStringItem(i, _('Not supported id: %s') % x['ID'], -1)
                 print 'Not supported id: %s' % x['ID']
-    
+
         count = self.current.GetItemCount()
-            
+
         if count > 0:
             while select > count:
                 select = select - 1
@@ -440,6 +461,7 @@ class SMSComposer(wx.Dialog):
         self.availsel = event.m_itemIndex
 
     def OnUnicode(self, event):
+        self.entry['SMSInfo']['Unicode'] = self.unicode.GetValue()
         if hasattr(self.editor, 'OnUnicode'):
             self.editor.OnUnicode(self.unicode.GetValue())
 
@@ -513,7 +535,7 @@ class SMSComposer(wx.Dialog):
     def StoreEdited(self):
         if self.prevedit != -1:
             self.entry['SMSInfo']['Entries'][self.prevedit] = self.editor.GetValue()
-        
+
     def Preview(self, evt):
         if len(self.entry['SMSInfo']['Entries']) == 0:
             dlg = wx.MessageDialog(self, _('Nothing to preview, message is empty.'),
@@ -531,20 +553,23 @@ class SMSComposer(wx.Dialog):
 
         dlg.ShowModal()
         dlg.Destroy()
-        
-    def Okay(self, evt):       
+
+    def Okay(self, evt):
+        if not self.Validate():
+            return
+
         self.StoreEdited()
 
         if self.report.GetValue():
             self.entry['Type'] = 'Status_Report'
         else:
             self.entry['Type'] = 'Submit'
-            
+
         if self.sent.GetValue():
             self.entry['State'] = 'Sent'
         else:
             self.entry['State'] = 'UnSent'
-            
+
         if self.flash.GetValue():
             self.entry['SMSInfo']['Class'] = 0
         else:

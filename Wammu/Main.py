@@ -274,7 +274,7 @@ class WammuFrame(wx.Frame):
                     _('Configuration not found'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             except:
-                wx.MessageDialog(self, 
+                wx.MessageDialog(self,
                     _('Wammu configuration was not found. Gammu settings couldn\'t be read. You will now be taken to configuration dialog to confige Wammu.'),
                     _('Configuration not found'),
                     wx.OK | wx.ICON_WARNING).ShowModal()
