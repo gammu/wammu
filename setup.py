@@ -31,7 +31,7 @@ setup(name="wammu",
     author_email = "michal@cihar.com",
     url = "http://cihar.com/gammu/wammu",
     license = "GPL",
-    packages = ['Wammu'],
+    packages = ['Wammu', 'Wammu.wxcomp'],
     scripts = ['wammu'],
     data_files = [
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
