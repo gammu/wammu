@@ -28,7 +28,12 @@ matcherp = re.compile('^\\+?[P0-9*#]+$')
 matchsplit = re.compile('[\s;,]+')
 
 def SplitNumbers(text):
-    return matchsplit.split(text)
+    list = matchsplit.split(text)
+    if list[0] == '':
+        del list[0]
+    if list[len(list) - 1] == '':
+        del list[len(list) - 1]
+    return list
 
 class PhoneValidator(wx.PyValidator):
     def __init__(self, multi=False, pause=False, empty=False):
