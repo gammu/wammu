@@ -22,6 +22,7 @@ import wx
 import codecs
 import locale
 import sys
+import re
 
 fallbacklocalecharset = 'iso-8859-1'
 
@@ -170,6 +171,33 @@ def SearchLocation(lst, loc, second = None):
                 result = i
                 break
     return result
+
+def MatchesText(item, text):
+    dig = text.isdigit()
+    if dig:
+        num = int(text)
+    match = re.compile(text, re.I)
+
+    for x in item:
+        if type(item) == dict:
+            val = item[x]
+        else:
+            val = x
+        if type(val) in (str, unicode):
+            if match.search(val) != None:
+                return True
+        elif dig and type(val) == int and num == val:
+            return True
+        elif type(val) == list:
+            for i in range(len(val)):
+                val2 = val[i]['Value']
+                if type(val2) in (str, unicode):
+                    if match.search(val2) != None:
+                        return True
+                elif dig and type(val2) == int and num == val2:
+                    return True
+    return False
+
 
 def SearchItem(lst, item):
     for i in range(len(lst)):

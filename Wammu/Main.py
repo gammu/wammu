@@ -172,10 +172,24 @@ class WammuFrame(wx.Frame):
 
         # title text
         self.label = wx.StaticText(self.rightwin, -1, 'Wammu')
-        self.rightwin.sizer.Add(self.label, 0, wx.LEFT|wx.ALL|wx.EXPAND, 2)
+        self.rightwin.sizer.Add(self.label, 0, wx.LEFT|wx.ALL|wx.EXPAND)
 
         # line
         self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0 , wx.EXPAND)
+
+        # search input
+        self.searchpanel = wx.Panel(self.rightwin, -1)
+        self.searchpanel.sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.searchpanel.sizer.Add(wx.StaticText(self.searchpanel, -1, _('Search:')), 0, wx.LEFT | wx.CENTER)
+        self.searchinput = wx.TextCtrl(self.searchpanel, -1)
+        self.searchpanel.sizer.Add(self.searchinput, 1, wx.LEFT | wx.CENTER | wx.EXPAND)
+        self.searchclear = wx.Button(self.searchpanel, -1, _('&Clear'), style = wx.BU_EXACTFIT)
+        self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
+        self.searchpanel.SetSizer(self.searchpanel.sizer)
+        self.rightwin.sizer.Add(self.searchpanel, 0, wx.LEFT | wx.ALL | wx.EXPAND)
+
+        wx.EVT_TEXT(self.searchinput, self.searchinput.GetId(), self.OnSearch)
+        wx.EVT_BUTTON(self, self.searchclear.GetId(), self.ClearSearch)
 
         # item browser
         self.browser = Wammu.Browser.Browser(self.rightwin, self)
@@ -471,6 +485,13 @@ class WammuFrame(wx.Frame):
             for k2, v2 in v1.iteritems():
                 if v2 == item:
                     self.ChangeView(k1, k2)
+        self.ClearSearch()
+
+    def OnSearch(self, event):
+        self.browser.Filter(self.searchinput.GetValue())
+
+    def ClearSearch(self, event = None):
+        self.searchinput.SetValue('')
 
     def Settings(self, event = None):
         if self.connected:

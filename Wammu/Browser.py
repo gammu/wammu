@@ -98,6 +98,14 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.SetColumnWidth(i, maxval[i] + spc)
         self.resizeLastColumn(maxval[cnt - 1] + spc)
 
+    def Filter(self, text):
+        if text == '':
+            self.values = self.allvalues
+        else:
+            self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, text)]
+        self.SetItemCount(len(self.values))
+        self.RefreshView()
+
     def Sorter(self, i1, i2):
         if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
             return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
@@ -128,6 +136,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def Change(self, type, values):
         self.type = type
         self.values = values
+        self.allvalues = values
         self.sortkey = ''
         self.ClearAll()
         self.SetItemCount(len(values))
@@ -159,7 +168,12 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         else:
             image = self.uparrow
         self.SetColumnImage(col, image)
+        self.RefreshView()
 
+        if item != None:
+            self.ShowRow(self.values.index(item))
+
+    def RefreshView(self):
         # refresh displayed items
         if self.GetItemCount() != 0:
             top = self.GetTopItem()
@@ -172,8 +186,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             last = min(totalcount - 1, top + count)
             self.RefreshItems(top, last)
 
-            if item != None:
-                self.ShowRow(self.values.index(item))
 
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
