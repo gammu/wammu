@@ -210,7 +210,7 @@ class TextEditor(GenericEditor):
     def StylePressed(self, evt):
         dlg = StyleEdit(self, self.part)
         dlg.ShowModal()
-        dlg.Destroy()
+        del dlg
 
     def TextChanged(self, evt = None):
         txt = self.edit.GetValue()
@@ -223,7 +223,7 @@ class TextEditor(GenericEditor):
 
     def GetValue(self):
         if self.concat.GetValue():
-            if self.cfg.ReadInt('/SMS/16bitId', 1):
+            if self.cfg.Read('/Message/16bitId', 'yes') == 'yes':
                 self.part['ID'] = 'ConcatenatedTextLong16bit'
             else:
                 self.part['ID'] = 'ConcatenatedTextLong'
@@ -323,8 +323,8 @@ class SMSComposer(wx.Dialog):
         if not entry.has_key('SMSInfo'):
             entry['SMSInfo'] = {}
             entry['SMSInfo']['Entries'] = []
-            if self.cfg.ReadInt('/SMS/Text/Concatenated', 1):
-                if self.cfg.ReadInt('/SMS/16bitId', 1):
+            if self.cfg.Read('/Message/Concatenated', 'yes') == 'yes':
+                if self.cfg.Read('/Message/16bitId', 'yes') == 'yes':
                     typ = 'ConcatenatedTextLong16bit'
                 else:
                     typ = 'ConcatenatedTextLong'
@@ -381,7 +381,7 @@ class SMSComposer(wx.Dialog):
         if self.entry.has_key('Unicode'):
             self.unicode.SetValue(self.entry['Unicode'])
         else:
-            self.unicode.SetValue(self.cfg.ReadInt('/SMS/Unicode', 0))
+            self.unicode.SetValue(self.cfg.Read('/Message/Unicode', 'no') == 'yes')
 
         self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
 
@@ -519,7 +519,6 @@ class SMSComposer(wx.Dialog):
     def CurrentSelected(self, event):
         self.StoreEdited()
         if hasattr(self, 'editor'):
-            self.editor.Destroy()
             del self.editor
 
         found = False
@@ -575,7 +574,7 @@ class SMSComposer(wx.Dialog):
         if self.availsel == -1 or self.prevedit == -1:
             return
         v = {'ID': SMSParts[self.availsel][4]}
-        if v['ID'][-5:] == '16bit' and not self.cfg.ReadInt('/SMS/16bitId', 1):
+        if v['ID'][-5:] == '16bit' and self.cfg.Read('/Message/16bitId', 'yes') != 'yes':
             v['ID'] = v['ID'][:-5]
         self.StoreEdited()
         self.entry['SMSInfo']['Entries'].insert(self.prevedit + 1, v)
@@ -603,7 +602,7 @@ class SMSComposer(wx.Dialog):
             dlg = MessagePreview(self, ('<i>%s</i><hr>' % (_('Message will fit into %d SMSes') % len(msg))) + Wammu.MessageDisplay.SmsToHtml(self.cfg, result))
 
         dlg.ShowModal()
-        dlg.Destroy()
+        del dlg
 
     def Okay(self, evt):
         if not self.number.GetValidator().Validate(self):

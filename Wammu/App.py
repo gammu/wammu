@@ -37,14 +37,11 @@ class WammuApp(wx.App):
         self.SetVendorName(vendor)
 
         wx.InitAllImageHandlers()
-        #spl = wx.SplashScreen(wx.Bitmap(MiscPath('splash')), wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT, 5000, None, -1)
         frame = Wammu.Main.WammuFrame(None, -1)
 
         frame.Show(True)
         frame.PostInit()
         self.SetTopWindow(frame)
-        #spl.Destroy()
-
 
         # Return a success flag
         return True

@@ -39,7 +39,7 @@ def SelectContact(parent, list, index = False):
             rs =  list[rs]['Location']
     else:
         rs = -1
-    dlg.Destroy()
+    del dlg
     return rs
 
 def SelectNumber(parent, list):
@@ -66,5 +66,5 @@ def SelectContactNumber(parent, list, i):
         rs = numbers[dlg.GetSelection()]
     else:
         rs = None
-    dlg.Destroy()
+    del dlg
     return rs

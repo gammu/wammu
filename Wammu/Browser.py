@@ -264,7 +264,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         # Popup the menu.  If an item is selected then its handler
         # will be called before PopupMenu returns.
         self.PopupMenu(menu, evt.GetPoint())
-        menu.Destroy()
+        del menu
 
     def OnPopupDuplicate(self, event):
         evt = Wammu.Events.DuplicateEvent(index = self.popupIndex)

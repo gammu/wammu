@@ -136,7 +136,7 @@ def SmsToHtml(cfg, v):
                 x = i['Bitmap'][0]
                 text = text + \
                     '<wxp module="Wammu.Image" class="Bitmap">' + \
-                    '<param name="scale" value="(' + str(cfg.ReadInt('/Wammu/ScaleImage', 1)) + ')">' + \
+                    '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage', 1)) + ')">' + \
                     '<param name="image" value="' + "['" + string.join(x['XPM'], "', '") + "']" + '">' + \
                     '</wxp>'
 
@@ -146,7 +146,7 @@ def SmsToHtml(cfg, v):
                     data.append("['" + string.join(x['XPM'], "', '") + "']")
                     text = text + \
                         '<wxp module="Wammu.Image" class="Throbber">' + \
-                        '<param name="scale" value="(' + str(cfg.ReadInt('/Wammu/ScaleImage', 1)) + ')">' + \
+                        '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage', 1)) + ')">' + \
                         '<param name="images" value="' + "['" + string.join(data, "', '") + "']" + '">' + \
                         '</wxp>'
         if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:

@@ -37,7 +37,6 @@ import Wammu.Message
 import Wammu.Memory
 import Wammu.Todo
 import Wammu.Calendar
-import Wammu.Logger
 import Wammu.Settings
 from Wammu.Paths import *
 import wx.lib.wxpTag
@@ -393,29 +392,6 @@ class WammuFrame(wx.Frame):
                 gammu.SetDebugLevel('nothing')
                 self.sm.SetDebugLevel('nothing')
 
-#            if hasattr(self, 'piper'):
-#                gammu.SetDebugFile(None)
-#                self.logger.canceled = True
-#                del self.logger
-#                self.SaveWinSize(self.logwin, '/Debug')
-#                self.logwin.Destroy()
-#                self.pipew.write('\n')
-#                del self.logwin
-#                del self.piper
-#                del self.pipew
-#
-#            if self.showdebug == 'yes':
-#                piper, pipew = os.pipe()
-#                self.piper = os.fdopen(piper, 'r')
-#                self.pipew = os.fdopen(pipew, 'w')
-#                gammu.SetDebugFile(self.pipew)
-#                self.sm.SetDebugLevel('textall')
-#                self.logwin = Wammu.Logger.LogFrame(self, self.cfg)
-#                self.logwin.Show(True)
-#                wx.EVT_CLOSE(self.logwin, self.LogClose)
-#                self.logger = Wammu.Logger.Logger(self.logwin, self.piper)
-#                self.logger.start()
-
     def SaveWinSize(self, win, key):
         x,y = win.GetPositionTuple()
         w,h = win.GetSizeTuple()
@@ -554,7 +530,6 @@ class WammuFrame(wx.Frame):
             except:
                 pass
         if (evt.progress == 100):
-            self.progress.Destroy()
             del self.progress
         if hasattr(evt, 'lock'):
             evt.lock.release()
@@ -564,7 +539,6 @@ class WammuFrame(wx.Frame):
         if evt.last:
             if hasattr(self, 'progress'):
                 self.progress.Update(100)
-                self.progress.Destroy()
                 del self.progress
 
             if hasattr(self, 'nextfun'):

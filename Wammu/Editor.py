@@ -315,11 +315,9 @@ class OneEdit(wx.Panel):
         self.sizer.Remove(2)
         self.sizer.Remove(3)
         if hasattr(self, 'edit'):
-            self.edit.Destroy()
             del self.edit
 
         if hasattr(self, 'edit2'):
-            self.edit2.Destroy()
             del self.edit2
 
         self.edit2 = wx.StaticText(self, -1, '')
@@ -354,7 +352,6 @@ class OneEdit(wx.Panel):
             self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
         elif newt == 'datetime':
             self.edit = TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
-            self.edit2.Destroy()
             self.edit2 = DateControl(self, DateToText(value))
         elif newt == 'date':
             self.edit = DateControl(self, DateToText(value))

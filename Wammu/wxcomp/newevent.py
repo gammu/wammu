@@ -101,7 +101,7 @@ def _test():
         def show(self, msg, title):
             dlg = wx.MessageDialog(self, msg, title, wx.OK)
             dlg.ShowModal()
-            dlg.Destroy()
+            del dlg
 
         def on_moo(self, e):
             self.show("MOO = %s" % e.moo, "Got Moo")

@@ -114,7 +114,7 @@ class Settings(wx.Dialog):
         self.sizer_messages.AddSpacer(1, 1, pos = (0, 0))
         r = 1
 
-        v = config.ReadInt('/Wammu/ScaleImage', 1)
+        v = config.ReadInt('/Message/ScaleImage', 1)
         self.editscale = wx.SpinCtrl(self.notebook_messages, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 1, max = 20, initial = v, size = (150, -1))
         self.editscale.SetToolTipString(_('Whether images in messages should be scaled when displayed. This is usually good idea as they are pretty small.'))
         self.sizer_messages.Add(wx.StaticText(self.notebook_messages, -1, _('Scale images')), pos = (r, 1))
@@ -123,7 +123,7 @@ class Settings(wx.Dialog):
 
         self.editformat = wx.CheckBox(self.notebook_messages, -1, _('Attempt to reformat text'))
         self.editformat.SetToolTipString(_('If you get sometimes "compressed" messages likeTHIStext, you should be interested in this choice.'))
-        self.editformat.SetValue(config.Read('/Wammu/FormatSMS', 'yes') == 'yes')
+        self.editformat.SetValue(config.Read('/Message/Format', 'yes') == 'yes')
         self.sizer_messages.Add(self.editformat, pos = (r, 1), colspan = 2)
         r += 1
 
@@ -223,7 +223,7 @@ class Settings(wx.Dialog):
             value = 'yes'
         else:
             value = 'no'
-        self.config.Write('/Wammu/FormatSMS', value)
-        self.config.WriteInt('/Wammu/ScaleImage', self.editscale.GetValue())
+        self.config.Write('/Message/Format', value)
+        self.config.WriteInt('/Message/ScaleImage', self.editscale.GetValue())
         self.config.WriteInt('/Wammu/RefreshState', self.editrefresh.GetValue())
         self.EndModal(wx.ID_OK)
