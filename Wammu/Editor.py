@@ -58,8 +58,8 @@ def TextToTime(txt):
     return datetime.time(int(hms[0]), int(hms[1]), int(hms[2]))
 
 def TextToDate(txt):
-    ymd = txt.split('-')
-    return datetime.date(int(ymd[0]), int(ymd[1]), int(ymd[2]))
+    dmy = txt.split('.')
+    return datetime.date(int(dmy[2]), int(dmy[1]), int(dmy[0]))
 
 def TimeToText(time, config):
     try:
