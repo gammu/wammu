@@ -111,10 +111,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def ShowRow(self, id):
         if self.GetItemCount() > id and id >= 0:
             self.itemno = id
-            index = self.GetFirstSelected()
-            while index != -1:
-                self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
+            while self.GetSelectedItemCount() > 0:
                 index = self.GetFirstSelected()
+                self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
 
             self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
             self.EnsureVisible(id)

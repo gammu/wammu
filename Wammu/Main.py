@@ -284,7 +284,6 @@ class WammuFrame(wx.Frame):
         self.TogglePhoneMenus(False)
 
         self.type = ['info','  ']
-        self.ActivateView('info', '  ')
         
         # create state machine
         self.sm = gammu.StateMachine()
@@ -294,6 +293,7 @@ class WammuFrame(wx.Frame):
 
     def PostInit(self):
         # things that need window opened
+        self.ActivateView('info', '  ')
         if not self.cfg.HasGroup('/Gammu'):
             try:
                 self.sm.ReadConfig()
