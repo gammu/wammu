@@ -635,8 +635,8 @@ class WammuFrame(wx.Frame):
     def NewMessage(self, evt):
         self.ComposeMessage({})
 
-    def ComposeMessage(self, v):
-        if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values).ShowModal() == wx.ID_OK:
+    def ComposeMessage(self, v, action = 'save'):
+        if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values, action).ShowModal() == wx.ID_OK:
 
             if len(v['Numbers']) == 0:
                 v['Numbers'] = ['Wammu']
@@ -851,7 +851,7 @@ class WammuFrame(wx.Frame):
                 t = '__'
             else:
                 t = self.type[1]
-            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']})
+            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']}, action = 'send')
         else: 
             print 'Reply not yet implemented!'
             print evt.index
@@ -893,13 +893,13 @@ class WammuFrame(wx.Frame):
             num = Wammu.Select.SelectContactNumber(self, self.values[self.type[0]][t], evt.index)
             if num == None:
                 return
-            self.ComposeMessage({'Number': num})
+            self.ComposeMessage({'Number': num}, action = 'send')
         elif self.type[0] == 'message':
             if self.type[1] == '  ':
                 t = '__'
             else:
                 t = self.type[1]
-            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']})
+            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']}, action = 'send')
         else: 
             print 'Message send not yet implemented!'
             print evt.index
