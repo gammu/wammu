@@ -9,6 +9,7 @@
 # RCS-ID:       $Id: popupctl.py,v 1.1.2.5 2003/05/20 18:26:47 RD Exp $
 # License:      wxWindows license
 #----------------------------------------------------------------------
+# Local changes: built on top of wxPanel and using sizer
 
 from wxPython.wx import *
 from wxPython.lib.buttons import wxGenButtonEvent
