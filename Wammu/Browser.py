@@ -25,6 +25,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
         wx.EVT_LIST_ITEM_SELECTED(self, self.GetId(), self.OnItemSelected)
         wx.EVT_LIST_ITEM_ACTIVATED(self, self.GetId(), self.OnItemActivated)
+#        wx.EVT_LIST_DELETE_ITEM(self, self.GetId(), self.OnItemDeleted)
+        wx.EVT_LIST_KEY_DOWN(self, self.GetId(), self.OnKey)
         wx.EVT_LIST_COL_CLICK(self, self.GetId(), self.OnColClick)
         wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
@@ -105,6 +107,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         top = self.GetTopItem() 
         self.RefreshItems(top, top + self.GetCountPerPage())
 
+    def OnKey(self, evt):
+        if evt.GetKeyCode() == wx.WXK_DELETE:
+            evt = Wammu.Events.DeleteEvent(index = evt.m_itemIndex)
+            wx.PostEvent(self.win, evt)
+        
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
         
@@ -114,6 +121,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnItemActivated(self, event):
         evt = Wammu.Events.EditEvent(index = event.m_itemIndex)
+        wx.PostEvent(self.win, evt)
+
+    def OnItemDeleted(self, event):
+        evt = Wammu.Events.DeleteEvent(index = event.m_itemIndex)
         wx.PostEvent(self.win, evt)
 
     def getColumnText(self, index, col):

@@ -62,6 +62,7 @@ class WammuFrame(wx.Frame):
         Wammu.Events.EVT_DATA(self, self.OnData)
         Wammu.Events.EVT_SHOW(self, self.OnShow)
         Wammu.Events.EVT_EDIT(self, self.OnEdit)
+        Wammu.Events.EVT_DELETE(self, self.OnDelete)
 
         self.splitter = wx.SplitterWindow(self, -1)
         il = wx.ImageList(16, 16)
@@ -348,7 +349,15 @@ class WammuFrame(wx.Frame):
                     if v['MemoryType'] != backup['MemoryType']:
                         self.sm.DeleteMemory(backup['MemoryType'], backup['Location'])
                         v['Location'] = self.sm.AddMemory(v)
-                        del self.values[self.type[0]][backup['MemoryType']][evt.index]
+                        # delete item from current list:
+                        if backup['MemoryType'] == t:
+                            del self.values[self.type[0]][t][evt.index]
+                        else:
+                            # we are showing merged list, delete just from the original
+                            for idx in self.values[self.type[0]][backup['MemoryType']].keys():
+                                if self.values[self.type[0]][backup['MemoryType']][idx] == v:
+                                    del self.values[self.type[0]][backup['MemoryType']][idx]
+                                    break
                         self.values[self.type[0]][v['MemoryType']].append(v)
                         t = v['MemoryType']
                     else:
@@ -364,6 +373,34 @@ class WammuFrame(wx.Frame):
                     t = '  '
                     
                 self.ActivateView('memory', t)
+        else: 
+            print 'Edit not yet implemented!'
+            print evt.index
+
+    def OnDelete(self, evt): 
+        if self.type[0] == 'memory' or self.type[0] == 'call':
+            # FIXME: add here confirmation?
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = self.values[self.type[0]][t][evt.index]
+            try:
+                self.sm.DeleteMemory(v['MemoryType'], v['Location'])
+                if v['MemoryType'] == t:
+                    del self.values[self.type[0]][t][evt.index]
+                else:
+                    # we are showing merged list, delete just from the original
+                    for idx in self.values[self.type[0]][v['MemoryType']].keys():
+                        if self.values[self.type[0]][v['MemoryType']][idx] == v:
+                            del self.values[self.type[0]][v['MemoryType']][idx]
+                            break
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+
+            if t == '__':
+                t = '  '
+            self.ActivateView(self.type[0], t)
         else: 
             print 'Edit not yet implemented!'
             print evt.index
