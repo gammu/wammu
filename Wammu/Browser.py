@@ -32,39 +32,43 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         if self.type == 'info':
             self.InsertColumn(0, 'Name')
             self.InsertColumn(1, 'Value')
-            self.sortkeys = (0, 1)
-            self.dispkeys = (0, 1)
-#            self.SetColumnWidth(0, 100)
-#            self.SetColumnWidth(1, 200)
-            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
-#            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
+            self.keys = (0, 1)
         elif self.type == 'memory':
             self.InsertColumn(0, 'Location')
             self.InsertColumn(1, 'Memory')
             self.InsertColumn(2, 'Name')
             self.InsertColumn(3, 'Number')
-            self.sortkeys = ('Location', 'MemoryType', 'Name', 'Number')
-            self.dispkeys = ('Location', 'MemoryType', 'Name', 'Number')
-            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(3, wx.LIST_AUTOSIZE)
+            self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'call':
             self.InsertColumn(0, 'Location')
             self.InsertColumn(1, 'Type')
             self.InsertColumn(2, 'Name')
             self.InsertColumn(3, 'Number')
-            self.sortkeys = ('Location', 'MemoryType', 'Name', 'Number')
-            self.dispkeys = ('Location', 'MemoryType', 'Name', 'Number')
-            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
-            self.SetColumnWidth(3, wx.LIST_AUTOSIZE)
-        self.resizeLastColumn(0)
+            self.keys = ('Location', 'MemoryType', 'Name', 'Number')
+
+        # resize columns to fit content
+        
+        # FIXME: this should be acquired better!
+        spc = 10
+        cnt = self.GetColumnCount()
+        
+        max = [0] * cnt
+        for i in range(cnt):
+            size = self.GetTextExtent(self.GetColumn(i).GetText())
+            # 16 bellow is for sort arrrow
+            if (size[0] + 16 > max[i]):
+                max[i] = size[0] + 16
+            
+        for x in self.values:
+            for i in range(cnt):
+                size = self.GetTextExtent(str(x[self.keys[i]]))
+                if (size[0] > max[i]):
+                    max[i] = size[0]
+        for i in range(cnt - 1):
+            self.SetColumnWidth(i, max[i] + spc)
+        self.resizeLastColumn(max[cnt - 1] + spc)
     
     def Sorter(self, i1, i2):
-        if self.sortkey == 'Name':
-            print '"%s" vs "%s"' % (repr(i1[self.sortkey]), repr(i2[self.sortkey]))
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
     
     def Change(self, type, values):
@@ -78,7 +82,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def Resort(self, col):
         # find keys and order
-        nextsort = self.sortkeys[col]
+        nextsort = self.keys[col]
         if nextsort == self.sortkey:
             self.sortorder = -1 * self.sortorder
         else:
@@ -119,7 +123,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
 
     def OnGetItemText(self, item, col):
-        return self.values[item][self.dispkeys[col]]
+        return self.values[item][self.keys[col]]
 
     def OnGetItemAttr(self, item):
         if item % 2 == 1:
