@@ -17,23 +17,38 @@ class GetTodo(Wammu.Thread.Thread):
         data = []
         start = True
         
-        while remain > 0:
-            self.ShowProgress(100 * (status['Used'] - remain) / status['Used'])
-            if self.canceled:
-                self.Canceled()
-                return
-            try:
+        try:
+            while remain > 0:
+                self.ShowProgress(100 * (status['Used'] - remain) / status['Used'])
+                if self.canceled:
+                    self.Canceled()
+                    return
                 if start:
                     value = self.sm.GetNextToDo(Start = True)
                     start = False
                 else:
                     value = self.sm.GetNextToDo(Location = value['Location'])
-            except gammu.GSMError, val:
-                self.ShowError(val[0], True)
-                return
-            Wammu.Utils.ParseTodo(value)
-            data.append(value)
-            remain = remain - 1
+                Wammu.Utils.ParseTodo(value)
+                data.append(value)
+                remain = remain - 1
+        except gammu.ERR_NOTSUPPORTED:
+            location = 1
+            while remain > 0:
+                self.ShowProgress(100 * (status['Used'] - remain) / status['Used'])
+                if self.canceled:
+                    self.Canceled()
+                    return
+                try:
+                    value = self.sm.GetToDo(Location = location)
+                    Wammu.Utils.ParseTodo(value)
+                    data.append(value)
+                    remain = remain - 1
+                except gammu.ERR_EMPTY:
+                    pass
+                location = location + 1
+        except gammu.GSMError, val:
+            self.ShowError(val[0], True)
+            return
 
         self.ShowProgress(100)
         self.SendData(['todo', '  '], data)

@@ -16,8 +16,8 @@ Group:      Applications/Communications
 Packager:   Michal Cihar <michal@cihar.com>
 Vendor:     Michal Cihar <michal@cihar.com>
 Prefix:     %{_prefix}
-Requires:   python >= 2.2.0, python-wxGTK, python-gammu
-BuildRequires: python-devel, python-wxGTK, python-gammu
+Requires:   python >= 2.2.0, python-wxGTK >= 2.4.1.2, python-gammu >= 0.3
+BuildRequires: python-devel, python-wxGTK >= 2.4.1.2, python-gammu >= 0.3
 Url:        http://www.cohar.com/gammu/wammu
 Buildroot:  %{_tmppath}/%name-%version-root
 

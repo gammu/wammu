@@ -17,22 +17,36 @@ class GetMessage(Wammu.Thread.Thread):
         data = []
         start = True
         
-        while remain > 0:
-            self.ShowProgress(100 * (total - remain) / total)
-            if self.canceled:
-                self.Canceled()
-                return
-            try:
+        try:
+            while remain > 0:
+                self.ShowProgress(100 * (total - remain) / total)
+                if self.canceled:
+                    self.Canceled()
+                    return
                 if start:
                     value = self.sm.GetNextSMS(Start = True, Folder = 0)
                     start = False
                 else:
                     value = self.sm.GetNextSMS(Location = value[0]['Location'], Folder = 0)
-            except gammu.GSMError, val:
-                self.ShowError(val[0], True)
-                return
-            data.append(value)
-            remain = remain - len(value)
+                data.append(value)
+                remain = remain - len(value)
+        except gammu.ERR_NOTSUPPORTED:
+            location = 1
+            while remain > 0:
+                self.ShowProgress(100 * (total - remain) / total)
+                if self.canceled:
+                    self.Canceled()
+                    return
+                try:
+                    value = self.sm.GetSMS(Folder = 0, Location = location)
+                    data.append(value)
+                    remain = remain - 1
+                except gammu.ERR_EMPTY:
+                    pass
+                location = location + 1
+        except gammu.GSMError, val:
+            self.ShowError(val[0], True)
+            return
 
         read = []
         unread = []

@@ -3,7 +3,7 @@ import wxPython.utils
 import wx.calendar
 import wx.lib.timectrl
 import wx.lib.intctrl
-import Wammu.popupctl
+import Wammu.wxcomp.popupctl
 import locale
 import sys
 import datetime
@@ -43,12 +43,12 @@ def DateToText(date):
         #FIXME: configurable
         return str(datetime.datetime.fromtimestamp(time.time() + 24*60*60).date())
 
-class DateControl(Wammu.popupctl.wxPopupControl):
+class DateControl(Wammu.wxcomp.popupctl.wxPopupControl):
     """
     Date editor heavilly based on wxPython example - wxPopupControl.py
     """
     def __init__(self, parent, value):
-        Wammu.popupctl.wxPopupControl.__init__(self, parent, value)
+        Wammu.wxcomp.popupctl.wxPopupControl.__init__(self, parent, value)
 
         self.win = wx.Window(self,-1,pos = (0,0),style = 0)
         self.cal = wx.calendar.CalendarCtrl(self.win,-1,pos = (0,0))

@@ -24,7 +24,7 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	/usr/bin/python2.3 setup.py install --prefix $(CURDIR)/debian/wammu/usr
+	/usr/bin/python2.3 setup.py install --no-compile --prefix $(CURDIR)/debian/wammu/usr
 
 binary-indep: build install
 	dh_testdir
