@@ -408,6 +408,8 @@ Connections = [
     'irdaobex',
     'bluephonet',
     'bluefbus',
+    'dku2phonet',
+    'dku5fbus2',
     'blueat',
     'blueobex',
     ]
