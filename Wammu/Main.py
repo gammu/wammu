@@ -554,7 +554,7 @@ class WammuFrame(wx.Frame):
             self.browser.ShowLocation(v['Location'])
 
     def ComposeMessage(self, v):
-        if Wammu.Composer.SMSComposer(self, self.cfg, v).ShowModal() == wx.ID_OK:
+        if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values).ShowModal() == wx.ID_OK:
             v['SMS'] = gammu.EncodeSMS(v['SMSInfo'])
             if v['Save']:
                 result = {}

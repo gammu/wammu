@@ -6,6 +6,7 @@ import Wammu
 import Wammu.MessageDisplay
 import Wammu.Utils
 import Wammu.PhoneValidator
+import Wammu.Select
 import gammu
 
 class MessagePreview(wx.Dialog):
@@ -279,10 +280,11 @@ SMSParts = [
     ]
 
 class SMSComposer(wx.Dialog):
-    def __init__(self, parent, cfg, entry, action = 'save', addtext = True):
+    def __init__(self, parent, cfg, entry, values, action = 'save', addtext = True):
         wx.Dialog.__init__(self, parent, -1, _('Composing SMS'), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.entry = entry
         self.cfg = cfg
+        self.values = values
         if not entry.has_key('SMSInfo'):
             entry['SMSInfo'] = {}
             entry['SMSInfo']['Entries'] = []
@@ -331,6 +333,8 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number:')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
+        
+        wx.EVT_BUTTON(self, self.contbut.GetId(), self.ContactPressed)
 
         row = row + 2
 
@@ -428,6 +432,11 @@ class SMSComposer(wx.Dialog):
         self.available.SetItemState(0, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
 
         self.GenerateCurrent()
+
+    def ContactPressed(self, evt):
+        v = Wammu.Select.SelectNumber(self, [] + self.values['contact']['ME'] + self.values['contact']['SM']) 
+        if v != None:
+            self.number.SetValue(v)
 
     def OnSend(self, evt = None):
         self.save.Enable(self.send.GetValue())
