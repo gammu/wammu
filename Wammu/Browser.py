@@ -161,7 +161,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
         # refresh displayed items
         top = self.GetTopItem() 
-        self.RefreshItems(top, top + self.GetCountPerPage())
+        last = min(self.GetItemCount() - 1, top + self.GetCountPerPage())
+        self.RefreshItems(top, last)
 
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
