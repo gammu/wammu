@@ -42,7 +42,6 @@ class Settings(wx.Dialog):
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
-        wx.EVT_BUTTON(self, wx.ID_CANCEL, self.Cancel)
 
     def Okay(self, evt):       
         self.config.Write('/Gammu/Model', self.editmodel.GetValue())
@@ -52,6 +51,3 @@ class Settings(wx.Dialog):
         self.config.Write('/Gammu/LockDevice', self.editlock.GetValue())
         self.config.Write('/Gammu/StartInfo', self.editinfo.GetValue())
         self.EndModal(wx.ID_OK)
-    
-    def Cancel(self, evt):
-        self.EndModal(wx.ID_CANCEL)

@@ -9,6 +9,7 @@ import Wammu.Displayer
 import Wammu.Browser
 from Wammu.Paths import *
 import threading
+import copy
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -339,7 +340,14 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
-            Wammu.Editor.ContactEditor(self, v).ShowModal()
+            backup = copy.deepcopy(v)
+            if Wammu.Editor.ContactEditor(self, self.sm, v).ShowModal() == wx.ID_OK:
+                busy = wx.BusyInfo(_('Updating memory entry...'))
+                try:
+                    v['Location'] = self.sm.SetMemory(v)
+                except gammu.GSMError, val:
+                    v = backup
+                    self.ShowError(val[0])
         else: 
             print 'Edit not yet implemented!'
             print evt.index
