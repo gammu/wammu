@@ -46,7 +46,9 @@ def SelectNumber(parent, list):
     i = SelectContact(parent, list, True)
     if i == -1:
         return None
+    SelectContactNumber(parent, list, i)
 
+def SelectContactNumber(parent, list, i):
     numbers = []
     texts = []
     for x in range(len(list[i]['Entries'])):

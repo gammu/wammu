@@ -129,6 +129,8 @@ class WammuFrame(wx.Frame):
         Wammu.Events.EVT_SHOW(self, self.OnShow)
         Wammu.Events.EVT_EDIT(self, self.OnEdit)
         Wammu.Events.EVT_SEND(self, self.OnSend)
+        Wammu.Events.EVT_CALL(self, self.OnCall)
+        Wammu.Events.EVT_MESSAGE(self, self.OnMessage)
         Wammu.Events.EVT_DUPLICATE(self, self.OnDuplicate)
         Wammu.Events.EVT_REPLY(self, self.OnReply)
         Wammu.Events.EVT_DELETE(self, self.OnDelete)
@@ -519,7 +521,9 @@ class WammuFrame(wx.Frame):
             self.content.SetPage(StrConv('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (Wammu.Utils.localecharset, text)))
             
     def OnShow(self, evt): 
-        if self.type == ['info','  ']:
+        if evt.index == None:
+            data = []
+        elif self.type == ['info','  ']:
             data = [self.values['info']['__'][evt.index]]
         elif self.type[0] == 'contact' or self.type[0] == 'call':
             if self.type[1] == '  ':
@@ -790,6 +794,54 @@ class WammuFrame(wx.Frame):
             self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']})
         else: 
             print 'Reply not yet implemented!'
+            print evt.index
+            
+    def OnCall(self, evt): 
+        if self.type[0] in ['call', 'contact']:
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            num = Wammu.Select.SelectContactNumber(self, self.values[self.type[0]][t], evt.index)
+            if num == None:
+                return
+                
+            try:
+                self.sm.DialVoice(num)
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+        elif self.type[0] == 'message':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+
+            try:
+                self.sm.DialVoice(self.values['message'][t][evt.index]['Number'])
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+        else: 
+            print 'Call not yet implemented!'
+            print evt.index
+            
+    def OnMessage(self, evt): 
+        if self.type[0] in ['call', 'contact']:
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            num = Wammu.Select.SelectContactNumber(self, self.values[self.type[0]][t], evt.index)
+            if num == None:
+                return
+            self.ComposeMessage({'Number': num})
+        elif self.type[0] == 'message':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']})
+        else: 
+            print 'Message send not yet implemented!'
             print evt.index
             
     def OnDuplicate(self, evt): 
