@@ -222,7 +222,17 @@ class Settings(wx.Dialog):
         self.sizer_other.Add(self.editconfirm, pos = (r, 1), colspan = 2)
         r += 1
 
-        self.edittime = TimeCtrl( self.notebook_other, -1, config.Read('Wammu/DefaultTime', '9:00:00'), fmt24hr=True)
+        dtime = config.Read('Wammu/DefaultTime', '09:00:00')
+        try:
+            times = dtime.split(':')
+            th = int(times[0])
+            tm = int(times[1])
+            ts = int(times[2])
+        except:
+            th = 9
+            tm = 0
+            ts = 0
+        self.edittime = TimeCtrl( self.notebook_other, -1, wx.DateTimeFromHMS(th, tm, ts), fmt24hr = True)
         self.edittime.SetToolTipString(_('Default time to be used for newly created time fields.'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default time')), pos = (r, 1))
         self.sizer_other.Add(self.edittime, pos = (r, 2))
