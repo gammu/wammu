@@ -478,20 +478,9 @@ class GenericEditor(wx.Dialog):
 
         v = []
         for x in self.edits:
-            i = {}
             t = x.GetType()
             if t != '':
-                i['Type'] = t
-                val = x.GetValue()
-                datatype = Wammu.Utils.GetItemType(t)
-                if datatype == 'text' or datatype == 'phone':
-                    if not wx.USE_UNICODE:
-                        i['Value'] = unicode(val, locale.getdefaultlocale()[1])
-                    else:
-                        i['Value'] = val
-                else:
-                    i['Value'] = val
-                v.append(i)
+                v.append({'Type' : t, 'Value' : x.GetValue()})
 
         self.entry['Entries'] = v
         self.entry[self.type] = self.typeedit.GetValue()
