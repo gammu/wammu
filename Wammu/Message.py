@@ -8,7 +8,7 @@ class GetMessage(Wammu.Thread.Thread):
         
         try:
             status = self.sm.GetSMSStatus()
-            total = remain = status['SIMUsed'] + status['PhoneUsed']
+            total = remain = status['SIMUsed'] + status['PhoneUsed'] + status['TemplatesUsed']
         except gammu.GSMError, val:
             total = remain = 999
 
