@@ -29,6 +29,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.InsertColumn(0, 'Name')
             self.InsertColumn(1, 'Value')
             self.sortkeys = (0, 1)
+            self.dispkeys = (0, 1)
 #            self.SetColumnWidth(0, 100)
 #            self.SetColumnWidth(1, 200)
             self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
@@ -39,6 +40,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.InsertColumn(2, 'Name')
             self.InsertColumn(3, 'Number')
             self.sortkeys = ('Location', 'MemoryType', 'Name', 'Number')
+            self.dispkeys = ('Location', 'MemoryType', 'Name', 'Number')
             self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
@@ -49,6 +51,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.InsertColumn(2, 'Name')
             self.InsertColumn(3, 'Number')
             self.sortkeys = ('Location', 'MemoryType', 'Name', 'Number')
+            self.dispkeys = ('Location', 'MemoryType', 'Name', 'Number')
             self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
@@ -97,29 +100,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
 
     def OnGetItemText(self, item, col):
-        if self.type == 'info':
-            return self.values[item][col]
-        elif self.type == 'memory':
-            if col == 0:
-                return self.values[item]['Location']
-            elif col == 1:
-                return self.values[item]['MemoryType']
-            elif col == 2:
-                return self.values[item]['Name']
-            else:
-                return self.values[item]['Number']
-        elif self.type == 'call':
-            if col == 0:
-                return self.values[item]['Location']
-            elif col == 1:
-                return self.values[item]['MemoryType']
-            elif col == 2:
-                return self.values[item]['Name']
-            else:
-                return self.values[item]['Number']
-                
-        else:
-            return 'Item %d, column %d' % (item, col)
+        return self.values[item][self.dispkeys[col]]
 
     def OnGetItemAttr(self, item):
         if item % 2 == 1:
