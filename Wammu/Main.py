@@ -497,7 +497,7 @@ class WammuFrame(wx.Frame):
                     self.ChangeView(k1, k2)
 
     def Settings(self, event = None):
-        if self.connected or True:
+        if self.connected:
             connection_settings = {
                 'Connection': self.cfg.Read('/Gammu/Connection', ''),
                 'LockDevice': self.cfg.Read('/Gammu/LockDevice', ''),
@@ -507,7 +507,7 @@ class WammuFrame(wx.Frame):
 
         result = Wammu.Settings.Settings(self, self.cfg).ShowModal()
         if result == wx.ID_OK:
-            if self.connected or True:
+            if self.connected:
                 connection_settings_new = {
                     'Connection': self.cfg.Read('/Gammu/Connection', ''),
                     'LockDevice': self.cfg.Read('/Gammu/LockDevice', ''),
