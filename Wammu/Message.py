@@ -32,7 +32,7 @@ class GetMessage(Wammu.Thread.Thread):
 
                 data.append(value)
                 remain = remain - len(value)
-        except gammu.ERR_NOTSUPPORTED:
+        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             location = 1
             while remain > 0:
                 self.ShowProgress(100 * (total - remain) / total)

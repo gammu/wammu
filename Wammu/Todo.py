@@ -33,7 +33,7 @@ class GetTodo(Wammu.Thread.Thread):
                 Wammu.Utils.ParseTodo(value)
                 data.append(value)
                 remain = remain - 1
-        except gammu.ERR_NOTSUPPORTED:
+        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             location = 1
             while remain > 0:
                 self.ShowProgress(100 * (total - remain) / total)
