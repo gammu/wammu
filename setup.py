@@ -13,8 +13,8 @@ try:
 except:
     print 'You need python-gammu!'
     sys.exit(1)
-if gammu.Version()[1] < '0.3':
-    print 'You need python-gammu at least 0.3!'
+if gammu.Version()[1] < '0.4':
+    print 'You need python-gammu at least 0.4!'
     sys.exit(1)
 
 if os.getenv('SKIPWXCHECK') == 'yes':
@@ -34,6 +34,7 @@ else:
 setup(name="wammu",
     version = Wammu.__version__,
     description = "GUI for gammu.",
+    long_description = "Phone manager built on top of python-gammu. Supports many phones.",
     author = "Michal Čihař",
     author_email = "michal@cihar.com",
     url = "http://cihar.com/gammu/wammu",
@@ -43,5 +44,6 @@ setup(name="wammu",
     data_files = [
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
+        (os.path.join('share','locale','cs','LC_MESSAGES'), ['locale/cs.mo']),
         ]
     )

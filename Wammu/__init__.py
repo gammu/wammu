@@ -2,10 +2,14 @@
 """
 
 import sys
+import os
 import gettext
-__version__ = '0.4.1'
+__version__ = '0.5'
 
-gettext.install('wammu')
+if os.getenv('LOCALLOCALE') == 'yes':
+    gettext.install('wammu','./locale/', unicode=1)
+else:
+    gettext.install('wammu', unicode=1)
 
 # FIXME: these definitions probably should be part of gammu module and not this...
 # First is used as default

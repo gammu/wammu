@@ -58,7 +58,7 @@ cellpadding="0" border="1">
     _('Running on Python %s') % sys.version.split()[0],
     _('Using wxPython %s') % wx.VERSION_STRING,
     _('Using python-gammu %s and Gammu %s') %  (gammu.Version()[1], gammu.Version()[0])),
-    '<b>Wammu</b> is a wxPython based GUI for Gammu.',
+    _('<b>Wammu</b> is a wxPython based GUI for Gammu.'),
     copyright,
     _('''
 This program is free software; you can redistribute it and/or modify
