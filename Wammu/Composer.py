@@ -598,7 +598,7 @@ class SMSComposer(wx.Dialog):
         dlg.Destroy()
 
     def Okay(self, evt):
-        if not self.Validate():
+        if not self.number.GetValidator().Validate(self):
             return
 
         self.StoreEdited()

@@ -389,6 +389,21 @@ class OneEdit(wx.Panel):
 
     def GetType(self):
         return self.combo.GetValue()
+       
+    def Validate(self):
+        if Wammu.Utils.GetItemType(self.type) == 'datetime':
+            v = self.edit2.GetValidator()
+            if v != None:
+                val2 = v.Validate(self)
+            else:
+                val2 = True
+        else:
+            val2 = True
+        v = self.edit.GetValidator()
+        if v != None:
+            return v.Validate(self) and val2
+        else:
+            return val2
 
 class OkCancelMore(wx.Panel):
     """
