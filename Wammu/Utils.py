@@ -169,6 +169,7 @@ def ParseMemoryEntry(entry):
     first = ''
     last = ''
     name = ''
+    company = ''
     number = ''
     number_result = ''
     name_result = ''
@@ -179,6 +180,8 @@ def ParseMemoryEntry(entry):
             first = i['Value']
         if i['Type'] == 'Text_LastName':
             last = i['Value']
+        if i['Type'] == 'Text_Company':
+            company = i['Value']
         if i['Type'] == 'Number_General':
             number_result = i['Value']
         elif i['Type'][:7] == 'Number_':
@@ -190,12 +193,16 @@ def ParseMemoryEntry(entry):
             name_result = last + ', ' + first
         else:
             name_result = first
-    else:
+    elif last != '':
         name_result = last
+    elif company != '':
+        name_result = company
+    else:
+        name_result = ''
     if number_result == '':
         number_result = number
-    entry['Number'] = StrConv(number_result)
-    entry['Name'] = StrConv(name_result)
+    entry['Number'] = number_result
+    entry['Name'] = name_result
 
 def ParseTodo(entry):
     _ = Str_
@@ -213,7 +220,7 @@ def ParseTodo(entry):
             else:
                 completed = _('No')
     entry['Completed'] = completed 
-    entry['Text'] = StrConv(text)
+    entry['Text'] = text
     entry['Date'] = dt
 
 def ParseCalendar(entry):
@@ -228,7 +235,7 @@ def ParseCalendar(entry):
             start = str(i['Value'])
         elif i['Type'] == 'TEXT':
             text = i['Value']
-    entry['Text'] = StrConv(text)
+    entry['Text'] = text
     entry['Start'] = start
     entry['End'] = end
 
@@ -251,5 +258,5 @@ def ParseMessage(msg, parseinfo = False):
         if loc != '':
             loc = loc + ', '
         loc = loc + str(i['Location'])
-    msg['Text'] = StrConv(txt)
+    msg['Text'] = txt
     msg['Location'] = loc

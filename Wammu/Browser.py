@@ -336,7 +336,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
 
     def OnGetItemText(self, item, col):
-        return self.values[item][self.keys[col]]
+        return StrConv(self.values[item][self.keys[col]])
 
     def OnGetItemAttr(self, item):
         if item % 2 == 1:

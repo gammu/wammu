@@ -20,6 +20,7 @@ Contact and phone number select dialogs
 
 import wx
 import Wammu.Utils
+from Wammu.Utils import StrConv, Str_ as _
 
 def SortName(i1, i2):
     return cmp(i1['Name'], i2['Name'])
@@ -28,9 +29,9 @@ def SelectContact(parent, list, index = False):
     list.sort(SortName)
     choices = []
     for e in list:
-        choices.append(e['Name'])
+        choices.append(StrConv(e['Name']))
         
-    dlg = wx.SingleChoiceDialog(parent, 'Select contact from bellow list', 'Select contact',
+    dlg = wx.SingleChoiceDialog(parent, _('Select contact from bellow list'), _('Select contact'),
                                 choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
     if dlg.ShowModal() == wx.ID_OK and len(choices) > 0:
         rs = dlg.GetSelection()
@@ -51,13 +52,13 @@ def SelectNumber(parent, list):
     for x in range(len(list[i]['Entries'])):
         if Wammu.Utils.GetItemType(list[i]['Entries'][x]['Type']) == 'phone':
             numbers.append(list[i]['Entries'][x]['Value'])
-            texts.append(list[i]['Entries'][x]['Type'] + ' : ' + list[i]['Entries'][x]['Value'])
+            texts.append(StrConv(list[i]['Entries'][x]['Type'] + ' : ' + list[i]['Entries'][x]['Value']))
 
     if len(numbers) == 0:
         return None
     elif len(numbers) == 1:
         return numbers[0]
-    dlg = wx.SingleChoiceDialog(parent, 'Select number for selected contact', 'Select number',
+    dlg = wx.SingleChoiceDialog(parent, _('Select number for selected contact'), _('Select phone number'),
                                 texts, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
     if dlg.ShowModal() == wx.ID_OK:
         rs = numbers[dlg.GetSelection()]
