@@ -34,6 +34,32 @@ def SearchLocation(list, loc, second = None):
                 break
     return result
 
+def SearchNumber(list, number):
+    for i in range(len(list)):
+        for x in list[i]['Entries']:
+            if GetItemType(x['Type']) == 'phone' and number == x['Value']:
+                return i
+    return -1
+
+def GetNumberLink(list, number):
+    i = SearchNumber(list, number)
+    if i == -1:
+        return number
+    return '<a href="memory://%s/%d">%s</a> (%s)</a>' % (list[i]['MemoryType'], list[i]['Location'], list[i]['Name'], number)
+
+def GetTypeString(type, value, values, linkphone = True):
+    t = GetItemType(type)
+    if t == 'contact':
+        i = Wammu.Utils.SearchLocation(values['contact']['ME'], i['Value'])
+        if i == -1:
+            return '%d' % value
+        else:
+            return'%s (%d)' % (values['contact']['ME'][l]['Name'], value)
+    elif linkphone and t == 'phone':
+        return GetNumberLink([] + values['contact']['ME'] + values['contact']['SM'], value)
+    else:
+        return str(value)
+
 def ParseMemoryEntry(entry):
     first = ''
     last = ''

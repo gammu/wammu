@@ -478,7 +478,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Memory type'), v['MemoryType'])]
             for i in v['Entries']:
-                data.append((i['Type'], str(i['Value'])))
+                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], str(i['Value']), self.values, linkphone = False)))
         elif self.type[0] == 'message':
             text = ''
             if self.type[1] == '  ':
@@ -487,12 +487,12 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
             data = [
-                (_('Number'), str(v['Number'])),
+                (_('Number'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['Number'])),
                 (_('Date'), str(v['DateTime'])),
                 (_('Location'), str(v['Location'])),
                 (_('Folder'), str(v['SMS'][0]['Folder'])),
                 (_('Memory'), v['SMS'][0]['Memory']),
-                (_('SMSC'), v['SMS'][0]['SMSC']['Number']),
+                (_('SMSC'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['SMS'][0]['SMSC']['Number'])),
                 (_('State'), v['State']),
                 (Wammu.MessageDisplay.SmsToHtml(self.cfg, v),)]
         elif self.type[0] == 'todo':
@@ -505,15 +505,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Priority'), v['Priority'])]
             for i in v['Entries']:
-                if Wammu.Utils.GetItemType(i['Type']) == 'contact':
-                    l = Wammu.Utils.SearchLocation(self.values['contact']['ME'], i['Value'])
-                    if l == -1:
-                        s = '%d' % i['Value']
-                    else:
-                        s = '%s (%d)' % (self.values['contact']['ME'][l]['Name'], i['Value'])
-                    data.append((i['Type'], '<a href="memory://ME/%d">%s</a>' % (i['Value'], s)))
-                else:
-                    data.append((i['Type'], str(i['Value'])))
+                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], str(i['Value']), self.values)))
         elif self.type[0] == 'calendar':
             if self.type[1] == '  ':
                 t = '__'
@@ -524,15 +516,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Type'), v['Type'])]
             for i in v['Entries']:
-                if Wammu.Utils.GetItemType(i['Type']) == 'contact':
-                    l = Wammu.Utils.SearchLocation(self.values['contact']['ME'], i['Value'])
-                    if l == -1:
-                        s = '%d' % i['Value']
-                    else:
-                        s = '%s (%d)' % (self.values['contact']['ME'][l]['Name'], i['Value'])
-                    data.append((i['Type'], '<a href="memory://ME/%d">%s</a>' % (i['Value'], s)))
-                else:
-                    data.append((i['Type'], str(i['Value'])))
+                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], str(i['Value']), self.values)))
         else:
             data = [('Show not yet implemented! (id = %d)' % evt.index,)]
         self.ShowData(data)
