@@ -499,14 +499,30 @@ class WammuFrame(wx.Frame):
                         self,
                         wx.PD_CAN_ABORT | wx.PD_APP_MODAL | wx.PD_AUTO_HIDE | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_ESTIMATED_TIME)
 
+    def OnProgress(self, evt): 
+        if not self.progress.Update(evt.progress):
+            try:
+                evt.cancel()
+            except:
+                pass
+        if (evt.progress == 100):
+            self.progress.Destroy()
+        if hasattr(evt, 'lock'):
+            evt.lock.release()
+
     def OnData(self, evt):
         self.values[evt.type[0]][evt.type[1]] = evt.data
-        if evt.last and hasattr(self, 'nextfun'):
-            f = self.nextfun
-            a = self.nextarg
-            del self.nextfun
-            del self.nextarg
-            f (*a)
+        if evt.last:
+            self.progress.Update(100)
+            self.progress.Destroy()
+            del self.progress
+            
+            if hasattr(self, 'nextfun'):
+                f = self.nextfun
+                a = self.nextarg
+                del self.nextfun
+                del self.nextarg
+                f (*a)
 
     def ShowData(self, data):
         text = ''
@@ -1238,17 +1254,6 @@ class WammuFrame(wx.Frame):
                 return
         else:
             print 'This link not yet implemented: "%s"' % evt.link
-
-    def OnProgress(self, evt): 
-        if not self.progress.Update(evt.progress):
-            try:
-                evt.cancel()
-            except:
-                pass
-        if (evt.progress == 100):
-            self.progress.Destroy()
-        if hasattr(evt, 'lock'):
-            evt.lock.release()
 
     def OnShowMessage(self, evt): 
         try:
