@@ -26,14 +26,16 @@ import sys
 import gammu
 import Wammu
 import Wammu.Utils
-from Wammu.Utils import Str_ as _
+from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
 
 if wx.USE_UNICODE:
     copyrightline = 'Copyright &copy; 2003 - 2004 Michal &#268;iha&#345;'
     head = ''
 else:
-    copyrightline = 'Copyright (c) 2003-2004 Michal Čihař'
-    head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.localecharset
+    copyrightline = HtmlStrConv(u'Copyright (c) 2003-2004 Michal Čihař')
+    if copyrightline.find('?') != -1:
+        copyrightline = 'Copyright (c) 2003-2004 Michal Cihar'
+    head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
 
 text = '''
 <html>

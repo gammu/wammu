@@ -40,6 +40,7 @@ except:
 if localecharset in [None, 'ANSI_X3.4-1968']:
     localecharset = fallbacklocalecharset
 
+# prepare encoder for strings
 charsetencoder = codecs.getencoder(localecharset)
 
 def StrConv(txt):
@@ -63,7 +64,45 @@ def StrConv(txt):
             if type(txt) == type(''):
                 return txt
             if type(txt) == type(u''):
-                return str(charsetencoder(txt)[0])
+                return str(charsetencoder(txt, 'replace')[0])
+        return str(txt)
+    except UnicodeEncodeError:
+        return '???'
+
+# detect html charset
+htmlcharset = localecharset
+if localecharset.lower() == 'utf-8' and not wx.USE_UNICODE:
+    htmlcharset = 'iso-8859-1'
+    if locale.getdefaultlocale()[0][:2] in ['cs', 'pl', 'sk']:
+        htmlcharset = 'iso-8859-2'
+    print StrConv(_('Warning: you are using utf-8 locales and non unicode enabled wxPython, some text migth be displayed incorrectly!'))
+    print StrConv(_('Warning: assuming charset %s for html widget') % htmlcharset)
+
+# prepare html encoder
+htmlencoder = codecs.getencoder(htmlcharset)
+
+def HtmlStrConv(txt):
+    """
+    This function coverts something (txt) to string form usable by wxPython
+    html widget. There is problem that in default configuration in most distros
+    (maybe all) default encoding for unicode objects is ascii. This leads to
+    exception when converting something different than ascii. And this
+    exception is not catched inside wxPython and leads to segfault.
+
+    So if wxPython supports unicode, we give it unicode, otherwise locale
+    dependant text.
+    """
+    try:
+        if wx.USE_UNICODE:
+            if type(txt) == type(u''):
+                return txt
+            if type(txt) == type(''):
+                return unicode(txt, localecharset)
+        else:
+            if type(txt) == type(''):
+                return txt
+            if type(txt) == type(u''):
+                return str(htmlencoder(txt, 'replace')[0])
         return str(txt)
     except UnicodeEncodeError:
         return '???'
@@ -90,6 +129,9 @@ def UnicodeConv(txt):
 
 def Str_(txt):
     return StrConv(_(txt))
+
+def HtmlStr_(txt):
+    return HtmlStrConv(_(txt))
 
 def GetItemType(txt):
     if txt == '':
