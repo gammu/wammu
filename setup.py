@@ -13,6 +13,9 @@ try:
 except:
     print 'You need python-gammu!'
     sys.exit(1)
+if gammu.Version()[1] < '0.3':
+    print 'You need python-gammu at least 0.3!'
+    sys.exit(1)
 
 if os.getenv('SKIPWXCHECK') == 'yes':
     print 'Skipping wx check, expecting you know what you are doing!'
@@ -22,6 +25,10 @@ else:
     except:
         print 'You need wxPython!'
         sys.exit(1)
+    if wx.VERSION < (2,4,1,2):
+        print 'You need at least wxPython 2.4.1.2!'
+        sys.exit(1)
+     
        
 
 setup(name="wammu",

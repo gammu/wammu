@@ -1,6 +1,8 @@
 # -*- coding: ISO-8859-2 -*-
 import wx
+import sys
 import Wammu.Main
+import Wammu.Error
 from Wammu.Paths import *
 
 class WammuApp(wx.App):
@@ -25,6 +27,10 @@ class WammuApp(wx.App):
         return True
 
 def Run():
+    try:
+        sys.excepthook = Wammu.Error.Handler
+    except:
+        print _('Failed to set exception handler.')
     app = WammuApp()
     app.MainLoop()
 

@@ -4,6 +4,16 @@ NEWS
 Major changes for each release are described here. Detailed changes between
 two versions are allways in ChangeLog.
 
+0.5
+===
+
+* Better handling of exceptions when reading data.
+* Reads really all sms.
+* HTML displayer now should display non ascii texts correctly.
+* More decoded SMS parts are now recognized (especially Nokia ones were not
+  recognised before).
+* Broken wxListCtrl.GetColumn on wxPython 2.4.1.2 is workarounded.
+
 0.4
 ===
 

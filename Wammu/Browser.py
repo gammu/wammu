@@ -3,6 +3,8 @@ import Wammu
 import Wammu.Events
 import Wammu.Utils
 import gammu
+import sys
+import traceback
 from Wammu.Paths import *
 
 import wx.lib.mixins.listctrl 
@@ -77,10 +79,27 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         
         max = [0] * cnt
         for i in range(cnt):
-            size = self.GetTextExtent(self.GetColumn(i).GetText())
+            try:
+                size = self.GetTextExtent(self.GetColumn(i).GetText())[0]
+            except NameError:
+                if not globals().has_key('ShowWXBroken'):
+                    print '***********************************************'
+                    print '* You seem to have broken version of wxPython *'
+                    print '***********************************************'
+                    print 'wxListCtrl.GetColumn failed, which is probably caused by typo in wxPython/controls2.py'
+                    print 'This is usual bug found on wxPython 2.4.1.2'
+                    print 'You can fix it yourself (just c is missing from string controls2 see traceback bellow), or upgrade wxPython, otherwise columns will not be automatically sized.'
+                    print
+                    print '-------------------- Traceback --------------------'
+                    traceback.print_exc()
+                    print '---------------------------------------------------'
+                    print
+                    global ShowWXBroken
+                    ShowwxBroken = False
+                size = 100
             # 16 bellow is for sort arrrow
-            if (size[0] + 16 > max[i]):
-                max[i] = size[0] + 16
+            if (size + 16 > max[i]):
+                max[i] = size + 16
             
         for x in self.values:
             for i in range(cnt):
