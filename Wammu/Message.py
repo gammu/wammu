@@ -42,9 +42,7 @@ class GetMessage(Wammu.Thread.Thread):
         
         for x in data:
             i = {}
-            print x
             v = gammu.DecodeSMS(x)
-            print v
             i['SMS'] = x
             if v != None:
                 i['SMSInfo'] = v
@@ -58,10 +56,10 @@ class GetMessage(Wammu.Thread.Thread):
             elif i['State'] == 'UnSent':
                 unsent.append(i)
                 
-        self.SendData(['message', ' R'], read, False)
-        self.SendData(['message', 'UR'], unread, False)
-        self.SendData(['message', ' S'], sent, False)
-        self.SendData(['message', 'US'], unsent)
+        self.SendData(['message', 'Read'], read, False)
+        self.SendData(['message', 'UnRead'], unread, False)
+        self.SendData(['message', 'Sent'], sent, False)
+        self.SendData(['message', 'UnSent'], unsent)
 
         self.ShowProgress(100)
 

@@ -27,6 +27,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 #        wx.EVT_LIST_DELETE_ITEM(self, self.GetId(), self.OnItemDeleted)
         wx.EVT_LIST_KEY_DOWN(self, self.GetId(), self.OnKey)
         wx.EVT_LIST_COL_CLICK(self, self.GetId(), self.OnColClick)
+        wx.EVT_LIST_ITEM_RIGHT_CLICK(self, self.GetId(), self.OnRightClick)
         wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
     def ShowHeaders(self):
@@ -90,6 +91,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.resizeLastColumn(max[cnt - 1] + spc)
     
     def Sorter(self, i1, i2):
+        if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
+            return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
     
     def Change(self, type, values):
@@ -131,6 +134,44 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             evt = Wammu.Events.DeleteEvent(index = evt.m_itemIndex)
             wx.PostEvent(self.win, evt)
         
+    def OnRightClick(self, evt):
+        if self.type == 'info':
+            return
+        self.popupIndex = evt.m_itemIndex
+        # only do this part the first time so the events are only bound once
+        if not hasattr(self, "popupIDEdit"):
+            self.popupIDEdit        = wx.NewId()
+            self.popupIDDelete      = wx.NewId()
+            self.popupIDDuplicate   = wx.NewId()
+            wx.EVT_MENU(self, self.popupIDEdit,         self.OnPopupEdit)
+            wx.EVT_MENU(self, self.popupIDDelete,       self.OnPopupDelete)
+            wx.EVT_MENU(self, self.popupIDDuplicate,    self.OnPopupDuplicate)
+
+        # make a menu
+        menu = wx.Menu()
+        # add some items
+        if self.type != 'call':
+            menu.Append(self.popupIDEdit,       _('Edit'))
+            menu.Append(self.popupIDDuplicate,  _('Duplicate'))
+        menu.Append(self.popupIDDelete,     _('Delete'))
+
+        # Popup the menu.  If an item is selected then its handler
+        # will be called before PopupMenu returns.
+        self.PopupMenu(menu, evt.GetPoint())
+        menu.Destroy()
+    
+    def OnPopupDuplicate(self, event):
+        evt = Wammu.Events.DuplicateEvent(index = self.popupIndex)
+        wx.PostEvent(self.win, evt)
+
+    def OnPopupEdit(self, event):
+        evt = Wammu.Events.EditEvent(index = self.popupIndex)
+        wx.PostEvent(self.win, evt)
+
+    def OnPopupDelete(self, event):
+        evt = Wammu.Events.DeleteEvent(index = self.popupIndex)
+        wx.PostEvent(self.win, evt)
+
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
         

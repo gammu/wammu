@@ -94,9 +94,6 @@ def ParseMessage(msg, parseinfo = False):
         for i in msg['SMSInfo']['Entries']:
             if i['Buffer'] != None:
                 txt = txt + i['Buffer']
-        for i in msg['SMS']:
-            if i['Text'] != None:
-                txt = txt + i['Text']
     else:
         for i in msg['SMS']:
             txt = txt + i['Text']
