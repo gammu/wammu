@@ -22,7 +22,67 @@ import Wammu
 import Wammu.Data
 import Wammu.Ringtone
 import string
+import re
 from Wammu.Utils import StrConv, Str_ as _
+
+def SmsTextFormat(cfg, txt):
+    if cfg.ReadInt('/Wammu/FormatSMS', 1):
+        ret = ''
+        arr = txt.split(' ')
+        for a in arr:
+            if re.match('^[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) != None:
+                prevtype = 'p'
+                if a[0] in string.lowercase:
+                    type = 'l'
+                elif a[0] in string.uppercase:
+                    type = 'u'
+                elif a[0] in string.digits:
+                    type = 'd'
+                else:
+                    type = 'p'
+                    
+                s = a[0]
+                
+                for x in a[1:]:
+                    if x in string.lowercase:
+                        nexttype = 'l'
+                    elif x in string.uppercase:
+                        nexttype = 'u'
+                    elif x in string.digits:
+                        nexttype = 'd'
+                    else:
+                        nexttype = 'p'
+
+                    if type == nexttype:
+                        s += x
+                    else:
+                        if type == 'u' and nexttype == 'l' and prevtype == 'p' and len(s) == 1:
+                            type = 'l'
+                            prevtype = 'u'
+                            s += x
+                            continue
+                        if type == 'p':
+                            ret = ret.rstrip() + s + ' '
+                        elif type == 'u':
+                            ret += s.lower() + ' '
+                        else:
+                            ret += s + ' ' 
+                        s = x
+                        prevtype = type
+                        type = nexttype
+                
+                if type == 'p':
+                    ret = ret.rstrip() + s + ' '
+                elif type == 'u':
+                    ret += s.lower() + ' '
+                else:
+                    ret += s + ' ' 
+                s = x
+            else:
+                ret += a + ' '
+        return StrConv(ret)
+    else:
+        return StrConv(txt)
 
 def SmsToHtml(cfg, v):
     if v.has_key('SMSInfo'):
@@ -53,6 +113,7 @@ def SmsToHtml(cfg, v):
                     '[<wxp module="Wammu.Image" class="Bitmap">' + \
                     '<param name="image" value="' + "['" + string.join(Wammu.Data.Note, "', '") + "']" + '">' + \
                     '</wxp>' + desc + ']'
+
             if i['ID'] in Wammu.SMSIDs['Sound']:
                 Wammu.Ringtone.ringtones[ringno] = i['Ringtone']
                 text = text + \
@@ -61,6 +122,7 @@ def SmsToHtml(cfg, v):
                     '<param name="ringno" value="' + str(ringno) + '">' + \
                     '</wxp>'
                 ringno += 1
+
             if i['ID'] in Wammu.SMSIDs['Text']:
                 fmt = '%s'
                 for x in Wammu.TextFormats:
@@ -68,8 +130,8 @@ def SmsToHtml(cfg, v):
                         if i.has_key(name) and i[name]:
                             fmt = style % fmt
                 #FIXME: handle special chars
-                text = text + (fmt % i['Buffer'])
-                
+                text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
+
             if i['ID'] in Wammu.SMSIDs['Bitmap']:
                 x = i['Bitmap'][0]
                 text = text + \
@@ -87,9 +149,9 @@ def SmsToHtml(cfg, v):
                         '<param name="scale" value="(' + str(cfg.ReadInt('/Wammu/ScaleImage', 1)) + ')">' + \
                         '<param name="images" value="' + "['" + string.join(data, "', '") + "']" + '">' + \
                         '</wxp>'
-            if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:
-                text = ('<i>%s</i><hr>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it')) + text
+        if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:
+            text = ('<i>%s</i><hr>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it')) + text
     else:
-        text = v['Text']
+        text = SmsTextFormat(cfg, v['Text'])
 
     return StrConv(text)
