@@ -18,7 +18,7 @@ Vendor:     Michal Cihar <michal@cihar.com>
 Prefix:     %{_prefix}
 Requires:   python >= 2.3.0, python-wxGTK >= 2.4.1.2, python-gammu >= 0.4
 BuildRequires: python-devel >= 2.3.0, python-wxGTK >= 2.4.1.2, python-gammu >= 0.4
-Url:        http://www.cohar.com/gammu/wammu
+Url:        http://www.cihar.com/gammu/wammu
 Buildroot:  %{_tmppath}/%name-%version-root
 
 %description
