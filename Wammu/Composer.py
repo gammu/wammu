@@ -4,6 +4,8 @@ import wx.lib.editor.editor
 import wx.lib.mixins.listctrl 
 import Wammu
 import Wammu.MessageDisplay
+import Wammu.Utils
+import gammu
 
 class MessagePreview(wx.Dialog):
     text = '''
@@ -133,8 +135,8 @@ class TextEditor(GenericEditor):
     
         self.concat = wx.CheckBox(self, -1, _('Concatenated'))
         self.concat.SetValue(self.part['ID'] != 'Text')
+        wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.OnConcatChange)
         self.sizer.Add(self.concat, pos = (1, 0))
-        wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.CheckTextLen)
         
         self.leninfo = wx.StaticText(self, -1, _('%d chars') % 999)
         self.sizer.Add(self.leninfo, pos = (1, 3), flag = wx.ALIGN_RIGHT)
@@ -142,7 +144,8 @@ class TextEditor(GenericEditor):
         self.stylebut = wx.Button(self, -1, _('Style'))
         wx.EVT_BUTTON(self, self.stylebut.GetId(), self.StylePressed)
         self.sizer.Add(self.stylebut, pos = (1, 1))
-        
+       
+        self.OnConcatChange()
         
         wx.EVT_TEXT(self.edit, self.edit.GetId(), self.TextChanged)
         if self.part.has_key('Buffer'):
@@ -156,6 +159,10 @@ class TextEditor(GenericEditor):
         self.unicode = newu
         self.CheckTextLen()
 
+    def OnConcatChange(self, evt = None):
+        self.stylebut.Enable(self.concat.GetValue())
+        self.CheckTextLen()
+    
     def CheckTextLen(self, evt = None):
         if not self.concat.GetValue():
             if self.unicode:
@@ -179,7 +186,7 @@ class TextEditor(GenericEditor):
 
     def GetValue(self):
         if self.concat.GetValue():
-            if self.cfg.ReadInt('/SMS/Text/16bitId', 1):
+            if self.cfg.ReadInt('/SMS/16bitId', 1):
                 type = 'ConcatenatedTextLong16bit'
             else:
                 type = 'ConcatenatedTextLong'
@@ -265,7 +272,7 @@ class PredefinedSoundEditor(GenericEditor):
 SMSParts = [
 # FIXME: should support more types...
 #   ID, display text, match types, editor, init type
-    (0, _('Text'), Wammu.SMSIDs['Text'], TextEditor, 'Text'),
+    (0, _('Text'), Wammu.SMSIDs['Text'], TextEditor, 'ConcatenatedTextLong16bit'),
     (1, _('Predefined animation'), Wammu.SMSIDs['PredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
     (2, _('Predefined sound'), Wammu.SMSIDs['PredefinedSound'], PredefinedSoundEditor, 'EMSPredefinedSound'),
     ]
@@ -279,7 +286,7 @@ class SMSComposer(wx.Dialog):
             entry['SMSInfo'] = {}
             entry['SMSInfo']['Entries'] = []
             if self.cfg.ReadInt('/SMS/Text/Concatenated', 1):
-                if self.cfg.ReadInt('/SMS/Text/16bitId', 1):
+                if self.cfg.ReadInt('/SMS/16bitId', 1):
                     type = 'ConcatenatedTextLong16bit'
                 else:
                     type = 'ConcatenatedTextLong'
@@ -323,9 +330,20 @@ class SMSComposer(wx.Dialog):
             self.unicode.SetValue(self.entry['Unicode'])
         else:
             self.unicode.SetValue(self.cfg.ReadInt('/SMS/Unicode', 0))
-        self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
 
+        self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
+        
         wx.EVT_CHECKBOX(self.unicode, self.unicode.GetId(), self.OnUnicode)
+
+        self.report = wx.CheckBox(self, -1, _('Delivery report'))
+        self.sizer.Add(self.report, pos = (row,2), flag = wx.ALIGN_LEFT)
+
+        self.sent = wx.CheckBox(self, -1, _('Sent'))
+        self.sizer.Add(self.sent, pos = (row,4), flag = wx.ALIGN_LEFT)
+
+        self.flash = wx.CheckBox(self, -1, _('Flash'))
+        self.sizer.Add(self.flash, pos = (row,6), flag = wx.ALIGN_LEFT)
+
 
         row = row + 2
         self.sizer.AddGrowableRow(row)
@@ -484,6 +502,8 @@ class SMSComposer(wx.Dialog):
         if self.availsel == -1 or self.prevedit == -1:
             return
         v = {'ID': SMSParts[self.availsel][4]}
+        if v['ID'][-5:] == '16bit' and not self.cfg.ReadInt('/SMS/16bitId', 1):
+            v['ID'] = v['ID'][:-5]
         self.StoreEdited()
         self.entry['SMSInfo']['Entries'].insert(self.prevedit + 1, v)
         next = self.prevedit + 1
@@ -500,15 +520,38 @@ class SMSComposer(wx.Dialog):
                                   _('Message empty!'), wx.OK | wx.ICON_WARNING)
         else:
             self.StoreEdited()
-            dlg = MessagePreview(self, Wammu.MessageDisplay.SmsToHtml(self.cfg, self.entry))
+            msg = gammu.EncodeSMS(self.entry['SMSInfo'])
+            info = gammu.DecodeSMS(msg)
+            result = {}
+            result['SMS'] = msg
+            if info != None:
+                result['SMSInfo'] = info
+            Wammu.Utils.ParseMessage(result, (info != None))
+            dlg = MessagePreview(self, ('<i>%s</i><hr>' % (_('Message will fit into %d SMSes') % len(msg))) + Wammu.MessageDisplay.SmsToHtml(self.cfg, result))
 
         dlg.ShowModal()
         dlg.Destroy()
         
     def Okay(self, evt):       
         self.StoreEdited()
+
+        if self.report.GetValue():
+            self.entry['Type'] = 'Status_Report'
+        else:
+            self.entry['Type'] = 'Submit'
+            
+        if self.sent.GetValue():
+            self.entry['State'] = 'Sent'
+        else:
+            self.entry['State'] = 'UnSent'
+            
+        if self.flash.GetValue():
+            self.entry['SMSInfo']['Class'] = 0
+        else:
+            self.entry['SMSInfo']['Class'] = 1
+
         self.entry['Number'] = self.number.GetValue()
-        self.entry['Unicode'] = self.unicode.GetValue()
+        self.entry['SMSInfo']['Unicode'] = self.unicode.GetValue()
         self.entry['Save'] = self.save.GetValue()
         self.entry['Send'] = self.send.GetValue()
         self.entry['Folder'] = self.folder.GetValue()

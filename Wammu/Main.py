@@ -313,9 +313,11 @@ class WammuFrame(wx.Frame):
             self.showdebug = newdebug
             if self.showdebug == 'yes':
                 gammu.SetDebugFile(sys.stderr)
+                gammu.SetDebugLevel('textall')
                 self.sm.SetDebugLevel('textall')
             else:
                 gammu.SetDebugFile(None)
+                gammu.SetDebugLevel('nothing')
                 self.sm.SetDebugLevel('nothing')
 
 #            if hasattr(self, 'piper'):
@@ -550,8 +552,9 @@ class WammuFrame(wx.Frame):
                 msg['SMSC']['Location'] = 1
 
                 msg['Folder'] = v['Folder']
-                msg['Unicode'] = v['Unicode']
                 msg['Number'] = v['Number']
+                msg['Type'] = v['Type']
+                msg['State'] = v['State']
 
                 busy = wx.BusyInfo(_('Writing message...'))
                 try:
