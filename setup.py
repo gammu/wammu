@@ -26,7 +26,7 @@ import Wammu
 import os.path
 import os
 
-PYTHONGAMMU_REQUIRED = (0,4,1)
+PYTHONGAMMU_REQUIRED = (0,5)
 
 if os.getenv('SKIPGAMMUCHECK') == 'yes':
     print 'Skipping Gammu check, expecting you know what you are doing!'
