@@ -271,7 +271,7 @@ SMSParts = [
     ]
 
 class SMSComposer(wx.Dialog):
-    def __init__(self, parent, cfg, entry, type = 'send', addtext = True):
+    def __init__(self, parent, cfg, entry, action = 'save', addtext = True):
         wx.Dialog.__init__(self, parent, -1, _('Composing SMS'), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.entry = entry
         self.cfg = cfg
@@ -298,9 +298,9 @@ class SMSComposer(wx.Dialog):
         row = 1
         
         self.send = wx.CheckBox(self, -1, _('Send message'))
-        self.send.SetValue(type == 'send')
+        self.send.SetValue(action == 'send')
         self.save = wx.CheckBox(self, -1, _('Save into folder'))
-        self.save.SetValue(type == 'save')
+        self.save.SetValue(action == 'save')
         self.folder = wx.SpinCtrl(self, -1, '2', style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = 0, max = 3, initial = 2)
 
         self.sizer.Add(self.send, pos = (row,1), flag = wx.ALIGN_LEFT)
@@ -509,4 +509,6 @@ class SMSComposer(wx.Dialog):
         self.StoreEdited()
         self.entry['Number'] = self.number.GetValue()
         self.entry['Unicode'] = self.unicode.GetValue()
+        self.entry['Save'] = self.save.GetValue()
+        self.entry['Send'] = self.send.GetValue()
         self.EndModal(wx.ID_OK)

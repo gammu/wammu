@@ -495,7 +495,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Folder'), str(v['SMS'][0]['Folder'])),
                 (_('Memory'), v['SMS'][0]['Memory']),
-                (_('SMSC'), v['SMS'][0]['SMSCNumber']),
+                (_('SMSC'), v['SMS'][0]['SMSC']['Number']),
                 (_('State'), v['State']),
                 (Wammu.MessageDisplay.SmsToHtml(self.cfg, v),)]
         elif self.type[0] == 'todo':
@@ -540,6 +540,21 @@ class WammuFrame(wx.Frame):
         if Wammu.Composer.SMSComposer(self, self.cfg, v).ShowModal() == wx.ID_OK:
             print 'composed sms:'
             print v
+            v['SMS'] = gammu.EncodeSMS(v['SMSInfo'])
+            print 'encoded sms:'
+            print v
+            print '==='
+            for msg in v['SMS']:
+                # FIXME: here set state, smsc...
+                msg['SMSC']['Location'] = 1
+                busy = wx.BusyInfo(_('Writing message...'))
+                try:
+                    msg['Location'] = self.sm.AddSMS(msg)
+                except gammu.GSMError, val:
+                    self.ShowError(val[0])
+                del busy
+                print 'wrote'
+                print msg
 
     def EditContact(self, v):
         backup = copy.deepcopy(v)
