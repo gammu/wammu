@@ -285,6 +285,8 @@ class WammuFrame(wx.Frame):
 
         self.type = ['info','  ']
 
+        self.timer = None
+
         # create state machine
         self.sm = gammu.StateMachine()
 
