@@ -83,8 +83,10 @@ class PhoneValidator(wx.PyValidator):
             return
 
         tc = self.GetWindow()
+        pos = tc.GetInsertionPoint()
         val = tc.GetValue()
-        if self.CheckText(val + chr(key), immediate = True):
+        newval = val[0:pos] + chr(key) + val[pos:len(val)]
+        if self.CheckText(newval, immediate = True):
             event.Skip()
             return
 
