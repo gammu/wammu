@@ -23,6 +23,8 @@ import codecs
 import locale
 import sys
 
+fallbacklocalecharset = 'iso-8859-1'
+
 # Determine "correct" character set
 try:
     # works only in python > 2.3
@@ -34,7 +36,9 @@ except:
         try:
             localecharset = sys.getdefaultencoding()
         except:
-            localecharset = 'ascii'
+            localecharset = fallbacklocalecharset
+if localecharset in [None, 'ANSI_X3.4-1968']:
+    localecharset = fallbacklocalecharset
 
 charsetencoder = codecs.getencoder(localecharset)
 

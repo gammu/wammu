@@ -26,6 +26,7 @@ import sys
 import gammu
 import Wammu
 import locale
+import Wammu.Utils
 from Wammu.Utils import Str_ as _
 
 if wx.USE_UNICODE:
@@ -33,12 +34,7 @@ if wx.USE_UNICODE:
     head = ''
 else:
     copyright = 'Copyright (c) 2003-2004 Michal Cihar'
-    try:
-        loc = locale.getdefaultlocale()
-        charset = loc[1]
-    except:
-        charset = 'iso-8859-1'
-    head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % charset
+    head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.localecharset
 
 text = '''
 <html>
