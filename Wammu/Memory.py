@@ -28,6 +28,13 @@ class GetMemory(Wammu.Reader.Reader):
         self.datatype = datatype
         self.type = type
 
+    def FallBackStatus(self):
+        if self.type in ['MC', 'DC', 'RC']:
+            # guess smaller values for calls, as this memory is usually much smaller
+            return 40
+        else:
+            return Wammu.Reader.Reader.FallBackStatus()
+
     def GetStatus(self):
         status = self.sm.GetMemoryStatus(Type = self.type)
         return status['Used']
