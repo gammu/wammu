@@ -36,7 +36,7 @@ try:
 except ImportError:
     # wxPython 2.5.2
     from wx.lib.masked.timectrl import TimeCtrl
-import Wammu.wxcomp.popupctl
+from Wammu.Paths import *
 import sys
 import datetime
 import time
@@ -77,43 +77,38 @@ def DateToText(date):
         #FIXME: configurable
         return str(datetime.datetime.fromtimestamp(time.time() + 24*60*60).date())
 
-class DateControl(Wammu.wxcomp.popupctl.wxPopupControl):
-    """
-    Date editor heavilly based on wxPython example - wxPopupControl.py
-    """
+class CalendarPopup(wx.PopupTransientWindow):
+    def __init__(self, parent):
+        wx.PopupTransientWindow.__init__(self, parent, wx.SIMPLE_BORDER)
+        self.cal = wx.calendar.CalendarCtrl(self, -1, pos = (0, 0), style = wx.calendar.CAL_SEQUENTIAL_MONTH_SELECTION)
+        sz = self.cal.GetBestSize()
+        self.SetSize(sz)
+
+class DateControl(wx.Panel):
     def __init__(self, parent, value):
-        Wammu.wxcomp.popupctl.wxPopupControl.__init__(self, parent, value)
+        wx.Panel.__init__(self, parent, -1)
 
-        self.win = wx.Window(self,-1,pos = (0,0),style = 0)
-        self.cal = wx.calendar.CalendarCtrl(self.win,-1,pos = (0,0))
+        self.sizer = wx.FlexGridSizer(1, 2)
+        self.sizer.AddGrowableCol(0)
+        self.textCtrl = wx.TextCtrl(self,-1,value)
+        self.bCtrl = wx.BitmapButton(self, -1, wx.Bitmap(MiscPath('downarrow')))
+        self.sizer.AddMany([
+            (self.textCtrl, 1, wx.EXPAND),
+            (self.bCtrl, 1, wx.EXPAND),
+            ])
+        self.sizer.Fit(self)
+        self.SetAutoLayout(True)
+        self.SetSizer(self.sizer)
+        wx.EVT_BUTTON(self.bCtrl,self.bCtrl.GetId(),self.OnButton)
+        wx.EVT_SET_FOCUS(self,self.OnFocus)
 
-        bz = self.cal.GetBestSize()
-        self.win.SetSize(bz)
 
-        # This method is needed to set the contents that will be displayed
-        # in the popup
-        self.SetPopupContent(self.win)
-
-        # Event registration for date selection
-        wx.calendar.EVT_CALENDAR_DAY(self.cal,self.cal.GetId(),self.OnCalSelected)
-
-    # Method called when a day is selected in the calendar
-    def OnCalSelected(self,evt):
-        self.PopDown()
-        date = self.cal.GetDate()
-
-        # Format the date that was selected for the text part of the control
-        self.SetValue('%04d-%02d-%02d' % (date.GetYear(),
-                                          date.GetMonth()+1,
-                                          date.GetDay()))
+    def OnFocus(self,evt):
+        self.textCtrl.SetFocus()
         evt.Skip()
 
-    # Method overridden from wxPopupControl
-    # This method is called just before the popup is displayed
-    # Use this method to format any controls in the popup
-    def FormatContent(self):
-        # I parse the value in the text part to resemble the correct date in
-        # the calendar control
+    def OnButton(self,evt):
+        self.pop = CalendarPopup(self)
         txtValue = self.GetValue()
         dmy = txtValue.split('-')
         didSet = False
@@ -124,12 +119,49 @@ class DateControl(Wammu.wxcomp.popupctl.wxPopupControl):
             if d > 0 and d < 31:
                 if m >= 0 and m < 12:
                     if y > 1000:
-                        date = DateTimeFromDMY(d,m,y)
-                        self.cal.SetDate(date)
+                        self.pop.cal.SetDate(DateTimeFromDMY(d,m,y))
                         didSet = True
         if not didSet:
-            time = DateTime_Today()
-            self.cal.SetDate()
+            self.pop.cal.SetDate(DateTime_Today())
+
+        pos = self.ClientToScreen( (0,0) )
+        display_size = wx.GetDisplaySize()
+        popup_size = self.pop.GetSize()
+        control_size = self.GetSize()
+
+        pos.x -= (popup_size.x - control_size.x) / 2
+        if pos.x + popup_size.x > display_size.x:
+            pos.x = display_size.x - popup_size.x
+        if pos.x < 0:
+            pos.x = 0
+
+        pos.y += control_size.height
+        if pos.y + popup_size.y > display_size.y:
+            pos.y = display_size.y - popup_size.y
+        if pos.y < 0:
+            pos.y = 0
+        self.pop.MoveXY(pos.x,pos.y)
+        wx.calendar.EVT_CALENDAR_DAY(self, self.pop.cal.GetId(),self.OnCalSelected)
+        self.pop.Popup()
+
+    def Enable(self,flag):
+        wx.PyControl.Enable(self,flag)
+        self.textCtrl.Enable(flag)
+        self.bCtrl.Enable(flag)
+
+    def SetValue(self,value):
+        self.textCtrl.SetValue(value)
+
+    def GetValue(self):
+        return self.textCtrl.GetValue()
+
+    def OnCalSelected(self,evt):
+        date = self.pop.cal.GetDate()
+        self.SetValue('%04d-%02d-%02d' % (date.GetYear(),
+                                          date.GetMonth()+1,
+                                          date.GetDay()))
+        self.pop.Dismiss()
+        evt.Skip()
 
 
 class DateTimeEdit(wx.Panel):
@@ -315,9 +347,11 @@ class OneEdit(wx.Panel):
         self.sizer.Remove(2)
         self.sizer.Remove(3)
         if hasattr(self, 'edit'):
+            self.edit.Destroy()
             del self.edit
 
         if hasattr(self, 'edit2'):
+            self.edit2.Destroy()
             del self.edit2
 
         self.edit2 = wx.StaticText(self, -1, '')
