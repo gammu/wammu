@@ -43,4 +43,4 @@ def Handler(type, value, tback):
         print 'Unicode encoding error appeared, see question 1 in FAQ, how to solve this.'
         print
     print 'You have probably found a bug. You might help improving this software by'
-    print 'sending above text and description how it was caused to michal@cihar.com.'
+    print 'sending above text and description how it was caused to http://bugs.cihar.com'
