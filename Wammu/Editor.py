@@ -22,7 +22,6 @@ import wx
 import wxPython.utils
 import wx.calendar
 import wx.lib.timectrl
-import wx.lib.intctrl
 import Wammu.wxcomp.popupctl
 import locale
 import sys
@@ -178,7 +177,7 @@ class ContactEdit(wx.Panel):
         self.values = values
         self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
         self.sizer.AddGrowableCol(1)
-        self.edit = wx.lib.intctrl.IntCtrl(self, -1, val, min = 0, limited = True)
+        self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000, initial = val, size = (200, -1))
         self.txt = wx.StaticText(self, -1, self.GetText(val))
         self.btn = wx.Button(self, -1, _('...'), style = wx.BU_EXACTFIT)
         self.sizer.AddMany([
@@ -337,7 +336,7 @@ class OneEdit(wx.Panel):
                 val = int(value)
             except:
                 val = 0
-            self.edit = wx.lib.intctrl.IntCtrl(self, -1, val, size = (200, -1))
+            self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
         elif newt == 'datetime':
             self.edit = wx.lib.timectrl.TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
             self.edit2.Destroy()
