@@ -8,14 +8,17 @@ import Wammu
 import os.path
 import os
 
-try:
-    import gammu
-except:
-    print 'You need python-gammu!'
-    sys.exit(1)
-if gammu.Version()[1] < '0.4':
-    print 'You need python-gammu at least 0.4!'
-    sys.exit(1)
+if os.getenv('SKIPGAMMUCHECK') == 'yes':
+    print 'Skipping Gammu check, expecting you know what you are doing!'
+else:
+    try:
+        import gammu
+    except:
+        print 'You need python-gammu!'
+        sys.exit(1)
+    if gammu.Version()[1] < '0.4':
+        print 'You need python-gammu at least 0.4!'
+        sys.exit(1)
 
 if os.getenv('SKIPWXCHECK') == 'yes':
     print 'Skipping wx check, expecting you know what you are doing!'
@@ -44,6 +47,6 @@ setup(name="wammu",
     data_files = [
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
-        (os.path.join('share','locale','cs','LC_MESSAGES'), ['locale/cs.mo']),
+        (os.path.join('share','locale','cs','LC_MESSAGES'), ['locale/cs/LC_MESSAGES/wammu.mo']),
         ]
     )

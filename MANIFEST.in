@@ -14,6 +14,6 @@ include debian/changelog
 include debian/control
 include debian/rules
 recursive-include images *.png
-include locale/*.[pm]o
+recursive-include locale *.[pm]o
 include wammu
 include wammu.spec
