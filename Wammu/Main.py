@@ -4,10 +4,6 @@ import gammu
 import sys
 import datetime
 import Wammu
-
-import Wammu.Info
-import Wammu.Memory
-
 import Wammu.Events
 import Wammu.Displayer
 import Wammu.Browser
@@ -327,6 +323,7 @@ class WammuFrame(wx.Frame):
 
     def ShowInfo(self, event):
         self.ShowProgress(_('Reading phone information'))
+        import Wammu.Info
         Wammu.Info.GetInfo(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('info', '  ')
@@ -352,6 +349,7 @@ class WammuFrame(wx.Frame):
         
     def GetCallsType(self, type):
         self.ShowProgress(_('Reading calls of type %s') % type)
+        import Wammu.Memory
         Wammu.Memory.GetMemory(self, self.sm, 'call', type).start()
         
     #
@@ -380,6 +378,7 @@ class WammuFrame(wx.Frame):
         
     def GetContactsType(self, type):
         self.ShowProgress('Reading contacts from ' + type)
+        import Wammu.Memory
         Wammu.Memory.GetMemory(self, self.sm, 'memory', type).start()
 
     #
