@@ -1,20 +1,25 @@
 import Wammu
 import Wammu.Data
+import Wammu.Ringtone
 import string
 
 def SmsToHtml(cfg, v):
     if v.has_key('SMSInfo'):
         text = ''
+        ringno = 0
+        Wammu.Ringtone.ringtones = {}
         for i in v['SMSInfo']['Entries']:
             if i['ID'] in Wammu.SMSIDs['PredefinedAnimation']:
                 if i['Number'] > len(Wammu.Data.PredefinedAnimations):
                     text = text + \
-                        '[<wxp module="Wammu.Image" class="Bitmap">' + \
+                        '<wxp module="Wammu.Image" class="Bitmap">' + \
+                        '<param name="tooltip" value="' + (_('Predefined animation number %d') % i['Number']) + '">' + \
                         '<param name="image" value="' + "['" + string.join(Wammu.Data.UnknownPredefined, "', '") + "']" + '">' + \
-                        '</wxp>' + str(i['Number']) + ']'
+                        '</wxp>'
                 else:
                     text = text + \
                         '<wxp module="Wammu.Image" class="Bitmap">' + \
+                        '<param name="tooltip" value="' + Wammu.Data.PredefinedAnimations[i['Number']][0]+ '">' + \
                         '<param name="image" value="' + "['" + string.join(Wammu.Data.PredefinedAnimations[i['Number']][1], "', '") + "']" + '">' + \
                         '</wxp>'
 
@@ -28,10 +33,13 @@ def SmsToHtml(cfg, v):
                     '<param name="image" value="' + "['" + string.join(Wammu.Data.Note, "', '") + "']" + '">' + \
                     '</wxp>' + desc + ']'
             if i['ID'] in Wammu.SMSIDs['Sound']:
+                Wammu.Ringtone.ringtones[ringno] = i['Ringtone']
                 text = text + \
-                    '<wxp module="Wammu.Image" class="Bitmap">' + \
-                    '<param name="image" value="' + "['" + string.join(Wammu.Data.Note, "', '") + "']" + '">' + \
+                    '<wxp module="Wammu.Ringtone" class="Ringtone">' + \
+                    '<param name="tooltip" value="' + i['Ringtone']['Name'] + '">' + \
+                    '<param name="ringno" value="' + str(ringno) + '">' + \
                     '</wxp>'
+                ringno += 1
             if i['ID'] in Wammu.SMSIDs['Text']:
                 fmt = '%s'
                 for x in Wammu.TextFormats:

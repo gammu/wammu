@@ -547,7 +547,10 @@ class WammuFrame(wx.Frame):
         if v != None:
             self.values['message'][v['State']].append(v)
             self.ActivateView('message', v['State'])
-            self.browser.ShowLocation(v['Location'])
+            try:
+                self.browser.ShowLocation(v['Location'])
+            except KeyError:
+                pass
 
     def ComposeMessage(self, v):
         if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values).ShowModal() == wx.ID_OK:
@@ -622,10 +625,16 @@ class WammuFrame(wx.Frame):
 
             if (self.type[0] == 'contact' and self.type[1] == '  ') or not v.has_key('MemoryType'):
                 self.ActivateView('contact', '  ')
-                self.browser.ShowLocation(v['Location'], ('MemoryType', v['MemoryType']))
+                try:
+                    self.browser.ShowLocation(v['Location'], ('MemoryType', v['MemoryType']))
+                except KeyError:
+                    pass
             else:
                 self.ActivateView('contact', v['MemoryType'])
-                self.browser.ShowLocation(v['Location'])
+                try:
+                    self.browser.ShowLocation(v['Location'])
+                except KeyError:
+                    pass
 
     def EditCalendar(self, v):
         backup = copy.deepcopy(v)
@@ -662,7 +671,10 @@ class WammuFrame(wx.Frame):
                 self.ShowError(val[0])
 
             self.ActivateView('calendar', '  ')
-            self.browser.ShowLocation(v['Location'])
+            try:
+                self.browser.ShowLocation(v['Location'])
+            except KeyError:
+                pass
 
     def EditTodo(self, v):
         backup = copy.deepcopy(v)
@@ -698,7 +710,10 @@ class WammuFrame(wx.Frame):
                 self.ShowError(val[0])
 
             self.ActivateView('todo', '  ')
-            self.browser.ShowLocation(v['Location'])
+            try:
+                self.browser.ShowLocation(v['Location'])
+            except KeyError:
+                pass
 
 
     def OnEdit(self, evt): 
@@ -897,11 +912,17 @@ class WammuFrame(wx.Frame):
 
             if t[0] in ['ME', 'SM']:
                 self.ActivateView('contact', t[0])
-                self.browser.ShowLocation(int(t[1]))
+                try:
+                    self.browser.ShowLocation(int(t[1]))
+                except KeyError:
+                    pass
 
             elif t[0] in ['MC', 'RC', 'DC']:
                 self.ActivateView('contact', t[0])
-                self.browser.ShowLocation(int(t[1]))
+                try:
+                    self.browser.ShowLocation(int(t[1]))
+                except KeyError:
+                    pass
 
             else:
                 print 'Not supported memory type "%s"' % t[0]
