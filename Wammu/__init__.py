@@ -21,12 +21,40 @@ ContactMemoryTypes = ['ME', 'SM']
 
 SMSIDs = {
     'Text':                 ['Text', 'ConcatenatedTextLong', 'ConcatenatedAutoTextLong', 'ConcatenatedTextLong16bit', 'ConcatenatedAutoTextLong16bit'],
-    'Sound':                ['EMSSound10', 'EMSSound12', 'EMSSonyEricssonSound', 'EMSSound10Long', 'EMSSound12Long', 'EMSSonyEricssonSoundLong'],
-    'Animation':            ['EMSAnimation'],
-    'Bitmap':               ['EMSFixedBitmap', 'EMS_EMSVariableBitmap'],
+    'Sound':                [
+        'NokiaProfileLong',
+        'EMSSound10',
+        'EMSSound12',
+        'EMSSonyEricssonSound',
+        'EMSSound10Long',
+        'EMSSound12Long',
+        'EMSSonyEricssonSoundLong',
+        ],
+    'Animation':            [
+        'NokiaProfileLong',
+        'EMSAnimation',
+        'AlcatelMonoAnimationLong',
+        'NokiaScreenSaverLong',
+        ],
+    'Bitmap':               [
+        'NokiaProfileLong',
+        'NokiaPictureImageLong',
+        'NokiaRingtone',
+        'NokiaRingtoneLong',
+        'NokiaOperatorLogo',
+        'NokiaOperatorLogoLong',
+        'NokiaCallerLogo',
+        'EMSFixedBitmap',
+        'EMSVariableBitmap',
+        'EMSVariableBitmapLong',
+        'AlcatelMonoBitmapLong',
+        'AlcatelSMSTemplateName',
+        ],
     'PredefinedAnimation':  ['EMSPredefinedAnimation'],
     'PredefinedSound':      ['EMSPredefinedSound'],
     }
+
+
 
 MemoryValueTypes = [
     'Number_General',
