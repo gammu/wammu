@@ -23,7 +23,7 @@ import sys
 import Wammu.Main
 import Wammu.Error
 from Wammu.Paths import *
-from Wammu.Utils import Str_ as _
+from Wammu.Utils import Str_ as _, StrConv
 
 class WammuApp(wx.App):
 
@@ -31,7 +31,10 @@ class WammuApp(wx.App):
     def OnInit(self):
 
         self.SetAppName('Wammu')
-        self.SetVendorName('Michal Čihař')
+        vendor = StrConv(u'Michal Čihař')
+        if vendor.find('?') != -1:
+            vendor = 'Michal Čihař'
+        self.SetVendorName(vendor)
 
         wx.InitAllImageHandlers()
         #spl = wx.SplashScreen(wx.Bitmap(MiscPath('splash')), wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT, 5000, None, -1)
