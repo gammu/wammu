@@ -23,7 +23,6 @@ import wxPython.utils
 import wx.calendar
 import wx.lib.timectrl
 import Wammu.wxcomp.popupctl
-import locale
 import sys
 import datetime
 import time
@@ -104,7 +103,6 @@ class DateControl(Wammu.wxcomp.popupctl.wxPopupControl):
         dmy = txtValue.split('-')
         didSet = False
         if len(dmy) == 3:
-            date = self.cal.GetDate()
             d = int(dmy[2])
             m = int(dmy[1]) - 1
             y = int(dmy[0])

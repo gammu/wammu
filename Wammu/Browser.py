@@ -22,9 +22,6 @@ import wx
 import Wammu
 import Wammu.Events
 import Wammu.Utils
-import gammu
-import sys
-import traceback
 from Wammu.Paths import *
 from Wammu.Utils import StrConv, Str_ as _
 
@@ -85,21 +82,21 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         # FIXME: this should be acquired better!
         spc = 10
         
-        max = [0] * cnt
+        maxval = [0] * cnt
         for i in range(cnt):
             size = self.GetTextExtent(StrConv(self.columns[i]))[0]
             # 16 bellow is for sort arrrow
-            if (size + 16 > max[i]):
-                max[i] = size + 16
+            if (size + 16 > maxval[i]):
+                maxval[i] = size + 16
             
         for x in self.values:
             for i in range(cnt):
                 size = self.GetTextExtent(StrConv(x[self.keys[i]]))
-                if (size[0] > max[i]):
-                    max[i] = size[0]
+                if (size[0] > maxval[i]):
+                    maxval[i] = size[0]
         for i in range(cnt - 1):
-            self.SetColumnWidth(i, max[i] + spc)
-        self.resizeLastColumn(max[cnt - 1] + spc)
+            self.SetColumnWidth(i, maxval[i] + spc)
+        self.resizeLastColumn(maxval[cnt - 1] + spc)
     
     def Sorter(self, i1, i2):
         if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
@@ -180,19 +177,19 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.DoSelectedDelete()
   
     def DoSelectedDelete(self):
-        list = []
+        lst = []
         index = self.GetFirstSelected()
         while index != -1:
-            list.append(index)
+            lst.append(index)
             index = self.GetNextSelected(index)
-        self.DoDelete(list)
+        self.DoDelete(lst)
   
-    def DoDelete(self, list):
-        evt = Wammu.Events.DeleteEvent(list = list)
+    def DoDelete(self, lst):
+        evt = Wammu.Events.DeleteEvent(lst = lst)
         wx.PostEvent(self.win, evt)
         
-    def DoBackup(self, list):
-        evt = Wammu.Events.BackupEvent(list = list)
+    def DoBackup(self, lst):
+        evt = Wammu.Events.BackupEvent(lst = lst)
         wx.PostEvent(self.win, evt)
         
     def OnRightClick(self, evt):

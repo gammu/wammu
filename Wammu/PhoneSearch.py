@@ -103,13 +103,13 @@ class AllSearchThread(threading.Thread):
             self.callback(self.list)
 
 class SearchThread(threading.Thread):
-    def __init__(self, device, connections, list, listlock, lock = 'no', level = 'nothing'):
+    def __init__(self, device, connections, lst, listlock, lock = 'no', level = 'nothing'):
         threading.Thread.__init__(self)
         self.device = device
         self.connections = connections
         self.lock = lock
         self.level = level
-        self.list = list
+        self.list = lst
         self.listlock = listlock
 
     def run(self):
@@ -136,7 +136,7 @@ class SearchThread(threading.Thread):
                 if self.level != 'nothing':
                     print '!!Found model %s at %s using %s' % (sm.GetModel(), self.device, conn)
                 return
-            except gammu.GSMError, val:
+            except gammu.GSMError:
                 if self.level == 'textall':
                     print 'Failed at %s using %s' % (self.device, conn)
                 pass

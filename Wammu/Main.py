@@ -24,10 +24,8 @@ import gammu
 import sys
 import os
 import os.path
-import time
 import datetime
-import string
-import locale
+import copy
 import Wammu
 import Wammu.Events
 import Wammu.Displayer
@@ -42,8 +40,6 @@ import Wammu.Calendar
 import Wammu.Logger
 import Wammu.Settings
 from Wammu.Paths import *
-import threading
-import copy
 import wx.lib.wxpTag
 import wx.lib.dialogs
 import Wammu.Data
@@ -555,7 +551,6 @@ class WammuFrame(wx.Frame):
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)))
         elif self.type[0] == 'message':
-            text = ''
             if self.type[1] == '  ':
                 t = '__'
             else:
@@ -681,6 +676,7 @@ class WammuFrame(wx.Frame):
                 self.values['contact'][v['MemoryType']].append(v)
 
             except gammu.GSMError, val:
+                del busy
                 v = backup
                 self.ShowError(val[0])
 
@@ -728,6 +724,7 @@ class WammuFrame(wx.Frame):
                 self.values['calendar']['  '].append(v)
 
             except gammu.GSMError, val:
+                del busy
                 v = backup
                 self.ShowError(val[0])
 
@@ -767,6 +764,7 @@ class WammuFrame(wx.Frame):
                 # append new value to list
                 self.values['todo']['  '].append(v)
             except gammu.GSMError, val:
+                del busy
                 v = backup
                 self.ShowError(val[0])
 
@@ -998,15 +996,15 @@ class WammuFrame(wx.Frame):
         if dlg.ShowModal() != wx.ID_OK:
             return
 
-        list = dlg.GetValue()
-        if len(list) == 0:
+        lst = dlg.GetValue()
+        if len(lst) == 0:
             return
 
         try:
             busy = wx.BusyInfo(_('Importing data...'))
-            for i in list:
-                type = values[i]
-                if type == 'PhonePhonebook':
+            for i in lst:
+                datatype = values[i]
+                if datatype == 'PhonePhonebook':
                     for v in backup['PhonePhonebook']:
                         v['Location'] = self.sm.AddMemory(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
@@ -1015,7 +1013,7 @@ class WammuFrame(wx.Frame):
                         # append new value to list
                         self.values['contact'][v['MemoryType']].append(v)
                     self.ActivateView('contact', 'ME')
-                elif type == 'SIMPhonebook':
+                elif datatype == 'SIMPhonebook':
                     for v in backup['SIMPhonebook']:
                         v['Location'] = self.sm.AddMemory(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
@@ -1024,7 +1022,7 @@ class WammuFrame(wx.Frame):
                         # append new value to list
                         self.values['contact'][v['MemoryType']].append(v)
                     self.ActivateView('contact', 'SM')
-                elif type == 'ToDo':
+                elif datatype == 'ToDo':
                     for v in backup['ToDo']:
                         v['Location'] = self.sm.AddToDo(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
@@ -1033,7 +1031,7 @@ class WammuFrame(wx.Frame):
                         # append new value to list
                         self.values['todo']['  '].append(v)
                     self.ActivateView('todo', '  ')
-                elif type == 'Calendar':
+                elif datatype == 'Calendar':
                     for v in backup['Calendar']:
                         v['Location'] = self.sm.AddCalendar(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
@@ -1093,7 +1091,7 @@ class WammuFrame(wx.Frame):
         else:
             t = self.type[1]
         lst = []
-        for i in evt.list:
+        for i in evt.lst:
             lst.append(self.values[self.type[0]][t][i])
         backup = {}
         backup['Creator'] = 'Wammu ' + Wammu.__version__
@@ -1142,7 +1140,7 @@ class WammuFrame(wx.Frame):
             try:
                 busy = wx.BusyInfo(_('Deleting contact...'))
                 lst = []
-                for i in evt.list:
+                for i in evt.lst:
                     lst.append(self.values[self.type[0]][t][i])
                 for v in lst:
                     self.sm.DeleteMemory(v['MemoryType'], v['Location'])
@@ -1151,6 +1149,7 @@ class WammuFrame(wx.Frame):
                             del self.values[self.type[0]][v['MemoryType']][idx]
                             break
             except gammu.GSMError, val:
+                del busy
                 self.ShowError(val[0])
 
             if t == '__':
@@ -1164,7 +1163,7 @@ class WammuFrame(wx.Frame):
             try:
                 busy = wx.BusyInfo(_('Deleting message...'))
                 lst = []
-                for i in evt.list:
+                for i in evt.lst:
                     lst.append(self.values[self.type[0]][t][i])
                 for v in lst:
                     for loc in v['Location'].split(', '):
@@ -1187,7 +1186,7 @@ class WammuFrame(wx.Frame):
             try:
                 busy = wx.BusyInfo(_('Deleting todo...'))
                 lst = []
-                for i in evt.list:
+                for i in evt.lst:
                     lst.append(self.values[self.type[0]][t][i])
                 for v in lst:
                     self.sm.DeleteToDo(v['Location'])
@@ -1209,7 +1208,7 @@ class WammuFrame(wx.Frame):
             try:
                 busy = wx.BusyInfo(_('Deleting calendar event...'))
                 lst = []
-                for i in evt.list:
+                for i in evt.lst:
                     lst.append(self.values[self.type[0]][t][i])
                 for v in lst:
                     self.sm.DeleteCalendar(v['Location'])
@@ -1224,7 +1223,7 @@ class WammuFrame(wx.Frame):
                 t = '  '
             self.ActivateView(self.type[0], t)
         else: 
-            print 'Delete not yet implemented! (items to delete = %s)' % str(evt.list)
+            print 'Delete not yet implemented! (items to delete = %s)' % str(evt.lst)
 
     def OnLink(self, evt): 
         v = evt.link.split('://')
@@ -1266,7 +1265,7 @@ class WammuFrame(wx.Frame):
         except:
             parent = self
 
-        dlg = wx.MessageDialog(self, 
+        wx.MessageDialog(parent, 
             StrConv(evt.message),
             StrConv(evt.title),
             wx.OK | evt.type).ShowModal()
@@ -1438,8 +1437,8 @@ class WammuFrame(wx.Frame):
         evt = Wammu.Events.TextEvent(text = text + '\n')
         wx.PostEvent(self.searchlog, evt)
     
-    def SearchDone(self, list):
-        self.founddevices = list
+    def SearchDone(self, lst):
+        self.founddevices = lst
         evt = Wammu.Events.DoneEvent()
         wx.PostEvent(self.searchlog, evt)
   

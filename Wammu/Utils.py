@@ -86,7 +86,7 @@ def UnicodeConv(txt):
             return unicode(txt, localecharset)
         return unicode(str(txt), localecharset)
     except UnicodeEncodeError:
-        return '???'
+        return unicode('???')
 
 def Str_(txt):
     return StrConv(_(txt))
@@ -113,43 +113,43 @@ def GetItemType(txt):
     else:
         return 'number'
         
-def SearchLocation(list, loc, second = None):
+def SearchLocation(lst, loc, second = None):
     result = -1
-    for i in range(len(list)):
+    for i in range(len(lst)):
         if second != None:
-            if not list[i][second[0]] == second[1]:
+            if not lst[i][second[0]] == second[1]:
                 continue
-        if type(list[i]['Location']) == type(loc):
-            if loc == list[i]['Location']:
+        if type(lst[i]['Location']) == type(loc):
+            if loc == lst[i]['Location']:
                 result = i
                 break
         else:
-            if str(loc) in list[i]['Location'].split(', '):
+            if str(loc) in lst[i]['Location'].split(', '):
                 result = i
                 break
     return result
 
-def SearchItem(list, item):
-    for i in range(len(list)):
-        if item == list[i]:
-            return result
+def SearchItem(lst, item):
+    for i in range(len(lst)):
+        if item == lst[i]:
+            return i
     return -1
 
-def SearchNumber(list, number):
-    for i in range(len(list)):
-        for x in list[i]['Entries']:
+def SearchNumber(lst, number):
+    for i in range(len(lst)):
+        for x in lst[i]['Entries']:
             if GetItemType(x['Type']) == 'phone' and number == x['Value']:
                 return i
     return -1
 
-def GetContactLink(list, i, txt):
-    return StrConv('<a href="memory://%s/%d">%s</a> (%s)</a>' % (list[i]['MemoryType'], list[i]['Location'], list[i]['Name'], txt))
+def GetContactLink(lst, i, txt):
+    return StrConv('<a href="memory://%s/%d">%s</a> (%s)</a>' % (lst[i]['MemoryType'], lst[i]['Location'], lst[i]['Name'], txt))
     
-def GetNumberLink(list, number):
-    i = SearchNumber(list, number)
+def GetNumberLink(lst, number):
+    i = SearchNumber(lst, number)
     if i == -1:
         return StrConv(number)
-    return GetContactLink(list, i, number)
+    return GetContactLink(lst, i, number)
 
 def GetTypeString(type, value, values, linkphone = True):
     t = GetItemType(type)
@@ -231,7 +231,6 @@ def ParseCalendar(entry):
     start = ''
     end = ''
     text = ''
-    completed = ''
     for i in entry['Entries']:
         if i['Type'] == 'END_DATETIME':
             end = str(i['Value'])

@@ -33,13 +33,13 @@ def SmsTextFormat(cfg, txt):
             if re.match('^([a-z]+[^ ]*)?[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) != None:
                 prevtype = 'p'
                 if UnicodeConv(string.lowercase).find(a[0]) != -1:
-                    type = 'l'
+                    curtype = 'l'
                 elif UnicodeConv(string.uppercase).find(a[0]) != -1:
-                    type = 'u'
+                    curtype = 'u'
                 elif UnicodeConv(string.digits).find(a[0]) != -1:
-                    type = 'd'
+                    curtype = 'd'
                 else:
-                    type = 'p'
+                    curtype = 'p'
                    
                 s = a[0]
                 
@@ -53,27 +53,27 @@ def SmsTextFormat(cfg, txt):
                     else:
                         nexttype = 'p'
 
-                    if type == nexttype:
+                    if curtype == nexttype:
                         s += x
                     else:
-                        if type == 'u' and nexttype == 'l' and prevtype == 'p' and len(s) == 1:
-                            type = 'l'
+                        if curtype == 'u' and nexttype == 'l' and prevtype == 'p' and len(s) == 1:
+                            curtype = 'l'
                             prevtype = 'u'
                             s += x
                             continue
-                        if type == 'p':
+                        if curtype == 'p':
                             ret = ret.rstrip() + s + ' '
-                        elif type == 'u':
+                        elif curtype == 'u':
                             ret += s.lower() + ' '
                         else:
                             ret += s + ' ' 
                         s = x
-                        prevtype = type
-                        type = nexttype
+                        prevtype = curtype
+                        curtype = nexttype
                 
-                if type == 'p':
+                if curtype == 'p':
                     ret = ret.rstrip() + s + ' '
-                elif type == 'u':
+                elif curtype == 'u':
                     ret += s.lower() + ' '
                 else:
                     ret += s + ' ' 

@@ -222,9 +222,9 @@ class TextEditor(GenericEditor):
     def GetValue(self):
         if self.concat.GetValue():
             if self.cfg.ReadInt('/SMS/16bitId', 1):
-                type = 'ConcatenatedTextLong16bit'
+                self.part['ID'] = 'ConcatenatedTextLong16bit'
             else:
-                type = 'ConcatenatedTextLong'
+                self.part['ID'] = 'ConcatenatedTextLong'
         else:
             self.part['ID'] = 'Text'
         self.part['Buffer'] = UnicodeConv(self.edit.GetValue())
@@ -323,15 +323,15 @@ class SMSComposer(wx.Dialog):
             entry['SMSInfo']['Entries'] = []
             if self.cfg.ReadInt('/SMS/Text/Concatenated', 1):
                 if self.cfg.ReadInt('/SMS/16bitId', 1):
-                    type = 'ConcatenatedTextLong16bit'
+                    typ = 'ConcatenatedTextLong16bit'
                 else:
-                    type = 'ConcatenatedTextLong'
+                    typ = 'ConcatenatedTextLong'
             else:
-                type = 'Text'
+                typ = 'Text'
             if entry.has_key('Text'):
-                entry['SMSInfo']['Entries'].append({'ID': type, 'Buffer': entry['Text']})
+                entry['SMSInfo']['Entries'].append({'ID': typ, 'Buffer': entry['Text']})
             elif addtext:
-                entry['SMSInfo']['Entries'].append({'ID': type, 'Buffer': ''})
+                entry['SMSInfo']['Entries'].append({'ID': typ, 'Buffer': ''})
         if not entry.has_key('Number'):
             entry['Number'] = ''
 

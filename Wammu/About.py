@@ -25,15 +25,14 @@ import wx.lib.wxpTag
 import sys
 import gammu
 import Wammu
-import locale
 import Wammu.Utils
 from Wammu.Utils import Str_ as _
 
 if wx.USE_UNICODE:
-    copyright = 'Copyright &copy; 2003-2004 Michal &#268;iha&#345;'
+    copyrightline = 'Copyright &copy; 2003-2004 Michal &#268;iha&#345;'
     head = ''
 else:
-    copyright = 'Copyright (c) 2003-2004 Michal Cihar'
+    copyrightline = 'Copyright (c) 2003-2004 Michal Cihar'
     head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.localecharset
 
 text = '''
@@ -80,7 +79,7 @@ cellpadding="0" border="1">
     _('Using wxPython %s') % wx.VERSION_STRING,
     _('Using python-gammu %s and Gammu %s') %  (gammu.Version()[1], gammu.Version()[0])),
     _('<b>Wammu</b> is a wxPython based GUI for Gammu.'),
-    copyright,
+    copyrightline,
     _('''
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

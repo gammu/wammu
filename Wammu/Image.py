@@ -59,7 +59,7 @@ class Throbber(wx.lib.throbber.Throbber):
     def __init__(self, parent, tooltip = 'Animation', images = [defaultbmp], size = None, scale = 1, delay = 0.1):
         bitmaps = []
         for im in images:
-            bitmap = wx.BitmapFromXPMData(x)
+            bitmap = wx.BitmapFromXPMData(im)
             if scale > 1:
                 img = wx.ImageFromBitmap(bitmap)
                 bitmap = wx.BitmapFromImage(img.Scale(bitmap.GetWidth() * scale, bitmap.GetHeight() * scale))

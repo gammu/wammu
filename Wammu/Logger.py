@@ -19,9 +19,7 @@ Logging window and thread for log reading
 '''
 
 import threading
-import time
 import wx
-import os
 import Wammu.Events
 
 class Logger(threading.Thread):
