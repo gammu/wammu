@@ -11,11 +11,16 @@ gettext.install('wammu')
 # First is used as default
 Models = ['at', 'alcatel', 'nauto', 'obex', 'seobex']
 Connections = ['at19200', 'at115200', 'fbus', 'fbusirda', 'fbusdlr3', 'fbusdku5', 'fbusblue', 'phonetblue', 'mrouterblue', 'mbus', 'irdaphonet', 'irdaat', 'irdaobex', 'bluephonet', 'bluefbus', 'blueat', 'blueobex']
+Conn_Cable = ['at19200', 'fbusdlr3', 'fbus', 'mbus']
+Conn_IrDA_Win = ['irdaphonet']
+Conn_IrDA_Other = ['at19200', 'irdaphonet']
 if sys.platform == 'win32':
     Devices = ['com1:', 'com2:']
+    AllDevices = [(Conn_IrDA_Win, '', None), (Conn_Cable, 'com%d:', (1,4))]
 # FIXME: support more platforms?
 else:
-    Devices = ['/dev/ttyS0', '/dev/ttyS1', '/dev/ttyUSB0', '/dev/ircomm0']
+    Devices = ['/dev/ttyS0', '/dev/ttyS1', '/dev/ttyUSB0', '/dev/ircomm0', '/dev/usb/tts/0']
+    AllDevices = [(Conn_Cable, '/dev/ttyS%d', (0, 4)), (Conn_Cable, '/dev/ttyUSB%d', (0, 4)), (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1)), (Conn_Cable, '/dev/usb/tts/%d', (0, 4))]
 
 ContactMemoryTypes = ['ME', 'SM']
 

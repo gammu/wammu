@@ -27,6 +27,7 @@ import wx.lib.wxpTag
 import Wammu.Data
 import Wammu.Composer
 import Wammu.MessageDisplay
+import Wammu.PhoneSearch
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -177,8 +178,8 @@ class WammuFrame(wx.Frame):
 
         # 1st menu from left
         menu1 = wx.Menu()
-#        menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
-#        menu1.AppendSeparator()
+        menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
+        menu1.AppendSeparator()
         menu1.Append(150, _('&Settings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
         menu1.Append(199, _('E&xit'), _('Exit Wammu'))
@@ -225,6 +226,7 @@ class WammuFrame(wx.Frame):
         self.SetMenuBar(self.menuBar)
 
         # menu events
+        wx.EVT_MENU(self, 101, self.SearchPhone)
         wx.EVT_MENU(self, 150, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
         
@@ -271,10 +273,18 @@ class WammuFrame(wx.Frame):
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             except:
                 config = {}
-                wx.MessageDialog(self,
-                    _('Wammu configuration was not found. Gammu settings couldn\'t be read. You will now be taken to configuration dialog to confige Wammu.'),
+                dlg = wx.MessageDialog(self,
+                    _('Wammu configuration was not found. Gammu settings couldn\'t be read.\n' +
+                      'Wammu can try to search for phone. Do you want Wammu to search for phone?\n' +
+                      'After searching you will now be taken to configuration dialog to check whether it was detected correctly.\n\n' +
+                      'If you press cancel, no searching will be performed.'),
                     _('Configuration not found'),
-                    wx.OK | wx.ICON_WARNING).ShowModal()
+                    wx.OK | wx.CANCEL | wx.ICON_WARNING)
+                if dlg.ShowModal() == wx.ID_OK:
+                    self.SearchPhone()
+                    config['Model'] = self.cfg.Read('/Gammu/Model', Wammu.Models[0])
+                    config['Connection'] = self.cfg.Read('/Gammu/Connection', Wammu.Connections[0])
+                    config['Device'] = self.cfg.Read('/Gammu/Device', Wammu.Devices[0])
                     
             # make some defaults
             if not config.has_key('Model') or config['Model'] == None:
@@ -1086,12 +1096,54 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError, val:
                 pass
         
-    def PhoneDisconnect(self, event):
+    def PhoneDisconnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
         try:
             self.sm.Terminate()
+        except gammu.ERR_NOTCONNECTED:
+            pass
         except gammu.GSMError, val:
             del busy
             self.ShowError(val[0])
         self.TogglePhoneMenus(False)
 
+    def SearchMessage(self, text):
+        evt = Wammu.Events.TextEvent(text = text + '\n')
+        wx.PostEvent(self.searchlog, evt)
+    
+    def SearchDone(self, list):
+        self.founddevices = list
+        evt = Wammu.Events.DoneEvent()
+        wx.PostEvent(self.searchlog, evt)
+  
+    def SearchPhone(self, evt = None):
+        self.founddevices = []
+        self.PhoneDisconnect()
+        d = Wammu.PhoneSearch.LogDialog(self)
+        self.searchlog = d
+        t = Wammu.PhoneSearch.AllSearchThread(lock = self.cfg.Read('/Gammu/LockDevice', 'no'), callback = self.SearchDone, msgcallback = self.SearchMessage)
+        t.start()
+        d.ShowModal()
+
+        if len(self.founddevices) == 0:
+            wx.MessageDialog(self,
+                _('No phone could not be found, you still can try to select it manually. Wammu searches only few ports, so if you are using some unusual, this might easilly happen.'),
+                _('No phone found'),
+                wx.OK | wx.ICON_WARNING).ShowModal()
+            return
+            
+        choices = []
+        for x in self.founddevices:
+            choices.append(_('Model %s (%s) on %s port using connection %s') % (x[2][1], x[3], x[0], x[1]))
+        dlg = wx.SingleChoiceDialog(self, 'Select phone to use from bellow list', 'Select phone',
+                                    choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
+        if dlg.ShowModal() == wx.ID_OK:
+            idx = dlg.GetSelection()
+            x = self.founddevices[idx]
+            # FIXME: this should probably detect Gammu, but I don't know how to iplmentent it there
+            if x[3] == 'Alcatel':
+                self.cfg.Write('/Gammu/Model', 'alcatel')
+            else:
+                self.cfg.Write('/Gammu/Model', '')
+            self.cfg.Write('/Gammu/Device', x[0])
+            self.cfg.Write('/Gammu/Connection', x[1])

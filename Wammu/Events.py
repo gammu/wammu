@@ -15,4 +15,6 @@ SendEvent, EVT_SEND = NewEvent()
 DuplicateEvent, EVT_DUPLICATE = NewEvent()
 DeleteEvent, EVT_DELETE = NewEvent()
 LogEvent, EVT_LOG = NewEvent()
+TextEvent, EVT_TEXT = NewEvent()
+DoneEvent, EVT_DONE = NewEvent()
 
