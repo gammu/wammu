@@ -315,17 +315,17 @@ class WammuFrame(wx.Frame):
                     wx.OK | wx.CANCEL | wx.ICON_WARNING)
                 if dlg.ShowModal() == wx.ID_OK:
                     self.SearchPhone()
-                    config['Model'] = self.cfg.Read('/Gammu/Model', Wammu.Models[0])
-                    config['Connection'] = self.cfg.Read('/Gammu/Connection', Wammu.Connections[0])
-                    config['Device'] = self.cfg.Read('/Gammu/Device', Wammu.Devices[0])
+                    config['Model'] = self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
+                    config['Connection'] = self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0])
+                    config['Device'] = self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0])
                     
             # make some defaults
             if not config.has_key('Model') or config['Model'] == None:
-                config['Model'] = Wammu.Models[0]
+                config['Model'] = Wammu.Data.Models[0]
             if not config.has_key('Connection') or config['Connection'] == None:
-                config['Connection'] = Wammu.Connections[0]
+                config['Connection'] = Wammu.Data.Connections[0]
             if not config.has_key('Device') or config['Device'] == None:
-                config['Device'] = Wammu.Devices[0]
+                config['Device'] = Wammu.Data.Devices[0]
             if not config.has_key('SyncTime') or not config['SyncTime'] == 'yes':
                 config['SyncTime'] = 'no'
             if not config.has_key('LockDevice') or not config['LockDevice'] == 'yes':
@@ -1382,12 +1382,12 @@ class WammuFrame(wx.Frame):
             'UseGlobalDebugFile': 1, 
             'DebugFile': None, # Set on other place
             'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'), 
-            'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Connections[0]), 
+            'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]), 
             'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'), 
             'DebugLevel': 'textall', # Set on other place
-            'Device': self.cfg.Read('/Gammu/Device', Wammu.Devices[0]), 
+            'Device': self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0]), 
             'Localize': None,  # Set automatically by python-gammu
-            'Model': self.cfg.Read('/Gammu/Model', Wammu.Models[0])
+            'Model': self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
             }
         self.sm.SetConfig(0, cfg)
         try:
