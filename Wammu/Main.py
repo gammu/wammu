@@ -24,6 +24,7 @@ import copy
 import wx.lib.wxpTag
 import Wammu.Images
 import Wammu.Data
+import Wammu.Composer
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -220,6 +221,7 @@ class WammuFrame(wx.Frame):
         menu4.Append(401, _('&Contact'), _('Crates new contact'))
         menu4.Append(402, _('Calendar &event'), _('Crates new calendar event'))
         menu4.Append(403, _('&Todo'), _('Crates new todo'))
+        menu4.Append(404, _('&Message'), _('Crates new message'))
         # Add menu to the menu bar
         self.menuBar.Append(menu4, _('&New'))
 
@@ -246,6 +248,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 401, self.NewContact)
         wx.EVT_MENU(self, 402, self.NewCalendar)
         wx.EVT_MENU(self, 403, self.NewTodo)
+        wx.EVT_MENU(self, 404, self.NewMessage)
 
 
         self.TogglePhoneMenus(False)
@@ -383,6 +386,7 @@ class WammuFrame(wx.Frame):
         mb.Enable(401, enable);
         mb.Enable(402, enable);
         mb.Enable(403, enable);
+        mb.Enable(404, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
@@ -569,6 +573,14 @@ class WammuFrame(wx.Frame):
 
     def NewTodo(self, evt):
         self.EditTodo({})
+    
+    def NewMessage(self, evt):
+        self.ComposeMessage({})
+
+    def ComposeMessage(self, v):
+        if Wammu.Composer.SMSComposer(self, self.cfg, v).ShowModal() == wx.ID_OK:
+            print 'composed sms:'
+            print v
 
     def EditContact(self, v):
         backup = copy.deepcopy(v)
@@ -715,7 +727,7 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = copy.deepcopy(self.values['contact'][t][evt.index])
             v['Location'] = 0
-            self.EditContact(v);
+            self.EditContact(v)
         elif self.type[0] == 'calendar':
             if self.type[1] == '  ':
                 t = '__'
@@ -723,7 +735,7 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = copy.deepcopy(self.values['calendar'][t][evt.index])
             v['Location'] = 0
-            self.EditCalendar(v);
+            self.EditCalendar(v)
         elif self.type[0] == 'todo':
             if self.type[1] == '  ':
                 t = '__'
@@ -731,7 +743,14 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = copy.deepcopy(self.values['todo'][t][evt.index])
             v['Location'] = 0
-            self.EditTodo(v);
+            self.EditTodo(v)
+        elif self.type[0] == 'message':
+            if self.type[1] == '  ':
+                t = '__'
+            else:
+                t = self.type[1]
+            v = copy.deepcopy(self.values['message'][t][evt.index])
+            self.ComposeMessage(v)
         else: 
             print 'Duplicate not yet implemented!'
             print evt.index

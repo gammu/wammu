@@ -160,6 +160,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             
         if not self.type in ['call', 'message']:
             menu.Append(self.popupIDEdit,       _('Edit'))
+        if not self.type in ['call']:
             menu.Append(self.popupIDDuplicate,  _('Duplicate'))
 
         menu.Append(self.popupIDDelete,     _('Delete'))
