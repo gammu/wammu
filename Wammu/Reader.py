@@ -22,7 +22,7 @@ import Wammu.Thread
 import gammu
 
 class Reader(Wammu.Thread.Thread):
-    def run(self):
+    def Run(self):
         self.ShowProgress(0)
         
         try:

@@ -20,6 +20,7 @@ Phone number validator
 
 import wx
 import re
+from Wammu.Utils import Str_ as _
 
 validchars = '0123456789+#*'
 matcher = re.compile('^\\+?[0-9*#]+$')

@@ -32,7 +32,7 @@ import Wammu
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
-from Wammu.Utils import StrConv
+from Wammu.Utils import StrConv, Str_ as _
 
 def TextToTime(txt):
     hms = txt.split(':')

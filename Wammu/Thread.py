@@ -18,9 +18,11 @@
 Generic thread wrapper used for reading things from phone
 '''
 
+import sys
 import threading
 import wx
 import Wammu.Events
+import Wammu.Error
 
 class Thread(threading.Thread):
     def __init__(self, win, sm):
@@ -28,6 +30,13 @@ class Thread(threading.Thread):
         self.win = win
         self.sm = sm
         self.canceled = False
+
+    def run(self):
+        try:
+            sys.excepthook = Wammu.Error.Handler
+        except:
+            print _('Failed to set exception handler.')
+        self.Run()
 
     def Cancel(self):
         self.canceled = True

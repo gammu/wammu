@@ -24,6 +24,7 @@ import sys
 import Wammu.Main
 import Wammu.Error
 from Wammu.Paths import *
+from Wammu.Utils import Str_ as _
 
 class WammuApp(wx.App):
 

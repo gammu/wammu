@@ -28,6 +28,7 @@ import Wammu.Utils
 import Wammu.PhoneValidator
 import Wammu.Select
 import gammu
+from Wammu.Utils import Str_ as _
 
 class MessagePreview(wx.Dialog):
     text = '''

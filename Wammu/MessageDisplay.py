@@ -22,6 +22,7 @@ import Wammu
 import Wammu.Data
 import Wammu.Ringtone
 import string
+from Wammu.Utils import StrConv, Str_ as _
 
 def SmsToHtml(cfg, v):
     if v.has_key('SMSInfo'):
@@ -91,4 +92,4 @@ def SmsToHtml(cfg, v):
     else:
         text = v['Text']
 
-    return text
+    return StrConv(text)

@@ -18,6 +18,8 @@
 Some static data, bitmaps, etc.
 '''
 
+from Wammu.Utils import Str_ as _
+
 # When support for sound will be implemented, here should be sounds
 PredefinedSounds = [
         (_('Chimes high'),''),

@@ -22,12 +22,15 @@ Wammu modules
 import sys
 import os
 import gettext
+from Wammu.Utils import Str_
 __version__ = '0.5.1'
 
 if os.getenv('LOCALLOCALE') == 'yes':
     gettext.install('wammu','./locale/', unicode=1)
 else:
     gettext.install('wammu', unicode=1)
+
+_ = Str_
 
 # FIXME: these definitions probably should be part of gammu module and not this...
 # First is used as default

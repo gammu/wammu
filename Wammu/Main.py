@@ -51,6 +51,7 @@ import Wammu.Composer
 import Wammu.MessageDisplay
 import Wammu.PhoneSearch
 import Wammu.About
+from Wammu.Utils import StrConv, Str_ as _
 
 def SortDataKeys(a, b):
     if a == 'info':
@@ -545,14 +546,14 @@ class WammuFrame(wx.Frame):
             v = self.values[self.type[0]][t][evt.index]
             data = [
                 (_('Number'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['Number'])),
-                (_('Date'), str(v['DateTime'])),
-                (_('Location'), str(v['Location'])),
-                (_('Folder'), str(v['SMS'][0]['Folder'])),
-                (_('Memory'), v['SMS'][0]['Memory']),
+                (_('Date'), StrConv(v['DateTime'])),
+                (_('Location'), StrConv(v['Location'])),
+                (_('Folder'), StrConv(v['SMS'][0]['Folder'])),
+                (_('Memory'), StrConv(v['SMS'][0]['Memory'])),
                 (_('SMSC'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['SMS'][0]['SMSC']['Number'])),
-                (_('State'), v['State'])]
+                (_('State'), StrConv(v['State']))]
             if v['Name'] != '':
-                data.append((_('Name'), v['Name']))
+                data.append((_('Name'), StrConv(v['Name'])))
             data.append((Wammu.MessageDisplay.SmsToHtml(self.cfg, v),))
         elif self.type[0] == 'todo':
             if self.type[1] == '  ':

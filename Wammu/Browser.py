@@ -26,7 +26,7 @@ import gammu
 import sys
 import traceback
 from Wammu.Paths import *
-from Wammu.Utils import StrConv
+from Wammu.Utils import StrConv, Str_ as _
 
 import wx.lib.mixins.listctrl 
 

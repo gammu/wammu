@@ -24,6 +24,7 @@ import threading
 import Wammu
 import Wammu.Events
 import wxPython.lib.layoutf
+from Wammu.Utils import Str_ as _
 
 class LogDialog(wx.Dialog):
     def __init__(self, parent, msg = '', caption = _('Phone searching log'), pos = wx.DefaultPosition, size = (500,300)):

@@ -25,14 +25,24 @@ import wx.lib.wxpTag
 import sys
 import gammu
 import Wammu
+import locale
+from Wammu.Utils import Str_ as _
 
 if wx.USE_UNICODE:
     copyright = 'Copyright &copy; 2003-2004 Michal &#268;iha&#345;'
+    head = ''
 else:
     copyright = 'Copyright (c) 2003-2004 Michal Cihar'
+    try:
+        loc = locale.getdefaultlocale()
+        charset = loc[1]
+    except:
+        charset = 'iso-8859-1'
+    head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % charset
 
 text = '''
 <html>
+%s
 <body>
 <center><table bgcolor="#458154" width="100%%" cellspacing="0"
 cellpadding="0" border="1">
@@ -64,7 +74,7 @@ cellpadding="0" border="1">
 </body>
 </html>
 
-''' % ('''
+''' % (head, '''
     <h2>Wammu %s</h2>
     %s<br>
     %s<br>

@@ -64,25 +64,27 @@ def StrConv(txt):
     except UnicodeEncodeError:
         return '???'
 
+def Str_(txt):
+    return StrConv(_(txt))
 
-def GetItemType(str):
-    if str == '':
+def GetItemType(txt):
+    if txt == '':
         return None
-    elif str[-8:] == 'DATETIME':
+    elif txt[-8:] == 'DATETIME':
         return 'datetime'
-    elif str[-4:] == 'DATE' or str == 'Date':
+    elif txt[-4:] == 'DATE' or txt == 'Date':
         return 'date'
-    elif str == 'TEXT' or str == 'LOCATION' or str[:4] == 'Text':
+    elif txt == 'TEXT' or txt == 'LOCATION' or txt[:4] == 'Text':
         return 'text'
-    elif str == 'PHONE' or str[:6] == 'Number':
+    elif txt == 'PHONE' or txt[:6] == 'Number':
         return 'phone'
-    elif str == 'CONTACTID':
+    elif txt == 'CONTACTID':
         return 'contact'
-    elif str == 'PRIVATE' or str == 'Private' or str == 'COMPLETED':
+    elif txt == 'PRIVATE' or txt == 'Private' or txt == 'COMPLETED':
         return 'bool'
-    elif str == 'Category' or str == 'CATEGORY':
+    elif txt == 'Category' or txt == 'CATEGORY':
         return 'category'
-    elif str == 'PictureID' or str == 'RingtoneID':
+    elif txt == 'PictureID' or txt == 'RingtoneID':
         return 'id'
     else:
         return 'number'
@@ -116,7 +118,7 @@ def GetContactLink(list, i, txt):
 def GetNumberLink(list, number):
     i = SearchNumber(list, number)
     if i == -1:
-        return number
+        return StrConv(number)
     return GetContactLink(list, i, number)
 
 def GetTypeString(type, value, values, linkphone = True):
@@ -170,6 +172,7 @@ def ParseMemoryEntry(entry):
     entry['Name'] = StrConv(name_result)
 
 def ParseTodo(entry):
+    _ = Str_
     dt = ''
     text = ''
     completed = ''

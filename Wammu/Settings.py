@@ -20,6 +20,7 @@ Settings dialog
 
 import wx
 import Wammu
+from Wammu.Utils import Str_ as _
 
 class Settings(wx.Dialog): 
     def __init__(self, parent, config):
