@@ -21,16 +21,21 @@ Unexpected exception handler
 import Wammu
 import wx
 import gammu
-import traceback,sys
+import traceback
+import sys
+import locale
 
 def Handler(type, value, tback):
     """User friendly error handling """
-    print '--------------------- Version ---------------------'
+    print '--------------- System information ----------------'
     print 'Python       %s' % sys.version.split()[0]
     print 'wxPython     %s' % wx.VERSION_STRING
     print 'Wammu        %s' % Wammu.__version__
-    print 'python-gammu %s' % gammu.Version()[1]
-    print 'Gammu        %s' % gammu.Version()[0]
+    ver = gammu.Version()
+    print 'python-gammu %s' % ver[1]
+    print 'Gammu        %s' % ver[0]
+    loc = locale.getdefaultlocale()
+    print 'locales      %s (%s)' % (loc[0], loc[1])
     print '-------------------- Traceback --------------------'
     traceback.print_exception(type, value, tback)
     print '---------------------------------------------------'
