@@ -114,7 +114,7 @@ class WammuFrame(wx.Frame):
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
         self.CreateStatusBar(2)
-        self.SetStatusWidths([-1,100])
+        self.SetStatusWidths([-1,200])
 
         # Associate some events with methods of this class
         wx.EVT_CLOSE(self, self.CloseWindow)
@@ -290,6 +290,9 @@ class WammuFrame(wx.Frame):
 
         self.showdebug = ''
 
+        self.timer = wx.Timer(self)
+        wx.EVT_TIMER(self, self.timer.GetId(), self.OnTimer)
+        self.timer.Start(5000)
 
     def PostInit(self):
         # things that need window opened
@@ -347,6 +350,30 @@ class WammuFrame(wx.Frame):
         if (self.cfg.Read('/Wammu/AutoConnect', 'no') == 'yes'):
             self.PhoneConnect()
 
+    def OnTimer(self, evt):
+        print 'Timer'
+        if self.connected:
+            try:
+                print 'csq'
+                s = self.sm.GetSignalQuality()
+                print s
+                print 'cbc'
+                b = self.sm.GetBatteryCharge()
+                print 'got it'
+            except gammu.GSMError:
+                pass
+            power = _('Unknown')
+            if b['ChargeState'] == 'BatteryPowered':
+                power = _('battery')
+            elif b['ChargeState'] == 'BatteryConnected':
+                power = _('supply')
+            elif b['ChargeState'] == 'BatteryNotConnected':
+                power = _('no battery')
+            elif b['ChargeState'] == 'PowerFault':
+                power = _('fault')
+            print 'TE'
+            self.SetStatusText(_('Battery: %d %%, Power: %s, Signal: %d %%') % (b['BatteryPercent'], power, s['SignalPercent']), 1)
+            print 'End'
 
     def DoDebug(self, newdebug):
         if newdebug != self.showdebug:
