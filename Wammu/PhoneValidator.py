@@ -31,7 +31,7 @@ def SplitNumbers(text):
     list = matchsplit.split(text)
     if list[0] == '':
         del list[0]
-    if list[len(list) - 1] == '':
+    if len(list) > 0 and list[len(list) - 1] == '':
         del list[len(list) - 1]
     return list
 

@@ -638,6 +638,9 @@ class WammuFrame(wx.Frame):
     def ComposeMessage(self, v):
         if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values).ShowModal() == wx.ID_OK:
 
+            if len(v['Numbers']) == 0:
+                v['Numbers'] = ['Wammu']
+
             for number in v['Numbers']:
                 busy = wx.BusyInfo(_('Writing message(s)...'))
                 v['Number'] = number
@@ -679,7 +682,6 @@ class WammuFrame(wx.Frame):
                     del busy
                     self.ShowError(val[0])
 
-            del busy
             if v['Save']:
                 self.ActivateView('message', result['State'])
                 try:
