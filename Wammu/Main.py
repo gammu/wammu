@@ -6,6 +6,7 @@ import os
 import time
 import datetime
 import string
+import locale
 import Wammu
 import Wammu.Events
 import Wammu.Displayer
@@ -464,8 +465,15 @@ class WammuFrame(wx.Frame):
                 text = text + ('<b>%s</b>: %s<br>' % (d[0], d[1]))
             else:
                 text = text + ('<br>%s' % d[0])
-        self.content.SetPage('<body><html>%s</html></body>' % text)
-        
+        if wx.USE_UNICODE:
+            self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % text)
+        else:
+            loc = locale.getdefaultlocale()
+            if loc[1]:
+                charset = loc[1]
+            else:
+                charset = 'ascii'
+            self.content.SetPage('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (charset, text))
             
     def OnShow(self, evt): 
         if self.type == ['info','  ']:
