@@ -1,3 +1,23 @@
+def GetItemType(str):
+    if str == '':
+        return None
+    elif str[-8:] == 'DATETIME':
+        return 'datetime'
+    elif str[-4:] == 'DATE' or str == 'Date':
+        return 'date'
+    elif str == 'TEXT' or str == 'LOCATION' or str[:4] == 'Text':
+        return 'text'
+    elif str == 'PHONE' or str[:6] == 'Number':
+        return 'phone'
+    elif str == 'CONTACTID':
+        return 'contact'
+    elif str == 'PRIVATE' or str == 'Private' or str == 'COMPLETED':
+        return 'bool'
+    elif str == 'Category' or str == 'CATEGORY':
+        return 'category'
+    else:
+        return 'number'
+
 def ParseMemoryEntry(entry):
     first = ''
     last = ''

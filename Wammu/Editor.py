@@ -1,4 +1,5 @@
 import wx
+import wx.lib.intctrl
 import locale
 import Wammu
 import Wammu.Utils
@@ -24,17 +25,63 @@ class OneEdit(wx.Panel):
         self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
-        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY)
-        self.edit = wx.TextCtrl(self, -1, value)
-        self.sizer.AddMany([ 
-            (wx.StaticText(self, -1, text),   0, wx.EXPAND),
-            (self.combo,   4, wx.EXPAND),
-            (self.edit,   4, wx.EXPAND)
-            ])
-        
-        self.sizer.Fit(self)
-        self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+        self.text = wx.StaticText(self, -1, text)
+        self.edit = wx.TextCtrl(self, -1, str(value))
+        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY)
+        self.sizer.AddMany([ 
+            (self.text,   0, wx.EXPAND),
+            (self.combo,  0, wx.EXPAND),
+            (10,10)
+            ])
+        self.CreateEdit(type, value)
+#        self.sizer.Fit(self)
+        
+        wx.EVT_TEXT(self.combo, self.combo.GetId(), self.OnChange)
+       
+    def CreateEdit(self, newtype, value = None):       
+        if value == None and hasattr(self, 'edit'):
+            value = self.edit.GetValue()
+
+        if hasattr(self, 'type'):
+            oldt = Wammu.Utils.GetItemType(self.type)
+        else:
+            oldt = ''
+        newt = Wammu.Utils.GetItemType(newtype)
+        
+        self.type = newtype
+        if oldt == newt:
+            return
+
+        self.sizer.Remove(2)
+        if hasattr(self, 'edit'):
+            self.edit.Destroy()
+            del self.edit
+
+        if newt == 'text' or newt == 'phone' or newt == None:
+            self.edit = wx.TextCtrl(self, -1, str(value))
+        elif newt == 'bool':
+            try:
+                val = bool(value)
+            except:
+                val = False
+            self.edit = wx.CheckBox(self, -1, value)
+        elif newt == 'contact' or newt == 'category' or newt == 'number':
+            try:
+                val = int(value)
+            except:
+                val = 0
+            self.edit = wx.lib.intctrl.IntCtrl(self, -1, val)
+        else:
+            print 'warning, creating TextCtrl for %s' % newt
+            self.edit = wx.TextCtrl(self, -1, str(value))
+            
+        self.sizer.AddMany([(self.edit,   0, wx.EXPAND)])
+        # nice hack, isnt' it? :-)
+        self.SetSize(self.GetSize())
+       
+    def OnChange(self, evt):
+        self.CreateEdit(evt.GetString())
 
 class OkCancelMore(wx.Panel):
     def __init__(self, parent): 
@@ -81,7 +128,7 @@ class ContactEditor(wx.Dialog):
         self.edits = []
         x = 0
         if entry == {}:
-            for x in range(2):
+            for x in range(3):
                 e = OneEdit(self, '%d.' % (x + 1), '', Wammu.MemoryValueTypes + [''] , '')
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND))
