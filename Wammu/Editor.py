@@ -36,21 +36,19 @@ class OneEdit(wx.Panel):
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
 
-class OkCancelMoreFew(wx.Panel):
+class OkCancelMore(wx.Panel):
     def __init__(self, parent): 
         wx.Panel.__init__(self, parent, -1)
         self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
 
         self.ok = wx.Button(self, wx.ID_OK, _('OK'))
         self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
-        self.more = wx.Button(self, 1001, _('More'))
-        self.fewer = wx.Button(self, 1002, _('Fewer'))
+        self.more = wx.Button(self, -1, _('More'))
 
         self.sizer.AddMany([ 
             (self.ok,   0, wx.EXPAND),
             (self.cancel,   0, wx.EXPAND),
             (self.more,   0, wx.EXPAND),
-            (self.fewer,   0, wx.EXPAND),
             ])
         
         self.sizer.Fit(self)
@@ -84,7 +82,7 @@ class ContactEditor(wx.Dialog):
         x = 0
         if entry == {}:
             for x in range(2):
-                e = OneEdit(self, '%d.' % x, '', Wammu.MemoryValueTypes + [''] , '')
+                e = OneEdit(self, '%d.' % (x + 1), '', Wammu.MemoryValueTypes + [''] , '')
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND))
         else:
@@ -94,7 +92,7 @@ class ContactEditor(wx.Dialog):
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND))
 
-        self.buttons = OkCancelMoreFew(self)
+        self.buttons = OkCancelMore(self)
         list.append((self.buttons, 0, wx.EXPAND))
                 
         self.sizer.AddMany(list)
@@ -102,6 +100,16 @@ class ContactEditor(wx.Dialog):
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
+        wx.EVT_BUTTON(self, self.buttons.more.GetId(), self.More)
+
+    def More(self, evt):
+        self.sizer.Remove(len(self.edits) + 2)
+        
+        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', Wammu.MemoryValueTypes + [''] , '')
+        self.edits.append(e)
+
+        self.sizer.AddMany([(e, 0, wx.EXPAND), (self.buttons, 0, wx.EXPAND)])
+        self.sizer.Fit(self)
 
     def Okay(self, evt):       
         v = []
