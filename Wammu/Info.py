@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -38,10 +38,10 @@ class GetInfo(Wammu.Thread.Thread):
             Manufacturer = self.sm.GetManufacturer()
             data.append([_('Manufacturer'), Manufacturer])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-          
+
         if self.canceled:
             self.Canceled()
             return
@@ -52,10 +52,10 @@ class GetInfo(Wammu.Thread.Thread):
             data.append([_('Model (Gammu identification)'), Model[0]])
             data.append([_('Model (real)'), Model[1]])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-            
+
         if self.canceled:
             self.Canceled()
             return
@@ -69,10 +69,10 @@ class GetInfo(Wammu.Thread.Thread):
             if Firmware[2] != 0.0:
                 data.append([_('Firmware (numeric)'), str(Firmware[2])])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-            
+
         if self.canceled:
             self.Canceled()
             return
@@ -82,10 +82,10 @@ class GetInfo(Wammu.Thread.Thread):
             IMEI = self.sm.GetIMEI()
             data.append([_('Serial number (IMEI)'), IMEI])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-            
+
         if self.canceled:
             self.Canceled()
             return
@@ -95,10 +95,10 @@ class GetInfo(Wammu.Thread.Thread):
             OriginalIMEI = self.sm.GetOriginalIMEI()
             data.append([_('Original IMEI'), OriginalIMEI])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-            
+
         if self.canceled:
             self.Canceled()
             return
@@ -108,10 +108,10 @@ class GetInfo(Wammu.Thread.Thread):
             ProductCode = self.sm.GetProductCode()
             data.append([_('Product code'), ProductCode])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-            
+
         if self.canceled:
             self.Canceled()
             return
@@ -121,10 +121,10 @@ class GetInfo(Wammu.Thread.Thread):
             SIMIMSI = self.sm.GetSIMIMSI()
             data.append([_('SIM IMSI'), SIMIMSI])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-            
+
         if self.canceled:
             self.Canceled()
             return
@@ -134,10 +134,10 @@ class GetInfo(Wammu.Thread.Thread):
             SMSC = self.sm.GetSMSC()
             data.append([_('SMSC'), SMSC['Number']])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-           
+
         if self.canceled:
             self.Canceled()
             return
@@ -147,10 +147,10 @@ class GetInfo(Wammu.Thread.Thread):
             info = self.sm.GetHardware()
             data.append([_('Hardware'), info])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-           
+
         if self.canceled:
             self.Canceled()
             return
@@ -160,10 +160,10 @@ class GetInfo(Wammu.Thread.Thread):
             info = self.sm.GetManufactureMonth()
             data.append([_('Manufacture month'), info])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-           
+
         if self.canceled:
             self.Canceled()
             return
@@ -173,10 +173,10 @@ class GetInfo(Wammu.Thread.Thread):
             info = self.sm.GetPPM()
             data.append([_('Language packs in phone'), info])
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-            pass 
+            pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
-           
+
         if self.canceled:
             self.Canceled()
             return

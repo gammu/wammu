@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -25,7 +25,7 @@ import Wammu.Utils
 from Wammu.Paths import *
 from Wammu.Utils import StrConv, Str_ as _
 
-import wx.lib.mixins.listctrl 
+import wx.lib.mixins.listctrl
 
 class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, win):
@@ -73,22 +73,22 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.keys = ('Location', 'Start', 'End', 'Text')
 
         cnt = len(self.columns)
-        
+
         for i in range(cnt):
             self.InsertColumn(i, self.columns[i])
 
         # resize columns to fit content
-        
+
         # FIXME: this should be acquired better!
         spc = 10
-        
+
         maxval = [0] * cnt
         for i in range(cnt):
             size = self.GetTextExtent(StrConv(self.columns[i]))[0]
             # 16 bellow is for sort arrrow
             if (size + 16 > maxval[i]):
                 maxval[i] = size + 16
-            
+
         for x in self.values:
             for i in range(cnt):
                 size = self.GetTextExtent(StrConv(x[self.keys[i]]))
@@ -97,7 +97,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         for i in range(cnt - 1):
             self.SetColumnWidth(i, maxval[i] + spc)
         self.resizeLastColumn(maxval[cnt - 1] + spc)
-    
+
     def Sorter(self, i1, i2):
         if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
             return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
@@ -107,7 +107,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         result = Wammu.Utils.SearchLocation(self.values, loc, second)
         if result != -1:
             self.ShowRow(result)
-    
+
     def ShowRow(self, id):
         if self.GetItemCount() > id and id >= 0:
             self.itemno = id
@@ -120,7 +120,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         else:
             evt = Wammu.Events.ShowEvent(index = None)
             wx.PostEvent(self.win, evt)
-        
+
     def Change(self, type, values):
         self.type = type
         self.values = values
@@ -158,7 +158,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
         # refresh displayed items
         if self.GetItemCount() != 0:
-            top = self.GetTopItem() 
+            top = self.GetTopItem()
             if top < 0:
                 top = 0
             count = self.GetCountPerPage()
@@ -167,7 +167,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 count = totalcount
             last = min(totalcount - 1, top + count)
             self.RefreshItems(top, last)
-            
+
             if item != None:
                 self.ShowRow(self.values.index(item))
 
@@ -176,7 +176,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.DoSelectedDelete()
         elif evt.GetKeyCode() in [114, 82]:
             self.DoReply()
-  
+
     def DoSelectedDelete(self):
         lst = []
         index = self.GetFirstSelected()
@@ -184,19 +184,19 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             lst.append(index)
             index = self.GetNextSelected(index)
         self.DoDelete(lst)
-  
+
     def DoDelete(self, lst):
         evt = Wammu.Events.DeleteEvent(lst = lst)
         wx.PostEvent(self.win, evt)
-        
+
     def DoBackup(self, lst):
         evt = Wammu.Events.BackupEvent(lst = lst)
         wx.PostEvent(self.win, evt)
-        
+
     def DoReply(self):
         evt = Wammu.Events.ReplyEvent(index = self.GetFocusedItem())
         wx.PostEvent(self.win, evt)
-        
+
     def OnRightClick(self, evt):
         if self.type == 'info':
             return
@@ -240,12 +240,12 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             if self.values[evt.m_itemIndex]['Number'] != '':
                 menu.Append(self.popupIDCall,       _('Call'))
             menu.AppendSeparator()
-            
+
         if self.type in ['contact', 'call']:
             menu.Append(self.popupIDMessage,    _('Send message'))
             menu.Append(self.popupIDCall,       _('Call'))
             menu.AppendSeparator()
-            
+
         if not self.type in ['call', 'message']:
             menu.Append(self.popupIDEdit,       _('Edit'))
         if not self.type in ['call']:
@@ -265,7 +265,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         # will be called before PopupMenu returns.
         self.PopupMenu(menu, evt.GetPoint())
         menu.Destroy()
-    
+
     def OnPopupDuplicate(self, event):
         evt = Wammu.Events.DuplicateEvent(index = self.popupIndex)
         wx.PostEvent(self.win, evt)
@@ -312,7 +312,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
-        
+
     def OnItemSelected(self, event):
         self.itemno = event.m_itemIndex
         evt = Wammu.Events.ShowEvent(index = event.m_itemIndex)

@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -35,10 +35,10 @@ class Ringtone(wx.BitmapButton):
         self.SetToolTipString(tooltip)
         self.ringtone = ringtones[int(ringno)]
         wx.EVT_BUTTON(self, self.GetId(), self.OnClick)
- 
+
     def OnClick(self, evt):
         if commands.getstatusoutput('which timidity')[0] != 0:
-            wx.MessageDialog(self, 
+            wx.MessageDialog(self,
                 _('Could not find timidity, melody can not be played'),
                 _('Timidity not found'),
                 wx.OK | wx.ICON_ERROR).ShowModal()

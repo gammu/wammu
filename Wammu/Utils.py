@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -112,7 +112,7 @@ def GetItemType(txt):
         return 'id'
     else:
         return 'number'
-        
+
 def SearchLocation(lst, loc, second = None):
     result = -1
     for i in range(len(lst)):
@@ -144,7 +144,7 @@ def SearchNumber(lst, number):
 
 def GetContactLink(lst, i, txt):
     return StrConv('<a href="memory://%s/%d">%s</a> (%s)' % (lst[i]['MemoryType'], lst[i]['Location'], lst[i]['Name'], txt))
-    
+
 def GetNumberLink(lst, number):
     i = SearchNumber(lst, number)
     if i == -1:
@@ -223,7 +223,7 @@ def ParseTodo(entry):
                 completed = _('Yes')
             else:
                 completed = _('No')
-    entry['Completed'] = completed 
+    entry['Completed'] = completed
     entry['Text'] = text
     entry['Date'] = dt
 
@@ -266,7 +266,7 @@ def ParseMessage(msg, parseinfo = False):
 
 def FormatError(txt, info):
     _ = Str_
-    return StrConv(txt + ('\n\n%s %s\n%s %s\n%s %d' % 
+    return StrConv(txt + ('\n\n%s %s\n%s %s\n%s %d' %
         (_('Description:'), StrConv(info['Text']),
         _('Function:'), StrConv(info['Where']),
         _('Error code:'), info['Code'])))

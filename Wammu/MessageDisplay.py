@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -40,9 +40,9 @@ def SmsTextFormat(cfg, txt):
                     curtype = 'd'
                 else:
                     curtype = 'p'
-                   
+
                 s = a[0]
-                
+
                 for x in a[1:]:
                     if UnicodeConv(string.lowercase).find(x) != -1:
                         nexttype = 'l'
@@ -66,17 +66,17 @@ def SmsTextFormat(cfg, txt):
                         elif curtype == 'u':
                             ret += s.lower() + ' '
                         else:
-                            ret += s + ' ' 
+                            ret += s + ' '
                         s = x
                         prevtype = curtype
                         curtype = nexttype
-                
+
                 if curtype == 'p':
                     ret = ret.rstrip() + s + ' '
                 elif curtype == 'u':
                     ret += s.lower() + ' '
                 else:
-                    ret += s + ' ' 
+                    ret += s + ' '
                 s = x
             else:
                 ret += a + ' '

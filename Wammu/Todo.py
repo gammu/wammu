@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -25,14 +25,14 @@ import gammu
 class GetTodo(Wammu.Reader.Reader):
     def GetStatus(self):
         status = self.sm.GetToDoStatus()
-        return status['Used'] 
-        
+        return status['Used']
+
     def GetNextStart(self):
         return self.sm.GetNextToDo(Start = True)
 
     def GetNext(self, location):
         return self.sm.GetNextToDo(Location = location)
-                        
+
     def Get(self, location):
         return self.sm.GetToDo(Location = location)
 

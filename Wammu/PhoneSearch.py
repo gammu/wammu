@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -52,15 +52,15 @@ class LogDialog(wx.Dialog):
     def CloseWindow(self, event):
         if self.canclose:
             self.EndModal(wx.ID_CANCEL)
-        
+
     def OnText(self, evt):
         self.text.AppendText(evt.text)
 
     def OnDone(self, evt):
         self.ok.Enable(True)
         self.canclose = True
-        
-        
+
+
 class AllSearchThread(threading.Thread):
     def __init__(self, lock = 'no', level = 'nothing', msgcallback = None, callback = None):
         threading.Thread.__init__(self)
@@ -118,14 +118,14 @@ class SearchThread(threading.Thread):
         for conn in self.connections:
             sm.SetConfig(0,
                     {'StartInfo': 'no',
-                     'UseGlobalDebugFile': 1, 
-                     'DebugFile': '', 
-                     'SyncTime': 'no', 
-                     'Connection': conn, 
-                     'LockDevice': self.lock, 
-                     'DebugLevel': self.level, 
-                     'Device': self.device, 
-                     'Localize': None, 
+                     'UseGlobalDebugFile': 1,
+                     'DebugFile': '',
+                     'SyncTime': 'no',
+                     'Connection': conn,
+                     'LockDevice': self.lock,
+                     'DebugLevel': self.level,
+                     'Device': self.device,
+                     'Localize': None,
                      'Model': ''})
             try:
                 if self.level == 'textall':

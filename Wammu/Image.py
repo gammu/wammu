@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -22,28 +22,28 @@ import wx
 import wx.lib.throbber
 
 defaultbmp = [
-    '20 20 2 1', 
-    '. c Black', 
-    '  c None', 
-    '                    ', 
-    ' ..              .. ', 
-    ' ...            ... ', 
-    '  ...          ...  ', 
-    '   ...        ...   ', 
-    '    ...      ...    ', 
-    '     ...    ...     ', 
-    '      ...  ...      ', 
-    '       ......       ', 
-    '        ....        ', 
-    '        ....        ', 
-    '       ......       ', 
-    '      ...  ...      ', 
-    '     ...    ...     ', 
-    '    ...      ...    ', 
-    '   ...        ...   ', 
-    '  ...          ...  ', 
-    ' ...            ... ', 
-    ' ..              .. ', 
+    '20 20 2 1',
+    '. c Black',
+    '  c None',
+    '                    ',
+    ' ..              .. ',
+    ' ...            ... ',
+    '  ...          ...  ',
+    '   ...        ...   ',
+    '    ...      ...    ',
+    '     ...    ...     ',
+    '      ...  ...      ',
+    '       ......       ',
+    '        ....        ',
+    '        ....        ',
+    '       ......       ',
+    '      ...  ...      ',
+    '     ...    ...     ',
+    '    ...      ...    ',
+    '   ...        ...   ',
+    '  ...          ...  ',
+    ' ...            ... ',
+    ' ..              .. ',
     '                    ']
 
 class Bitmap(wx.StaticBitmap):
@@ -63,6 +63,6 @@ class Throbber(wx.lib.throbber.Throbber):
             if scale > 1:
                 img = wx.ImageFromBitmap(bitmap)
                 bitmap = wx.BitmapFromImage(img.Scale(bitmap.GetWidth() * scale, bitmap.GetHeight() * scale))
-            bitmaps.append(bitmap) 
+            bitmaps.append(bitmap)
         wx.lib.throbber.Throbber.__init__(self, parent, -1, bitmaps, frameDelay = delay)
         self.SetToolTipString(tooltip)

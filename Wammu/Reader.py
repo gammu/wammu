@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ import gammu
 class Reader(Wammu.Thread.Thread):
     def Run(self):
         self.ShowProgress(0)
-        
+
         try:
             total = self.GetStatus()
         except gammu.GSMError, val:
@@ -33,7 +33,7 @@ class Reader(Wammu.Thread.Thread):
         remain = total
 
         data = []
-        
+
         try:
             start = True
             while remain > 0:

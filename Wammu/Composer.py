@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -41,7 +41,7 @@ else:
     except:
         charset = 'iso-8859-1'
     htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % charset
-    
+
 class MessagePreview(wx.Dialog):
     text = '''
 <html>
@@ -371,7 +371,7 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
-        
+
         wx.EVT_BUTTON(self, self.contbut.GetId(), self.ContactPressed)
 
         row = row + 2
@@ -476,7 +476,7 @@ class SMSComposer(wx.Dialog):
         self.GenerateCurrent()
 
     def ContactPressed(self, evt):
-        v = Wammu.Select.SelectNumber(self, [] + self.values['contact']['ME'] + self.values['contact']['SM']) 
+        v = Wammu.Select.SelectNumber(self, [] + self.values['contact']['ME'] + self.values['contact']['SM'])
         if v != None:
             self.number.SetValue(self.number.GetValue() + ' ' + v)
 

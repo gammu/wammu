@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -30,7 +30,7 @@ def SelectContact(parent, list, index = False):
     choices = []
     for e in list:
         choices.append(StrConv(e['Name']))
-        
+
     dlg = wx.SingleChoiceDialog(parent, _('Select contact from bellow list'), _('Select contact'),
                                 choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
     if dlg.ShowModal() == wx.ID_OK and len(choices) > 0:

@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -56,7 +56,7 @@ def SortDataKeys(a, b):
         return 1
     else:
         return cmp(a,b)
-        
+
 def SortDataSubKeys(a, b):
     if a == '  ':
         return -1
@@ -152,25 +152,25 @@ class WammuFrame(wx.Frame):
                 self.values[type][subtype] = displaydata[type][subtype][4]
                 if displaydata[type][subtype][0] == '':
                     self.treei[type][subtype] = self.tree.AddRoot(
-                        displaydata[type][subtype][1], 
+                        displaydata[type][subtype][1],
                         il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
                 else:
                     self.treei[type][subtype] = self.tree.AppendItem(
-                        self.treei[displaydata[type][subtype][0]]['  '], 
-                        displaydata[type][subtype][1], 
+                        self.treei[displaydata[type][subtype][0]]['  '],
+                        displaydata[type][subtype][1],
                         il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
 
         for type in keys:
             self.tree.Expand(self.treei[type]['  '])
 
         wx.EVT_TREE_SEL_CHANGED(self, self.tree.GetId(), self.OnTreeSel)
-        
+
 
         # right frame
         self.rightsplitter = wx.SplitterWindow(self.splitter, -1)
         self.rightwin = wx.Panel(self.rightsplitter, -1)
         self.rightwin.sizer = wx.BoxSizer(wx.VERTICAL)
-        
+
         # title text
         self.label = wx.StaticText(self.rightwin, -1, 'Wammu')
         self.rightwin.sizer.Add(self.label, 0, wx.LEFT|wx.ALL|wx.EXPAND, 2)
@@ -191,7 +191,7 @@ class WammuFrame(wx.Frame):
         self.splitter.SplitVertically(self.tree, self.rightsplitter, self.cfg.ReadInt('/Main/Split', 160))
 
         # initial content
-        self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ + 
+        self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ +
         '</b></font></html></body>')
 
         # Prepare the menu bar
@@ -205,7 +205,7 @@ class WammuFrame(wx.Frame):
         menu1.Append(199, _('E&xit'), _('Exit Wammu'))
         # Add menu to the menu bar
         self.menuBar.Append(menu1, _('&Wammu'))
-        
+
         menu2 = wx.Menu()
         menu2.Append(201, _('&Connect'), _('Connect the device'))
         menu2.Append(202, _('&Disconnect'), _('Disconnect the device'))
@@ -257,7 +257,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 101, self.SearchPhone)
         wx.EVT_MENU(self, 150, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
-        
+
         wx.EVT_MENU(self, 201, self.PhoneConnect)
         wx.EVT_MENU(self, 202, self.PhoneDisconnect)
         wx.EVT_MENU(self, 210, self.SyncTime)
@@ -270,7 +270,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 330, self.ShowMessages)
         wx.EVT_MENU(self, 340, self.ShowTodos)
         wx.EVT_MENU(self, 350, self.ShowCalendar)
-        
+
         wx.EVT_MENU(self, 401, self.NewContact)
         wx.EVT_MENU(self, 402, self.NewCalendar)
         wx.EVT_MENU(self, 403, self.NewTodo)
@@ -278,13 +278,13 @@ class WammuFrame(wx.Frame):
 
         wx.EVT_MENU(self, 501, self.Backup)
         wx.EVT_MENU(self, 502, self.Import)
-        
+
         wx.EVT_MENU(self, 1001, self.About)
 
         self.TogglePhoneMenus(False)
 
         self.type = ['info','  ']
-        
+
         # create state machine
         self.sm = gammu.StateMachine()
 
@@ -299,7 +299,7 @@ class WammuFrame(wx.Frame):
                 self.sm.ReadConfig()
                 config = self.sm.GetConfig()
 
-                wx.MessageDialog(self, 
+                wx.MessageDialog(self,
                     _('Wammu configuration was not found. Gammu settings were read and will be used as defaults.') + '\n' +
                     _('You will now be taken to configuration dialog to check configuration.'),
                     _('Configuration not found'),
@@ -307,7 +307,7 @@ class WammuFrame(wx.Frame):
             except:
                 config = {}
                 dlg = wx.MessageDialog(self,
-                    _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' + 
+                    _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' +
                     _('Wammu can now try to search for phone. Do you want Wammu to search for phone?') + '\n' +
                     _('After searching you will now be taken to configuration dialog to check whether it was detected correctly.') + '\n\n' +
                     _('If you press cancel, no searching will be performed.'),
@@ -318,7 +318,7 @@ class WammuFrame(wx.Frame):
                     config['Model'] = self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
                     config['Connection'] = self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0])
                     config['Device'] = self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0])
-                    
+
             # make some defaults
             if not config.has_key('Model') or config['Model'] == None:
                 config['Model'] = Wammu.Data.Models[0]
@@ -355,7 +355,7 @@ class WammuFrame(wx.Frame):
                 s = self.sm.GetSignalQuality()
                 b = self.sm.GetBatteryCharge()
                 d = self.sm.GetDateTime()
-            
+
                 power = _('Unknown')
                 if b['ChargeState'] == 'BatteryPowered':
                     power = _('battery')
@@ -412,16 +412,16 @@ class WammuFrame(wx.Frame):
 #                wx.EVT_CLOSE(self.logwin, self.LogClose)
 #                self.logger = Wammu.Logger.Logger(self.logwin, self.piper)
 #                self.logger.start()
-                
+
     def SaveWinSize(self, win, key):
         x,y = win.GetPositionTuple()
         w,h = win.GetSizeTuple()
-        
+
         self.cfg.WriteInt(key + '/X', x)
         self.cfg.WriteInt(key + '/Y', y)
         self.cfg.WriteInt(key + '/Width', w)
         self.cfg.WriteInt(key + '/Height', h)
-        
+
 
     def LogClose(self, evt):
         self.SaveWinSize(self.logwin, '/Debug')
@@ -440,7 +440,7 @@ class WammuFrame(wx.Frame):
 
         mb.Enable(201, not enable);
         mb.Enable(202, enable);
-        
+
         mb.Enable(210, enable);
 
         mb.Enable(301, enable);
@@ -448,20 +448,20 @@ class WammuFrame(wx.Frame):
         mb.Enable(310, enable);
         mb.Enable(311, enable);
         mb.Enable(312, enable);
-        
+
         mb.Enable(320, enable);
-        
+
         mb.Enable(330, enable);
-        
+
         mb.Enable(340, enable);
-        
+
         mb.Enable(350, enable);
-        
+
         mb.Enable(401, enable);
         mb.Enable(402, enable);
         mb.Enable(403, enable);
         mb.Enable(404, enable);
-        
+
         mb.Enable(501, enable);
         mb.Enable(502, enable);
 
@@ -497,7 +497,7 @@ class WammuFrame(wx.Frame):
         result = Wammu.Settings.Settings(self, self.cfg).ShowModal()
         if result == wx.ID_OK:
             if self.connected:
-                wx.MessageDialog(self, 
+                wx.MessageDialog(self,
                     _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
                     _('Notice'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
@@ -509,7 +509,7 @@ class WammuFrame(wx.Frame):
         self.SaveWinSize(self, '/Main')
         self.cfg.WriteInt('/Main/Split', self.splitter.GetSashPosition())
         self.cfg.WriteInt('/Main/SplitRight', self.rightsplitter.GetSashPosition())
-        
+
         self.DoDebug('no')
         # tell the window to kill itself
         self.Destroy()
@@ -529,7 +529,7 @@ class WammuFrame(wx.Frame):
                         self,
                         wx.PD_CAN_ABORT | wx.PD_APP_MODAL | wx.PD_AUTO_HIDE | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_ESTIMATED_TIME)
 
-    def OnProgress(self, evt): 
+    def OnProgress(self, evt):
         if not self.progress.Update(evt.progress):
             try:
                 evt.cancel()
@@ -548,7 +548,7 @@ class WammuFrame(wx.Frame):
                 self.progress.Update(100)
                 self.progress.Destroy()
                 del self.progress
-            
+
             if hasattr(self, 'nextfun'):
                 f = self.nextfun
                 a = self.nextarg
@@ -567,8 +567,8 @@ class WammuFrame(wx.Frame):
             self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % StrConv(text))
         else:
             self.content.SetPage(StrConv('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (Wammu.Utils.localecharset, text)))
-            
-    def OnShow(self, evt): 
+
+    def OnShow(self, evt):
         if evt.index == None:
             data = []
         elif self.type == ['info','  ']:
@@ -635,7 +635,7 @@ class WammuFrame(wx.Frame):
 
     def NewTodo(self, evt):
         self.EditTodo({})
-    
+
     def NewMessage(self, evt):
         self.ComposeMessage({})
 
@@ -823,7 +823,7 @@ class WammuFrame(wx.Frame):
                 pass
 
 
-    def OnEdit(self, evt): 
+    def OnEdit(self, evt):
         if self.type[0] == 'contact':
             if self.type[1] == '  ':
                 t = '__'
@@ -845,22 +845,22 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = self.values['todo'][t][evt.index]
             self.EditTodo(v);
-        else: 
+        else:
             print 'Edit not yet implemented!'
             print evt.index
 
-    def OnReply(self, evt): 
+    def OnReply(self, evt):
         if self.type[0] == 'message':
             if self.type[1] == '  ':
                 t = '__'
             else:
                 t = self.type[1]
             self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']}, action = 'send')
-        else: 
+        else:
             print 'Reply not yet implemented!'
             print evt.index
-            
-    def OnCall(self, evt): 
+
+    def OnCall(self, evt):
         if self.type[0] in ['call', 'contact']:
             if self.type[1] == '  ':
                 t = '__'
@@ -869,7 +869,7 @@ class WammuFrame(wx.Frame):
             num = Wammu.Select.SelectContactNumber(self, self.values[self.type[0]][t], evt.index)
             if num == None:
                 return
-                
+
             try:
                 self.sm.DialVoice(num)
             except gammu.GSMError, val:
@@ -884,11 +884,11 @@ class WammuFrame(wx.Frame):
                 self.sm.DialVoice(self.values['message'][t][evt.index]['Number'])
             except gammu.GSMError, val:
                 self.ShowError(val[0])
-        else: 
+        else:
             print 'Call not yet implemented!'
             print evt.index
-            
-    def OnMessage(self, evt): 
+
+    def OnMessage(self, evt):
         if self.type[0] in ['call', 'contact']:
             if self.type[1] == '  ':
                 t = '__'
@@ -904,11 +904,11 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']}, action = 'send')
-        else: 
+        else:
             print 'Message send not yet implemented!'
             print evt.index
-            
-    def OnDuplicate(self, evt): 
+
+    def OnDuplicate(self, evt):
         if self.type[0] == 'contact':
             if self.type[1] == '  ':
                 t = '__'
@@ -940,12 +940,12 @@ class WammuFrame(wx.Frame):
                 t = self.type[1]
             v = copy.deepcopy(self.values['message'][t][evt.index])
             self.ComposeMessage(v)
-        else: 
+        else:
             print 'Duplicate not yet implemented!'
             print evt.index
 
-        
-    def OnSend(self, evt): 
+
+    def OnSend(self, evt):
         if self.type[0] == 'message':
             if self.type[1] == '  ':
                 t = '__'
@@ -967,7 +967,7 @@ class WammuFrame(wx.Frame):
         wildcard = ''
         if not save:
             wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
-            
+
         wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
 
         if type in ['contact', '']:
@@ -980,9 +980,9 @@ class WammuFrame(wx.Frame):
             wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
         if type in ['todo', 'calendar', '']:
             wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
-        
+
         wildcard += _('All files') + ' (*.*)|*.*;*'
-         
+
         if save:
             dlg = wx.FileDialog(self, "Save backup as...", os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
         else:
@@ -1022,12 +1022,12 @@ class WammuFrame(wx.Frame):
             choices.append(_('%d Calendar entries') % len(backup['Calendar']))
 
         if len(values) == 0:
-            wx.MessageDialog(self, 
+            wx.MessageDialog(self,
                 _('No importable data were found in file "%s"') % filename,
                 _('No data to import'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
             return
-           
+
         msg = ''
         if backup['Model'] != '':
             msg = '\n \n' + _('Backup saved from phone %s') % backup['Model']
@@ -1091,7 +1091,7 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             self.ShowError(val[0])
 
-        wx.MessageDialog(self, 
+        wx.MessageDialog(self,
             _('Backup has been imported from file "%s"') % filename,
             _('Backup imported'),
             wx.OK | wx.ICON_INFORMATION).ShowModal()
@@ -1117,7 +1117,7 @@ class WammuFrame(wx.Frame):
 
         try:
             gammu.SaveBackup(filename, backup)
-            wx.MessageDialog(self, 
+            wx.MessageDialog(self,
                 _('Backup has been saved to file "%s"') % filename,
                 _('Backup saved'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
@@ -1128,7 +1128,7 @@ class WammuFrame(wx.Frame):
                 title = _('Error Occured'),
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
-    
+
     def OnBackup(self, evt):
         filename = self.SelectBackupFile(self.type[0])
         if filename == None:
@@ -1166,7 +1166,7 @@ class WammuFrame(wx.Frame):
 
         try:
             gammu.SaveBackup(filename, backup)
-            wx.MessageDialog(self, 
+            wx.MessageDialog(self,
                 _('Backup has been saved to file "%s"') % filename,
                 _('Backup saved'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
@@ -1177,7 +1177,7 @@ class WammuFrame(wx.Frame):
                 title = _('Error Occured'),
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
-    
+
     def OnDelete(self, evt):
         # FIXME: add here confirmation?
         if self.type[0] == 'contact' or self.type[0] == 'call':
@@ -1270,10 +1270,10 @@ class WammuFrame(wx.Frame):
             if t == '__':
                 t = '  '
             self.ActivateView(self.type[0], t)
-        else: 
+        else:
             print 'Delete not yet implemented! (items to delete = %s)' % str(evt.lst)
 
-    def OnLink(self, evt): 
+    def OnLink(self, evt):
         v = evt.link.split('://')
         if len(v) != 2:
             print 'Bad URL!'
@@ -1304,7 +1304,7 @@ class WammuFrame(wx.Frame):
         else:
             print 'This link not yet implemented: "%s"' % evt.link
 
-    def OnShowMessage(self, evt): 
+    def OnShowMessage(self, evt):
         try:
             if self.progress.IsShown():
                 parent = self.progress
@@ -1313,7 +1313,7 @@ class WammuFrame(wx.Frame):
         except:
             parent = self
 
-        wx.MessageDialog(parent, 
+        wx.MessageDialog(parent,
             StrConv(evt.message),
             StrConv(evt.title),
             wx.OK | evt.type).ShowModal()
@@ -1325,30 +1325,30 @@ class WammuFrame(wx.Frame):
         Wammu.Info.GetInfo(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('info', '  ')
-       
+
     #
     # Calls
     #
-   
+
     def ShowCalls(self, event):
         self.GetCallsType('MC')
         self.nextfun = self.ShowCalls2
         self.nextarg = ()
-        
+
     def ShowCalls2(self):
         self.GetCallsType('DC')
         self.nextfun = self.ShowCalls3
         self.nextarg = ()
-        
+
     def ShowCalls3(self):
         self.GetCallsType('RC')
         self.nextfun = self.ActivateView
         self.nextarg = ('call', '  ')
-        
+
     def GetCallsType(self, type):
         self.ShowProgress(_('Reading calls of type %s') % type)
         Wammu.Memory.GetMemory(self, self.sm, 'call', type).start()
-        
+
     #
     # Contacts
     #
@@ -1357,7 +1357,7 @@ class WammuFrame(wx.Frame):
         self.GetContactsType('SM')
         self.nextfun = self.ShowContacts2
         self.nextarg = ()
-        
+
     def ShowContacts2(self):
         self.GetContactsType('ME')
         self.nextfun = self.ActivateView
@@ -1367,16 +1367,16 @@ class WammuFrame(wx.Frame):
         self.GetContactsType('ME')
         self.nextfun = self.ActivateView
         self.nextarg = ('contact', 'ME')
-        
+
     def ShowContactsSM(self, event):
         self.GetContactsType('SM')
         self.nextfun = self.ActivateView
         self.nextarg = ('contact', 'SM')
-        
+
     def GetContactsType(self, type):
         self.ShowProgress(_('Reading contacts from %s') % type)
         Wammu.Memory.GetMemory(self, self.sm, 'contact', type).start()
-        
+
     #
     # Messages
     #
@@ -1386,7 +1386,7 @@ class WammuFrame(wx.Frame):
         Wammu.Message.GetMessage(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('message', '  ')
-        
+
     #
     # Todos
     #
@@ -1396,7 +1396,7 @@ class WammuFrame(wx.Frame):
         Wammu.Todo.GetTodo(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('todo', '  ')
-        
+
     #
     # Calendars
     #
@@ -1406,7 +1406,7 @@ class WammuFrame(wx.Frame):
         Wammu.Calendar.GetCalendar(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('calendar', '  ')
-        
+
     #
     # Time
     #
@@ -1418,7 +1418,7 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             del busy
             self.ShowError(val[0])
-    
+
     #
     # Connecting / Disconnecting
     #
@@ -1426,14 +1426,14 @@ class WammuFrame(wx.Frame):
     def PhoneConnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
         cfg = {
-            'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'), 
-            'UseGlobalDebugFile': 1, 
+            'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'),
+            'UseGlobalDebugFile': 1,
             'DebugFile': None, # Set on other place
-            'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'), 
-            'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]), 
-            'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'), 
+            'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'),
+            'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]),
+            'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'),
             'DebugLevel': 'textall', # Set on other place
-            'Device': self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0]), 
+            'Device': self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0]),
             'Localize': None,  # Set automatically by python-gammu
             'Model': self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
             }
@@ -1461,7 +1461,7 @@ class WammuFrame(wx.Frame):
                 self.Version = self.sm.GetFirmware()[0]
             except:
                 self.Version = ''
-              
+
         except gammu.GSMError, val:
             del busy
             self.ShowError(val[0])
@@ -1469,7 +1469,7 @@ class WammuFrame(wx.Frame):
                 self.sm.Terminate()
             except gammu.GSMError, val:
                 pass
-        
+
     def PhoneDisconnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
         try:
@@ -1484,12 +1484,12 @@ class WammuFrame(wx.Frame):
     def SearchMessage(self, text):
         evt = Wammu.Events.TextEvent(text = text + '\n')
         wx.PostEvent(self.searchlog, evt)
-    
+
     def SearchDone(self, lst):
         self.founddevices = lst
         evt = Wammu.Events.DoneEvent()
         wx.PostEvent(self.searchlog, evt)
-  
+
     def SearchPhone(self, evt = None):
         self.founddevices = []
         self.PhoneDisconnect()
@@ -1505,7 +1505,7 @@ class WammuFrame(wx.Frame):
                 _('No phone found'),
                 wx.OK | wx.ICON_WARNING).ShowModal()
             return
-            
+
         choices = []
         for x in self.founddevices:
             choices.append(_('Model %s (%s) on %s port using connection %s') % (x[2][1], x[3], x[0], x[1]))

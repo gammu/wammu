@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -388,7 +388,7 @@ class OneEdit(wx.Panel):
 
     def GetType(self):
         return self.combo.GetValue()
-       
+
     def Validate(self):
         if Wammu.Utils.GetItemType(self.type) == 'datetime':
             v = self.edit2.GetValidator()

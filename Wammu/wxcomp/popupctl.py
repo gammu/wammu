@@ -193,8 +193,8 @@ class wxPopupControl(wxPanel):
         self.textCtrl = wxTextCtrl(self,-1,value)
         self.bCtrl = PopButton(self,-1)
         self.sizer.AddMany([
-            (self.textCtrl, 1, wxEXPAND), 
-            (self.bCtrl, 1, wxEXPAND), 
+            (self.textCtrl, 1, wxEXPAND),
+            (self.bCtrl, 1, wxEXPAND),
             ])
         self.pop = None
         self.content = None

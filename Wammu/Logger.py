@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -49,10 +49,10 @@ class LogFrame(wx.Frame):
         Wammu.Events.EVT_LOG(self, self.OnLog)
         wx.EVT_SIZE(self, self.OnSize)
         self.OnSize(None)
-        
+
     def OnLog(self, evt):
         self.txt.AppendText(evt.txt)
-        
+
     def OnSize(self, evt):
         w,h = self.GetClientSizeTuple()
         self.txt.SetDimensions(0, 0, w, h)

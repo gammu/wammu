@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -22,12 +22,12 @@ import wx
 import Wammu
 from Wammu.Utils import Str_ as _
 
-class Settings(wx.Dialog): 
+class Settings(wx.Dialog):
     def __init__(self, parent, config):
         wx.Dialog.__init__(self, parent, -1, _('Settings'), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.sizer = wx.FlexGridSizer(6, 2, 5, 5)
         self.sizer.AddGrowableCol(1)
-        
+
         self.config = config
 
         self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Data.Devices[0]), choices = Wammu.Data.Devices, size = (150, -1))
@@ -47,7 +47,7 @@ class Settings(wx.Dialog):
         v = config.ReadInt('/Wammu/RefreshState', 5000)
         self.editrefresh = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
 
-        self.sizer.AddMany([ 
+        self.sizer.AddMany([
             (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),
             (self.editdev, 0, wx.EXPAND),
 
@@ -89,7 +89,7 @@ class Settings(wx.Dialog):
         self.SetSizer(self.sizer)
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
 
-    def Okay(self, evt):       
+    def Okay(self, evt):
         self.config.Write('/Gammu/Model', self.editmodel.GetValue())
         self.config.Write('/Gammu/Device', self.editdev.GetValue())
         self.config.Write('/Gammu/Connection', self.editconn.GetValue())

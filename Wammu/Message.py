@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -26,13 +26,13 @@ class GetMessage(Wammu.Reader.Reader):
     def GetStatus(self):
         status = self.sm.GetSMSStatus()
         return status['SIMUsed'] + status['PhoneUsed'] + status['TemplatesUsed']
-        
+
     def GetNextStart(self):
         return self.sm.GetNextSMS(Start = True, Folder = 0)
 
     def GetNext(self, location):
         return self.sm.GetNextSMS(Location = location, Folder = 0)
-                        
+
     def Get(self, location):
         return self.sm.GetSMS(Location = location, Folder = 0)
 
@@ -45,7 +45,7 @@ class GetMessage(Wammu.Reader.Reader):
         sent = []
         unsent = []
         data = gammu.LinkSMS(data)
-        
+
         for x in data:
             i = {}
             v = gammu.DecodeSMS(x)
@@ -61,7 +61,7 @@ class GetMessage(Wammu.Reader.Reader):
                 sent.append(i)
             elif i['State'] == 'UnSent':
                 unsent.append(i)
-                
+
         self.SendData(['message', 'Read'], read, False)
         self.SendData(['message', 'UnRead'], unread, False)
         self.SendData(['message', 'Sent'], sent, False)

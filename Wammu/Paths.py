@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař 
+# Copyright (c) 2003 - 2004 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -30,10 +30,10 @@ if not os.path.exists(os.path.join(datapath, 'images')):
         datapath = os.getcwd()
 
 def IconPath(*args):
-    return ImagePath('icons', *args)       
+    return ImagePath('icons', *args)
 
 def MiscPath(*args):
-    return ImagePath('misc', *args)       
+    return ImagePath('misc', *args)
 
 def ImagePath(*args):
     return os.path.join(datapath, 'images', *args) + os.extsep + 'png'
