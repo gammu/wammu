@@ -586,6 +586,27 @@ class SMSComposer(wx.Dialog):
         if self.prevedit != -1:
             self.entry['SMSInfo']['Entries'][self.prevedit] = self.editor.GetValue()
 
+        if self.report.GetValue():
+            self.entry['Type'] = 'Status_Report'
+        else:
+            self.entry['Type'] = 'Submit'
+
+        if self.sent.GetValue():
+            self.entry['State'] = 'Sent'
+        else:
+            self.entry['State'] = 'UnSent'
+
+        if self.flash.GetValue():
+            self.entry['SMSInfo']['Class'] = 0
+        else:
+            self.entry['SMSInfo']['Class'] = 1
+
+        self.entry['Numbers'] = Wammu.PhoneValidator.SplitNumbers(self.number.GetValue())
+        self.entry['SMSInfo']['Unicode'] = self.unicode.GetValue()
+        self.entry['Save'] = self.save.GetValue()
+        self.entry['Send'] = self.send.GetValue()
+        self.entry['Folder'] = self.folder.GetValue()
+
     def Preview(self, evt):
         if len(self.entry['SMSInfo']['Entries']) == 0:
             dlg = wx.MessageDialog(self, _('Nothing to preview, message is empty.'),
@@ -610,24 +631,4 @@ class SMSComposer(wx.Dialog):
 
         self.StoreEdited()
 
-        if self.report.GetValue():
-            self.entry['Type'] = 'Status_Report'
-        else:
-            self.entry['Type'] = 'Submit'
-
-        if self.sent.GetValue():
-            self.entry['State'] = 'Sent'
-        else:
-            self.entry['State'] = 'UnSent'
-
-        if self.flash.GetValue():
-            self.entry['SMSInfo']['Class'] = 0
-        else:
-            self.entry['SMSInfo']['Class'] = 1
-
-        self.entry['Numbers'] = Wammu.PhoneValidator.SplitNumbers(self.number.GetValue())
-        self.entry['SMSInfo']['Unicode'] = self.unicode.GetValue()
-        self.entry['Save'] = self.save.GetValue()
-        self.entry['Send'] = self.send.GetValue()
-        self.entry['Folder'] = self.folder.GetValue()
         self.EndModal(wx.ID_OK)
