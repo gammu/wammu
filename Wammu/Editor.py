@@ -331,7 +331,10 @@ class OneEdit(wx.Panel):
             lst = [] + self.values['contact']['ME']
             self.edit = ContactEdit(self, val, lst)
         elif newt == 'id':
-            v = hex(value)
+            try:
+                v = hex(value)
+            except:
+                val = '0x0'
             if v[-1] == 'L':
                 v = v[:-1]
             self.edit = wx.TextCtrl(self, -1, v, size = (200, -1))
