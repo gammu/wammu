@@ -470,7 +470,7 @@ class SMSComposer(wx.Dialog):
     def ContactPressed(self, evt):
         v = Wammu.Select.SelectNumber(self, [] + self.values['contact']['ME'] + self.values['contact']['SM']) 
         if v != None:
-            self.number.SetValue(v)
+            self.number.SetValue(self.number.GetValue() + ' ' + v)
 
     def OnSend(self, evt = None):
         self.save.Enable(self.send.GetValue())
