@@ -5,6 +5,8 @@ class GetInfo(Wammu.Thread.Thread):
     def run(self):
         self.ShowProgress(0)
 
+        progress = 9
+
         data = []
 
         if self.canceled:
@@ -21,7 +23,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(12)
+        self.ShowProgress(1*100/progress)
         try:
             Model = self.sm.GetModel()
             data.append([_('Model (Gammu identification)'), Model[0]])
@@ -33,7 +35,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(25)
+        self.ShowProgress(2*100/progress)
         try:
             Firmware = self.sm.GetFirmware()
             data.append([_('Firmware'), Firmware])
@@ -44,7 +46,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(37)
+        self.ShowProgress(3*100/progress)
         try:
             IMEI = self.sm.GetIMEI()
             data.append([_('Serial number (IMEI)'), IMEI])
@@ -55,7 +57,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(50)
+        self.ShowProgress(4*100/progress)
         try:
             OriginalIMEI = self.sm.GetOriginalIMEI()
             data.append([_('Original IMEI'), OriginalIMEI])
@@ -66,7 +68,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(42)
+        self.ShowProgress(5*100/progress)
         try:
             ProductCode = self.sm.GetProductCode()
             data.append([_('Product code'), ProductCode])
@@ -77,7 +79,7 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(75)
+        self.ShowProgress(6*100/progress)
         try:
             SIMIMSI = self.sm.GetSIMIMSI()
             data.append([_('SIM IMSI'), SIMIMSI])
@@ -88,7 +90,18 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(87)
+        self.ShowProgress(7*100/progress)
+        try:
+            SMSC = self.sm.GetSMSC()
+            data.append([_('SMSC'), SMSC['Number']])
+        except gammu.GSMError, val:
+            self.ShowError(val[0])
+           
+        if self.canceled:
+            self.Canceled()
+            return
+
+        self.ShowProgress(8*100/progress)
         try:
             DateTime = self.sm.GetDateTime()
             data.append([_('Date and time'), DateTime.strftime('%c')])
