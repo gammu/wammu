@@ -2,8 +2,8 @@
 %define version 0.7
 %define release 1
 
-%define python-gammu-req 0.6
-%define wxpython-req 2.4.1.2
+%define python_gammu_req 0.6
+%define wxpython_req 2.4.1.2
 
 Summary:    Mobile phone manager
 Name:       %{name}
@@ -22,11 +22,11 @@ Prefix:     %{_prefix}
 
 
 %if %_vendor == "suse"
-Requires:    python-wxGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
-BuildRequires:  python-wxGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
+Requires:    python-wxGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
+BuildRequires:  python-wxGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
 %else
-Requires:   wxPythonGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
-BuildRequires: wxPythonGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
+Requires:   wxPythonGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
+BuildRequires: wxPythonGTK >= %{wxpython_req}, python-gammu >= %{python_gammu_req}
 %endif
 %py_requires -d
 Url:        http://www.cihar.com/gammu/wammu
