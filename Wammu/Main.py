@@ -88,7 +88,7 @@ class WammuFrame(wx.Frame):
         self.splitter.SplitVertically(self.tree, self.rightsplitter, 160)
 
         # initial content
-        self.content.SetPage('<body><html><font size=+1><b>Welcome to Wammu ' + Wammu.__version__ + '</b></font><br><a href='memory://ME/1'>Mem 1</a></html></body>')
+        self.content.SetPage('<body><html><font size=+1><b>Welcome to Wammu ' + Wammu.__version__ + '</b></font><br><a href="memory://ME/1">Mem 1</a></html></body>')
 
         # Prepare the menu bar
         self.menuBar = wx.MenuBar()

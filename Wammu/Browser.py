@@ -4,7 +4,9 @@ import Wammu.Events
 import Wammu.Utils
 import gammu
 
-class Browser(wx.ListCtrl):
+import wx.lib.mixins.listctrl 
+
+class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, win):
         wx.ListCtrl.__init__(self, parent, -1,
                             style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
@@ -17,14 +19,16 @@ class Browser(wx.ListCtrl):
 
         wx.EVT_LIST_ITEM_SELECTED(self, self.GetId(), self.OnItemSelected)
         wx.EVT_LIST_ITEM_ACTIVATED(self, self.GetId(), self.OnItemActivated)
+##        wx.lib.mixins.listctrl.ColumnSorterMixin
+        wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
     def ShowHeaders(self):
         if self.type == 'info':
             self.InsertColumn(0, 'Name')
             self.InsertColumn(1, 'Value')
-            self.SetColumnWidth(0, 100)
-            self.SetColumnWidth(1, 200)
-#            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
+#            self.SetColumnWidth(0, 100)
+#            self.SetColumnWidth(1, 200)
+            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
 #            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
         elif self.type == 'memory':
             self.InsertColumn(0, 'Location')
@@ -44,6 +48,7 @@ class Browser(wx.ListCtrl):
             self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
             self.SetColumnWidth(3, wx.LIST_AUTOSIZE)
+        self.resizeLastColumn(0)
     
     def Change(self, type, values):
         self.type = type
