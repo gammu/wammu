@@ -30,9 +30,9 @@ class Settings(wx.Dialog):
         
         self.config = config
 
-        self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Data.Devices[0]), choices = Wammu.Data.Devices, size = (150, -1))
-        self.editconn = wx.ComboBox(self, -1, config.Read('/Gammu/Connection', Wammu.Data.Connections[0]), choices = Wammu.Data.Connections, size = (150, -1))
-        self.editmodel = wx.ComboBox(self, -1, config.Read('/Gammu/Model', Wammu.Data.Models[0]), choices = Wammu.Data.Models, size = (150, -1))
+        self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Devices[0]), choices = Wammu.Devices, size = (150, -1))
+        self.editconn = wx.ComboBox(self, -1, config.Read('/Gammu/Connection', Wammu.Connections[0]), choices = Wammu.Connections, size = (150, -1))
+        self.editmodel = wx.ComboBox(self, -1, config.Read('/Gammu/Model', Wammu.Models[0]), choices = Wammu.Models, size = (150, -1))
         self.editsync = wx.ComboBox(self, -1, config.Read('/Gammu/SyncTime', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
         self.editlock = wx.ComboBox(self, -1, config.Read('/Gammu/LockDevice', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
         self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))

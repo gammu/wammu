@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 
-import os
-import gettext
-
-if os.getenv('LOCALLOCALE') == 'yes':
-    gettext.install('wammu','./locale/', unicode=1)
-else:
-    gettext.install('wammu', unicode=1)
-
 import Wammu.App
+
 Wammu.App.Run()

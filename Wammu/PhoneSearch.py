@@ -22,7 +22,6 @@ import wx
 import gammu
 import threading
 import Wammu
-import Wammu.Data
 import Wammu.Events
 import wxPython.lib.layoutf
 from Wammu.Utils import Str_ as _
@@ -73,7 +72,7 @@ class AllSearchThread(threading.Thread):
         self.msgcallback = msgcallback
 
     def run(self):
-        for dev in Wammu.Data.AllDevices:
+        for dev in Wammu.AllDevices:
             if dev[1].find('%d') >= 0:
                 for i in range(*dev[2]):
                     curdev = dev[1] % i
