@@ -143,7 +143,7 @@ def SearchNumber(lst, number):
     return -1
 
 def GetContactLink(lst, i, txt):
-    return StrConv('<a href="memory://%s/%d">%s</a> (%s)</a>' % (lst[i]['MemoryType'], lst[i]['Location'], lst[i]['Name'], txt))
+    return StrConv('<a href="memory://%s/%d">%s</a> (%s)' % (lst[i]['MemoryType'], lst[i]['Location'], lst[i]['Name'], txt))
     
 def GetNumberLink(lst, number):
     i = SearchNumber(lst, number)
