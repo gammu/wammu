@@ -26,6 +26,7 @@ import sys
 import gammu
 import Wammu
 import Wammu.Utils
+from Wammu.Paths import *
 from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
 
 if wx.USE_UNICODE:
@@ -71,12 +72,12 @@ cellpadding="0" border="1">
 </body>
 </html>
 
-''' % (head, '''
-    <h2>Wammu %s</h2>
+''' % (head, '''<img src="%s"><br><h2> Wammu %s</h2>
     %s<br>
     %s<br>
     %s<br>
-''' % (Wammu.__version__,
+''' % (AppIconPath('wammu'),
+    Wammu.__version__,
     _('Running on Python %s') % sys.version.split()[0],
     _('Using wxPython %s') % wx.VERSION_STRING,
     _('Using python-gammu %s and Gammu %s') %  (gammu.Version()[1], gammu.Version()[0])),

@@ -112,6 +112,11 @@ class WammuFrame(wx.Frame):
         size = wx.Size(self.cfg.ReadInt('/Main/Width', 640), self.cfg.ReadInt('/Main/Height', 480))
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
+
+        icon = wx.EmptyIcon()
+        icon.CopyFromBitmap(wx.Bitmap(AppIconPath('wammu')))
+        self.SetIcon(icon)
+
         self.CreateStatusBar(2)
         self.SetStatusWidths([-1,400])
 

@@ -37,6 +37,7 @@ class WammuApp(wx.App):
         self.SetVendorName(vendor)
 
         wx.InitAllImageHandlers()
+
         frame = Wammu.Main.WammuFrame(None, -1)
         Wammu.Error.handlerparent = frame
 
