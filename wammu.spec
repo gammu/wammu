@@ -22,12 +22,13 @@ Prefix:     %{_prefix}
 
 
 %if %_vendor == "suse"
-Requires:   python >= 2.3.0, python-wxGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
-BuildRequires: python-devel >= 2.3.0,  python-wxGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
+Requires:    python-wxGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
+BuildRequires:  python-wxGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
 %else
-Requires:   python >= 2.3, wxPythonGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
-BuildRequires: libpython2.3-devel >= 2.3, wxPythonGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
+Requires:   wxPythonGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
+BuildRequires: wxPythonGTK >= %{wxpython-req}, python-gammu >= %{python-gammu-req}
 %endif
+%py_requires -d
 Url:        http://www.cihar.com/gammu/wammu
 Buildroot:  %{_tmppath}/%name-%version-root
 
@@ -43,6 +44,7 @@ CFLAGS="$RPM_OPT_FLAGS" SKIPWXCHECK=yes python setup.py build
 
 %install
 SKIPWXCHECK=yes python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+sed -i '/man1/ D' INSTALLED_FILES
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -50,3 +52,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
 %doc ChangeLog README TODO AUTHORS FAQ COPYING NEWS
+%doc %{_mandir}/man1/*
