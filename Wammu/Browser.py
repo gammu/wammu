@@ -121,13 +121,14 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.ShowRow(result)
     
     def ShowRow(self, id):
-        index = self.GetFirstSelected()
-        while index != -1:
-            self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
+        if self.GetItemCount() > id:
             index = self.GetFirstSelected()
+            while index != -1:
+                self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
+                index = self.GetFirstSelected()
 
-        self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
-        self.EnsureVisible(id)
+            self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
+            self.EnsureVisible(id)
         
     def Change(self, type, values):
         self.type = type
@@ -160,9 +161,15 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.SetColumnImage(col, image)
 
         # refresh displayed items
-        top = self.GetTopItem() 
-        last = min(self.GetItemCount() - 1, top + self.GetCountPerPage())
-        self.RefreshItems(top, last)
+        if self.GetItemCount() != 0:
+            top = self.GetTopItem() 
+            if top == -1:
+                top = 0
+            count = self.GetCountPerPage()
+            if count == -1:
+                count = self.GetItemCount()
+            last = min(self.GetItemCount() - 1, top + count)
+            self.RefreshItems(top, last)
 
     def OnKey(self, evt):
         if evt.GetKeyCode() == wx.WXK_DELETE:
