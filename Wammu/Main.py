@@ -503,8 +503,10 @@ class WammuFrame(wx.Frame):
                 (_('Folder'), str(v['SMS'][0]['Folder'])),
                 (_('Memory'), v['SMS'][0]['Memory']),
                 (_('SMSC'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['SMS'][0]['SMSC']['Number'])),
-                (_('State'), v['State']),
-                (Wammu.MessageDisplay.SmsToHtml(self.cfg, v),)]
+                (_('State'), v['State'])]
+            if v['Name'] != '':
+                data.append((_('Name'), v['Name']))
+            data.append((Wammu.MessageDisplay.SmsToHtml(self.cfg, v),))
         elif self.type[0] == 'todo':
             if self.type[1] == '  ':
                 t = '__'
