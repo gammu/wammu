@@ -23,6 +23,11 @@ import wx.lib.rcsizer
 import sys
 import Wammu
 from Wammu.Utils import Str_ as _
+try:
+    from wx.lib.timectrl import TimeCtrl
+except ImportError:
+    # wxPython 2.5.2
+    from wx.lib.masked.timectrl import TimeCtrl
 
 class Settings(wx.Dialog):
     def __init__(self, parent, config):
@@ -211,6 +216,26 @@ class Settings(wx.Dialog):
         self.sizer_other.Add(self.editdebug, pos = (r, 1), colspan = 2)
         r += 1
 
+        self.edittime = TimeCtrl( self.notebook_other, -1, config.Read('Wammu/DefaultTime', '9:00:00'), fmt24hr=True)
+        self.edittime.SetToolTipString(_('Default time to be used for newly created time fields.'))
+        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default time')), pos = (r, 1))
+        self.sizer_other.Add(self.edittime, pos = (r, 2))
+        r += 1
+
+        v = config.ReadInt('/Wammu/DefaultDateOffset', 1)
+        self.editdate = wx.SpinCtrl(self.notebook_other, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000000, max = 10000000, initial = v, size = (150, -1))
+        self.editdate.SetToolTipString(_('Default date to be used for newly created time fields. Enter amount of days from today (1 = tommorow).'))
+        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default time = now + x days')), pos = (r, 1))
+        self.sizer_other.Add(self.editdate, pos = (r, 2))
+        r += 1
+
+        v = config.ReadInt('/Wammu/DefaultEntries', 3)
+        self.editentries = wx.SpinCtrl(self.notebook_other, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 20, initial = v, size = (150, -1))
+        self.editentries.SetToolTipString(_('How many entries will be shown in newly created item.'))
+        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Entries for new item')), pos = (r, 1))
+        self.sizer_other.Add(self.editentries, pos = (r, 2))
+        r += 1
+
         self.sizer_other.AddSpacer(1, 1, pos = (r, 3))
 
         # size other tab
@@ -284,4 +309,7 @@ class Settings(wx.Dialog):
         self.config.Write('/Message/16bitId', value)
         self.config.WriteInt('/Message/ScaleImage', self.editscale.GetValue())
         self.config.WriteInt('/Wammu/RefreshState', self.editrefresh.GetValue())
+        self.config.Write('Wammu/DefaultTime', self.edittime.GetValue())
+        self.config.WriteInt('/Wammu/DefaultDateOffset', self.editdate.GetValue())
+        self.config.WriteInt('/Wammu/DefaultEntries', self.editentries.GetValue())
         self.EndModal(wx.ID_OK)

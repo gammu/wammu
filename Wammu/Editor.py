@@ -61,7 +61,7 @@ def TextToDate(txt):
     ymd = txt.split('-')
     return datetime.date(int(ymd[0]), int(ymd[1]), int(ymd[2]))
 
-def TimeToText(time):
+def TimeToText(time, config):
     try:
         try:
             time = time.time()
@@ -69,10 +69,9 @@ def TimeToText(time):
             pass
         return time.isoformat()
     except:
-        #FIXME: configurable
-        return '9:00:00'
+        return config.Read('Wammu/DefaultTime', '9:00:00')
 
-def DateToText(date):
+def DateToText(date, config):
     try:
         try:
             date = date.date()
@@ -80,8 +79,7 @@ def DateToText(date):
             pass
         return date.strftime('%d.%m.%Y')
     except:
-        #FIXME: configurable
-        return datetime.datetime.fromtimestamp(time.time() + 24*60*60).date().strftime('%d.%m.%Y')
+        return datetime.datetime.fromtimestamp(time.time() + 24*60*60*config.ReadInt('/Wammu/DefaultDateOffset', 1)).date().strftime('%d.%m.%Y')
 
 class CalendarPopup(wx.PopupTransientWindow):
     def __init__(self, parent):
@@ -271,9 +269,10 @@ class OneEdit(wx.Panel):
     """
     Text + Combo + editor for type specified by combo value
     """
-    def __init__(self, parent, text, type, choices, value, values):
+    def __init__(self, parent, text, type, choices, value, values, config):
         wx.Panel.__init__(self, parent, -1)
         self.values = values
+        self.config = config
         self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
@@ -345,10 +344,10 @@ class OneEdit(wx.Panel):
                 val = 0
             self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
         elif newt == 'datetime':
-            self.edit = TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
-            self.edit2 = DateControl(self, DateToText(value))
+            self.edit = TimeCtrl( self, -1, TimeToText(value, self.config), fmt24hr=True)
+            self.edit2 = DateControl(self, DateToText(value, self.config))
         elif newt == 'date':
-            self.edit = DateControl(self, DateToText(value))
+            self.edit = DateControl(self, DateToText(value, self.config))
         else:
             print 'warning: creating TextCtrl for %s' % newt
             self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
@@ -454,13 +453,13 @@ class GenericEditor(wx.Dialog):
         self.edits = []
         x = 0
         if wasempty:
-            for x in range(3):
-                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '', self.values)
+            for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries', 3)):
+                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '', self.values, self.cfg)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
         else:
             for i in entry['Entries']:
-                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], self.values)
+                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], self.values, self.cfg)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
                 x = x + 1
@@ -481,7 +480,7 @@ class GenericEditor(wx.Dialog):
     def More(self, evt):
         self.sizer.Remove(len(self.edits) + 2)
 
-        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '', self.values)
+        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '', self.values, self.cfg)
         self.edits.append(e)
 
         self.sizer.AddMany([
