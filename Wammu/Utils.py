@@ -104,7 +104,7 @@ def GetItemType(txt):
         return 'bool'
     elif txt == 'Category' or txt == 'CATEGORY':
         return 'category'
-    elif txt == 'PictureID' or txt == 'RingtoneID':
+    elif txt == 'PictureID' or txt == 'RingtoneID' or txt == 'RingtoneFileSystemID':
         return 'id'
     else:
         return 'number'

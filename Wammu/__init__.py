@@ -118,6 +118,7 @@ MemoryValueTypes = [
     'Text_Custom3',
     'Text_Custom4',
     'RingtoneID',
+    'RingtoneFileSystemID',
     'PictureID',
     ]
 
