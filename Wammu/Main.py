@@ -502,7 +502,6 @@ class WammuFrame(wx.Frame):
                     _('Notice'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
-            del self.timer
             self.SetupStatusRefresh()
 
     def CloseWindow(self, event):
