@@ -39,4 +39,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
-%doc ChangeLog README TODO AUTHORS FAQ COPYING
+%doc ChangeLog README TODO AUTHORS FAQ COPYING NEWS
