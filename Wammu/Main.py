@@ -135,9 +135,6 @@ class WammuFrame(wx.Frame):
                         displaydata[type][subtype][1], 
                         il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
                 else:
-                    self.treei[type][subtype] = self.tree.AddRoot(
-                        displaydata[type][subtype][1], 
-                        il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
                     self.treei[type][subtype] = self.tree.AppendItem(
                         self.treei[displaydata[type][subtype][0]]['  '], 
                         displaydata[type][subtype][1], 
