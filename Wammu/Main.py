@@ -901,6 +901,8 @@ class WammuFrame(wx.Frame):
             msg = '\n \n' + _('Backup saved from phone %s') % backup['Model']
             if backup['IMEI'] != '':
                 msg += _(', serial number %s') % backup['IMEI']
+        if backup['Creator'] != '':
+            msg += '\n \n' + _('Backup was created by %s') % backup['Creator']
         if backup['DateTime'] != None:
             msg += '\n \n' + _('Backup saved on %s') % str(backup['DateTime'])
 
@@ -968,6 +970,7 @@ class WammuFrame(wx.Frame):
             return
         ext = os.path.splitext(filename)[1].lower()
         backup = {}
+        backup['Creator'] = 'Wammu ' + Wammu.__version__
         backup['IMEI'] = self.IMEI
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
         if ext in ['.vcf', '.ldif']:
@@ -1007,6 +1010,7 @@ class WammuFrame(wx.Frame):
         for i in evt.list:
             lst.append(self.values[self.type[0]][t][i])
         backup = {}
+        backup['Creator'] = 'Wammu ' + Wammu.__version__
         backup['IMEI'] = self.IMEI
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
         if self.type[0] == 'contact':
@@ -1034,7 +1038,8 @@ class WammuFrame(wx.Frame):
                 _('Backup has been saved to file "%s"') % filename,
                 _('Backup saved'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
-        except:
+        except gammu.GSMError, val:
+            info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
                 message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
                 title = _('Error Occured'),
