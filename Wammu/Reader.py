@@ -79,6 +79,5 @@ class Reader(Wammu.Thread.Thread):
             self.ShowError(val[0], True)
             return
 
-        self.Send(data)
-
         self.ShowProgress(100)
+        self.Send(data)
