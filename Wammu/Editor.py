@@ -46,6 +46,12 @@ import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
 from Wammu.Utils import StrConv, UnicodeConv, Str_ as _
+try:
+    from wx.lib.masked import Ctrl as maskedCtrl
+except ImportError:
+    # wxPython 2.5
+    from wx.lib.maskedctrl import MaskedCtrl as maskedCtrl
+
 
 def TextToTime(txt):
     hms = txt.split(':')
@@ -72,10 +78,10 @@ def DateToText(date):
             date = date.date()
         except:
             pass
-        return date.isoformat()
+        return date.strftime('%d.%m.%Y')
     except:
         #FIXME: configurable
-        return str(datetime.datetime.fromtimestamp(time.time() + 24*60*60).date())
+        return datetime.datetime.fromtimestamp(time.time() + 24*60*60).date().strftime('%d.%m.%Y')
 
 class CalendarPopup(wx.PopupTransientWindow):
     def __init__(self, parent):
@@ -90,7 +96,7 @@ class DateControl(wx.Panel):
 
         self.sizer = wx.FlexGridSizer(1, 2)
         self.sizer.AddGrowableCol(0)
-        self.textCtrl = wx.TextCtrl(self,-1,value)
+        self.textCtrl = maskedCtrl(self, -1, value, autoformat = 'EUDATEDDMMYYYY.', validRequired=True, emptyInvalid=True)
         self.bCtrl = wx.BitmapButton(self, -1, wx.Bitmap(MiscPath('downarrow')))
         self.sizer.AddMany([
             (self.textCtrl, 1, wx.EXPAND),
@@ -102,6 +108,11 @@ class DateControl(wx.Panel):
         wx.EVT_BUTTON(self.bCtrl,self.bCtrl.GetId(),self.OnButton)
         wx.EVT_SET_FOCUS(self,self.OnFocus)
 
+    def GetValidator(self):
+        return self.textCtrl.GetValidator()
+
+    def Validate(self):
+        return self.textCtrl.Validate()
 
     def OnFocus(self,evt):
         self.textCtrl.SetFocus()
@@ -110,12 +121,12 @@ class DateControl(wx.Panel):
     def OnButton(self,evt):
         self.pop = CalendarPopup(self)
         txtValue = self.GetValue()
-        dmy = txtValue.split('-')
+        dmy = txtValue.split('.')
         didSet = False
         if len(dmy) == 3:
-            d = int(dmy[2])
+            d = int(dmy[0])
             m = int(dmy[1]) - 1
-            y = int(dmy[0])
+            y = int(dmy[2])
             if d > 0 and d < 31:
                 if m >= 0 and m < 12:
                     if y > 1000:
@@ -144,8 +155,8 @@ class DateControl(wx.Panel):
         wx.calendar.EVT_CALENDAR_DAY(self, self.pop.cal.GetId(),self.OnCalSelected)
         self.pop.Popup()
 
-    def Enable(self,flag):
-        wx.PyControl.Enable(self,flag)
+    def Enable(self, flag):
+        wx.PyControl.Enable(self, flag)
         self.textCtrl.Enable(flag)
         self.bCtrl.Enable(flag)
 
@@ -157,63 +168,12 @@ class DateControl(wx.Panel):
 
     def OnCalSelected(self,evt):
         date = self.pop.cal.GetDate()
-        self.SetValue('%04d-%02d-%02d' % (date.GetYear(),
-                                          date.GetMonth()+1,
-                                          date.GetDay()))
+        self.SetValue('%02d.%02d.%04d' % (
+            date.GetDay(),
+            date.GetMonth() + 1,
+            date.GetYear()))
         self.pop.Dismiss()
         evt.Skip()
-
-
-class DateTimeEdit(wx.Panel):
-    """
-    Generic class for static text with some edit control.
-    """
-    def __init__(self, parent, value):
-        wx.Panel.__init__(self, parent, -1)
-        self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
-        self.sizer.AddGrowableCol(1)
-        try:
-            val = str(value.time())
-        except:
-            #FIXME: configurable
-            val = '9:00:00'
-        self.timeed = TimeCtrl( self, -1, val, fmt24hr=True)
-        try:
-            val = str(value.date())
-        except:
-            #FIXME: configurable
-            val = str(datetime.datetime.fromtimestamp(time.time() + 24*60*60).date())
-        self.dateed = DateControl(self, val)
-        self.SetValue(value)
-        self.sizer.AddMany([
-            (self.dateed, 0, wx.EXPAND),
-            (self.timeed, 0, wx.EXPAND),
-            ])
-        self.sizer.Fit(self)
-        self.SetAutoLayout(True)
-        self.SetSizer(self.sizer)
-
-    def GetValue(self):
-        txtdate = self.dateed.GetValue()
-        ymd = txtdate.split('-')
-        txttime = self.timeed.GetValue()
-        hms = txttime.split(':')
-        return datetime.datetime(int(ymd[0]), int(ymd[1]), int(ymd[2]), int(hms[0]), int(hms[1]), int(hms[2]))
-
-    def SetValue(self, value):
-        try:
-            val = str(value.time())
-        except:
-            #FIXME: configurable
-            val = '9:00:00'
-        self.timeed.SetValue(val)
-        try:
-            val = str(value.date())
-        except:
-            #FIXME: configurable
-            val = str(datetime.datetime.fromtimestamp(time.time() + 24*60*60).date())
-        self.dateed.SetValue(val)
-
 
 class ContactEdit(wx.Panel):
     """
