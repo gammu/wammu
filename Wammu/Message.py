@@ -8,26 +8,28 @@ class GetMessage(Wammu.Thread.Thread):
         
         try:
             status = self.sm.GetSMSStatus()
+            total = remain = status['SIMUsed'] + status['PhoneUsed']
         except gammu.GSMError, val:
-            self.ShowError(val[0], True)
-            return
- 
-        total = remain = status['SIMUsed'] + status['PhoneUsed']
+            total = remain = 999
 
         data = []
-        start = True
         
         try:
+            start = True
             while remain > 0:
                 self.ShowProgress(100 * (total - remain) / total)
                 if self.canceled:
                     self.Canceled()
                     return
-                if start:
-                    value = self.sm.GetNextSMS(Start = True, Folder = 0)
-                    start = False
-                else:
-                    value = self.sm.GetNextSMS(Location = value[0]['Location'], Folder = 0)
+                try:
+                    if start:
+                        value = self.sm.GetNextSMS(Start = True, Folder = 0)
+                        start = False
+                    else:
+                        value = self.sm.GetNextSMS(Location = value[0]['Location'], Folder = 0)
+                except gammu.ERR_EMPTY:
+                    break
+
                 data.append(value)
                 remain = remain - len(value)
         except gammu.ERR_NOTSUPPORTED:
