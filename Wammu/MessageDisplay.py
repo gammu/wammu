@@ -80,9 +80,9 @@ def SmsTextFormat(cfg, txt):
                 s = x
             else:
                 ret += a + ' '
-        return ret
     else:
-        return txt
+        ret = txt
+    return ret.replace('\n', '<br>')
 
 def SmsToHtml(cfg, v):
     if v.has_key('SMSInfo'):
