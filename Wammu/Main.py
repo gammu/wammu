@@ -1140,10 +1140,6 @@ class WammuFrame(wx.Frame):
         if dlg.ShowModal() == wx.ID_OK:
             idx = dlg.GetSelection()
             x = self.founddevices[idx]
-            # FIXME: this should probably detect Gammu, but I don't know how to iplmentent it there
-            if x[3] == 'Alcatel':
-                self.cfg.Write('/Gammu/Model', 'alcatel')
-            else:
-                self.cfg.Write('/Gammu/Model', '')
+            self.cfg.Write('/Gammu/Model', '')
             self.cfg.Write('/Gammu/Device', x[0])
             self.cfg.Write('/Gammu/Connection', x[1])

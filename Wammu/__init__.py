@@ -9,7 +9,7 @@ gettext.install('wammu')
 
 # FIXME: these definitions probably should be part of gammu module and not this...
 # First is used as default
-Models = ['at', 'alcatel', 'nauto', 'obex', 'seobex']
+Models = ['', 'at', 'alcatel', 'nauto', 'obex', 'seobex']
 Connections = ['at19200', 'at115200', 'fbus', 'fbusirda', 'fbusdlr3', 'fbusdku5', 'fbusblue', 'phonetblue', 'mrouterblue', 'mbus', 'irdaphonet', 'irdaat', 'irdaobex', 'bluephonet', 'bluefbus', 'blueat', 'blueobex']
 Conn_Cable = ['at19200', 'fbusdlr3', 'fbus', 'mbus']
 Conn_IrDA_Win = ['irdaphonet']

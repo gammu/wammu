@@ -27,7 +27,7 @@ class Settings(wx.Dialog):
             (wx.StaticText(self, -1, _('Connection')), 0, wx.EXPAND),
             (self.editconn, 0, wx.EXPAND),
 
-            (wx.StaticText(self, -1, _('Model')), 0, wx.EXPAND),
+            (wx.StaticText(self, -1, _('Model (empty = auto)')), 0, wx.EXPAND),
             (self.editmodel, 0, wx.EXPAND),
 
             (wx.StaticText(self, -1, _('Synchronize time')), 0, wx.EXPAND),
