@@ -32,7 +32,7 @@ import Wammu
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
-from Wammu.Utils import StrConv, Str_ as _
+from Wammu.Utils import StrConv, UnicodeConv, Str_ as _
 
 def TextToTime(txt):
     hms = txt.split(':')
@@ -365,6 +365,10 @@ class OneEdit(wx.Panel):
             return datetime.datetime.combine(TextToDate(self.edit2.GetValue()), TextToTime(self.edit.GetValue()))
         elif t == 'id':
             return int(self.edit.GetValue(), 16)
+        elif t in ['contact', 'bool', 'category', 'number']:
+            return int(self.edit.GetValue())
+        elif t in ['phone', 'text']:
+            return UnicodeConv(self.edit.GetValue())
         else:
             return self.edit.GetValue()
 

@@ -28,11 +28,23 @@ import Wammu.Utils
 import Wammu.PhoneValidator
 import Wammu.Select
 import gammu
-from Wammu.Utils import Str_ as _
+import locale
+from Wammu.Utils import UnicodeConv, Str_ as _
 
+if wx.USE_UNICODE:
+    htmlhead = ''
+else:
+    try:
+        loc = locale.getdefaultlocale()
+        charset = loc[1]
+    except:
+        charset = 'iso-8859-1'
+    htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % charset
+    
 class MessagePreview(wx.Dialog):
     text = '''
 <html>
+%s
 <body>
 %s
 <center>
@@ -47,7 +59,7 @@ class MessagePreview(wx.Dialog):
     def __init__(self, parent, content):
         wx.Dialog.__init__(self, parent, -1, _('Message preview'))
         html = wx.html.HtmlWindow(self, -1, size=(420, -1))
-        html.SetPage(self.text % (content, _('OK')))
+        html.SetPage(self.text % (htmlhead, content, _('OK')))
         btn = html.FindWindowById(wx.ID_OK)
         btn.SetDefault()
         ir = html.GetInternalRepresentation()
@@ -215,7 +227,7 @@ class TextEditor(GenericEditor):
                 type = 'ConcatenatedTextLong'
         else:
             self.part['ID'] = 'Text'
-        self.part['Buffer'] = self.edit.GetValue()
+        self.part['Buffer'] = UnicodeConv(self.edit.GetValue())
         return self.part
 
 class PredefinedAnimEditor(GenericEditor):

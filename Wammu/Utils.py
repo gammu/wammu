@@ -64,6 +64,26 @@ def StrConv(txt):
     except UnicodeEncodeError:
         return '???'
 
+def UnicodeConv(txt):
+    """
+    This function coverts something (txt) to string form usable by wxPython. There
+    is problem that in default configuration in most distros (maybe all) default
+    encoding for unicode objects is ascii. This leads to exception when converting
+    something different than ascii. And this exception is not catched inside
+    wxPython and leads to segfault.
+
+    So if wxPython supports unicode, we give it unicode, otherwise locale
+    dependant text.
+    """
+    try:
+        if type(txt) == type(u''):
+            return txt
+        if type(txt) == type(''):
+            return unicode(txt, localecharset)
+        return unicode(str(txt), localecharset)
+    except UnicodeEncodeError:
+        return '???'
+
 def Str_(txt):
     return StrConv(_(txt))
 
