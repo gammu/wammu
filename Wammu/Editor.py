@@ -19,7 +19,12 @@ Item editors
 '''
 
 import wx
-import wxPython.utils
+try:
+    # FIXME: wxPython 2.4
+    import wxPython.utils
+except ImportError:
+    # FIXME: wxPython 2.5
+    import wx.misc
 import wx.calendar
 import wx.lib.timectrl
 import Wammu.wxcomp.popupctl
@@ -110,10 +115,22 @@ class DateControl(Wammu.wxcomp.popupctl.wxPopupControl):
             if d > 0 and d < 31:
                 if m >= 0 and m < 12:
                     if y > 1000:
-                        self.cal.SetDate(wxPython.utils.wxDateTimeFromDMY(d,m,y))
+                        try:
+                            # FIXME: wxPython 2.4
+                            date = wxPython.utils.wxDateTimeFromDMY(d,m,y)
+                        except NameError:
+                            # FIXME: wxPython 2.5
+                            date = wx.misc.DateTimeFromDMY(d,m,y)
+                        self.cal.SetDate(date)
                         didSet = True
         if not didSet:
-            self.cal.SetDate(wxPython.utils.wxDateTime_Today())
+            try:
+                # FIXME: wxPython 2.4
+                time = wxPython.utils.wxDateTime_Today()
+            except NameError:
+                # FIXME: wxPython 2.5
+                time = wx.misc.DateTime_Today()
+            self.cal.SetDate()
 
 
 class DateTimeEdit(wx.Panel):
