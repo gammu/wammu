@@ -14,6 +14,41 @@ import Wammu.Browser
 from Wammu.Paths import *
 import threading
 
+def SortDataKeys(a, b):
+    if a == 'info':
+        return -1
+    elif b == 'info':
+        return 1
+    else:
+        return cmp(a,b)
+        
+def SortDataSubKeys(a, b):
+    if a == '  ':
+        return -1
+    elif b == '  ':
+        return 1
+    else:
+        return cmp(a,b)
+
+displaydata = {}
+displaydata['info'] = {}
+displaydata['call'] = {}
+displaydata['memory'] = {}
+
+#information
+displaydata['info']['  '] = ('', 'Phone', 'Phone Information', 'phone', [['Wammu version', Wammu.__version__], ['Gammu version', gammu.Version()]])
+
+# calls
+displaydata['call']['  '] = ('info', 'Calls', 'All Calls', 'call', [])
+displaydata['call']['RC'] = ('call', 'Received', 'Received Calls', 'call-received', [])
+displaydata['call']['MC'] = ('call', 'Missed', 'Missed Calls', 'call-missed', [])
+displaydata['call']['DC'] = ('call', 'Outgoing', 'Outgoing Calls', 'call-outgoing', [])
+
+# contacts
+displaydata['memory']['  '] = ('info', 'Contacts', 'All Contacts', 'contact', [])
+displaydata['memory']['SM'] = ('memory', 'SIM', 'SIM Contacts', 'contact-sim', [])
+displaydata['memory']['ME'] = ('memory', 'Phone', 'Phone Contacts', 'contact-phone', [])
+
 ## Create a new frame class, derived from the wxPython Frame.
 class WammuFrame(wx.Frame):
 
@@ -38,29 +73,33 @@ class WammuFrame(wx.Frame):
         self.tree.AssignImageList(il)
 
         self.treei = {}
-        self.treei['info'] = {}
-        self.treei['call'] = {}
-        self.treei['memory'] = {}
+        self.values = {}
 
-        # Fill tree
-        self.treei['info']['  '] = self.tree.AddRoot('Phone', il.Add(wx.Bitmap(IconPath('phone'))))
+        keys = displaydata.keys()
+        keys.sort(SortDataKeys)
+        for type in keys:
+            self.treei[type] = {}
+            self.values[type] = {}
+            subkeys = displaydata[type].keys()
+            subkeys.sort(SortDataSubKeys)
+            for subtype in subkeys:
+                self.values[type][subtype] = displaydata[type][subtype][4]
+                if displaydata[type][subtype][0] == '':
+                    self.treei[type][subtype] = self.tree.AddRoot(
+                        displaydata[type][subtype][1], 
+                        il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
+                else:
+                    self.treei[type][subtype] = self.tree.AddRoot(
+                        displaydata[type][subtype][1], 
+                        il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
+                    self.treei[type][subtype] = self.tree.AppendItem(
+                        self.treei[displaydata[type][subtype][0]]['  '], 
+                        displaydata[type][subtype][1], 
+                        il.Add(wx.Bitmap(IconPath(displaydata[type][subtype][3]))))
 
-        # calls
-        self.treei['call']['  '] = self.tree.AppendItem(self.treei['info']['  '], 'Calls', il.Add(wx.Bitmap(IconPath('call'))))
-        self.treei['call']['RC'] = self.tree.AppendItem(self.treei['call']['  '], 'Received', il.Add(wx.Bitmap(IconPath('call-received'))))
-        self.treei['call']['MC'] = self.tree.AppendItem(self.treei['call']['  '], 'Missed', il.Add(wx.Bitmap(IconPath('call-missed'))))
-        self.treei['call']['DC'] = self.tree.AppendItem(self.treei['call']['  '], 'Outgoing', il.Add(wx.Bitmap(IconPath('call-outgoing'))))
+        for type in keys:
+            self.tree.Expand(self.treei[type]['  '])
 
-        
-        # contacts
-        self.treei['memory']['  '] = self.tree.AppendItem(self.treei['info']['  '], 'Contact', il.Add(wx.Bitmap(IconPath('contact'))))
-        self.treei['memory']['SM'] = self.tree.AppendItem(self.treei['memory']['  '], 'SIM', il.Add(wx.Bitmap(IconPath('contact-sim'))))
-        self.treei['memory']['ME'] = self.tree.AppendItem(self.treei['memory']['  '], 'Phone', il.Add(wx.Bitmap(IconPath('contact-phone'))))
-
-        self.tree.Expand(self.treei['info']['  '])
-        self.tree.Expand(self.treei['call']['  '])
-        self.tree.Expand(self.treei['memory']['  '])
-        
         wx.EVT_TREE_SEL_CHANGED(self, self.tree.GetId(), self.OnTreeSel)
         
 
@@ -143,22 +182,8 @@ class WammuFrame(wx.Frame):
 
         self.TogglePhoneMenus(False)
 
-        self.values = {}
-        self.values['info'] = {}
-        self.values['memory'] = {}
-        self.values['call'] = {}
-        
-        self.values['info']['  '] = [['Wammu version', Wammu.__version__], ['Gammu version', gammu.Version()]]
-        self.values['memory']['  '] = []
-        self.values['memory']['SM'] = []
-        self.values['memory']['ME'] = []
-        self.values['call']['  '] = []
-        self.values['call']['RC'] = []
-        self.values['call']['MC'] = []
-        self.values['call']['DC'] = []
-        
         self.type = ['info','  ']
-        self.ChangeBrowser('info', '  ')
+        self.ActivateView('info', '  ')
 
         # create state machine
         self.sm = gammu.StateMachine()
@@ -187,7 +212,11 @@ class WammuFrame(wx.Frame):
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
+        self.ChangeView(k1, k2)
+
+    def ChangeView(self, k1, k2):
         self.ChangeBrowser(k1, k2)
+        self.label.SetLabel(displaydata[k1][k2][2])
 
     def ChangeBrowser(self, k1, k2):
         self.type = [k1, k2]
@@ -206,7 +235,7 @@ class WammuFrame(wx.Frame):
         for k1, v1 in self.treei.iteritems():
             for k2, v2 in v1.iteritems():
                 if v2 == item:
-                    self.ChangeBrowser(k1, k2)
+                    self.ChangeView(k1, k2)
 
     def CloseWindow(self, event):
         # tell the window to kill itself

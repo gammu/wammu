@@ -1,7 +1,10 @@
 import os.path
 
 def IconPath(*args):
-    return os.path.join('images','icons', *args) + os.extsep + 'png'
+    return ImagePath('icons', *args)       
 
 def MiscPath(*args):
-    return os.path.join('images','misc', *args) + os.extsep + 'png'
+    return ImagePath('misc', *args)       
+
+def ImagePath(*args):
+    return os.path.join('images', *args) + os.extsep + 'png'
