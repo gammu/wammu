@@ -3,7 +3,7 @@ import gammu
 import threading
 import Wammu
 import Wammu.Events
-import wx.lib.layoutf
+import wxPython.lib.layoutf
 
 class LogDialog(wx.Dialog):
     def __init__(self, parent, msg = '', caption = _('Phone searching log'), pos = wx.DefaultPosition, size = (500,300)):
@@ -15,8 +15,8 @@ class LogDialog(wx.Dialog):
                              wx.DefaultSize,
                              wx.TE_MULTILINE | wx.TE_READONLY)
         ok = wx.Button(self, wx.ID_OK, _('Close'))
-        text.SetConstraints(wx.lib.layoutf.Layoutf('t=t5#1;b=t5#2;l=l5#1;r=r5#1', (self,ok)))
-        ok.SetConstraints(wx.lib.layoutf.Layoutf('b=b5#1;x%w50#1;w!80;h!25', (self,)))
+        text.SetConstraints(wxPython.lib.layoutf.Layoutf('t=t5#1;b=t5#2;l=l5#1;r=r5#1', (self,ok)))
+        ok.SetConstraints(wxPython.lib.layoutf.Layoutf('b=b5#1;x%w50#1;w!80;h!25', (self,)))
         self.SetAutoLayout(1)
         self.Layout()
         self.text = text
