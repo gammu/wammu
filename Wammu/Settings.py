@@ -127,6 +127,49 @@ class Settings(wx.Dialog):
         self.sizer_messages.Add(self.editformat, pos = (r, 1), colspan = 2)
         r += 1
 
+        # options for new message
+        self.new_message_panel = wx.Panel(self.notebook_messages, -1)
+        self.sizer_messages.Add(self.new_message_panel, pos = (r, 1), colspan = 2, flag = wx.EXPAND)
+        r += 1
+
+        self.sizer_message_new = wx.StaticBoxSizer(wx.StaticBox(self.new_message_panel, -1, 'Default options for new message'), wx.HORIZONTAL)
+        self.new_message_panel_2 = wx.Panel(self.new_message_panel, -1)
+        self.sizer_message_new.Add(self.new_message_panel_2, 1, wx.EXPAND, 0)
+
+        self.sizer_message_new_2 = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer_message_new_2.AddGrowableCol(1)
+
+        r2 = 0
+
+        self.editconcat = wx.CheckBox(self.new_message_panel_2, -1, _('Concatenated'))
+        self.editconcat.SetToolTipString(_('Create concatenated message, what allows to send longer messages.'))
+        self.editconcat.SetValue(config.Read('/Message/Concatenated', 'yes') == 'yes')
+        self.sizer_message_new_2.Add(self.editconcat, pos = (r2, 0), colspan = 2)
+        r2 += 1
+
+        self.editunicode = wx.CheckBox(self.new_message_panel_2, -1, _('Create unicode message'))
+        self.editunicode.SetToolTipString(_('Unicode messages can contain national and other special characters, check this if you use non latin-1 characters. Your messages will require more space, so you can write less characters into single message.'))
+        self.editunicode.SetValue(config.Read('/Message/Unicode', 'no') == 'yes')
+        self.sizer_message_new_2.Add(self.editunicode, pos = (r2, 0), colspan = 2)
+        r2 += 1
+
+        self.edit16bit = wx.CheckBox(self.new_message_panel_2, -1, _('Use 16bit Id'))
+        self.edit16bit.SetToolTipString(_('Use 16 bit Id inside message. This is safe for most cases.'))
+        self.edit16bit.SetValue(config.Read('/Message/16bitId', 'yes') == 'yes')
+        self.sizer_message_new_2.Add(self.edit16bit, pos = (r2, 0), colspan = 2)
+        r2 += 1
+
+        self.sizer_message_new_2.Fit(self.new_message_panel_2)
+        self.sizer_message_new_2.SetSizeHints(self.new_message_panel_2)
+        self.new_message_panel_2.SetAutoLayout(True)
+        self.new_message_panel_2.SetSizer(self.sizer_message_new_2)
+
+        self.sizer_message_new.Fit(self.new_message_panel)
+        self.sizer_message_new.SetSizeHints(self.new_message_panel)
+        self.new_message_panel.SetAutoLayout(True)
+        self.new_message_panel.SetSizer(self.sizer_message_new)
+
         self.sizer_messages.AddSpacer(1, 1, pos = (r, 3))
 
         # size messages tab
@@ -224,6 +267,21 @@ class Settings(wx.Dialog):
         else:
             value = 'no'
         self.config.Write('/Message/Format', value)
+        if self.editconcat.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Message/Concatenated', value)
+        if self.editunicode.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Message/Unicode', value)
+        if self.edit16bit.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Message/16bitId', value)
         self.config.WriteInt('/Message/ScaleImage', self.editscale.GetValue())
         self.config.WriteInt('/Wammu/RefreshState', self.editrefresh.GetValue())
         self.EndModal(wx.ID_OK)

@@ -170,7 +170,7 @@ class TextEditor(GenericEditor):
         self.sizer.AddGrowableRow(0)
 
         self.concat = wx.CheckBox(self, -1, _('Concatenated'))
-        self.concat.SetToolTipString(_('Create concatenated message, what allows to send longer messages'))
+        self.concat.SetToolTipString(_('Create concatenated message, what allows to send longer messages.'))
         self.concat.SetValue(self.part['ID'] != 'Text')
         wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.OnConcatChange)
         self.sizer.Add(self.concat, pos = (1, 0))
@@ -346,11 +346,11 @@ class SMSComposer(wx.Dialog):
             action = 'save'
 
         self.send = wx.CheckBox(self, -1, _('Send message'))
-        self.send.SetToolTipString(_('When checked, message is sent to recipient'))
+        self.send.SetToolTipString(_('When checked, message is sent to recipient.'))
         self.send.SetValue(action == 'send')
 
         self.save = wx.CheckBox(self, -1, _('Save into folder'))
-        self.save.SetToolTipString(_('When checked, message is saved to phone'))
+        self.save.SetToolTipString(_('When checked, message is saved to phone.'))
         self.save.SetValue(action == 'save')
 
         wx.EVT_CHECKBOX(self.save, self.save.GetId(), self.OnSave)
@@ -366,7 +366,7 @@ class SMSComposer(wx.Dialog):
 
         self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator(multi = True))
         self.contbut = wx.Button(self, -1, _('Contacts'))
-        self.contbut.SetToolTipString(_('Add number of recipient from contacts'))
+        self.contbut.SetToolTipString(_('Add number of recipient from contacts.'))
 
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
@@ -377,7 +377,7 @@ class SMSComposer(wx.Dialog):
         row = row + 2
 
         self.unicode = wx.CheckBox(self, -1, _('Unicode'))
-        self.unicode.SetToolTipString(_('Unicode messages can contain national and other special characters, check this if you use non latin-1 characters'))
+        self.unicode.SetToolTipString(_('Unicode messages can contain national and other special characters, check this if you use non latin-1 characters. Your messages will require more space, so you can write less characters into single message.'))
         if self.entry.has_key('Unicode'):
             self.unicode.SetValue(self.entry['Unicode'])
         else:
@@ -388,15 +388,15 @@ class SMSComposer(wx.Dialog):
         wx.EVT_CHECKBOX(self.unicode, self.unicode.GetId(), self.OnUnicode)
 
         self.report = wx.CheckBox(self, -1, _('Delivery report'))
-        self.report.SetToolTipString(_('Check to request delivery report for message'))
+        self.report.SetToolTipString(_('Check to request delivery report for message.'))
         self.sizer.Add(self.report, pos = (row,2), flag = wx.ALIGN_LEFT)
 
         self.sent = wx.CheckBox(self, -1, _('Sent'))
-        self.sent.SetToolTipString(_('Check to save message as sent (has only effect when only saving message)'))
+        self.sent.SetToolTipString(_('Check to save message as sent (has only effect when only saving message).'))
         self.sizer.Add(self.sent, pos = (row,4), flag = wx.ALIGN_LEFT)
 
         self.flash = wx.CheckBox(self, -1, _('Flash'))
-        self.flash.SetToolTipString(_('Send flash message - it will be just displayed on display, but not saved in phone'))
+        self.flash.SetToolTipString(_('Send flash message - it will be just displayed on display, but not saved in phone.'))
         self.sizer.Add(self.flash, pos = (row,6), flag = wx.ALIGN_LEFT)
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-09 17:03+0200\n"
+"POT-Creation-Date: 2004-09-09 19:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,99 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: Wammu/PhoneSearch.py:31
+msgid "Phone searching log"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:39
+msgid "Close"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:83
+#, python-format
+msgid "Starting %s"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:97
+#, python-format
+msgid "Finished %s"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:102
+#, python-format
+msgid "All finished, found %d phones"
+msgstr ""
+
+#: Wammu/PhoneValidator.py:80
+msgid "You did not specify valid phone number."
+msgstr ""
+
+#: Wammu/PhoneValidator.py:81
+msgid "Invalid phone number"
+msgstr ""
+
+#: Wammu/Ringtone.py:42
+msgid "Could not find timidity, melody can not be played"
+msgstr ""
+
+#: Wammu/Ringtone.py:43
+msgid "Timidity not found"
+msgstr ""
+
+#: Wammu/Utils.py:78
+msgid ""
+"Warning: you are using utf-8 locales and non unicode enabled wxPython, some "
+"text migth be displayed incorrectly!"
+msgstr ""
+
+#: Wammu/Utils.py:79
+#, python-format
+msgid "Warning: assuming charset %s for html widget"
+msgstr ""
+
+#: Wammu/Utils.py:265
+msgid "Yes"
+msgstr ""
+
+#: Wammu/Utils.py:267
+msgid "No"
+msgstr ""
+
+#: Wammu/Utils.py:312
+msgid "Description:"
+msgstr ""
+
+#: Wammu/Utils.py:313
+msgid "Function:"
+msgstr ""
+
+#: Wammu/Utils.py:314
+msgid "Error code:"
+msgstr ""
+
+#: Wammu/Thread.py:39 Wammu/App.py:53
+msgid "Failed to set exception handler."
+msgstr ""
+
+#: Wammu/Thread.py:51 Wammu/Main.py:513
+msgid "Error while communicating with phone"
+msgstr ""
+
+#: Wammu/Thread.py:52 Wammu/Main.py:514 Wammu/Main.py:997 Wammu/Main.py:1120
+#: Wammu/Main.py:1169
+msgid "Error Occured"
+msgstr ""
+
+#: Wammu/Thread.py:86
+msgid "Action canceled by user!"
+msgstr ""
+
+#: Wammu/Thread.py:87
+msgid "Action canceled"
+msgstr ""
+
 #: Wammu/Browser.py:57 Wammu/Browser.py:60 Wammu/Browser.py:63
-#: Wammu/Main.py:620
+#: Wammu/Main.py:594
 msgid "Name"
 msgstr ""
 
@@ -26,29 +117,29 @@ msgid "Value"
 msgstr ""
 
 #: Wammu/Browser.py:60 Wammu/Browser.py:63 Wammu/Browser.py:66
-#: Wammu/Browser.py:69 Wammu/Browser.py:72 Wammu/Main.py:601 Wammu/Main.py:614
-#: Wammu/Main.py:629 Wammu/Main.py:640
+#: Wammu/Browser.py:69 Wammu/Browser.py:72 Wammu/Main.py:575 Wammu/Main.py:588
+#: Wammu/Main.py:603 Wammu/Main.py:614
 msgid "Location"
 msgstr ""
 
-#: Wammu/Browser.py:60 Wammu/Main.py:616
+#: Wammu/Browser.py:60 Wammu/Main.py:590
 msgid "Memory"
 msgstr ""
 
 #: Wammu/Browser.py:60 Wammu/Browser.py:63 Wammu/Browser.py:66
-#: Wammu/Main.py:612
+#: Wammu/Main.py:586
 msgid "Number"
 msgstr ""
 
-#: Wammu/Browser.py:63 Wammu/Main.py:641
+#: Wammu/Browser.py:63 Wammu/Main.py:615
 msgid "Type"
 msgstr ""
 
-#: Wammu/Browser.py:66 Wammu/Main.py:618
+#: Wammu/Browser.py:66 Wammu/Main.py:592
 msgid "State"
 msgstr ""
 
-#: Wammu/Browser.py:66 Wammu/Browser.py:69 Wammu/Main.py:613
+#: Wammu/Browser.py:66 Wammu/Browser.py:69 Wammu/Main.py:587
 msgid "Date"
 msgstr ""
 
@@ -61,7 +152,7 @@ msgstr ""
 msgid "Completed"
 msgstr ""
 
-#: Wammu/Browser.py:69 Wammu/Editor.py:541 Wammu/Main.py:630
+#: Wammu/Browser.py:69 Wammu/Editor.py:538 Wammu/Main.py:604
 msgid "Priority"
 msgstr ""
 
@@ -126,7 +217,7 @@ msgid "Message preview"
 msgstr ""
 
 #: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/Composer.py:440
-#: Wammu/About.py:97 Wammu/Editor.py:415
+#: Wammu/About.py:97 Wammu/Editor.py:412
 msgid "OK"
 msgstr ""
 
@@ -134,12 +225,12 @@ msgstr ""
 msgid "Text style"
 msgstr ""
 
-#: Wammu/Composer.py:172
+#: Wammu/Composer.py:172 Wammu/Settings.py:145
 msgid "Concatenated"
 msgstr ""
 
-#: Wammu/Composer.py:173
-msgid "Create concatenated message, what allows to send longer messages"
+#: Wammu/Composer.py:173 Wammu/Settings.py:146
+msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 
 #: Wammu/Composer.py:178 Wammu/Composer.py:221
@@ -172,7 +263,7 @@ msgid "Composing SMS"
 msgstr ""
 
 #: Wammu/Composer.py:349
-msgid "When checked, message is sent to recipient"
+msgid "When checked, message is sent to recipient."
 msgstr ""
 
 #: Wammu/Composer.py:352
@@ -180,15 +271,15 @@ msgid "Save into folder"
 msgstr ""
 
 #: Wammu/Composer.py:353
-msgid "When checked, message is saved to phone"
+msgid "When checked, message is saved to phone."
 msgstr ""
 
-#: Wammu/Composer.py:368 Wammu/Main.py:86
+#: Wammu/Composer.py:368 Wammu/Main.py:85
 msgid "Contacts"
 msgstr ""
 
 #: Wammu/Composer.py:369
-msgid "Add number of recipient from contacts"
+msgid "Add number of recipient from contacts."
 msgstr ""
 
 #: Wammu/Composer.py:371
@@ -199,10 +290,11 @@ msgstr ""
 msgid "Unicode"
 msgstr ""
 
-#: Wammu/Composer.py:380
+#: Wammu/Composer.py:380 Wammu/Settings.py:152
 msgid ""
 "Unicode messages can contain national and other special characters, check "
-"this if you use non latin-1 characters"
+"this if you use non latin-1 characters. Your messages will require more "
+"space, so you can write less characters into single message."
 msgstr ""
 
 #: Wammu/Composer.py:390
@@ -210,16 +302,16 @@ msgid "Delivery report"
 msgstr ""
 
 #: Wammu/Composer.py:391
-msgid "Check to request delivery report for message"
+msgid "Check to request delivery report for message."
 msgstr ""
 
-#: Wammu/Composer.py:394 Wammu/Main.py:94
+#: Wammu/Composer.py:394 Wammu/Main.py:93
 msgid "Sent"
 msgstr ""
 
 #: Wammu/Composer.py:395
 msgid ""
-"Check to save message as sent (has only effect when only saving message)"
+"Check to save message as sent (has only effect when only saving message)."
 msgstr ""
 
 #: Wammu/Composer.py:398
@@ -229,7 +321,7 @@ msgstr ""
 #: Wammu/Composer.py:399
 msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
-"phone"
+"phone."
 msgstr ""
 
 #: Wammu/Composer.py:406
@@ -260,7 +352,7 @@ msgstr ""
 msgid "Create new message by adding part to left list..."
 msgstr ""
 
-#: Wammu/Composer.py:441 Wammu/Editor.py:416
+#: Wammu/Composer.py:441 Wammu/Editor.py:413
 msgid "Cancel"
 msgstr ""
 
@@ -273,306 +365,22 @@ msgstr ""
 msgid "Not supported id: %s"
 msgstr ""
 
-#: Wammu/Composer.py:533
+#: Wammu/Composer.py:532
 #, python-format
 msgid "No editor available for type %s"
 msgstr ""
 
-#: Wammu/Composer.py:592
+#: Wammu/Composer.py:591
 msgid "Nothing to preview, message is empty."
 msgstr ""
 
-#: Wammu/Composer.py:593
+#: Wammu/Composer.py:592
 msgid "Message empty!"
 msgstr ""
 
-#: Wammu/Composer.py:603
+#: Wammu/Composer.py:602
 #, python-format
 msgid "Message will fit into %d SMSes"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:31
-msgid "Phone searching log"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:39
-msgid "Close"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:83
-#, python-format
-msgid "Starting %s"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:97
-#, python-format
-msgid "Finished %s"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:102
-#, python-format
-msgid "All finished, found %d phones"
-msgstr ""
-
-#: Wammu/PhoneValidator.py:80
-msgid "You did not specify valid phone number."
-msgstr ""
-
-#: Wammu/PhoneValidator.py:81
-msgid "Invalid phone number"
-msgstr ""
-
-#: Wammu/Ringtone.py:42
-msgid "Could not find timidity, melody can not be played"
-msgstr ""
-
-#: Wammu/Ringtone.py:43
-msgid "Timidity not found"
-msgstr ""
-
-#: Wammu/Select.py:34
-msgid "Select contact from bellow list"
-msgstr ""
-
-#: Wammu/Select.py:34
-msgid "Select contact"
-msgstr ""
-
-#: Wammu/Select.py:63
-msgid "Select number for selected contact"
-msgstr ""
-
-#: Wammu/Select.py:63
-msgid "Select phone number"
-msgstr ""
-
-#: Wammu/Thread.py:39 Wammu/App.py:56
-msgid "Failed to set exception handler."
-msgstr ""
-
-#: Wammu/Thread.py:51 Wammu/Main.py:537
-msgid "Error while communicating with phone"
-msgstr ""
-
-#: Wammu/Thread.py:52 Wammu/Main.py:538 Wammu/Main.py:1023 Wammu/Main.py:1146
-#: Wammu/Main.py:1195
-msgid "Error Occured"
-msgstr ""
-
-#: Wammu/Thread.py:86
-msgid "Action canceled by user!"
-msgstr ""
-
-#: Wammu/Thread.py:87
-msgid "Action canceled"
-msgstr ""
-
-#: Wammu/Info.py:39
-msgid "Manufacturer"
-msgstr ""
-
-#: Wammu/Info.py:52
-msgid "Model (Gammu identification)"
-msgstr ""
-
-#: Wammu/Info.py:53
-msgid "Model (real)"
-msgstr ""
-
-#: Wammu/Info.py:66
-msgid "Firmware"
-msgstr ""
-
-#: Wammu/Info.py:68
-msgid "Firmware date"
-msgstr ""
-
-#: Wammu/Info.py:70
-msgid "Firmware (numeric)"
-msgstr ""
-
-#: Wammu/Info.py:83
-msgid "Serial number (IMEI)"
-msgstr ""
-
-#: Wammu/Info.py:96
-msgid "Original IMEI"
-msgstr ""
-
-#: Wammu/Info.py:109
-msgid "Product code"
-msgstr ""
-
-#: Wammu/Info.py:122
-msgid "SIM IMSI"
-msgstr ""
-
-#: Wammu/Info.py:135 Wammu/Main.py:617
-msgid "SMSC"
-msgstr ""
-
-#: Wammu/Info.py:148
-msgid "Hardware"
-msgstr ""
-
-#: Wammu/Info.py:161
-msgid "Manufacture month"
-msgstr ""
-
-#: Wammu/Info.py:174
-msgid "Language packs in phone"
-msgstr ""
-
-#: Wammu/Utils.py:78
-msgid ""
-"Warning: you are using utf-8 locales and non unicode enabled wxPython, some "
-"text migth be displayed incorrectly!"
-msgstr ""
-
-#: Wammu/Utils.py:79
-#, python-format
-msgid "Warning: assuming charset %s for html widget"
-msgstr ""
-
-#: Wammu/Utils.py:265
-msgid "Yes"
-msgstr ""
-
-#: Wammu/Utils.py:267
-msgid "No"
-msgstr ""
-
-#: Wammu/Utils.py:312
-msgid "Description:"
-msgstr ""
-
-#: Wammu/Utils.py:313
-msgid "Function:"
-msgstr ""
-
-#: Wammu/Utils.py:314
-msgid "Error code:"
-msgstr ""
-
-#: Wammu/Settings.py:29
-msgid "Settings"
-msgstr ""
-
-#: Wammu/Settings.py:50
-msgid "&OK"
-msgstr ""
-
-#: Wammu/Settings.py:53
-msgid "&Cancel"
-msgstr ""
-
-#: Wammu/Settings.py:68
-msgid "Device, where your phone is connected."
-msgstr ""
-
-#: Wammu/Settings.py:69
-msgid "Device"
-msgstr ""
-
-#: Wammu/Settings.py:74
-msgid ""
-"Connection which your phone understands, check Gammu documentation for "
-"connection details."
-msgstr ""
-
-#: Wammu/Settings.py:75 Wammu/Settings.py:180
-msgid "Connection"
-msgstr ""
-
-#: Wammu/Settings.py:80
-msgid ""
-"Phone model, you can usually keep here auto unless you have any problems."
-msgstr ""
-
-#: Wammu/Settings.py:83
-msgid "Model"
-msgstr ""
-
-#: Wammu/Settings.py:89
-msgid "Lock device"
-msgstr ""
-
-#: Wammu/Settings.py:90
-msgid ""
-"Whether to lock device in /var/lock. On some systems you might lack "
-"privileges to do so."
-msgstr ""
-
-#: Wammu/Settings.py:95
-msgid "Automatically connect to phone on startup"
-msgstr ""
-
-#: Wammu/Settings.py:96
-msgid ""
-"Whether you want application automatically connect to phone when it is "
-"started."
-msgstr ""
-
-#: Wammu/Settings.py:119
-msgid ""
-"Whether images in messages should be scaled when displayed. This is usually "
-"good idea as they are pretty small."
-msgstr ""
-
-#: Wammu/Settings.py:120
-msgid "Scale images"
-msgstr ""
-
-#: Wammu/Settings.py:124
-msgid "Attempt to reformat text"
-msgstr ""
-
-#: Wammu/Settings.py:125
-msgid ""
-"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
-"interested in this choice."
-msgstr ""
-
-#: Wammu/Settings.py:148
-msgid ""
-"How often refresh phone state in application status bar. Enter value in "
-"miliseconds, 0 to disable."
-msgstr ""
-
-#: Wammu/Settings.py:149
-msgid "Refresh phone state"
-msgstr ""
-
-#: Wammu/Settings.py:153
-msgid "Synchronize time"
-msgstr ""
-
-#: Wammu/Settings.py:154
-msgid "Synchronise time in phone with computer time while connecting."
-msgstr ""
-
-#: Wammu/Settings.py:159
-msgid "Startup information"
-msgstr ""
-
-#: Wammu/Settings.py:160
-msgid "Display startup on phone (not supported by all models)."
-msgstr ""
-
-#: Wammu/Settings.py:165
-msgid "Show debug log"
-msgstr ""
-
-#: Wammu/Settings.py:166
-msgid "Show debug information on error output."
-msgstr ""
-
-#: Wammu/Settings.py:181 Wammu/Main.py:91 Wammu/Main.py:225
-msgid "Messages"
-msgstr ""
-
-#: Wammu/Settings.py:182
-msgid "Other"
 msgstr ""
 
 #: Wammu/About.py:80
@@ -616,6 +424,62 @@ msgstr ""
 msgid "About Wammu"
 msgstr ""
 
+#: Wammu/Info.py:39
+msgid "Manufacturer"
+msgstr ""
+
+#: Wammu/Info.py:52
+msgid "Model (Gammu identification)"
+msgstr ""
+
+#: Wammu/Info.py:53
+msgid "Model (real)"
+msgstr ""
+
+#: Wammu/Info.py:66
+msgid "Firmware"
+msgstr ""
+
+#: Wammu/Info.py:68
+msgid "Firmware date"
+msgstr ""
+
+#: Wammu/Info.py:70
+msgid "Firmware (numeric)"
+msgstr ""
+
+#: Wammu/Info.py:83
+msgid "Serial number (IMEI)"
+msgstr ""
+
+#: Wammu/Info.py:96
+msgid "Original IMEI"
+msgstr ""
+
+#: Wammu/Info.py:109
+msgid "Product code"
+msgstr ""
+
+#: Wammu/Info.py:122
+msgid "SIM IMSI"
+msgstr ""
+
+#: Wammu/Info.py:135 Wammu/Main.py:591
+msgid "SMSC"
+msgstr ""
+
+#: Wammu/Info.py:148
+msgid "Hardware"
+msgstr ""
+
+#: Wammu/Info.py:161
+msgid "Manufacture month"
+msgstr ""
+
+#: Wammu/Info.py:174
+msgid "Language packs in phone"
+msgstr ""
+
 #: Wammu/Editor.py:197
 msgid "..."
 msgstr ""
@@ -624,45 +488,45 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: Wammu/Editor.py:225 Wammu/Main.py:361
+#: Wammu/Editor.py:225 Wammu/Main.py:360
 msgid "Unknown"
 msgstr ""
 
-#: Wammu/Editor.py:417
+#: Wammu/Editor.py:414
 msgid "More"
 msgstr ""
 
-#: Wammu/Editor.py:436
+#: Wammu/Editor.py:433
 #, python-format
 msgid "Creating new %s"
 msgstr ""
 
-#: Wammu/Editor.py:439
+#: Wammu/Editor.py:436
 #, python-format
 msgid "Editing %s %s"
 msgstr ""
 
-#: Wammu/Editor.py:456
+#: Wammu/Editor.py:453
 msgid "Location (0 = auto):"
 msgstr ""
 
-#: Wammu/Editor.py:525
+#: Wammu/Editor.py:522
 msgid "contact"
 msgstr ""
 
-#: Wammu/Editor.py:525 Wammu/Main.py:602
+#: Wammu/Editor.py:522 Wammu/Main.py:576
 msgid "Memory type"
 msgstr ""
 
-#: Wammu/Editor.py:533
+#: Wammu/Editor.py:530
 msgid "calendar event"
 msgstr ""
 
-#: Wammu/Editor.py:533
+#: Wammu/Editor.py:530
 msgid "Event type"
 msgstr ""
 
-#: Wammu/Editor.py:541
+#: Wammu/Editor.py:538
 msgid "todo item"
 msgstr ""
 
@@ -814,593 +678,6 @@ msgstr ""
 msgid "Strikethrough"
 msgstr ""
 
-#: Wammu/Main.py:77 Wammu/Main.py:88
-msgid "Phone"
-msgstr ""
-
-#: Wammu/Main.py:77
-msgid "Phone Information"
-msgstr ""
-
-#: Wammu/Main.py:77
-msgid "Wammu version"
-msgstr ""
-
-#: Wammu/Main.py:77
-msgid "Gammu version"
-msgstr ""
-
-#: Wammu/Main.py:77
-msgid "python-gammu version"
-msgstr ""
-
-#: Wammu/Main.py:80 Wammu/Main.py:223
-msgid "Calls"
-msgstr ""
-
-#: Wammu/Main.py:80
-msgid "All Calls"
-msgstr ""
-
-#: Wammu/Main.py:81
-msgid "Received"
-msgstr ""
-
-#: Wammu/Main.py:81
-msgid "Received Calls"
-msgstr ""
-
-#: Wammu/Main.py:82
-msgid "Missed"
-msgstr ""
-
-#: Wammu/Main.py:82
-msgid "Missed Calls"
-msgstr ""
-
-#: Wammu/Main.py:83
-msgid "Outgoing"
-msgstr ""
-
-#: Wammu/Main.py:83
-msgid "Outgoing Calls"
-msgstr ""
-
-#: Wammu/Main.py:86
-msgid "All Contacts"
-msgstr ""
-
-#: Wammu/Main.py:87
-msgid "SIM"
-msgstr ""
-
-#: Wammu/Main.py:87
-msgid "SIM Contacts"
-msgstr ""
-
-#: Wammu/Main.py:88
-msgid "Phone Contacts"
-msgstr ""
-
-#: Wammu/Main.py:91
-msgid "All Messages"
-msgstr ""
-
-#: Wammu/Main.py:92
-msgid "Read"
-msgstr ""
-
-#: Wammu/Main.py:92
-msgid "Read Messages"
-msgstr ""
-
-#: Wammu/Main.py:93
-msgid "Unread"
-msgstr ""
-
-#: Wammu/Main.py:93
-msgid "Unread Messages"
-msgstr ""
-
-#: Wammu/Main.py:94
-msgid "Sent Messages"
-msgstr ""
-
-#: Wammu/Main.py:95
-msgid "Unsent"
-msgstr ""
-
-#: Wammu/Main.py:95
-msgid "Unsent Messages"
-msgstr ""
-
-#: Wammu/Main.py:98 Wammu/Main.py:227
-msgid "Todos"
-msgstr ""
-
-#: Wammu/Main.py:98
-msgid "All Todo Items"
-msgstr ""
-
-#: Wammu/Main.py:101 Wammu/Main.py:229
-msgid "Calendar"
-msgstr ""
-
-#: Wammu/Main.py:101
-msgid "All Calendar Events"
-msgstr ""
-
-#: Wammu/Main.py:193
-msgid "Welcome to Wammu"
-msgstr ""
-
-#: Wammu/Main.py:200
-msgid "&SearchPhone"
-msgstr ""
-
-#: Wammu/Main.py:200
-msgid "Search for phone"
-msgstr ""
-
-#: Wammu/Main.py:202
-msgid "&Settings"
-msgstr ""
-
-#: Wammu/Main.py:202
-msgid "Change Wammu settings"
-msgstr ""
-
-#: Wammu/Main.py:204
-msgid "E&xit"
-msgstr ""
-
-#: Wammu/Main.py:204
-msgid "Exit Wammu"
-msgstr ""
-
-#: Wammu/Main.py:206
-msgid "&Wammu"
-msgstr ""
-
-#: Wammu/Main.py:209
-msgid "&Connect"
-msgstr ""
-
-#: Wammu/Main.py:209
-msgid "Connect the device"
-msgstr ""
-
-#: Wammu/Main.py:210
-msgid "&Disconnect"
-msgstr ""
-
-#: Wammu/Main.py:210
-msgid "Disconnect the device"
-msgstr ""
-
-#: Wammu/Main.py:212
-msgid "&Synchronise time"
-msgstr ""
-
-#: Wammu/Main.py:212
-msgid "Synchronises time in mobile with PC"
-msgstr ""
-
-#: Wammu/Main.py:214
-msgid "&Phone"
-msgstr ""
-
-#: Wammu/Main.py:217
-msgid "&Info"
-msgstr ""
-
-#: Wammu/Main.py:217
-msgid "Get phone information"
-msgstr ""
-
-#: Wammu/Main.py:219
-msgid "Contacts (&SIM)"
-msgstr ""
-
-#: Wammu/Main.py:219
-msgid "Contacts from SIM"
-msgstr ""
-
-#: Wammu/Main.py:220
-msgid "Contacts (&phone)"
-msgstr ""
-
-#: Wammu/Main.py:220
-msgid "Contacts from phone memory"
-msgstr ""
-
-#: Wammu/Main.py:221
-msgid "&Contacts (All)"
-msgstr ""
-
-#: Wammu/Main.py:221
-msgid "Contacts from phone and SIM memory"
-msgstr ""
-
-#: Wammu/Main.py:223
-msgid "C&alls"
-msgstr ""
-
-#: Wammu/Main.py:225
-msgid "&Messages"
-msgstr ""
-
-#: Wammu/Main.py:227
-msgid "&Todos"
-msgstr ""
-
-#: Wammu/Main.py:229
-msgid "Calenda&r"
-msgstr ""
-
-#: Wammu/Main.py:231
-msgid "&Retrieve"
-msgstr ""
-
-#: Wammu/Main.py:234
-msgid "&Contact"
-msgstr ""
-
-#: Wammu/Main.py:234
-msgid "Crates new contact"
-msgstr ""
-
-#: Wammu/Main.py:235
-msgid "Calendar &event"
-msgstr ""
-
-#: Wammu/Main.py:235
-msgid "Crates new calendar event"
-msgstr ""
-
-#: Wammu/Main.py:236
-msgid "&Todo"
-msgstr ""
-
-#: Wammu/Main.py:236
-msgid "Crates new todo"
-msgstr ""
-
-#: Wammu/Main.py:237
-msgid "&Message"
-msgstr ""
-
-#: Wammu/Main.py:237
-msgid "Crates new message"
-msgstr ""
-
-#: Wammu/Main.py:239
-msgid "&New"
-msgstr ""
-
-#: Wammu/Main.py:242
-msgid "&Save"
-msgstr ""
-
-#: Wammu/Main.py:242
-msgid "Saves currently retrieved data to backup"
-msgstr ""
-
-#: Wammu/Main.py:243
-msgid "&Import"
-msgstr ""
-
-#: Wammu/Main.py:243
-msgid "Imports data from backup to phone"
-msgstr ""
-
-#: Wammu/Main.py:245
-msgid "&Backups"
-msgstr ""
-
-#: Wammu/Main.py:248
-msgid "&About"
-msgstr ""
-
-#: Wammu/Main.py:248
-msgid "Information about program"
-msgstr ""
-
-#: Wammu/Main.py:250
-msgid "&Help"
-msgstr ""
-
-#: Wammu/Main.py:305
-msgid ""
-"Wammu configuration was not found. Gammu settings were read and will be used "
-"as defaults."
-msgstr ""
-
-#: Wammu/Main.py:306
-msgid "You will now be taken to configuration dialog to check configuration."
-msgstr ""
-
-#: Wammu/Main.py:307 Wammu/Main.py:316
-msgid "Configuration not found"
-msgstr ""
-
-#: Wammu/Main.py:312
-msgid "Wammu configuration was not found and Gammu settings couldn't be read."
-msgstr ""
-
-#: Wammu/Main.py:313
-msgid ""
-"Wammu can now try to search for phone. Do you want Wammu to search for phone?"
-msgstr ""
-
-#: Wammu/Main.py:314
-msgid ""
-"After searching you will now be taken to configuration dialog to check "
-"whether it was detected correctly."
-msgstr ""
-
-#: Wammu/Main.py:315
-msgid "If you press cancel, no searching will be performed."
-msgstr ""
-
-#: Wammu/Main.py:363
-msgid "battery"
-msgstr ""
-
-#: Wammu/Main.py:365
-msgid "supply"
-msgstr ""
-
-#: Wammu/Main.py:367
-msgid "no battery"
-msgstr ""
-
-#: Wammu/Main.py:369
-msgid "fault"
-msgstr ""
-
-#: Wammu/Main.py:370
-#, python-format
-msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
-msgstr ""
-
-#: Wammu/Main.py:437
-msgid "Connected"
-msgstr ""
-
-#: Wammu/Main.py:441
-msgid "Disconnected"
-msgstr ""
-
-#: Wammu/Main.py:520
-msgid ""
-"You changed parameters affecting phone connection, they will be used next "
-"time you connect to phone."
-msgstr ""
-
-#: Wammu/Main.py:521
-msgid "Notice"
-msgstr ""
-
-#: Wammu/Main.py:544
-msgid "Operation in progress"
-msgstr ""
-
-#: Wammu/Main.py:615
-msgid "Folder"
-msgstr ""
-
-#: Wammu/Main.py:667
-msgid "Writing message(s)..."
-msgstr ""
-
-#: Wammu/Main.py:719
-msgid "Writing contact..."
-msgstr ""
-
-#: Wammu/Main.py:767
-msgid "Writing calendar..."
-msgstr ""
-
-#: Wammu/Main.py:808
-msgid "Writing todo..."
-msgstr ""
-
-#: Wammu/Main.py:987
-msgid "All backup formats"
-msgstr ""
-
-#: Wammu/Main.py:989
-msgid "Gammu backup [all data]"
-msgstr ""
-
-#: Wammu/Main.py:992
-msgid "Nokia backup [contacts]"
-msgstr ""
-
-#: Wammu/Main.py:994
-msgid "vCard [contacts]"
-msgstr ""
-
-#: Wammu/Main.py:996
-msgid "LDIF [concacts]"
-msgstr ""
-
-#: Wammu/Main.py:998
-msgid "vCalendar [todo,calendar]"
-msgstr ""
-
-#: Wammu/Main.py:1000
-msgid "iCalendar [todo,calendar]"
-msgstr ""
-
-#: Wammu/Main.py:1002
-msgid "All files"
-msgstr ""
-
-#: Wammu/Main.py:1022 Wammu/Main.py:1145 Wammu/Main.py:1194
-msgid "Error while saving backup"
-msgstr ""
-
-#: Wammu/Main.py:1031
-#, python-format
-msgid "%d phone concacts entries"
-msgstr ""
-
-#: Wammu/Main.py:1034
-#, python-format
-msgid "%d SIM contacts entries"
-msgstr ""
-
-#: Wammu/Main.py:1037
-#, python-format
-msgid "%d ToDo entries"
-msgstr ""
-
-#: Wammu/Main.py:1040
-#, python-format
-msgid "%d Calendar entries"
-msgstr ""
-
-#: Wammu/Main.py:1044
-#, python-format
-msgid "No importable data were found in file \"%s\""
-msgstr ""
-
-#: Wammu/Main.py:1045
-msgid "No data to import"
-msgstr ""
-
-#: Wammu/Main.py:1051
-#, python-format
-msgid "Backup saved from phone %s"
-msgstr ""
-
-#: Wammu/Main.py:1053
-#, python-format
-msgid ", serial number %s"
-msgstr ""
-
-#: Wammu/Main.py:1055
-#, python-format
-msgid "Backup was created by %s"
-msgstr ""
-
-#: Wammu/Main.py:1057
-#, python-format
-msgid "Backup saved on %s"
-msgstr ""
-
-#: Wammu/Main.py:1059
-msgid ""
-"Following data was found in backup, select which of these do you want to be "
-"added into phone."
-msgstr ""
-
-#: Wammu/Main.py:1059
-msgid "Select what to import"
-msgstr ""
-
-#: Wammu/Main.py:1070
-msgid "Importing data..."
-msgstr ""
-
-#: Wammu/Main.py:1113
-#, python-format
-msgid "Backup has been imported from file \"%s\""
-msgstr ""
-
-#: Wammu/Main.py:1114
-msgid "Backup imported"
-msgstr ""
-
-#: Wammu/Main.py:1139 Wammu/Main.py:1188
-#, python-format
-msgid "Backup has been saved to file \"%s\""
-msgstr ""
-
-#: Wammu/Main.py:1140 Wammu/Main.py:1189
-msgid "Backup saved"
-msgstr ""
-
-#: Wammu/Main.py:1207
-msgid "Deleting contact..."
-msgstr ""
-
-#: Wammu/Main.py:1230
-msgid "Deleting message..."
-msgstr ""
-
-#: Wammu/Main.py:1253
-msgid "Deleting todo..."
-msgstr ""
-
-#: Wammu/Main.py:1275
-msgid "Deleting calendar event..."
-msgstr ""
-
-#: Wammu/Main.py:1342
-msgid "Reading phone information"
-msgstr ""
-
-#: Wammu/Main.py:1367
-#, python-format
-msgid "Reading calls of type %s"
-msgstr ""
-
-#: Wammu/Main.py:1395
-#, python-format
-msgid "Reading contacts from %s"
-msgstr ""
-
-#: Wammu/Main.py:1403
-msgid "Reading messages"
-msgstr ""
-
-#: Wammu/Main.py:1413
-msgid "Reading todos"
-msgstr ""
-
-#: Wammu/Main.py:1423
-msgid "Reading calendar"
-msgstr ""
-
-#: Wammu/Main.py:1433
-msgid "Setting time in phone..."
-msgstr ""
-
-#: Wammu/Main.py:1445
-msgid "One moment please, connecting to phone..."
-msgstr ""
-
-#: Wammu/Main.py:1494
-msgid "One moment please, disconnecting from phone..."
-msgstr ""
-
-#: Wammu/Main.py:1524
-msgid ""
-"No phone could not be found, you still can try to select it manually. Wammu "
-"searches only few ports, so if you are using some unusual, this might "
-"easilly happen."
-msgstr ""
-
-#: Wammu/Main.py:1525
-msgid "No phone found"
-msgstr ""
-
-#: Wammu/Main.py:1531
-#, python-format
-msgid "Model %s (%s) on %s port using connection %s"
-msgstr ""
-
-#: Wammu/Main.py:1532
-msgid "Select phone to use from bellow list"
-msgstr ""
-
-#: Wammu/Main.py:1532
-msgid "Select phone"
-msgstr ""
-
 #: Wammu/MessageDisplay.py:97
 #, python-format
 msgid "Predefined animation number %d"
@@ -1415,4 +692,740 @@ msgstr ""
 msgid ""
 "Some parts of this message were not decoded correctly, probably due to "
 "missing support for it"
+msgstr ""
+
+#: Wammu/Select.py:34
+msgid "Select contact from bellow list"
+msgstr ""
+
+#: Wammu/Select.py:34
+msgid "Select contact"
+msgstr ""
+
+#: Wammu/Select.py:63
+msgid "Select number for selected contact"
+msgstr ""
+
+#: Wammu/Select.py:63
+msgid "Select phone number"
+msgstr ""
+
+#: Wammu/Settings.py:29
+msgid "Settings"
+msgstr ""
+
+#: Wammu/Settings.py:50
+msgid "&OK"
+msgstr ""
+
+#: Wammu/Settings.py:53
+msgid "&Cancel"
+msgstr ""
+
+#: Wammu/Settings.py:68
+msgid "Device, where your phone is connected."
+msgstr ""
+
+#: Wammu/Settings.py:69
+msgid "Device"
+msgstr ""
+
+#: Wammu/Settings.py:74
+msgid ""
+"Connection which your phone understands, check Gammu documentation for "
+"connection details."
+msgstr ""
+
+#: Wammu/Settings.py:75 Wammu/Settings.py:223
+msgid "Connection"
+msgstr ""
+
+#: Wammu/Settings.py:80
+msgid ""
+"Phone model, you can usually keep here auto unless you have any problems."
+msgstr ""
+
+#: Wammu/Settings.py:83
+msgid "Model"
+msgstr ""
+
+#: Wammu/Settings.py:89
+msgid "Lock device"
+msgstr ""
+
+#: Wammu/Settings.py:90
+msgid ""
+"Whether to lock device in /var/lock. On some systems you might lack "
+"privileges to do so."
+msgstr ""
+
+#: Wammu/Settings.py:95
+msgid "Automatically connect to phone on startup"
+msgstr ""
+
+#: Wammu/Settings.py:96
+msgid ""
+"Whether you want application automatically connect to phone when it is "
+"started."
+msgstr ""
+
+#: Wammu/Settings.py:119
+msgid ""
+"Whether images in messages should be scaled when displayed. This is usually "
+"good idea as they are pretty small."
+msgstr ""
+
+#: Wammu/Settings.py:120
+msgid "Scale images"
+msgstr ""
+
+#: Wammu/Settings.py:124
+msgid "Attempt to reformat text"
+msgstr ""
+
+#: Wammu/Settings.py:125
+msgid ""
+"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
+"interested in this choice."
+msgstr ""
+
+#: Wammu/Settings.py:151
+msgid "Create unicode message"
+msgstr ""
+
+#: Wammu/Settings.py:157
+msgid "Use 16bit Id"
+msgstr ""
+
+#: Wammu/Settings.py:158
+msgid "Use 16 bit Id inside message. This is safe for most cases."
+msgstr ""
+
+#: Wammu/Settings.py:191
+msgid ""
+"How often refresh phone state in application status bar. Enter value in "
+"miliseconds, 0 to disable."
+msgstr ""
+
+#: Wammu/Settings.py:192
+msgid "Refresh phone state"
+msgstr ""
+
+#: Wammu/Settings.py:196
+msgid "Synchronize time"
+msgstr ""
+
+#: Wammu/Settings.py:197
+msgid "Synchronise time in phone with computer time while connecting."
+msgstr ""
+
+#: Wammu/Settings.py:202
+msgid "Startup information"
+msgstr ""
+
+#: Wammu/Settings.py:203
+msgid "Display startup on phone (not supported by all models)."
+msgstr ""
+
+#: Wammu/Settings.py:208
+msgid "Show debug log"
+msgstr ""
+
+#: Wammu/Settings.py:209
+msgid "Show debug information on error output."
+msgstr ""
+
+#: Wammu/Settings.py:224 Wammu/Main.py:90 Wammu/Main.py:224
+msgid "Messages"
+msgstr ""
+
+#: Wammu/Settings.py:225
+msgid "Other"
+msgstr ""
+
+#: Wammu/Main.py:76 Wammu/Main.py:87
+msgid "Phone"
+msgstr ""
+
+#: Wammu/Main.py:76
+msgid "Phone Information"
+msgstr ""
+
+#: Wammu/Main.py:76
+msgid "Wammu version"
+msgstr ""
+
+#: Wammu/Main.py:76
+msgid "Gammu version"
+msgstr ""
+
+#: Wammu/Main.py:76
+msgid "python-gammu version"
+msgstr ""
+
+#: Wammu/Main.py:79 Wammu/Main.py:222
+msgid "Calls"
+msgstr ""
+
+#: Wammu/Main.py:79
+msgid "All Calls"
+msgstr ""
+
+#: Wammu/Main.py:80
+msgid "Received"
+msgstr ""
+
+#: Wammu/Main.py:80
+msgid "Received Calls"
+msgstr ""
+
+#: Wammu/Main.py:81
+msgid "Missed"
+msgstr ""
+
+#: Wammu/Main.py:81
+msgid "Missed Calls"
+msgstr ""
+
+#: Wammu/Main.py:82
+msgid "Outgoing"
+msgstr ""
+
+#: Wammu/Main.py:82
+msgid "Outgoing Calls"
+msgstr ""
+
+#: Wammu/Main.py:85
+msgid "All Contacts"
+msgstr ""
+
+#: Wammu/Main.py:86
+msgid "SIM"
+msgstr ""
+
+#: Wammu/Main.py:86
+msgid "SIM Contacts"
+msgstr ""
+
+#: Wammu/Main.py:87
+msgid "Phone Contacts"
+msgstr ""
+
+#: Wammu/Main.py:90
+msgid "All Messages"
+msgstr ""
+
+#: Wammu/Main.py:91
+msgid "Read"
+msgstr ""
+
+#: Wammu/Main.py:91
+msgid "Read Messages"
+msgstr ""
+
+#: Wammu/Main.py:92
+msgid "Unread"
+msgstr ""
+
+#: Wammu/Main.py:92
+msgid "Unread Messages"
+msgstr ""
+
+#: Wammu/Main.py:93
+msgid "Sent Messages"
+msgstr ""
+
+#: Wammu/Main.py:94
+msgid "Unsent"
+msgstr ""
+
+#: Wammu/Main.py:94
+msgid "Unsent Messages"
+msgstr ""
+
+#: Wammu/Main.py:97 Wammu/Main.py:226
+msgid "Todos"
+msgstr ""
+
+#: Wammu/Main.py:97
+msgid "All Todo Items"
+msgstr ""
+
+#: Wammu/Main.py:100 Wammu/Main.py:228
+msgid "Calendar"
+msgstr ""
+
+#: Wammu/Main.py:100
+msgid "All Calendar Events"
+msgstr ""
+
+#: Wammu/Main.py:192
+msgid "Welcome to Wammu"
+msgstr ""
+
+#: Wammu/Main.py:199
+msgid "&SearchPhone"
+msgstr ""
+
+#: Wammu/Main.py:199
+msgid "Search for phone"
+msgstr ""
+
+#: Wammu/Main.py:201
+msgid "&Settings"
+msgstr ""
+
+#: Wammu/Main.py:201
+msgid "Change Wammu settings"
+msgstr ""
+
+#: Wammu/Main.py:203
+msgid "E&xit"
+msgstr ""
+
+#: Wammu/Main.py:203
+msgid "Exit Wammu"
+msgstr ""
+
+#: Wammu/Main.py:205
+msgid "&Wammu"
+msgstr ""
+
+#: Wammu/Main.py:208
+msgid "&Connect"
+msgstr ""
+
+#: Wammu/Main.py:208
+msgid "Connect the device"
+msgstr ""
+
+#: Wammu/Main.py:209
+msgid "&Disconnect"
+msgstr ""
+
+#: Wammu/Main.py:209
+msgid "Disconnect the device"
+msgstr ""
+
+#: Wammu/Main.py:211
+msgid "&Synchronise time"
+msgstr ""
+
+#: Wammu/Main.py:211
+msgid "Synchronises time in mobile with PC"
+msgstr ""
+
+#: Wammu/Main.py:213
+msgid "&Phone"
+msgstr ""
+
+#: Wammu/Main.py:216
+msgid "&Info"
+msgstr ""
+
+#: Wammu/Main.py:216
+msgid "Get phone information"
+msgstr ""
+
+#: Wammu/Main.py:218
+msgid "Contacts (&SIM)"
+msgstr ""
+
+#: Wammu/Main.py:218
+msgid "Contacts from SIM"
+msgstr ""
+
+#: Wammu/Main.py:219
+msgid "Contacts (&phone)"
+msgstr ""
+
+#: Wammu/Main.py:219
+msgid "Contacts from phone memory"
+msgstr ""
+
+#: Wammu/Main.py:220
+msgid "&Contacts (All)"
+msgstr ""
+
+#: Wammu/Main.py:220
+msgid "Contacts from phone and SIM memory"
+msgstr ""
+
+#: Wammu/Main.py:222
+msgid "C&alls"
+msgstr ""
+
+#: Wammu/Main.py:224
+msgid "&Messages"
+msgstr ""
+
+#: Wammu/Main.py:226
+msgid "&Todos"
+msgstr ""
+
+#: Wammu/Main.py:228
+msgid "Calenda&r"
+msgstr ""
+
+#: Wammu/Main.py:230
+msgid "&Retrieve"
+msgstr ""
+
+#: Wammu/Main.py:233
+msgid "&Contact"
+msgstr ""
+
+#: Wammu/Main.py:233
+msgid "Crates new contact"
+msgstr ""
+
+#: Wammu/Main.py:234
+msgid "Calendar &event"
+msgstr ""
+
+#: Wammu/Main.py:234
+msgid "Crates new calendar event"
+msgstr ""
+
+#: Wammu/Main.py:235
+msgid "&Todo"
+msgstr ""
+
+#: Wammu/Main.py:235
+msgid "Crates new todo"
+msgstr ""
+
+#: Wammu/Main.py:236
+msgid "&Message"
+msgstr ""
+
+#: Wammu/Main.py:236
+msgid "Crates new message"
+msgstr ""
+
+#: Wammu/Main.py:238
+msgid "&New"
+msgstr ""
+
+#: Wammu/Main.py:241
+msgid "&Save"
+msgstr ""
+
+#: Wammu/Main.py:241
+msgid "Saves currently retrieved data to backup"
+msgstr ""
+
+#: Wammu/Main.py:242
+msgid "&Import"
+msgstr ""
+
+#: Wammu/Main.py:242
+msgid "Imports data from backup to phone"
+msgstr ""
+
+#: Wammu/Main.py:244
+msgid "&Backups"
+msgstr ""
+
+#: Wammu/Main.py:247
+msgid "&About"
+msgstr ""
+
+#: Wammu/Main.py:247
+msgid "Information about program"
+msgstr ""
+
+#: Wammu/Main.py:249
+msgid "&Help"
+msgstr ""
+
+#: Wammu/Main.py:304
+msgid ""
+"Wammu configuration was not found. Gammu settings were read and will be used "
+"as defaults."
+msgstr ""
+
+#: Wammu/Main.py:305
+msgid "You will now be taken to configuration dialog to check configuration."
+msgstr ""
+
+#: Wammu/Main.py:306 Wammu/Main.py:315
+msgid "Configuration not found"
+msgstr ""
+
+#: Wammu/Main.py:311
+msgid "Wammu configuration was not found and Gammu settings couldn't be read."
+msgstr ""
+
+#: Wammu/Main.py:312
+msgid ""
+"Wammu can now try to search for phone. Do you want Wammu to search for phone?"
+msgstr ""
+
+#: Wammu/Main.py:313
+msgid ""
+"After searching you will now be taken to configuration dialog to check "
+"whether it was detected correctly."
+msgstr ""
+
+#: Wammu/Main.py:314
+msgid "If you press cancel, no searching will be performed."
+msgstr ""
+
+#: Wammu/Main.py:362
+msgid "battery"
+msgstr ""
+
+#: Wammu/Main.py:364
+msgid "supply"
+msgstr ""
+
+#: Wammu/Main.py:366
+msgid "no battery"
+msgstr ""
+
+#: Wammu/Main.py:368
+msgid "fault"
+msgstr ""
+
+#: Wammu/Main.py:369
+#, python-format
+msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
+msgstr ""
+
+#: Wammu/Main.py:413
+msgid "Connected"
+msgstr ""
+
+#: Wammu/Main.py:417
+msgid "Disconnected"
+msgstr ""
+
+#: Wammu/Main.py:496
+msgid ""
+"You changed parameters affecting phone connection, they will be used next "
+"time you connect to phone."
+msgstr ""
+
+#: Wammu/Main.py:497
+msgid "Notice"
+msgstr ""
+
+#: Wammu/Main.py:520
+msgid "Operation in progress"
+msgstr ""
+
+#: Wammu/Main.py:589
+msgid "Folder"
+msgstr ""
+
+#: Wammu/Main.py:641
+msgid "Writing message(s)..."
+msgstr ""
+
+#: Wammu/Main.py:693
+msgid "Writing contact..."
+msgstr ""
+
+#: Wammu/Main.py:741
+msgid "Writing calendar..."
+msgstr ""
+
+#: Wammu/Main.py:782
+msgid "Writing todo..."
+msgstr ""
+
+#: Wammu/Main.py:961
+msgid "All backup formats"
+msgstr ""
+
+#: Wammu/Main.py:963
+msgid "Gammu backup [all data]"
+msgstr ""
+
+#: Wammu/Main.py:966
+msgid "Nokia backup [contacts]"
+msgstr ""
+
+#: Wammu/Main.py:968
+msgid "vCard [contacts]"
+msgstr ""
+
+#: Wammu/Main.py:970
+msgid "LDIF [concacts]"
+msgstr ""
+
+#: Wammu/Main.py:972
+msgid "vCalendar [todo,calendar]"
+msgstr ""
+
+#: Wammu/Main.py:974
+msgid "iCalendar [todo,calendar]"
+msgstr ""
+
+#: Wammu/Main.py:976
+msgid "All files"
+msgstr ""
+
+#: Wammu/Main.py:996 Wammu/Main.py:1119 Wammu/Main.py:1168
+msgid "Error while saving backup"
+msgstr ""
+
+#: Wammu/Main.py:1005
+#, python-format
+msgid "%d phone concacts entries"
+msgstr ""
+
+#: Wammu/Main.py:1008
+#, python-format
+msgid "%d SIM contacts entries"
+msgstr ""
+
+#: Wammu/Main.py:1011
+#, python-format
+msgid "%d ToDo entries"
+msgstr ""
+
+#: Wammu/Main.py:1014
+#, python-format
+msgid "%d Calendar entries"
+msgstr ""
+
+#: Wammu/Main.py:1018
+#, python-format
+msgid "No importable data were found in file \"%s\""
+msgstr ""
+
+#: Wammu/Main.py:1019
+msgid "No data to import"
+msgstr ""
+
+#: Wammu/Main.py:1025
+#, python-format
+msgid "Backup saved from phone %s"
+msgstr ""
+
+#: Wammu/Main.py:1027
+#, python-format
+msgid ", serial number %s"
+msgstr ""
+
+#: Wammu/Main.py:1029
+#, python-format
+msgid "Backup was created by %s"
+msgstr ""
+
+#: Wammu/Main.py:1031
+#, python-format
+msgid "Backup saved on %s"
+msgstr ""
+
+#: Wammu/Main.py:1033
+msgid ""
+"Following data was found in backup, select which of these do you want to be "
+"added into phone."
+msgstr ""
+
+#: Wammu/Main.py:1033
+msgid "Select what to import"
+msgstr ""
+
+#: Wammu/Main.py:1044
+msgid "Importing data..."
+msgstr ""
+
+#: Wammu/Main.py:1087
+#, python-format
+msgid "Backup has been imported from file \"%s\""
+msgstr ""
+
+#: Wammu/Main.py:1088
+msgid "Backup imported"
+msgstr ""
+
+#: Wammu/Main.py:1113 Wammu/Main.py:1162
+#, python-format
+msgid "Backup has been saved to file \"%s\""
+msgstr ""
+
+#: Wammu/Main.py:1114 Wammu/Main.py:1163
+msgid "Backup saved"
+msgstr ""
+
+#: Wammu/Main.py:1181
+msgid "Deleting contact..."
+msgstr ""
+
+#: Wammu/Main.py:1204
+msgid "Deleting message..."
+msgstr ""
+
+#: Wammu/Main.py:1227
+msgid "Deleting todo..."
+msgstr ""
+
+#: Wammu/Main.py:1249
+msgid "Deleting calendar event..."
+msgstr ""
+
+#: Wammu/Main.py:1316
+msgid "Reading phone information"
+msgstr ""
+
+#: Wammu/Main.py:1341
+#, python-format
+msgid "Reading calls of type %s"
+msgstr ""
+
+#: Wammu/Main.py:1369
+#, python-format
+msgid "Reading contacts from %s"
+msgstr ""
+
+#: Wammu/Main.py:1377
+msgid "Reading messages"
+msgstr ""
+
+#: Wammu/Main.py:1387
+msgid "Reading todos"
+msgstr ""
+
+#: Wammu/Main.py:1397
+msgid "Reading calendar"
+msgstr ""
+
+#: Wammu/Main.py:1407
+msgid "Setting time in phone..."
+msgstr ""
+
+#: Wammu/Main.py:1419
+msgid "One moment please, connecting to phone..."
+msgstr ""
+
+#: Wammu/Main.py:1468
+msgid "One moment please, disconnecting from phone..."
+msgstr ""
+
+#: Wammu/Main.py:1498
+msgid ""
+"No phone could not be found, you still can try to select it manually. Wammu "
+"searches only few ports, so if you are using some unusual, this might "
+"easilly happen."
+msgstr ""
+
+#: Wammu/Main.py:1499
+msgid "No phone found"
+msgstr ""
+
+#: Wammu/Main.py:1505
+#, python-format
+msgid "Model %s (%s) on %s port using connection %s"
+msgstr ""
+
+#: Wammu/Main.py:1506
+msgid "Select phone to use from bellow list"
+msgstr ""
+
+#: Wammu/Main.py:1506
+msgid "Select phone"
 msgstr ""
