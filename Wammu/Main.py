@@ -36,18 +36,18 @@ displaydata['call'] = {}
 displaydata['memory'] = {}
 
 #information
-displaydata['info']['  '] = ('', 'Phone', 'Phone Information', 'phone', [['Wammu version', Wammu.__version__], ['Gammu version', gammu.Version()]])
+displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()]])
 
 # calls
-displaydata['call']['  '] = ('info', 'Calls', 'All Calls', 'call', [])
-displaydata['call']['RC'] = ('call', 'Received', 'Received Calls', 'call-received', [])
-displaydata['call']['MC'] = ('call', 'Missed', 'Missed Calls', 'call-missed', [])
-displaydata['call']['DC'] = ('call', 'Outgoing', 'Outgoing Calls', 'call-outgoing', [])
+displaydata['call']['  '] = ('info', _('Calls'), _('All Calls'), 'call', [])
+displaydata['call']['RC'] = ('call', _('Received'), _('Received Calls'), 'call-received', [])
+displaydata['call']['MC'] = ('call', _('Missed'), _('Missed Calls'), 'call-missed', [])
+displaydata['call']['DC'] = ('call', _('Outgoing'), _('Outgoing Calls'), 'call-outgoing', [])
 
 # contacts
-displaydata['memory']['  '] = ('info', 'Contacts', 'All Contacts', 'contact', [])
-displaydata['memory']['SM'] = ('memory', 'SIM', 'SIM Contacts', 'contact-sim', [])
-displaydata['memory']['ME'] = ('memory', 'Phone', 'Phone Contacts', 'contact-phone', [])
+displaydata['memory']['  '] = ('info', _('Contacts'), _('All Contacts'), 'contact', [])
+displaydata['memory']['SM'] = ('memory', _('SIM'), _('SIM Contacts'), 'contact-sim', [])
+displaydata['memory']['ME'] = ('memory', _('Phone'), _('Phone Contacts'), 'contact-phone', [])
 
 ## Create a new frame class, derived from the wxPython Frame.
 class WammuFrame(wx.Frame):
@@ -127,41 +127,41 @@ class WammuFrame(wx.Frame):
         self.splitter.SplitVertically(self.tree, self.rightsplitter, 160)
 
         # initial content
-        self.content.SetPage('<body><html><font size=+1><b>Welcome to Wammu ' + Wammu.__version__ + '</b></font><br><a href="memory://ME/1">Mem 1</a></html></body>')
+        self.content.SetPage('<body><html><font size=+1><b>' + _('Welcome to Wammu') + ' ' + Wammu.__version__ + '</b></font><br><a href="memory://ME/1">Mem 1</a></html></body>')
 
         # Prepare the menu bar
         self.menuBar = wx.MenuBar()
 
         # 1st menu from left
         menu1 = wx.Menu()
-        menu1.Append(101, '&SearchPhone', 'Search for phone')
+        menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
         menu1.AppendSeparator()
-        menu1.Append(150, '&Settings', 'Change Wammu settings')
+        menu1.Append(150, _('&Settings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
-        menu1.Append(199, 'E&xit', 'Exit Wammu')
+        menu1.Append(199, _('E&xit'), _('Exit Wammu'))
         # Add menu to the menu bar
-        self.menuBar.Append(menu1, '&Wammu')
+        self.menuBar.Append(menu1, _('&Wammu'))
         
         # 2st menu from left
         menu2 = wx.Menu()
-        menu2.Append(201, '&Connect', 'Connect the device')
-        menu2.Append(202, '&Disconnect', 'Disconnect the device')
+        menu2.Append(201, _('&Connect'), _('Connect the device'))
+        menu2.Append(202, _('&Disconnect'), _('Disconnect the device'))
         menu2.AppendSeparator()
-        menu2.Append(210, '&Synchronise time', 'Synchronises time in mobile with PC')
+        menu2.Append(210, _('&Synchronise time'), _('Synchronises time in mobile with PC'))
         # Add menu to the menu bar
-        self.menuBar.Append(menu2, '&Phone')
+        self.menuBar.Append(menu2, _('&Phone'))
 
         # 2st menu from left
         menu3 = wx.Menu()
-        menu3.Append(301, '&Info', 'Get phone information')
+        menu3.Append(301, _('&Info'), _('Get phone information'))
         menu3.AppendSeparator()
-        menu3.Append(310, 'Contacts (&SIM)', 'Contacts from SIM')
-        menu3.Append(311, 'Contacts (&phone)', 'Contacts from phone memory')
-        menu3.Append(312, '&Contacts (All)', 'Contacts from phone and SIM memory')
+        menu3.Append(310, _('Contacts (&SIM)'), _('Contacts from SIM'))
+        menu3.Append(311, _('Contacts (&phone)'), _('Contacts from phone memory'))
+        menu3.Append(312, _('&Contacts (All)'), _('Contacts from phone and SIM memory'))
         menu3.AppendSeparator()
-        menu3.Append(320, 'C&alls', 'Calls')
+        menu3.Append(320, _('C&alls'), _('Calls'))
         # Add menu to the menu bar
-        self.menuBar.Append(menu3, '&Retrieve')
+        self.menuBar.Append(menu3, _('&Retrieve'))
 
         # Set menu bar
         self.SetMenuBar(self.menuBar)
@@ -192,9 +192,9 @@ class WammuFrame(wx.Frame):
 
     def TogglePhoneMenus(self, enable):
         if enable:
-            self.SetStatusText('Connected', 1)
+            self.SetStatusText(_('Connected'), 1)
         else:
-            self.SetStatusText('Disconnected', 1)
+            self.SetStatusText(_('Disconnected'), 1)
         mb = self.menuBar
 
         mb.Enable(201, not enable);
@@ -243,17 +243,18 @@ class WammuFrame(wx.Frame):
 
     def ShowError(self, info):
         evt = Wammu.Events.ShowMessageEvent(
-            message = 'Got error from phone:\n%s\nIn:%s\nError code: %d' % (info['Text'], info['Where'], info['Code']),
-            title = 'Error Occured',
+            message = _('Got error from phone:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+            title = _('Error Occured'),
             type = wx.ICON_ERROR)
         wx.PostEvent(self, evt)
 
     def ShowProgress(self, text):
-        self.progress = wx.ProgressDialog(text,
-                       'Operation in progress',
-                       100,
-                       self,
-                       wx.PD_CAN_ABORT | wx.PD_APP_MODAL | wx.PD_AUTO_HIDE | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_ESTIMATED_TIME)
+        self.progress = wx.ProgressDialog(
+                        _('Operation in progress'),
+                        text,
+                        100,
+                        self,
+                        wx.PD_CAN_ABORT | wx.PD_APP_MODAL | wx.PD_AUTO_HIDE | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_ESTIMATED_TIME)
 
     def OnData(self, evt):
         self.values[evt.type[0]][evt.type[1]] = evt.data
@@ -274,8 +275,8 @@ class WammuFrame(wx.Frame):
             else:
                 t = self.type[1]
             v = self.values[self.type[0]][t][evt.index]
-            text =  text + '<tr><td><b>Location:</b></td><td>' + str(v['Location']) + '</td></tr>'
-            text =  text + '<tr><td><b>Memory type:</b></td><td>' + v['MemoryType'] + '</td></tr>'
+            text =  text + '<tr><td><b>' + _('Location') + ':</b></td><td>' + str(v['Location']) + '</td></tr>'
+            text =  text + '<tr><td><b>' + _('Memory type') + ':</b></td><td>' + v['MemoryType'] + '</td></tr>'
             for i in v['Values']:
                 text = text + '<tr><td><b>' + i['Type'] + ':</b></td><td>' + str(i['Value']) + '</td></tr>'
             self.content.SetPage('<body><html><table border=1>' + text + '</table></html></body>')
@@ -325,7 +326,7 @@ class WammuFrame(wx.Frame):
             pass
 
     def ShowInfo(self, event):
-        self.ShowProgress('Reading phone information')
+        self.ShowProgress(_('Reading phone information'))
         Wammu.Info.GetInfo(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('info', '  ')
@@ -350,7 +351,7 @@ class WammuFrame(wx.Frame):
         self.nextarg = ('call', '  ')
         
     def GetCallsType(self, type):
-        self.ShowProgress('Reading calls of type ' + type)
+        self.ShowProgress(_('Reading calls of type %s') % type)
         Wammu.Memory.GetMemory(self, self.sm, 'call', type).start()
         
     #

@@ -30,7 +30,7 @@ class GetMemory(Wammu.Thread.Thread):
             try:
                 if start:
                     value = self.sm.GetNextMemory(Start = True, Type = self.type)
-                    start = false
+                    start = False
                 else:
                     value = self.sm.GetNextMemory(Location = value['Location'], Type = self.type)
             except gammu.GSMError, val:

@@ -63,6 +63,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.resizeLastColumn(0)
     
     def Sorter(self, i1, i2):
+        if self.sortkey == 'Name':
+            print '"%s" vs "%s"' % (repr(i1[self.sortkey]), repr(i2[self.sortkey]))
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
     
     def Change(self, type, values):
