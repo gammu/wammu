@@ -33,7 +33,7 @@ displaydata['call'] = {}
 displaydata['memory'] = {}
 
 #information
-displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()]])
+displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()[0]], [_('python-gammu version'), gammu.Version()[1]]])
 
 # calls
 displaydata['call']['  '] = ('info', _('Calls'), _('All Calls'), 'call', [])
