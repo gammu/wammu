@@ -13,7 +13,7 @@ class GetInfo(Wammu.Thread.Thread):
 
         try:
             Manufacturer = self.sm.GetManufacturer()
-            data.append(['Manufacturer', Manufacturer])
+            data.append([_('Manufacturer'), Manufacturer])
         except gammu.GSMError, val:
             self.ShowError(val[0])
           
@@ -24,8 +24,8 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(12)
         try:
             Model = self.sm.GetModel()
-            data.append(['Model (Gammu identification)', Model[0]])
-            data.append(['Model (real)', Model[1]])
+            data.append([_('Model (Gammu identification)'), Model[0]])
+            data.append([_('Model (real)'), Model[1]])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -36,7 +36,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(25)
         try:
             Firmware = self.sm.GetFirmware()
-            data.append(['Firmware', Firmware])
+            data.append([_('Firmware'), Firmware])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -47,7 +47,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(37)
         try:
             IMEI = self.sm.GetIMEI()
-            data.append(['IMEI', IMEI])
+            data.append([_('Serial number (IMEI)'), IMEI])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -58,7 +58,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(50)
         try:
             OriginalIMEI = self.sm.GetOriginalIMEI()
-            data.append(['OriginalIMEI', OriginalIMEI])
+            data.append([_('Original IMEI'), OriginalIMEI])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -69,7 +69,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(42)
         try:
             ProductCode = self.sm.GetProductCode()
-            data.append(['ProductCode', ProductCode])
+            data.append([_('Product code'), ProductCode])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -80,7 +80,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(75)
         try:
             SIMIMSI = self.sm.GetSIMIMSI()
-            data.append(['SIM IMSI', SIMIMSI])
+            data.append([_('SIM IMSI'), SIMIMSI])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -91,7 +91,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(87)
         try:
             DateTime = self.sm.GetDateTime()
-            data.append(['DateTime ', DateTime.strftime('%c')])
+            data.append([_('Date and time'), DateTime.strftime('%c')])
         except gammu.GSMError, val:
             self.ShowError(val[0])
            

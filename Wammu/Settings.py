@@ -51,10 +51,6 @@ class Settings(wx.Dialog):
         self.config.Write('/Gammu/SyncTime', self.editsync.GetValue())
         self.config.Write('/Gammu/LockDevice', self.editlock.GetValue())
         self.config.Write('/Gammu/StartInfo', self.editinfo.GetValue())
-        wx.MessageDialog(self, 
-            _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
-            _('Notice'),
-            wx.OK | wx.ICON_INFORMATION).ShowModal()
         self.EndModal(wx.ID_OK)
     
     def Cancel(self, evt):

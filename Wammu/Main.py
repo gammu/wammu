@@ -229,6 +229,7 @@ class WammuFrame(wx.Frame):
             self.Settings()
 
     def TogglePhoneMenus(self, enable):
+        self.connected = enable
         if enable:
             self.SetStatusText(_('Connected'), 1)
         else:
@@ -277,7 +278,11 @@ class WammuFrame(wx.Frame):
 
     def Settings(self, event = None):
         import Wammu.Settings
-        Wammu.Settings.Settings(self, self.cfg).ShowModal()
+        if Wammu.Settings.Settings(self, self.cfg).ShowModal() == wx.ID_OK and self.connected:
+            wx.MessageDialog(self, 
+                _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
+                _('Notice'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
 
     def CloseWindow(self, event):
         # tell the window to kill itself
@@ -454,7 +459,6 @@ class WammuFrame(wx.Frame):
             'Localize': None,  #FIXME
             'Model': self.cfg.Read('/Gammu/Model', Wammu.Models[0])
             }
-        print cfg
         self.sm.SetConfig(0, cfg)
         self.TogglePhoneMenus(True)
         try:
