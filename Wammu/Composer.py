@@ -368,7 +368,7 @@ class SMSComposer(wx.Dialog):
         self.contbut = wx.Button(self, -1, _('Contacts'))
         self.contbut.SetToolTipString(_('Add number of recipient from contacts'))
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number:')), pos = (row,1), flag = wx.ALIGN_LEFT)
+        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s number(s):')), pos = (row,1), flag = wx.ALIGN_LEFT)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, colspan = 5)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
         
