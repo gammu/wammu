@@ -182,6 +182,7 @@ class WammuFrame(wx.Frame):
         self.searchpanel.sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.searchpanel.sizer.Add(wx.StaticText(self.searchpanel, -1, _('Search:')), 0, wx.LEFT | wx.CENTER)
         self.searchinput = wx.TextCtrl(self.searchpanel, -1)
+        self.searchinput.SetToolTipString(_('Enter text to search for, please note that it is treated like regullar expression. Matching is done over all fields.'))
         self.searchpanel.sizer.Add(self.searchinput, 1, wx.LEFT | wx.CENTER | wx.EXPAND)
         self.searchclear = wx.Button(self.searchpanel, -1, _('&Clear'), style = wx.BU_EXACTFIT)
         self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
