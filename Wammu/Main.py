@@ -322,7 +322,7 @@ class WammuFrame(wx.Frame):
                     config['Device'] = self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0])
 
             # make some defaults
-            if not config.has_key('Model') or config['Model'] == None:
+            if not config.has_key('Model') or config['Model'] == None or config['Model'] == '':
                 config['Model'] = Wammu.Data.Models[0]
             if not config.has_key('Connection') or config['Connection'] == None:
                 config['Connection'] = Wammu.Data.Connections[0]
@@ -497,13 +497,29 @@ class WammuFrame(wx.Frame):
                     self.ChangeView(k1, k2)
 
     def Settings(self, event = None):
+        if self.connected or True:
+            connection_settings = {
+                'Connection': self.cfg.Read('/Gammu/Connection', ''),
+                'LockDevice': self.cfg.Read('/Gammu/LockDevice', ''),
+                'Device': self.cfg.Read('/Gammu/Device', ''),
+                'Model': self.cfg.Read('/Gammu/Model', '')
+            }
+
         result = Wammu.Settings.Settings(self, self.cfg).ShowModal()
         if result == wx.ID_OK:
-            if self.connected:
-                wx.MessageDialog(self,
-                    _('If you changed parameters affecting phone connection, they will be used next time you connect to phone.'),
-                    _('Notice'),
-                    wx.OK | wx.ICON_INFORMATION).ShowModal()
+            if self.connected or True:
+                connection_settings_new = {
+                    'Connection': self.cfg.Read('/Gammu/Connection', ''),
+                    'LockDevice': self.cfg.Read('/Gammu/LockDevice', ''),
+                    'Device': self.cfg.Read('/Gammu/Device', ''),
+                    'Model': self.cfg.Read('/Gammu/Model', '')
+                }
+
+                if connection_settings != connection_settings_new:
+                    wx.MessageDialog(self,
+                        _('You changed parameters affecting phone connection, they will be used next time you connect to phone.'),
+                        _('Notice'),
+                        wx.OK | wx.ICON_INFORMATION).ShowModal()
             self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
             self.SetupStatusRefresh()
 
@@ -1439,6 +1455,8 @@ class WammuFrame(wx.Frame):
             'Localize': None,  # Set automatically by python-gammu
             'Model': self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
             }
+        if cfg['Model'] == 'auto':
+            cfg['Model'] = ''
         self.sm.SetConfig(0, cfg)
         try:
             self.sm.Init()
@@ -1516,7 +1534,7 @@ class WammuFrame(wx.Frame):
         if dlg.ShowModal() == wx.ID_OK:
             idx = dlg.GetSelection()
             x = self.founddevices[idx]
-            self.cfg.Write('/Gammu/Model', '')
+            self.cfg.Write('/Gammu/Model', 'auto')
             self.cfg.Write('/Gammu/Device', x[0])
             self.cfg.Write('/Gammu/Connection', x[1])
 

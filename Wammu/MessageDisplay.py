@@ -26,7 +26,7 @@ import re
 from Wammu.Utils import UnicodeConv, StrConv, Str_ as _
 
 def SmsTextFormat(cfg, txt):
-    if cfg.ReadInt('/Wammu/FormatSMS', 1):
+    if cfg.Read('/Wammu/FormatSMS', 'yes') == 'yes':
         ret = ''
         arr = txt.split(' ')
         for a in arr:

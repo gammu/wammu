@@ -19,86 +19,211 @@ Settings dialog
 '''
 
 import wx
+import wx.lib.rcsizer
+import sys
 import Wammu
 from Wammu.Utils import Str_ as _
 
 class Settings(wx.Dialog):
     def __init__(self, parent, config):
         wx.Dialog.__init__(self, parent, -1, _('Settings'), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
-        self.sizer = wx.FlexGridSizer(6, 2, 5, 5)
-        self.sizer.AddGrowableCol(1)
+
+        # notebook
+        self.notebook= wx.Notebook(self, -1)
+        self.notebook_connection = wx.Panel(self.notebook, -1)
+        self.notebook_messages = wx.Panel(self.notebook, -1)
+        self.notebook_other = wx.Panel(self.notebook, -1)
+
+        # main layout
+        self.sizer = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer.AddGrowableCol(2)
+        self.sizer.AddGrowableRow(1)
+
+        self.sizer.AddSpacer(1, 1, pos = (0, 0))
+        self.sizer.AddSpacer(1, 1, pos = (0, 4))
+
+        self.sizer.Add(self.notebook, pos = (1, 1), colspan = 3, flag = wx.EXPAND)
+
+        self.sizer.Add(wx.StaticLine(self, -1), pos = (2, 1), colspan = 3, flag = wx.EXPAND)
+
+        button = wx.Button(self, wx.ID_OK, _('&OK'))
+        button.SetDefault()
+        self.sizer.Add(button, pos = (3, 1))
+        self.sizer.Add(wx.Button(self, wx.ID_CANCEL, _('&Cancel')), pos = (3, 3), flag = wx.ALIGN_RIGHT)
+
+        self.sizer.AddSpacer(1, 1, pos = (4, 0), colspan = 5)
 
         self.config = config
 
-        self.editdev = wx.ComboBox(self, -1, config.Read('/Gammu/Device', Wammu.Data.Devices[0]), choices = Wammu.Data.Devices, size = (150, -1))
-        self.editconn = wx.ComboBox(self, -1, config.Read('/Gammu/Connection', Wammu.Data.Connections[0]), choices = Wammu.Data.Connections, size = (150, -1))
-        self.editmodel = wx.ComboBox(self, -1, config.Read('/Gammu/Model', Wammu.Data.Models[0]), choices = Wammu.Data.Models, size = (150, -1))
-        self.editsync = wx.ComboBox(self, -1, config.Read('/Gammu/SyncTime', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
-        self.editlock = wx.ComboBox(self, -1, config.Read('/Gammu/LockDevice', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
-        self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
-        self.editdebug = wx.ComboBox(self, -1, config.Read('/Debug/Show', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
-        self.editauto = wx.ComboBox(self, -1, config.Read('/Wammu/AutoConnect', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY, size = (150, -1))
-        v = config.ReadInt('/Wammu/ScaleImage', 1)
-        self.editscale = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 1, max = 20, initial = v, size = (150, -1))
+        # connection tab
+        self.sizer_connection = wx.lib.rcsizer.RowColSizer()
 
-        v = config.ReadInt('/Wammu/FormatSMS', 1)
-        self.editformat = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 1, initial = v, size = (150, -1))
+        self.sizer_connection.AddGrowableCol(1)
+
+        self.sizer_connection.AddSpacer(1, 1, pos = (0, 0))
+        r = 1
+
+        self.editdev = wx.ComboBox(self.notebook_connection, -1, config.Read('/Gammu/Device', Wammu.Data.Devices[0]), choices = Wammu.Data.Devices, size = (150, -1))
+        self.editdev.SetToolTipString(_('Device, where your phone is connected.'))
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Device')), pos = (r, 1))
+        self.sizer_connection.Add(self.editdev, pos = (r, 2))
+        r += 1
+
+        self.editconn = wx.ComboBox(self.notebook_connection, -1, config.Read('/Gammu/Connection', Wammu.Data.Connections[0]), choices = Wammu.Data.Connections, size = (150, -1))
+        self.editconn.SetToolTipString(_('Connection which your phone understands, check Gammu documentation for connection details.'))
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Connection')), pos = (r, 1))
+        self.sizer_connection.Add(self.editconn, pos = (r, 2))
+        r += 1
+
+        self.editmodel = wx.ComboBox(self.notebook_connection, -1, config.Read('/Gammu/Model', Wammu.Data.Models[0]), choices = Wammu.Data.Models, size = (150, -1))
+        self.editmodel.SetToolTipString(_('Phone model, you can usually keep here auto unless you have any problems.'))
+        if self.editmodel.GetValue() == '':
+            self.editmodel.SetValue('auto')
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Model')), pos = (r, 1))
+        self.sizer_connection.Add(self.editmodel, pos = (r, 2))
+        r += 1
+
+        if sys.platform != 'win32':
+            # locking not available on windoze
+            self.editlock = wx.CheckBox(self.notebook_connection, -1, _('Lock device'))
+            self.editlock.SetToolTipString(_('Whether to lock device in /var/lock. On some systems you might lack privileges to do so.'))
+            self.editlock.SetValue(config.Read('/Gammu/LockDevice', 'no') == 'yes')
+            self.sizer_connection.Add(self.editlock, pos = (r, 1), colspan = 2)
+            r += 1
+
+        self.editauto = wx.CheckBox(self.notebook_connection, -1, _('Automatically connect to phone on startup'))
+        self.editauto.SetToolTipString(_('Whether you want application automatically connect to phone when it is started.'))
+        self.editauto.SetValue(config.Read('/Wammu/AutoConnect', 'no') == 'yes')
+        self.sizer_connection.Add(self.editauto, pos = (r, 1), colspan = 2)
+        r += 1
+
+        self.sizer_connection.AddSpacer(1, 1, pos = (r, 3))
+
+        # size connection tab
+        self.sizer_connection.Fit(self.notebook_connection)
+        self.sizer_connection.SetSizeHints(self.notebook_connection)
+        self.notebook_connection.SetAutoLayout(True)
+        self.notebook_connection.SetSizer(self.sizer_connection)
+
+        # messages tab
+        self.sizer_messages = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer_messages.AddGrowableCol(1)
+
+        self.sizer_messages.AddSpacer(1, 1, pos = (0, 0))
+        r = 1
+
+        v = config.ReadInt('/Wammu/ScaleImage', 1)
+        self.editscale = wx.SpinCtrl(self.notebook_messages, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 1, max = 20, initial = v, size = (150, -1))
+        self.editscale.SetToolTipString(_('Whether images in messages should be scaled when displayed. This is usually good idea as they are pretty small.'))
+        self.sizer_messages.Add(wx.StaticText(self.notebook_messages, -1, _('Scale images')), pos = (r, 1))
+        self.sizer_messages.Add(self.editscale, pos = (r, 2))
+        r += 1
+
+        self.editformat = wx.CheckBox(self.notebook_messages, -1, _('Attempt to reformat text'))
+        self.editformat.SetToolTipString(_('If you get sometimes "compressed" messages likeTHIStext, you should be interested in this choice.'))
+        self.editformat.SetValue(config.Read('/Wammu/FormatSMS', 'yes') == 'yes')
+        self.sizer_messages.Add(self.editformat, pos = (r, 1), colspan = 2)
+        r += 1
+
+        self.sizer_messages.AddSpacer(1, 1, pos = (r, 3))
+
+        # size messages tab
+        self.sizer_messages.Fit(self.notebook_messages)
+        self.sizer_messages.SetSizeHints(self.notebook_messages)
+        self.notebook_messages.SetAutoLayout(True)
+        self.notebook_messages.SetSizer(self.sizer_messages)
+
+        # other tab
+        self.sizer_other = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer_other.AddGrowableCol(1)
+
+        self.sizer_other.AddSpacer(1, 1, pos = (0, 0))
+        r = 1
 
         v = config.ReadInt('/Wammu/RefreshState', 5000)
-        self.editrefresh = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
+        self.editrefresh = wx.SpinCtrl(self.notebook_other, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
+        self.editrefresh.SetToolTipString(_('How often refresh phone state in application status bar. Enter value in miliseconds, 0 to disable.'))
+        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Refresh phone state')), pos = (r, 1))
+        self.sizer_other.Add(self.editrefresh, pos = (r, 2))
+        r += 1
 
-        self.sizer.AddMany([
-            (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),
-            (self.editdev, 0, wx.EXPAND),
+        self.editsync = wx.CheckBox(self.notebook_other, -1, _('Synchronize time'))
+        self.editsync.SetToolTipString(_('Synchronise time in phone with computer time while connecting.'))
+        self.editsync.SetValue(config.Read('/Gammu/SyncTime', 'no') == 'yes')
+        self.sizer_other.Add(self.editsync, pos = (r, 1), colspan = 2)
+        r += 1
 
-            (wx.StaticText(self, -1, _('Connection')), 0, wx.EXPAND),
-            (self.editconn, 0, wx.EXPAND),
+        self.editinfo = wx.CheckBox(self.notebook_other, -1, _('Startup information'))
+        self.editinfo.SetToolTipString(_('Display startup on phone (not supported by all models).'))
+        self.editinfo.SetValue(config.Read('/Gammu/StartInfo', 'no') == 'yes')
+        self.sizer_other.Add(self.editinfo, pos = (r, 1), colspan = 2)
+        r += 1
 
-            (wx.StaticText(self, -1, _('Model (empty = auto)')), 0, wx.EXPAND),
-            (self.editmodel, 0, wx.EXPAND),
+        self.editdebug = wx.CheckBox(self.notebook_other, -1, _('Show debug log'))
+        self.editdebug.SetToolTipString(_('Show debug information on error output.'))
+        self.editdebug.SetValue(config.Read('/Debug/Show', 'no') == 'yes')
+        self.sizer_other.Add(self.editdebug, pos = (r, 1), colspan = 2)
+        r += 1
 
-            (wx.StaticText(self, -1, _('Synchronize time')), 0, wx.EXPAND),
-            (self.editsync, 0, wx.EXPAND),
+        self.sizer_other.AddSpacer(1, 1, pos = (r, 3))
 
-            (wx.StaticText(self, -1, _('Lock device')), 0, wx.EXPAND),
-            (self.editlock, 0, wx.EXPAND),
+        # size other tab
+        self.sizer_other.Fit(self.notebook_other)
+        self.sizer_other.SetSizeHints(self.notebook_other)
+        self.notebook_other.SetAutoLayout(True)
+        self.notebook_other.SetSizer(self.sizer_other)
 
-            (wx.StaticText(self, -1, _('Startup information')), 0, wx.EXPAND),
-            (self.editinfo, 0, wx.EXPAND),
+        # add pages to notebook
+        self.notebook.AddPage(self.notebook_connection, _("Connection"))
+        self.notebook.AddPage(self.notebook_messages, _("Messages"))
+        self.notebook.AddPage(self.notebook_other, _("Other"))
 
-            (wx.StaticText(self, -1, _('Show debug log')), 0, wx.EXPAND),
-            (self.editdebug, 0, wx.EXPAND),
-
-            (wx.StaticText(self, -1, _('Automatically connect to phone on startup')), 0, wx.EXPAND),
-            (self.editauto, 0, wx.EXPAND),
-
-            (wx.StaticText(self, -1, _('Scale of SMS/EMS images')), 0, wx.EXPAND),
-            (self.editscale, 0, wx.EXPAND),
-
-            (wx.StaticText(self, -1, _('Attempt to reformat SMSes')), 0, wx.EXPAND),
-            (self.editformat, 0, wx.EXPAND),
-
-            (wx.StaticText(self, -1, _('Refresh phone state (in miliseconds, 0 to disable)')), 0, wx.EXPAND),
-            (self.editrefresh, 0, wx.EXPAND),
-
-            (wx.Button(self, wx.ID_OK, _('OK')), 0, wx.EXPAND),
-            (wx.Button(self, wx.ID_CANCEL, _('Cancel')),  0, wx.EXPAND),
-            ])
+        # size main layout
         self.sizer.Fit(self)
+        self.sizer.SetSizeHints(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+
+        # event handler
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
 
     def Okay(self, evt):
         self.config.Write('/Gammu/Model', self.editmodel.GetValue())
         self.config.Write('/Gammu/Device', self.editdev.GetValue())
         self.config.Write('/Gammu/Connection', self.editconn.GetValue())
-        self.config.Write('/Gammu/SyncTime', self.editsync.GetValue())
-        self.config.Write('/Gammu/LockDevice', self.editlock.GetValue())
-        self.config.Write('/Gammu/StartInfo', self.editinfo.GetValue())
-        self.config.Write('/Debug/Show', self.editdebug.GetValue())
-        self.config.Write('/Wammu/AutoConnect', self.editauto.GetValue())
+        if self.editsync.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Gammu/SyncTime', value)
+        if self.editlock.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Gammu/LockDevice', value)
+        if self.editinfo.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Gammu/StartInfo', value)
+        if self.editdebug.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Debug/Show', value)
+        if self.editauto.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Wammu/AutoConnect', value)
+        if self.editformat.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Wammu/FormatSMS', value)
         self.config.WriteInt('/Wammu/ScaleImage', self.editscale.GetValue())
-        self.config.WriteInt('/Wammu/FormatSMS', self.editformat.GetValue())
         self.config.WriteInt('/Wammu/RefreshState', self.editrefresh.GetValue())
         self.EndModal(wx.ID_OK)
