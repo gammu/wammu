@@ -161,6 +161,12 @@ class WammuFrame(wx.Frame):
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
+        # 2st menu from left
+        menu4 = wx.Menu()
+        menu4.Append(401, _('&Contact'), _('Crates new contact'))
+        # Add menu to the menu bar
+        self.menuBar.Append(menu4, _('&New'))
+
         # Set menu bar
         self.SetMenuBar(self.menuBar)
 
@@ -177,6 +183,8 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 311, self.ShowContactsME)
         wx.EVT_MENU(self, 312, self.ShowContacts)
         wx.EVT_MENU(self, 320, self.ShowCalls)
+        
+        wx.EVT_MENU(self, 401, self.NewContact)
 
 
         self.TogglePhoneMenus(False)
@@ -250,6 +258,8 @@ class WammuFrame(wx.Frame):
         mb.Enable(312, enable);
         
         mb.Enable(320, enable);
+        
+        mb.Enable(401, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
@@ -333,6 +343,26 @@ class WammuFrame(wx.Frame):
             print 'Show not yet implemented!'
             print evt.index
 
+    def NewContact(self, evt):
+        import Wammu.Editor
+        v = {}
+        if Wammu.Editor.ContactEditor(self, self.sm, v).ShowModal() == wx.ID_OK:
+            busy = wx.BusyInfo(_('Creating memory entry...'))
+            # do the change
+            try:
+                v['Location'] = self.sm.AddMemory(v)
+
+                # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                Wammu.Utils.GetMemoryEntryName(v)
+                Wammu.Utils.GetMemoryEntryNumber(v)
+                self.values['memory'][v['MemoryType']].append(v)
+                
+            except gammu.GSMError, val:
+                self.ShowError(val[0])
+                
+            self.ActivateView('memory', v['MemoryType'])
+
     def OnEdit(self, evt): 
         if self.type[0] == 'memory':
             import Wammu.Editor
@@ -365,6 +395,8 @@ class WammuFrame(wx.Frame):
 
                     # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                     v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                    Wammu.Utils.GetMemoryEntryName(v)
+                    Wammu.Utils.GetMemoryEntryNumber(v)
                 except gammu.GSMError, val:
                     v = backup
                     self.ShowError(val[0])

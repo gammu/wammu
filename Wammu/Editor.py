@@ -57,12 +57,16 @@ class OkCancelMoreFew(wx.Panel):
 
 class ContactEditor(wx.Dialog):
     def __init__(self, parent, sm, entry):
-        wx.Dialog.__init__(self, parent, -1, _('Editing contact %d from %s') % (entry['Location'], entry['MemoryType']), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+        if entry == {}:
+            title = _('Creating new contact')
+        else:
+            title = _('Editing contact %d from %s') % (entry['Location'], entry['MemoryType'])
+        wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.sm = sm
         self.entry = entry
         self.sizer = wx.GridSizer(3, 1, 2, 2)  # rows, cols, hgap, vgap
-        if entry == None:
-            list [
+        if entry == {}:
+            list = [
                 (wx.StaticText(self, -1, _('Creating new entry')),   0, wx.EXPAND)
                 ]
             self.mt = TextCombo(self, _('Memory type:'), 'SM', Wammu.ContactMemoryTypes)
@@ -74,8 +78,8 @@ class ContactEditor(wx.Dialog):
         list.append((self.mt,   0, wx.EXPAND))
         self.edits = []
         x = 0
-        if entry == None:
-            for x in seq(2):
+        if entry == {}:
+            for x in range(2):
                 e = OneEdit(self, '%d.' % x, '', Wammu.MemoryValueTypes + [''] , '')
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND))
@@ -121,6 +125,4 @@ class ContactEditor(wx.Dialog):
 
         self.entry['Values'] = v
         self.entry['MemoryType'] = self.mt.combo.GetValue()
-        Wammu.Utils.GetMemoryEntryName(self.entry)
-        Wammu.Utils.GetMemoryEntryNumber(self.entry)
         self.EndModal(wx.ID_OK)
