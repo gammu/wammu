@@ -18,4 +18,5 @@ DeleteEvent, EVT_DELETE = NewEvent()
 LogEvent, EVT_LOG = NewEvent()
 TextEvent, EVT_TEXT = NewEvent()
 DoneEvent, EVT_DONE = NewEvent()
+BackupEvent, EVT_BACKUP = NewEvent()
 

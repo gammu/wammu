@@ -1,3 +1,4 @@
+import os
 import os.path
 import sys
 
@@ -6,7 +7,7 @@ if not os.path.exists(os.path.join(datapath, 'images')):
     if not os.path.exists('images'):
         print 'Could not find images, you will not see them, check your installation!'
     else:
-        datapath = '.'
+        datapath = os.getcwd()
 
 def IconPath(*args):
     return ImagePath('icons', *args)       

@@ -3,6 +3,7 @@ import wx.html
 import gammu
 import sys
 import os
+import os.path
 import time
 import datetime
 import string
@@ -24,6 +25,7 @@ from Wammu.Paths import *
 import threading
 import copy
 import wx.lib.wxpTag
+import wx.lib.dialogs
 import Wammu.Data
 import Wammu.Composer
 import Wammu.MessageDisplay
@@ -108,6 +110,7 @@ class WammuFrame(wx.Frame):
         Wammu.Events.EVT_DUPLICATE(self, self.OnDuplicate)
         Wammu.Events.EVT_REPLY(self, self.OnReply)
         Wammu.Events.EVT_DELETE(self, self.OnDelete)
+        Wammu.Events.EVT_BACKUP(self, self.OnBackup)
 
         self.splitter = wx.SplitterWindow(self, -1)
         il = wx.ImageList(16, 16)
@@ -177,7 +180,6 @@ class WammuFrame(wx.Frame):
         # Prepare the menu bar
         self.menuBar = wx.MenuBar()
 
-        # 1st menu from left
         menu1 = wx.Menu()
         menu1.Append(101, _('&SearchPhone'), _('Search for phone'))
         menu1.AppendSeparator()
@@ -187,7 +189,6 @@ class WammuFrame(wx.Frame):
         # Add menu to the menu bar
         self.menuBar.Append(menu1, _('&Wammu'))
         
-        # 2st menu from left
         menu2 = wx.Menu()
         menu2.Append(201, _('&Connect'), _('Connect the device'))
         menu2.Append(202, _('&Disconnect'), _('Disconnect the device'))
@@ -196,7 +197,6 @@ class WammuFrame(wx.Frame):
         # Add menu to the menu bar
         self.menuBar.Append(menu2, _('&Phone'))
 
-        # 2st menu from left
         menu3 = wx.Menu()
         menu3.Append(301, _('&Info'), _('Get phone information'))
         menu3.AppendSeparator()
@@ -214,7 +214,6 @@ class WammuFrame(wx.Frame):
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
-        # 2st menu from left
         menu4 = wx.Menu()
         menu4.Append(401, _('&Contact'), _('Crates new contact'))
         menu4.Append(402, _('Calendar &event'), _('Crates new calendar event'))
@@ -222,6 +221,12 @@ class WammuFrame(wx.Frame):
         menu4.Append(404, _('&Message'), _('Crates new message'))
         # Add menu to the menu bar
         self.menuBar.Append(menu4, _('&New'))
+
+        menu5 = wx.Menu()
+        menu5.Append(501, _('&Save'), _('Saves currently retrieved data to backup'))
+        menu5.Append(502, _('&Import'), _('Imports data from backup to phone'))
+        # Add menu to the menu bar
+        self.menuBar.Append(menu5, _('&Backups'))
 
         # Set menu bar
         self.SetMenuBar(self.menuBar)
@@ -249,6 +254,8 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 403, self.NewTodo)
         wx.EVT_MENU(self, 404, self.NewMessage)
 
+        wx.EVT_MENU(self, 501, self.Backup)
+        wx.EVT_MENU(self, 502, self.Import)
 
         self.TogglePhoneMenus(False)
 
@@ -397,6 +404,9 @@ class WammuFrame(wx.Frame):
         mb.Enable(402, enable);
         mb.Enable(403, enable);
         mb.Enable(404, enable);
+        
+        mb.Enable(501, enable);
+        mb.Enable(502, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
@@ -815,7 +825,217 @@ class WammuFrame(wx.Frame):
                 t = '  '
             self.ActivateView(self.type[0], t)
 
-    def OnDelete(self, evt): 
+    def SelectBackupFile(self, type, save = True):
+        wildcard = ''
+        if not save:
+            wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
+            
+        wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
+
+        if type in ['contact', '']:
+            wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
+        if type in ['contact', '']:
+            wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
+        if type in ['contact', '']:
+            wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
+        if type in ['todo', 'calendar', '']:
+            wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
+        if type in ['todo', 'calendar', '']:
+            wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
+        
+        wildcard += _('All files') + ' (*.*)|*.*;*'
+         
+        if save:
+            dlg = wx.FileDialog(self, "Save backup as...", os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+        else:
+            dlg = wx.FileDialog(self, "Import backup", os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
+        if dlg.ShowModal() == wx.ID_OK:
+            path = dlg.GetPath()
+            return path
+        return None
+
+    def Import(self, evt):
+        filename = self.SelectBackupFile('', save = False)
+        if filename == None:
+            return
+        try:
+            backup = gammu.ReadBackup(filename)
+        except gammu.GSMError, val:
+            info = val[0]
+            evt = Wammu.Events.ShowMessageEvent(
+                message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+                title = _('Error Occured'),
+                type = wx.ICON_ERROR)
+            wx.PostEvent(self, evt)
+            return
+        choices = []
+        values = []
+        if len(backup['PhonePhonebook']) > 0:
+            values.append('PhonePhonebook')
+            choices.append(_('%d phone concacts entries') % len(backup['PhonePhonebook']))
+        if len(backup['SIMPhonebook']) > 0:
+            values.append('SIMPhonebook')
+            choices.append(_('%d SIM contacts entries') % len(backup['SIMPhonebook']))
+        if len(backup['ToDo']) > 0:
+            values.append('ToDo')
+            choices.append(_('%d ToDo entries') % len(backup['ToDo']))
+        if len(backup['Calendar']) > 0:
+            values.append('Calendar')
+            choices.append(_('%d Calendar entries') % len(backup['Calendar']))
+
+        if len(values) == 0:
+            wx.MessageDialog(self, 
+                _('No importable data were found in file "%s"') % filename,
+                _('No data to import'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+            return
+           
+        msg = ''
+        if backup['Model'] != '':
+            msg = '\n \n' + _('Backup saved from phone %s') % backup['Model']
+            if backup['IMEI'] != '':
+                msg += _(', serial number %s') % backup['IMEI']
+        if backup['DateTime'] != None:
+            msg += '\n \n' + _('Backup saved on %s') % str(backup['DateTime'])
+
+        dlg = wx.lib.dialogs.MultipleChoiceDialog(self, _('Following data was found in backup, select which of these do you want to be added into phone.') + msg, _('Select what to import'),
+                                    choices,style = wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
+                                    size = (600, 200))
+        if dlg.ShowModal() != wx.ID_OK:
+            return
+
+        list = dlg.GetValue()
+        if len(list) == 0:
+            return
+
+        try:
+            busy = wx.BusyInfo(_('Importing data...'))
+            for i in list:
+                type = values[i]
+                if type == 'PhonePhonebook':
+                    for v in backup['PhonePhonebook']:
+                        v['Location'] = self.sm.AddMemory(v)
+                        # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                        v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                        Wammu.Utils.ParseMemoryEntry(v)
+                        # append new value to list
+                        self.values['contact'][v['MemoryType']].append(v)
+                    self.ActivateView('contact', 'ME')
+                elif type == 'SIMPhonebook':
+                    for v in backup['SIMPhonebook']:
+                        v['Location'] = self.sm.AddMemory(v)
+                        # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                        v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                        Wammu.Utils.ParseMemoryEntry(v)
+                        # append new value to list
+                        self.values['contact'][v['MemoryType']].append(v)
+                    self.ActivateView('contact', 'SM')
+                elif type == 'ToDo':
+                    for v in backup['Todo']:
+                        v['Location'] = self.sm.AddToDo(v)
+                        # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                        v = self.sm.GetToDo(v['Location'])
+                        Wammu.Utils.ParseTodo(v)
+                        # append new value to list
+                        self.values['todo']['  '].append(v)
+                    self.ActivateView('todo', '  ')
+                elif type == 'Calendar':
+                    for v in backup['Calendar']:
+                        v['Location'] = self.sm.AddCalendar(v)
+                        # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                        v = self.sm.GetCalendar(v['Location'])
+                        Wammu.Utils.ParseCalendar(v)
+                        # append new value to list
+                        self.values['calendar']['  '].append(v)
+                    self.ActivateView('calendar', '  ')
+        except gammu.GSMError, val:
+            self.ShowError(val[0])
+
+        wx.MessageDialog(self, 
+            _('Backup has been imported from file "%s"') % filename,
+            _('Backup imported'),
+            wx.OK | wx.ICON_INFORMATION).ShowModal()
+
+    def Backup(self, evt):
+        filename = self.SelectBackupFile('')
+        if filename == None:
+            return
+        ext = os.path.splitext(filename)[1].lower()
+        backup = {}
+        backup['IMEI'] = self.IMEI
+        backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
+        if ext in ['.vcf', '.ldif']:
+            # these support only one phonebook, so merged it
+            backup['PhoneBackup'] = self.values['contact']['ME'] + self.values['contact']['SM']
+        else:
+            backup['PhonePhonebook'] = self.values['contact']['ME']
+            backup['SIMPhonebook'] = self.values['contact']['SM']
+
+        backup['ToDo'] = self.values['todo']['  ']
+        backup['Calendar'] = self.values['calendar']['  ']
+
+        try:
+            gammu.SaveBackup(filename, backup)
+            wx.MessageDialog(self, 
+                _('Backup has been saved to file "%s"') % filename,
+                _('Backup saved'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+        except gammu.GSMError, val:
+            info = val[0]
+            evt = Wammu.Events.ShowMessageEvent(
+                message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+                title = _('Error Occured'),
+                type = wx.ICON_ERROR)
+            wx.PostEvent(self, evt)
+    
+    def OnBackup(self, evt):
+        filename = self.SelectBackupFile(self.type[0])
+        if filename == None:
+            return
+        ext = os.path.splitext(filename)[1].lower()
+        if self.type[1] == '  ':
+            t = '__'
+        else:
+            t = self.type[1]
+        lst = []
+        for i in evt.list:
+            lst.append(self.values[self.type[0]][t][i])
+        backup = {}
+        backup['IMEI'] = self.IMEI
+        backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
+        if self.type[0] == 'contact':
+            if ext in ['.vcf', '.ldif']:
+                # these support only one phonebook, so keep it merged
+                backup['PhoneBackup'] = lst
+            else:
+                sim = []
+                phone = []
+                for item in lst:
+                    if item['MemoryType'] == 'SM':
+                        sim.append(item)
+                    elif  item['MemoryType'] == 'ME':
+                        phone.append(item)
+                backup['PhonePhonebook'] = phone
+                backup['SIMPhonebook'] = sim
+        elif self.type[0] == 'todo':
+            backup['ToDo'] = lst
+        elif self.type[0] == 'calendar':
+            backup['Calendar'] = lst
+
+        try:
+            gammu.SaveBackup(filename, backup)
+            wx.MessageDialog(self, 
+                _('Backup has been saved to file "%s"') % filename,
+                _('Backup saved'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+        except:
+            evt = Wammu.Events.ShowMessageEvent(
+                message = _('Error while saving backup:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+                title = _('Error Occured'),
+                type = wx.ICON_ERROR)
+            wx.PostEvent(self, evt)
+    
+    def OnDelete(self, evt):
         # FIXME: add here confirmation?
         if self.type[0] == 'contact' or self.type[0] == 'call':
             if self.type[1] == '  ':
@@ -1088,6 +1308,27 @@ class WammuFrame(wx.Frame):
         try:
             self.sm.Init()
             self.TogglePhoneMenus(True)
+            try:
+                self.IMEI = self.sm.GetIMEI()
+            except:
+                self.IMEI = ''
+            try:
+                self.Manufacturer = self.sm.GetManufacturer()
+            except:
+                self.Manufacturer = ''
+            try:
+                m = self.sm.GetModel()
+                if m[0] == '':
+                    self.Model = m[1]
+                else:
+                    self.Model = m[0]
+            except:
+                self.Model = ''
+            try:
+                self.Version = self.sm.GetFirmware()[0]
+            except:
+                self.Version = ''
+              
         except gammu.GSMError, val:
             del busy
             self.ShowError(val[0])
@@ -1135,7 +1376,7 @@ class WammuFrame(wx.Frame):
         choices = []
         for x in self.founddevices:
             choices.append(_('Model %s (%s) on %s port using connection %s') % (x[2][1], x[3], x[0], x[1]))
-        dlg = wx.SingleChoiceDialog(self, 'Select phone to use from bellow list', 'Select phone',
+        dlg = wx.SingleChoiceDialog(self, _('Select phone to use from bellow list'), _('Select phone'),
                                     choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
         if dlg.ShowModal() == wx.ID_OK:
             idx = dlg.GetSelection()

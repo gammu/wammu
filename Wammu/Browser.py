@@ -179,6 +179,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         evt = Wammu.Events.DeleteEvent(list = list)
         wx.PostEvent(self.win, evt)
         
+    def DoBackup(self, list):
+        evt = Wammu.Events.BackupEvent(list = list)
+        wx.PostEvent(self.win, evt)
+        
     def OnRightClick(self, evt):
         if self.type == 'info':
             return
@@ -191,6 +195,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.popupIDDeleteSel   = wx.NewId()
             self.popupIDDuplicate   = wx.NewId()
             self.popupIDReply       = wx.NewId()
+            self.popupIDBackupOne   = wx.NewId()
+            self.popupIDBackupSel   = wx.NewId()
+            self.popupIDBackupAll   = wx.NewId()
 
             wx.EVT_MENU(self, self.popupIDSend,         self.OnPopupSend)
             wx.EVT_MENU(self, self.popupIDEdit,         self.OnPopupEdit)
@@ -198,6 +205,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             wx.EVT_MENU(self, self.popupIDDeleteSel,    self.OnPopupDeleteSel)
             wx.EVT_MENU(self, self.popupIDDuplicate,    self.OnPopupDuplicate)
             wx.EVT_MENU(self, self.popupIDReply,        self.OnPopupReply)
+            wx.EVT_MENU(self, self.popupIDBackupOne,    self.OnPopupBackupOne)
+            wx.EVT_MENU(self, self.popupIDBackupSel,    self.OnPopupBackupSel)
+            wx.EVT_MENU(self, self.popupIDBackupAll,    self.OnPopupBackupAll)
 
         # make a menu
         menu = wx.Menu()
@@ -209,15 +219,22 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 menu.Append(self.popupIDSend,       _('Send'))
             if self.values[evt.m_itemIndex]['State'] == 'Read' or self.values[evt.m_itemIndex]['State'] == 'UnRead':
                 menu.Append(self.popupIDReply,      _('Reply'))
+            menu.AppendSeparator()
             
         if not self.type in ['call', 'message']:
             menu.Append(self.popupIDEdit,       _('Edit'))
         if not self.type in ['call']:
             menu.Append(self.popupIDDuplicate,  _('Duplicate'))
 
-        menu.Append(self.popupIDDelete,     _('Delete'))
         menu.AppendSeparator()
+        menu.Append(self.popupIDDelete,     _('Delete current'))
         menu.Append(self.popupIDDeleteSel,  _('Delete selected'))
+
+        if self.type != 'message':
+            menu.AppendSeparator()
+            menu.Append(self.popupIDBackupOne,  _('Backup current'))
+            menu.Append(self.popupIDBackupSel,  _('Backup selected'))
+            menu.Append(self.popupIDBackupAll,  _('Backup all'))
 
         # Popup the menu.  If an item is selected then its handler
         # will be called before PopupMenu returns.
@@ -245,6 +262,20 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnPopupDeleteSel(self, event):
         self.DoSelectedDelete()
+
+    def OnPopupBackupOne(self, event):
+        self.DoBackup([self.popupIndex])
+
+    def OnPopupBackupSel(self, event):
+        list = []
+        index = self.GetFirstSelected()
+        while index != -1:
+            list.append(index)
+            index = self.GetNextSelected(index)
+        self.DoBackup(list)
+
+    def OnPopupBackupAll(self, event):
+        self.DoBackup(range(self.GetItemCount()))
 
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
