@@ -29,7 +29,7 @@ import Wammu.Utils
 from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
 
 if wx.USE_UNICODE:
-    copyrightline = 'Copyright &copy; 2003 - 2004 Michal &#268;iha&#345;'
+    copyrightline = u'Copyright &copy; 2003 - 2004 Michal Čihař'
     head = ''
 else:
     copyrightline = HtmlStrConv(u'Copyright (c) 2003-2004 Michal Čihař')
