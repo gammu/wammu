@@ -114,7 +114,7 @@ class WammuFrame(wx.Frame):
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
         self.CreateStatusBar(2)
-        self.SetStatusWidths([-1,200])
+        self.SetStatusWidths([-1,300])
 
         # Associate some events with methods of this class
         wx.EVT_CLOSE(self, self.CloseWindow)
@@ -290,9 +290,6 @@ class WammuFrame(wx.Frame):
 
         self.showdebug = ''
 
-        self.timer = wx.Timer(self)
-        wx.EVT_TIMER(self, self.timer.GetId(), self.OnTimer)
-        self.timer.Start(5000)
 
     def PostInit(self):
         # things that need window opened
@@ -350,16 +347,13 @@ class WammuFrame(wx.Frame):
         if (self.cfg.Read('/Wammu/AutoConnect', 'no') == 'yes'):
             self.PhoneConnect()
 
+        self.SetupStatusRefresh()
+
     def OnTimer(self, evt):
-        print 'Timer'
         if self.connected:
             try:
-                print 'csq'
                 s = self.sm.GetSignalQuality()
-                print s
-                print 'cbc'
                 b = self.sm.GetBatteryCharge()
-                print 'got it'
             except gammu.GSMError:
                 pass
             power = _('Unknown')
@@ -371,9 +365,16 @@ class WammuFrame(wx.Frame):
                 power = _('no battery')
             elif b['ChargeState'] == 'PowerFault':
                 power = _('fault')
-            print 'TE'
             self.SetStatusText(_('Battery: %d %%, Power: %s, Signal: %d %%') % (b['BatteryPercent'], power, s['SignalPercent']), 1)
-            print 'End'
+
+    def SetupStatusRefresh(self):
+        repeat = self.cfg.ReadInt('/Wammu/RefreshState', 5000)
+        if repeat == 0:
+            self.timer = None
+        else:
+            self.timer = wx.Timer(self)
+            wx.EVT_TIMER(self, self.timer.GetId(), self.OnTimer)
+            self.timer.Start(repeat)
 
     def DoDebug(self, newdebug):
         if newdebug != self.showdebug:
@@ -497,6 +498,8 @@ class WammuFrame(wx.Frame):
                     _('Notice'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
+            del self.timer
+            self.SetupStatusRefresh()
 
     def CloseWindow(self, event):
         self.SaveWinSize(self, '/Main')

@@ -44,6 +44,9 @@ class Settings(wx.Dialog):
         v = config.ReadInt('/Wammu/FormatSMS', 1)
         self.editformat = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 1, initial = v, size = (150, -1))
 
+        v = config.ReadInt('/Wammu/RefreshState', 5000)
+        self.editrefresh = wx.SpinCtrl(self, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
+
         self.sizer.AddMany([ 
             (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),
             (self.editdev, 0, wx.EXPAND),
@@ -75,6 +78,9 @@ class Settings(wx.Dialog):
             (wx.StaticText(self, -1, _('Attempt to reformat SMSes')), 0, wx.EXPAND),
             (self.editformat, 0, wx.EXPAND),
 
+            (wx.StaticText(self, -1, _('Refresh phone state (in miliseconds, 0 to disable)')), 0, wx.EXPAND),
+            (self.editrefresh, 0, wx.EXPAND),
+
             (wx.Button(self, wx.ID_OK, _('OK')), 0, wx.EXPAND),
             (wx.Button(self, wx.ID_CANCEL, _('Cancel')),  0, wx.EXPAND),
             ])
@@ -94,4 +100,5 @@ class Settings(wx.Dialog):
         self.config.Write('/Wammu/AutoConnect', self.editauto.GetValue())
         self.config.WriteInt('/Wammu/ScaleImage', self.editscale.GetValue())
         self.config.WriteInt('/Wammu/FormatSMS', self.editformat.GetValue())
+        self.config.WriteInt('/Wammu/RefreshState', self.editrefresh.GetValue())
         self.EndModal(wx.ID_OK)
