@@ -16,6 +16,7 @@ class Settings(wx.Dialog):
         self.editlock = wx.ComboBox(self, -1, config.Read('/Gammu/LockDevice', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
         self.editinfo = wx.ComboBox(self, -1, config.Read('/Gammu/StartInfo', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
         self.editdebug = wx.ComboBox(self, -1, config.Read('/Debug/Show', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
+        self.editauto = wx.ComboBox(self, -1, config.Read('/Wammu/AutoConnect', 'no'), choices = ['yes', 'no'], style = wx.CB_READONLY)
 
         self.sizer.AddMany([ 
             (wx.StaticText(self, -1, _('Device')), 0, wx.EXPAND),
@@ -39,6 +40,9 @@ class Settings(wx.Dialog):
             (wx.StaticText(self, -1, _('Show debug log')), 0, wx.EXPAND),
             (self.editdebug, 0, wx.EXPAND),
 
+            (wx.StaticText(self, -1, _('Automatically connect to phone on startup')), 0, wx.EXPAND),
+            (self.editauto, 0, wx.EXPAND),
+
 
             (wx.Button(self, wx.ID_OK, _('OK')), 0, wx.EXPAND),
             (wx.Button(self, wx.ID_CANCEL, _('Cancel')),  0, wx.EXPAND),
@@ -56,4 +60,5 @@ class Settings(wx.Dialog):
         self.config.Write('/Gammu/LockDevice', self.editlock.GetValue())
         self.config.Write('/Gammu/StartInfo', self.editinfo.GetValue())
         self.config.Write('/Debug/Show', self.editdebug.GetValue())
+        self.config.Write('/Wammu/AutoConnect', self.editauto.GetValue())
         self.EndModal(wx.ID_OK)

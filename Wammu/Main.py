@@ -283,6 +283,10 @@ class WammuFrame(wx.Frame):
         else:
             self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
 
+        if (self.cfg.Read('/Wammu/AutoConnect', 'no') == 'yes'):
+            self.PhoneConnect()
+
+
     def DoDebug(self, newdebug):
         if newdebug != self.showdebug:
             self.showdebug = newdebug
@@ -780,7 +784,7 @@ class WammuFrame(wx.Frame):
     # Connecting / Disconneting
     #
 
-    def PhoneConnect(self, event):
+    def PhoneConnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'), 
