@@ -23,32 +23,32 @@ import Wammu.Data
 import Wammu.Ringtone
 import string
 import re
-from Wammu.Utils import StrConv, Str_ as _
+from Wammu.Utils import UnicodeConv, StrConv, Str_ as _
 
 def SmsTextFormat(cfg, txt):
     if cfg.ReadInt('/Wammu/FormatSMS', 1):
         ret = ''
         arr = txt.split(' ')
         for a in arr:
-            if re.match('^[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) != None:
+            if re.match('^([a-z]+[^ ]*)?[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) != None:
                 prevtype = 'p'
-                if a[0] in string.lowercase:
+                if UnicodeConv(string.lowercase).find(a[0]) != -1:
                     type = 'l'
-                elif a[0] in string.uppercase:
+                elif UnicodeConv(string.uppercase).find(a[0]) != -1:
                     type = 'u'
-                elif a[0] in string.digits:
+                elif UnicodeConv(string.digits).find(a[0]) != -1:
                     type = 'd'
                 else:
                     type = 'p'
-                    
+                   
                 s = a[0]
                 
                 for x in a[1:]:
-                    if x in string.lowercase:
+                    if UnicodeConv(string.lowercase).find(x) != -1:
                         nexttype = 'l'
-                    elif x in string.uppercase:
+                    elif UnicodeConv(string.uppercase).find(x) != -1:
                         nexttype = 'u'
-                    elif x in string.digits:
+                    elif UnicodeConv(string.digits).find(x) != -1:
                         nexttype = 'd'
                     else:
                         nexttype = 'p'
