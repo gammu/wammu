@@ -20,13 +20,22 @@ Item editors
 
 import wx
 try:
-    # FIXME: wxPython 2.4
-    import wxPython.utils
+    # wxPython 2.4
+    from wxPython.utils import wxDateTimeFromDMY as DateTimeFromDMY, wxDateTime_Today as DateTime_Today
 except ImportError:
-    # FIXME: wxPython 2.5
-    import wx.misc
+    try:
+        # wxPython 2.5.1
+        from wx.misc import DateTimeFromDMY, DateTime_Today
+    except ImportError:
+        # wxPython 2.5.2
+        from wx import DateTimeFromDMY, DateTime_Today
+
 import wx.calendar
-import wx.lib.timectrl
+try:
+    from wx.lib.timectrl import TimeCtrl
+except ImportError:
+    # wxPython 2.5.2
+    from wx.lib.masked.timectrl import TimeCtrl
 import Wammu.wxcomp.popupctl
 import sys
 import datetime
@@ -115,21 +124,11 @@ class DateControl(Wammu.wxcomp.popupctl.wxPopupControl):
             if d > 0 and d < 31:
                 if m >= 0 and m < 12:
                     if y > 1000:
-                        try:
-                            # FIXME: wxPython 2.4
-                            date = wxPython.utils.wxDateTimeFromDMY(d,m,y)
-                        except NameError:
-                            # FIXME: wxPython 2.5
-                            date = wx.misc.DateTimeFromDMY(d,m,y)
+                        date = DateTimeFromDMY(d,m,y)
                         self.cal.SetDate(date)
                         didSet = True
         if not didSet:
-            try:
-                # FIXME: wxPython 2.4
-                time = wxPython.utils.wxDateTime_Today()
-            except NameError:
-                # FIXME: wxPython 2.5
-                time = wx.misc.DateTime_Today()
+            time = DateTime_Today()
             self.cal.SetDate()
 
 
@@ -146,7 +145,7 @@ class DateTimeEdit(wx.Panel):
         except:
             #FIXME: configurable
             val = '9:00:00'
-        self.timeed = wx.lib.timectrl.TimeCtrl( self, -1, val, fmt24hr=True)
+        self.timeed = TimeCtrl( self, -1, val, fmt24hr=True)
         try:
             val = str(value.date())
         except:
@@ -354,7 +353,7 @@ class OneEdit(wx.Panel):
                 val = 0
             self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
         elif newt == 'datetime':
-            self.edit = wx.lib.timectrl.TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
+            self.edit = TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
             self.edit2.Destroy()
             self.edit2 = DateControl(self, DateToText(value))
         elif newt == 'date':
