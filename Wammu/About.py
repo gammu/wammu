@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Wammu - Phone manager
-# Copyright (c) 2003 - 2004 Michal Čihař
+# Copyright (c) 2003 - 2005 Michal Čihař
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -29,12 +29,12 @@ import Wammu.Utils
 from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
 
 if wx.USE_UNICODE:
-    copyrightline = u'Copyright &copy; 2003 - 2004 Michal Čihař'
+    copyrightline = u'Copyright &copy; 2003 - 2005 Michal Čihař'
     head = ''
 else:
-    copyrightline = HtmlStrConv(u'Copyright (c) 2003-2004 Michal Čihař')
+    copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2005 Michal Čihař')
     if copyrightline.find('?') != -1:
-        copyrightline = 'Copyright (c) 2003-2004 Michal Cihar'
+        copyrightline = 'Copyright (c) 2003 - 2005 Michal Cihar'
     head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
 
 text = '''
