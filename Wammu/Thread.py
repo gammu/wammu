@@ -23,6 +23,7 @@ import threading
 import wx
 import Wammu.Events
 import Wammu.Error
+from Wammu.Utils import Str_ as _
 
 class Thread(threading.Thread):
     def __init__(self, win, sm):
@@ -47,8 +48,8 @@ class Thread(threading.Thread):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = 'Got error from phone:\n%s\nIn:%s\nError code: %d' % (info['Text'], info['Where'], info['Code']),
-            title = 'Error Occured',
+            message = _('Got error from phone:\n%s\nIn:%s\nError code: %d') % (info['Text'], info['Where'], info['Code']),
+            title = _('Error Occured'),
             type = wx.ICON_ERROR,
             lock = lck)
         wx.PostEvent(self.win, evt)
@@ -82,8 +83,8 @@ class Thread(threading.Thread):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = 'Action canceled by user!',
-            title = 'Action canceled',
+            message = _('Action canceled by user!'),
+            title = _('Action canceled'),
             type = wx.ICON_WARNING,
             lock = lck)
         wx.PostEvent(self.win, evt)
