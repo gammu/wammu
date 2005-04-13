@@ -46,12 +46,12 @@ def Handler(type, value, tback):
     texttrace = ''.join(linetrace)
     textexc = ''.join(traceback.format_exception_only(type, value))
 
-    # traceback id (md5 sum of last topmost traceback item inside Wammu)
+    # traceback id (md5 sum of last topmost traceback item inside Wammu - file(function):code)
     try:
         for tr in trace:
             if tr[0].rfind('Wammu') > -1:
                 lasttrace = tr
-        traceidtext = '%s[%d](%s):%s' % (lasttrace[0][lasttrace[0].rfind('Wammu'):], lasttrace[1], lasttrace[2], lasttrace[3])
+        traceidtext = '%s(%s):%s' % (lasttrace[0][lasttrace[0].rfind('Wammu'):], lasttrace[2], lasttrace[3])
         traceid = md5.new(traceidtext).hexdigest()
         tracetext = '\nYou can first search for simmilar bugs using http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid
     except:
