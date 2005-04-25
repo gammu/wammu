@@ -313,7 +313,12 @@ class WammuFrame(wx.Frame):
         # create state machine
         self.sm = gammu.StateMachine()
 
+        # initialize variables
         self.showdebug = ''
+        self.IMEI = ''
+        self.Manufacturer = ''
+        self.Model = ''
+        self.Version = ''
 
 
     def PostInit(self):
@@ -1161,7 +1166,7 @@ class WammuFrame(wx.Frame):
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
         return backup
 
-    def WriteBackup(self, backup, data = False):
+    def WriteBackup(self, filename, backup, data = False):
         try:
             gammu.SaveBackup(filename, backup)
             if data:
@@ -1192,7 +1197,7 @@ class WammuFrame(wx.Frame):
 
         backup['ToDo'] = self.values['todo']['  ']
         backup['Calendar'] = self.values['calendar']['  ']
-        self.WriteBackup(backup, data)
+        self.WriteBackup(filename, backup, data)
 
 
     def OnBackup(self, evt):
@@ -1227,7 +1232,7 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'calendar':
             backup['Calendar'] = lst
 
-        self.WriteBackup(backup)
+        self.WriteBackup(filename, backup)
 
     def OnDelete(self, evt):
         # first check on supported types
@@ -1503,11 +1508,11 @@ class WammuFrame(wx.Frame):
             try:
                 self.IMEI = self.sm.GetIMEI()
             except:
-                self.IMEI = ''
+                pass
             try:
                 self.Manufacturer = self.sm.GetManufacturer()
             except:
-                self.Manufacturer = ''
+                pass
             try:
                 m = self.sm.GetModel()
                 if m[0] == '':
@@ -1515,11 +1520,11 @@ class WammuFrame(wx.Frame):
                 else:
                     self.Model = m[0]
             except:
-                self.Model = ''
+                pass
             try:
                 self.Version = self.sm.GetFirmware()[0]
             except:
-                self.Version = ''
+                pass
 
         except gammu.GSMError, val:
             del busy
