@@ -21,6 +21,7 @@ Searching for phone
 import wx
 import gammu
 import threading
+import os.path
 import Wammu
 import Wammu.Data
 import Wammu.Events
@@ -77,6 +78,8 @@ class AllSearchThread(threading.Thread):
             if dev[1].find('%d') >= 0:
                 for i in range(*dev[2]):
                     curdev = dev[1] % i
+                    if curdev[0] == '/' and not os.path.exists(curdev):
+                        continue
                     t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level)
                     t.setName('%s - %s' % (curdev, str(dev[0])))
                     if self.msgcallback != None:
@@ -84,6 +87,8 @@ class AllSearchThread(threading.Thread):
                     self.threads.append(t)
                     t.start()
             else:
+                if dev[1][0] == '/' and not os.path.exists(dev[1]):
+                    continue
                 t = SearchThread(dev[1], dev[0], self.list, self.listlock, self.lock, self.level)
                 t.setName('%s - %s' % (dev[1], ', '.join(dev[0])))
                 self.threads.append(t)
