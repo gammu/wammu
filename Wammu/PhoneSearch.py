@@ -88,6 +88,28 @@ class AllSearchThread(threading.Thread):
                 t.setName('%s - %s' % (dev[1], ', '.join(dev[0])))
                 self.threads.append(t)
                 t.start()
+
+        try:
+            import gnomebt.controller
+            # create controller object
+            btctl = gnomebt.controller.Controller()
+            # read devices list
+            if self.msgcallback != None:
+                self.msgcallback(_('Scanning for bluetooth devices'))
+            devs = btctl.known_devices()
+            for dev in devs:
+                t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
+                t.setName('%s (%s) - %s' % (dev['bdaddr'], btctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
+                if self.msgcallback != None:
+                    self.msgcallback(_('Checking %s') %  t.getName())
+                self.threads.append(t)
+                t.start()
+            if self.msgcallback != None:
+                self.msgcallback(_('Bluetooth device scan completed'))
+        except ImportError:
+            if self.msgcallback != None:
+                self.msgcallback(_('GNOME Bluetooth not found, not possible to scan for bluetooth devices'))
+
         i = 0
         while len(self.threads) > 0:
             if self.threads[i].isAlive():

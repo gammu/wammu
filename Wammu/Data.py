@@ -399,20 +399,19 @@ Connections = [
     'fbusirda',
     'fbusdlr3',
     'fbusdku5',
-    'fbusblue',
-    'phonetblue',
-    'mrouterblue',
     'mbus',
     'irdaphonet',
     'irdaat',
     'irdaobex',
-    'bluephonet',
-    'bluefbus',
     'dku2phonet',
     'dku5fbus2',
+    'bluerffbus',
+    'bluerfphonet',
+    'bluephonet',
+    'bluerfat',
     'blueat',
-    'blueobex',
     ]
+
 Conn_Cable = [
     'at19200',
     'fbusdlr3',
@@ -425,6 +424,13 @@ Conn_IrDA_Win = [
 Conn_IrDA_Other = [
     'at19200',
     'irdaphonet',
+    ]
+Conn_Bluetooth = [
+    'bluerffbus',
+    'bluerfphonet',
+    'bluephonet',
+    'bluerfat',
+    'blueat',
     ]
 if sys.platform == 'win32':
     Devices = [
