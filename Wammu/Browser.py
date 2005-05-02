@@ -105,6 +105,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, text)]
         self.SetItemCount(len(self.values))
         self.RefreshView()
+        self.ShowRow(0)
 
     def Sorter(self, i1, i2):
         if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
@@ -130,7 +131,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
             self.EnsureVisible(id)
         else:
-            evt = Wammu.Events.ShowEvent(index = None)
+            evt = Wammu.Events.ShowEvent(data = None)
             wx.PostEvent(self.win, evt)
 
     def Change(self, type, values):
@@ -197,7 +198,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         lst = []
         index = self.GetFirstSelected()
         while index != -1:
-            lst.append(index)
+            lst.append(self.values[index])
             index = self.GetNextSelected(index)
         self.DoDelete(lst)
 
@@ -210,7 +211,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         wx.PostEvent(self.win, evt)
 
     def DoReply(self):
-        evt = Wammu.Events.ReplyEvent(index = self.GetFocusedItem())
+        evt = Wammu.Events.ReplyEvent(data = self.values[self.GetFocusedItem()])
         wx.PostEvent(self.win, evt)
 
     def OnRightClick(self, evt):
@@ -283,59 +284,59 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         del menu
 
     def OnPopupDuplicate(self, event):
-        evt = Wammu.Events.DuplicateEvent(index = self.popupIndex)
+        evt = Wammu.Events.DuplicateEvent(data = self.values[self.popupIndex])
         wx.PostEvent(self.win, evt)
 
     def OnPopupReply(self, event):
-        evt = Wammu.Events.ReplyEvent(index = self.popupIndex)
+        evt = Wammu.Events.ReplyEvent(data = self.values[self.popupIndex])
         wx.PostEvent(self.win, evt)
 
     def OnPopupSend(self, event):
-        evt = Wammu.Events.SendEvent(index = self.popupIndex)
+        evt = Wammu.Events.SendEvent(data = self.values[self.popupIndex])
         wx.PostEvent(self.win, evt)
 
     def OnPopupCall(self, event):
-        evt = Wammu.Events.CallEvent(index = self.popupIndex)
+        evt = Wammu.Events.CallEvent(data = self.values[self.popupIndex])
         wx.PostEvent(self.win, evt)
 
     def OnPopupMessage(self, event):
-        evt = Wammu.Events.MessageEvent(index = self.popupIndex)
+        evt = Wammu.Events.MessageEvent(data = self.values[self.popupIndex])
         wx.PostEvent(self.win, evt)
 
     def OnPopupEdit(self, event):
-        evt = Wammu.Events.EditEvent(index = self.popupIndex)
+        evt = Wammu.Events.EditEvent(data = self.values[self.popupIndex])
         wx.PostEvent(self.win, evt)
 
     def OnPopupDelete(self, event):
-        self.DoDelete([self.popupIndex])
+        self.DoDelete([self.values[self.popupIndex]])
 
     def OnPopupDeleteSel(self, event):
         self.DoSelectedDelete()
 
     def OnPopupBackupOne(self, event):
-        self.DoBackup([self.popupIndex])
+        self.DoBackup([self.values[self.popupIndex]])
 
     def OnPopupBackupSel(self, event):
         list = []
         index = self.GetFirstSelected()
         while index != -1:
-            list.append(index)
+            list.append(self.values[index])
             index = self.GetNextSelected(index)
         self.DoBackup(list)
 
     def OnPopupBackupAll(self, event):
-        self.DoBackup(range(self.GetItemCount()))
+        self.DoBackup(self.values)
 
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
 
     def OnItemSelected(self, event):
         self.itemno = event.m_itemIndex
-        evt = Wammu.Events.ShowEvent(index = event.m_itemIndex)
+        evt = Wammu.Events.ShowEvent(data = self.values[event.m_itemIndex])
         wx.PostEvent(self.win, evt)
 
     def OnItemActivated(self, event):
-        evt = Wammu.Events.EditEvent(index = event.m_itemIndex)
+        evt = Wammu.Events.EditEvent(data = self.values[event.m_itemIndex])
         wx.PostEvent(self.win, evt)
 
     def getColumnText(self, index, col):
@@ -345,6 +346,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
 
     def OnGetItemText(self, item, col):
+        if item >= len(self.values):
+            return None
         return StrConv(self.values[item][self.keys[col]])
 
     def OnGetItemAttr(self, item):

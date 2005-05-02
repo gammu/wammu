@@ -586,38 +586,30 @@ class WammuFrame(wx.Frame):
 
     def ShowData(self, data):
         text = ''
-        for d in data:
-            if len(d) == 2:
-                text = text + (u'<b>%s</b>: %s<br>' % (d[0], d[1]))
-            else:
-                text = text + (u'<br>%s' % d[0])
+        if data is not None:
+            for d in data:
+                if len(d) == 2:
+                    text = text + (u'<b>%s</b>: %s<br>' % (d[0], d[1]))
+                else:
+                    text = text + (u'<br>%s' % d[0])
         if wx.USE_UNICODE:
             self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % StrConv(text))
         else:
             self.content.SetPage(HtmlStrConv('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (Wammu.Utils.htmlcharset, text)))
 
     def OnShow(self, evt):
-        if evt.index == None:
-            data = []
+        data = v = evt.data
+        if data is None:
+            data = None
         elif self.type == ['info','  ']:
-            data = [self.values['info']['__'][evt.index]]
+            data = [evt.data]
         elif self.type[0] == 'contact' or self.type[0] == 'call':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             data = [
                 (_('Location'), str(v['Location'])),
                 (_('Memory type'), v['MemoryType'])]
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)))
         elif self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             data = [
                 (_('Number'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['Number'])),
                 (_('Date'), StrConv(v['DateTime'])),
@@ -630,29 +622,19 @@ class WammuFrame(wx.Frame):
                 data.append((_('Name'), StrConv(v['Name'])))
             data.append((Wammu.MessageDisplay.SmsToHtml(self.cfg, v),))
         elif self.type[0] == 'todo':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             data = [
                 (_('Location'), str(v['Location'])),
                 (_('Priority'), v['Priority'])]
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         elif self.type[0] == 'calendar':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
             data = [
                 (_('Location'), str(v['Location'])),
                 (_('Type'), v['Type'])]
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         else:
-            data = [('Show not yet implemented! (id = %d)' % evt.index,)]
+            data = [('Show not yet implemented! (type = %s)' % self.type[0])]
         self.ShowData(data)
 
     def NewContact(self, evt):
@@ -853,48 +835,24 @@ class WammuFrame(wx.Frame):
 
     def OnEdit(self, evt):
         if self.type[0] == 'contact':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values['contact'][t][evt.index]
-            self.EditContact(v);
+            self.EditContact(evt.data)
         elif self.type[0] == 'calendar':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values['calendar'][t][evt.index]
-            self.EditCalendar(v);
+            self.EditCalendar(evt.data)
         elif self.type[0] == 'todo':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values['todo'][t][evt.index]
-            self.EditTodo(v);
+            self.EditTodo(evt.data)
         else:
-            print 'Edit not yet implemented!'
-            print evt.index
+            print 'Edit not yet implemented (type = %s)!' % self.type[0]
 
     def OnReply(self, evt):
         if self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']}, action = 'send')
+            self.ComposeMessage({'Number': evt.data['Number']}, action = 'send')
         else:
             print 'Reply not yet implemented!'
             print evt.index
 
     def OnCall(self, evt):
         if self.type[0] in ['call', 'contact']:
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            num = Wammu.Select.SelectContactNumber(self, self.values[self.type[0]][t], evt.index)
+            num = Wammu.Select.SelectContactNumber(self, evt.data)
             if num == None:
                 return
 
@@ -903,83 +861,45 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError, val:
                 self.ShowError(val[0])
         elif self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-
             try:
-                self.sm.DialVoice(self.values['message'][t][evt.index]['Number'])
+                self.sm.DialVoice(evt.data['Number'])
             except gammu.GSMError, val:
                 self.ShowError(val[0])
         else:
-            print 'Call not yet implemented!'
-            print evt.index
+            print 'Call not yet implemented (type = %s)!' % self.type[0]
 
     def OnMessage(self, evt):
         if self.type[0] in ['call', 'contact']:
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            num = Wammu.Select.SelectContactNumber(self, self.values[self.type[0]][t], evt.index)
+
+            num = Wammu.Select.SelectContactNumber(self, evt.data)
             if num == None:
                 return
             self.ComposeMessage({'Number': num}, action = 'send')
         elif self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            self.ComposeMessage({'Number': self.values['message'][t][evt.index]['Number']}, action = 'send')
+            self.ComposeMessage({'Number': evt.data['Number']}, action = 'send')
         else:
-            print 'Message send not yet implemented!'
-            print evt.index
+            print 'Message send not yet implemented (type = %s)!' % self.type[0]
 
     def OnDuplicate(self, evt):
+        v = copy.deepcopy(evt.data)
         if self.type[0] == 'contact':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = copy.deepcopy(self.values['contact'][t][evt.index])
             v['Location'] = 0
             self.EditContact(v)
         elif self.type[0] == 'calendar':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = copy.deepcopy(self.values['calendar'][t][evt.index])
             v['Location'] = 0
             self.EditCalendar(v)
         elif self.type[0] == 'todo':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = copy.deepcopy(self.values['todo'][t][evt.index])
             v['Location'] = 0
             self.EditTodo(v)
         elif self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = copy.deepcopy(self.values['message'][t][evt.index])
             self.ComposeMessage(v)
         else:
-            print 'Duplicate not yet implemented!'
-            print evt.index
+            print 'Duplicate not yet implemented (type = %s)!' % self.type[0]
 
 
     def OnSend(self, evt):
         if self.type[0] == 'message':
-            if self.type[1] == '  ':
-                t = '__'
-            else:
-                t = self.type[1]
-            v = self.values[self.type[0]][t][evt.index]
+            v = evt.data
             try:
                 for loc in v['Location'].split(', '):
                     # FIXME: 0 folder is safe for AT, but I'm not sure with others
@@ -1205,13 +1125,7 @@ class WammuFrame(wx.Frame):
         if filename == None:
             return
         ext = os.path.splitext(filename)[1].lower()
-        if self.type[1] == '  ':
-            t = '__'
-        else:
-            t = self.type[1]
-        lst = []
-        for i in evt.lst:
-            lst.append(self.values[self.type[0]][t][i])
+        lst = evt.lst
         backup = self.PrepareBackup()
         if self.type[0] == 'contact':
             if ext in ['.vcf', '.ldif']:
@@ -1240,16 +1154,8 @@ class WammuFrame(wx.Frame):
             print 'Delete not yet implemented! (items to delete = %s, type = %s)' % (str(evt.lst), self.type[0])
             return
 
-        # get type
-        if self.type[1] == '  ':
-            t = '__'
-        else:
-            t = self.type[1]
+        lst = evt.lst
 
-        # create list of items to delete
-        lst = []
-        for i in evt.lst:
-            lst.append(self.values[self.type[0]][t][i])
         if len(lst) == 0:
             # nothing to delete
             return
@@ -1308,9 +1214,6 @@ class WammuFrame(wx.Frame):
                             break
             elif self.type[0] == 'todo':
                 busy = wx.BusyInfo(_('Deleting todo(s)...'))
-                lst = []
-                for i in evt.lst:
-                    lst.append(self.values[self.type[0]][t][i])
                 for v in lst:
                     self.sm.DeleteToDo(v['Location'])
                     for idx in range(len(self.values[self.type[0]]['  '])):
@@ -1331,9 +1234,7 @@ class WammuFrame(wx.Frame):
             finally:
                 self.ShowError(val[0])
 
-        if t == '__':
-            t = '  '
-        self.ActivateView(self.type[0], t)
+        self.ActivateView(self.type[0], self.type[1])
 
     def OnLink(self, evt):
         v = evt.link.split('://')

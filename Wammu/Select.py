@@ -46,15 +46,15 @@ def SelectNumber(parent, list):
     i = SelectContact(parent, list, True)
     if i == -1:
         return None
-    return SelectContactNumber(parent, list, i)
+    return SelectContactNumber(parent, list[i])
 
-def SelectContactNumber(parent, list, i):
+def SelectContactNumber(parent, item):
     numbers = []
     texts = []
-    for x in range(len(list[i]['Entries'])):
-        if Wammu.Utils.GetItemType(list[i]['Entries'][x]['Type']) == 'phone':
-            numbers.append(list[i]['Entries'][x]['Value'])
-            texts.append(StrConv(list[i]['Entries'][x]['Type'] + ' : ' + list[i]['Entries'][x]['Value']))
+    for x in range(len(item['Entries'])):
+        if Wammu.Utils.GetItemType(item['Entries'][x]['Type']) == 'phone':
+            numbers.append(item['Entries'][x]['Value'])
+            texts.append(StrConv(item['Entries'][x]['Type'] + ' : ' + item['Entries'][x]['Value']))
 
     if len(numbers) == 0:
         return None
