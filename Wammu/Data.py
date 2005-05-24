@@ -422,8 +422,8 @@ Conn_IrDA_Win = [
     'irdaphonet',
     ]
 Conn_IrDA_Other = [
-    'at19200',
     'irdaphonet',
+    'at19200',
     ]
 Conn_Bluetooth = [
     'bluerffbus',
