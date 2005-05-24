@@ -426,11 +426,11 @@ Conn_IrDA_Other = [
     'at19200',
     ]
 Conn_Bluetooth = [
+    'bluephonet',
+    'blueat',
+    'bluerfat',
     'bluerffbus',
     'bluerfphonet',
-    'bluephonet',
-    'bluerfat',
-    'blueat',
     ]
 if sys.platform == 'win32':
     Devices = [
