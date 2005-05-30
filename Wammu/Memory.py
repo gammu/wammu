@@ -33,7 +33,7 @@ class GetMemory(Wammu.Reader.Reader):
             # guess smaller values for calls, as this memory is usually much smaller
             return 40
         else:
-            return Wammu.Reader.Reader.FallBackStatus()
+            return Wammu.Reader.Reader.FallBackStatus(self)
 
     def GetStatus(self):
         status = self.sm.GetMemoryStatus(Type = self.type)
