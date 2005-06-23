@@ -321,7 +321,7 @@ def ParseMessage(msg, parseinfo = False):
     msg['Folder'] = msg['SMS'][0]['Folder']
     msg['State'] = msg['SMS'][0]['State']
     msg['Number'] = msg['SMS'][0]['Number']
-    msg['Name'] = StrConv(msg['SMS'][0]['Name'])
+    msg['Name'] = msg['SMS'][0]['Name']
     msg['DateTime'] = msg['SMS'][0]['DateTime']
     if parseinfo:
         for i in msg['SMSInfo']['Entries']:
