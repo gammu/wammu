@@ -585,7 +585,7 @@ class WammuFrame(wx.Frame):
                 f (*a)
 
     def ShowData(self, data):
-        text = ''
+        text = u''
         if data is not None:
             for d in data:
                 if len(d) == 2:
