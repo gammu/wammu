@@ -261,7 +261,8 @@ class TextNumber(TextEdit):
     """
     Text + Spin edit control
     """
-    def __init__(self, parent, text, value, min = 1, max = sys.maxint):
+    def __init__(self, parent, text, value, min = 1, max = 2147483647):
+        # there used to be sys.maxint, but it's too large on amd64 (or there is bug in wxPython)
         TextEdit.__init__(self, parent)
         self.PostInit(text, wx.SpinCtrl(self, -1, str(value), style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = min, max = max, initial = value))
 
