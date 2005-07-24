@@ -40,6 +40,15 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.attr2 = wx.ListItemAttr()
         self.attr2.SetBackgroundColour('light blue')
 
+        self.attr3 = wx.ListItemAttr()
+        fnt = self.attr3.GetFont()
+        fnt.SetStyle(wx.FONTSTYLE_ITALIC)
+        self.attr3.SetFont(fnt)
+
+        self.attr4 = wx.ListItemAttr()
+        self.attr4.SetBackgroundColour('light blue')
+        self.attr4.SetFont(fnt)
+
         il = wx.ImageList(16, 16)
         self.downarrow = il.Add(wx.Bitmap(MiscPath('downarrow')))
         self.uparrow = il.Add(wx.Bitmap(MiscPath('uparrow')))
@@ -55,7 +64,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def ShowHeaders(self):
         if self.type == 'info':
             self.columns = (_('Name'), _('Value'))
-            self.keys = (0, 1)
+            self.keys = ('Name', 'Value')
         elif self.type == 'contact':
             self.columns = ( _('Location'), _('Memory'), _('Name'), _('Number'))
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
@@ -351,9 +360,12 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         return StrConv(self.values[item][self.keys[col]])
 
     def OnGetItemAttr(self, item):
+        if self.values[item]['Synced']:
+            if item % 2 == 1:
+                return self.attr1
+            else:
+                return self.attr2
         if item % 2 == 1:
-            return self.attr1
+            return self.attr3
         else:
-            return self.attr2
-
-
+            return self.attr4

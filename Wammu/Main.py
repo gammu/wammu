@@ -73,7 +73,11 @@ displaydata['todo'] = {}
 displaydata['calendar'] = {}
 
 #information
-displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [[_('Wammu version'), Wammu.__version__], [_('Gammu version'), gammu.Version()[0]], [_('python-gammu version'), gammu.Version()[1]]])
+displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [
+    {'Name':_('Wammu version'), 'Value':Wammu.__version__, 'Synced': True},
+    {'Name':_('Gammu version'), 'Value':gammu.Version()[0], 'Synced': True},
+    {'Name':_('python-gammu version'), 'Value':gammu.Version()[1], 'Synced': True}
+    ])
 
 # calls
 displaydata['call']['  '] = ('info', _('Calls'), _('All Calls'), 'call', [])
@@ -602,7 +606,7 @@ class WammuFrame(wx.Frame):
         if data is None:
             return
         elif self.type == ['info','  ']:
-            data = [evt.data]
+            data = [(evt.data['Name'], evt.data['Value'])]
         elif self.type[0] == 'contact' or self.type[0] == 'call':
             data = [
                 (_('Location'), str(v['Location'])),
@@ -690,6 +694,7 @@ class WammuFrame(wx.Frame):
                         if info != None:
                             result['SMSInfo'] = info
                         Wammu.Utils.ParseMessage(result, (info != None))
+                        result['Synced'] = True
                         self.values['message'][result['State']].append(result)
 
                 except gammu.GSMError, val:
@@ -834,6 +839,9 @@ class WammuFrame(wx.Frame):
 
 
     def OnEdit(self, evt):
+        if evt.data != {} and not evt.data['Synced']:
+            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            return
         if self.type[0] == 'contact':
             self.EditContact(evt.data)
         elif self.type[0] == 'calendar':
@@ -881,6 +889,9 @@ class WammuFrame(wx.Frame):
             print 'Message send not yet implemented (type = %s)!' % self.type[0]
 
     def OnDuplicate(self, evt):
+        if evt.data != {} and not evt.data['Synced']:
+            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            return
         v = copy.deepcopy(evt.data)
         if self.type[0] == 'contact':
             v['Location'] = 0
@@ -898,6 +909,9 @@ class WammuFrame(wx.Frame):
 
 
     def OnSend(self, evt):
+        if evt.data != {} and not evt.data['Synced']:
+            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            return
         if self.type[0] == 'message':
             v = evt.data
             try:
@@ -1035,6 +1049,7 @@ class WammuFrame(wx.Frame):
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                         Wammu.Utils.ParseMemoryEntry(v)
+                        v['Synced'] = True
                         # append new value to list
                         self.values['contact'][v['MemoryType']].append(v)
                     self.ActivateView('contact', 'ME')
@@ -1044,6 +1059,7 @@ class WammuFrame(wx.Frame):
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                         Wammu.Utils.ParseMemoryEntry(v)
+                        v['Synced'] = True
                         # append new value to list
                         self.values['contact'][v['MemoryType']].append(v)
                     self.ActivateView('contact', 'SM')
@@ -1053,6 +1069,7 @@ class WammuFrame(wx.Frame):
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetToDo(v['Location'])
                         Wammu.Utils.ParseTodo(v)
+                        v['Synced'] = True
                         # append new value to list
                         self.values['todo']['  '].append(v)
                     self.ActivateView('todo', '  ')
@@ -1062,6 +1079,7 @@ class WammuFrame(wx.Frame):
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetCalendar(v['Location'])
                         Wammu.Utils.ParseCalendar(v)
+                        v['Synced'] = True
                         # append new value to list
                         self.values['calendar']['  '].append(v)
                     self.ActivateView('calendar', '  ')
