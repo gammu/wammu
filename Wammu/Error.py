@@ -54,9 +54,9 @@ def Handler(type, value, tback):
                 lasttrace = tr
         traceidtext = '%s(%s):%s' % (lasttrace[0][lasttrace[0].rfind('Wammu'):], lasttrace[2], lasttrace[3])
         traceid = md5.new(traceidtext).hexdigest()
-        tracetext = '\n%s\n' % (_('You can first search for simmilar bugs using %s') % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid))
+        tracetext = '\n%s\n' % (_('Before submiting please try searching for simmilar bugs on %s') % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid))
     except:
-        traceid = _('N/A')
+        traceid = 'N/A'
         tracetext = ''
 
     # unicode warning
