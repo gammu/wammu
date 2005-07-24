@@ -26,6 +26,7 @@ import traceback
 import sys
 import locale
 import md5
+from Wammu.Utils import Str_ as _
 
 # set later in Wammu.App to have correct parent here
 handlerparent = None
@@ -53,21 +54,21 @@ def Handler(type, value, tback):
                 lasttrace = tr
         traceidtext = '%s(%s):%s' % (lasttrace[0][lasttrace[0].rfind('Wammu'):], lasttrace[2], lasttrace[3])
         traceid = md5.new(traceidtext).hexdigest()
-        tracetext = '\nYou can first search for simmilar bugs using http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid
+        tracetext = '\n%s\n' % (_('You can first search for simmilar bugs using %s') % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid))
     except:
-        traceid = 'N/A'
+        traceid = _('N/A')
         tracetext = ''
 
     # unicode warning
     if type == UnicodeEncodeError:
-        unicodewarning =  '\nUnicode encoding error appeared, see question 1 in FAQ, how to solve this.\n'
+        unicodewarning =  '\n%s\n' % _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.')
     else:
         unicodewarning = ''
 
     # prepare message
-    text = """Unhandled exception appeared, program will be terminated.
+    text = """%s
 
-If you want to help improving this program, please submit following infomation and description how did it happen to http://bugs.cihar.com.
+%s
 %s%s
 --------------- System information ----------------
 Python       %s
@@ -81,10 +82,13 @@ locales      %s (%s)
 -------------------- Traceback --------------------
 %s-------------------- Exception --------------------
 %s---------------------------------------------------
-""" % (tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
+""" % (
+    _('Unhandled exception appeared.'),
+    _('If you want to help improving this program, please submit following infomation and description how did it happen to %s.') % 'http://bugs.cihar.com',
+    tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
 
     # display error
     try:
-        wx.lib.dialogs.ScrolledMessageDialog(handlerparent, text, 'Unhandled exception').ShowModal()
+        wx.lib.dialogs.ScrolledMessageDialog(handlerparent, text, _('Unhandled exception')).ShowModal()
     except:
         print text
