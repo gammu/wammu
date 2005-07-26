@@ -609,7 +609,7 @@ class WammuFrame(wx.Frame):
     def OnShow(self, evt):
         data = v = evt.data
         if data is None:
-            return
+            pass
         elif self.type == ['info','  ']:
             data = [(evt.data['Name'], evt.data['Value'])]
         elif self.type[0] == 'contact' or self.type[0] == 'call':
