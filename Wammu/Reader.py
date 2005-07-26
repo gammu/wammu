@@ -60,7 +60,11 @@ class Reader(Wammu.Thread.Thread):
                     break
 
                 self.Parse(value)
-                value['Synced'] = True
+                if type(value) == list:
+                    for i in range(len(value)):
+                        value[i]['Synced'] = True
+                else:
+                    value['Synced'] = True
                 data.append(value)
                 remain = remain - 1
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
