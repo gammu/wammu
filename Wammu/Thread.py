@@ -22,7 +22,6 @@ import sys
 import threading
 import wx
 import Wammu.Events
-import Wammu.Error
 from Wammu.Utils import Str_ as _
 
 class Thread(threading.Thread):
@@ -34,10 +33,11 @@ class Thread(threading.Thread):
 
     def run(self):
         try:
-            sys.excepthook = Wammu.Error.Handler
+            self.Run()
         except:
-            print _('Failed to set exception handler.')
-        self.Run()
+            evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
+            wx.PostEvent(self.win, evt)
+            self.ShowProgress(100)
 
     def Cancel(self):
         self.canceled = True

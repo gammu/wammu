@@ -31,6 +31,7 @@ import Wammu.Events
 import Wammu.Displayer
 import Wammu.Browser
 import Wammu.Editor
+import Wammu.Error
 import Wammu.Info
 import Wammu.Utils
 import Wammu.Message
@@ -139,6 +140,7 @@ class WammuFrame(wx.Frame):
         Wammu.Events.EVT_REPLY(self, self.OnReply)
         Wammu.Events.EVT_DELETE(self, self.OnDelete)
         Wammu.Events.EVT_BACKUP(self, self.OnBackup)
+        Wammu.Events.EVT_EXCEPTION(self, self.OnException)
 
         self.splitter = wx.SplitterWindow(self, -1)
         il = wx.ImageList(16, 16)
@@ -573,6 +575,9 @@ class WammuFrame(wx.Frame):
             del self.progress
         if hasattr(evt, 'lock'):
             evt.lock.release()
+
+    def OnException(self, evt):
+        Wammu.Error.Handler(*evt.data)
 
     def OnData(self, evt):
         self.values[evt.type[0]][evt.type[1]] = evt.data
