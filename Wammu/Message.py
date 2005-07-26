@@ -53,6 +53,7 @@ class GetMessage(Wammu.Reader.Reader):
             if v != None:
                 i['SMSInfo'] = v
             Wammu.Utils.ParseMessage(i, (v != None))
+            i['Synced'] = True
             if i['State'] == 'Read':
                 read.append(i)
             elif i['State'] == 'UnRead':
