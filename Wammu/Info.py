@@ -36,7 +36,7 @@ class GetInfo(Wammu.Thread.Thread):
 
         try:
             Manufacturer = self.sm.GetManufacturer()
-            data.append({'Name': _('Manufacturer'), 'Value': Manufacturer})
+            data.append({'Name': _('Manufacturer'), 'Value': Manufacturer, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -49,8 +49,8 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(1*100/progress)
         try:
             Model = self.sm.GetModel()
-            data.append({'Name': _('Model (Gammu identification)'), 'Value': Model[0]})
-            data.append({'Name': _('Model (real)'), 'Value': Model[1]})
+            data.append({'Name': _('Model (Gammu identification)'), 'Value': Model[0], 'Synced': True})
+            data.append({'Name': _('Model (real)'), 'Value': Model[1], 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -63,11 +63,11 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(2*100/progress)
         try:
             Firmware = self.sm.GetFirmware()
-            data.append({'Name': _('Firmware'), 'Value': Firmware[0]})
+            data.append({'Name': _('Firmware'), 'Value': Firmware[0], 'Synced': True})
             if Firmware[1] != '':
-                data.append({'Name': _('Firmware date'), 'Value': Firmware[1]})
+                data.append({'Name': _('Firmware date'), 'Value': Firmware[1], 'Synced': True})
             if Firmware[2] != 0.0:
-                data.append({'Name': _('Firmware (numeric)'), 'Value': str(Firmware[2])})
+                data.append({'Name': _('Firmware (numeric)'), 'Value': str(Firmware[2]), 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -80,7 +80,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(3*100/progress)
         try:
             IMEI = self.sm.GetIMEI()
-            data.append({'Name': _('Serial number (IMEI)'), 'Value': IMEI})
+            data.append({'Name': _('Serial number (IMEI)'), 'Value': IMEI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -93,7 +93,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(4*100/progress)
         try:
             OriginalIMEI = self.sm.GetOriginalIMEI()
-            data.append({'Name': _('Original IMEI'), 'Value': OriginalIMEI})
+            data.append({'Name': _('Original IMEI'), 'Value': OriginalIMEI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -106,7 +106,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(5*100/progress)
         try:
             ProductCode = self.sm.GetProductCode()
-            data.append({'Name': _('Product code'), 'Value': ProductCode})
+            data.append({'Name': _('Product code'), 'Value': ProductCode, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -119,7 +119,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(6*100/progress)
         try:
             SIMIMSI = self.sm.GetSIMIMSI()
-            data.append({'Name': _('SIM IMSI'), 'Value': SIMIMSI})
+            data.append({'Name': _('SIM IMSI'), 'Value': SIMIMSI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -132,7 +132,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(7*100/progress)
         try:
             SMSC = self.sm.GetSMSC()
-            data.append({'Name': _('SMSC'), 'Value': SMSC['Number']})
+            data.append({'Name': _('SMSC'), 'Value': SMSC['Number'], 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -145,7 +145,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(8*100/progress)
         try:
             info = self.sm.GetHardware()
-            data.append({'Name': _('Hardware'), 'Value': info})
+            data.append({'Name': _('Hardware'), 'Value': info, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -158,7 +158,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(9*100/progress)
         try:
             info = self.sm.GetManufactureMonth()
-            data.append({'Name': _('Manufacture month'), 'Value': info})
+            data.append({'Name': _('Manufacture month'), 'Value': info, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
@@ -171,7 +171,7 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(10*100/progress)
         try:
             info = self.sm.GetPPM()
-            data.append({'Name': _('Language packs in phone'), 'Value': info})
+            data.append({'Name': _('Language packs in phone'), 'Value': info, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
