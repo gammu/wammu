@@ -740,6 +740,7 @@ class WammuFrame(wx.Frame):
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                 Wammu.Utils.ParseMemoryEntry(v)
+                v['Synced'] = True
                 # append new value to list
                 self.values['contact'][v['MemoryType']].append(v)
 
@@ -788,6 +789,7 @@ class WammuFrame(wx.Frame):
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 v = self.sm.GetCalendar(v['Location'])
                 Wammu.Utils.ParseCalendar(v)
+                v['Synced'] = True
                 # append new value to list
                 self.values['calendar']['  '].append(v)
 
@@ -829,6 +831,7 @@ class WammuFrame(wx.Frame):
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 v = self.sm.GetToDo(v['Location'])
                 Wammu.Utils.ParseTodo(v)
+                v['Synced'] = True
                 # append new value to list
                 self.values['todo']['  '].append(v)
             except gammu.GSMError, val:
