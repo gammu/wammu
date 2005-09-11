@@ -1,20 +1,19 @@
 #!/usr/bin/make -f
 
 #export DH_VERBOSE=1
-export DH_COMPAT=3
 
 build: build-stamp
 
 build-stamp:
 	dh_testdir
-	SKIPWXCHECK=yes /usr/bin/python2.3 setup.py build
+	SKIPWXCHECK=yes SKIPGAMMUCHECK=yes /usr/bin/python setup.py build
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp 
-	SKIPWXCHECK=yes /usr/bin/python2.3 setup.py clean
+	SKIPWXCHECK=yes SKIPGAMMUCHECK=yes /usr/bin/python setup.py clean
 	rm -rf build 
 	rm `find . -name '*.pyc'`
 	dh_clean
@@ -24,15 +23,14 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	SKIPWXCHECK=yes /usr/bin/python2.3 setup.py install --no-compile --prefix $(CURDIR)/debian/wammu/usr
+	SKIPWXCHECK=yes SKIPGAMMUCHECK=yes /usr/bin/python setup.py install --no-compile --prefix $(CURDIR)/debian/wammu/usr
 
 binary-indep: build install
 	dh_testdir
 	dh_testroot
+	dh_installchangelogs
 	dh_installdocs AUTHORS README FAQ NEWS
 	dh_installmenu
-	install -d debian/wammu/usr/share/bug/wammu
-	install -m644 debian/bug.control debian/wammu/usr/share/bug/wammu/control
 	dh_strip
 	dh_compress
 	dh_fixperms
