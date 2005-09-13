@@ -281,11 +281,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         menu.Append(self.popupIDDelete,     _('Delete current'))
         menu.Append(self.popupIDDeleteSel,  _('Delete selected'))
 
-        if self.type != 'message':
-            menu.AppendSeparator()
-            menu.Append(self.popupIDBackupOne,  _('Backup current'))
-            menu.Append(self.popupIDBackupSel,  _('Backup selected'))
-            menu.Append(self.popupIDBackupAll,  _('Backup all'))
+        menu.AppendSeparator()
+        menu.Append(self.popupIDBackupOne,  _('Backup current'))
+        menu.Append(self.popupIDBackupSel,  _('Backup selected'))
+        menu.Append(self.popupIDBackupAll,  _('Backup all'))
 
         # Popup the menu.  If an item is selected then its handler
         # will be called before PopupMenu returns.

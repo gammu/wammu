@@ -223,10 +223,12 @@ class WammuFrame(wx.Frame):
 
         menu1 = wx.Menu()
         menu1.Append(100, _('&Write data'), _('Writes data to file'))
-        menu1.Append(101, _('&Read data'), _('Reads data from file (does not import to the phone)'))
+        menu1.Append(101, _('W&rite SMS data'), _('Writes SMS data to file'))
+        menu1.Append(102, _('&Read data'), _('Reads data from file (does not import to the phone)'))
+        menu1.Append(103, _('R&ead SMS data'), _('Reads SMS data from file (does not import to the phone)'))
         menu1.AppendSeparator()
-        menu1.Append(150, _('&SearchPhone'), _('Search for phone'))
-        menu1.Append(151, _('&Settings'), _('Change Wammu settings'))
+        menu1.Append(150, _('&Search phone'), _('Search for phone'))
+        menu1.Append(151, _('Se&ttings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
         menu1.Append(199, _('E&xit'), _('Exit Wammu'))
         # Add menu to the menu bar
@@ -266,8 +268,10 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu4, _('&New'))
 
         menu5 = wx.Menu()
-        menu5.Append(501, _('&Save'), _('Saves currently retrieved data to backup'))
-        menu5.Append(502, _('&Import'), _('Imports data from backup to phone'))
+        menu5.Append(501, _('&Save'), _('Saves currently retrieved data (except SMS) to backup'))
+        menu5.Append(502, _('S&ave SMS'), _('Saves currently retrieved SMS to backup'))
+        menu5.Append(503, _('&Import'), _('Imports data from backup to phone'))
+        menu5.Append(504, _('I&mport SMS'), _('Imports SMS data from backup to phone'))
         # Add menu to the menu bar
         self.menuBar.Append(menu5, _('&Backups'))
 
@@ -281,7 +285,9 @@ class WammuFrame(wx.Frame):
 
         # menu events
         wx.EVT_MENU(self, 100, self.WriteData)
-        wx.EVT_MENU(self, 101, self.ReadData)
+        wx.EVT_MENU(self, 101, self.WriteSMSData)
+        wx.EVT_MENU(self, 102, self.ReadData)
+        wx.EVT_MENU(self, 103, self.ReadSMSData)
         wx.EVT_MENU(self, 150, self.SearchPhone)
         wx.EVT_MENU(self, 151, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
@@ -305,7 +311,9 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 404, self.NewMessage)
 
         wx.EVT_MENU(self, 501, self.Backup)
-        wx.EVT_MENU(self, 502, self.Import)
+        wx.EVT_MENU(self, 502, self.BackupSMS)
+        wx.EVT_MENU(self, 503, self.Import)
+        wx.EVT_MENU(self, 504, self.ImportSMS)
 
         wx.EVT_MENU(self, 1001, self.About)
 
@@ -935,22 +943,25 @@ class WammuFrame(wx.Frame):
 
     def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''
-        if not save:
-            wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
+        if type == 'message':
+            wildcard +=  _('Gammu SMS backup') + ' (*.smsbackup)|*.smsbackup|'
+        else:
+            if not save:
+                wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
 
-        wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
+            wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
 
-        if not data:
-            if type in ['contact', '']:
-                wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
-            if type in ['contact', '']:
-                wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
-            if type in ['contact', '']:
-                wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
-            if type in ['todo', 'calendar', '']:
-                wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
-            if type in ['todo', 'calendar', '']:
-                wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
+            if not data:
+                if type in ['contact', 'all']:
+                    wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
+                if type in ['contact', 'all']:
+                    wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
+                if type in ['contact', 'all']:
+                    wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
+                if type in ['todo', 'calendar', 'all']:
+                    wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
+                if type in ['todo', 'calendar', 'all']:
+                    wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
 
         wildcard += _('All files') + ' (*.*)|*.*;*'
 
@@ -969,12 +980,15 @@ class WammuFrame(wx.Frame):
             return path
         return None
 
-    def ReadBackup(self, data = False):
-        filename = self.SelectBackupFile('', save = False, data = data)
+    def ReadBackup(self, type, data = False):
+        filename = self.SelectBackupFile(type, save = False, data = data)
         if filename == None:
             return (None, None)
         try:
-            backup = gammu.ReadBackup(filename)
+            if type == 'message':
+                backup = gammu.ReadSMSBackup(filename)
+            else:
+                backup = gammu.ReadBackup(filename)
         except gammu.GSMError, val:
             info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
@@ -986,7 +1000,7 @@ class WammuFrame(wx.Frame):
         return (filename, backup)
 
     def ReadData(self, evt):
-        (filename, backup) = self.ReadBackup(True)
+        (filename, backup) = self.ReadBackup('all', True)
         if backup == None:
             return
 
@@ -999,10 +1013,86 @@ class WammuFrame(wx.Frame):
         if len(backup['Calendar']) > 0:
             self.values['calendar']['  '] = map(Wammu.Utils.ParseCalendar, backup['Calendar'])
 
+        self.ActivateView('contact', '  ')
+
         self.SetStatusText(_('Data has been read from file "%s"') % filename)
 
+    def ReadSMSData(self, evt):
+        (filename, backup) = self.ReadBackup('message', True)
+        if backup == None:
+            return
+
+        res = Wammu.Utils.ProcessMessages(map(lambda x:[x], backup), False)
+
+        self.values['message']['Sent'] = res['sent']
+        self.values['message']['UnSent'] = res['unsent']
+        self.values['message']['Read'] = res['read']
+        self.values['message']['UnRead'] = res['unread']
+
+        self.ActivateView('message', '  ')
+
+        self.SetStatusText(_('Data has been read from file "%s"') % filename)
+
+    def ImportSMS(self, evt):
+        (filename, backup) = self.ReadBackup('message')
+        if backup == None:
+            return
+        choices = []
+        values = []
+        if len(backup) > 0:
+            values.append('message')
+            choices.append(_('%d messages') % len(backup))
+
+        if len(values) == 0:
+            wx.MessageDialog(self,
+                _('No importable data were found in file "%s"') % filename,
+                _('No data to import'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+            return
+
+        dlg = wx.lib.dialogs.MultipleChoiceDialog(self, _('Following data was found in backup, select which of these do you want to be added into phone.'), _('Select what to import'),
+                                    choices,style = wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
+                                    size = (600, 200))
+        if dlg.ShowModal() != wx.ID_OK:
+            return
+
+        lst = dlg.GetValue()
+        if len(lst) == 0:
+            return
+
+        try:
+            busy = wx.BusyInfo(_('Importing data...'))
+            for i in lst:
+                datatype = values[i]
+                if datatype == 'message':
+                    smsl = []
+                    for v in backup:
+                        v['Folder'] = 2 # FIXME: this should be configurable
+                        v['SMSC']['Location'] = 1
+                        v['Location'] = self.sm.AddSMS(v)
+                        # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
+                        v = self.sm.GetSMS(v['Folder'], v['Location'])
+                        smsl.append(v)
+
+                    res = Wammu.Utils.ProcessMessages(smsl, True)
+
+                    self.values['message']['Sent'] +=  res['sent']
+                    self.values['message']['UnSent'] +=  res['unsent']
+                    self.values['message']['Read'] +=  res['read']
+                    self.values['message']['UnRead'] +=  res['unread']
+
+                    self.ActivateView('message', '  ')
+
+        except gammu.GSMError, val:
+            self.ShowError(val[0])
+
+        wx.MessageDialog(self,
+            _('Backup has been imported from file "%s"') % filename,
+            _('Backup imported'),
+            wx.OK | wx.ICON_INFORMATION).ShowModal()
+
     def Import(self, evt):
-        (filenameme, backup) = self.ReadBackup()
+        (filename, backup) = self.ReadBackup('all')
         if backup == None:
             return
         choices = []
@@ -1100,10 +1190,16 @@ class WammuFrame(wx.Frame):
             wx.OK | wx.ICON_INFORMATION).ShowModal()
 
     def WriteData(self, evt):
-        self.DoBackup(True)
+        self.DoBackup(True, 'all')
+
+    def WriteSMSData(self, evt):
+        self.DoBackup(True, 'message')
 
     def Backup(self, evt):
-        self.DoBackup(False)
+        self.DoBackup(False, 'all')
+
+    def BackupSMS(self, evt):
+        self.DoBackup(False, 'message')
 
     def PrepareBackup(self):
         backup = {}
@@ -1112,9 +1208,17 @@ class WammuFrame(wx.Frame):
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
         return backup
 
-    def WriteBackup(self, filename, backup, data = False):
+    def WriteBackup(self, filename, type, backup, data = False):
         try:
-            gammu.SaveBackup(filename, backup)
+            if type == 'message':
+                # Backup is here our internal SMS list: [{'SMS':[{sms1}, {sms2}]}, ...]
+                data = map(lambda x:x['SMS'], backup)
+                backup = []
+                for x in data:
+                    backup += x
+                gammu.SaveSMSBackup(filename, backup)
+            else:
+                gammu.SaveBackup(filename, backup)
             if data:
                 self.SetStatusText(_('Backup has been saved to file "%s"') % filename)
             else:
@@ -1127,23 +1231,26 @@ class WammuFrame(wx.Frame):
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
 
-    def DoBackup(self, data):
-        filename = self.SelectBackupFile('', data = data)
+    def DoBackup(self, data, type):
+        filename = self.SelectBackupFile(type, data = data)
         if filename == None:
             return
         ext = os.path.splitext(filename)[1].lower()
 
-        backup = self.PrepareBackup()
-        if ext in ['.vcf', '.ldif']:
-            # these support only one phonebook, so merged it
-            backup['PhonePhonebook'] = self.values['contact']['ME'] + self.values['contact']['SM']
+        if type == 'message':
+            backup = self.values['message']['Read'] + self.values['message']['UnRead'] + self.values['message']['Sent'] +  self.values['message']['UnSent']
         else:
-            backup['PhonePhonebook'] = self.values['contact']['ME']
-            backup['SIMPhonebook'] = self.values['contact']['SM']
+            backup = self.PrepareBackup()
+            if ext in ['.vcf', '.ldif']:
+                # these support only one phonebook, so merged it
+                backup['PhonePhonebook'] = self.values['contact']['ME'] + self.values['contact']['SM']
+            else:
+                backup['PhonePhonebook'] = self.values['contact']['ME']
+                backup['SIMPhonebook'] = self.values['contact']['SM']
 
-        backup['ToDo'] = self.values['todo']['  ']
-        backup['Calendar'] = self.values['calendar']['  ']
-        self.WriteBackup(filename, backup, data)
+            backup['ToDo'] = self.values['todo']['  ']
+            backup['Calendar'] = self.values['calendar']['  ']
+        self.WriteBackup(filename, type, backup, data)
 
 
     def OnBackup(self, evt):
@@ -1152,27 +1259,30 @@ class WammuFrame(wx.Frame):
             return
         ext = os.path.splitext(filename)[1].lower()
         lst = evt.lst
-        backup = self.PrepareBackup()
-        if self.type[0] == 'contact':
-            if ext in ['.vcf', '.ldif']:
-                # these support only one phonebook, so keep it merged
-                backup['PhonePhonebook'] = lst
-            else:
-                sim = []
-                phone = []
-                for item in lst:
-                    if item['MemoryType'] == 'SM':
-                        sim.append(item)
-                    elif  item['MemoryType'] == 'ME':
-                        phone.append(item)
-                backup['PhonePhonebook'] = phone
-                backup['SIMPhonebook'] = sim
-        elif self.type[0] == 'todo':
-            backup['ToDo'] = lst
-        elif self.type[0] == 'calendar':
-            backup['Calendar'] = lst
+        if self.type[0] == 'message':
+            backup = lst
+        else:
+            backup = self.PrepareBackup()
+            if self.type[0] == 'contact':
+                if ext in ['.vcf', '.ldif']:
+                    # these support only one phonebook, so keep it merged
+                    backup['PhonePhonebook'] = lst
+                else:
+                    sim = []
+                    phone = []
+                    for item in lst:
+                        if item['MemoryType'] == 'SM':
+                            sim.append(item)
+                        elif  item['MemoryType'] == 'ME':
+                            phone.append(item)
+                    backup['PhonePhonebook'] = phone
+                    backup['SIMPhonebook'] = sim
+            elif self.type[0] == 'todo':
+                backup['ToDo'] = lst
+            elif self.type[0] == 'calendar':
+                backup['Calendar'] = lst
 
-        self.WriteBackup(filename, backup)
+        self.WriteBackup(filename, self.type[0], backup)
 
     def OnDelete(self, evt):
         # first check on supported types

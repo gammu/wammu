@@ -23,6 +23,8 @@ import codecs
 import locale
 import sys
 import re
+import gammu
+import string
 
 fallbacklocalecharset = 'iso-8859-1'
 
@@ -337,10 +339,44 @@ def ParseMessage(msg, parseinfo = False):
         if loc != '':
             loc = loc + ', '
         loc = loc + str(i['Location'])
-    msg['Text'] = txt
+    try:
+        tmp = StrConv(txt)
+        msg['Text'] = txt
+    except:
+        s2 = ''
+        for x in txt:
+            if x in string.printable:
+                s2 += x
+        msg['Text'] = s2
     msg['Location'] = loc
     msg['Synced'] = False
     return msg
+
+def ProcessMessages(list, synced):
+    read = []
+    unread = []
+    sent = []
+    unsent = []
+    data = gammu.LinkSMS(list)
+
+    for x in data:
+        i = {}
+        v = gammu.DecodeSMS(x)
+        i['SMS'] = x
+        if v != None:
+            i['SMSInfo'] = v
+        ParseMessage(i, (v != None))
+        i['Synced'] = synced
+        if i['State'] == 'Read':
+            read.append(i)
+        elif i['State'] == 'UnRead':
+            unread.append(i)
+        elif i['State'] == 'Sent':
+            sent.append(i)
+        elif i['State'] == 'UnSent':
+            unsent.append(i)
+
+    return {'read':read, 'unread':unread, 'sent':sent, 'unsent':unsent}
 
 def FormatError(txt, info):
     _ = Str_

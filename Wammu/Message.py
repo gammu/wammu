@@ -40,30 +40,8 @@ class GetMessage(Wammu.Reader.Reader):
         return
 
     def Send(self, data):
-        read = []
-        unread = []
-        sent = []
-        unsent = []
-        data = gammu.LinkSMS(data)
-
-        for x in data:
-            i = {}
-            v = gammu.DecodeSMS(x)
-            i['SMS'] = x
-            if v != None:
-                i['SMSInfo'] = v
-            Wammu.Utils.ParseMessage(i, (v != None))
-            i['Synced'] = True
-            if i['State'] == 'Read':
-                read.append(i)
-            elif i['State'] == 'UnRead':
-                unread.append(i)
-            elif i['State'] == 'Sent':
-                sent.append(i)
-            elif i['State'] == 'UnSent':
-                unsent.append(i)
-
-        self.SendData(['message', 'Read'], read, False)
-        self.SendData(['message', 'UnRead'], unread, False)
-        self.SendData(['message', 'Sent'], sent, False)
-        self.SendData(['message', 'UnSent'], unsent)
+        res = Wammu.Utils.ProcessMessages(data, True)
+        self.SendData(['message', 'Read'], res['read'], False)
+        self.SendData(['message', 'UnRead'], res['unread'], False)
+        self.SendData(['message', 'Sent'], res['sent'], False)
+        self.SendData(['message', 'UnSent'], res['unsent'])
