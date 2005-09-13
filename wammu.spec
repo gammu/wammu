@@ -2,7 +2,7 @@
 %define version 0.10.1
 %define release 1
 
-%define python_gammu_req 0.8
+%define python_gammu_req 0.9
 
 Summary:        Mobile phone manager
 Name:           %{name}
