@@ -425,6 +425,9 @@ Conn_IrDA_Other = [
     'irdaphonet',
     'at19200',
     ]
+Conn_BlueRF = [
+    'at19200',
+    ]
 Conn_Bluetooth = [
     'bluephonet',
     'blueat',
@@ -457,6 +460,7 @@ else:
         (Conn_Cable, '/dev/ttyS%d', (0, 3)),
         (Conn_Cable, '/dev/ttyUSB%d', (0, 3)),
         (Conn_Cable, '/dev/ttyACM%d', (0, 3)),
+        (Conn_BlueRF, '/dev/rfrcomm%d', (0, 1)),
         (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1)),
         (Conn_Cable, '/dev/usb/tts/%d', (0, 3)),
         ]
