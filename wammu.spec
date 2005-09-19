@@ -4,6 +4,13 @@
 
 %define python_gammu_req 0.9
 
+%if %{!?py_ver:1}0 == 10
+%define py_ver                 %(python -c "import sys; v=sys.version_info[:2]; print '%%d.%%d'%%v" 2>/dev/null || echo PYTHON-NOT-FOUND)}
+%endif
+
+%define py_minver %py_ver
+%define py_maxver %(python -c "import sys; a,b=sys.version_info[:2]; print '%%d.%%d'%%(a,b+1)" 2>/dev/null || echo PYTHON-NOT-FOUND) 
+
 Summary:        Mobile phone manager
 Name:           %{name}
 Version:        %{version}
@@ -22,9 +29,8 @@ Prefix:         %{_prefix}
 # /usr/bin/pycrust is here for make vendor independant dependancy on wxPython.
 # If you know better way, please let me know.
 Requires:       /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
-BuildRequires:  /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
-
-%py_requires -d
+BuildRequires:  /usr/bin/pycrust, python-gammu >= %{python_gammu_req}, python, python-devel
+Requires:       python >= %py_minver, python < %py_maxver
 
 Url:        http://www.cihar.com/gammu/wammu
 Buildroot:  %{_tmppath}/%name-%version-root
