@@ -691,7 +691,7 @@ class WammuFrame(wx.Frame):
                         msg['State'] = v['State']
 
                         if v['Save']:
-                            msg['Location'] = self.sm.AddSMS(msg)
+                            (msg['Location'], msg['Folder']) = self.sm.AddSMS(msg)
                             if v['Send']:
                                 try:
                                     msg['MessageReference'] = self.sm.SendSavedSMS(msg['Folder'], msg['Location'])
@@ -1069,7 +1069,7 @@ class WammuFrame(wx.Frame):
                     for v in backup:
                         v['Folder'] = 2 # FIXME: this should be configurable
                         v['SMSC']['Location'] = 1
-                        v['Location'] = self.sm.AddSMS(v)
+                        (v['Location'], v['Folder']) = self.sm.AddSMS(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetSMS(v['Folder'], v['Location'])
                         smsl.append(v)
