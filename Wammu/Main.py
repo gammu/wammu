@@ -628,7 +628,7 @@ class WammuFrame(wx.Frame):
                 s = Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)
                 try:
                     if i['VoiceTag']:
-                        s += ', ' + _('voice tag set')
+                        s += ', ' + (_('voice tag %x') % i['VoiceTag'])
                 except:
                     pass
                 data.append((i['Type'], s))

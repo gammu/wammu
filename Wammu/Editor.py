@@ -270,7 +270,7 @@ class OneEdit(wx.Panel):
     """
     Text + Combo + editor for type specified by combo value
     """
-    def __init__(self, parent, text, type, choices, value, values, config):
+    def __init__(self, parent, text, type, choices, value, voicetag, values, config):
         wx.Panel.__init__(self, parent, -1)
         self.values = values
         self.config = config
@@ -284,13 +284,13 @@ class OneEdit(wx.Panel):
             (self.text,   0, wx.ALL),
             (self.combo,  1, wx.ALL),
             ])
-        self.CreateEdit(type, value)
+        self.CreateEdit(type, value, voicetag)
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
         wx.EVT_TEXT(self.combo, self.combo.GetId(), self.OnChange)
 
-    def CreateEdit(self, newtype, value = None):
+    def CreateEdit(self, newtype, value = None, voicetag = 0):
         if value == None and hasattr(self, 'edit'):
             value = self.edit.GetValue()
 
@@ -317,7 +317,13 @@ class OneEdit(wx.Panel):
             self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
         elif newt == 'phone':
             self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (150, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
-            self.edit2 = wx.CheckBox(self, -1, _('voice'), size = (50, -1))
+            try:
+                v = hex(voicetag)
+            except:
+                val = '0x0'
+            if v[-1] == 'L':
+                v = v[:-1]
+            self.edit2 = wx.TextCtrl(self, -1, v, size = (50, -1))
         elif newt == 'bool':
             try:
                 val = bool(value)
@@ -382,8 +388,8 @@ class OneEdit(wx.Panel):
     def GetVoiceTag(self):
         t = Wammu.Utils.GetItemType(self.type)
         if t == 'phone':
-            return self.edit2.GetValue()
-        return False
+            return int(self.edit2.GetValue(), 16)
+        return 0
 
     def GetType(self):
         return self.combo.GetValue()
@@ -463,12 +469,12 @@ class GenericEditor(wx.Dialog):
         x = 0
         if wasempty:
             for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries', 3)):
-                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '', self.values, self.cfg)
+                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '', 0, self.values, self.cfg)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
         else:
             for i in entry['Entries']:
-                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], self.values, self.cfg)
+                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], i['VoiceTag'], self.values, self.cfg)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
                 x = x + 1
@@ -492,7 +498,7 @@ class GenericEditor(wx.Dialog):
     def More(self, evt):
         self.sizer.Remove(len(self.edits) + 2)
 
-        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '', self.values, self.cfg)
+        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '', 0, self.values, self.cfg)
         self.edits.append(e)
 
         self.sizer.AddMany([
