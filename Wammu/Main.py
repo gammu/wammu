@@ -625,7 +625,13 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Memory type'), v['MemoryType'])]
             for i in v['Entries']:
-                data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)))
+                s = Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)
+                try:
+                    if i['VoiceTag']:
+                        s += ', ' + _('voice tag set')
+                except:
+                    pass
+                data.append((i['Type'], s))
         elif self.type[0] == 'message':
             data = [
                 (_('Number'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['Number'])),

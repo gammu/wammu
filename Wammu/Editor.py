@@ -316,7 +316,8 @@ class OneEdit(wx.Panel):
         if newt == 'text' or newt == None:
             self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
         elif newt == 'phone':
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
+            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (150, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
+            self.edit2 = wx.CheckBox(self, -1, _('voice'), size = (50, -1))
         elif newt == 'bool':
             try:
                 val = bool(value)
@@ -377,6 +378,12 @@ class OneEdit(wx.Panel):
             return UnicodeConv(self.edit.GetValue())
         else:
             return self.edit.GetValue()
+
+    def GetVoiceTag(self):
+        t = Wammu.Utils.GetItemType(self.type)
+        if t == 'phone':
+            return self.edit2.GetValue()
+        return False
 
     def GetType(self):
         return self.combo.GetValue()
@@ -504,7 +511,7 @@ class GenericEditor(wx.Dialog):
         for x in self.edits:
             t = x.GetType()
             if t != '':
-                v.append({'Type' : t, 'Value' : x.GetValue()})
+                v.append({'Type' : t, 'Value' : x.GetValue(), 'VoiceTag' : x.GetVoiceTag()})
 
         self.entry['Entries'] = v
         self.entry[self.type] = self.typeedit.GetValue()
