@@ -88,13 +88,15 @@ class Reader(Wammu.Thread.Thread):
                 except gammu.ERR_EMPTY:
                     empty = empty + 1
                     # If we didn't know count and saw many empty entries, stop right now
-                    if empty >= 20 and guess:
+                    if empty >= 50 and guess:
                         break
                     pass
-                except gammu.GSMError, val:
-                    self.ShowError(val[0], True)
-                    return
                 location = location + 1
+        except gammu.ERR_INVALIDLOCATION:
+            # if we reached end with guess, it is okay
+            if !guess:
+                self.ShowError(val[0], True)
+                return
         except gammu.GSMError, val:
             self.ShowError(val[0], True)
             return
