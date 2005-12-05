@@ -94,7 +94,7 @@ class Reader(Wammu.Thread.Thread):
                 location = location + 1
         except gammu.ERR_INVALIDLOCATION:
             # if we reached end with guess, it is okay
-            if !guess:
+            if not guess:
                 self.ShowError(val[0], True)
                 return
         except gammu.GSMError, val:
