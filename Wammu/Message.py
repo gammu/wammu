@@ -20,7 +20,9 @@ Message reader
 
 import Wammu.Reader
 import Wammu.Utils
-import gammu
+import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 
 class GetMessage(Wammu.Reader.Reader):
     def GetStatus(self):

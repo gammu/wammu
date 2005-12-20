@@ -28,7 +28,8 @@ import Wammu.MessageDisplay
 import Wammu.Utils
 import Wammu.PhoneValidator
 import Wammu.Select
-import gammu
+if Wammu.gammu_error == None:
+    import gammu
 import locale
 from Wammu.Utils import UnicodeConv, Str_ as _
 

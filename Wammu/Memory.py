@@ -20,7 +20,9 @@ Memory reader
 
 import Wammu.Reader
 import Wammu.Utils
-import gammu
+import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 
 class GetMemory(Wammu.Reader.Reader):
     def __init__(self, win, sm, datatype, type):

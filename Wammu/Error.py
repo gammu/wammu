@@ -19,9 +19,10 @@ Unexpected exception handler
 '''
 
 import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 import wx
 import wx.lib.dialogs
-import gammu
 import traceback
 import sys
 import locale

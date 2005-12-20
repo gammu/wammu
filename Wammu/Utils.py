@@ -23,8 +23,11 @@ import codecs
 import locale
 import sys
 import re
-import gammu
 import string
+
+import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 
 fallbacklocalecharset = 'iso-8859-1'
 

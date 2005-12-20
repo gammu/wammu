@@ -20,13 +20,19 @@ Main Wammu window
 
 import wx
 import wx.html
-import gammu
 import sys
+
 import os
 import os.path
 import datetime
 import copy
 import Wammu
+
+try:
+    import gammu
+except SystemError, err:
+    Wammu.gammu_error = err
+
 import Wammu.Events
 import Wammu.Displayer
 import Wammu.Browser
@@ -76,9 +82,10 @@ displaydata['calendar'] = {}
 #information
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [
     {'Name':_('Wammu version'), 'Value':Wammu.__version__, 'Synced': True},
-    {'Name':_('Gammu version'), 'Value':gammu.Version()[0], 'Synced': True},
-    {'Name':_('python-gammu version'), 'Value':gammu.Version()[1], 'Synced': True}
     ])
+if Wammu.gammu_error == None:
+    displaydata['info']['  '][4].append({'Name':_('Gammu version'), 'Value':gammu.Version()[0], 'Synced': True})
+    displaydata['info']['  '][4].append({'Name':_('python-gammu version'), 'Value':gammu.Version()[1], 'Synced': True})
 
 # calls
 displaydata['call']['  '] = ('info', _('Calls'), _('All Calls'), 'call', [])
@@ -325,7 +332,8 @@ class WammuFrame(wx.Frame):
         self.TimerId = wx.NewId()
 
         # create state machine
-        self.sm = gammu.StateMachine()
+        if Wammu.gammu_error == None:
+            self.sm = gammu.StateMachine()
 
         # initialize variables
         self.showdebug = ''
@@ -336,6 +344,13 @@ class WammuFrame(wx.Frame):
 
 
     def PostInit(self):
+        if Wammu.gammu_error != None:
+            wx.MessageDialog(self,
+                _('Wammu could not import gammu module, program will be terminated.\n\nThe import failed with following error:\n\n%s') % Wammu.gammu_error,
+                _('Gammu module not working!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            sys.exit()
+
         # things that need window opened
         self.ActivateView('info', '  ')
         if not self.cfg.HasGroup('/Gammu'):

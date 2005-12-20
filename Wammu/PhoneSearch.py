@@ -19,10 +19,11 @@ Searching for phone
 '''
 
 import wx
-import gammu
 import threading
 import os.path
 import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 import Wammu.Data
 import Wammu.Events
 import wxPython.lib.layoutf

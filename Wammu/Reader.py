@@ -19,7 +19,9 @@ Generic reader class
 '''
 
 import Wammu.Thread
-import gammu
+import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 
 class Reader(Wammu.Thread.Thread):
     def FallBackStatus(self):

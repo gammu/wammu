@@ -20,7 +20,9 @@ Calendar reader
 
 import Wammu.Reader
 import Wammu.Utils
-import gammu
+import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 
 class GetCalendar(Wammu.Reader.Reader):
     def GetStatus(self):

@@ -20,7 +20,9 @@ Ringtone displaying and playing
 
 import wx
 import Wammu.Data
-import gammu
+import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 import os
 import thread
 import commands

@@ -23,8 +23,9 @@ import wx
 import wx.html
 import wx.lib.wxpTag
 import sys
-import gammu
 import Wammu
+if Wammu.gammu_error == None:
+    import gammu
 import Wammu.Utils
 from Wammu.Paths import *
 from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
@@ -38,7 +39,8 @@ else:
         copyrightline = 'Copyright (c) 2003 - 2005 Michal Cihar'
     head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
 
-text = '''
+if Wammu.gammu_error == None:
+    text = '''
 <html>
 %s
 <body>

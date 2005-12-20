@@ -19,7 +19,8 @@ Phone information reader
 '''
 
 import Wammu.Thread
-import gammu
+if Wammu.gammu_error == None:
+    import gammu
 from Wammu.Utils import Str_ as _
 
 class GetInfo(Wammu.Thread.Thread):
