@@ -19,6 +19,6 @@
 Wammu modules
 """
 
-__version__ = '0.11'
+__version__ = '0.12'
 
 gammu_error = None
