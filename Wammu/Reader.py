@@ -93,6 +93,9 @@ class Reader(Wammu.Thread.Thread):
                     if empty >= 50 and guess:
                         break
                     pass
+                except gammu.GSMError, val:
+                    self.ShowError(val[0], True)
+                    return
                 location = location + 1
         except gammu.ERR_INVALIDLOCATION:
             # if we reached end with guess, it is okay
