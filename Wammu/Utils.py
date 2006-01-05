@@ -383,7 +383,16 @@ def ProcessMessages(list, synced):
 
 def FormatError(txt, info):
     _ = Str_
-    return StrConv(txt + ('\n\n%s %s\n%s %s\n%s %d' %
-        (_('Description:'), StrConv(info['Text']),
-        _('Function:'), StrConv(info['Where']),
-        _('Error code:'), info['Code'])))
+    if info['Code'] == gammu.Errors['ERR_NOTSUPPORTED']:
+        message = _('Your phone doesn\'t support this function.')
+    elif info['Code'] == gammu.Errors['ERR_NOTIMPLEMENTED']:
+        message = _('This function is not implemented for your phone. If you want help with implementation please contact authors.')
+    elif info['Code'] == gammu.Errors['ERR_SECURITYERROR']:
+        message = _('Your phone asks for PIN.')
+    elif info['Code'] == gammu.Errors['ERR_FULL']:
+        message = _('Memory is full, try deleting some entries.')
+    elif info['Code'] == gammu.Errors['ERR_CANCELED']:
+        message = _('Communication canceled by phone, did you press cancel on phone?')
+    else:
+        message = '%s %s\n%s %s\n%s %d' % (_('Description:'), info['Text'], _('Function:'), info['Where'], _('Error code:'), info['Code'])
+    return StrConv(txt + '\n\n' + message)
