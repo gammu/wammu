@@ -80,6 +80,11 @@ class Reader(Wammu.Thread.Thread):
                 try:
                     value = self.Get(location)
                     self.Parse(value)
+                    if type(value) == list:
+                        for i in range(len(value)):
+                            value[i]['Synced'] = True
+                    else:
+                        value['Synced'] = True
                     data.append(value)
                     remain = remain - 1
                     # If we didn't know count and reached end, try some more entries
