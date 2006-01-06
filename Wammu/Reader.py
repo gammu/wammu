@@ -92,12 +92,15 @@ class Reader(Wammu.Thread.Thread):
                         remain = 20
                         total = total + 20
                     empty = 0
-                except gammu.ERR_EMPTY:
+                except gammu.ERR_EMPTY, val:
                     empty = empty + 1
                     # If we didn't know count and saw many empty entries, stop right now
                     if empty >= 50 and guess:
                         break
-                    pass
+                    # If we didn't read anything for long time, we bail out (workaround bad count reported by phone)
+                    if empty >= 70 and remain < 10:
+                        self.ShowError(val[0])
+                        remain = 0
                 except gammu.GSMError, val:
                     self.ShowError(val[0], True)
                     return

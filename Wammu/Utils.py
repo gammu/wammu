@@ -393,6 +393,8 @@ def FormatError(txt, info):
         message = _('Memory is full, try deleting some entries.')
     elif info['Code'] == gammu.Errors['ERR_CANCELED']:
         message = _('Communication canceled by phone, did you press cancel on phone?')
+    elif info['Code'] == gammu.Errors['ERR_EMPTY']:
+        message = _('Empty entry received. This usually should not happen and most likely is caused by bug in phone firmware or in Gammu/Wammu.\n\nIf you miss some entry, please contact Gammu/Wammu authors.')
     else:
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), info['Text'], _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
