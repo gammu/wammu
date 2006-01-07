@@ -320,7 +320,7 @@ class OneEdit(wx.Panel):
             try:
                 v = hex(voicetag)
             except:
-                val = '0x0'
+                v = '0x0'
             if v[-1] == 'L':
                 v = v[:-1]
             self.edit2 = wx.TextCtrl(self, -1, v, size = (50, -1))
