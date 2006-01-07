@@ -617,13 +617,13 @@ class WammuFrame(wx.Frame):
                 f (*a)
 
     def ShowData(self, data):
-        text = ''
+        text = u''
         if data is not None:
             for d in data:
                 if len(d) == 2:
-                    text += '<b>%s</b>: %s<br>' % (d[0], d[1])
+                    text += u'<b>%s</b>: %s<br>' % (d[0], d[1])
                 else:
-                    text += '<br>%s' % d[0]
+                    text += u'<br>%s' % d[0]
         if wx.USE_UNICODE:
             self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % StrConv(text))
         else:
