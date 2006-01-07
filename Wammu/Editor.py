@@ -474,7 +474,11 @@ class GenericEditor(wx.Dialog):
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
         else:
             for i in entry['Entries']:
-                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], i['VoiceTag'], self.values, self.cfg)
+                try:
+                    vt = i['VoiceTag']
+                except:
+                    vt = None
+                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], vt, self.values, self.cfg)
                 self.edits.append(e)
                 list.append((e, 0, wx.EXPAND|wx.ALL, 2))
                 x = x + 1
