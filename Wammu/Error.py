@@ -61,7 +61,7 @@ def Handler(type, value, tback):
         tracetext = ''
 
     # unicode warning
-    if type == UnicodeEncodeError:
+    if type == UnicodeEncodeError or type == UnicodeDecodeError:
         unicodewarning =  '\n%s\n' % _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.')
     else:
         unicodewarning = ''
@@ -85,7 +85,7 @@ locales      %s (%s)
 %s---------------------------------------------------
 """ % (
     _('Unhandled exception appeared.'),
-    _('If you want to help improving this program, please submit following infomation and description how did it happen to %s.') % 'http://bugs.cihar.com',
+    _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
     tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
 
     # display error
