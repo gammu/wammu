@@ -88,7 +88,7 @@ class PhoneValidator(wx.PyValidator):
         key = event.KeyCode()
 
         # control chars
-        if key < wx.WXK_SPACE or key == wx.WXK_DELETE or key > 255:
+        if key < wx.WXK_SPACE or key == wx.WXK_DELETE or key > 255 or event.AltDown() or event.CmdDown() or event.ControlDown() or event.MetaDown():
             event.Skip()
             return
 
