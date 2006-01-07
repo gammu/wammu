@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-07 16:06+0100\n"
-"PO-Revision-Date: 2006-01-07 16:07+0100\n"
+"POT-Creation-Date: 2006-01-07 18:15+0100\n"
+"PO-Revision-Date: 2006-01-07 18:17+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,76 +18,6 @@ msgstr ""
 #: Wammu/App.py:55
 msgid "Failed to set exception handler."
 msgstr "Nepodařilo se nastavit obsluhu výjimek"
-
-#: Wammu/Utils.py:84
-msgid ""
-"Warning: you are using utf-8 locales and non unicode enabled wxPython, some "
-"text migth be displayed incorrectly!"
-msgstr ""
-"Varování: Používáte utf-8 locales a wxPython bez podpory unicode, některé "
-"texty mohou být zobrazeny nekorektně!"
-
-#: Wammu/Utils.py:85
-#, python-format
-msgid "Warning: assuming charset %s for html widget"
-msgstr "Varování: odhaduji znakovou sadu %s pro zobrazování html."
-
-#: Wammu/Utils.py:300
-msgid "Yes"
-msgstr "Ano"
-
-#: Wammu/Utils.py:302
-msgid "No"
-msgstr "Ne"
-
-#: Wammu/Utils.py:387
-msgid "Your phone doesn't support this function."
-msgstr "Váš telefon tuto funkcionalitu nepoporuje."
-
-#: Wammu/Utils.py:389
-msgid ""
-"This function is not implemented for your phone. If you want help with "
-"implementation please contact authors."
-msgstr ""
-"Tato funkcionalita není pro váš telefon zatím podporována. Pokud chcete "
-"pomoci s její podporou, prosím kontaktujte autory,"
-
-#: Wammu/Utils.py:391
-msgid "Your phone asks for PIN."
-msgstr "Váš telefon vyžaduje zadání pinu."
-
-#: Wammu/Utils.py:393
-msgid "Memory is full, try deleting some entries."
-msgstr "Paměť je plná, zkuste vymazat některé položky."
-
-#: Wammu/Utils.py:395
-msgid "Communication canceled by phone, did you press cancel on phone?"
-msgstr ""
-"Komunikace byla přerušena telefonem, nezrušili jste operaci na telefonu?"
-
-#: Wammu/Utils.py:397
-msgid ""
-"Empty entry received. This usually should not happen and most likely is "
-"caused by bug in phone firmware or in Gammu/Wammu.\n"
-"\n"
-"If you miss some entry, please contact Gammu/Wammu authors."
-msgstr ""
-"Byla přečtena prázdná položka. Toto by se nemělo stát a pravděpodobně se "
-"jedná o chybu způsobenou firmwarem telefonu nebo Gammu/Wammu.\n"
-"\n"
-"Pokud nějaká položka nebyla načtena, prosím kontaktujte autory."
-
-#: Wammu/Utils.py:399
-msgid "Description:"
-msgstr "Popis:"
-
-#: Wammu/Utils.py:399
-msgid "Function:"
-msgstr "Funkce:"
-
-#: Wammu/Utils.py:399
-msgid "Error code:"
-msgstr "Číslo chyby:"
 
 #: Wammu/MessageDisplay.py:97
 #, python-format
@@ -1613,7 +1543,8 @@ msgid ""
 "english later."
 msgstr ""
 "Pokud chcete pomoci vylepšit tento program, odešlete následující informace a "
-"popis jak k této situaci dočlo na %s. Pro hlášení prosím použijte angličtinu, jinak budete pravděpodobně později požádáni o přeložení."
+"popis jak k této situaci dočlo na %s. Pro hlášení prosím použijte "
+"angličtinu, jinak budete pravděpodobně později požádáni o přeložení."
 
 #: Wammu/Error.py:93
 msgid "Unhandled exception"
@@ -1626,6 +1557,88 @@ msgstr "Nelze najít timidity, melodie nebude přehrána"
 #: Wammu/Ringtone.py:45
 msgid "Timidity not found"
 msgstr "Timidity nenalezeno"
+
+#: Wammu/Utils.py:84
+msgid ""
+"Warning: you are using utf-8 locales and non unicode enabled wxPython, some "
+"text migth be displayed incorrectly!"
+msgstr ""
+"Varování: Používáte utf-8 locales a wxPython bez podpory unicode, některé "
+"texty mohou být zobrazeny nekorektně!"
+
+#: Wammu/Utils.py:85
+#, python-format
+msgid "Warning: assuming charset %s for html widget"
+msgstr "Varování: odhaduji znakovou sadu %s pro zobrazování html."
+
+#: Wammu/Utils.py:300
+msgid "Yes"
+msgstr "Ano"
+
+#: Wammu/Utils.py:302
+msgid "No"
+msgstr "Ne"
+
+#: Wammu/Utils.py:387
+msgid "Your phone doesn't support this function."
+msgstr "Váš telefon tuto funkcionalitu nepoporuje."
+
+#: Wammu/Utils.py:389
+msgid ""
+"This function is not implemented for your phone. If you want help with "
+"implementation please contact authors."
+msgstr ""
+"Tato funkcionalita není pro váš telefon zatím podporována. Pokud chcete "
+"pomoci s její podporou, prosím kontaktujte autory,"
+
+#: Wammu/Utils.py:391
+msgid "Your phone asks for PIN."
+msgstr "Váš telefon vyžaduje zadání pinu."
+
+#: Wammu/Utils.py:393
+msgid "Memory is full, try deleting some entries."
+msgstr "Paměť je plná, zkuste vymazat některé položky."
+
+#: Wammu/Utils.py:395
+msgid "Communication canceled by phone, did you press cancel on phone?"
+msgstr ""
+"Komunikace byla přerušena telefonem, nezrušili jste operaci na telefonu?"
+
+#: Wammu/Utils.py:397
+msgid ""
+"Empty entry received. This usually should not happen and most likely is "
+"caused by bug in phone firmware or in Gammu/Wammu.\n"
+"\n"
+"If you miss some entry, please contact Gammu/Wammu authors."
+msgstr ""
+"Byla přečtena prázdná položka. Toto by se nemělo stát a pravděpodobně se "
+"jedná o chybu způsobenou firmwarem telefonu nebo Gammu/Wammu.\n"
+"\n"
+"Pokud nějaká položka nebyla načtena, prosím kontaktujte autory."
+
+#: Wammu/Utils.py:399
+msgid ""
+"Please close opened menu in phone and retry, data can not be accessed while "
+"you have opened them."
+msgstr "Prosím opusťte otevřená menu v telefonu a zkuste operaci znovu. Data nejsou přístupná pokud je máte otevřena v telefonu."
+
+#: Wammu/Utils.py:401
+msgid ""
+"Timeout while trying to communicate with phone. Maybe phone is not connected "
+"(for cable) or out of range (for bluetooth or IrDA)."
+msgstr "Při komunikaci vypršel časový limit. Možná telefon není připojen (pokud používáte kabel) nebo je mimo dosah (pro bluetooth a IrDA)."
+
+#: Wammu/Utils.py:403
+msgid "Description:"
+msgstr "Popis:"
+
+#: Wammu/Utils.py:403
+msgid "Function:"
+msgstr "Funkce:"
+
+#: Wammu/Utils.py:403
+msgid "Error code:"
+msgstr "Číslo chyby:"
 
 #: Wammu/Thread.py:86
 msgid "Action canceled by user!"

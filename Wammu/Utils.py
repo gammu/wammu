@@ -395,6 +395,10 @@ def FormatError(txt, info):
         message = _('Communication canceled by phone, did you press cancel on phone?')
     elif info['Code'] == gammu.Errors['ERR_EMPTY']:
         message = _('Empty entry received. This usually should not happen and most likely is caused by bug in phone firmware or in Gammu/Wammu.\n\nIf you miss some entry, please contact Gammu/Wammu authors.')
+    elif info['Code'] == gammu.Errors['ERR_INSIDEPHONEMENU']:
+        message = _('Please close opened menu in phone and retry, data can not be accessed while you have opened them.')
+    elif info['Code'] == gammu.Errors['ERR_TIMEOUT']:
+        message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for bluetooth or IrDA).')
     else:
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), info['Text'], _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
