@@ -501,6 +501,8 @@ class WammuFrame(wx.Frame):
 
         mb.Enable(501, enable);
         mb.Enable(502, enable);
+        mb.Enable(503, enable);
+        mb.Enable(504, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
