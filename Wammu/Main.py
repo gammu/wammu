@@ -714,12 +714,15 @@ class WammuFrame(wx.Frame):
                         if v['Save']:
                             (msg['Location'], msg['Folder']) = self.sm.AddSMS(msg)
                             if v['Send']:
+                                # When sending of saved messages is not supported, send it directly:
                                 try:
                                     msg['MessageReference'] = self.sm.SendSavedSMS(msg['Folder'], msg['Location'])
-                                # When sending of saved messages is not supported, send it directly:
                                 except gammu.ERR_NOTSUPPORTED:
                                     msg['MessageReference'] = self.sm.SendSMS(msg)
-                            result['SMS'].append(self.sm.GetSMS(msg['Folder'], msg['Location'])[0])
+                            try:
+                                result['SMS'].append(self.sm.GetSMS(msg['Folder'], msg['Location'])[0])
+                            except gammu.ERR_EMPTY:
+                                wx.MessageDialog(self, _('It was not possible to read saved message! There is most likely some bug in Gammu, please contact author with debug log of this operation. To see message in Wammu you need to reread all messsages.'), _('Could not read saved message!'), wx.OK | wx.ICON_ERROR).ShowModal()
                         elif v['Send']:
                             msg['MessageReference'] = self.sm.SendSMS(msg)
 
