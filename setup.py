@@ -56,12 +56,6 @@ else:
         print 'You can get it from <http://www.wxpython.org>'
         sys.exit(1)
 
-try:
-    import PIL
-except:
-    print 'You need PIL (Python Imaging Library)!'
-    print 'You can get it from <http://www.pythonware.com/products/pil/>'
-
 setup(name="wammu",
     version = Wammu.__version__,
     description = "GUI for gammu.",

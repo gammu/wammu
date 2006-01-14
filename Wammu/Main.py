@@ -55,6 +55,7 @@ import Wammu.MessageDisplay
 import Wammu.PhoneSearch
 import Wammu.About
 import Wammu.MailWriter
+import Wammu.IMAP
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -508,6 +509,8 @@ class WammuFrame(wx.Frame):
         mb.Enable(502, enable);
         mb.Enable(503, enable);
         mb.Enable(504, enable);
+
+        mb.Enable(510, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
@@ -1112,18 +1115,20 @@ class WammuFrame(wx.Frame):
             dlg = wx.TextEntryDialog(self,
                 _('Please enter server name'),
                 _('Server name'),
-                '')
+                self.cfg.Read('/IMAP/Server', ''))
             if dlg.ShowModal() == wx.ID_CANCEL:
                 return
             server = dlg.GetValue()
+            self.cfg.Write('/IMAP/Server', server)
 
             dlg = wx.TextEntryDialog(self,
                 _('Please enter login on server %s') % server,
                 _('Login'),
-                '')
+                self.cfg.Read('/IMAP/Login', ''))
             if dlg.ShowModal() == wx.ID_CANCEL:
                 return
             login = dlg.GetValue()
+            self.cfg.Write('/IMAP/Login', login)
 
             dlg = wx.PasswordEntryDialog(self,
                 _('Please enter password for %s@%s') % (login, server),
@@ -1170,7 +1175,9 @@ class WammuFrame(wx.Frame):
             folders = []
             for item in list:
                 vals = item.split('"')
-                folders.append(vals[-2])
+                folders.append(unicode(vals[-2], 'imap4-utf-7'))
+
+            folders.sort()
 
             dlg = wx.SingleChoiceDialog(self,
                 _('Please select folder on server %s where messages will be stored') % server,
