@@ -20,17 +20,46 @@ Module for writing SMS to Email.
 
 from Wammu.Utils import SearchNumber
 from Wammu.MessageDisplay import SmsTextFormat
+from email.MIMEAudio import MIMEAudio
 from email.MIMEImage import MIMEImage
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 import md5
 import time
+import tempfile
+import os
+import wx
+import gammu
 import Wammu.Data
 
 header_format = 'X-Wammu-%s'
+cid_format = '%d*sms@wammu.sms'
+
+def XPMToPNG(image):
+    # FIXME: I'd like to avoid creating temporary file, but even PIL doesn't seem to provide such functionality
+    handle, name = tempfile.mkstemp()
+    os.close(handle)
+    bitmap = wx.BitmapFromXPMData(image)
+    bitmap.SaveFile(name, wx.BITMAP_TYPE_PNG)
+    f = file(name)
+    data = f.read()
+    f.close()
+    os.unlink(name)
+    return data
+
+def RingtoneToMIDI(data):
+    # FIXME: I'd like to avoid creating temporary file, but Gammmu doesn't provide such functionality
+    handle, name = tempfile.mkstemp()
+    f = os.fdopen(handle, 'w+')
+    gammu.SaveRingtone(f, data, 'mid')
+    f.seek(0)
+    data = f.read()
+    f.close()
+    os.unlink(name)
+    return data
 
 def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
-    msg = MIMEMultipart()
+    msg = MIMEMultipart('related', None, None, type='text/html')
     name = ''
     if lookuplist != None:
         i = SearchNumber(lookuplist, sms['Number'])
@@ -59,14 +88,18 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         msg['Date'] = sms['DateTime'].strftime('%a, %d %b %Y %H:%M:%S %z')
 
     if sms.has_key('SMSInfo'):
+        text = ''
+        cid = 0
         for i in sms['SMSInfo']['Entries']:
-            if 0 and i['ID'] in Wammu.Data.SMSIDs['PredefinedAnimation']: # FIXME: make real image
+            if i['ID'] in Wammu.Data.SMSIDs['PredefinedAnimation']:
                 if i['Number'] > len(Wammu.Data.PredefinedAnimations):
-                    sub = MIMEImage(Wammu.Data.UnknownPredefined)
+                    sub = MIMEImage(XPMToPNG(Wammu.Data.UnknownPredefined))
                 else:
-                    sub = MIMEImage(Wammu.Data.PredefinedAnimations[i['Number']][1])
-                sub.add_header('Content-Disposition', 'attachment')
+                    sub = MIMEImage(XPMToPNG(Wammu.Data.PredefinedAnimations[i['Number']][1]))
+                sub.add_header('Content-ID', '<%s>' % cid_format % cid);
                 msg.attach(sub)
+                text = text + '<img src="cid:%s">' % (cid_format % cid)
+                cid = cid + 1
 
             if 0 and i['ID'] in Wammu.Data.SMSIDs['PredefinedSound']: # FIXME: need sounds
                 if i['Number'] >= len(Wammu.Data.PredefinedSounds):
@@ -76,32 +109,40 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
                 sub.add_header('Content-Disposition', 'attachment')
                 msg.attach(sub)
 
-            if 0 and i['ID'] in Wammu.Data.SMSIDs['Sound']: # FIXME: convert to midi and attach
-                sub = i['Ringtone']
+            if i['ID'] in Wammu.Data.SMSIDs['Sound']:
+                sub = MIMEAudio(RingtoneToMIDI(i['Ringtone']), 'midi')
                 sub.add_header('Content-Disposition', 'attachment')
                 msg.attach(sub)
 
             if i['ID'] in Wammu.Data.SMSIDs['Text']:
-                # FIXME: handle text formatting
-                sub = MIMEText(SmsTextFormat(cfg, i['Buffer']).encode('utf-8'), 'plain', 'utf-8')
-                sub.add_header('Content-Disposition', 'attachment')
-                msg.attach(sub)
+                fmt = '%s'
+                for x in Wammu.Data.TextFormats:
+                    for name, txt, style in x[1:]:
+                        if i.has_key(name) and i[name]:
+                            fmt = style % fmt
+                text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
 
-            if 0 and i['ID'] in Wammu.Data.SMSIDs['Bitmap']: # FIXME: make real image
+            if i['ID'] in Wammu.Data.SMSIDs['Bitmap']:
                 for x in i['Bitmap']:
-                    sub = MIMEImage(x['XPM'])
-                    sub.add_header('Content-Disposition', 'attachment')
+                    sub = MIMEImage(XPMToPNG(x['XPM']))
+                    sub.add_header('Content-ID', '<%s>' % cid_format % cid);
                     msg.attach(sub)
+                    text = text + '<img src="cid:%s">' % (cid_format % cid)
+                    cid = cid + 1
 
-            if 0 and i['ID'] in Wammu.Data.SMSIDs['Animation']: # FIXME: make real animation
+            if i['ID'] in Wammu.Data.SMSIDs['Animation']:
                 for x in i['Bitmap']:
-                    sub = MIMEImage(x['XPM'])
-                    sub.add_header('Content-Disposition', 'attachment')
+                    sub = MIMEImage(XPMToPNG(x['XPM']))
+                    sub.add_header('Content-ID', '<%s>' % cid_format % cid);
                     msg.attach(sub)
+                    text = text + '<img src="cid:%s">' % (cid_format % cid)
+                    cid = cid + 1
 
     else:
-        sub = MIMEText(SmsTextFormat(cfg, sms['Text']).encode('utf-8'), 'plain', 'utf-8')
-        msg.attach(sub)
+        text = SmsTextFormat(cfg, sms['Text'])
+
+    sub = MIMEText('<html><head></head><body>%s</body></html>' % text.encode('utf-8'), 'html', 'utf-8')
+    msg.attach(sub)
 
     if sms['DateTime'] is not None:
         filename = '%s-%s-%s.eml' % (sms['SMS'][0]['Type'], sms['DateTime'].strftime("%Y%m%d%H%M%S"), md5.new(sms['Text'].encode('utf-8')).hexdigest())
