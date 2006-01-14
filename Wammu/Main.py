@@ -53,7 +53,7 @@ import Wammu.Composer
 import Wammu.MessageDisplay
 import Wammu.PhoneSearch
 import Wammu.About
-from Wammu.MailWriter import SMSToMail
+import Wammu.MailWriter
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -235,8 +235,6 @@ class WammuFrame(wx.Frame):
         menu1.Append(102, _('&Read data'), _('Reads data from file (does not import to the phone)'))
         menu1.Append(103, _('R&ead SMS data'), _('Reads SMS data from file (does not import to the phone)'))
         menu1.AppendSeparator()
-        menu1.Append(110, _('Write SMS data to &emails'), _('Writes SMS data to email files in selected directory'))
-        menu1.AppendSeparator()
         menu1.Append(150, _('&Search phone'), _('Search for phone'))
         menu1.Append(151, _('Se&ttings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
@@ -282,6 +280,8 @@ class WammuFrame(wx.Frame):
         menu5.Append(502, _('S&ave SMS'), _('Saves currently retrieved SMS to backup'))
         menu5.Append(503, _('&Import'), _('Imports data from backup to phone'))
         menu5.Append(504, _('I&mport SMS'), _('Imports SMS data from backup to phone'))
+        menu5.AppendSeparator()
+        menu5.Append(510, _('Export SMS data to &emails'), _('Exports SMS data to emails in storage you choose'))
         # Add menu to the menu bar
         self.menuBar.Append(menu5, _('&Backups'))
 
@@ -298,7 +298,6 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 101, self.WriteSMSData)
         wx.EVT_MENU(self, 102, self.ReadData)
         wx.EVT_MENU(self, 103, self.ReadSMSData)
-        wx.EVT_MENU(self, 110, self.SMSToMails)
         wx.EVT_MENU(self, 150, self.SearchPhone)
         wx.EVT_MENU(self, 151, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
@@ -325,6 +324,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 502, self.BackupSMS)
         wx.EVT_MENU(self, 503, self.Import)
         wx.EVT_MENU(self, 504, self.ImportSMS)
+        wx.EVT_MENU(self, 510, self.SMSToMails)
 
         wx.EVT_MENU(self, 1001, self.About)
 
@@ -972,20 +972,100 @@ class WammuFrame(wx.Frame):
             self.ActivateView(self.type[0], t)
 
     def SMSToMails(self, evt):
-        dlg = wx.DirDialog(self, _('Select directory where to save files'), os.getcwd())
-        if dlg.ShowModal() == wx.ID_OK:
+        # Select where to export
+        dlg = wx.SingleChoiceDialog(self, _('Where do you want to export emails created from your SMS messages?'), _('Select export type'),
+                                    [_('Mailbox file'), _('Maildir folder'), _('IMAP account')], wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
+        if dlg.ShowModal() != wx.ID_OK:
+            return
+
+        idx = dlg.GetSelection()
+        del dlg
+
+        backup = self.values['message']['Read'] + self.values['message']['UnRead'] + self.values['message']['Sent'] +  self.values['message']['UnSent']
+        count = len(backup)
+
+        # Mailbox
+        if idx == 0:
+            print "mailbox"
+        # Maildir
+        elif idx == 1:
+            dlg = wx.DirDialog(self, _('Select maildir directory where to save files'), os.getcwd(),
+                      style=wx.DD_DEFAULT_STYLE|wx.DD_NEW_DIR_BUTTON)
+
+            if dlg.ShowModal() != wx.ID_OK:
+                return
+
             path = dlg.GetPath()
-            backup = self.values['message']['Read'] + self.values['message']['UnRead'] + self.values['message']['Sent'] +  self.values['message']['UnSent']
-            # FIXME: add progress bar
-            for sms in backup:
-                filename, data = SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
+            outpath = path
 
-                # FIXME: add error checking, check whether file existed and ask for overwriting
-                f = file(os.path.join(path, filename), 'w')
-                f.write(data)
-                f.close()
+            if not os.path.isdir(os.path.join(outpath, 'new')):
+                res = wx.MessageDialog(self,
+                    _('Selected folder does not contain new subfolder and thus probably is not valid maildir.\n\nDo you want to create new subfolder and export to it?'),
+                    _('Folder doesn\'t look like maildir!'),
+                    wx.YES_NO | wx.CANCEL | wx.ICON_WARNING).ShowModal()
 
-            # FIXME: report success
+                if res == wx.ID_CANCEL:
+                    return
+
+                if res == wx.ID_YES:
+                    outpath = os.path.join(outpath, 'new')
+                    try:
+                        os.mkdir(outpath)
+                    except:
+                        wx.MessageDialog(self,
+                            _('Creating of folder failed, bailing out.'),
+                            _('Can not create folder!'),
+                            wx.OK | wx.ICON_ERROR).ShowModal()
+                        return
+            else:
+                outpath = os.path.join(outpath, 'new')
+
+            self.ShowProgress(_('Saving messages to maildir'))
+            for i in range(count):
+                if not self.progress.Update(i * 100 / count):
+                    del self.progress
+                    self.SetStatusText(_('Export terminated'))
+                    return
+
+                sms = backup[i]
+                filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
+
+                outfile = os.path.join(outpath, filename)
+                if os.path.exists(outfile):
+                    res = wx.MessageDialog(self,
+                        _('Output file already exists, this usually means that this message was already saved there.\n\nDo you wish to overwrite file %s?') % outfile,
+                        _('File already exists!'),
+                        wx.YES_NO | wx.CANCEL | wx.ICON_WARNING).ShowModal()
+
+                    if res == wx.ID_CANCEL:
+                        del self.progress
+                        self.SetStatusText(_('Export terminated'))
+                        return
+
+                    if res == wx.ID_NO:
+                        continue
+                try:
+                    f = file(outfile, 'w')
+                    f.write(data)
+                    f.close()
+                except:
+                    wx.MessageDialog(self,
+                        _('Creating of file %s failed, bailing out.') % outfile,
+                        _('Can not create file!'),
+                        wx.OK | wx.ICON_ERROR).ShowModal()
+                    del self.progress
+                    self.SetStatusText(_('Export terminated'))
+                    return
+
+            self.progress.Update(100)
+            del self.progress
+
+            self.SetStatusText(_('%d messages exported to maildir "%s"') % (count, path))
+
+        elif idx == 2:
+            print "imap"
+        else:
+            raise Exception('Not implemented export functionality!')
 
     def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''
