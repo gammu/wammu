@@ -26,6 +26,7 @@ import os
 import os.path
 import datetime
 import copy
+import imaplib
 import Wammu
 
 try:
@@ -1002,7 +1003,7 @@ class WammuFrame(wx.Frame):
                 res = wx.MessageDialog(self,
                     _('Selected folder does not contain new subfolder and thus probably is not valid maildir.\n\nDo you want to create new subfolder and export to it?'),
                     _('Folder doesn\'t look like maildir!'),
-                    wx.YES_NO | wx.CANCEL | wx.ICON_WARNING).ShowModal()
+                    wx.YES_NO | wx.YES_DEFAULT | wx.CANCEL | wx.ICON_WARNING).ShowModal()
 
                 if res == wx.ID_CANCEL:
                     return
@@ -1035,7 +1036,7 @@ class WammuFrame(wx.Frame):
                     res = wx.MessageDialog(self,
                         _('Output file already exists, this usually means that this message was already saved there.\n\nDo you wish to overwrite file %s?') % outfile,
                         _('File already exists!'),
-                        wx.YES_NO | wx.CANCEL | wx.ICON_WARNING).ShowModal()
+                        wx.YES_NO | wx.NO_DEFAULT | wx.CANCEL | wx.ICON_WARNING).ShowModal()
 
                     if res == wx.ID_CANCEL:
                         del self.progress
@@ -1063,7 +1064,131 @@ class WammuFrame(wx.Frame):
             self.SetStatusText(_('%d messages exported to maildir "%s"') % (count, path))
 
         elif idx == 2:
-            print "imap"
+            ssl = False
+            if wx.MessageDialog(self,
+                _('Do you wish to use SSL while uploading messages to IMAP server?'),
+                _('Use SSL?'),
+                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
+                ssl = True
+
+            dlg = wx.TextEntryDialog(self,
+                _('Please enter server name'),
+                _('Server name'),
+                '')
+            if dlg.ShowModal() == wx.ID_CANCEL:
+                return
+            server = dlg.GetValue()
+
+            dlg = wx.TextEntryDialog(self,
+                _('Please enter login on server %s') % server,
+                _('Login'),
+                '')
+            if dlg.ShowModal() == wx.ID_CANCEL:
+                return
+            login = dlg.GetValue()
+
+            dlg = wx.PasswordEntryDialog(self,
+                _('Please enter password for %s@%s') % (login, server),
+                _('Password'),
+                '')
+            if dlg.ShowModal() == wx.ID_CANCEL:
+                return
+            password = dlg.GetValue()
+
+            busy = wx.BusyInfo(_('Connecting to IMAP server...'))
+
+            if ssl:
+                m = imaplib.IMAP4_SSL(server)
+            else:
+                m = imaplib.IMAP4(server)
+
+            try:
+                res = m.login(login, password)
+            except:
+                res = ['FAIL']
+            del busy
+            if res[0] != 'OK':
+                wx.MessageDialog(self,
+                    _('Can not login, you probably entered invalid login information, bailing out.'),
+                    _('Login failed!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                self.SetStatusText(_('Export terminated'))
+                return
+
+            busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
+            try:
+                res, list = m.list()
+            except:
+                res = 'FAIL'
+            del busy
+            if res != 'OK':
+                wx.MessageDialog(self,
+                    _('Can not list folders on server, bailing out.'),
+                    _('Listing failed!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                self.SetStatusText(_('Export terminated'))
+                return
+
+            folders = []
+            for item in list:
+                vals = item.split('"')
+                folders.append(vals[-2])
+
+            dlg = wx.SingleChoiceDialog(self,
+                _('Please select folder on server %s where messages will be stored') % server,
+                _('Select folder'),
+                folders, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
+            if dlg.ShowModal() == wx.ID_CANCEL:
+                return
+            folder = folders[dlg.GetSelection()]
+
+            busy = wx.BusyInfo(_('Selecting folder on IMAP server...'))
+            try:
+                res = m.select(folder)
+            except:
+                res = ['FAIL']
+            del busy
+            if res[0] != 'OK':
+                wx.MessageDialog(self,
+                    _('Can not select folder %s on server, bailing out.') % folder,
+                    _('Selecting failed!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                self.SetStatusText(_('Export terminated'))
+                return
+
+            self.ShowProgress(_('Saving messages to IMAP'))
+            for i in range(count):
+                if not self.progress.Update(i * 100 / count):
+                    del self.progress
+                    self.SetStatusText(_('Export terminated'))
+                    return
+
+                sms = backup[i]
+                filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
+
+                try:
+                    res = m.append(folder, '(\Unseen)', None, data)
+                except:
+                    res = ['FAIL']
+                if res[0] != 'OK':
+                    wx.MessageDialog(self,
+                        _('Can not save message to folder %s on server, bailing out.') % folder,
+                        _('Saving failed!'),
+                        wx.OK | wx.ICON_ERROR).ShowModal()
+                    del self.progress
+                    self.SetStatusText(_('Export terminated'))
+                    return
+
+            self.progress.Update(100)
+            del self.progress
+
+            try:
+                m.logout()
+            except:
+                pass
+
+            self.SetStatusText(_('%d messages exported to IMAP server "%s"') % (count, server))
+
         else:
             raise Exception('Not implemented export functionality!')
 
