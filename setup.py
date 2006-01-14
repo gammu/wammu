@@ -34,10 +34,12 @@ else:
         import gammu
     except:
         print 'You need python-gammu!'
+        print 'You can get it from <http://www.cihar.com/gammu/python/>'
         sys.exit(1)
     pygver = tuple(map(int, gammu.Version()[1].split('.')))
     if  pygver < PYTHONGAMMU_REQUIRED:
         print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
+        print 'You can get it from <http://www.cihar.com/gammu/python/>'
         sys.exit(1)
 
 if os.getenv('SKIPWXCHECK') == 'yes':
@@ -47,12 +49,18 @@ else:
         import wx
     except:
         print 'You need wxPython!'
+        print 'You can get it from <http://www.wxpython.org>'
         sys.exit(1)
     if wx.VERSION < (2,4,1,2):
         print 'You need at least wxPython 2.4.1.2!'
+        print 'You can get it from <http://www.wxpython.org>'
         sys.exit(1)
 
-
+try:
+    import PIL
+except:
+    print 'You need PIL (Python Imaging Library)!'
+    print 'You can get it from <http://www.pythonware.com/products/pil/>'
 
 setup(name="wammu",
     version = Wammu.__version__,

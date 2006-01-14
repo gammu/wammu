@@ -28,8 +28,8 @@ Prefix:         %{_prefix}
 
 # /usr/bin/pycrust is here for make vendor independant dependancy on wxPython.
 # If you know better way, please let me know.
-Requires:       /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
-BuildRequires:  /usr/bin/pycrust, python-gammu >= %{python_gammu_req}, python, python-devel
+Requires:       /usr/bin/pycrust, python-gammu >= %{python_gammu_req}, python-imaging
+BuildRequires:  /usr/bin/pycrust, python-gammu >= %{python_gammu_req}, python, python-devel, python-imaging
 Requires:       python >= %py_minver, python < %py_maxver
 
 Url:        http://www.cihar.com/gammu/wammu
