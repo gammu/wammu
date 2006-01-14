@@ -27,6 +27,7 @@ import os.path
 import datetime
 import copy
 import imaplib
+import tempfile
 import Wammu
 
 try:
@@ -41,6 +42,7 @@ import Wammu.Editor
 import Wammu.Error
 import Wammu.Info
 import Wammu.Utils
+import Wammu.Logger
 import Wammu.Message
 import Wammu.Memory
 import Wammu.Todo
@@ -337,9 +339,22 @@ class WammuFrame(wx.Frame):
 
         self.TimerId = wx.NewId()
 
-        # create state machine
         if Wammu.gammu_error == None:
+            # create state machine
             self.sm = gammu.StateMachine()
+
+            # create temporary file for logs
+            fd, self.logfilename = tempfile.mkstemp('.log', 'wammu')
+
+            # set filename to be used for error reports
+            Wammu.Error.debuglogfilename = self.logfilename
+
+            print 'Debug log created in %s, in case of crash please include it in bugreport!' % self.logfilename
+
+            self.logfilefd = os.fdopen(fd, 'w+')
+            # use temporary file for logs
+            gammu.SetDebugFile(self.logfilefd)
+            gammu.SetDebugLevel('textall')
 
         # initialize variables
         self.showdebug = ''
@@ -448,13 +463,17 @@ class WammuFrame(wx.Frame):
         if newdebug != self.showdebug:
             self.showdebug = newdebug
             if self.showdebug == 'yes':
-                gammu.SetDebugFile(sys.stderr)
-                gammu.SetDebugLevel('textall')
-                self.sm.SetDebugLevel('textall')
+                self.logwin = Wammu.Logger.LogFrame(self, self.cfg)
+                self.logwin.Show(True)
+                wx.EVT_CLOSE(self.logwin, self.LogClose)
+                self.logger = Wammu.Logger.Logger(self.logwin, self.logfilename)
+                self.logger.start()
             else:
-                gammu.SetDebugFile(None)
-                gammu.SetDebugLevel('nothing')
-                self.sm.SetDebugLevel('nothing')
+                if hasattr(self, 'logger'):
+                    self.logger.canceled = True
+                    del self.logger
+                    self.logwin.Close()
+                    del self.logwin
 
     def SaveWinSize(self, win, key):
         x,y = win.GetPositionTuple()
@@ -467,9 +486,12 @@ class WammuFrame(wx.Frame):
 
 
     def LogClose(self, evt):
+        self.logger.canceled = True
         self.SaveWinSize(self.logwin, '/Debug')
         self.cfg.Write('/Debug/Show', 'no')
-        self.DoDebug('no')
+        self.logwin.Destroy()
+        del self.logger
+        del self.logwin
 
     def TogglePhoneMenus(self, enable):
         self.connected = enable
@@ -576,10 +598,20 @@ class WammuFrame(wx.Frame):
 
     def CloseWindow(self, event):
         self.SaveWinSize(self, '/Main')
+        if hasattr(self, 'logwin'):
+            self.SaveWinSize(self.logwin, '/Debug')
         self.cfg.WriteInt('/Main/Split', self.splitter.GetSashPosition())
         self.cfg.WriteInt('/Main/SplitRight', self.rightsplitter.GetSashPosition())
 
-        self.DoDebug('no')
+        gammu.SetDebugFile(None)
+        gammu.SetDebugLevel('nothing')
+
+        if hasattr(self, 'logger'):
+            self.logger.canceled = True
+
+        self.logfilefd.close()
+        print 'Looks like normal program termination, deleting log file.'
+        os.unlink(self.logfilename)
         # tell the window to kill itself
         self.Destroy()
 

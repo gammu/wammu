@@ -27,10 +27,14 @@ import traceback
 import sys
 import locale
 import md5
+import os
+import tempfile
 from Wammu.Utils import Str_ as _
 
 # set later in Wammu.App to have correct parent here
 handlerparent = None
+# set later in Wammu.Main to have correct debug filename
+debugfilename = None
 
 def Handler(type, value, tback):
     """User friendly error handling """
@@ -47,6 +51,21 @@ def Handler(type, value, tback):
     linetrace = traceback.format_list(trace)
     texttrace = ''.join(linetrace)
     textexc = ''.join(traceback.format_exception_only(type, value))
+
+    # debug log information
+    if debuglogfilename is not None:
+        # copy debug log
+        handle, name = tempfile.mkstemp('.log', 'wammu-crash-')
+        outf = os.fdopen(handle, 'w+')
+        inf = open(debuglogfilename, 'r')
+        outf.write(inf.read())
+        outf.close()
+        inf.close()
+        print 'Created debug log copy in %s for error reporting.' % name
+
+        logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % name
+    else:
+        logtext = ''
 
     # traceback id (md5 sum of last topmost traceback item inside Wammu - file(function):code)
     try:
@@ -70,7 +89,7 @@ def Handler(type, value, tback):
     text = """%s
 
 %s
-%s%s
+%s%s%s
 --------------- System information ----------------
 Python       %s
 wxPython     %s
@@ -86,7 +105,7 @@ locales      %s (%s)
 """ % (
     _('Unhandled exception appeared.'),
     _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
-    tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
+    logtext, tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
 
     # display error
     try:
