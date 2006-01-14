@@ -53,6 +53,7 @@ import Wammu.Composer
 import Wammu.MessageDisplay
 import Wammu.PhoneSearch
 import Wammu.About
+from Wammu.MailWriter import SMSToMail
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -234,6 +235,8 @@ class WammuFrame(wx.Frame):
         menu1.Append(102, _('&Read data'), _('Reads data from file (does not import to the phone)'))
         menu1.Append(103, _('R&ead SMS data'), _('Reads SMS data from file (does not import to the phone)'))
         menu1.AppendSeparator()
+        menu1.Append(110, _('Write SMS data to &emails'), _('Writes SMS data to email files in selected directory'))
+        menu1.AppendSeparator()
         menu1.Append(150, _('&Search phone'), _('Search for phone'))
         menu1.Append(151, _('Se&ttings'), _('Change Wammu settings'))
         menu1.AppendSeparator()
@@ -295,6 +298,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 101, self.WriteSMSData)
         wx.EVT_MENU(self, 102, self.ReadData)
         wx.EVT_MENU(self, 103, self.ReadSMSData)
+        wx.EVT_MENU(self, 110, self.SMSToMails)
         wx.EVT_MENU(self, 150, self.SearchPhone)
         wx.EVT_MENU(self, 151, self.Settings)
         wx.EVT_MENU(self, 199, self.CloseWindow)
@@ -966,6 +970,22 @@ class WammuFrame(wx.Frame):
             if t == '__':
                 t = '  '
             self.ActivateView(self.type[0], t)
+
+    def SMSToMails(self, evt):
+        dlg = wx.DirDialog(self, _('Select directory where to save files'), os.getcwd())
+        if dlg.ShowModal() == wx.ID_OK:
+            path = dlg.GetPath()
+            backup = self.values['message']['Read'] + self.values['message']['UnRead'] + self.values['message']['Sent'] +  self.values['message']['UnSent']
+            # FIXME: add progress bar
+            for sms in backup:
+                filename, data = SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
+
+                # FIXME: add error checking, check whether file existed and ask for overwriting
+                f = file(os.path.join(path, filename), 'w')
+                f.write(data)
+                f.close()
+
+            # FIXME: report success
 
     def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''

@@ -82,7 +82,7 @@ def SMSToMail(cfg, sms, lookuplist = None):
 
             if i['ID'] in Wammu.Data.SMSIDs['Text']:
                 # FIXME: handle text formatting
-                sub = MIMEText(SmsTextFormat(cfg, i['Buffer']))
+                sub = MIMEText(SmsTextFormat(cfg, i['Buffer']).encode('utf-8'), 'plain', 'utf-8')
                 sub.add_header('Content-Disposition', 'attachment')
                 msg.attach(sub)
 
@@ -99,13 +99,13 @@ def SMSToMail(cfg, sms, lookuplist = None):
                     msg.attach(sub)
 
     else:
-        sub = MIMEText(SmsTextFormat(cfg, sms['Text']))
+        sub = MIMEText(SmsTextFormat(cfg, sms['Text']).encode('utf-8'), 'plain', 'utf-8')
         msg.attach(sub)
 
     if sms['DateTime'] is not None:
-        filename = '%s-%s-%s.eml' % (sms['SMS'][0]['Type'], sms['DateTime'].strftime("%Y%m%d%H%M%S"), md5.new(sms['Text']).hexdigest())
+        filename = '%s-%s-%s.eml' % (sms['SMS'][0]['Type'], sms['DateTime'].strftime("%Y%m%d%H%M%S"), md5.new(sms['Text'].encode('utf-8')).hexdigest())
     else:
-        filename = '%s-%s.eml' % (sms['SMS'][0]['Type'], md5.new(sms['Text']).hexdigest())
+        filename = '%s-%s.eml' % (sms['SMS'][0]['Type'], md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
     return filename, msg.as_string()
 
