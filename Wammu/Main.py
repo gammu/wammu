@@ -234,10 +234,10 @@ class WammuFrame(wx.Frame):
         self.menuBar = wx.MenuBar()
 
         menu1 = wx.Menu()
-        menu1.Append(100, _('&Write data'), _('Writes data to file'))
-        menu1.Append(101, _('W&rite SMS data'), _('Writes SMS data to file'))
-        menu1.Append(102, _('&Read data'), _('Reads data from file (does not import to the phone)'))
-        menu1.Append(103, _('R&ead SMS data'), _('Reads SMS data from file (does not import to the phone)'))
+        menu1.Append(100, _('&Write data'), _('Writes data (except messages) to file'))
+        menu1.Append(101, _('W&rite message'), _('Writes messages to file'))
+        menu1.Append(102, _('&Read data'), _('Reads data (except messages) from file (does not import to the phone)'))
+        menu1.Append(103, _('R&ead messages'), _('Reads messages from file (does not import to the phone)'))
         menu1.AppendSeparator()
         menu1.Append(150, _('&Search phone'), _('Search for phone'))
         menu1.Append(151, _('Se&ttings'), _('Change Wammu settings'))
@@ -280,12 +280,12 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu4, _('&New'))
 
         menu5 = wx.Menu()
-        menu5.Append(501, _('&Save'), _('Saves currently retrieved data (except SMS) to backup'))
-        menu5.Append(502, _('S&ave SMS'), _('Saves currently retrieved SMS to backup'))
+        menu5.Append(501, _('&Save'), _('Saves currently retrieved data (except messages) to backup'))
+        menu5.Append(502, _('S&ave messages'), _('Saves currently retrieved messages to backup'))
         menu5.Append(503, _('&Import'), _('Imports data from backup to phone'))
-        menu5.Append(504, _('I&mport SMS'), _('Imports SMS data from backup to phone'))
+        menu5.Append(504, _('I&mport messages'), _('Imports messages from backup to phone'))
         menu5.AppendSeparator()
-        menu5.Append(510, _('Export SMS data to &emails'), _('Exports SMS data to emails in storage you choose'))
+        menu5.Append(510, _('Export messages to &emails'), _('Exports messages to emails in storage you choose'))
         # Add menu to the menu bar
         self.menuBar.Append(menu5, _('&Backups'))
 
@@ -1009,7 +1009,7 @@ class WammuFrame(wx.Frame):
 
     def SMSToMails(self, evt):
         # Select where to export
-        dlg = wx.SingleChoiceDialog(self, _('Where do you want to export emails created from your SMS messages?'), _('Select export type'),
+        dlg = wx.SingleChoiceDialog(self, _('Where do you want to export emails created from your messages?'), _('Select export type'),
                                     [_('Mailbox file'), _('Maildir folder'), _('IMAP account')], wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
         if dlg.ShowModal() != wx.ID_OK:
             return
@@ -1272,7 +1272,7 @@ class WammuFrame(wx.Frame):
     def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''
         if type == 'message':
-            wildcard +=  _('Gammu SMS backup') + ' (*.smsbackup)|*.smsbackup|'
+            wildcard +=  _('Gammu messages backup') + ' (*.smsbackup)|*.smsbackup|'
         else:
             if not save:
                 wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
