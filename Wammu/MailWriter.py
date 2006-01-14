@@ -52,7 +52,7 @@ def SMSToMail(cfg, sms, lookuplist = None):
         msg['To'] = local
         msg['From'] = remote
 
-    msg['Subject'] = SmsTextFormat(cfg, sms['Text'])[:50] + '...'
+    msg['Subject'] = SmsTextFormat(cfg, sms['Text'], False)[:50] + '...'
 
     if sms['DateTime'] is not None:
         msg['Date'] = sms['DateTime'].strftime('%a, %d %b %Y %H:%M:%S %z')

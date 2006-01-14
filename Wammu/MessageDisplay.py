@@ -25,7 +25,7 @@ import string
 import re
 from Wammu.Utils import UnicodeConv, HtmlStr_ as _, HtmlStrConv
 
-def SmsTextFormat(cfg, txt):
+def SmsTextFormat(cfg, txt, dohtml = True):
     if cfg.Read('/Wammu/FormatSMS', 'yes') == 'yes':
         ret = ''
         arr = txt.split(' ')
@@ -82,7 +82,10 @@ def SmsTextFormat(cfg, txt):
                 ret += a + ' '
     else:
         ret = txt
-    return ret.replace('\n', '<br>')
+    if dohtml:
+        return ret.replace('\n', '<br>')
+    else:
+        return ret.replace('\n', ' ')
 
 def SmsToHtml(cfg, v):
     if v.has_key('SMSInfo'):
