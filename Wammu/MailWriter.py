@@ -24,11 +24,12 @@ from email.MIMEImage import MIMEImage
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 import md5
+import time
 import Wammu.Data
 
 header_format = 'X-Wammu-%s'
 
-def SMSToMail(cfg, sms, lookuplist = None):
+def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     msg = MIMEMultipart()
     name = ''
     if lookuplist != None:
@@ -107,5 +108,14 @@ def SMSToMail(cfg, sms, lookuplist = None):
     else:
         filename = '%s-%s.eml' % (sms['SMS'][0]['Type'], md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
-    return filename, msg.as_string()
+    if mailbox:
+        if sms['DateTime'] is not None:
+            ts = sms['DateTime'].strftime('%a %b %d %H:%M:%S %Y')
+        else:
+            ts = time.asctime()
+        prepend = 'From wammu@wammu.sms %s\n' % ts
+    else:
+        prepend = ''
+
+    return filename, prepend + msg.as_string()
 

@@ -987,7 +987,44 @@ class WammuFrame(wx.Frame):
 
         # Mailbox
         if idx == 0:
-            print "mailbox"
+            wildcard = _('All files') + ' (*.*)|*.*;*'
+            dlg = wx.FileDialog(self, _('Select mailbox file...'), os.getcwd(), "", wildcard, wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
+
+            if dlg.ShowModal() != wx.ID_OK:
+                return
+
+            path = dlg.GetPath()
+
+            self.ShowProgress(_('Saving messages to mailbox'))
+            try:
+                f = file(path, 'w')
+                for i in range(count):
+                    if not self.progress.Update(i * 100 / count):
+                        del self.progress
+                        self.SetStatusText(_('Export terminated'))
+                        return
+
+                    sms = backup[i]
+                    filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'], True)
+                    f.write(data)
+                    f.write('\n')
+                    f.write('\n')
+
+                f.close()
+            except:
+                del self.progress
+                wx.MessageDialog(self,
+                    _('Creating of file %s failed, bailing out.') % path,
+                    _('Can not create file!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                del self.progress
+                self.SetStatusText(_('Export terminated'))
+                return
+
+            self.progress.Update(100)
+            del self.progress
+            self.SetStatusText(_('%d messages exported to mailbox "%s"') % (count, path))
+
         # Maildir
         elif idx == 1:
             dlg = wx.DirDialog(self, _('Select maildir directory where to save files'), os.getcwd(),
@@ -1063,6 +1100,7 @@ class WammuFrame(wx.Frame):
 
             self.SetStatusText(_('%d messages exported to maildir "%s"') % (count, path))
 
+        # IMAP
         elif idx == 2:
             ssl = False
             if wx.MessageDialog(self,
