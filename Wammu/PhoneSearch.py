@@ -104,7 +104,7 @@ class AllSearchThread(threading.Thread):
                 btctl = gnomebt.controller.Controller()
                 # read devices list
                 if self.msgcallback != None:
-                    self.msgcallback(_('Scanning for bluetooth devices using GNOME Bluetooth'))
+                    self.msgcallback(_('Scanning for bluetooth devices using %s') % 'GNOME Bluetooth')
 
                 devs = btctl.known_devices()
 
@@ -126,7 +126,7 @@ class AllSearchThread(threading.Thread):
                     devs = []
                     # read devices list
                     if self.msgcallback != None:
-                        self.msgcallback(_('Scanning for bluetooth devices using PyBluez'))
+                        self.msgcallback(_('Scanning for bluetooth devices using %s') % 'PyBluez')
 
                     try:
                         nearby_devices = bluetooth.discover_devices()

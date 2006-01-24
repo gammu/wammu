@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-01-24 21:21+0100\n"
-"PO-Revision-Date: 2006-01-14 23:08+0100\n"
+"POT-Creation-Date: 2006-01-24 21:32+0100\n"
+"PO-Revision-Date: 2006-01-24 21:27+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -547,7 +547,7 @@ msgstr "Kontakty z paměti v telefonu"
 #: Wammu/PhoneSearch.py:148
 #, python-format
 msgid "Could not access Bluetooth subsystem (%s)"
-msgstr ""
+msgstr "Nelze pracovat s Bluetooth (%s)"
 
 #: Wammu/Ringtone.py:44
 msgid "Could not find timidity, melody can not be played"
@@ -1137,20 +1137,20 @@ msgid "Name"
 msgstr "Jméno"
 
 #: Wammu/PhoneSearch.py:151
-#, fuzzy
 msgid ""
 "Neither GNOME Bluetooth nor PyBluez found, not possible to scan for "
 "bluetooth devices"
-msgstr "GNOME Bluetooth nebyl nalezen, není možné hledat Bluetooth zařízení"
+msgstr ""
+"Rozšíření GNOME Bluetooth ani PyBluez nebyla nalezena, není možné hledat "
+"Bluetooth zařízení"
 
 #: Wammu/Utils.py:302
 msgid "No"
 msgstr "Ne"
 
 #: Wammu/PhoneSearch.py:112 Wammu/PhoneSearch.py:135
-#, fuzzy
 msgid "No bluetooth device found"
-msgstr "Vyhledávám zařízení Bluetooth"
+msgstr "Žádná Bluetooth nebyla nalezena"
 
 #: Wammu/Main.py:1377 Wammu/Main.py:1444
 msgid "No data to import"
@@ -1485,15 +1485,10 @@ msgstr "Ukládám zprávy do maildiru"
 msgid "Scale images"
 msgstr "Zvětšení obrázků"
 
-#: Wammu/PhoneSearch.py:107
-#, fuzzy
-msgid "Scanning for bluetooth devices using GNOME Bluetooth"
-msgstr "Vyhledávám zařízení Bluetooth"
-
-#: Wammu/PhoneSearch.py:129
-#, fuzzy
-msgid "Scanning for bluetooth devices using PyBluez"
-msgstr "Vyhledávám zařízení Bluetooth"
+#: Wammu/PhoneSearch.py:107 Wammu/PhoneSearch.py:129
+#, python-format
+msgid "Scanning for bluetooth devices using %s"
+msgstr "Vyhledávám zařízení Bluetooth pomocí %s"
 
 #: Wammu/Main.py:243
 msgid "Se&ttings"
@@ -2062,6 +2057,9 @@ msgstr "zvukové vytáčení %x"
 
 #~ msgid "S&ave SMS"
 #~ msgstr "Uložit &SMS"
+
+#~ msgid "Scanning for bluetooth devices using GNOME Bluetooth"
+#~ msgstr "Vyhledávám zařízení Bluetooth pomocí GNOME Bluetooth"
 
 #~ msgid "W&rite SMS data"
 #~ msgstr "U&ložit SMS data"
