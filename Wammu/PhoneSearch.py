@@ -102,7 +102,12 @@ class AllSearchThread(threading.Thread):
             # read devices list
             if self.msgcallback != None:
                 self.msgcallback(_('Scanning for bluetooth devices'))
+
             devs = btctl.known_devices()
+
+            if len(devs) == 0 and self.msgcallback != None:
+                self.msgcallback(_('No bluetooth device found'))
+
             for dev in devs:
                 t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
                 t.setName('%s (%s) - %s' % (dev['bdaddr'], btctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
@@ -113,8 +118,34 @@ class AllSearchThread(threading.Thread):
             if self.msgcallback != None:
                 self.msgcallback(_('Bluetooth device scan completed'))
         except ImportError:
-            if self.msgcallback != None:
-                self.msgcallback(_('GNOME Bluetooth not found, not possible to scan for bluetooth devices'))
+            try:
+                import bluetooth
+                devs = []
+                # read devices list
+                if self.msgcallback != None:
+                    self.msgcallback(_('Scanning for bluetooth devices (PyBluez)'))
+
+                try:
+                    nearby_devices = bluetooth.discover_devices()
+
+                    if len(nearby_devices) == 0 and self.msgcallback != None:
+                        self.msgcallback(_('No bluetooth device found'))
+
+                    for bdaddr in nearby_devices:
+                        t = SearchThread(bdaddr, Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
+                        t.setName('%s (%s) - %s' % (bdaddr, bluetooth.lookup_name(bdaddr), Wammu.Data.Conn_Bluetooth))
+                        if self.msgcallback != None:
+                            self.msgcallback(_('Checking %s') %  t.getName())
+                        self.threads.append(t)
+                        t.start()
+                    if self.msgcallback != None:
+                        self.msgcallback(_('Bluetooth device scan completed'))
+                except bluetooth.BluetoothError, txt:
+                    if self.msgcallback != None:
+                        self.msgcallback(_('Could not access Bluetooth subsystem (%s)') % txt)
+            except ImportError:
+                if self.msgcallback != None:
+                    self.msgcallback(_('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
 
         i = 0
         while len(self.threads) > 0:
