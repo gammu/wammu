@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-01-23 07:31+0100\n"
+"POT-Creation-Date: 2006-01-24 21:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -274,7 +274,7 @@ msgstr ""
 msgid "All files"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:130
+#: Wammu/PhoneSearch.py:164
 #, python-format
 msgid "All finished, found %d phones"
 msgstr ""
@@ -348,7 +348,7 @@ msgstr ""
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:114
+#: Wammu/PhoneSearch.py:122 Wammu/PhoneSearch.py:145
 msgid "Bluetooth device scan completed"
 msgstr ""
 
@@ -428,7 +428,7 @@ msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr ""
 
-#: Wammu/PhoneSearch.py:110
+#: Wammu/PhoneSearch.py:118 Wammu/PhoneSearch.py:141
 #, python-format
 msgid "Checking %s"
 msgstr ""
@@ -453,7 +453,7 @@ msgstr ""
 msgid "Claps"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:41
+#: Wammu/PhoneSearch.py:42
 msgid "Close"
 msgstr ""
 
@@ -528,6 +528,11 @@ msgstr ""
 
 #: Wammu/Main.py:261
 msgid "Contacts from phone memory"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:148
+#, python-format
+msgid "Could not access Bluetooth subsystem (%s)"
 msgstr ""
 
 #: Wammu/Ringtone.py:44
@@ -789,7 +794,7 @@ msgstr ""
 msgid "File already exists!"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:125
+#: Wammu/PhoneSearch.py:159
 #, python-format
 msgid "Finished %s"
 msgstr ""
@@ -826,10 +831,6 @@ msgstr ""
 
 #: Wammu/Utils.py:403
 msgid "Function:"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:117
-msgid "GNOME Bluetooth not found, not possible to scan for bluetooth devices"
 msgstr ""
 
 #: Wammu/Main.py:1280
@@ -1075,7 +1076,7 @@ msgstr ""
 msgid "Model"
 msgstr "Model"
 
-#: Wammu/Main.py:1940
+#: Wammu/Main.py:1941
 #, python-format
 msgid "Model %s (%s) on %s port using connection %s"
 msgstr ""
@@ -1097,8 +1098,18 @@ msgstr "Meer"
 msgid "Name"
 msgstr ""
 
+#: Wammu/PhoneSearch.py:151
+msgid ""
+"Neither GNOME Bluetooth nor PyBluez found, not possible to scan for "
+"bluetooth devices"
+msgstr ""
+
 #: Wammu/Utils.py:302
 msgid "No"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:112 Wammu/PhoneSearch.py:135
+msgid "No bluetooth device found"
 msgstr ""
 
 #: Wammu/Main.py:1377 Wammu/Main.py:1444
@@ -1115,14 +1126,14 @@ msgstr ""
 msgid "No importable data were found in file \"%s\""
 msgstr ""
 
-#: Wammu/Main.py:1933
+#: Wammu/Main.py:1934
 msgid ""
 "No phone could not be found, you still can try to select it manually. Wammu "
 "searches only few ports, so if you are using some unusual, this might "
 "easilly happen."
 msgstr ""
 
-#: Wammu/Main.py:1934
+#: Wammu/Main.py:1935
 msgid "No phone found"
 msgstr ""
 
@@ -1228,7 +1239,7 @@ msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr "Telefoon model. Laat dit op auto staan tenzij je problemen hebt."
 
-#: Wammu/PhoneSearch.py:33
+#: Wammu/PhoneSearch.py:34
 msgid "Phone searching log"
 msgstr ""
 
@@ -1425,8 +1436,12 @@ msgstr ""
 msgid "Scale images"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:104
-msgid "Scanning for bluetooth devices"
+#: Wammu/PhoneSearch.py:107
+msgid "Scanning for bluetooth devices using GNOME Bluetooth"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:129
+msgid "Scanning for bluetooth devices using PyBluez"
 msgstr ""
 
 #: Wammu/Main.py:243
@@ -1469,7 +1484,7 @@ msgstr ""
 msgid "Select number for selected contact"
 msgstr "Kies nummer voor geselecteerde contactpersoon"
 
-#: Wammu/Main.py:1941
+#: Wammu/Main.py:1942
 msgid "Select phone"
 msgstr ""
 
@@ -1477,7 +1492,7 @@ msgstr ""
 msgid "Select phone number"
 msgstr "Kies telefoonnummer"
 
-#: Wammu/Main.py:1941
+#: Wammu/Main.py:1942
 msgid "Select phone to use from bellow list"
 msgstr ""
 
@@ -1572,7 +1587,7 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:87
+#: Wammu/PhoneSearch.py:90
 #, python-format
 msgid "Starting %s"
 msgstr ""

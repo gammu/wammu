@@ -1924,7 +1924,8 @@ class WammuFrame(wx.Frame):
         self.PhoneDisconnect()
         d = Wammu.PhoneSearch.LogDialog(self)
         self.searchlog = d
-        t = Wammu.PhoneSearch.AllSearchThread(lock = self.cfg.Read('/Gammu/LockDevice', 'no'), callback = self.SearchDone, msgcallback = self.SearchMessage)
+        t = Wammu.PhoneSearch.AllSearchThread(lock =
+        self.cfg.Read('/Gammu/LockDevice', 'no'), callback = self.SearchDone, msgcallback = self.SearchMessage, win = self)
         t.start()
         d.ShowModal()
 

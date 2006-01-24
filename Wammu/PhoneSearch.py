@@ -21,6 +21,7 @@ Searching for phone
 import wx
 import threading
 import os.path
+import sys
 import Wammu
 if Wammu.gammu_error == None:
     import gammu
@@ -64,10 +65,11 @@ class LogDialog(wx.Dialog):
 
 
 class AllSearchThread(threading.Thread):
-    def __init__(self, lock = 'no', level = 'nothing', msgcallback = None, callback = None):
+    def __init__(self, lock = 'no', level = 'nothing', msgcallback = None, callback = None, win = None):
         threading.Thread.__init__(self)
         self.lock = lock
         self.list = []
+        self.win = win
         self.listlock = threading.Lock()
         self.level = level
         self.threads = []
@@ -75,128 +77,137 @@ class AllSearchThread(threading.Thread):
         self.msgcallback = msgcallback
 
     def run(self):
-        for dev in Wammu.Data.AllDevices:
-            if dev[1].find('%d') >= 0:
-                for i in range(*dev[2]):
-                    curdev = dev[1] % i
-                    if curdev[0] == '/' and not os.path.exists(curdev):
-                        continue
-                    t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level)
-                    t.setName('%s - %s' % (curdev, str(dev[0])))
-                    if self.msgcallback != None:
-                        self.msgcallback(_('Starting %s') %  t.getName())
-                    self.threads.append(t)
-                    t.start()
-            else:
-                if dev[1][0] == '/' and not os.path.exists(dev[1]):
-                    continue
-                t = SearchThread(dev[1], dev[0], self.list, self.listlock, self.lock, self.level)
-                t.setName('%s - %s' % (dev[1], ', '.join(dev[0])))
-                self.threads.append(t)
-                t.start()
-
         try:
-            import gnomebt.controller
-            # create controller object
-            btctl = gnomebt.controller.Controller()
-            # read devices list
-            if self.msgcallback != None:
-                self.msgcallback(_('Scanning for bluetooth devices'))
-
-            devs = btctl.known_devices()
-
-            if len(devs) == 0 and self.msgcallback != None:
-                self.msgcallback(_('No bluetooth device found'))
-
-            for dev in devs:
-                t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
-                t.setName('%s (%s) - %s' % (dev['bdaddr'], btctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
-                if self.msgcallback != None:
-                    self.msgcallback(_('Checking %s') %  t.getName())
-                self.threads.append(t)
-                t.start()
-            if self.msgcallback != None:
-                self.msgcallback(_('Bluetooth device scan completed'))
-        except ImportError:
-            try:
-                import bluetooth
-                devs = []
-                # read devices list
-                if self.msgcallback != None:
-                    self.msgcallback(_('Scanning for bluetooth devices (PyBluez)'))
-
-                try:
-                    nearby_devices = bluetooth.discover_devices()
-
-                    if len(nearby_devices) == 0 and self.msgcallback != None:
-                        self.msgcallback(_('No bluetooth device found'))
-
-                    for bdaddr in nearby_devices:
-                        t = SearchThread(bdaddr, Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
-                        t.setName('%s (%s) - %s' % (bdaddr, bluetooth.lookup_name(bdaddr), Wammu.Data.Conn_Bluetooth))
+            for dev in Wammu.Data.AllDevices:
+                if dev[1].find('%d') >= 0:
+                    for i in range(*dev[2]):
+                        curdev = dev[1] % i
+                        if curdev[0] == '/' and not os.path.exists(curdev):
+                            continue
+                        t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level, self.win)
+                        t.setName('%s - %s' % (curdev, str(dev[0])))
                         if self.msgcallback != None:
-                            self.msgcallback(_('Checking %s') %  t.getName())
+                            self.msgcallback(_('Starting %s') %  t.getName())
                         self.threads.append(t)
                         t.start()
-                    if self.msgcallback != None:
-                        self.msgcallback(_('Bluetooth device scan completed'))
-                except bluetooth.BluetoothError, txt:
-                    if self.msgcallback != None:
-                        self.msgcallback(_('Could not access Bluetooth subsystem (%s)') % txt)
-            except ImportError:
-                if self.msgcallback != None:
-                    self.msgcallback(_('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
+                else:
+                    if dev[1][0] == '/' and not os.path.exists(dev[1]):
+                        continue
+                    t = SearchThread(dev[1], dev[0], self.list, self.listlock, self.lock, self.level)
+                    t.setName('%s - %s' % (dev[1], ', '.join(dev[0])))
+                    self.threads.append(t)
+                    t.start()
 
-        i = 0
-        while len(self.threads) > 0:
-            if self.threads[i].isAlive():
-                i += 1
-            else:
+            try:
+                import gnomebt.controller
+                # create controller object
+                btctl = gnomebt.controller.Controller()
+                # read devices list
                 if self.msgcallback != None:
-                    self.msgcallback(_('Finished %s') % self.threads[i].getName())
-                del self.threads[i]
-            if i >= len(self.threads):
-                i = 0
-        if self.msgcallback != None:
-            self.msgcallback(_('All finished, found %d phones') % len(self.list))
-        if self.callback != None:
-            self.callback(self.list)
+                    self.msgcallback(_('Scanning for bluetooth devices using GNOME Bluetooth'))
+
+                devs = btctl.known_devices()
+
+                if len(devs) == 0 and self.msgcallback != None:
+                    self.msgcallback(_('No bluetooth device found'))
+
+                for dev in devs:
+                    t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
+                    t.setName('%s (%s) - %s' % (dev['bdaddr'], btctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
+                    if self.msgcallback != None:
+                        self.msgcallback(_('Checking %s') %  t.getName())
+                    self.threads.append(t)
+                    t.start()
+                if self.msgcallback != None:
+                    self.msgcallback(_('Bluetooth device scan completed'))
+            except ImportError:
+                try:
+                    import bluetooth
+                    devs = []
+                    # read devices list
+                    if self.msgcallback != None:
+                        self.msgcallback(_('Scanning for bluetooth devices using PyBluez'))
+
+                    try:
+                        nearby_devices = bluetooth.discover_devices()
+
+                        if len(nearby_devices) == 0 and self.msgcallback != None:
+                            self.msgcallback(_('No bluetooth device found'))
+
+                        for bdaddr in nearby_devices:
+                            t = SearchThread(bdaddr, Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
+                            t.setName('%s (%s) - %s' % (bdaddr, bluetooth.lookup_name(bdaddr), Wammu.Data.Conn_Bluetooth))
+                            if self.msgcallback != None:
+                                self.msgcallback(_('Checking %s') %  t.getName())
+                            self.threads.append(t)
+                            t.start()
+                        if self.msgcallback != None:
+                            self.msgcallback(_('Bluetooth device scan completed'))
+                    except bluetooth.BluetoothError, txt:
+                        if self.msgcallback != None:
+                            self.msgcallback(_('Could not access Bluetooth subsystem (%s)') % txt)
+                except ImportError:
+                    if self.msgcallback != None:
+                        self.msgcallback(_('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
+
+            i = 0
+            while len(self.threads) > 0:
+                if self.threads[i].isAlive():
+                    i += 1
+                else:
+                    if self.msgcallback != None:
+                        self.msgcallback(_('Finished %s') % self.threads[i].getName())
+                    del self.threads[i]
+                if i >= len(self.threads):
+                    i = 0
+            if self.msgcallback != None:
+                self.msgcallback(_('All finished, found %d phones') % len(self.list))
+            if self.callback != None:
+                self.callback(self.list)
+        except:
+            evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
+            wx.PostEvent(self.win, evt)
 
 class SearchThread(threading.Thread):
-    def __init__(self, device, connections, lst, listlock, lock = 'no', level = 'nothing'):
+    def __init__(self, device, connections, lst, listlock, lock = 'no', level = 'nothing', win = None):
         threading.Thread.__init__(self)
         self.device = device
         self.connections = connections
         self.lock = lock
+        self.win = win
         self.level = level
         self.list = lst
         self.listlock = listlock
 
     def run(self):
-        sm = gammu.StateMachine()
-        for conn in self.connections:
-            sm.SetConfig(0,
-                    {'StartInfo': 'no',
-                     'UseGlobalDebugFile': 1,
-                     'DebugFile': '',
-                     'SyncTime': 'no',
-                     'Connection': conn,
-                     'LockDevice': self.lock,
-                     'DebugLevel': self.level,
-                     'Device': self.device,
-                     'Localize': None,
-                     'Model': ''})
-            try:
-                if self.level == 'textall':
-                    print 'Trying at %s using %s' % (self.device, conn)
-                sm.Init()
-                self.listlock.acquire()
-                self.list.append((self.device, conn, sm.GetModel(), sm.GetManufacturer()))
-                self.listlock.release()
-                if self.level != 'nothing':
-                    print '!!Found model %s at %s using %s' % (sm.GetModel(), self.device, conn)
-                return
-            except gammu.GSMError:
-                if self.level == 'textall':
-                    print 'Failed at %s using %s' % (self.device, conn)
-                pass
+        try:
+            sm = gammu.StateMachine()
+            for conn in self.connections:
+                sm.SetConfig(0,
+                        {'StartInfo': 'no',
+                         'UseGlobalDebugFile': 1,
+                         'DebugFile': '',
+                         'SyncTime': 'no',
+                         'Connection': conn,
+                         'LockDevice': self.lock,
+                         'DebugLevel': self.level,
+                         'Device': self.device,
+                         'Localize': None,
+                         'Model': ''})
+                try:
+                    if self.level == 'textall':
+                        print 'Trying at %s using %s' % (self.device, conn)
+                    sm.Init()
+                    self.listlock.acquire()
+                    self.list.append((self.device, conn, sm.GetModel(), sm.GetManufacturer()))
+                    self.listlock.release()
+                    if self.level != 'nothing':
+                        print '!!Found model %s at %s using %s' % (sm.GetModel(), self.device, conn)
+                    return
+                except gammu.GSMError:
+                    if self.level == 'textall':
+                        print 'Failed at %s using %s' % (self.device, conn)
+                    pass
+        except:
+            evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
+            wx.PostEvent(self.win, evt)
