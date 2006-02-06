@@ -56,6 +56,14 @@ else:
         print 'You can get it from <http://www.wxpython.org>'
         sys.exit(1)
 
+try:
+    import gnomebt.controller
+except ImportError:
+    try:
+        import bluetooth
+    except ImportError:
+        print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
+
 setup(name="wammu",
     version = Wammu.__version__,
     description = "GUI for gammu.",
