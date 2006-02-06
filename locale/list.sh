@@ -1,2 +1,2 @@
 # List of translations:
-LOCS="ca cs de es fr hu nl it"
+LOCS="ca cs de es et fr hu nl it pt_BR"
