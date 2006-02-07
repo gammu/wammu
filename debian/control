@@ -8,7 +8,7 @@ Standards-Version: 3.6.2
 Package: wammu
 Architecture: all
 Depends: ${python:Depends}, python-gammu (>= 0.9),  python-wxgtk2.6 | python-wxgtk2.4 | libwxgtk2.4-python (>= 2.4.1.2) | wxpython
-Recommends: timidity, gnome-bluetooth
+Recommends: timidity, python-bluetooth | gnome-bluetooth
 Description: Phone manager
  Mobile phone manager using Gammu as it's backend. It works with any phone Gammu
  supports - many Nokias, Siemens, Alcatel, ... Written using wxGTK.
