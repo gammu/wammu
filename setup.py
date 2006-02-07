@@ -32,7 +32,7 @@ if os.getenv('SKIPGAMMUCHECK') == 'yes':
 else:
     try:
         import gammu
-    except:
+    except ImportError:
         print 'You need python-gammu!'
         print 'You can get it from <http://www.cihar.com/gammu/python/>'
         sys.exit(1)
@@ -47,7 +47,7 @@ if os.getenv('SKIPWXCHECK') == 'yes':
 else:
     try:
         import wx
-    except:
+    except ImportError:
         print 'You need wxPython!'
         print 'You can get it from <http://www.wxpython.org>'
         sys.exit(1)
@@ -63,6 +63,8 @@ except ImportError:
         import bluetooth
     except ImportError:
         print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
+        print 'GNOME Bluetooth can be downloaded from <http://usefulinc.com/software/gnome-bluetooth>'
+        print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
 
 setup(name="wammu",
     version = Wammu.__version__,
