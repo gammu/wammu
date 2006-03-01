@@ -997,15 +997,14 @@ class WammuFrame(wx.Frame):
         if self.type[0] == 'message':
             v = evt.data
             try:
-                for loc in v['Location'].split(', '):
-                    # FIXME: 0 folder is safe for AT, but I'm not sure with others
-                    self.sm.SendSavedSMS(0, int(loc))
+                try:
+                    for loc in v['Location'].split(', '):
+                        self.sm.SendSavedSMS(0, int(loc))
+                except gammu.ERR_NOTSUPPORTED:
+                    for msg in v['SMS']:
+                        self.sm.SendSMS(msg)
             except gammu.GSMError, val:
                 self.ShowError(val[0])
-
-            if t == '__':
-                t = '  '
-            self.ActivateView(self.type[0], t)
 
     def SMSToMails(self, evt):
         # Select where to export
