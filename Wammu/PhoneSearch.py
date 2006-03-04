@@ -99,25 +99,26 @@ class AllSearchThread(threading.Thread):
                     t.start()
 
             try:
-                import gnomebt.controller
+                import btctl
                 # create controller object
-                btctl = gnomebt.controller.Controller()
+                ctl = btctl.Controller('')
                 # read devices list
                 if self.msgcallback != None:
                     self.msgcallback(_('Scanning for bluetooth devices using %s') % 'GNOME Bluetooth')
 
-                devs = btctl.known_devices()
+                devs = ctl.discover_devices()
 
-                if len(devs) == 0 and self.msgcallback != None:
-                    self.msgcallback(_('No bluetooth device found'))
-
-                for dev in devs:
-                    t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
-                    t.setName('%s (%s) - %s' % (dev['bdaddr'], btctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
+                if devs == None or len(devs) == 0:
                     if self.msgcallback != None:
-                        self.msgcallback(_('Checking %s') %  t.getName())
-                    self.threads.append(t)
-                    t.start()
+                        self.msgcallback(_('No bluetooth device found'))
+                else:
+                    for dev in devs:
+                        t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
+                        t.setName('%s (%s) - %s' % (dev['bdaddr'], ctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
+                        if self.msgcallback != None:
+                            self.msgcallback(_('Checking %s') %  t.getName())
+                        self.threads.append(t)
+                        t.start()
                 if self.msgcallback != None:
                     self.msgcallback(_('Bluetooth device scan completed'))
             except ImportError:
