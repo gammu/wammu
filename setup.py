@@ -25,46 +25,51 @@ import Wammu
 import os.path
 import os
 
+# detect whether we should check for dependencies
+skip_deps = 'clean' in sys.argv or '--help' in sys.argv or '--help-commands' in sys.argv or 'sdist' in sys.argv
+
+# somw defines
 PYTHONGAMMU_REQUIRED = (0,10)
 
-if os.getenv('SKIPGAMMUCHECK') == 'yes':
-    print 'Skipping Gammu check, expecting you know what you are doing!'
-else:
-    try:
-        import gammu
-    except ImportError:
-        print 'You need python-gammu!'
-        print 'You can get it from <http://cihar.com/gammu/python/>'
-        sys.exit(1)
-    pygver = tuple(map(int, gammu.Version()[1].split('.')))
-    if  pygver < PYTHONGAMMU_REQUIRED:
-        print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
-        print 'You can get it from <http://cihar.com/gammu/python/>'
-        sys.exit(1)
+if not skip_deps:
+    if os.getenv('SKIPGAMMUCHECK') == 'yes':
+        print 'Skipping Gammu check, expecting you know what you are doing!'
+    else:
+        try:
+            import gammu
+        except ImportError:
+            print 'You need python-gammu!'
+            print 'You can get it from <http://cihar.com/gammu/python/>'
+            sys.exit(1)
+        pygver = tuple(map(int, gammu.Version()[1].split('.')))
+        if  pygver < PYTHONGAMMU_REQUIRED:
+            print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
+            print 'You can get it from <http://cihar.com/gammu/python/>'
+            sys.exit(1)
 
-if os.getenv('SKIPWXCHECK') == 'yes':
-    print 'Skipping wx check, expecting you know what you are doing!'
-else:
-    try:
-        import wx
-    except ImportError:
-        print 'You need wxPython!'
-        print 'You can get it from <http://www.wxpython.org>'
-        sys.exit(1)
-    if wx.VERSION < (2,4,1,2):
-        print 'You need at least wxPython 2.4.1.2!'
-        print 'You can get it from <http://www.wxpython.org>'
-        sys.exit(1)
+    if os.getenv('SKIPWXCHECK') == 'yes':
+        print 'Skipping wx check, expecting you know what you are doing!'
+    else:
+        try:
+            import wx
+        except ImportError:
+            print 'You need wxPython!'
+            print 'You can get it from <http://www.wxpython.org>'
+            sys.exit(1)
+        if wx.VERSION < (2,4,1,2):
+            print 'You need at least wxPython 2.4.1.2!'
+            print 'You can get it from <http://www.wxpython.org>'
+            sys.exit(1)
 
-try:
-    import gnomebt.controller
-except ImportError:
     try:
-        import bluetooth
+        import gnomebt.controller
     except ImportError:
-        print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
-        print 'GNOME Bluetooth can be downloaded from <http://usefulinc.com/software/gnome-bluetooth>'
-        print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
+        try:
+            import bluetooth
+        except ImportError:
+            print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
+            print 'GNOME Bluetooth can be downloaded from <http://usefulinc.com/software/gnome-bluetooth>'
+            print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
 
 setup(name="wammu",
     version = Wammu.__version__,
