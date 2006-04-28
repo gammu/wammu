@@ -1281,18 +1281,23 @@ class WammuFrame(wx.Frame):
                 wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
 
             wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
+            exts = ['backup']
 
-            if not data:
-                if type in ['contact', 'all']:
-                    wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
-                if type in ['contact', 'all']:
-                    wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
-                if type in ['contact', 'all']:
-                    wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
-                if type in ['todo', 'calendar', 'all']:
-                    wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
-                if type in ['todo', 'calendar', 'all']:
-                    wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
+            if type in ['contact', 'all']:
+                wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
+                exts += ['lmb']
+            if type in ['contact', 'all']:
+                wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
+                exts += ['vcf']
+            if type in ['contact', 'all']:
+                wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
+                exts += ['ldif']
+            if type in ['todo', 'calendar', 'all']:
+                wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
+                exts += ['vcs']
+            if type in ['todo', 'calendar', 'all']:
+                wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
+                exts += ['ics']
 
         wildcard += _('All files') + ' (*.*)|*.*;*'
 
@@ -1308,6 +1313,10 @@ class WammuFrame(wx.Frame):
                 dlg = wx.FileDialog(self, _('Import backup'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
+            if save:
+                ext = exts[dlg.GetFilterIndex()]
+                if os.path.splitext(path)[1] == '':
+                    path += '.' + ext
             return path
         return None
 
