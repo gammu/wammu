@@ -816,7 +816,10 @@ class WammuFrame(wx.Frame):
                     v['Location'] = self.sm.SetMemory(v)
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
-                v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                try:
+                    v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+                    wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
                 Wammu.Utils.ParseMemoryEntry(v)
                 v['Synced'] = True
                 # append new value to list
@@ -865,7 +868,10 @@ class WammuFrame(wx.Frame):
                     v['Location'] = self.sm.SetCalendar(v)
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
-                v = self.sm.GetCalendar(v['Location'])
+                try:
+                    v = self.sm.GetCalendar(v['Location'])
+                except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+                    wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
                 Wammu.Utils.ParseCalendar(v)
                 v['Synced'] = True
                 # append new value to list
@@ -907,7 +913,10 @@ class WammuFrame(wx.Frame):
                     v['Location'] = self.sm.SetToDo(v)
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
-                v = self.sm.GetToDo(v['Location'])
+                try:
+                    v = self.sm.GetToDo(v['Location'])
+                except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+                    wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
                 Wammu.Utils.ParseTodo(v)
                 v['Synced'] = True
                 # append new value to list
