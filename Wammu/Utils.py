@@ -399,5 +399,5 @@ def FormatError(txt, info):
     elif info['Code'] == gammu.Errors['ERR_TIMEOUT']:
         message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for bluetooth or IrDA).')
     else:
-        message = '%s %s\n%s %s\n%s %d' % (_('Description:'), info['Text'], _('Function:'), info['Where'], _('Error code:'), info['Code'])
+        message = '%s %s\n%s %s\n%s %d' % (_('Description:'), StrConv(info['Text']), _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
