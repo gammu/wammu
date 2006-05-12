@@ -40,10 +40,12 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
         self.itemno = -1
 
+        color = wx.SystemSettings.GetColour(wx.SYS_COLOUR_3DLIGHT)
+
         self.attr1 = wx.ListItemAttr()
 
         self.attr2 = wx.ListItemAttr()
-        self.attr2.SetBackgroundColour('light blue')
+        self.attr2.SetBackgroundColour(color)
 
         self.attr3 = wx.ListItemAttr()
         fnt = self.attr3.GetFont()
@@ -51,7 +53,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.attr3.SetFont(fnt)
 
         self.attr4 = wx.ListItemAttr()
-        self.attr4.SetBackgroundColour('light blue')
+        self.attr4.SetBackgroundColour(color)
         self.attr4.SetFont(fnt)
 
         il = wx.ImageList(16, 16)
