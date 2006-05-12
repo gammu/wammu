@@ -568,7 +568,12 @@ class WammuFrame(wx.Frame):
         self.ClearSearch()
 
     def OnSearch(self, event):
-        self.browser.Filter(self.searchinput.GetValue())
+        text = self.searchinput.GetValue()
+        try:
+            self.browser.Filter(text)
+            self.searchinput.SetBackgroundColour(wx.NullColour)
+        except:
+            self.searchinput.SetBackgroundColour(wx.RED)
 
     def ClearSearch(self, event = None):
         self.searchinput.SetValue('')

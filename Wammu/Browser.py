@@ -23,6 +23,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import wx
+import re
 import Wammu
 import Wammu.Events
 import Wammu.Utils
@@ -115,7 +116,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         if text == '':
             self.values = self.allvalues
         else:
-            self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, text)]
+            num = None
+            if text.isdigit():
+                num = int(text)
+            match = re.compile(text, re.I)
+            self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, match, num)]
         self.SetItemCount(len(self.values))
         self.RefreshView()
         self.ShowRow(0)

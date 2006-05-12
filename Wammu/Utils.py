@@ -181,12 +181,7 @@ def SearchLocation(lst, loc, second = None):
                 break
     return result
 
-def MatchesText(item, text):
-    dig = text.isdigit()
-    if dig:
-        num = int(text)
-    match = re.compile(text, re.I)
-
+def MatchesText(item, match, num):
     for x in item:
         if type(item) == dict:
             val = item[x]
@@ -195,7 +190,7 @@ def MatchesText(item, text):
         if type(val) in (str, unicode):
             if match.search(val) != None:
                 return True
-        elif dig and type(val) == int and num == val:
+        elif num is not None and type(val) == int and num == val:
             return True
         elif type(val) == list:
             for i in range(len(val)):
