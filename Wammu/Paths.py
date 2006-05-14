@@ -38,7 +38,7 @@ def AppIconPath(*args):
     if os.path.exists(os.path.join('/usr', 'share', 'pixmaps', p)):
         return os.path.join('/usr', 'share', 'pixmaps', p)
     else:
-        return os.path.join('.', p)
+        return os.path.join('.', 'icon', p)
 
 def IconPath(*args):
     return ImagePath('icons', *args)

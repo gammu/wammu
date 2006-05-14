@@ -111,7 +111,7 @@ setup(name="wammu",
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
         (os.path.join('share','locale','cs','LC_MESSAGES'), ['locale/cs/LC_MESSAGES/wammu.mo']),
         (os.path.join('share','applications'), ['wammu.desktop']),
-        (os.path.join('share','pixmaps'), ['wammu.png', 'wammu.xpm']),
+        (os.path.join('share','pixmaps'), ['icon/wammu.png', 'icon/wammu.xpm']),
         (os.path.join('share','man','man1'), ['wammu.1'])
         ]
     )
