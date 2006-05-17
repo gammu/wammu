@@ -95,7 +95,8 @@ class AllSearchThread(threading.Thread):
                         self.threads.append(t)
                         t.start()
                 else:
-                    if dev[1][0] == '/' and not os.path.exists(dev[1]):
+                    # need to handle devices without name here
+                    if len(dev[1]) > 0 and dev[1][0] == '/' and not os.path.exists(dev[1]):
                         continue
                     t = SearchThread(dev[1], dev[0], self.list, self.listlock, self.lock, self.level)
                     t.setName('%s - %s' % (dev[1], ', '.join(dev[0])))

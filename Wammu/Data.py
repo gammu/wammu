@@ -442,6 +442,7 @@ Conn_Bluetooth = [
     ]
 if sys.platform == 'win32':
     Devices = [
+        '',
         'com1:',
         'com2:',
         ]
