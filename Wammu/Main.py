@@ -1261,7 +1261,7 @@ class WammuFrame(wx.Frame):
                 filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
 
                 try:
-                    res = m.append(folder, '(\Unseen)', None, data)
+                    res = m.append(folder, None, None, data)
                 except:
                     res = ['FAIL']
                 if res[0] != 'OK':
@@ -1269,6 +1269,7 @@ class WammuFrame(wx.Frame):
                         _('Can not save message to folder %s on server, bailing out.') % folder,
                         _('Saving failed!'),
                         wx.OK | wx.ICON_ERROR).ShowModal()
+                    self.progress.Update(100)
                     del self.progress
                     self.SetStatusText(_('Export terminated'))
                     return
