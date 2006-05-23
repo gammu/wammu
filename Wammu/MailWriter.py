@@ -107,7 +107,8 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
                     sub = MIMEImage(XPMToPNG(Wammu.Data.UnknownPredefined))
                 else:
                     sub = MIMEImage(XPMToPNG(Wammu.Data.PredefinedAnimations[i['Number']][1]))
-                sub.add_header('Content-ID', '<%s>' % cid_format % cid);
+                sub.add_header('Content-ID', '<%s>' % cid_format % cid)
+                sub.add_header('Content-Disposition', 'inline')
                 msg.attach(sub)
                 text = text + '<img src="cid:%s">' % (cid_format % cid)
                 cid = cid + 1
@@ -136,7 +137,8 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
             if i['ID'] in Wammu.Data.SMSIDs['Bitmap']:
                 for x in i['Bitmap']:
                     sub = MIMEImage(XPMToPNG(x['XPM']))
-                    sub.add_header('Content-ID', '<%s>' % cid_format % cid);
+                    sub.add_header('Content-ID', '<%s>' % cid_format % cid)
+                    sub.add_header('Content-Disposition', 'inline')
                     msg.attach(sub)
                     text = text + '<img src="cid:%s">' % (cid_format % cid)
                     cid = cid + 1
@@ -144,7 +146,8 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
             if i['ID'] in Wammu.Data.SMSIDs['Animation']:
                 for x in i['Bitmap']:
                     sub = MIMEImage(XPMToPNG(x['XPM']))
-                    sub.add_header('Content-ID', '<%s>' % cid_format % cid);
+                    sub.add_header('Content-ID', '<%s>' % cid_format % cid)
+                    sub.add_header('Content-Disposition', 'inline')
                     msg.attach(sub)
                     text = text + '<img src="cid:%s">' % (cid_format % cid)
                     cid = cid + 1
