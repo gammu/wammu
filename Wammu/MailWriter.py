@@ -90,7 +90,10 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         msg['To'] = local
         msg['From'] = remote
 
-    msg['Subject'] = SmsTextFormat(cfg, sms['Text'], False)[:50] + '...'
+    if len(sms['Name']) > 0 :
+        msg['Subject'] = SmsTextFormat(cfg, sms['Name'], False)
+    else:
+        msg['Subject'] = SmsTextFormat(cfg, sms['Text'], False)[:50] + '...'
 
     if sms['DateTime'] is not None:
         msg['Date'] = DateToString(sms['DateTime'])
