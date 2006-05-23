@@ -28,6 +28,7 @@ from email.MIMEAudio import MIMEAudio
 from email.MIMEImage import MIMEImage
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
+import email.Utils
 import md5
 import time
 import tempfile
@@ -62,6 +63,9 @@ def RingtoneToMIDI(data):
     os.unlink(name)
     return data
 
+def DateToString(dt):
+    return email.Utils.formatdate(time.mktime(dt.timetuple()), True)
+
 def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     msg = MIMEMultipart('related', None, None, type='text/html')
     name = ''
@@ -72,10 +76,10 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
             name = '%s ' % lookuplist[i]['Name']
 
     for header in ['Folder', 'Memory', 'Location', 'Name', 'Type', 'State', 'Class', 'MessageReference']:
-        msg.add_header(header_format % header, str(sms['SMS'][0][header]))
+        msg.add_header(header_format % header, unicode(sms['SMS'][0][header]))
     msg.add_header(header_format % 'SMSC', sms['SMS'][0]['SMSC']['Number'])
     if sms['SMS'][0]['SMSCDateTime'] is not None:
-        msg.add_header(header_format % 'SMSCDate', sms['SMS'][0]['SMSCDateTime'].strftime('%a, %d %b %Y %H:%M:%S %z'))
+        msg.add_header(header_format % 'SMSCDate', DateToString(sms['SMS'][0]['SMSCDateTime']))
 
     remote = '%s<%s@wammu.sms>' % (name, sms['Number'])
     local = 'Wammu <wammu@wammu.sms>' # FIXME: make this configurable?
@@ -89,7 +93,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     msg['Subject'] = SmsTextFormat(cfg, sms['Text'], False)[:50] + '...'
 
     if sms['DateTime'] is not None:
-        msg['Date'] = sms['DateTime'].strftime('%a, %d %b %Y %H:%M:%S %z')
+        msg['Date'] = DateToString(sms['DateTime'])
 
     if sms.has_key('SMSInfo'):
         text = ''
@@ -154,10 +158,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         filename = '%s-%s.eml' % (sms['SMS'][0]['Type'], md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
     if mailbox:
-        if sms['DateTime'] is not None:
-            ts = sms['DateTime'].strftime('%a %b %d %H:%M:%S %Y')
-        else:
-            ts = time.asctime()
+        ts = DateToString(sms['DateTime'])
         prepend = 'From wammu@wammu.sms %s\n' % ts
     else:
         prepend = ''
