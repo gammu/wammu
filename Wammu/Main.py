@@ -640,13 +640,14 @@ class WammuFrame(wx.Frame):
                         wx.PD_CAN_ABORT | wx.PD_APP_MODAL | wx.PD_AUTO_HIDE | wx.PD_ELAPSED_TIME | wx.PD_REMAINING_TIME | wx.PD_ESTIMATED_TIME)
 
     def OnProgress(self, evt):
-        if not self.progress.Update(evt.progress):
-            try:
-                evt.cancel()
-            except:
-                pass
-        if (evt.progress == 100):
-            del self.progress
+        if hasattr(self, 'progress'):
+            if not self.progress.Update(evt.progress):
+                try:
+                    evt.cancel()
+                except:
+                    pass
+            if (evt.progress == 100):
+                del self.progress
         if hasattr(evt, 'lock'):
             evt.lock.release()
 
