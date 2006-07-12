@@ -556,6 +556,7 @@ MemoryValueTypes = [
     'RingtoneFileSystemID',
     'PictureID',
     'SMSListID',
+    'CallLength',
     ]
 
 CalendarTypes = [
@@ -613,6 +614,7 @@ TodoPriorities = [
     'High',
     'Medium',
     'Low',
+    'None',
     ]
 
 TodoValueTypes = [
