@@ -435,10 +435,12 @@ Conn_BlueRF = [
     ]
 Conn_Bluetooth = [
     'bluephonet',
+    'bluefbus',
+    'bluerfgnapbus',
     'blueat',
-    'bluerfat',
-    'bluerffbus',
     'bluerfphonet',
+    'bluerffbus',
+    'bluerfat',
     ]
 if sys.platform == 'win32':
     Devices = [
