@@ -3,7 +3,7 @@
 
 #define MyAppDosName "wammu"
 #define MyAppName "Wammu"
-#define MyAppVersion "0.14"
+#define MyAppVersion "0.15"
 #define MyAppPublisher "Micha Èihaø"
 #define MyAppURL "http://cihar.com/gammu/wammu"
 #define MyAppDescription "Wammu Mobile Phone Manager"
