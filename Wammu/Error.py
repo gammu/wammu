@@ -112,7 +112,7 @@ locales      %s (%s)
 
     # Include exception info in crash file
     if debuglogfilename is not None:
-        outf.write(text)
+        outf.write(text.encode('utf-8'))
         outf.close()
 
     # display error
