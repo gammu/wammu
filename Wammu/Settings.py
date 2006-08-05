@@ -292,11 +292,12 @@ class Settings(wx.Dialog):
         else:
             value = 'no'
         self.config.Write('/Gammu/SyncTime', value)
-        if self.editlock.GetValue():
-            value = 'yes'
-        else:
-            value = 'no'
-        self.config.Write('/Gammu/LockDevice', value)
+        if sys.platform != 'win32':
+            if self.editlock.GetValue():
+                value = 'yes'
+            else:
+                value = 'no'
+            self.config.Write('/Gammu/LockDevice', value)
         if self.editinfo.GetValue():
             value = 'yes'
         else:
