@@ -34,9 +34,13 @@ if not os.path.exists(os.path.join(datapath, 'images')):
         datapath = os.getcwd()
 
 def AppIconPath(*args):
-    p = os.path.join(*args) + os.extsep + 'png'
-    if os.path.exists(os.path.join('/usr', 'share', 'pixmaps', p)):
-        return os.path.join('/usr', 'share', 'pixmaps', p)
+    if sys.platform == 'win32':
+        ext = 'ico'
+    else:
+        ext = 'png'
+    p = os.path.join(*args) + os.extsep + ext
+    if os.path.exists(os.path.join(sys.exec_prefix, 'share', 'pixmaps', p)):
+        return os.path.join(sys.exec_prefix, 'share', 'pixmaps', p)
     else:
         return os.path.join('.', 'icon', p)
 

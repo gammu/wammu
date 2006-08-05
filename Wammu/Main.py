@@ -135,7 +135,10 @@ class WammuFrame(wx.Frame):
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
 
         icon = wx.EmptyIcon()
-        icon.CopyFromBitmap(wx.Bitmap(AppIconPath('wammu')))
+        if sys.platform == 'win32':
+            icon.LoadFile(AppIconPath('wammu'), wx.BITMAP_TYPE_ICO)
+        else:
+            icon.LoadFile(AppIconPath('wammu'), wx.BITMAP_TYPE_PNG)
         self.SetIcon(icon)
 
         self.CreateStatusBar(2)
