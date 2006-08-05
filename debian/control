@@ -2,13 +2,16 @@ Source: wammu
 Section: comm
 Priority: optional
 Maintainer: Michal Čihař <michal@cihar.com>
-Build-Depends-Indep: debhelper (>= 4.0.0), python, python-dev
+Build-Depends: debhelper (>= 5.0.37.2)
+Build-Depends-Indep: python-dev, python-central (>= 0.5)
 Standards-Version: 3.7.2.0
+XS-Python-Version: current
 
 Package: wammu
 Architecture: all
-Depends: ${python:Depends}, python-gammu (>= 0.9),  python-wxgtk2.6 | python-wxgtk2.4 | libwxgtk2.4-python (>= 2.4.1.2) | wxpython
-Recommends: timidity, python-bluez | python-bluetooth | python-btctl | python-libbtctl
+Depends: ${python:Depends}, python-gammu (>= 0.9),  python-wxgtk2.6 | python-wxgtk2.4
+Recommends: timidity, python-bluez | python-bluetooth
+XB-Python-Version: ${python:Versions}
 Description: Phone manager
  Mobile phone manager using Gammu as it's backend. It works with any phone Gammu
  supports - many Nokias, Siemens, Alcatel, ... Written using wxGTK.
