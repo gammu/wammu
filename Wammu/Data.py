@@ -447,10 +447,14 @@ if sys.platform == 'win32':
         '',
         'com1:',
         'com2:',
+        'com3:',
+        'com4:',
+        'com5:',
+        'com6:',
         ]
     AllDevices = [
         (Conn_IrDA_Win, '', None),
-        (Conn_Cable, 'com%d:', (1,4)),
+        (Conn_Cable, 'com%d:', (1,6)),
         ]
 # FIXME: support more platforms?
 else:
