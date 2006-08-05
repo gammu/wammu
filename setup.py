@@ -36,6 +36,11 @@ import Wammu
 import os.path
 import os
 import re
+# Optional support for py2exe
+try:
+    import py2exe
+except:
+    pass
 
 # detect whether we should check for dependencies
 skip_deps = 'clean' in sys.argv or '--help' in sys.argv or '--help-commands' in sys.argv or 'sdist' in sys.argv
@@ -228,11 +233,17 @@ setup(name="wammu",
         (os.path.join('share','locale','pt_BR','LC_MESSAGES'), ['locale/pt_BR/LC_MESSAGES/wammu.mo']),
         (os.path.join('share','locale','sk','LC_MESSAGES'), ['locale/sk/LC_MESSAGES/wammu.mo']),
         (os.path.join('share','applications'), ['wammu.desktop']),
-        (os.path.join('share','pixmaps'), ['icon/wammu.png', 'icon/wammu.xpm']),
+        (os.path.join('share','pixmaps'), ['icon/wammu.png', 'icon/wammu.xpm', 'icon/wammu.ico']),
         (os.path.join('share','man','man1'), ['wammu.1'])
         ],
-        # Override certain command classes with our own ones
+    # Override certain command classes with our own ones
     cmdclass = {
         'build_scripts': build_scripts_wammu,
         },
+    # py2exe options
+    options = {'py2exe': {'optimize': 2}},
+    windows = [
+        {'script': 'wammu.py'},
+        ],
+    zipfile = "shared.lib"
     )
