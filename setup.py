@@ -177,7 +177,7 @@ class build_scripts_wammu(build_scripts):
 
 setup(name="wammu",
     version = Wammu.__version__,
-    description = "GUI for gammu.",
+    description = "Wammu",
     long_description = "Phone manager built on top of python-gammu. Supports many phones.",
     author = "Michal Čihař",
     author_email = "michal@cihar.com",
