@@ -45,7 +45,7 @@ Name: ca; MessagesFile: compiler:Languages\Catalan.isl
 Name: cs; MessagesFile: compiler:Languages\Czech.isl
 ;Name: da; MessagesFile: compiler:Languages\Danish.isl
 Name: nl; MessagesFile: compiler:Languages\Dutch.isl
-;Name: fi; MessagesFile: compiler:Languages\Finnish.isl
+Name: fi; MessagesFile: compiler:Languages\Finnish.isl
 Name: fr; MessagesFile: compiler:Languages\French.isl
 Name: de; MessagesFile: compiler:Languages\German.isl
 Name: hu; MessagesFile: compiler:Languages\Hungarian.isl

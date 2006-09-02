@@ -445,7 +445,7 @@ class GenericEditor(wx.Dialog):
             title = _('Creating new %s') % name
             wasempty = True
         else:
-            title = _('Editing %s %s') % (name, location)
+            title = _('Editing %(name)s %(location)s') % {'name':name, 'location':location}
             wasempty = False
 
         wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)

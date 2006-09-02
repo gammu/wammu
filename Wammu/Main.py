@@ -214,12 +214,17 @@ class WammuFrame(wx.Frame):
         self.searchinput = wx.TextCtrl(self.searchpanel, -1)
         self.searchinput.SetToolTipString(_('Enter text to search for, please note that it is treated like regullar expression. Matching is done over all fields.'))
         self.searchpanel.sizer.Add(self.searchinput, 1, wx.LEFT | wx.CENTER | wx.EXPAND)
+        self.searchchoice = wx.CheckBox(self.searchpanel, -1, _('Regexp'))
+        self.searchchoice.SetToolTipString(_('Use regullar expression for searching?'))
+        self.searchchoice.SetValue(self.cfg.Read('/Defaults/SearchRegexp', 'yes') == 'yes')
+        self.searchpanel.sizer.Add(self.searchchoice, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
         self.searchclear = wx.Button(self.searchpanel, -1, _('&Clear'), style = wx.BU_EXACTFIT)
         self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
         self.searchpanel.SetSizer(self.searchpanel.sizer)
         self.rightwin.sizer.Add(self.searchpanel, 0, wx.LEFT | wx.ALL | wx.EXPAND)
 
         wx.EVT_TEXT(self.searchinput, self.searchinput.GetId(), self.OnSearch)
+        wx.EVT_CHECKBOX(self.searchchoice, self.searchchoice.GetId(), self.OnSearch)
         wx.EVT_BUTTON(self, self.searchclear.GetId(), self.ClearSearch)
 
         # item browser
@@ -452,7 +457,13 @@ class WammuFrame(wx.Frame):
                     power = _('no battery')
                 elif b['ChargeState'] == 'PowerFault':
                     power = _('fault')
-                self.SetStatusText(_('Bat: %d %% (%s), Sig: %d %%, Time: %s') % (b['BatteryPercent'], power, s['SignalPercent'], StrConv(d.strftime('%c'))), 1)
+                self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, Time: %(time)s') %
+                    {
+                        'battery_percent':b['BatteryPercent'],
+                        'power_source':power,
+                        'signal_percent':s['SignalPercent'],
+                        'time':StrConv(d.strftime('%c'))
+                    }, 1)
             except gammu.GSMError:
                 pass
 
@@ -572,8 +583,9 @@ class WammuFrame(wx.Frame):
 
     def OnSearch(self, event):
         text = self.searchinput.GetValue()
+        type = self.searchchoice.GetValue()
         try:
-            self.browser.Filter(text)
+            self.browser.Filter(text, type)
             self.searchinput.SetBackgroundColour(wx.NullColour)
         except:
             self.searchinput.SetBackgroundColour(wx.RED)
@@ -614,6 +626,10 @@ class WammuFrame(wx.Frame):
             self.SaveWinSize(self.logwin, '/Debug')
         self.cfg.WriteInt('/Main/Split', self.splitter.GetSashPosition())
         self.cfg.WriteInt('/Main/SplitRight', self.rightsplitter.GetSashPosition())
+        if self.searchchoice.GetValue():
+            self.cfg.Write('/Defaults/SearchRegexp', 'yes')
+        else:
+            self.cfg.Write('/Defaults/SearchRegexp', 'no')
 
         gammu.SetDebugFile(None)
         gammu.SetDebugLevel('nothing')
@@ -1079,7 +1095,7 @@ class WammuFrame(wx.Frame):
 
             self.progress.Update(100)
             del self.progress
-            self.SetStatusText(_('%d messages exported to mailbox "%s"') % (count, path))
+            self.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('mailbox')})
 
         # Maildir
         elif idx == 1:
@@ -1154,7 +1170,7 @@ class WammuFrame(wx.Frame):
             self.progress.Update(100)
             del self.progress
 
-            self.SetStatusText(_('%d messages exported to maildir "%s"') % (count, path))
+            self.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('maildir')})
 
         # IMAP
         elif idx == 2:
@@ -1184,7 +1200,7 @@ class WammuFrame(wx.Frame):
             self.cfg.Write('/IMAP/Login', login)
 
             dlg = wx.PasswordEntryDialog(self,
-                _('Please enter password for %s@%s') % (login, server),
+                _('Please enter password for %(login)s@%(server)s') % {'login': login,'server': server},
                 _('Password'),
                 '')
             if dlg.ShowModal() == wx.ID_CANCEL:
@@ -1286,7 +1302,7 @@ class WammuFrame(wx.Frame):
             except:
                 pass
 
-            self.SetStatusText(_('%d messages exported to IMAP server "%s"') % (count, server))
+            self.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('IMAP server')})
 
         else:
             raise Exception('Not implemented export functionality!')
@@ -1970,7 +1986,13 @@ class WammuFrame(wx.Frame):
 
         choices = []
         for x in self.founddevices:
-            choices.append(_('Model %s (%s) on %s port using connection %s') % (x[2][1], x[3], x[0], x[1]))
+            choices.append(_('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+                {
+                    'model':x[2][1],
+                    'manufacturer':x[3],
+                    'port':x[0],
+                    'connection': x[1]
+                })
         dlg = wx.SingleChoiceDialog(self, _('Select phone to use from bellow list'), _('Select phone'),
                                     choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
         if dlg.ShowModal() == wx.ID_OK:

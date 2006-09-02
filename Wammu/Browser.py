@@ -114,14 +114,17 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.SetColumnWidth(i, maxval[i] + spc)
         self.resizeLastColumn(maxval[cnt - 1] + spc)
 
-    def Filter(self, text):
+    def Filter(self, text, regexp):
         if text == '':
             self.values = self.allvalues
         else:
             num = None
             if text.isdigit():
                 num = int(text)
-            match = re.compile(text, re.I)
+            if regexp:
+                match = re.compile(text, re.I)
+            else:
+                match = re.compile('.*%s.*' % re.escape(text), re.I)
             self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, match, num)]
         self.SetItemCount(len(self.values))
         self.RefreshView()
