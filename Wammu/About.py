@@ -33,28 +33,41 @@ import Wammu.Utils
 from Wammu.Paths import *
 from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
 
-if wx.USE_UNICODE:
-    copyrightline = u'Copyright &copy; 2003 - 2006 Michal Čihař'
-    head = ''
-else:
-    copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2006 Michal Čihař')
-    if copyrightline.find('?') != -1:
-        copyrightline = 'Copyright (c) 2003 - 2006 Michal Cihar'
-    head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
+class AboutBox(wx.Dialog):
+    def __init__(self, parent):
+        wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
 
-if Wammu.gammu_error == None:
-    text = '''
+        if wx.USE_UNICODE:
+            copyrightline = u'Copyright &copy; 2003 - 2006 Michal Čihař'
+            head = ''
+        else:
+            copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2006 Michal Čihař')
+            if copyrightline.find('?') != -1:
+                copyrightline = 'Copyright (c) 2003 - 2006 Michal Cihar'
+            head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
+
+        # default system colours
+        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
+        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNTEXT)
+        hfgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNHIGHLIGHT)
+
+        colours = 'text="#%02x%02x%02x" bgcolor="#%02x%02x%02x" link="#%02x%02x%02x"' % (
+            fgc.Red(), fgc.Green(), fgc.Blue(),
+            bgc.Red(), bgc.Green(), bgc.Blue(),
+            hfgc.Red(), hfgc.Green(), hfgc.Blue())
+
+        text = '''
 <html>
 %s
-<body>
-<center><table bgcolor="#458154" width="100%%" cellspacing="0"
+<body %s>
+<center><font color="#ffffff"><table bgcolor="#458154" width="100%%" cellspacing="0"
 cellpadding="0" border="1">
 <tr>
     <td align="center">
     %s
     </td>
 </tr>
-</table>
+</table></font>
 
 <p>%s</p>
 
@@ -77,37 +90,34 @@ cellpadding="0" border="1">
 </body>
 </html>
 
-''' % (head, '''<img src="%s"><br><h2> Wammu %s</h2>
+''' % (head, colours, '''<img src="%s"><br><h2> Wammu %s</h2>
     %s<br>
     %s<br>
     %s<br>
 ''' % (AppIconPath('wammu'),
-    Wammu.__version__,
-    _('Running on Python %s') % sys.version.split()[0],
-    _('Using wxPython %s') % wx.VERSION_STRING,
-    _('Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s') %
-        {
-            'python_gammu_version':gammu.Version()[1],
-            'gammu_version': gammu.Version()[0]
-        }),
-    _('<b>Wammu</b> is a wxPython based GUI for Gammu.'),
-    copyrightline,
-    _('''
+            Wammu.__version__,
+            _('Running on Python %s') % sys.version.split()[0],
+            _('Using wxPython %s') % wx.VERSION_STRING,
+            _('Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s') %
+                {
+                    'python_gammu_version':gammu.Version()[1],
+                    'gammu_version': gammu.Version()[0]
+                }),
+            _('<b>Wammu</b> is a wxPython based GUI for Gammu.'),
+            copyrightline,
+            _('''
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2 as
 published by the Free Software Foundation.
 '''),
-    _('''
+            _('''
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 '''),
-    _('OK'))
+            _('OK'))
 
-class AboutBox(wx.Dialog):
-    def __init__(self, parent):
-        wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
         html = wx.html.HtmlWindow(self, -1, size = (500, -1))
         html.SetPage(text)
         btn = html.FindWindowById(wx.ID_OK)
