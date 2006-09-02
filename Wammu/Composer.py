@@ -389,6 +389,7 @@ class SMSComposer(wx.Dialog):
 
         self.report = wx.CheckBox(self, -1, _('Delivery report'))
         self.report.SetToolTipString(_('Check to request delivery report for message.'))
+        self.report.SetValue(self.cfg.Read('/Message/DeliveryReport', 'no') == 'yes')
         self.sizer.Add(self.report, pos = (row,2), flag = wx.ALIGN_LEFT)
 
         self.sent = wx.CheckBox(self, -1, _('Sent'))

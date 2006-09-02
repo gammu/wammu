@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-09-02 14:36+0200\n"
+"POT-Creation-Date: 2006-09-02 14:47+0200\n"
 "PO-Revision-Date: 2006-05-12 21:37+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -206,7 +206,7 @@ msgstr ", 일련 번호 %s"
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:410
+#: Wammu/Composer.py:411
 msgid "<<< Add <<<"
 msgstr "<<< 추가 <<<"
 
@@ -214,7 +214,7 @@ msgstr "<<< 추가 <<<"
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> 는 Gammu 를 위한 wxPython 기반의 GUI 입니다."
 
-#: Wammu/Composer.py:411
+#: Wammu/Composer.py:412
 msgid ">>> Delete"
 msgstr ">>> 삭제"
 
@@ -290,7 +290,7 @@ msgstr "텍스트 재구성 시도"
 msgid "Automatically connect to phone on startup"
 msgstr "시작시 자동적으로 전화기로 접속"
 
-#: Wammu/Composer.py:407
+#: Wammu/Composer.py:408
 msgid "Available message parts"
 msgstr "가능한 메세지 부분"
 
@@ -408,7 +408,7 @@ msgstr "서버의 폴더 %s 에 메세지를 저장할 수 없습니다, 바깥�
 msgid "Can not select folder %s on server, bailing out."
 msgstr "서버의 폴더 %s (을)를 선택할 수 없습니다, 바깥으로 꺼냅니다."
 
-#: Wammu/Editor.py:425 Wammu/Composer.py:441
+#: Wammu/Editor.py:425 Wammu/Composer.py:442
 msgid "Cancel"
 msgstr "취소"
 
@@ -420,11 +420,11 @@ msgstr "가운데"
 msgid "Change Wammu settings"
 msgstr "Wammu 설정 변경"
 
-#: Wammu/Composer.py:391
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "메세지 배달 보고를 신청하는 것을 점검 합니다"
 
-#: Wammu/Composer.py:395
+#: Wammu/Composer.py:396
 msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr "송신된 저장 메세지를 점검 합니다 (메세지 저장 시에만 영향을 미칩니다)"
@@ -478,7 +478,7 @@ msgstr "연결됨"
 msgid "Configuration not found"
 msgstr "설정을 찾지 못함"
 
-#: Wammu/Main.py:1703 Wammu/Settings.py:223
+#: Wammu/Main.py:1703 Wammu/Settings.py:229
 msgid "Confirm deleting"
 msgstr "확인 삭제"
 
@@ -494,7 +494,7 @@ msgstr "접속됨"
 msgid "Connecting to IMAP server..."
 msgstr "IMAP 서버로 접속 중..."
 
-#: Wammu/Settings.py:84 Wammu/Settings.py:268
+#: Wammu/Settings.py:84 Wammu/Settings.py:274
 msgid "Connection"
 msgstr "접속"
 
@@ -567,7 +567,7 @@ msgstr "새로운 해야할 것을 만듭니다"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "연결된 메세지를 만듭니다, 긴 메세지를 송신할 경우 허용이 됩니다."
 
-#: Wammu/Composer.py:435
+#: Wammu/Composer.py:436
 msgid "Create new message by adding part to left list..."
 msgstr "왼쪽 목록에 부분을 추가하는 것으로 새로운 메세지를 만듭니다..."
 
@@ -618,7 +618,7 @@ msgstr ""
 "가 나타나면, 버그 보고에 그것을 포함시킬 것을 강력히 권합니다. 디버그 기록은 "
 "파일 %s 에 저장 되었습니다."
 
-#: Wammu/Settings.py:247
+#: Wammu/Settings.py:253
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
@@ -626,15 +626,15 @@ msgstr ""
 "기본 설정된 날짜가 새로 생선된 시각 필드에 사용 됩니다. 오늘 (1 = 내일) 로 부"
 "터 일자를 입력 하십시오."
 
-#: Wammu/Settings.py:241
+#: Wammu/Settings.py:247
 msgid "Default time"
 msgstr "기본 설정 시간"
 
-#: Wammu/Settings.py:248
+#: Wammu/Settings.py:254
 msgid "Default time = now + x days"
 msgstr "기본 설정 시간 = 현재 + x 일자"
 
-#: Wammu/Settings.py:240
+#: Wammu/Settings.py:246
 msgid "Default time to be used for newly created time fields."
 msgstr "기본 설정 시간이 새로이 만들어지는 시간 필드에 사용이 됩니다."
 
@@ -694,7 +694,7 @@ msgstr "장치 접속을 끊음"
 msgid "Disconnected"
 msgstr "접속 귾어짐"
 
-#: Wammu/Settings.py:212
+#: Wammu/Settings.py:218
 msgid "Display startup on phone (not supported by all models)."
 msgstr "전화에 시작 표시 (모든 모델이 지원되지는 않습니다)."
 
@@ -702,7 +702,7 @@ msgstr "전화에 시작 표시 (모든 모델이 지원되지는 않습니다).
 msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 msgstr "IMAP 서버로 메세지를 업로드 할 때 SSL을 사용하기 바랍니까?"
 
-#: Wammu/Composer.py:423
+#: Wammu/Composer.py:424
 msgid "Down"
 msgstr "아래"
 
@@ -751,7 +751,7 @@ msgstr ""
 "찾고자 하는 텍스트를 입력 하십시오, 이것은 정규식으로 취급됨을 주의 하십시"
 "오. 모든 필드에 대한 일치를 마칩니다."
 
-#: Wammu/Settings.py:255
+#: Wammu/Settings.py:261
 msgid "Entries for new item"
 msgstr "새 항목을 위한 입력"
 
@@ -826,7 +826,7 @@ msgstr "펌웨어(숫자)"
 msgid "Firmware date"
 msgstr "펌웨어 일자"
 
-#: Wammu/Composer.py:398
+#: Wammu/Composer.py:399
 msgid "Flash"
 msgstr "플래쉬"
 
@@ -874,11 +874,11 @@ msgstr "전화기 정보 갖기"
 msgid "Hardware"
 msgstr "하드웨어"
 
-#: Wammu/Settings.py:254
+#: Wammu/Settings.py:260
 msgid "How many entries will be shown in newly created item."
 msgstr "얼마나 많은 입력이 있는지가 새로 만들어진 항목에 보여 집니다."
 
-#: Wammu/Settings.py:200
+#: Wammu/Settings.py:206
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
@@ -1084,7 +1084,7 @@ msgstr "메모리가 꽉참, 몇개의 입력 삭제를 시도합니다."
 msgid "Memory type"
 msgstr "메모리 종류"
 
-#: Wammu/Composer.py:613
+#: Wammu/Composer.py:614
 msgid "Message empty!"
 msgstr "메세지가 비었습니다!"
 
@@ -1092,12 +1092,12 @@ msgstr "메세지가 비었습니다!"
 msgid "Message preview"
 msgstr "메세지 미리보기"
 
-#: Wammu/Composer.py:623
+#: Wammu/Composer.py:624
 #, python-format
 msgid "Message will fit into %d SMSes"
 msgstr "메세지는 %d SMS로 맞춰 집니다"
 
-#: Wammu/Main.py:111 Wammu/Main.py:278 Wammu/Settings.py:269
+#: Wammu/Main.py:111 Wammu/Main.py:278 Wammu/Settings.py:275
 msgid "Messages"
 msgstr "메세지"
 
@@ -1157,7 +1157,7 @@ msgstr "블루투스 장치 없음"
 msgid "No data to import"
 msgstr "가져올 자료 없음"
 
-#: Wammu/Composer.py:532
+#: Wammu/Composer.py:533
 #, python-format
 msgid "No editor available for type %s"
 msgstr "종류 %s (을)를 위한 가능한 편집기 없음"
@@ -1193,12 +1193,12 @@ msgstr "없음"
 msgid "Normal"
 msgstr "보통"
 
-#: Wammu/Composer.py:501
+#: Wammu/Composer.py:502
 #, python-format
 msgid "Not supported id: %s"
 msgstr "지원되는 id 아님: %s"
 
-#: Wammu/Composer.py:612
+#: Wammu/Composer.py:613
 msgid "Nothing to preview, message is empty."
 msgstr "미리볼 것이 없음, 메세지가 비었습니다."
 
@@ -1216,7 +1216,7 @@ msgid "Number"
 msgstr "번호"
 
 #: Wammu/About.py:106 Wammu/Editor.py:424 Wammu/Composer.py:63
-#: Wammu/Composer.py:123 Wammu/Composer.py:440
+#: Wammu/Composer.py:123 Wammu/Composer.py:441
 msgid "OK"
 msgstr "확인"
 
@@ -1236,7 +1236,7 @@ msgstr "작동이 진행 중"
 msgid "Original IMEI"
 msgstr "원 IMEI"
 
-#: Wammu/Settings.py:270
+#: Wammu/Settings.py:276
 msgid "Other"
 msgstr "기타"
 
@@ -1261,7 +1261,7 @@ msgstr ""
 "\n"
 "파일 %s (을)를 덮어쓰기 바랍니까?"
 
-#: Wammu/Composer.py:406
+#: Wammu/Composer.py:407
 msgid "Parts of current message"
 msgstr "현재 메세지의 부분"
 
@@ -1331,7 +1331,7 @@ msgstr "미리 지정된 애니메이션 번호 %d"
 msgid "Predefined sound"
 msgstr "미리 지정된 사운드"
 
-#: Wammu/Composer.py:442
+#: Wammu/Composer.py:443
 msgid "Preview"
 msgstr "미리보기"
 
@@ -1405,7 +1405,7 @@ msgstr "수신된 통화"
 msgid "Recipient's numbers:"
 msgstr "수신자 번호:"
 
-#: Wammu/Settings.py:201
+#: Wammu/Settings.py:207
 msgid "Refresh phone state"
 msgstr "전화 상태 갱신"
 
@@ -1416,6 +1416,11 @@ msgstr ""
 #: Wammu/Browser.py:279
 msgid "Reply"
 msgstr "답장"
+
+#: Wammu/Settings.py:166
+#, fuzzy
+msgid "Request delivery report by default"
+msgstr "메세지 배달 보고를 신청하는 것을 점검 합니다"
 
 #: Wammu/Browser.py:275
 msgid "Resend"
@@ -1583,7 +1588,7 @@ msgstr "IMAP 서버의 폴더 선택 중..."
 msgid "Send"
 msgstr "송신"
 
-#: Wammu/Composer.py:399
+#: Wammu/Composer.py:400
 msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
@@ -1595,7 +1600,7 @@ msgstr ""
 msgid "Send message"
 msgstr "메세지 송신"
 
-#: Wammu/Main.py:114 Wammu/Composer.py:394
+#: Wammu/Main.py:114 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "송신됨"
 
@@ -1619,11 +1624,11 @@ msgstr "전화기에 시간 설정..."
 msgid "Settings"
 msgstr "설정"
 
-#: Wammu/Settings.py:218
+#: Wammu/Settings.py:224
 msgid "Show debug information on error output."
 msgstr "에러 출력에 디버그 정보를 보입니다"
 
-#: Wammu/Settings.py:217
+#: Wammu/Settings.py:223
 msgid "Show debug log"
 msgstr "디버그 기록 보이기"
 
@@ -1648,7 +1653,7 @@ msgstr "시작"
 msgid "Starting %s"
 msgstr "%s 시작"
 
-#: Wammu/Settings.py:211
+#: Wammu/Settings.py:217
 msgid "Startup information"
 msgstr "시작 정보"
 
@@ -1664,7 +1669,7 @@ msgstr "취소선"
 msgid "Style"
 msgstr "스타일"
 
-#: Wammu/Settings.py:206
+#: Wammu/Settings.py:212
 msgid "Synchronise time in phone with computer time while connecting."
 msgstr "연결시에 컴퓨터의 시각으로 전화기의 시간을 동기화"
 
@@ -1672,7 +1677,7 @@ msgstr "연결시에 컴퓨터의 시각으로 전화기의 시간을 동기화"
 msgid "Synchronises time in mobile with PC"
 msgstr "PC로 모바일의 시간을 동기화 합니다"
 
-#: Wammu/Settings.py:205
+#: Wammu/Settings.py:211
 msgid "Synchronize time"
 msgstr "시각 동기화"
 
@@ -1783,15 +1788,15 @@ msgstr "송신 않음"
 msgid "Unsent Messages"
 msgstr "송신하지 않은 메세지"
 
-#: Wammu/Composer.py:422
+#: Wammu/Composer.py:423
 msgid "Up"
 msgstr "위"
 
-#: Wammu/Settings.py:167
+#: Wammu/Settings.py:173
 msgid "Use 16 bit Id inside message. This is safe for most cases."
 msgstr "메세지에 16 비트 ID를 사용 합니다. 대개의 경우 이것이 안전 합니다."
 
-#: Wammu/Settings.py:166
+#: Wammu/Settings.py:172
 msgid "Use 16bit Id"
 msgstr "16 비트 ID 사용"
 
@@ -1903,7 +1908,7 @@ msgstr ""
 "메세지 내의 이미지가 보여질 때 비율을 적용할 지 여부이 적용될 지 여부 입니"
 "다. 이것은 보통 그림이 아주 작은 경우 좋은 생각 입니다."
 
-#: Wammu/Settings.py:224
+#: Wammu/Settings.py:230
 msgid "Whether to ask for confirmation when deleting entries."
 msgstr "입력 삭제 시에 확인을 물어 볼 것인지 여부 입니다."
 

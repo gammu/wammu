@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-09-02 14:36+0200\n"
+"POT-Creation-Date: 2006-09-02 14:47+0200\n"
 "PO-Revision-Date: 2006-05-12 21:36+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -211,7 +211,7 @@ msgstr ", Seriennummer %s"
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:410
+#: Wammu/Composer.py:411
 msgid "<<< Add <<<"
 msgstr "<<< Hinzufügen <<<"
 
@@ -221,7 +221,7 @@ msgstr ""
 "<b>Wammu</b> ist eine auf wxPython basierende graphische Oberfläche für "
 "Gammu."
 
-#: Wammu/Composer.py:411
+#: Wammu/Composer.py:412
 msgid ">>> Delete"
 msgstr ">>> Löschen"
 
@@ -299,7 +299,7 @@ msgstr "Versuchen den Text zu reformatieren"
 msgid "Automatically connect to phone on startup"
 msgstr "Beim Start automatisch mit dem Telefon verbinden"
 
-#: Wammu/Composer.py:407
+#: Wammu/Composer.py:408
 msgid "Available message parts"
 msgstr "Teile der Nachricht verfügbar"
 
@@ -423,7 +423,7 @@ msgstr ""
 "Kann den Ordner %s auf dem Server nicht auswöhlen. Der Vorgang wird "
 "abgebrochen."
 
-#: Wammu/Editor.py:425 Wammu/Composer.py:441
+#: Wammu/Editor.py:425 Wammu/Composer.py:442
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -435,11 +435,11 @@ msgstr "Zentriert"
 msgid "Change Wammu settings"
 msgstr "Ändere Wammu Einstellungen"
 
-#: Wammu/Composer.py:391
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Auswählen um für diese Nachricht die Empfangsbestätigung anzufordern"
 
-#: Wammu/Composer.py:395
+#: Wammu/Composer.py:396
 msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr ""
@@ -496,7 +496,7 @@ msgstr "Zusammengesetzt"
 msgid "Configuration not found"
 msgstr "Einstellungen nicht gefunden"
 
-#: Wammu/Main.py:1703 Wammu/Settings.py:223
+#: Wammu/Main.py:1703 Wammu/Settings.py:229
 msgid "Confirm deleting"
 msgstr "Löschen bestätigen"
 
@@ -512,7 +512,7 @@ msgstr "Verbunden"
 msgid "Connecting to IMAP server..."
 msgstr "Verbinde mit IMAP server..."
 
-#: Wammu/Settings.py:84 Wammu/Settings.py:268
+#: Wammu/Settings.py:84 Wammu/Settings.py:274
 msgid "Connection"
 msgstr "Verbindung"
 
@@ -590,7 +590,7 @@ msgstr ""
 "Zusammengesetzte Nachricht erstellen, die es Ihnen erlaubt, längere "
 "Nachrichte zu versenden."
 
-#: Wammu/Composer.py:435
+#: Wammu/Composer.py:436
 msgid "Create new message by adding part to left list..."
 msgstr ""
 "Erstellen sie eine neue Nachricht in dem sie Nachrichtenteile links "
@@ -644,7 +644,7 @@ msgstr ""
 "diesen Log im Bugreport zu inkludieren. Der Log wurde in der Datei %s "
 "gespeichert."
 
-#: Wammu/Settings.py:247
+#: Wammu/Settings.py:253
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
@@ -652,15 +652,15 @@ msgstr ""
 "Standarddatum für neuerstellte Zeitfelder. Eingabe von Anzahl der Tage ab "
 "heute (1 = morgen)."
 
-#: Wammu/Settings.py:241
+#: Wammu/Settings.py:247
 msgid "Default time"
 msgstr "Standardzeit"
 
-#: Wammu/Settings.py:248
+#: Wammu/Settings.py:254
 msgid "Default time = now + x days"
 msgstr "Standardzeit = jetzt + x Tage"
 
-#: Wammu/Settings.py:240
+#: Wammu/Settings.py:246
 msgid "Default time to be used for newly created time fields."
 msgstr "Standardzeit für neuerstellte Zeitfelder."
 
@@ -720,7 +720,7 @@ msgstr "Gerät trennen"
 msgid "Disconnected"
 msgstr "Nicht verbunden"
 
-#: Wammu/Settings.py:212
+#: Wammu/Settings.py:218
 msgid "Display startup on phone (not supported by all models)."
 msgstr ""
 "Startinfos am Handy anzeigen (wird nicht von allen Geräten unterstützt)."
@@ -731,7 +731,7 @@ msgstr ""
 "Möchten sie SSL benutzen wenn sie die Nachrichten an den IMAP Server "
 "übertragen."
 
-#: Wammu/Composer.py:423
+#: Wammu/Composer.py:424
 msgid "Down"
 msgstr "Runter"
 
@@ -780,7 +780,7 @@ msgstr ""
 "Suchtext eingeben. Bitte dran denken, dass es wie ein regulärer Ausdruck "
 "behandelt wird. Der Abgleich wird über alle Felder vorgenommen."
 
-#: Wammu/Settings.py:255
+#: Wammu/Settings.py:261
 msgid "Entries for new item"
 msgstr "Einträge im neuerstelltem Objekt"
 
@@ -855,7 +855,7 @@ msgstr "Firmware (numerisch)"
 msgid "Firmware date"
 msgstr "Firmwaredatum"
 
-#: Wammu/Composer.py:398
+#: Wammu/Composer.py:399
 msgid "Flash"
 msgstr "Flash"
 
@@ -903,11 +903,11 @@ msgstr "Handy Info auslesen"
 msgid "Hardware"
 msgstr "Hardware"
 
-#: Wammu/Settings.py:254
+#: Wammu/Settings.py:260
 msgid "How many entries will be shown in newly created item."
 msgstr "Wie viele Einträge sollen im neuerstelltem Objekt angezeigt werden."
 
-#: Wammu/Settings.py:200
+#: Wammu/Settings.py:206
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
@@ -1114,7 +1114,7 @@ msgstr "Speicher ist voll. Bitte löschen sie einige Einträge."
 msgid "Memory type"
 msgstr "Speichertyp"
 
-#: Wammu/Composer.py:613
+#: Wammu/Composer.py:614
 msgid "Message empty!"
 msgstr "Nachricht leer!"
 
@@ -1122,12 +1122,12 @@ msgstr "Nachricht leer!"
 msgid "Message preview"
 msgstr "Nachricht-Vorschau"
 
-#: Wammu/Composer.py:623
+#: Wammu/Composer.py:624
 #, python-format
 msgid "Message will fit into %d SMSes"
 msgstr "Nachricht passt in %d SMSen"
 
-#: Wammu/Main.py:111 Wammu/Main.py:278 Wammu/Settings.py:269
+#: Wammu/Main.py:111 Wammu/Main.py:278 Wammu/Settings.py:275
 msgid "Messages"
 msgstr "Nachrichten"
 
@@ -1187,7 +1187,7 @@ msgstr "Kein Bluetooth Gerät gefunden"
 msgid "No data to import"
 msgstr "Keine importierbaren Daten"
 
-#: Wammu/Composer.py:532
+#: Wammu/Composer.py:533
 #, python-format
 msgid "No editor available for type %s"
 msgstr "Für Typ %s ist kein Editor vorhanden"
@@ -1223,12 +1223,12 @@ msgstr "Keine"
 msgid "Normal"
 msgstr "Normal"
 
-#: Wammu/Composer.py:501
+#: Wammu/Composer.py:502
 #, python-format
 msgid "Not supported id: %s"
 msgstr "Nicht unterstützte ID: %s"
 
-#: Wammu/Composer.py:612
+#: Wammu/Composer.py:613
 msgid "Nothing to preview, message is empty."
 msgstr "Nichts anzuzeigen. Nachricht ist leer."
 
@@ -1246,7 +1246,7 @@ msgid "Number"
 msgstr "Nummer"
 
 #: Wammu/About.py:106 Wammu/Editor.py:424 Wammu/Composer.py:63
-#: Wammu/Composer.py:123 Wammu/Composer.py:440
+#: Wammu/Composer.py:123 Wammu/Composer.py:441
 msgid "OK"
 msgstr "OK"
 
@@ -1266,7 +1266,7 @@ msgstr "Vorgang läuft"
 msgid "Original IMEI"
 msgstr "Original IMEI"
 
-#: Wammu/Settings.py:270
+#: Wammu/Settings.py:276
 msgid "Other"
 msgstr "Andere"
 
@@ -1291,7 +1291,7 @@ msgstr ""
 "\n"
 "Möchten sie die Datei %s überschreiben?"
 
-#: Wammu/Composer.py:406
+#: Wammu/Composer.py:407
 msgid "Parts of current message"
 msgstr "Teile dieser Nachricht"
 
@@ -1364,7 +1364,7 @@ msgstr "Vordefinierte Animation Nummer %d"
 msgid "Predefined sound"
 msgstr "Vordefinierter Klingelton"
 
-#: Wammu/Composer.py:442
+#: Wammu/Composer.py:443
 msgid "Preview"
 msgstr "Vorschau"
 
@@ -1442,7 +1442,7 @@ msgstr "Angenommene Anrufe"
 msgid "Recipient's numbers:"
 msgstr "Rufnummer des Empfängers:"
 
-#: Wammu/Settings.py:201
+#: Wammu/Settings.py:207
 msgid "Refresh phone state"
 msgstr "Telefonzustand aktualisieren"
 
@@ -1453,6 +1453,11 @@ msgstr ""
 #: Wammu/Browser.py:279
 msgid "Reply"
 msgstr "Antworten"
+
+#: Wammu/Settings.py:166
+#, fuzzy
+msgid "Request delivery report by default"
+msgstr "Auswählen um für diese Nachricht die Empfangsbestätigung anzufordern"
 
 #: Wammu/Browser.py:275
 msgid "Resend"
@@ -1624,7 +1629,7 @@ msgstr "Ordner auf dem IMAP Server wird ausgewählt..."
 msgid "Send"
 msgstr "Versenden"
 
-#: Wammu/Composer.py:399
+#: Wammu/Composer.py:400
 msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
@@ -1636,7 +1641,7 @@ msgstr ""
 msgid "Send message"
 msgstr "Nachricht versenden"
 
-#: Wammu/Main.py:114 Wammu/Composer.py:394
+#: Wammu/Main.py:114 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Gesendet"
 
@@ -1660,11 +1665,11 @@ msgstr "Handyuhr wird gesetzt..."
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: Wammu/Settings.py:218
+#: Wammu/Settings.py:224
 msgid "Show debug information on error output."
 msgstr "Bei Fehlern Debug Informationen anzeigen."
 
-#: Wammu/Settings.py:217
+#: Wammu/Settings.py:223
 msgid "Show debug log"
 msgstr "Debug Log anzeigen"
 
@@ -1689,7 +1694,7 @@ msgstr "Anfang"
 msgid "Starting %s"
 msgstr "%s wird gestartet"
 
-#: Wammu/Settings.py:211
+#: Wammu/Settings.py:217
 msgid "Startup information"
 msgstr "Start Info"
 
@@ -1705,7 +1710,7 @@ msgstr "Durchgestrichen"
 msgid "Style"
 msgstr "Still"
 
-#: Wammu/Settings.py:206
+#: Wammu/Settings.py:212
 msgid "Synchronise time in phone with computer time while connecting."
 msgstr "Zeit während des Verbindungsaufbaus vom Computer übernehmen."
 
@@ -1713,7 +1718,7 @@ msgstr "Zeit während des Verbindungsaufbaus vom Computer übernehmen."
 msgid "Synchronises time in mobile with PC"
 msgstr "Synchronisiert die Handyzeit mit dem PC"
 
-#: Wammu/Settings.py:205
+#: Wammu/Settings.py:211
 msgid "Synchronize time"
 msgstr "Zeit synchronisieren"
 
@@ -1826,17 +1831,17 @@ msgstr "Ungesendet"
 msgid "Unsent Messages"
 msgstr "Ungesendete Nachrichten"
 
-#: Wammu/Composer.py:422
+#: Wammu/Composer.py:423
 msgid "Up"
 msgstr "Rauf"
 
-#: Wammu/Settings.py:167
+#: Wammu/Settings.py:173
 msgid "Use 16 bit Id inside message. This is safe for most cases."
 msgstr ""
 "16-Bit ID in einer Nachricht benutzen. Diese Einstellung ist meistens "
 "korrekt."
 
-#: Wammu/Settings.py:166
+#: Wammu/Settings.py:172
 msgid "Use 16bit Id"
 msgstr "16-Bit ID benutzen"
 
@@ -1951,7 +1956,7 @@ msgstr ""
 "Ob Bilder in den Nachrichten beim Anzeigen skaliert werden sollen. "
 "Normalerweise eine gute Idee, weil sie recht klein sind."
 
-#: Wammu/Settings.py:224
+#: Wammu/Settings.py:230
 msgid "Whether to ask for confirmation when deleting entries."
 msgstr "Ob das Löschen der Einträge bestätigt werden sollte."
 

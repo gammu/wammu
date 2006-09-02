@@ -163,6 +163,12 @@ class Settings(wx.Dialog):
         self.sizer_message_new_2.Add(self.editunicode, pos = (r2, 0), colspan = 2)
         r2 += 1
 
+        self.editreport = wx.CheckBox(self.new_message_panel_2, -1, _('Request delivery report by default'))
+        self.editreport.SetToolTipString(_('Check to request delivery report for message.'))
+        self.editreport.SetValue(config.Read('/Message/DeliveryReport', 'no') == 'yes')
+        self.sizer_message_new_2.Add(self.editreport, pos = (r2, 0), colspan = 2)
+        r2 += 1
+
         self.edit16bit = wx.CheckBox(self.new_message_panel_2, -1, _('Use 16bit Id'))
         self.edit16bit.SetToolTipString(_('Use 16 bit Id inside message. This is safe for most cases.'))
         self.edit16bit.SetValue(config.Read('/Message/16bitId', 'yes') == 'yes')
@@ -328,6 +334,11 @@ class Settings(wx.Dialog):
         else:
             value = 'no'
         self.config.Write('/Message/Unicode', value)
+        if self.editreport.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Message/DeliveryReport', value)
         if self.edit16bit.GetValue():
             value = 'yes'
         else:
