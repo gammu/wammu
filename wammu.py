@@ -29,6 +29,12 @@ import sys
 import getopt
 import Wammu
 
+# Try to import iconv_codec to allow working on chinese windows
+try:
+    import iconv_codec
+except:
+    pass
+
 gettext.install('wammu', unicode=1)
 
 def version():
