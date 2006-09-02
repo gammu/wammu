@@ -415,16 +415,20 @@ Connections = [
     'bluephonet',
     'bluerfat',
     'blueat',
+    'fbuspl2303',
     ]
 
 Conn_Cable = [
     'at19200',
+    'at115200',
     'fbusdlr3',
     'fbus',
     'mbus',
+    'fbuspl2303',
     ]
 Conn_IrDA_Win = [
     'irdaphonet',
+    'irdaat',
     ]
 Conn_IrDA_Other = [
     'irdaphonet',
