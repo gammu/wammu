@@ -22,13 +22,39 @@ this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 '''
 
+import wx
 import wx.html
 import Wammu.Events
+import Wammu.Utils
+from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 class Displayer(wx.html.HtmlWindow):
     def __init__(self, parent, win):
         wx.html.HtmlWindow.__init__(self, parent, -1)
         self.win = win
+
+    def SetContent(self, text):
+
+        # default system colours
+        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
+        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNTEXT)
+        hfgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNHIGHLIGHT)
+
+        colours = 'text="#%02x%02x%02x" bgcolor="#%02x%02x%02x" link="#%02x%02x%02x"' % (
+            fgc.Red(), fgc.Green(), fgc.Blue(),
+            bgc.Red(), bgc.Green(), bgc.Blue(),
+            hfgc.Red(), hfgc.Green(), hfgc.Blue())
+
+        pagefmt = u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body %s>%s</body></html>'
+
+        if wx.USE_UNICODE:
+            charset = 'ucs-2'
+            text = StrConv(text)
+            self.SetPage(pagefmt % (charset, colours, text))
+        else:
+            charset = Wammu.Utils.htmlcharset
+            self.SetPage(HtmlStrConv(pagefmt % (colours, charset, text)))
+
 
     def OnLinkClicked(self, linkinfo):
         evt = Wammu.Events.LinkEvent(

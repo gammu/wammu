@@ -239,8 +239,7 @@ class WammuFrame(wx.Frame):
         self.rightsplitter.SplitHorizontally(self.rightwin, self.content, self.cfg.ReadInt('/Main/SplitRight', -200))
 
         # initial content
-        self.content.SetPage('<body><html><font size=+1><b>%s</b></font></html></body>' %
-           (_('Welcome to Wammu %s') % Wammu.__version__))
+        self.content.SetContent('<font size=+1><b>%s</b></font>' % (_('Welcome to Wammu %s') % Wammu.__version__))
 
         # Prepare the menu bar
         self.menuBar = wx.MenuBar()
@@ -695,10 +694,7 @@ class WammuFrame(wx.Frame):
                     text += u'<b>%s</b>: %s<br>' % (d[0], d[1])
                 else:
                     text += u'<br>%s' % d[0]
-        if wx.USE_UNICODE:
-            self.content.SetPage(u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=ucs-2"></head><body>%s</body></html>' % StrConv(text))
-        else:
-            self.content.SetPage(HtmlStrConv('<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body>%s</body></html>' % (Wammu.Utils.htmlcharset, text)))
+        self.content.SetContent(text)
 
     def OnShow(self, evt):
         data = v = evt.data
