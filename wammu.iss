@@ -6,16 +6,19 @@
 #define MyAppVersion "0.15"
 #define MyAppPublisher "Micha Èihaø"
 #define MyAppURL "http://cihar.com/gammu/wammu"
+#define MyAppPublisherURL "http://cihar.com"
+#define MyAppBugsURL "http://bugs.cihar.com"
 #define MyAppDescription "Wammu Mobile Phone Manager"
 #define MyAppExeName "wammu.exe"
 #define MyAppUrlName "wammu.url"
+#define MyAppBugsUrlName "wammu-bugs.url"
 
 [Setup]
 AppName={#MyAppName}
 AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL=http://cihar.com
-AppSupportURL=http://bugs.cihar.com
+AppPublisherURL={#MyAppPublisherURL}
+AppSupportURL={#MyAppBugsURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
@@ -53,10 +56,12 @@ Source: dist\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsub
 
 [INI]
 Filename: {app}\{#MyAppUrlName}; Section: InternetShortcut; Key: URL; String: {#MyAppURL}
+Filename: {app}\{#MyAppBugsUrlName}; Section: InternetShortcut; Key: URL; String: {#MyAppBugsURL}
 
 [Icons]
 Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; IconFilename: {app}\share\pixmaps\wammu.ico; IconIndex: 0
 Name: {group}\{cm:ProgramOnTheWeb,{#MyAppName}}; Filename: {app}\{#MyAppUrlName}
+Name: {group}\{cm:ReportBug,{#MyAppName}}; Filename: {app}\{#MyAppBugsUrlName}; Tasks: ; Languages: 
 Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 Name: {userdesktop}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: desktopicon
 
@@ -65,3 +70,7 @@ Filename: {app}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; F
 
 [UninstallDelete]
 Type: files; Name: {app}\{#MyAppUrlName}
+Type: files; Name: {app}\{#MyAppBugsUrlName}
+
+[CustomMessages]
+ReportBug=Report bug in %s
