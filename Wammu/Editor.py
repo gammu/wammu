@@ -98,7 +98,9 @@ class DateControl(wx.Panel):
 
         self.sizer = wx.FlexGridSizer(1, 2)
         self.sizer.AddGrowableCol(0)
-        self.textCtrl = maskedCtrl(self, -1, value, autoformat = 'EUDATEDDMMYYYY.', validRequired=True, emptyInvalid=True)
+        self.textCtrl = maskedCtrl(self, -1, autoformat = 'EUDATEDDMMYYYY.', validRequired=True, emptyInvalid=True)
+        Wammu.Utils.FixupMaskedEdit(self.textCtrl)
+        self.textCtrl.SetValue(value)
         self.bCtrl = wx.BitmapButton(self, -1, wx.Bitmap(MiscPath('downarrow')))
         self.sizer.AddMany([
             (self.textCtrl, 1, wx.EXPAND),
@@ -357,7 +359,9 @@ class OneEdit(wx.Panel):
                 val = 0
             self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
         elif newt == 'datetime':
-            self.edit = TimeCtrl( self, -1, TimeToText(value, self.config), fmt24hr=True)
+            self.edit = TimeCtrl( self, -1, fmt24hr=True)
+            Wammu.Utils.FixupMaskedEdit(self.edit)
+            self.edit.SetValue(TimeToText(value, self.config))
             self.edit2 = DateControl(self, DateToText(value, self.config))
         elif newt == 'date':
             self.edit = DateControl(self, DateToText(value, self.config))

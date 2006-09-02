@@ -242,7 +242,9 @@ class Settings(wx.Dialog):
             th = 9
             tm = 0
             ts = 0
-        self.edittime = TimeCtrl( self.notebook_other, -1, wx.DateTimeFromHMS(th, tm, ts), fmt24hr = True)
+        self.edittime = TimeCtrl(self.notebook_other, -1, fmt24hr = True)
+        Wammu.Utils.FixupMaskedEdit(self.edittime)
+        self.edittime.SetValue(wx.DateTimeFromHMS(th, tm, ts))
         self.edittime.SetToolTipString(_('Default time to be used for newly created time fields.'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default time')), pos = (r, 1))
         self.sizer_other.Add(self.edittime, pos = (r, 2))

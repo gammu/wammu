@@ -401,3 +401,10 @@ def FormatError(txt, info):
     else:
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), StrConv(info['Text']), _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
+
+def FixupMaskedEdit(edit):
+        # XXX: this is not clean way of reseting to system colour, but I don't know better.
+        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
+        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNTEXT)
+        setattr(edit, '_validBackgroundColour', bgc)
+        setattr(edit, '_foregroundColour', fgc)
