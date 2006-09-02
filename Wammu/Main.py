@@ -1295,6 +1295,7 @@ class WammuFrame(wx.Frame):
         wildcard = ''
         if type == 'message':
             wildcard +=  _('Gammu messages backup') + ' (*.smsbackup)|*.smsbackup|'
+            exts = ['smsbackup']
         else:
             if not save:
                 wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
