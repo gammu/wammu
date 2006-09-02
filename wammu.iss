@@ -36,17 +36,17 @@ AppVersion={#MyAppVersion}
 UninstallDisplayIcon={app}\share\pixmaps\wammu.ico
 
 [Languages]
-Name: english; MessagesFile: compiler:Default.isl
-Name: catalan; MessagesFile: compiler:Languages\Catalan.isl
-Name: czech; MessagesFile: compiler:Languages\Czech.isl
-Name: dutch; MessagesFile: compiler:Languages\Dutch.isl
-Name: french; MessagesFile: compiler:Languages\French.isl
-Name: german; MessagesFile: compiler:Languages\German.isl
-Name: hungarian; MessagesFile: compiler:Languages\Hungarian.isl
-Name: italian; MessagesFile: compiler:Languages\Italian.isl
-Name: polish; MessagesFile: compiler:Languages\Polish.isl
-Name: portuguese; MessagesFile: compiler:Languages\Portuguese.isl
-Name: slovak; MessagesFile: compiler:Languages\Slovak.isl
+Name: en; MessagesFile: compiler:Default.isl
+Name: ca; MessagesFile: compiler:Languages\Catalan.isl
+Name: cz; MessagesFile: compiler:Languages\Czech.isl
+Name: nl; MessagesFile: compiler:Languages\Dutch.isl
+Name: fr; MessagesFile: compiler:Languages\French.isl
+Name: de; MessagesFile: compiler:Languages\German.isl
+Name: hu; MessagesFile: compiler:Languages\Hungarian.isl
+Name: it; MessagesFile: compiler:Languages\Italian.isl
+Name: pl; MessagesFile: compiler:Languages\Polish.isl
+Name: pt; MessagesFile: compiler:Languages\Portuguese.isl
+Name: sk; MessagesFile: compiler:Languages\Slovak.isl
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
@@ -61,16 +61,17 @@ Filename: {app}\{#MyAppBugsUrlName}; Section: InternetShortcut; Key: URL; String
 [Icons]
 Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; IconFilename: {app}\share\pixmaps\wammu.ico; IconIndex: 0
 Name: {group}\{cm:ProgramOnTheWeb,{#MyAppName}}; Filename: {app}\{#MyAppUrlName}
-Name: {group}\{cm:ReportBug,{#MyAppName}}; Filename: {app}\{#MyAppBugsUrlName}; Tasks: ; Languages: 
+Name: {group}\{cm:ReportBug,{#MyAppName}}; Filename: {app}\{#MyAppBugsUrlName}
 Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
 Name: {userdesktop}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: desktopicon
 
 [Run]
-Filename: {app}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent unchecked; Tasks: ; Languages: 
+Filename: {app}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent unchecked
 
 [UninstallDelete]
 Type: files; Name: {app}\{#MyAppUrlName}
 Type: files; Name: {app}\{#MyAppBugsUrlName}
 
 [CustomMessages]
-ReportBug=Report bug in %s
+en.ReportBug=Report bug in application %1
+cz.ReportBug=Nahlásit chybu v aplikaci %1
