@@ -438,6 +438,7 @@ class WammuFrame(wx.Frame):
         if (self.cfg.Read('/Wammu/AutoConnect', 'no') == 'yes'):
             self.PhoneConnect()
 
+        self.SetupNumberPrefix()
         self.SetupStatusRefresh()
 
     def OnTimer(self, evt = None):
@@ -465,6 +466,30 @@ class WammuFrame(wx.Frame):
                     }, 1)
             except gammu.GSMError:
                 pass
+
+    def SetupNumberPrefix(self):
+        self.prefix = self.cfg.Read('/Wammu/PhonePrefix', 'Auto')
+        if self.prefix == 'Auto':
+            if self.connected:
+                self.prefix = None
+                try:
+                    on = Wammu.Utils.ParseMemoryEntry(self.sm.GetMemory(Location = 1, Type = 'ON'))['Number']
+                except gammu.GSMError:
+                    pass
+                self.prefix = Wammu.Utils.GrabNumberPrefix(on, Wammu.Data.InternationalPrefixes)
+                if self.prefix is None:
+                    try:
+                        smsc = self.sm.GetSMSC()['Number']
+                    except gammu.GSMError:
+                        pass
+                    self.prefix = Wammu.Utils.GrabNumberPrefix(smsc, Wammu.Data.InternationalPrefixes)
+                if self.prefix is None:
+                    self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix', '')
+                else:
+                    self.cfg.Write('/Wammu/LastPhonePrefix', self.prefix)
+            else:
+                self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix', '')
+        Wammu.Utils.NumberPrefix = self.prefix
 
     def SetupStatusRefresh(self):
         repeat = self.cfg.ReadInt('/Wammu/RefreshState', 5000)
@@ -617,6 +642,7 @@ class WammuFrame(wx.Frame):
                         _('Notice'),
                         wx.OK | wx.ICON_INFORMATION).ShowModal()
             self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
+            self.SetupNumberPrefix()
             self.SetupStatusRefresh()
 
     def CloseWindow(self, event):
@@ -1914,6 +1940,7 @@ class WammuFrame(wx.Frame):
         try:
             self.sm.Init()
             self.TogglePhoneMenus(True)
+            self.SetupNumberPrefix()
             try:
                 self.IMEI = self.sm.GetIMEI()
             except:

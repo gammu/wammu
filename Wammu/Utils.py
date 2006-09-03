@@ -209,10 +209,35 @@ def SearchItem(lst, item):
             return i
     return -1
 
+def GrabNumberPrefix(number, prefixes):
+    if number[0] != '+':
+        return None
+    i = 2
+    l = len(number)
+    while not number[:i] in prefixes:
+        i += 1
+        if i > l:
+            return None
+    return number[:i]
+
+'''Prefix for making international numbers'''
+NumberPrefix = ''
+
+NumberStrip = re.compile('^([#*]\d+[#*])?(\\+?.*)$')
+
+def NormalizeNumber(number):
+    # Strip magic prefixes (like no CLIR)
+    nbmatch = NumberStrip.match(number)
+    resnumber = nbmatch.group(2)
+    # Add international prefix
+    if resnumber[0] != '+':
+        resnumber = NumberPrefix + resnumber
+    return resnumber
+
 def SearchNumber(lst, number):
     for i in range(len(lst)):
         for x in lst[i]['Entries']:
-            if GetItemType(x['Type']) == 'phone' and number == x['Value']:
+            if GetItemType(x['Type']) == 'phone' and NormalizeNumber(number) == NormalizeNumber(x['Value']):
                 return i
     return -1
 

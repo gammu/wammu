@@ -264,6 +264,14 @@ class Settings(wx.Dialog):
         self.sizer_other.Add(self.editentries, pos = (r, 2))
         r += 1
 
+        lst = ['Auto']
+        lst += Wammu.Data.InternationalPrefixes
+        self.editprefix = wx.ComboBox(self.notebook_other, -1, config.Read('/Wammu/NumberPrefix', 'Auto'), choices = lst, size = (150, -1))
+        self.editprefix.SetToolTipString(_('Prefix for non international phone numbers.'))
+        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Number prefix')), pos = (r, 1))
+        self.sizer_other.Add(self.editprefix, pos = (r, 2))
+        r += 1
+
         self.sizer_other.AddSpacer(1, 1, pos = (r, 3))
 
         # size other tab
@@ -356,4 +364,5 @@ class Settings(wx.Dialog):
         self.config.Write('Wammu/DefaultTime', self.edittime.GetValue())
         self.config.WriteInt('/Wammu/DefaultDateOffset', self.editdate.GetValue())
         self.config.WriteInt('/Wammu/DefaultEntries', self.editentries.GetValue())
+        self.config.Write('/Wammu/NumberPrefix', self.editprefix.GetValue())
         self.EndModal(wx.ID_OK)
