@@ -34,11 +34,10 @@ class Displayer(wx.html.HtmlWindow):
         self.win = win
 
     def SetContent(self, text):
-
         # default system colours
-        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
-        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNTEXT)
-        hfgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNHIGHLIGHT)
+        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_LISTBOX)
+        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
+        hfgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
 
         colours = 'text="#%02x%02x%02x" bgcolor="#%02x%02x%02x" link="#%02x%02x%02x"' % (
             fgc.Red(), fgc.Green(), fgc.Blue(),

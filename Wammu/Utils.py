@@ -429,7 +429,7 @@ def FormatError(txt, info):
 
 def FixupMaskedEdit(edit):
         # XXX: this is not clean way of reseting to system colour, but I don't know better.
-        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
-        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNTEXT)
+        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_LISTBOX)
+        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
         setattr(edit, '_validBackgroundColour', bgc)
         setattr(edit, '_foregroundColour', fgc)
