@@ -94,6 +94,7 @@ def Handler(type, value, tback):
 %s
 %s%s%s
 --------------- System information ----------------
+Platform     %s
 Python       %s
 wxPython     %s
 Wammu        %s
@@ -108,7 +109,7 @@ locales      %s (%s)
 """ % (
     _('Unhandled exception appeared.'),
     _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
-    logtext, tracetext, unicodewarning, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
+    logtext, tracetext, unicodewarning, sys.platform, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
 
     # Include exception info in crash file
     if debuglogfilename is not None:
