@@ -474,15 +474,15 @@ class WammuFrame(wx.Frame):
                 self.prefix = None
                 try:
                     on = Wammu.Utils.ParseMemoryEntry(self.sm.GetMemory(Location = 1, Type = 'ON'))['Number']
+                    self.prefix = Wammu.Utils.GrabNumberPrefix(on, Wammu.Data.InternationalPrefixes)
                 except gammu.GSMError:
                     pass
-                self.prefix = Wammu.Utils.GrabNumberPrefix(on, Wammu.Data.InternationalPrefixes)
                 if self.prefix is None:
                     try:
                         smsc = self.sm.GetSMSC()['Number']
+                        self.prefix = Wammu.Utils.GrabNumberPrefix(smsc, Wammu.Data.InternationalPrefixes)
                     except gammu.GSMError:
                         pass
-                    self.prefix = Wammu.Utils.GrabNumberPrefix(smsc, Wammu.Data.InternationalPrefixes)
                 if self.prefix is None:
                     self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix', '')
                 else:
