@@ -572,7 +572,7 @@ class SMSComposer(wx.Dialog):
         self.GenerateCurrent(max(next, 0))
 
     def AddPressed(self, evt):
-        if self.availsel == -1 or self.prevedit == -1:
+        if self.availsel == -1:
             return
         v = {'ID': SMSParts[self.availsel][4]}
         if v['ID'][-5:] == '16bit' and self.cfg.Read('/Message/16bitId', 'yes') != 'yes':
