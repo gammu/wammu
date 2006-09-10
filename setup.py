@@ -73,8 +73,8 @@ if not skip_deps:
             print 'You need wxPython!'
             print 'You can get it from <http://www.wxpython.org>'
             sys.exit(1)
-        if wx.VERSION < (2,4,1,2):
-            print 'You need at least wxPython 2.4.1.2!'
+        if wx.VERSION < (2,6,0,0):
+            print 'You need at least wxPython 2.6.0.0!'
             print 'You can get it from <http://www.wxpython.org>'
             sys.exit(1)
 
