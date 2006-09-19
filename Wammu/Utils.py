@@ -229,6 +229,9 @@ def NormalizeNumber(number):
     # Strip magic prefixes (like no CLIR)
     nbmatch = NumberStrip.match(number)
     resnumber = nbmatch.group(2)
+    # If we stripped whole number, return original
+    if len(resnumber) == 0:
+        return number
     # Add international prefix
     if resnumber[0] != '+':
         resnumber = NumberPrefix + resnumber
