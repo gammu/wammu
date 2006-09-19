@@ -228,217 +228,6 @@ class ContactEdit(wx.Panel):
     def SetValue(self, value):
         return self.edit.SetValue(value)
 
-class TextEdit(wx.Panel):
-    """
-    Generic class for static text with some edit control.
-    """
-    def __init__(self, parent):
-        wx.Panel.__init__(self, parent, -1)
-
-    def PostInit(self, text, control):
-        self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
-        self.sizer.AddGrowableCol(1)
-        self.control = control
-        self.sizer.AddMany([
-            (wx.StaticText(self, -1, text),     0, wx.EXPAND),
-            (10,10),
-            (self.control,                      0, wx.EXPAND),
-            ])
-        self.sizer.Fit(self)
-        self.SetAutoLayout(True)
-        self.SetSizer(self.sizer)
-
-    def GetValue(self):
-        return self.control.GetValue()
-
-    def SetValue(self, value):
-        return self.control.SetValue(value)
-
-
-class TextCombo(TextEdit):
-    """
-    Text + Combo edit control
-    """
-    def __init__(self, parent, text, value, choices):
-        TextEdit.__init__(self, parent)
-        self.PostInit(text, wx.ComboBox(self, -1, value, choices = choices, style = wx.CB_READONLY))
-
-class TextNumber(TextEdit):
-    """
-    Text + Spin edit control
-    """
-    def __init__(self, parent, text, value, min = 1, max = 2147483647):
-        # there used to be sys.maxint, but it's too large on amd64 (or there is bug in wxPython)
-        TextEdit.__init__(self, parent)
-        self.PostInit(text, wx.SpinCtrl(self, -1, str(value), style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = min, max = max, initial = value))
-
-class OneEdit(wx.Panel):
-    """
-    Text + Combo + editor for type specified by combo value
-    """
-    def __init__(self, parent, text, type, choices, value, voicetag, values, config):
-        wx.Panel.__init__(self, parent, -1)
-        self.values = values
-        self.config = config
-        self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
-        self.sizer.AddGrowableCol(1)
-        self.sizer.AddGrowableCol(2)
-        self.sizer.AddGrowableCol(3)
-        self.text = wx.StaticText(self, -1, text, size = (20, -1))
-        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY, size = (180, -1))
-        self.sizer.AddMany([
-            (self.text,   0, wx.ALL),
-            (self.combo,  1, wx.ALL),
-            ])
-        self.CreateEdit(type, value, voicetag)
-        self.sizer.Fit(self)
-        self.SetAutoLayout(True)
-        self.SetSizer(self.sizer)
-        wx.EVT_TEXT(self.combo, self.combo.GetId(), self.OnChange)
-
-    def CreateEdit(self, newtype, value = None, voicetag = 0):
-        if value == None and hasattr(self, 'edit'):
-            value = self.edit.GetValue()
-
-        if hasattr(self, 'type'):
-            oldt = Wammu.Utils.GetItemType(self.type)
-        else:
-            oldt = ''
-        newt = Wammu.Utils.GetItemType(newtype)
-
-        self.type = newtype
-        if oldt == newt:
-            return
-
-        if hasattr(self, 'edit'):
-            self.edit.Destroy()
-            del self.edit
-
-        if hasattr(self, 'edit2'):
-            self.edit2.Destroy()
-            del self.edit2
-
-        self.edit2 = wx.StaticText(self, -1, '')
-        if newt == 'text' or newt == None:
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
-        elif newt == 'phone':
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (150, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
-            try:
-                v = hex(voicetag)
-            except:
-                v = '0x0'
-            if v[-1] == 'L':
-                v = v[:-1]
-            self.edit2 = wx.TextCtrl(self, -1, v, size = (50, -1))
-        elif newt == 'bool':
-            try:
-                val = bool(value)
-            except:
-                val = False
-            self.edit = wx.CheckBox(self, -1, '', size = (200, -1))
-            self.edit.SetValue(val)
-        elif newt == 'contact':
-            try:
-                val = int(value)
-            except:
-                val = 0
-            lst = [] + self.values['contact']['ME']
-            self.edit = ContactEdit(self, val, lst)
-        elif newt == 'id':
-            try:
-                v = hex(value)
-            except:
-                val = '0x0'
-            if v[-1] == 'L':
-                v = v[:-1]
-            self.edit = wx.TextCtrl(self, -1, v, size = (200, -1))
-        elif newt == 'category' or newt == 'number':
-            try:
-                val = int(value)
-            except:
-                val = 0
-            self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
-        elif newt == 'datetime':
-            self.edit = TimeCtrl( self, -1, fmt24hr=True)
-            Wammu.Utils.FixupMaskedEdit(self.edit)
-            self.edit.SetValue(TimeToText(value, self.config))
-            self.edit2 = DateControl(self, DateToText(value, self.config))
-        elif newt == 'date':
-            self.edit = DateControl(self, DateToText(value, self.config))
-        else:
-            print 'warning: creating TextCtrl for %s' % newt
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
-
-        self.sizer.AddMany([
-            (self.edit,   1, wx.EXPAND|wx.ALIGN_LEFT|wx.ALL),
-            (self.edit2,  1, wx.EXPAND|wx.ALL)
-            ])
-
-    def OnChange(self, evt):
-        self.CreateEdit(evt.GetString())
-        self.sizer.SetSizeHints(self)
-
-    def GetValue(self):
-        t = Wammu.Utils.GetItemType(self.type)
-        if t == 'date':
-            return TextToDate(self.edit.GetValue())
-        elif t == 'datetime':
-            return datetime.datetime.combine(TextToDate(self.edit2.GetValue()), TextToTime(self.edit.GetValue()))
-        elif t == 'id':
-            return int(self.edit.GetValue(), 16)
-        elif t in ['contact', 'bool', 'category', 'number']:
-            return int(self.edit.GetValue())
-        elif t in ['phone', 'text']:
-            return UnicodeConv(self.edit.GetValue())
-        else:
-            return self.edit.GetValue()
-
-    def GetVoiceTag(self):
-        t = Wammu.Utils.GetItemType(self.type)
-        if t == 'phone':
-            return int(self.edit2.GetValue(), 16)
-        return 0
-
-    def GetType(self):
-        return self.combo.GetValue()
-
-    def Validate(self):
-        if Wammu.Utils.GetItemType(self.type) == 'datetime':
-            v = self.edit2.GetValidator()
-            if v != None:
-                val2 = v.Validate(self)
-            else:
-                val2 = True
-        else:
-            val2 = True
-        v = self.edit.GetValidator()
-        if v != None:
-            return v.Validate(self) and val2
-        else:
-            return val2
-
-class OkCancelMore(wx.Panel):
-    """
-    OK + Cancel + More buttons
-    """
-    def __init__(self, parent):
-        wx.Panel.__init__(self, parent, -1)
-        self.sizer = wx.FlexGridSizer(1, 4, 2, 2)
-
-        self.ok = wx.Button(self, wx.ID_OK, _('OK'))
-        self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
-        self.more = wx.Button(self, -1, _('More'))
-
-        self.sizer.AddMany([
-            (self.ok,       0, wx.EXPAND | wx.ALL),
-            (self.cancel,   0, wx.EXPAND | wx.ALL),
-            (self.more,     0, wx.EXPAND | wx.ALL),
-            ])
-
-        self.sizer.Fit(self)
-        self.SetAutoLayout(True)
-        self.SetSizer(self.sizer)
-
 
 class GenericEditor(wx.Dialog):
     """
@@ -453,83 +242,242 @@ class GenericEditor(wx.Dialog):
             wasempty = False
 
         wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+        self.rows = 0
         self.entry = entry
         self.values = values
         self.type = type
         self.cfg = cfg
         self.internalname = internalname
         self.itemtypes = itemtypes
-        self.sizer = wx.FlexGridSizer(3, 1, 2, 2)
-        self.sizer.AddGrowableCol(0)
-        list = []
+        self.sizer = wx.GridBagSizer(5, 5)
+        self.sizer.AddGrowableCol(2)
+        self.sizer.AddGrowableCol(5)
         if wasempty:
             entry['Location'] = 0
             entry[type] = typedefault
 
-        self.locationedit = TextNumber(self,  _('Location (0 = auto):'), entry['Location'], 0)
-        self.typeedit = TextCombo(self, typename, entry[type], typevalues)
+        self.sizer.Add(wx.StaticText(self, -1, _('Location (0 = auto):')), (0, 0), (1, 4))
+        # there used to be sys.maxint on following line, but it's too large on amd64 (or there is bug in wxPython)
+        self.locationedit = wx.SpinCtrl(self, -1, str(entry['Location']), style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = 0, max = 2147483647, initial = entry['Location'])
+        self.sizer.Add(self.locationedit, (0, 4), (1, 4))
 
-        wx.EVT_TEXT(self.typeedit.control, self.typeedit.control.GetId(), self.OnTypeChange)
+        self.sizer.Add(wx.StaticText(self, -1, typename), (1, 0), (1, 4))
+        self.typeedit = wx.ComboBox(self, -1, entry[type], choices = typevalues, style = wx.CB_READONLY)
+        self.sizer.Add(self.typeedit, (1, 4), (1, 4))
 
-        list.append((self.locationedit,   0, wx.EXPAND|wx.ALL, 2))
-        list.append((self.typeedit,   0, wx.EXPAND|wx.ALL, 2))
-        self.edits = []
+        self.rowoffset = 2
+
+        self.Bind(wx.EVT_TEXT, self.OnTypeChange, self.typeedit)
+
+        self.edits = {}
+        self.types = {}
+        self.fulltypes = {}
         x = 0
         if wasempty:
             for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries', 3)):
-                e = OneEdit(self, '%d.' % (x + 1), '', self.itemtypes + [''] , '', 0, self.values, self.cfg)
-                self.edits.append(e)
-                list.append((e, 0, wx.EXPAND|wx.ALL, 2))
+                self.AddEdit(x)
         else:
-            for i in entry['Entries']:
-                try:
-                    vt = i['VoiceTag']
-                except:
-                    vt = None
-                e = OneEdit(self, '%d.' % (x + 1), i['Type'], self.itemtypes + [''] , i['Value'], vt, self.values, self.cfg)
-                self.edits.append(e)
-                list.append((e, 0, wx.EXPAND|wx.ALL, 2))
-                x = x + 1
+            for i in range(len(entry['Entries'])):
+                self.AddEdit(i, entry['Entries'][i])
 
-        self.buttons = OkCancelMore(self)
-        list.append((self.buttons, 0, wx.ALL|wx.ALIGN_CENTER, 2))
-
-        self.sizer.AddMany(list)
+        self.ok = wx.Button(self, wx.ID_OK, _('OK'))
+        self.Bind(wx.EVT_BUTTON, self.Okay, self.ok)
+        self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
+        self.more = wx.Button(self, -1, _('More'))
+        self.Bind(wx.EVT_BUTTON, self.More, self.more)
 
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+
+        self.AddButtons()
+
+    def AddButtons(self):
+        self.sizer.Add(self.ok, (self.rowoffset + self.rows + 1, 0), (1, 2))
+        self.sizer.Add(self.more, (self.rowoffset + self.rows + 1, 3), (1, 2))
+        self.sizer.Add(self.cancel, (self.rowoffset + self.rows + 1, 6), (1, 2))
         self.sizer.Fit(self)
         self.sizer.SetSizeHints(self)
+        self.sizer.Layout()
 
-        wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
-        wx.EVT_BUTTON(self, self.buttons.more.GetId(), self.More)
+    def RemoveButtons(self):
+        self.sizer.Detach(self.ok)
+        self.sizer.Detach(self.more)
+        self.sizer.Detach(self.cancel)
+
+    def AddEdit(self, row, value = {'Type':'', 'Value':''}):
+        self.rows += 1
+        self.sizer.Add(wx.StaticText(self, -1, '%d.' % (row + 1), size = (20, -1)), (row + self.rowoffset, 0))
+        combo = wx.ComboBox(self, -1, value['Type'], choices = self.itemtypes + [''], style = wx.CB_READONLY, size = (180, -1))
+        combo.row = row
+        self.sizer.Add(combo, (row + self.rowoffset, 1), (1, 3))
+        self.Bind(wx.EVT_TEXT, self.OnItemTypeChange, combo)
+        self.AddTypeEdit(row, value)
+
+    def AddTypeEdit(self, row, value):
+        type = Wammu.Utils.GetItemType(value['Type'])
+        self.fulltypes[row] = value['Type']
+        self.types[row] = type
+        if type == 'text' or type == None:
+            # text editor
+            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (200, -1))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
+            self.edits[row] = [edit]
+        elif type == 'phone':
+            # phone editor with voice tag
+            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (150, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 3))
+            try:
+                v = hex(value['VoiceTag'])
+            except:
+                v = '0x0'
+            if v[-1] == 'L':
+                v = v[:-1]
+            edit2 = wx.TextCtrl(self, -1, v, size = (50, -1))
+            self.sizer.Add(edit2, (row + self.rowoffset, 7), (1, 1))
+            self.edits[row] = [edit, edit2]
+        elif type == 'bool':
+            # boolean
+            try:
+                val = bool(value['Value'])
+            except:
+                val = False
+            edit = wx.CheckBox(self, -1, '', size = (200, -1))
+            edit.SetValue(val)
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
+            self.edits[row] = [edit]
+        elif type == 'contact':
+            # contact editor
+            try:
+                val = int(value['Value'])
+            except:
+                val = 0
+            edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000, initial = val, size = (50, -1))
+            edit.row = row
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 1))
+            edit2 = wx.Button(self, -1, self.GetContactText(val), style = wx.BU_EXACTFIT, size = (150, -1))
+            edit2.row = row
+            self.sizer.Add(edit2, (row + self.rowoffset, 5), (1, 3))
+            self.edits[row] = [edit, edit2]
+            self.Bind(wx.EVT_SPINCTRL, self.OnContactSpinChange, edit)
+            self.Bind(wx.EVT_BUTTON, self.OnContactButton, edit2)
+        elif type == 'id':
+            # ID editor
+            try:
+                v = hex(value)
+            except:
+                v = '0x0'
+            if v[-1] == 'L':
+                v = v[:-1]
+            edit = wx.TextCtrl(self, -1, StrConv(v), size = (200, -1))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
+            self.edits[row] = [edit]
+        elif type == 'category' or type == 'number':
+            # number editor
+            # FIXME: category should be selectable
+            try:
+                val = int(value)
+            except:
+                val = 0
+            edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
+            self.edits[row] = [edit]
+        elif type == 'datetime':
+            # date + time editor
+            edit = TimeCtrl( self, -1, fmt24hr=True)
+            Wammu.Utils.FixupMaskedEdit(edit)
+            edit.SetValue(TimeToText(value, self.cfg))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 2))
+            edit2 = DateControl(self, DateToText(value, self.cfg))
+            self.sizer.Add(edit2, (row + self.rowoffset, 6), (1, 2))
+            self.edits[row] = [edit, edit2]
+        elif type == 'date':
+            # date editor
+            edit = DateControl(self, DateToText(value, self.cfg))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
+            self.edits[row] = [edit]
+        else:
+            print 'warning: creating TextCtrl for %s' % type
+            edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
+            self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
+            self.edits[row] = [edit]
+        self.sizer.Fit(self)
+        self.sizer.SetSizeHints(self)
+        self.sizer.Layout()
+
+    def OnContactSpinChange(self, evt):
+        row = evt.GetEventObject().row
+        self.edits[row][1].SetLabel(self.GetContactText(evt.GetInt()))
+
+    def OnContactButton(self, evt):
+        row = evt.GetEventObject().row
+        val = Wammu.Select.SelectContact(self, [] + self.values['contact']['ME'])
+        if val != -1:
+            self.edits[row][0].SetValue(val)
+            self.edits[row][1].SetLabel(self.GetContactText(val))
+
+    def GetContactText(self, val):
+        if val < 1:
+            return _('None')
+        else:
+            l = Wammu.Utils.SearchLocation(self.values['contact']['ME'], val)
+            if l == -1:
+                return _('Unknown')
+            else:
+                return self.values['contact']['ME'][l]['Name']
+
+    def DelTypeEdit(self, row):
+        for x in self.edits[row]:
+            if x is not None:
+                self.sizer.Detach(x)
+                x.Destroy()
+        self.edits[row] = [None]
+
+    def GetTypeEditValue(self, row):
+        if self.types[row] == 'date':
+            return TextToDate(self.edits[row][0].GetValue())
+        elif self.types[row] == 'datetime':
+            return datetime.datetime.combine(TextToDate(self.edits[row][1].GetValue()), TextToTime(self.edits[row][0].GetValue()))
+        elif self.types[row] == 'id':
+            return int(self.edits[row][0].GetValue(), 16)
+        elif self.types[row] in ['contact', 'bool', 'category', 'number']:
+            return int(self.edits[row][0].GetValue())
+        elif self.types[row] in ['phone', 'text']:
+            return UnicodeConv(self.edits[row][0].GetValue())
+        else:
+            return self.edits[row][0].GetValue()
+
+    def GetTypeEditVoiceTag(self, row):
+        if self.types[row] == 'phone':
+            return int(self.edits[row][1].GetValue(), 16)
+        return 0
+
+    def OnItemTypeChange(self, evt):
+        row = evt.GetEventObject().row
+        type = evt.GetString()
+        val = self.GetTypeEditValue(row)
+        self.DelTypeEdit(row)
+        self.AddTypeEdit(row, {'Type': type, 'Value':val})
 
     def OnTypeChange(self, evt):
         self.locationedit.SetValue(0)
 
     def More(self, evt):
-        self.sizer.Remove(len(self.edits) + 2)
-
-        e = OneEdit(self, '%d.' % (len(self.edits) + 1), '', self.itemtypes + [''] , '', 0, self.values, self.cfg)
-        self.edits.append(e)
-
-        self.sizer.AddMany([
-            (e, 0, wx.EXPAND|wx.ALL,2),
-            (self.buttons, 0, wx.ALL|wx.ALIGN_CENTER, 2)
-            ])
-        self.sizer.Fit(self)
+        self.RemoveButtons()
+        self.AddEdit(self.rows)
+        self.AddButtons()
 
     def Okay(self, evt):
         # FIXME: why it needed to call validators directly?
-        for e in self.edits:
-            if not e.Validate():
-                return
+#        for e in self.edits:
+#            for i in e:
+#                if i.hasattr('Validate') and not i.Validate():
+#                    return
 
         v = []
-        for x in self.edits:
-            t = x.GetType()
+        for row in range(self.rows):
+            t = self.fulltypes[row]
             if t != '':
-                v.append({'Type' : t, 'Value' : x.GetValue(), 'VoiceTag' : x.GetVoiceTag()})
+                v.append({'Type' : t, 'Value' : self.GetTypeEditValue(row), 'VoiceTag' : self.GetTypeEditVoiceTag(row)})
 
         self.entry['Entries'] = v
         self.entry[self.type] = self.typeedit.GetValue()
