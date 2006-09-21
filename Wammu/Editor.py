@@ -363,7 +363,7 @@ class GenericEditor(wx.Dialog):
         elif type == 'id':
             # ID editor
             try:
-                v = hex(value)
+                v = hex(value['Value'])
             except:
                 v = '0x0'
             if v[-1] == 'L':
@@ -375,7 +375,7 @@ class GenericEditor(wx.Dialog):
             # number editor
             # FIXME: category should be selectable
             try:
-                val = int(value)
+                val = int(value['Value'])
             except:
                 val = 0
             edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
@@ -385,19 +385,19 @@ class GenericEditor(wx.Dialog):
             # date + time editor
             edit = TimeCtrl( self, -1, fmt24hr=True)
             Wammu.Utils.FixupMaskedEdit(edit)
-            edit.SetValue(TimeToText(value, self.cfg))
+            edit.SetValue(TimeToText(value['Value'], self.cfg))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 2))
-            edit2 = DateControl(self, DateToText(value, self.cfg))
+            edit2 = DateControl(self, DateToText(value['Value'], self.cfg))
             self.sizer.Add(edit2, (row + self.rowoffset, 6), (1, 2))
             self.edits[row] = [edit, edit2]
         elif type == 'date':
             # date editor
-            edit = DateControl(self, DateToText(value, self.cfg))
+            edit = DateControl(self, DateToText(value['Value'], self.cfg))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         else:
             print 'warning: creating TextCtrl for %s' % type
-            edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
+            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         self.sizer.Fit(self)
