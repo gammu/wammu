@@ -32,7 +32,7 @@ if Wammu.gammu_error == None:
 import Wammu.Data
 import Wammu.Events
 import wxPython.lib.layoutf
-from Wammu.Utils import Str_ as _
+from Wammu.Utils import StrConv, Str_ as _
 
 class LogDialog(wx.Dialog):
     def __init__(self, parent, msg = '', caption = _('Phone searching log'), pos = wx.DefaultPosition, size = (500,300)):
@@ -61,7 +61,7 @@ class LogDialog(wx.Dialog):
             self.EndModal(wx.ID_CANCEL)
 
     def OnText(self, evt):
-        self.text.AppendText(evt.text)
+        self.text.AppendText(StrConv(evt.text))
 
     def OnDone(self, evt):
         self.ok.Enable(True)
