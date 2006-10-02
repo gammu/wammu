@@ -120,14 +120,14 @@ class AllSearchThread(threading.Thread):
                         t = SearchThread(bdaddr, Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
                         t.setName('%s (%s) - %s' % (bdaddr, bluetooth.lookup_name(bdaddr), Wammu.Data.Conn_Bluetooth))
                         if self.msgcallback != None:
-                            self.msgcallback(_('Checking %s') %  t.getName())
+                            self.msgcallback(_('Checking %s') %  StrConv(t.getName()))
                         self.threads.append(t)
                         t.start()
                     if self.msgcallback != None:
                         self.msgcallback(_('Bluetooth device scan completed'))
                 except bluetooth.BluetoothError, txt:
                     if self.msgcallback != None:
-                        self.msgcallback(_('Could not access Bluetooth subsystem (%s)') % txt)
+                        self.msgcallback(_('Could not access Bluetooth subsystem (%s)') % StrConv(txt))
             except ImportError:
                 try:
                     import btctl
