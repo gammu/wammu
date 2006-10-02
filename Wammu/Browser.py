@@ -32,6 +32,9 @@ from Wammu.Utils import StrConv, Str_ as _
 
 import wx.lib.mixins.listctrl
 
+class FilterException(Exception):
+    pass
+
 class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     def __init__(self, parent, win):
         wx.ListCtrl.__init__(self, parent, -1,
@@ -122,7 +125,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             if text.isdigit():
                 num = int(text)
             if regexp:
-                match = re.compile(text, re.I)
+                try:
+                    match = re.compile(text, re.I)
+                except:
+                    raise FilterException('Failed to compile regexp')
             else:
                 match = re.compile('.*%s.*' % re.escape(text), re.I)
             self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, match, num)]

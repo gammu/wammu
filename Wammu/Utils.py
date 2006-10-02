@@ -198,7 +198,7 @@ def MatchesText(item, match, num):
                 if type(val2) in (str, unicode):
                     if match.search(val2) != None:
                         return True
-                elif dig and type(val2) == int and num == val2:
+                elif num is not None and type(val2) == int and num == val2:
                     return True
     return False
 

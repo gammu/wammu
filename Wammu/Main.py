@@ -611,7 +611,7 @@ class WammuFrame(wx.Frame):
         try:
             self.browser.Filter(text, type)
             self.searchinput.SetBackgroundColour(wx.NullColour)
-        except:
+        except Wammu.Browser.FilterException:
             self.searchinput.SetBackgroundColour(wx.RED)
 
     def ClearSearch(self, event = None):
