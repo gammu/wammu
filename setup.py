@@ -247,7 +247,10 @@ setup(name="wammu",
     # py2exe options
     options = {'py2exe': {'optimize': 2}},
     windows = [
-        {'script': 'wammu.py'},
+        {
+            'script': 'wammu.py',
+            'icon_resources': [(1, 'icon/wammu.ico')],
+        },
         ],
     zipfile = "shared.lib"
     )
