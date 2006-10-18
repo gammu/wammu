@@ -132,7 +132,10 @@ class AllSearchThread(threading.Thread):
                 try:
                     import btctl
                     # create controller object
-                    ctl = btctl.Controller('')
+                    try:
+                        ctl = btctl.Controller('')
+                    except TypeError:
+                        ctl = btctl.Controller()
                     # read devices list
                     if self.msgcallback != None:
                         self.msgcallback(_('Scanning for bluetooth devices using %s') % 'GNOME Bluetooth')
