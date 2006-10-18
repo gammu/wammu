@@ -210,10 +210,10 @@ def SearchItem(lst, item):
     return -1
 
 def GrabNumberPrefix(number, prefixes):
-    if number[0] != '+':
+    l = len(number)
+    if l == 0 or number[0] != '+':
         return None
     i = 2
-    l = len(number)
     while not number[:i] in prefixes:
         i += 1
         if i > l:
