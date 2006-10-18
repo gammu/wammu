@@ -448,6 +448,7 @@ class WammuFrame(wx.Frame):
                 b = self.sm.GetBatteryCharge()
                 d = self.sm.GetDateTime()
 
+                # Parse power source
                 power = _('Unknown')
                 if b['ChargeState'] == 'BatteryPowered':
                     power = _('battery')
@@ -457,12 +458,19 @@ class WammuFrame(wx.Frame):
                     power = _('no battery')
                 elif b['ChargeState'] == 'PowerFault':
                     power = _('fault')
+
+                # Time might be None if it is invalid (eg. 0.0.0000 date)
+                if d is None:
+                    time = _('Unknown')
+                else:
+                    time = StrConv(d.strftime('%c'))
+
                 self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, Time: %(time)s') %
                     {
                         'battery_percent':b['BatteryPercent'],
                         'power_source':power,
                         'signal_percent':s['SignalPercent'],
-                        'time':StrConv(d.strftime('%c'))
+                        'time': time
                     }, 1)
             except gammu.GSMError:
                 pass
