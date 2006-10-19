@@ -245,7 +245,10 @@ setup(name="wammu",
         'build_scripts': build_scripts_wammu,
         },
     # py2exe options
-    options = {'py2exe': {'optimize': 2}},
+    options = {'py2exe': {
+            'optimize': 2,
+            'packages': 'Wammu',
+        }},
     windows = [
         {
             'script': 'wammu.py',
