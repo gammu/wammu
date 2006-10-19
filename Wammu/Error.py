@@ -57,18 +57,20 @@ def Handler(type, value, tback):
     textexc = ''.join(traceback.format_exception_only(type, value))
 
     # debug log information
-    if debuglogfilename is not None:
-        # copy debug log
-        handle, name = tempfile.mkstemp('.log', 'wammu-crash-')
-        outf = os.fdopen(handle, 'w+')
-        inf = open(debuglogfilename, 'r')
-        outf.write(inf.read())
-        inf.close()
-        print 'Created debug log copy in %s for error reporting.' % name
+    logtext = ''
+    try:
+        if debuglogfilename is not None:
+            # copy debug log
+            handle, name = tempfile.mkstemp('.log', 'wammu-crash-')
+            outf = os.fdopen(handle, 'w+')
+            inf = open(debuglogfilename, 'r')
+            outf.write(inf.read())
+            inf.close()
+            print 'Created debug log copy in %s for error reporting.' % name
 
-        logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % name
-    else:
-        logtext = ''
+            logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % name
+    except:
+        pass
 
     # traceback id (md5 sum of last topmost traceback item inside Wammu - file(function):code)
     try:
@@ -88,6 +90,17 @@ def Handler(type, value, tback):
     else:
         unicodewarning = ''
 
+    bluez = 'None'
+    try:
+        import bluetooth
+        bluez = 'PyBluez'
+    except ImportError:
+        try:
+            import btctl
+            bluez = 'btctl'
+        except ImportError:
+            pass
+
     # prepare message
     text = """%s
 
@@ -100,6 +113,7 @@ wxPython     %s
 Wammu        %s
 python-gammu %s
 Gammu        %s
+Bluetooth    %s
 locales      %s (%s)
 ------------------ Traceback ID -------------------
 %s
@@ -109,12 +123,15 @@ locales      %s (%s)
 """ % (
     _('Unhandled exception appeared.'),
     _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
-    logtext, tracetext, unicodewarning, sys.platform, pyver, wxver, wammuver, pgammuver, gammuver, loc, charset, traceid, texttrace, textexc)
+    logtext, tracetext, unicodewarning, sys.platform, pyver, wxver, wammuver, pgammuver, gammuver, bluez, loc, charset, traceid, texttrace, textexc)
 
     # Include exception info in crash file
-    if debuglogfilename is not None:
-        outf.write(text.encode('utf-8'))
-        outf.close()
+    try:
+        if debuglogfilename is not None:
+            outf.write(text.encode('utf-8'))
+            outf.close()
+    except:
+        pass
 
     # display error
     try:
