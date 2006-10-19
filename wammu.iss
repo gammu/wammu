@@ -56,7 +56,7 @@ Name: pl; MessagesFile: compiler:Languages\Polish.isl
 ;Name: ru; MessagesFile: compiler:Languages\Russian.isl
 Name: sk; MessagesFile: compiler:Languages\Slovak.isl
 ;Name: sl; MessagesFile: compiler:Languages\Slovenian.isl
-Name: sv; MessagesFile: compiler:Languages\Swedish.isl
+;Name: sv; MessagesFile: compiler:Languages\Swedish.isl
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
