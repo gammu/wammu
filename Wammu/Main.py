@@ -228,7 +228,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_BUTTON(self, self.searchclear.GetId(), self.ClearSearch)
 
         # item browser
-        self.browser = Wammu.Browser.Browser(self.rightwin, self)
+        self.browser = Wammu.Browser.Browser(self.rightwin, self, self.cfg)
         self.rightwin.sizer.Add(self.browser, 1, wx.EXPAND)
         self.rightwin.SetSizer(self.rightwin.sizer)
 

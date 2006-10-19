@@ -36,10 +36,11 @@ class FilterException(Exception):
     pass
 
 class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
-    def __init__(self, parent, win):
+    def __init__(self, parent, win, cfg):
         wx.ListCtrl.__init__(self, parent, -1,
                             style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
         self.win = win
+        self.cfg = cfg
 
         self.itemno = -1
 
@@ -164,14 +165,34 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             wx.PostEvent(self.win, evt)
 
     def Change(self, type, values):
+        try:
+            self.cfg.Write('/BrowserSortKey/%s' % self.type, self.sortkey)
+        except AttributeError:
+            pass
+        try:
+            self.cfg.WriteInt('/BrowserSortOrder/%s' % self.type, self.sortorder)
+        except AttributeError:
+            pass
         self.type = type
         self.values = values
         self.allvalues = values
         self.sortkey = ''
+        self.sortorder = 1
         self.ClearAll()
         self.SetItemCount(len(values))
         self.ShowHeaders()
-        self.Resort(0)
+        # restore sort order
+        found = False
+        readsort = self.cfg.Read('/BrowserSortKey/%s' % self.type, '')
+        readorder = self.cfg.ReadInt('/BrowserSortOrder/%s' % self.type, 1)
+        for i in range(len(self.keys)):
+            if self.keys[i] == readsort:
+                if readorder == -1:
+                    self.sortkey = readsort
+                self.Resort(i)
+                found = True
+        if not found:
+            self.Resort(0)
 
     def Resort(self, col):
         # remember show item
