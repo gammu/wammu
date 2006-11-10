@@ -29,6 +29,7 @@ import sys
 import os
 import os.path
 import datetime
+import time
 import copy
 import imaplib
 import tempfile
@@ -904,6 +905,8 @@ class WammuFrame(wx.Frame):
         if Wammu.Editor.CalendarEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
                 busy = wx.BusyInfo(_('Writing calendar...'))
+                time.sleep(0.1)
+                wx.Yield()
                 # was entry moved => delete it
                 if not shoulddelete:
                     # delete from internal list
@@ -1764,6 +1767,8 @@ class WammuFrame(wx.Frame):
                             break
             elif self.type[0] == 'calendar':
                 busy = wx.BusyInfo(_('Deleting calendar event(s)...'))
+                time.sleep(0.1)
+                wx.Yield()
                 for v in lst:
                     self.sm.DeleteCalendar(v['Location'])
                     for idx in range(len(self.values[self.type[0]]['  '])):
@@ -1918,6 +1923,9 @@ class WammuFrame(wx.Frame):
 
     def SyncTime(self, event):
         busy = wx.BusyInfo(_('Setting time in phone...'))
+        time.sleep(0.1)
+        wx.Yield()
+        time.sleep(0.5)
         try:
             self.sm.SetDateTime(datetime.datetime.now())
         except gammu.GSMError, val:
@@ -1930,6 +1938,8 @@ class WammuFrame(wx.Frame):
 
     def PhoneConnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
+        time.sleep(0.1)
+        wx.Yield()
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'),
             'UseGlobalDebugFile': 1,
@@ -1980,6 +1990,9 @@ class WammuFrame(wx.Frame):
 
     def PhoneDisconnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
+        time.sleep(0.1)
+        wx.Yield()
+        time.sleep(1)
         try:
             self.sm.Terminate()
         except gammu.ERR_NOTCONNECTED:
