@@ -89,8 +89,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.columns = ( _('Location'), _('Completed'), _('Priority'), _('Text'), _('Date'))
             self.keys = ('Location', 'Completed', 'Priority', 'Text', 'Date')
         elif self.type == 'calendar':
-            self.columns = ( _('Location'), _('Start'), _('End'), _('Text'))
-            self.keys = ('Location', 'Start', 'End', 'Text')
+            self.columns = ( _('Location'), _('Type'), _('Start'), _('End'), _('Text'))
+            self.keys = ('Location', 'Type', 'Start', 'End', 'Text')
 
         cnt = len(self.columns)
 
