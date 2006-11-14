@@ -561,11 +561,13 @@ MemoryValueTypes = [
     'Text_Custom2',
     'Text_Custom3',
     'Text_Custom4',
+    'Text_LUID',
     'Text_UserID',
     'RingtoneID',
     'RingtoneFileSystemID',
     'PictureID',
     'SMSListID',
+    'Text_UserID',
     'CallLength',
     ]
 
@@ -603,10 +605,11 @@ CalendarTypes = [
 CalendarValueTypes = [
     'START_DATETIME',
     'END_DATETIME',
-    'ALARM_DATETIME',
+    'TONE_ALARM_DATETIME',
     'SILENT_ALARM_DATETIME',
     'RECURRANCE',
     'TEXT',
+    'DESCRIPTION',
     'LOCATION',
     'PHONE',
     'PRIVATE',
@@ -618,6 +621,7 @@ CalendarValueTypes = [
     'REPEAT_FREQUENCY',
     'REPEAT_STARTDATE',
     'REPEAT_STOPDATE',
+    'LUID',
     ]
 
 TodoPriorities = [
