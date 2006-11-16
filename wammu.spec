@@ -2,7 +2,7 @@
 %define version 0.18
 %define release 1
 
-%define python_gammu_req 0.10
+%define python_gammu_req 0.16
 
 %if %{!?py_ver:1}0 == 10
 %define py_ver                 %(python -c "import sys; v=sys.version_info[:2]; print '%%d.%%d'%%v" 2>/dev/null || echo PYTHON-NOT-FOUND)}

@@ -45,8 +45,8 @@ except:
 # detect whether we should check for dependencies
 skip_deps = 'clean' in sys.argv or '--help' in sys.argv or '--help-commands' in sys.argv or 'sdist' in sys.argv
 
-# somw defines
-PYTHONGAMMU_REQUIRED = (0,10)
+# some defines
+PYTHONGAMMU_REQUIRED = (0,16)
 
 if not skip_deps:
     if os.getenv('SKIPGAMMUCHECK') == 'yes':
