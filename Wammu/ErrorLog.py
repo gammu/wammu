@@ -1,0 +1,101 @@
+# -*- coding: UTF-8 -*-
+'''
+Wammu - Phone manager
+Error log handling
+'''
+__author__ = 'Michal Čihař'
+__email__ = 'michal@cihar.com'
+__license__ = '''
+Copyright (c) 2003 - 2006 Michal Čihař
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2 as published by
+the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+'''
+
+import Wammu
+import tempfile
+import wx
+import sys
+import os
+import locale
+if Wammu.gammu_error == None:
+    import gammu
+
+# set later in Wammu.Main to have correct debug filename
+debuglogfilename = None
+
+# Template for system information
+system_template="""
+--------------- System information ----------------
+Platform     %s
+Python       %s
+wxPython     %s
+Wammu        %s
+python-gammu %s
+Gammu        %s
+Bluetooth    %s
+locales      %s (%s)
+"""
+
+def GetSystemInfo():
+    """
+    Returns system information in text form.
+    """
+    pyver = sys.version.split()[0]
+    wxver = wx.VERSION_STRING
+    wammuver = Wammu.__version__
+    (gammuver, pgammuver) = gammu.Version()
+    (loc, charset) = locale.getdefaultlocale()
+    bluez = 'None'
+    try:
+        import bluetooth
+        bluez = 'PyBluez'
+    except ImportError:
+        try:
+            import btctl
+            bluez = 'btctl'
+        except ImportError:
+            pass
+
+    return system_template % (
+        sys.platform,
+        pyver,
+        wxver,
+        wammuver,
+        pgammuver,
+        gammuver,
+        bluez,
+        loc,
+        charset)
+
+def SaveLog(outf = None, filename = None):
+    """
+    Saves debug log to filename or handle. If none specified
+    """
+    if debuglogfilename is None:
+        return None, None
+    if outf is None:
+        if filename is None:
+            handle, name = tempfile.mkstemp('.log', 'wammu-crash-')
+            outf = os.fdopen(handle, 'w+')
+        else:
+            name = filename
+            outf = open(filename, 'w+')
+
+    inf = open(debuglogfilename, 'r')
+    outf.write(GetSystemInfo())
+    outf.write(inf.read())
+    inf.close()
+    if filename is not None:
+        outf.close()
+    return outf, name
