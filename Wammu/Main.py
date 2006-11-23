@@ -63,6 +63,7 @@ import Wammu.PhoneSearch
 import Wammu.About
 import Wammu.MailWriter
 import Wammu.IMAP
+import Wammu.ErrorMessage
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -359,7 +360,7 @@ class WammuFrame(wx.Frame):
             fd, self.logfilename = tempfile.mkstemp('.log', 'wammu')
 
             # set filename to be used for error reports
-            Wammu.Error.debuglogfilename = self.logfilename
+            Wammu.ErrorLog.debuglogfilename = self.logfilename
 
             print 'Debug log created in %s, in case of crash please include it in bugreport!' % self.logfilename
 
@@ -681,6 +682,7 @@ class WammuFrame(wx.Frame):
         evt = Wammu.Events.ShowMessageEvent(
             message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info),
             title = _('Error Occured'),
+            errortype = 'gammu',
             type = wx.ICON_ERROR)
         wx.PostEvent(self, evt)
 
@@ -1403,6 +1405,7 @@ class WammuFrame(wx.Frame):
             evt = Wammu.Events.ShowMessageEvent(
                 message = Wammu.Utils.FormatError(_('Error while reading backup'), info),
                 title = _('Error Occured'),
+                errortype = 'gammu',
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
             return (None, None)
@@ -1637,6 +1640,7 @@ class WammuFrame(wx.Frame):
             evt = Wammu.Events.ShowMessageEvent(
                 message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
                 title = _('Error Occured'),
+                errortype = 'gammu',
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
 
@@ -1752,7 +1756,7 @@ class WammuFrame(wx.Frame):
                 busy = wx.BusyInfo(_('Deleting message(s)...'))
                 for v in lst:
                     for loc in v['Location'].split(', '):
-                        self.sm.DeleteSMS(v['Folder'], int(loc))
+                        self.sm.DeleteSMS(0, int(loc))
                     for idx in range(len(self.values[self.type[0]][v['State']])):
                         if self.values[self.type[0]][v['State']][idx] == v:
                             del self.values[self.type[0]][v['State']][idx]
@@ -1823,10 +1827,17 @@ class WammuFrame(wx.Frame):
         except:
             parent = self
 
-        wx.MessageDialog(parent,
-            StrConv(evt.message),
-            StrConv(evt.title),
-            wx.OK | evt.type).ShowModal()
+        # Is is Gammu error?
+        if hasattr(evt, 'errortype') and evt.errortype == 'gammu':
+            Wammu.ErrorMessage.ErrorMessage(parent,
+                StrConv(evt.message),
+                StrConv(evt.title)).ShowModal()
+        else:
+            wx.MessageDialog(parent,
+                StrConv(evt.message),
+                StrConv(evt.title),
+                wx.OK | evt.type).ShowModal()
+
         if hasattr(evt, 'lock'):
             evt.lock.release()
 

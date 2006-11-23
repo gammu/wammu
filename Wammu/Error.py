@@ -22,33 +22,17 @@ this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 '''
 
-import Wammu
-if Wammu.gammu_error == None:
-    import gammu
-import wx
-import wx.lib.dialogs
 import traceback
-import sys
-import locale
 import md5
-import os
-import tempfile
 from Wammu.Utils import Str_ as _
+import Wammu.ErrorLog
+import Wammu.ErrorMessage
 
 # set later in Wammu.App to have correct parent here
 handlerparent = None
-# set later in Wammu.Main to have correct debug filename
-debugfilename = None
 
 def Handler(type, value, tback):
     """User friendly error handling """
-
-    # first get some information
-    pyver = sys.version.split()[0]
-    wxver = wx.VERSION_STRING
-    wammuver = Wammu.__version__
-    (gammuver, pgammuver) = gammu.Version()
-    (loc, charset) = locale.getdefaultlocale()
 
     # prepare traceback text
     trace = traceback.extract_tb(tback)
@@ -58,19 +42,10 @@ def Handler(type, value, tback):
 
     # debug log information
     logtext = ''
-    try:
-        if debuglogfilename is not None:
-            # copy debug log
-            handle, name = tempfile.mkstemp('.log', 'wammu-crash-')
-            outf = os.fdopen(handle, 'w+')
-            inf = open(debuglogfilename, 'r')
-            outf.write(inf.read())
-            inf.close()
-            print 'Created debug log copy in %s for error reporting.' % name
-
-            logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % name
-    except:
-        pass
+    outf, logname = Wammu.ErrorLog.SaveLog()
+    if outf is not None:
+        print 'Created debug log copy in %s for error reporting.' % logname
+        logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % logname
 
     # traceback id (md5 sum of last topmost traceback item inside Wammu - file(function):code)
     try:
@@ -90,31 +65,12 @@ def Handler(type, value, tback):
     else:
         unicodewarning = ''
 
-    bluez = 'None'
-    try:
-        import bluetooth
-        bluez = 'PyBluez'
-    except ImportError:
-        try:
-            import btctl
-            bluez = 'btctl'
-        except ImportError:
-            pass
-
     # prepare message
     text = """%s
 
 %s
 %s%s%s
---------------- System information ----------------
-Platform     %s
-Python       %s
-wxPython     %s
-Wammu        %s
-python-gammu %s
-Gammu        %s
-Bluetooth    %s
-locales      %s (%s)
+%s
 ------------------ Traceback ID -------------------
 %s
 -------------------- Traceback --------------------
@@ -123,18 +79,19 @@ locales      %s (%s)
 """ % (
     _('Unhandled exception appeared.'),
     _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
-    logtext, tracetext, unicodewarning, sys.platform, pyver, wxver, wammuver, pgammuver, gammuver, bluez, loc, charset, traceid, texttrace, textexc)
+    logtext, tracetext, unicodewarning, Wammu.ErrorLog.GetSystemInfo(), traceid, texttrace, textexc)
 
     # Include exception info in crash file
-    try:
-        if debuglogfilename is not None:
-            outf.write(text.encode('utf-8'))
-            outf.close()
-    except:
-        pass
+    if outf is not None:
+        outf.write(text.encode('utf-8'))
+        outf.close()
 
     # display error
     try:
-        wx.lib.dialogs.ScrolledMessageDialog(handlerparent, text, _('Unhandled exception')).ShowModal()
+        Wammu.ErrorMessage.ErrorMessage(handlerparent,
+            _('Unhandled exception appeared. If you want to help improving this program, please report this together with description how this situation has happened. Please report in english, otherwise you will be most likely told to translate you report to english later.'),
+            _('Unhandled exception'),
+            traceid = traceid, autolog = logname,
+            exception = _('Traceback:\n%s\nException: %s') % (texttrace, textexc)).ShowModal()
     except:
         print text

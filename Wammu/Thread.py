@@ -55,6 +55,7 @@ class Thread(threading.Thread):
             message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info),
             title = _('Error Occured'),
             type = wx.ICON_ERROR,
+            errortype = 'gammu',
             lock = lck)
         wx.PostEvent(self.win, evt)
         lck.acquire()
