@@ -182,6 +182,7 @@ def SearchLocation(lst, loc, second = None):
     return result
 
 def MatchesText(item, match, num):
+    testkeys = ['Value', 'Text', 'Number']
     for x in item:
         if type(item) == dict:
             val = item[x]
@@ -194,12 +195,17 @@ def MatchesText(item, match, num):
             return True
         elif type(val) == list:
             for i in range(len(val)):
-                val2 = val[i]['Value']
-                if type(val2) in (str, unicode):
-                    if match.search(val2) != None:
-                        return True
-                elif num is not None and type(val2) == int and num == val2:
-                    return True
+                for key in testkeys:
+                    try:
+                        val2 = val[i][key]
+                        if type(val2) in (str, unicode):
+                            if match.search(val2) != None:
+                                return True
+                        elif num is not None and type(val2) == int and num == val2:
+                            return True
+                    except KeyError:
+                        # Ignore not found keys
+                        pass
     return False
 
 
