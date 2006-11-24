@@ -455,11 +455,15 @@ class WammuFrame(wx.Frame):
                 if b['ChargeState'] == 'BatteryPowered':
                     power = _('battery')
                 elif b['ChargeState'] == 'BatteryConnected':
-                    power = _('supply')
+                    power = _('AC')
                 elif b['ChargeState'] == 'BatteryNotConnected':
                     power = _('no battery')
                 elif b['ChargeState'] == 'PowerFault':
                     power = _('fault')
+                elif b['ChargeState'] == 'BatteryCharging':
+                    power = _('charging')
+                elif b['ChargeState'] == 'BatteryFull':
+                    power = _('charged')
 
                 # Time might be None if it is invalid (eg. 0.0.0000 date)
                 if d is None:
