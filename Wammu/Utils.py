@@ -150,7 +150,7 @@ def GetItemType(txt):
         return 'datetime'
     elif txt[-4:] == 'DATE' or txt == 'Date':
         return 'date'
-    elif txt == 'TEXT' or txt == 'LOCATION' or txt[:4] == 'Text':
+    elif txt in ['TEXT', 'DESCRIPTION', 'LOCATION', 'LUID'] or txt[:4] == 'Text':
         return 'text'
     elif txt == 'PHONE' or txt[:6] == 'Number':
         return 'phone'

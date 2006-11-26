@@ -417,7 +417,11 @@ Connections = [
     'blueat',
     'fbuspl2303',
     ]
-
+Conn_Generic = [
+    'at19200',
+    'at115200',
+    'obex',
+    ]
 Conn_Cable = [
     'at19200',
     'at115200',
