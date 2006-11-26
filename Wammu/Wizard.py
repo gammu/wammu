@@ -35,6 +35,7 @@ class SimplePage(wx.wizard.PyWizardPage):
     """
     def __init__(self, parent, titletext, bodytext = None, detailtexts = None):
         wx.wizard.PyWizardPage.__init__(self, parent)
+        self.parent = parent
         self.sizer = wx.BoxSizer(wx.VERTICAL)
         self.SetSizer(self.sizer)
         title = wx.StaticText(self, -1, titletext)
@@ -70,7 +71,7 @@ class ChoicePage(SimplePage):
     Page offering choice of several values and allowing to automatically
     select next page according to choice.
     """
-    def __init__(self, parent, title, text, choices, helps, nexts = None):
+    def __init__(self, parent, title, text, choices, helps, nexts = None, nonetext =''):
         Wammu.Wizard.SimplePage.__init__(self, parent, title)
         self.type_rb = wx.RadioBox(self, -1, text,
                 size = (400, -1),
@@ -80,7 +81,10 @@ class ChoicePage(SimplePage):
         self.nexts = nexts
         self.Bind(wx.EVT_RADIOBOX, self.OnTypeChange, self.type_rb)
         self.sizer.Add(self.type_rb, 0, wx.ALL, 5)
-        self.body = wx.StaticText(self, -1, self.texts[0])
+        try:
+            self.body = wx.StaticText(self, -1, self.texts[0])
+        except:
+            self.body = wx.StaticText(self, -1, nonetext)
         self.body.Wrap(400)
         self.sizer.Add(self.body, 0, wx.ALL, 5)
 
@@ -95,7 +99,21 @@ class ChoicePage(SimplePage):
         return self.type_rb.GetSelection()
 
     def GetNext(self):
-        if self.nexts is None:
+        if self.nexts is None or len(self.nexts) == 0:
             return self.next
         return self.nexts[self.type_rb.GetSelection()]
 
+class InputPage(SimplePage):
+    """
+    Page offering text control input.
+    """
+    def __init__(self, parent, title, text, choices = None, help = ''):
+        Wammu.Wizard.SimplePage.__init__(self, parent, title, text)
+        if type(choices) == str:
+            self.edit = wx.TextCtrl(self, -1, choices, size = (300, -1))
+        else:
+            self.edit = wx.ComboBox(self, -1, '', choices = choices, size = (300, -1))
+        self.sizer.Add(self.edit, 0, wx.ALL, 5)
+        self.body = wx.StaticText(self, -1, help)
+        self.body.Wrap(400)
+        self.sizer.Add(self.body, 0, wx.ALL, 5)

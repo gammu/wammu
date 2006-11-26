@@ -28,96 +28,111 @@ import wx.wizard
 import Wammu.Paths
 import Wammu.Wizard
 import Wammu.Data
+import Wammu.SettingsStorage
 from Wammu.Utils import StrConv, Str_ as _
 
+class FinalPage(Wammu.Wizard.InputPage):
+    """
+    Shows result of configuration, and allow to name phone.
+    """
+    def __init__(self, parent):
+        Wammu.Wizard.InputPage.__init__(self, parent,
+                _('Configuration done'),
+                _('Thank you for configuring phone connection.'),
+                parent.settings.GetName(),
+                _('You can enter any name which you will use to identify your phone.')
+                )
+
+    def GetNext(self):
+        self.parent.settings.SetName(self.edit.GetValue())
+        return Wammu.Wizard.InputPage.GetNext(self)
+
+class PhonePortPage(Wammu.Wizard.InputPage):
+    """
+    Selects phone port.
+    """
+    def __init__(self, parent):
+        ports, help = parent.settings.GetDevices()
+        Wammu.Wizard.InputPage.__init__(self, parent,
+                _('Phone port'),
+                _('Please enter port where phone is connected:'),
+                ports,
+                help)
+
+    def GetNext(self):
+        self.parent.settings.SetPort(self.edit.GetValue())
+        self.parent.pg_final.SetPrev(self)
+        return self.parent.pg_final
+
+class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
+    """
+    Selects real Gammu phone driver.
+    """
+    def __init__(self, parent):
+        self.names, connections, helps = parent.settings.GetGammuDrivers()
+
+        if len(self.names) == 0:
+            Wammu.Wizard.SimplePage.__init__(self, parent,
+                    _('Driver to use'),
+                    _('Sorry no driver matches your configuration, please return back and try different settings or manual configuration.'))
+        else:
+            Wammu.Wizard.ChoicePage.__init__(self, parent,
+                    _('Driver to use'),
+                    _('Please select which driver you want to use'),
+                    connections, helps)
+
+    def GetNext(self):
+        """
+        Dynamically create next page for current settings.
+        """
+        if len(self.names) == 0:
+            return None
+        self.parent.settings.SetGammuDriver(self.names[self.GetType()])
+        next = PhonePortPage(self.parent)
+        next.SetPrev(self)
+        return next
 
 class PhoneDriverPage(Wammu.Wizard.ChoicePage):
     """
-    Selects Gammu phone driver.
+    Selects Gammu phone driver type.
     """
-    def __init__(self, parent, manufacturer):
-        self.names = []
-        connections = []
-        helps = []
-
-        self.names.append('at')
-        connections.append(_('AT based'))
-        if manufacturer in ['symbian', 'nokia']:
-            helps.append(_('This provides minimal access to phone features. It is recommended to use other connection type.'))
-        else:
-            helps.append(_('Good choice for most phones except Nokia and Symbian based. Provides access to most phone features.'))
-
-        if manufacturer in ['nokia', 'any']:
-            self.names.append('fbus')
-            connections.append(_('Nokia FBUS'))
-            helps.append(_('Nokia proprietary protocol.'))
-
-            self.names.append('mbus')
-            connections.append(_('Nokia MBUS'))
-            helps.append(_('Nokia proprietary protocol. Older version, use FBUS if possible.'))
-
-        self.names.append('obex')
-        connections.append(_('OBEX based'))
-        helps.append(_('Standard access to filesystem and sometimes also to phone data. Good choice for recent phones.'))
-
-        if manufacturer in ['symbian', 'any']:
-            self.names.append('symbian')
-            connections.append(_('Symbian using Gnapplet'))
-            helps.append(_('You have to install Gnapplet into phone before using this connection. You can find it in Gammu sources.'))
+    def __init__(self, parent):
+        self.names, connections, helps = parent.settings.GetDrivers()
 
         Wammu.Wizard.ChoicePage.__init__(self, parent,
                 _('Connection type'),
                 _('Please select connection type'),
                 connections, helps)
 
-    def SetManufacturer(self):
-        return self.names[self.GetType()]
-
+    def GetNext(self):
+        """
+        Dynamically create next page for current settings.
+        """
+        self.parent.settings.SetDriver(self.names[self.GetType()])
+        next = PhoneGammuDriverPage(self.parent)
+        next.SetPrev(self)
+        return next
 
 class PhoneManufacturerPage(Wammu.Wizard.ChoicePage):
     """
     Selects phone manufacturer.
     """
     def __init__(self, parent):
-        self.names = []
-        self.parent = parent
-        connections = []
-        helps = []
-
-        self.names.append('any')
-        connections.append(_('I don\'t know'))
-        helps.append(_('Select this option only if really necessary. You will be provided with too much options in next step.'))
-
-        self.names.append('nokia')
-        connections.append(_('Nokia phone'))
-        helps.append(_('If your phone runs Symbian, please select directly it.'))
-
-        self.names.append('symbian')
-        connections.append(_('Symbian based phone'))
-        helps.append(_('Go on if your phone uses Symbian OS (regardless of manufacturer).'))
-
-        self.names.append('nota')
-        connections.append(_('None of the above'))
-        helps.append(_('Select this option if nothing above matches, good choice for other manufacturers like Alcatel, BenQ, LG, Sharp, Sony Ericsson...'))
+        self.names, connections, helps = parent.settings.GetManufacturers()
 
         Wammu.Wizard.ChoicePage.__init__(self, parent,
                 _('Phone type'),
                 _('Please select phone type'),
                 connections, helps)
 
-    def GetManufacturer(self):
-        return self.names[self.GetType()]
-
     def GetNext(self):
         """
         Dynamically create next page for current settings.
         """
-        next = PhoneDriverPage(self.parent, self.GetManufacturer())
-        next.SetNext(Wammu.Wizard.ChoicePage.GetNext(self))
+        self.parent.settings.SetManufacturer(self.names[self.GetType()])
+        next = PhoneDriverPage(self.parent)
         next.SetPrev(self)
         return next
-
-
 
 class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
     """
@@ -154,9 +169,9 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
                 _('How is your phone connected?'),
                 connections, helps)
 
-    def GetConnectionType(self):
-        return self.names[self.GetType()]
-
+    def GetNext(self):
+        self.parent.settings.SetConnection(self.names[self.GetType()])
+        return Wammu.Wizard.ChoicePage.GetNext(self)
 
 class ConfigTypePage(Wammu.Wizard.ChoicePage):
     def __init__(self, parent, pg0, pg1, pg2):
@@ -176,12 +191,16 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                 ],
                 [ pg0, pg1, pg2])
 
-def RunConfigureWizard(parent):
+
+
+def RunConfigureWizard(parent, position = 0):
     """
     Executes wizard for configuring phone
     """
     bmp = wx.Bitmap(Wammu.Paths.MiscPath('phonewizard'))
     wiz = wx.wizard.Wizard(parent, -1, _('Wammu Phone Configuration Wizard'), bmp)
+    wiz.settings = Wammu.SettingsStorage.Settings()
+    wiz.settings.SetPosition(position)
 
     # Create pages
     pg_title = Wammu.Wizard.SimplePage(wiz, _('Welcome'),
@@ -196,7 +215,6 @@ def RunConfigureWizard(parent):
                 _('As soon as your phone is ready, you can continue.'),
             ])
 
-    pg_search1 = Wammu.Wizard.SimplePage(wiz, _('Phone conneciont'), _('1.'))
     pg_search1 = PhoneConnectionPage(wiz)
 
     pg_guide1 = PhoneConnectionPage(wiz, False)
@@ -205,6 +223,8 @@ def RunConfigureWizard(parent):
     pg_manual1 = Wammu.Wizard.SimplePage(wiz, _('Manual configuration'), _('1.'))
 
     pg_type = ConfigTypePage(wiz, pg_search1, pg_guide1, pg_manual1)
+
+    wiz.pg_final = FinalPage(wiz)
 
     # Set their order
     pg_title.SetNext(pg_type)
@@ -217,13 +237,14 @@ def RunConfigureWizard(parent):
 
     pg_guide1.SetNext(pg_guide2)
     pg_guide2.SetPrev(pg_guide1)
+    # rest of guide is created dynamically
 
     # Resize wizard
     wiz.FitToPage(pg_title)
 
     # Execute wizar
     if wiz.RunWizard(pg_title):
-        return "Configured"
+        return wiz.settings.GetSettings()
     else:
         return None
 
