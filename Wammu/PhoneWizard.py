@@ -184,7 +184,7 @@ def RunConfigureWizard(parent):
     wiz = wx.wizard.Wizard(parent, -1, _('Wammu Phone Configuration Wizard'), bmp)
 
     # Create pages
-    pg_title = Wammu.Wizard.SimplePage(wiz, _('Welcome'), 
+    pg_title = Wammu.Wizard.SimplePage(wiz, _('Welcome'),
             _('This wizard will help you with configuring phone connection in Wammu.'),
             [
                 '',

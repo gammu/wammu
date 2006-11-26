@@ -67,7 +67,7 @@ class SimplePage(wx.wizard.PyWizardPage):
 
 class ChoicePage(SimplePage):
     """
-    Page offering choice of several values and allowing to automatically 
+    Page offering choice of several values and allowing to automatically
     select next page according to choice.
     """
     def __init__(self, parent, title, text, choices, helps, nexts = None):
