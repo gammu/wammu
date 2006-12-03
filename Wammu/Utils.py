@@ -344,6 +344,7 @@ def ParseCalendar(entry):
     start = ''
     end = ''
     text = ''
+    description = ''
     for i in entry['Entries']:
         if i['Type'] == 'END_DATETIME':
             end = str(i['Value'])
@@ -351,7 +352,14 @@ def ParseCalendar(entry):
             start = str(i['Value'])
         elif i['Type'] == 'TEXT':
             text = i['Value']
-    entry['Text'] = text
+        elif i['Type'] == 'DESCRIPTION':
+            description = i['Value']
+    if text == '':
+        entry['Text'] = description
+    elif description == '':
+        entry['Text'] = text
+    else:
+        entry['Text'] = '%s (%s)' % (text, description)
     entry['Start'] = start
     entry['End'] = end
     entry['Synced'] = False
