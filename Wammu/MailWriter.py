@@ -165,7 +165,10 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         filename = '%s-%s.eml' % (sms['SMS'][0]['Type'], md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
     if mailbox:
-        ts = DateToString(sms['DateTime'])
+        if sms['DateTime'] is None:
+            ts = email.Utils.formatdate(None, True)
+        else:
+            ts = DateToString(sms['DateTime'])
         prepend = 'From wammu@wammu.sms %s\n' % ts
     else:
         prepend = ''

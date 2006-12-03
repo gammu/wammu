@@ -1123,7 +1123,7 @@ class WammuFrame(wx.Frame):
                     f.write('\n')
 
                 f.close()
-            except:
+            except IOError:
                 del self.progress
                 wx.MessageDialog(self,
                     _('Creating of file %s failed, bailing out.') % path,
@@ -1198,7 +1198,7 @@ class WammuFrame(wx.Frame):
                     f = file(outfile, 'w')
                     f.write(data)
                     f.close()
-                except:
+                except IOError:
                     wx.MessageDialog(self,
                         _('Creating of file %s failed, bailing out.') % outfile,
                         _('Can not create file!'),
@@ -1488,7 +1488,7 @@ class WammuFrame(wx.Frame):
                         v['SMSC']['Location'] = 1
                         (v['Location'], v['Folder']) = self.sm.AddSMS(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
-                        v = self.sm.GetSMS(v['Folder'], v['Location'])
+                        v = self.sm.GetSMS(0, v['Location'])
                         smsl.append(v)
 
                     res = Wammu.Utils.ProcessMessages(smsl, True)
