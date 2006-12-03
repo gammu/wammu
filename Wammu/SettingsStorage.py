@@ -318,22 +318,22 @@ class Settings:
                 helps.append(_('Protocol used in Nokia phones. Please try selecting more specific options first.'))
 
                 names.append('dlr3')
-                connections.append(_('FBUS/DLR3 proprietary protocol'))
-                helps.append(_('Protocol used in Nokia phones. Select this if you have DLR3 cable, usually with phones like Nokia 7110/6210/6310/6310.'))
+                connections.append(_('DLR3-3P cable'))
+                helps.append(_('Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia 7110/6210/6310/6310.'))
 
             # Serial should not be here, but we do not trust people they really have serial :-)
             if self.connection in ['serial', 'usb']:
                 names.append('fbuspl2303')
                 connections.append(_('PL2303 cable'))
-                helps.append(_('New Nokia protocol for PL2303 USB cable (and phone with USB chip like 5100).'))
+                helps.append(_('New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100).'))
 
                 names.append('dku5')
                 connections.append(_('DKU5 cable'))
-                helps.append(_('New Nokia protocol for DKU5 (and phone with USB chip like 5100).'))
+                helps.append(_('Nokia Connectivity Adapter Cable DKU-5 (for phones with USB chip like 5100).'))
 
                 names.append('dku2')
                 connections.append(_('DKU2 cable'))
-                helps.append(_('New Nokia protocol for DKU2 (and phone without USB chip like 6230).'))
+                helps.append(_('Nokia Connectivity Cable DKU-2 (for phones without USB chip like 6230).'))
 
             elif self.connection == 'bluetooth':
                 names.append('bluerffbus')
