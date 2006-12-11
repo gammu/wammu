@@ -157,6 +157,15 @@ class Settings:
         # fallback
         return 'serial'
 
+    def GetBluezDevices(self):
+        try:
+            import bluetooth
+            return bluetooth.discover_devices()
+        except ImportError:
+            return []
+        except bluetooth.BluetoothError:
+            return []
+
     def GetDevicesWindows(self):
         type = self.GetPortType()
         if type == 'serial':
@@ -184,8 +193,7 @@ class Settings:
                 'COM9:',
                 ], _('Enter device name of emulated serial port.')
         elif type == 'bluetooth':
-            # FIXME: scan bluetooth devices here if we have pybluez
-            return [], _('Enter Bluetooth address of your phone.')
+            return self.GetBluezDevices(), _('Enter Bluetooth address of your phone.')
         elif type in ['irda', 'dku']:
             return [], _('You don\'t have to enter anything for this settings.')
 
@@ -228,8 +236,7 @@ class Settings:
                 '/dev/usb/tts/3',
                 ], _('Enter device name of USB port.')
         elif type == 'bluetooth':
-            # FIXME: scan bluetooth devices here if we have pybluez
-            return [], _('Enter Bluetooth address of your phone.')
+            return self.GetBluezDevices(), _('Enter Bluetooth address of your phone.')
         elif type == 'irda':
             return [], _('You don\'t have to enter anything for this settings.')
 
