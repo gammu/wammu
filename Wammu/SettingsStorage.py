@@ -24,6 +24,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import sys
+import os
 import Wammu.Paths
 import Wammu.Data
 from Wammu.Utils import StrConv, Str_ as _
@@ -237,7 +238,13 @@ class Settings:
         if sys.platform == 'win32':
             return self.GetDevicesWindows()
         else:
-            return self.GetDevicesUNIX()
+            devs = self.GetDevicesUNIX()
+            result = [], devs[1]
+            for dev in devs[0]:
+                if dev[0] == '/' and not os.path.exists(dev):
+                    continue
+                result[0].append(dev)
+            return result
 
     def GetGammuDrivers(self):
         names = []
