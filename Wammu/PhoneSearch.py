@@ -221,3 +221,33 @@ class SearchThread(threading.Thread):
         except:
             evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
             wx.PostEvent(self.win, evt)
+
+class PhoneInfoThread(threading.Thread):
+    def __init__(self, win, device, connection):
+        threading.Thread.__init__(self)
+        self.device = device
+        self.connection = connection
+        self.result = None
+        self.win = win
+
+    def run(self):
+        try:
+            sm = gammu.StateMachine()
+            sm.SetConfig(0,
+                    {'StartInfo': 'no',
+                     'UseGlobalDebugFile': 1,
+                     'DebugFile': '',
+                     'SyncTime': 'no',
+                     'Connection': self.connection,
+                     'LockDevice': 'no',
+                     'DebugLevel': 'nothing',
+                     'Device': self.device,
+                     'Localize': None,
+                     'Model': ''})
+            sm.Init()
+            self.result = {'Model': sm.GetModel(), 'Manufacturer': sm.GetManufacturer()}
+            evt = Wammu.Events.DataEvent(data = self.result)
+            wx.PostEvent(self.win, evt)
+        except gammu.GSMError:
+            evt = Wammu.Events.DataEvent(data = None)
+            wx.PostEvent(self.win, evt)

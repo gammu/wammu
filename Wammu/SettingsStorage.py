@@ -50,6 +50,12 @@ class Settings:
         else:
             return self.name
 
+    def GetGammuDriver(self):
+        return self.gammudriver
+
+    def GetPort(self):
+        return self.port
+
     def SetPosition(self, pos):
         self.position = pos
 

@@ -29,6 +29,8 @@ import Wammu.Paths
 import Wammu.Wizard
 import Wammu.Data
 import Wammu.SettingsStorage
+import Wammu.PhoneSearch
+import Wammu.Events
 from Wammu.Utils import StrConv, Str_ as _
 
 class FinalPage(Wammu.Wizard.InputPage):
@@ -44,8 +46,66 @@ class FinalPage(Wammu.Wizard.InputPage):
                 )
 
     def GetNext(self):
-        self.parent.settings.SetName(self.edit.GetValue())
         return Wammu.Wizard.InputPage.GetNext(self)
+    
+    def Blocked(self):
+        self.parent.settings.SetName(self.edit.GetValue())
+        return False
+
+    def Activated(self):
+        self.edit.SetValue(self.parent.settings.GetName())
+
+class TestPage(Wammu.Wizard.SimplePage):
+    """
+    Tests phone connection.
+    """
+    def __init__(self, parent):
+        Wammu.Wizard.SimplePage.__init__(self, parent, _('Connection test'))
+        self.detail = wx.StaticText(self, -1, _('Wammu will now test phone connection, please wait...'))
+        self.detail.Wrap(400)
+        self.sizer.Add(self.detail, 0, wx.ALL, 5)
+        self.name = ''
+        device = self.parent.settings.GetPort()
+        connection = self.parent.settings.GetGammuDriver()
+        self.thread = Wammu.PhoneSearch.PhoneInfoThread(self, device, connection)
+        self.Bind(Wammu.Events.EVT_DATA, self.OnSearchEnd)
+
+    def GetNext(self):
+        self.parent.pg_final.SetPrev(self)
+        return self.parent.pg_final
+
+    def Activated(self):
+        self.thread.start()
+
+    def OnSearchEnd(self, evt):
+        if evt.data is None:
+            self.detail.SetLabel(_('Phone not found!'))
+            self.detail.Wrap(400)
+        else:
+            manuf = evt.data['Manufacturer']
+            model = evt.data['Model'][0]
+            self.name = '%s %s' % (manuf, model)
+            self.parent.settings.SetName(self.name)
+            self.detail.SetLabel(_('Phone has been found.\n\nManufacturer: %s\nModel: %s') % (manuf, model))
+            self.detail.Wrap(400)
+
+    def Blocked(self):
+        if self.thread.isAlive():
+            wx.MessageDialog(self,
+                _('Phone connection test is still active, you can not continue.'),
+                _('Testing still active!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return True
+        return False
+
+    def Cancel(self):
+        if self.thread.isAlive():
+            wx.MessageDialog(self,
+                _('Phone connection test is still active, you can not continue.'),
+                _('Testing still active!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return False
+        return True
 
 class PhonePortPage(Wammu.Wizard.InputPage):
     """
@@ -61,8 +121,17 @@ class PhonePortPage(Wammu.Wizard.InputPage):
 
     def GetNext(self):
         self.parent.settings.SetPort(self.edit.GetValue())
-        self.parent.pg_final.SetPrev(self)
-        return self.parent.pg_final
+        next = TestPage(self.parent)
+        next.SetPrev(self)
+        return next
+
+    def Validate(self):
+        if self.edit.GetValue() == '':
+            wx.MessageDialog(self,
+                _('You need to select port which will be used.'),
+                _('No port selected!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return False
 
 class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
     """
@@ -174,6 +243,9 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
         return Wammu.Wizard.ChoicePage.GetNext(self)
 
 class ConfigTypePage(Wammu.Wizard.ChoicePage):
+    """
+    Allows user to select how to configure phone.
+    """
     def __init__(self, parent, pg0, pg1, pg2):
          Wammu.Wizard.ChoicePage.__init__(self, parent,
                 _('Configuration type'),
@@ -192,61 +264,93 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                 [ pg0, pg1, pg2])
 
 
+class ConfigureWizard:
+    def __init__(self, parent, position = 0):
+        bmp = wx.Bitmap(Wammu.Paths.MiscPath('phonewizard'))
+        self.wiz = wx.wizard.Wizard(parent, -1, _('Wammu Phone Configuration Wizard'), bmp)
+        self.wiz.settings = Wammu.SettingsStorage.Settings()
+        self.wiz.settings.SetPosition(position)
+
+        self.wiz.Bind(wx.wizard.EVT_WIZARD_PAGE_CHANGING, self.OnPageChanging)
+        self.wiz.Bind(wx.wizard.EVT_WIZARD_PAGE_CHANGED, self.OnPageChanged)
+        self.wiz.Bind(wx.wizard.EVT_WIZARD_CANCEL, self.OnCancel)
+
+        # Create pages
+        self.pg_title = Wammu.Wizard.SimplePage(self.wiz, _('Welcome'),
+                _('This wizard will help you with configuring phone connection in Wammu.'),
+                [
+                    '',
+                    _('Please make sure you have phone ready:'),
+                    '- %s' % _('It is powered on.'),
+                    '- %s' % _('You have enabled connection method you want to use in it.'),
+                    '- %s' % _('Cable is connected or phone is in wireless connection range.'),
+                    '',
+                    _('As soon as your phone is ready, you can continue.'),
+                ])
+
+        self.pg_search1 = PhoneConnectionPage(self.wiz)
+
+        self.pg_guide1 = PhoneConnectionPage(self.wiz, False)
+        self.pg_guide2 = PhoneManufacturerPage(self.wiz)
+
+        self.pg_manual1 = Wammu.Wizard.SimplePage(self.wiz, _('Manual configuration'), _('1.'))
+
+        self.pg_type = ConfigTypePage(self.wiz, self.pg_search1, self.pg_guide1, self.pg_manual1)
+
+        self.pg_final = FinalPage(self.wiz)
+        self.wiz.pg_final = self.pg_final
+
+        # Set their order
+        self.pg_title.SetNext(self.pg_type)
+        self.pg_type.SetPrev(self.pg_title)
+
+        self.pg_type.SetNext(self.pg_search1) # overrided by it's GetNext
+        self.pg_search1.SetPrev(self.pg_type)
+        self.pg_guide1.SetPrev(self.pg_type)
+        self.pg_manual1.SetPrev(self.pg_type)
+
+        self.pg_guide1.SetNext(self.pg_guide2)
+        self.pg_guide2.SetPrev(self.pg_guide1)
+        # rest of guide is created dynamically
+
+        # Resize wizard
+        self.wiz.FitToPage(self.pg_title)
+
+    def OnPageChanging(self, evt):
+        try:
+            if evt.GetPage().Blocked():
+                evt.Veto()
+        except AttributeError:
+            pass
+
+    def OnPageChanged(self, evt):
+        try:
+            evt.GetPage().Activated()
+        except AttributeError:
+            pass
+
+    def OnCancel(self, evt):
+        try:
+            if not evt.GetPage().Cancel():
+                evt.Veto()
+        except AttributeError:
+            pass
+
+    def Run(self):
+        return self.wiz.RunWizard(self.pg_title)
+
+    def Do(self):
+        if self.Run():
+            return self.wiz.settings.GetSettings()
+        else:
+            return None
+
 
 def RunConfigureWizard(parent, position = 0):
     """
     Executes wizard for configuring phone
     """
-    bmp = wx.Bitmap(Wammu.Paths.MiscPath('phonewizard'))
-    wiz = wx.wizard.Wizard(parent, -1, _('Wammu Phone Configuration Wizard'), bmp)
-    wiz.settings = Wammu.SettingsStorage.Settings()
-    wiz.settings.SetPosition(position)
-
-    # Create pages
-    pg_title = Wammu.Wizard.SimplePage(wiz, _('Welcome'),
-            _('This wizard will help you with configuring phone connection in Wammu.'),
-            [
-                '',
-                _('Please make sure you have phone ready:'),
-                '- %s' % _('It is powered on.'),
-                '- %s' % _('You have enabled connection method you want to use in it.'),
-                '- %s' % _('Cable is connected or phone is in wireless connection range.'),
-                '',
-                _('As soon as your phone is ready, you can continue.'),
-            ])
-
-    pg_search1 = PhoneConnectionPage(wiz)
-
-    pg_guide1 = PhoneConnectionPage(wiz, False)
-    pg_guide2 = PhoneManufacturerPage(wiz)
-
-    pg_manual1 = Wammu.Wizard.SimplePage(wiz, _('Manual configuration'), _('1.'))
-
-    pg_type = ConfigTypePage(wiz, pg_search1, pg_guide1, pg_manual1)
-
-    wiz.pg_final = FinalPage(wiz)
-
-    # Set their order
-    pg_title.SetNext(pg_type)
-    pg_type.SetPrev(pg_title)
-
-    pg_type.SetNext(pg_search1) # overrided by it's GetNext
-    pg_search1.SetPrev(pg_type)
-    pg_guide1.SetPrev(pg_type)
-    pg_manual1.SetPrev(pg_type)
-
-    pg_guide1.SetNext(pg_guide2)
-    pg_guide2.SetPrev(pg_guide1)
-    # rest of guide is created dynamically
-
-    # Resize wizard
-    wiz.FitToPage(pg_title)
-
-    # Execute wizar
-    if wiz.RunWizard(pg_title):
-        return wiz.settings.GetSettings()
-    else:
-        return None
+    return ConfigureWizard(parent, position).Do()
 
 class WizardApp(wx.App):
     def OnInit(self):
