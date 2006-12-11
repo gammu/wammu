@@ -61,7 +61,7 @@ class TestPage(Wammu.Wizard.SimplePage):
     """
     def __init__(self, parent):
         Wammu.Wizard.SimplePage.__init__(self, parent, _('Connection test'))
-        self.detail = wx.StaticText(self, -1, _('Wammu will now test phone connection, please wait...'))
+        self.detail = wx.StaticText(self, -1, _('Wammu is now testing phone connection, please wait...'))
         self.detail.Wrap(400)
         self.sizer.Add(self.detail, 0, wx.ALL, 5)
         self.name = ''
@@ -74,7 +74,7 @@ class TestPage(Wammu.Wizard.SimplePage):
 
     def Activated(self, evt):
         if evt.GetDirection():
-            self.detail.SetLabel(_('Wammu will now test phone connection, please wait...'))
+            self.detail.SetLabel(_('Wammu is now testing phone connection, please wait...'))
             device = self.parent.settings.GetPort()
             connection = self.parent.settings.GetGammuDriver()
             self.thread = Wammu.PhoneSearch.PhoneInfoThread(self, device, connection)
