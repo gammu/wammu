@@ -47,12 +47,12 @@ class FinalPage(Wammu.Wizard.InputPage):
 
     def GetNext(self):
         return Wammu.Wizard.InputPage.GetNext(self)
-    
-    def Blocked(self):
+
+    def Blocked(self, evt):
         self.parent.settings.SetName(self.edit.GetValue())
         return False
 
-    def Activated(self):
+    def Activated(self, evt):
         self.edit.SetValue(self.parent.settings.GetName())
 
 class TestPage(Wammu.Wizard.SimplePage):
@@ -65,19 +65,23 @@ class TestPage(Wammu.Wizard.SimplePage):
         self.detail.Wrap(400)
         self.sizer.Add(self.detail, 0, wx.ALL, 5)
         self.name = ''
-        device = self.parent.settings.GetPort()
-        connection = self.parent.settings.GetGammuDriver()
-        self.thread = Wammu.PhoneSearch.PhoneInfoThread(self, device, connection)
+        self.thread = None
         self.Bind(Wammu.Events.EVT_DATA, self.OnSearchEnd)
 
     def GetNext(self):
         self.parent.pg_final.SetPrev(self)
         return self.parent.pg_final
 
-    def Activated(self):
-        self.thread.start()
+    def Activated(self, evt):
+        if evt.GetDirection():
+            self.detail.SetLabel(_('Wammu will now test phone connection, please wait...'))
+            device = self.parent.settings.GetPort()
+            connection = self.parent.settings.GetGammuDriver()
+            self.thread = Wammu.PhoneSearch.PhoneInfoThread(self, device, connection)
+            self.thread.start()
 
     def OnSearchEnd(self, evt):
+        self.thread = None
         if evt.data is None:
             self.detail.SetLabel(_('Phone not found!'))
             self.detail.Wrap(400)
@@ -89,8 +93,8 @@ class TestPage(Wammu.Wizard.SimplePage):
             self.detail.SetLabel(_('Phone has been found.\n\nManufacturer: %s\nModel: %s') % (manuf, model))
             self.detail.Wrap(400)
 
-    def Blocked(self):
-        if self.thread.isAlive():
+    def Blocked(self, evt):
+        if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
                 _('Phone connection test is still active, you can not continue.'),
                 _('Testing still active!'),
@@ -98,8 +102,8 @@ class TestPage(Wammu.Wizard.SimplePage):
             return True
         return False
 
-    def Cancel(self):
-        if self.thread.isAlive():
+    def Cancel(self, evt):
+        if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
                 _('Phone connection test is still active, you can not continue.'),
                 _('Testing still active!'),
@@ -121,9 +125,8 @@ class PhonePortPage(Wammu.Wizard.InputPage):
 
     def GetNext(self):
         self.parent.settings.SetPort(self.edit.GetValue())
-        next = TestPage(self.parent)
-        next.SetPrev(self)
-        return next
+        self.parent.pg_test.SetPrev(self)
+        return self.parent.pg_test
 
     def Validate(self):
         if self.edit.GetValue() == '':
@@ -298,7 +301,9 @@ class ConfigureWizard:
         self.pg_type = ConfigTypePage(self.wiz, self.pg_search1, self.pg_guide1, self.pg_manual1)
 
         self.pg_final = FinalPage(self.wiz)
+        self.pg_test = TestPage(self.wiz)
         self.wiz.pg_final = self.pg_final
+        self.wiz.pg_test = self.pg_test
 
         # Set their order
         self.pg_title.SetNext(self.pg_type)
@@ -318,20 +323,20 @@ class ConfigureWizard:
 
     def OnPageChanging(self, evt):
         try:
-            if evt.GetPage().Blocked():
+            if evt.GetPage().Blocked(evt):
                 evt.Veto()
         except AttributeError:
             pass
 
     def OnPageChanged(self, evt):
         try:
-            evt.GetPage().Activated()
+            evt.GetPage().Activated(evt)
         except AttributeError:
             pass
 
     def OnCancel(self, evt):
         try:
-            if not evt.GetPage().Cancel():
+            if not evt.GetPage().Cancel(evt):
                 evt.Veto()
         except AttributeError:
             pass
