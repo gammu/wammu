@@ -1556,6 +1556,8 @@ class WammuFrame(wx.Frame):
 
         try:
             busy = wx.BusyInfo(_('Importing data...'))
+            time.sleep(0.1)
+            wx.Yield()
             for i in lst:
                 datatype = values[i]
                 if datatype == 'PhonePhonebook':
