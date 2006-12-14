@@ -495,6 +495,8 @@ SMSIDs = {
         'ConcatenatedAutoTextLong',
         'ConcatenatedTextLong16bit',
         'ConcatenatedAutoTextLong16bit',
+        'NokiaVCARD21Long',
+        'NokiaVCALENDAR10Long'
         ],
     'Sound':                [
         'NokiaProfileLong',
@@ -512,6 +514,9 @@ SMSIDs = {
         'EMSAnimation',
         'AlcatelMonoAnimationLong',
         'NokiaScreenSaverLong',
+        ],
+    'File':                 [
+        'SiemensFile',
         ],
     'Bitmap':               [
         'NokiaProfileLong',
