@@ -90,7 +90,7 @@ class TestPage(Wammu.Wizard.SimplePage):
             model = evt.data['Model'][0]
             self.name = '%s %s' % (manuf, model)
             self.parent.settings.SetName(self.name)
-            self.detail.SetLabel(_('Phone has been found.\n\nManufacturer: %s\nModel: %s') % (manuf, model))
+            self.detail.SetLabel(_('Phone has been found.\n\nManufacturer: %(manufacturer)s\nModel: %(model)s') % { 'manufacturer' : manuf, 'model' : model})
             self.detail.Wrap(400)
 
     def Blocked(self, evt):
@@ -296,7 +296,7 @@ class ConfigureWizard:
         self.pg_guide1 = PhoneConnectionPage(self.wiz, False)
         self.pg_guide2 = PhoneManufacturerPage(self.wiz)
 
-        self.pg_manual1 = Wammu.Wizard.SimplePage(self.wiz, _('Manual configuration'), _('1.'))
+        self.pg_manual1 = Wammu.Wizard.SimplePage(self.wiz, _('Manual configuration'), '1.')
 
         self.pg_type = ConfigTypePage(self.wiz, self.pg_search1, self.pg_guide1, self.pg_manual1)
 

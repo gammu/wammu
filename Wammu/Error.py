@@ -93,6 +93,6 @@ def Handler(type, value, tback):
             _('Unhandled exception appeared. If you want to help improving this program, please report this together with description how this situation has happened. Please report in english, otherwise you will be most likely told to translate you report to english later.'),
             _('Unhandled exception'),
             traceid = traceid, autolog = logname,
-            exception = _('Traceback:\n%s\nException: %s') % (texttrace, textexc)).ShowModal()
+            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % { 'traceback': texttrace, 'exception' : textexc }).ShowModal()
     except:
         print text
