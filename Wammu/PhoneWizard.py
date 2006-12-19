@@ -119,9 +119,27 @@ class TestPage(Wammu.Wizard.SimplePage):
             return False
         return True
 
+class PhoneSearchPage(Wammu.Wizard.TextPage):
+    """
+    Search for phone.
+    """
+    def __init__(self, parent):
+        Wammu.Wizard.TextPage.__init__(self, parent,
+                _('Phone search'),
+                _('Phone searching status:'))
+
+    def GetNext(self):
+#        self.parent.settings.SetPort(self.edits[0].GetValue())
+#        self.parent.settings.SetGammuDriver(self.edits[1].GetValue())
+        self.parent.pg_test.SetPrev(self)
+        return self.parent.pg_test
+
+    def Blocked(self, evt):
+        return False
+
 class ManualPage(Wammu.Wizard.MultiInputPage):
     """
-    Selects phone port.
+    Manual phone configuration.
     """
     def __init__(self, parent):
         """
@@ -260,12 +278,13 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
     """
     Selects phone connection type.
     """
-    def __init__(self, parent, all = True):
+    def __init__(self, parent, search = True):
         self.names = []
+        self.search = search
         connections = []
         helps = []
 
-        if all:
+        if search:
             self.names.append('all')
             connections.append(_('Seach all connections'))
             helps.append(_('Wizard will search for all possible connections. It might take quite long time to search all possible connection types'))
@@ -342,6 +361,7 @@ class ConfigureWizard:
                 ])
 
         self.pg_search1 = PhoneConnectionPage(self.wiz)
+        self.pg_search2 = PhoneSearchPage(self.wiz)
 
         self.pg_guide1 = PhoneConnectionPage(self.wiz, False)
         self.pg_guide2 = PhoneManufacturerPage(self.wiz)
@@ -360,6 +380,8 @@ class ConfigureWizard:
         self.pg_type.SetPrev(self.pg_title)
 
         self.pg_type.SetNext(self.pg_search1) # overrided by it's GetNext
+
+        # Set previous page for all types
         self.pg_search1.SetPrev(self.pg_type)
         self.pg_guide1.SetPrev(self.pg_type)
         self.pg_manual1.SetPrev(self.pg_type)
@@ -367,6 +389,10 @@ class ConfigureWizard:
         self.pg_guide1.SetNext(self.pg_guide2)
         self.pg_guide2.SetPrev(self.pg_guide1)
         # rest of guide is created dynamically
+
+        self.pg_search1.SetNext(self.pg_search2)
+        self.pg_search2.SetPrev(self.pg_search1)
+        # rest of search is created dynamically
 
         # Resize wizard
         self.wiz.FitToPage(self.pg_title)
