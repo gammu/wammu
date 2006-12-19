@@ -79,6 +79,7 @@ class TestPage(Wammu.Wizard.SimplePage):
             connection = self.parent.settings.GetGammuDriver()
             self.thread = Wammu.PhoneSearch.PhoneInfoThread(self, device, connection)
             self.thread.start()
+            self.name = ''
 
     def OnSearchEnd(self, evt):
         self.thread = None
@@ -99,6 +100,13 @@ class TestPage(Wammu.Wizard.SimplePage):
                 _('Phone connection test is still active, you can not continue.'),
                 _('Testing still active!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
+            return True
+        if evt.GetDirection() and self.name == '':
+            if wx.MessageDialog(self,
+                _('Phone has not been found, are you sure you want to continue?'),
+                _('Phone not found!'),
+                wx.YES_NO | wx.NO_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_YES:
+                return False
             return True
         return False
 
