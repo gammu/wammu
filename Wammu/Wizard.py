@@ -66,6 +66,26 @@ class SimplePage(wx.wizard.PyWizardPage):
     def GetPrev(self):
         return self.prev
 
+    def Activated(self, evt):
+        """
+        Executed when page is being activated.
+        """
+        return
+
+    def Blocked(self, evt):
+        """
+        Executed when page is about to be switched. Switching can be
+        blocked by returning True.
+        """
+        return False
+
+    def Cancel(self, evt):
+        """
+        Executed when wizard is about to be canceled. Canceling can be
+        blocked by returning False.
+        """
+        return True
+
 class ChoicePage(SimplePage):
     """
     Page offering choice of several values and allowing to automatically

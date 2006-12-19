@@ -128,13 +128,14 @@ class PhonePortPage(Wammu.Wizard.InputPage):
         self.parent.pg_test.SetPrev(self)
         return self.parent.pg_test
 
-    def Validate(self):
-        if self.edit.GetValue() == '':
+    def Blocked(self, evt):
+        if evt.GetDirection() and self.edit.GetValue() == '':
             wx.MessageDialog(self,
                 _('You need to select port which will be used.'),
                 _('No port selected!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            return False
+            return True
+        return False
 
 class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
     """
@@ -322,24 +323,15 @@ class ConfigureWizard:
         self.wiz.FitToPage(self.pg_title)
 
     def OnPageChanging(self, evt):
-        try:
-            if evt.GetPage().Blocked(evt):
-                evt.Veto()
-        except AttributeError:
-            pass
+        if evt.GetPage().Blocked(evt):
+            evt.Veto()
 
     def OnPageChanged(self, evt):
-        try:
-            evt.GetPage().Activated(evt)
-        except AttributeError:
-            pass
+        evt.GetPage().Activated(evt)
 
     def OnCancel(self, evt):
-        try:
-            if not evt.GetPage().Cancel(evt):
-                evt.Veto()
-        except AttributeError:
-            pass
+        if not evt.GetPage().Cancel(evt):
+            evt.Veto()
 
     def Run(self):
         return self.wiz.RunWizard(self.pg_title)
