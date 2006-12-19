@@ -124,6 +124,9 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
     Selects phone port.
     """
     def __init__(self, parent):
+        """
+        @todo: We should rather use SettingsStorage to get all valid devices.
+        """
         Wammu.Wizard.MultiInputPage.__init__(self, parent,
                 _('Manual configuration'),
                 [
