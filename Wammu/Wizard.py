@@ -137,3 +137,17 @@ class InputPage(SimplePage):
         self.body = wx.StaticText(self, -1, help)
         self.body.Wrap(400)
         self.sizer.Add(self.body, 0, wx.ALL, 5)
+
+class MultiInputPage(SimplePage):
+    """
+    Page offering several text control inputs.
+    """
+    def __init__(self, parent, title, texts, choices):
+        Wammu.Wizard.SimplePage.__init__(self, parent, title)
+        self.edits = {}
+        for i in range(len(texts)):
+            body = wx.StaticText(self, -1, texts[i])
+            body.Wrap(400)
+            self.sizer.Add(body, 0, wx.ALL, 5)
+            self.edits[i] = wx.ComboBox(self, -1, '', choices = choices[i], size = (300, -1))
+            self.sizer.Add(self.edits[i], 0, wx.ALL, 5)

@@ -119,6 +119,44 @@ class TestPage(Wammu.Wizard.SimplePage):
             return False
         return True
 
+class ManualPage(Wammu.Wizard.MultiInputPage):
+    """
+    Selects phone port.
+    """
+    def __init__(self, parent):
+        Wammu.Wizard.MultiInputPage.__init__(self, parent,
+                _('Manual configuration'),
+                [
+                    _('Port where phone is connected:'),
+                    _('Connection type:'),
+                ],
+                [
+                    Wammu.Data.Devices,
+                    Wammu.Data.Connections,
+                ])
+
+    def GetNext(self):
+        self.parent.settings.SetPort(self.edits[0].GetValue())
+        self.parent.settings.SetGammuDriver(self.edits[1].GetValue())
+        self.parent.pg_test.SetPrev(self)
+        return self.parent.pg_test
+
+    def Blocked(self, evt):
+        if evt.GetDirection():
+            if self.edits[0].GetValue() == '':
+                wx.MessageDialog(self,
+                    _('You need to select port which will be used.'),
+                    _('No port selected!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                return True
+            if self.edits[1].GetValue() == '':
+                wx.MessageDialog(self,
+                    _('You need to select connection type which will be used.'),
+                    _('No connection selected!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                return True
+        return False
+
 class PhonePortPage(Wammu.Wizard.InputPage):
     """
     Selects phone port.
@@ -305,7 +343,7 @@ class ConfigureWizard:
         self.pg_guide1 = PhoneConnectionPage(self.wiz, False)
         self.pg_guide2 = PhoneManufacturerPage(self.wiz)
 
-        self.pg_manual1 = Wammu.Wizard.SimplePage(self.wiz, _('Manual configuration'), '1.')
+        self.pg_manual1 = ManualPage(self.wiz)
 
         self.pg_type = ConfigTypePage(self.wiz, self.pg_search1, self.pg_guide1, self.pg_manual1)
 

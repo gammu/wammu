@@ -475,6 +475,7 @@ else:
         '/dev/ttyACM0',
         '/dev/ttyACM1',
         '/dev/ircomm0',
+        '/dev/rfcomm0',
         '/dev/usb/tts/0',
         ]
     AllDevices = [
