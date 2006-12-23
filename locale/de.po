@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-12-23 21:42+0100\n"
+"POT-Creation-Date: 2006-12-23 22:43+0100\n"
 "PO-Revision-Date: 2006-11-04 14:44+0000\n"
 "Last-Translator: René Peters <ice.face@gmx.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -51,22 +51,12 @@ msgstr ""
 "%(count)d Nachrichten wurden in die Mailbox \"%(path)s\" (%(type)s) "
 "exportiert"
 
-#: Wammu/Main.py:1528
-#, python-format
-msgid "%d Calendar entries"
-msgstr "%d Kalendereinträge"
-
 #: Wammu/Main.py:1522
-#, python-format
-msgid "%d SIM contacts entries"
+#, fuzzy, python-format
+msgid "%d SIM contact entries"
 msgstr "%d Kontakteinträge im SIM-Speicher"
 
-#: Wammu/Main.py:1525
-#, python-format
-msgid "%d ToDo entries"
-msgstr "%d Aufgaben"
-
-#: Wammu/Main.py:1744
+#: Wammu/Main.py:1528 Wammu/Main.py:1744
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d Kalendereinträge"
@@ -92,9 +82,14 @@ msgid "%d messages"
 msgstr "%d Nachrichten"
 
 #: Wammu/Main.py:1519
-#, python-format
-msgid "%d phone concacts entries"
+#, fuzzy, python-format
+msgid "%d phone contact entries"
 msgstr "%d Kontakteinträge im Telefonspeicher"
+
+#: Wammu/Main.py:1525
+#, fuzzy, python-format
+msgid "%d to do entries"
+msgstr "%d Aufgaben"
 
 #: Wammu/Main.py:1742
 #, python-format
@@ -563,7 +558,7 @@ msgstr "Einstellungen nicht gefunden"
 msgid "Configuration type"
 msgstr "Einstellungen nicht gefunden"
 
-#: Wammu/Settings.py:230 Wammu/Main.py:1747
+#: Wammu/Main.py:1747 Wammu/Settings.py:230
 msgid "Confirm deleting"
 msgstr "Löschen bestätigen"
 
@@ -603,7 +598,7 @@ msgstr ""
 "Dokumentation für Details."
 
 #. contacts
-#: Wammu/Composer.py:368 Wammu/Main.py:109
+#: Wammu/Main.py:109 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Adressbuch"
 
@@ -718,7 +713,7 @@ msgstr "Daten wurden in der Datei \"%s\" gespeichert."
 msgid "Data not up to date"
 msgstr "Daten nicht auf dem letzten Stand"
 
-#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Main.py:762
+#: Wammu/Main.py:762 Wammu/Browser.py:87 Wammu/Browser.py:90
 msgid "Date"
 msgstr "Datum"
 
@@ -902,7 +897,7 @@ msgstr ""
 msgid "Entries for new item"
 msgstr "Einträge im neuerstellten Objekt"
 
-#: Wammu/Thread.py:57 Wammu/Main.py:689 Wammu/Main.py:1412 Wammu/Main.py:1649
+#: Wammu/Main.py:689 Wammu/Main.py:1412 Wammu/Main.py:1649 Wammu/Thread.py:57
 msgid "Error Occured"
 msgstr "Ein Fehler ist aufgetreten"
 
@@ -910,7 +905,7 @@ msgstr "Ein Fehler ist aufgetreten"
 msgid "Error code:"
 msgstr "Fehlercode:"
 
-#: Wammu/Thread.py:56 Wammu/Main.py:688
+#: Wammu/Main.py:688 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
 msgstr "Fehler während der Verbindung mit dem Telefon"
 
@@ -1269,9 +1264,9 @@ msgstr "Auflisten fehlgeschlagen!"
 msgid "Listing folders on IMAP server..."
 msgstr "Auflistung der Ordner auf dem IMAP Server..."
 
+#: Wammu/Main.py:749 Wammu/Main.py:763 Wammu/Main.py:773 Wammu/Main.py:779
 #: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
-#: Wammu/Browser.py:90 Wammu/Browser.py:93 Wammu/Main.py:749 Wammu/Main.py:763
-#: Wammu/Main.py:773 Wammu/Main.py:779
+#: Wammu/Browser.py:90 Wammu/Browser.py:93
 msgid "Location"
 msgstr "Ort"
 
@@ -1322,7 +1317,7 @@ msgid ""
 "connection type."
 msgstr ""
 
-#: Wammu/Browser.py:81 Wammu/Main.py:765
+#: Wammu/Main.py:765 Wammu/Browser.py:81
 msgid "Memory"
 msgstr "Speicher"
 
@@ -1330,7 +1325,7 @@ msgstr "Speicher"
 msgid "Memory is full, try deleting some entries."
 msgstr "Speicher ist voll. Bitte löschen sie einige Einträge."
 
-#: Wammu/Editor.py:494 Wammu/Main.py:750
+#: Wammu/Main.py:750 Wammu/Editor.py:494
 msgid "Memory type"
 msgstr "Speichertyp"
 
@@ -1348,7 +1343,7 @@ msgid "Message will fit into %d SMSes"
 msgstr "Nachricht passt in %d SMSe"
 
 #. contacts
-#: Wammu/Settings.py:286 Wammu/Main.py:114 Wammu/Main.py:280
+#: Wammu/Main.py:114 Wammu/Main.py:280 Wammu/Settings.py:286
 msgid "Messages"
 msgstr "Nachrichten"
 
@@ -1385,8 +1380,8 @@ msgstr "Modell (tatsächliches)"
 msgid "More"
 msgstr "Mehr"
 
-#: Wammu/Browser.py:78 Wammu/Browser.py:81 Wammu/Browser.py:84
-#: Wammu/Main.py:769
+#: Wammu/Main.py:769 Wammu/Browser.py:78 Wammu/Browser.py:81
+#: Wammu/Browser.py:84
 msgid "Name"
 msgstr "Name"
 
@@ -1541,8 +1536,8 @@ msgstr "Anmerkung"
 msgid "Notify"
 msgstr "Benachrichtigen"
 
-#: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
-#: Wammu/Main.py:761
+#: Wammu/Main.py:761 Wammu/Browser.py:81 Wammu/Browser.py:84
+#: Wammu/Browser.py:87
 msgid "Number"
 msgstr "Nummer"
 
@@ -1784,7 +1779,7 @@ msgstr "Vorwahl für nationale Telefonnummern."
 msgid "Preview"
 msgstr "Vorschau"
 
-#: Wammu/Browser.py:90 Wammu/Editor.py:510 Wammu/Main.py:774
+#: Wammu/Main.py:774 Wammu/Browser.py:90 Wammu/Editor.py:510
 msgid "Priority"
 msgstr "Dringlichkeit"
 
@@ -1920,7 +1915,7 @@ msgstr "SIM Kontakte"
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:141 Wammu/Main.py:766
+#: Wammu/Main.py:766 Wammu/Info.py:141
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -2143,7 +2138,7 @@ msgstr ""
 msgid "Send message"
 msgstr "Nachricht versenden"
 
-#: Wammu/Composer.py:395 Wammu/Main.py:117
+#: Wammu/Main.py:117 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Gesendet"
 
@@ -2216,7 +2211,7 @@ msgstr "%s wird gestartet"
 msgid "Startup information"
 msgstr "Start Info"
 
-#: Wammu/Browser.py:87 Wammu/Main.py:767
+#: Wammu/Main.py:767 Wammu/Browser.py:87
 msgid "State"
 msgstr "Status"
 
@@ -2328,7 +2323,7 @@ msgid ""
 "Exception: %(exception)s"
 msgstr ""
 
-#: Wammu/Browser.py:84 Wammu/Browser.py:93 Wammu/Main.py:780
+#: Wammu/Main.py:780 Wammu/Browser.py:84 Wammu/Browser.py:93
 msgid "Type"
 msgstr "Typ"
 
@@ -2383,7 +2378,7 @@ msgstr ""
 "Zeichen zur Verfügung stehen."
 
 #. Parse power source
-#: Wammu/Editor.py:222 Wammu/Editor.py:425 Wammu/Main.py:455 Wammu/Main.py:471
+#: Wammu/Main.py:455 Wammu/Main.py:471 Wammu/Editor.py:222 Wammu/Editor.py:425
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -2770,6 +2765,9 @@ msgstr "Sprachwahlmerkmal %x"
 #, fuzzy
 #~ msgid "%(count)d messages exported to \"%(path)s (%(type)s)\""
 #~ msgstr "%d nachrichten wurden in die Mailbox '%s' exportiert"
+
+#~ msgid "%d Calendar entries"
+#~ msgstr "%d Kalendereinträge"
 
 #~ msgid "%d messages exported to IMAP server \"%s\""
 #~ msgstr "%d Nachrichten an den IMAP server \"%s\" übertragen"

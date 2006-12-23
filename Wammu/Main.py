@@ -1516,16 +1516,16 @@ class WammuFrame(wx.Frame):
         values = []
         if len(backup['PhonePhonebook']) > 0:
             values.append('PhonePhonebook')
-            choices.append(_('%d phone concacts entries') % len(backup['PhonePhonebook']))
+            choices.append(_('%d phone contact entries') % len(backup['PhonePhonebook']))
         if len(backup['SIMPhonebook']) > 0:
             values.append('SIMPhonebook')
-            choices.append(_('%d SIM contacts entries') % len(backup['SIMPhonebook']))
+            choices.append(_('%d SIM contact entries') % len(backup['SIMPhonebook']))
         if len(backup['ToDo']) > 0:
             values.append('ToDo')
-            choices.append(_('%d ToDo entries') % len(backup['ToDo']))
+            choices.append(_('%d to do entries') % len(backup['ToDo']))
         if len(backup['Calendar']) > 0:
             values.append('Calendar')
-            choices.append(_('%d Calendar entries') % len(backup['Calendar']))
+            choices.append(_('%d calendar entries') % len(backup['Calendar']))
 
         if len(values) == 0:
             wx.MessageDialog(self,

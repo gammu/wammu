@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-12-23 21:42+0100\n"
+"POT-Creation-Date: 2006-12-23 22:43+0100\n"
 "PO-Revision-Date: 2006-10-12 12:38+0000\n"
 "Last-Translator: nakki <makkarainen@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -47,22 +47,12 @@ msgstr ""
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%d správ uložených do poštovej schránky \"%s\""
 
-#: Wammu/Main.py:1528
-#, python-format
-msgid "%d Calendar entries"
-msgstr "%d události kalendára"
-
 #: Wammu/Main.py:1522
-#, python-format
-msgid "%d SIM contacts entries"
+#, fuzzy, python-format
+msgid "%d SIM contact entries"
 msgstr "%d kontaktov na SIM kartu"
 
-#: Wammu/Main.py:1525
-#, python-format
-msgid "%d ToDo entries"
-msgstr "%d úloh"
-
-#: Wammu/Main.py:1744
+#: Wammu/Main.py:1528 Wammu/Main.py:1744
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d události kalendára"
@@ -88,9 +78,14 @@ msgid "%d messages"
 msgstr "%d správ"
 
 #: Wammu/Main.py:1519
-#, python-format
-msgid "%d phone concacts entries"
+#, fuzzy, python-format
+msgid "%d phone contact entries"
 msgstr "%d kontaktov do telefónu"
+
+#: Wammu/Main.py:1525
+#, fuzzy, python-format
+msgid "%d to do entries"
+msgstr "%d úloh"
 
 #: Wammu/Main.py:1742
 #, python-format
@@ -541,7 +536,7 @@ msgstr ""
 msgid "Configuration type"
 msgstr ""
 
-#: Wammu/Settings.py:230 Wammu/Main.py:1747
+#: Wammu/Main.py:1747 Wammu/Settings.py:230
 msgid "Confirm deleting"
 msgstr ""
 
@@ -579,7 +574,7 @@ msgid ""
 msgstr ""
 
 #. contacts
-#: Wammu/Composer.py:368 Wammu/Main.py:109
+#: Wammu/Main.py:109 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr ""
 
@@ -688,7 +683,7 @@ msgstr ""
 msgid "Data not up to date"
 msgstr ""
 
-#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Main.py:762
+#: Wammu/Main.py:762 Wammu/Browser.py:87 Wammu/Browser.py:90
 msgid "Date"
 msgstr ""
 
@@ -857,7 +852,7 @@ msgstr ""
 msgid "Entries for new item"
 msgstr ""
 
-#: Wammu/Thread.py:57 Wammu/Main.py:689 Wammu/Main.py:1412 Wammu/Main.py:1649
+#: Wammu/Main.py:689 Wammu/Main.py:1412 Wammu/Main.py:1649 Wammu/Thread.py:57
 msgid "Error Occured"
 msgstr ""
 
@@ -865,7 +860,7 @@ msgstr ""
 msgid "Error code:"
 msgstr ""
 
-#: Wammu/Thread.py:56 Wammu/Main.py:688
+#: Wammu/Main.py:688 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
 msgstr ""
 
@@ -1208,9 +1203,9 @@ msgstr ""
 msgid "Listing folders on IMAP server..."
 msgstr ""
 
+#: Wammu/Main.py:749 Wammu/Main.py:763 Wammu/Main.py:773 Wammu/Main.py:779
 #: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
-#: Wammu/Browser.py:90 Wammu/Browser.py:93 Wammu/Main.py:749 Wammu/Main.py:763
-#: Wammu/Main.py:773 Wammu/Main.py:779
+#: Wammu/Browser.py:90 Wammu/Browser.py:93
 msgid "Location"
 msgstr ""
 
@@ -1261,7 +1256,7 @@ msgid ""
 "connection type."
 msgstr ""
 
-#: Wammu/Browser.py:81 Wammu/Main.py:765
+#: Wammu/Main.py:765 Wammu/Browser.py:81
 msgid "Memory"
 msgstr ""
 
@@ -1269,7 +1264,7 @@ msgstr ""
 msgid "Memory is full, try deleting some entries."
 msgstr ""
 
-#: Wammu/Editor.py:494 Wammu/Main.py:750
+#: Wammu/Main.py:750 Wammu/Editor.py:494
 msgid "Memory type"
 msgstr ""
 
@@ -1287,7 +1282,7 @@ msgid "Message will fit into %d SMSes"
 msgstr ""
 
 #. contacts
-#: Wammu/Settings.py:286 Wammu/Main.py:114 Wammu/Main.py:280
+#: Wammu/Main.py:114 Wammu/Main.py:280 Wammu/Settings.py:286
 msgid "Messages"
 msgstr ""
 
@@ -1322,8 +1317,8 @@ msgstr ""
 msgid "More"
 msgstr ""
 
-#: Wammu/Browser.py:78 Wammu/Browser.py:81 Wammu/Browser.py:84
-#: Wammu/Main.py:769
+#: Wammu/Main.py:769 Wammu/Browser.py:78 Wammu/Browser.py:81
+#: Wammu/Browser.py:84
 msgid "Name"
 msgstr ""
 
@@ -1471,8 +1466,8 @@ msgstr ""
 msgid "Notify"
 msgstr ""
 
-#: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
-#: Wammu/Main.py:761
+#: Wammu/Main.py:761 Wammu/Browser.py:81 Wammu/Browser.py:84
+#: Wammu/Browser.py:87
 msgid "Number"
 msgstr ""
 
@@ -1699,7 +1694,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: Wammu/Browser.py:90 Wammu/Editor.py:510 Wammu/Main.py:774
+#: Wammu/Main.py:774 Wammu/Browser.py:90 Wammu/Editor.py:510
 msgid "Priority"
 msgstr ""
 
@@ -1828,7 +1823,7 @@ msgstr ""
 msgid "SIM IMSI"
 msgstr ""
 
-#: Wammu/Info.py:141 Wammu/Main.py:766
+#: Wammu/Main.py:766 Wammu/Info.py:141
 msgid "SMSC"
 msgstr ""
 
@@ -2035,7 +2030,7 @@ msgstr ""
 msgid "Send message"
 msgstr ""
 
-#: Wammu/Composer.py:395 Wammu/Main.py:117
+#: Wammu/Main.py:117 Wammu/Composer.py:395
 msgid "Sent"
 msgstr ""
 
@@ -2106,7 +2101,7 @@ msgstr ""
 msgid "Startup information"
 msgstr ""
 
-#: Wammu/Browser.py:87 Wammu/Main.py:767
+#: Wammu/Main.py:767 Wammu/Browser.py:87
 msgid "State"
 msgstr ""
 
@@ -2213,7 +2208,7 @@ msgid ""
 "Exception: %(exception)s"
 msgstr ""
 
-#: Wammu/Browser.py:84 Wammu/Browser.py:93 Wammu/Main.py:780
+#: Wammu/Main.py:780 Wammu/Browser.py:84 Wammu/Browser.py:93
 msgid "Type"
 msgstr ""
 
@@ -2258,7 +2253,7 @@ msgid ""
 msgstr ""
 
 #. Parse power source
-#: Wammu/Editor.py:222 Wammu/Editor.py:425 Wammu/Main.py:455 Wammu/Main.py:471
+#: Wammu/Main.py:455 Wammu/Main.py:471 Wammu/Editor.py:222 Wammu/Editor.py:425
 msgid "Unknown"
 msgstr ""
 
@@ -2620,6 +2615,9 @@ msgstr ""
 #, fuzzy
 #~ msgid "%(count)d messages exported to \"%(path)s (%(type)s)\""
 #~ msgstr "%d správ uložených do poštovej schránky \"%s\""
+
+#~ msgid "%d Calendar entries"
+#~ msgstr "%d události kalendára"
 
 #~ msgid "%d messages exported to IMAP server \"%s\""
 #~ msgstr "%d správ bolo exportovaných na IMAP server \"%s\""
