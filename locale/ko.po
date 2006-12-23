@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-12-23 09:33+0100\n"
+"POT-Creation-Date: 2006-12-23 21:40+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -101,6 +101,7 @@ msgstr "%d 해야할 것"
 msgid "&About"
 msgstr "정보(&A)"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:304
 msgid "&Backups"
 msgstr "백업(&B)"
@@ -129,6 +130,7 @@ msgstr "(모든) 연락처(&)"
 msgid "&Disconnect"
 msgstr "접속 끊기(&D)"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:309
 msgid "&Help"
 msgstr "도움말(&H)"
@@ -149,6 +151,7 @@ msgstr "메세지(&M)"
 msgid "&Messages"
 msgstr "메세지들(&M)"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:294
 msgid "&New"
 msgstr "새로 만들기(&N)"
@@ -157,6 +160,7 @@ msgstr "새로 만들기(&N)"
 msgid "&OK"
 msgstr "확인(&O)"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:269
 msgid "&Phone"
 msgstr "전화기(&P)"
@@ -165,6 +169,7 @@ msgstr "전화기(&P)"
 msgid "&Read data"
 msgstr "자료 읽기(&R)"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:286
 msgid "&Retrieve"
 msgstr "불러오기(&R)"
@@ -189,6 +194,7 @@ msgstr "해야할 것(&T)"
 msgid "&Todos"
 msgstr "해야할 것들(&T)"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:261
 msgid "&Wammu"
 msgstr "Wammu(&W)"
@@ -206,6 +212,7 @@ msgstr ", 일련 번호 %s"
 msgid "..."
 msgstr "..."
 
+#. FIXME: add icons?
 #: Wammu/Composer.py:411
 msgid "<<< Add <<<"
 msgstr "<<< 추가 <<<"
@@ -410,6 +417,7 @@ msgstr ""
 msgid "Calenda&r"
 msgstr "달력(&R)"
 
+#. calendar
 #: Wammu/Main.py:124 Wammu/Main.py:284
 msgid "Calendar"
 msgstr "달력"
@@ -422,6 +430,7 @@ msgstr "달력 행사(&E)"
 msgid "Call"
 msgstr "통화"
 
+#. calls
 #: Wammu/Main.py:103 Wammu/Main.py:278
 msgid "Calls"
 msgstr "통화수"
@@ -551,6 +560,7 @@ msgstr "접속됨"
 msgid "Connecting to IMAP server..."
 msgstr "IMAP 서버로 접속 중..."
 
+#. add pages to notebook
 #: Wammu/Settings.py:85 Wammu/Settings.py:285
 msgid "Connection"
 msgstr "접속"
@@ -577,6 +587,7 @@ msgid ""
 msgstr ""
 "전화기에 알맞는 접속, 접속에 대한 자세한 것은 Gammu 문서를 참조 하십시오."
 
+#. contacts
 #: Wammu/Composer.py:368 Wammu/Main.py:109
 msgid "Contacts"
 msgstr "연락처"
@@ -1241,6 +1252,7 @@ msgstr "위치"
 msgid "Location (0 = auto):"
 msgstr "위치 (0 = 자동)"
 
+#. locking not available on windoze
 #: Wammu/Settings.py:99
 msgid "Lock device"
 msgstr "장치 잠금"
@@ -1308,6 +1320,7 @@ msgstr "메세지 미리보기"
 msgid "Message will fit into %d SMSes"
 msgstr "메세지는 %d SMS로 맞춰 집니다"
 
+#. contacts
 #: Wammu/Settings.py:286 Wammu/Main.py:114 Wammu/Main.py:280
 msgid "Messages"
 msgstr "메세지"
@@ -1583,6 +1596,7 @@ msgstr "현재 메세지의 부분"
 msgid "Password"
 msgstr "암호"
 
+#. information
 #: Wammu/Main.py:95 Wammu/Main.py:111
 msgid "Phone"
 msgstr "전화기"
@@ -2200,6 +2214,8 @@ msgstr "타다"
 msgid "Testing still active!"
 msgstr ""
 
+#. FIXME: should support more types...
+#. ID, display text, match types, editor, init type
 #: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
 #: Wammu/Composer.py:312
 msgid "Text"
@@ -2252,6 +2268,7 @@ msgstr ""
 msgid "Timidity not found"
 msgstr "음원이 없습니다"
 
+#. todos
 #: Wammu/Main.py:121 Wammu/Main.py:282
 msgid "Todos"
 msgstr "해야할 것"
@@ -2321,6 +2338,7 @@ msgstr ""
 "를 사용하지 않는다면 이것을 점검 하십시오. 메세지는 좀 더 많은 공백을 요구해"
 "서 하나의 메세지에 적은 문자들을 쓸 수 있습니다."
 
+#. Parse power source
 #: Wammu/Editor.py:222 Wammu/Editor.py:425 Wammu/Main.py:455 Wammu/Main.py:471
 msgid "Unknown"
 msgstr "알 수 없음"
@@ -2456,10 +2474,12 @@ msgstr ""
 msgid "Wearing glases"
 msgstr "안경 씀"
 
+#. Create pages
 #: Wammu/PhoneWizard.py:351
 msgid "Welcome"
 msgstr ""
 
+#. initial content
 #: Wammu/Main.py:245
 #, python-format
 msgid "Welcome to Wammu %s"
@@ -2473,6 +2493,7 @@ msgstr "체크시, 메세지가 전화기로 저장 됩니다."
 msgid "When checked, message is sent to recipient."
 msgstr "체크시, 수신자에게 메세지가 송신 됩니다."
 
+#. Select where to export
 #: Wammu/Main.py:1089
 msgid "Where do you want to export emails created from your messages?"
 msgstr "메세지에서 만들어진 이메일을 어디로 내보내기를 원합니까?"

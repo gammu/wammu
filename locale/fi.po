@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-12-23 09:33+0100\n"
+"POT-Creation-Date: 2006-12-23 21:40+0100\n"
 "PO-Revision-Date: 2006-10-13 11:21+0000\n"
 "Last-Translator: inessinia <inessinia@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -101,6 +101,7 @@ msgstr "%d tehtävä"
 msgid "&About"
 msgstr "&Tietoja"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:304
 msgid "&Backups"
 msgstr "&Varmuuskopiot"
@@ -129,6 +130,7 @@ msgstr "&Yhteystiedot (kaikki)"
 msgid "&Disconnect"
 msgstr "&Katkaise yhteys"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:309
 msgid "&Help"
 msgstr "&Ohje"
@@ -149,6 +151,7 @@ msgstr "&Viesti"
 msgid "&Messages"
 msgstr "&Viestit"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:294
 msgid "&New"
 msgstr "&Uusi"
@@ -157,6 +160,7 @@ msgstr "&Uusi"
 msgid "&OK"
 msgstr "&OK"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:269
 msgid "&Phone"
 msgstr "&Puhelin"
@@ -165,6 +169,7 @@ msgstr "&Puhelin"
 msgid "&Read data"
 msgstr "&Lue tiedot"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:286
 msgid "&Retrieve"
 msgstr "&Hae"
@@ -189,6 +194,7 @@ msgstr "&Tehtävä"
 msgid "&Todos"
 msgstr "Te&htävät"
 
+#. Add menu to the menu bar
 #: Wammu/Main.py:261
 msgid "&Wammu"
 msgstr "&Wammu"
@@ -206,6 +212,7 @@ msgstr ", sarjanumero %s"
 msgid "..."
 msgstr "..."
 
+#. FIXME: add icons?
 #: Wammu/Composer.py:411
 msgid "<<< Add <<<"
 msgstr "<<< Lisää <<<"
@@ -415,6 +422,7 @@ msgstr ""
 msgid "Calenda&r"
 msgstr "&Kalenteri"
 
+#. calendar
 #: Wammu/Main.py:124 Wammu/Main.py:284
 msgid "Calendar"
 msgstr "Kalenteri"
@@ -427,6 +435,7 @@ msgstr "Kalenteri &tapahtuma"
 msgid "Call"
 msgstr "Puhelu"
 
+#. calls
 #: Wammu/Main.py:103 Wammu/Main.py:278
 msgid "Calls"
 msgstr "Puhelut"
@@ -558,6 +567,7 @@ msgstr "Yhdistetty"
 msgid "Connecting to IMAP server..."
 msgstr "Yhdistetään IMAP palvelimeen..."
 
+#. add pages to notebook
 #: Wammu/Settings.py:85 Wammu/Settings.py:285
 msgid "Connection"
 msgstr "Yhteys"
@@ -585,6 +595,7 @@ msgstr ""
 "Yhteys, jonka puhelimesi ymmärtää, tarkista yksityiskohdat Gammu-"
 "dokumentaatiosta."
 
+#. contacts
 #: Wammu/Composer.py:368 Wammu/Main.py:109
 msgid "Contacts"
 msgstr "Yhteystiedot"
@@ -1251,6 +1262,7 @@ msgstr "Sijainti"
 msgid "Location (0 = auto):"
 msgstr "Sijainti (0=automaattinen valinta):"
 
+#. locking not available on windoze
 #: Wammu/Settings.py:99
 msgid "Lock device"
 msgstr "Lukitse laite"
@@ -1318,6 +1330,7 @@ msgstr "Viestin esikatselu"
 msgid "Message will fit into %d SMSes"
 msgstr "Viesti mahtuu %d tekstiviesteihin"
 
+#. contacts
 #: Wammu/Settings.py:286 Wammu/Main.py:114 Wammu/Main.py:280
 msgid "Messages"
 msgstr "Viestit"
@@ -1593,6 +1606,7 @@ msgstr "Osia nykyisestä viestistä"
 msgid "Password"
 msgstr "Salasana"
 
+#. information
 #: Wammu/Main.py:95 Wammu/Main.py:111
 msgid "Phone"
 msgstr "Puhelin"
@@ -2207,6 +2221,8 @@ msgstr "Tadaa"
 msgid "Testing still active!"
 msgstr ""
 
+#. FIXME: should support more types...
+#. ID, display text, match types, editor, init type
 #: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
 #: Wammu/Composer.py:312
 msgid "Text"
@@ -2259,6 +2275,7 @@ msgstr ""
 msgid "Timidity not found"
 msgstr "Timidityä ei löydy"
 
+#. todos
 #: Wammu/Main.py:121 Wammu/Main.py:282
 msgid "Todos"
 msgstr "Tehtävät"
@@ -2328,6 +2345,7 @@ msgstr ""
 "tämä jos käytät muita kuin latin-1 merkkejä. Viestisi vaativat enemmän tilaa "
 "joten voit kirjoittaa vähemmän merkkejä yhteen viestiin."
 
+#. Parse power source
 #: Wammu/Editor.py:222 Wammu/Editor.py:425 Wammu/Main.py:455 Wammu/Main.py:471
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -2465,10 +2483,12 @@ msgstr ""
 msgid "Wearing glases"
 msgstr "Käyttää laseja"
 
+#. Create pages
 #: Wammu/PhoneWizard.py:351
 msgid "Welcome"
 msgstr ""
 
+#. initial content
 #: Wammu/Main.py:245
 #, python-format
 msgid "Welcome to Wammu %s"
@@ -2482,6 +2502,7 @@ msgstr "Kun merkitty, viesti tallennetaan puhelimeen"
 msgid "When checked, message is sent to recipient."
 msgstr "Kun merkitty, viesti on lähetetty vastaanottajalle."
 
+#. Select where to export
 #: Wammu/Main.py:1089
 msgid "Where do you want to export emails created from your messages?"
 msgstr "Mihin haluat lähettää viesteistäsi luodut sähköpostit?"
