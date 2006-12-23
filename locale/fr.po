@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-12-18 13:10+0100\n"
+"POT-Creation-Date: 2006-12-23 09:33+0100\n"
 "PO-Revision-Date: 2005-11-04 23:22+0000\n"
 "Last-Translator: Nicolas Velin <nsv@fr.st>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -275,7 +275,7 @@ msgstr ""
 "Après la recherche vous serez maintenant amené au dialogue de configuration "
 "pour vérifier s'il a été détecté correctement."
 
-#: Wammu/Data.py:660
+#: Wammu/Data.py:661
 msgid "Alignment"
 msgstr "Alignement"
 
@@ -317,7 +317,7 @@ msgstr "Tout est fini, %d téléphones trouvés"
 msgid "Are you sure you want to delete %s?"
 msgstr "Êtes-vous sûr de vouloir supprimer %s ?"
 
-#: Wammu/PhoneWizard.py:291
+#: Wammu/PhoneWizard.py:360
 msgid "As soon as your phone is ready, you can continue."
 msgstr ""
 
@@ -329,7 +329,7 @@ msgstr "Tentative de restructurer le texte"
 msgid "Automatically connect to phone on startup"
 msgstr "Au démarrage se connecter automatiquement au téléphone"
 
-#: Wammu/PhoneWizard.py:257
+#: Wammu/PhoneWizard.py:326
 #, fuzzy
 msgid "Automatically search for a phone"
 msgstr "Au démarrage se connecter automatiquement au téléphone"
@@ -395,11 +395,11 @@ msgstr ""
 "Avent de nous le soummetre, merci de voir si il existe des bugs similaires "
 "sur %s"
 
-#: Wammu/PhoneWizard.py:228
+#: Wammu/PhoneWizard.py:297
 msgid "Bluetooth"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:229
+#: Wammu/PhoneWizard.py:298
 msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
@@ -409,7 +409,7 @@ msgstr ""
 msgid "Bluetooth device scan completed"
 msgstr "Balayage à la recherche des périphériques bluetooth accompli"
 
-#: Wammu/Data.py:669
+#: Wammu/Data.py:670
 msgid "Bold"
 msgstr "Gras"
 
@@ -417,7 +417,7 @@ msgstr "Gras"
 msgid "C&alls"
 msgstr "&Appels"
 
-#: Wammu/PhoneWizard.py:289
+#: Wammu/PhoneWizard.py:358
 msgid "Cable is connected or phone is in wireless connection range."
 msgstr ""
 
@@ -478,7 +478,7 @@ msgstr "Impossible de sélectionner le répertoire %s sur le serveur, abandon."
 msgid "Cancel"
 msgstr "Annuler"
 
-#: Wammu/Data.py:663
+#: Wammu/Data.py:664
 msgid "Center"
 msgstr "Centre"
 
@@ -557,7 +557,7 @@ msgstr "Configuration non trouvée"
 msgid "Configuration not found"
 msgstr "Configuration non trouvée"
 
-#: Wammu/PhoneWizard.py:254
+#: Wammu/PhoneWizard.py:323
 #, fuzzy
 msgid "Configuration type"
 msgstr "Configuration non trouvée"
@@ -588,9 +588,14 @@ msgstr "Connexion"
 msgid "Connection test"
 msgstr "Connexion"
 
-#: Wammu/PhoneWizard.py:175
+#: Wammu/PhoneWizard.py:243
 #, fuzzy
 msgid "Connection type"
+msgstr "Connexion"
+
+#: Wammu/PhoneWizard.py:152
+#, fuzzy
+msgid "Connection type:"
 msgstr "Connexion"
 
 #: Wammu/Settings.py:84
@@ -685,16 +690,16 @@ msgstr "La creation du fichier %s a échoué, abandon."
 msgid "Creating of folder failed, bailing out."
 msgstr "La création du répertoire a échoué, abandon."
 
-#: Wammu/SettingsStorage.py:355
+#: Wammu/SettingsStorage.py:351
 msgid "DKU2 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:351
+#: Wammu/SettingsStorage.py:347
 msgid "DKU5 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:341
-msgid "DLR3-3P cable"
+#: Wammu/SettingsStorage.py:355
+msgid "DLR3-3P/CA-42 cable"
 msgstr ""
 
 #: Wammu/Main.py:1435 Wammu/Main.py:1451
@@ -827,7 +832,7 @@ msgstr ""
 msgid "Down"
 msgstr "Vers le bas"
 
-#: Wammu/PhoneWizard.py:148 Wammu/PhoneWizard.py:152
+#: Wammu/PhoneWizard.py:216 Wammu/PhoneWizard.py:220
 msgid "Driver to use"
 msgstr ""
 
@@ -1066,7 +1071,7 @@ msgid ""
 "to most phone features."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:258
+#: Wammu/PhoneWizard.py:327
 msgid "Guided configuration"
 msgstr ""
 
@@ -1074,11 +1079,11 @@ msgstr ""
 msgid "Hardware"
 msgstr "Matériel"
 
-#: Wammu/PhoneWizard.py:255
+#: Wammu/PhoneWizard.py:324
 msgid "How do you want to configure your phone connection?"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:241
+#: Wammu/PhoneWizard.py:310
 #, fuzzy
 msgid "How is your phone connected?"
 msgstr "Périphérique, où votre téléphone est relié."
@@ -1209,17 +1214,17 @@ msgstr "Informations sur le programme"
 msgid "Invalid phone number"
 msgstr "Numéro de téléphone inadmissible"
 
-#: Wammu/PhoneWizard.py:232
+#: Wammu/PhoneWizard.py:301
 msgid "IrDA"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:233
+#: Wammu/PhoneWizard.py:302
 msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:287
+#: Wammu/PhoneWizard.py:356
 msgid "It is powered on."
 msgstr ""
 
@@ -1236,7 +1241,7 @@ msgid ""
 "message in Wammu you need to reread all messsages."
 msgstr ""
 
-#: Wammu/Data.py:670
+#: Wammu/Data.py:671
 msgid "Italic"
 msgstr "Italique"
 
@@ -1248,11 +1253,11 @@ msgstr "LDIF [concacts]"
 msgid "Language packs in phone"
 msgstr "Paquets de langue dans le téléphone"
 
-#: Wammu/Data.py:666
+#: Wammu/Data.py:667
 msgid "Large"
 msgstr "Grand"
 
-#: Wammu/Data.py:661
+#: Wammu/Data.py:662
 msgid "Left"
 msgstr "Gauche"
 
@@ -1298,7 +1303,7 @@ msgstr ""
 msgid "Maildir folder"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:259 Wammu/PhoneWizard.py:299
+#: Wammu/PhoneWizard.py:149 Wammu/PhoneWizard.py:328
 msgid "Manual configuration"
 msgstr ""
 
@@ -1310,7 +1315,7 @@ msgstr "Mois de fabrication"
 msgid "Manufacturer"
 msgstr "Fabricant"
 
-#: Wammu/PhoneWizard.py:225
+#: Wammu/PhoneWizard.py:294
 msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
@@ -1390,7 +1395,7 @@ msgstr ""
 "GNOME Bluetooth et PyBluez non trouvé, impossible de rechercher des "
 "périphériques bluetooth"
 
-#: Wammu/SettingsStorage.py:348
+#: Wammu/SettingsStorage.py:344
 msgid ""
 "New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100)."
 msgstr ""
@@ -1403,6 +1408,11 @@ msgstr "Non"
 #, fuzzy
 msgid "No bluetooth device found"
 msgstr "Balayage à la recherche des périphériques bluetooth"
+
+#: Wammu/PhoneWizard.py:176
+#, fuzzy
+msgid "No connection selected!"
+msgstr "Sauvegarder la sélection"
 
 #: Wammu/Main.py:1466 Wammu/Main.py:1533
 msgid "No data to import"
@@ -1432,17 +1442,17 @@ msgstr ""
 msgid "No phone found"
 msgstr "Aucun téléphone trouvé"
 
-#: Wammu/PhoneWizard.py:135
+#: Wammu/PhoneWizard.py:170 Wammu/PhoneWizard.py:202
 #, fuzzy
 msgid "No port selected!"
 msgstr "Sauvegarder la sélection"
 
-#: Wammu/SettingsStorage.py:352
+#: Wammu/SettingsStorage.py:348
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (for phones with USB chip like 5100)."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:356
+#: Wammu/SettingsStorage.py:352
 msgid "Nokia Connectivity Cable DKU-2 (for phones without USB chip like 6230)."
 msgstr ""
 
@@ -1454,7 +1464,7 @@ msgstr ""
 msgid "Nokia MBUS"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:342
+#: Wammu/SettingsStorage.py:356
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
 "7110/6210/6310/6310."
@@ -1500,7 +1510,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:218 Wammu/Editor.py:421
+#: Wammu/Data.py:661 Wammu/Editor.py:218 Wammu/Editor.py:421
 msgid "None"
 msgstr "Aucun"
 
@@ -1508,7 +1518,7 @@ msgstr "Aucun"
 msgid "None of the above"
 msgstr ""
 
-#: Wammu/Data.py:665
+#: Wammu/Data.py:666
 #, fuzzy
 msgid "Normal"
 msgstr "Normal"
@@ -1598,7 +1608,7 @@ msgid ""
 "Do you wish to overwrite file %s?"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:347
+#: Wammu/SettingsStorage.py:343
 msgid "PL2303 cable"
 msgstr ""
 
@@ -1622,22 +1632,26 @@ msgstr "Contacts téléphoniques"
 msgid "Phone Information"
 msgstr "Information sur le téléphone"
 
-#: Wammu/PhoneWizard.py:240
+#: Wammu/PhoneWizard.py:309
 #, fuzzy
 msgid "Phone connection"
 msgstr "Connexion"
 
-#: Wammu/PhoneWizard.py:99 Wammu/PhoneWizard.py:108
+#: Wammu/PhoneWizard.py:100 Wammu/PhoneWizard.py:116
 msgid "Phone connection test is still active, you can not continue."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:93
+#: Wammu/PhoneWizard.py:94
 #, python-format
 msgid ""
 "Phone has been found.\n"
 "\n"
 "Manufacturer: %(manufacturer)s\n"
 "Model: %(model)s"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:106
+msgid "Phone has not been found, are you sure you want to continue?"
 msgstr ""
 
 #: Wammu/Settings.py:90
@@ -1647,21 +1661,30 @@ msgstr ""
 "Modèle de téléphone, vous peut habituellement garder ici auto à moins que "
 "vous n'ayez quelque problème."
 
-#: Wammu/PhoneWizard.py:86
+#: Wammu/PhoneWizard.py:87 Wammu/PhoneWizard.py:107
 #, fuzzy
 msgid "Phone not found!"
 msgstr "Aucun téléphone trouvé"
 
-#: Wammu/PhoneWizard.py:121
+#: Wammu/PhoneWizard.py:188
 #, fuzzy
 msgid "Phone port"
+msgstr "Téléphone"
+
+#: Wammu/PhoneWizard.py:128
+#, fuzzy
+msgid "Phone search"
 msgstr "Téléphone"
 
 #: Wammu/PhoneSearch.py:39
 msgid "Phone searching log"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:196
+#: Wammu/PhoneWizard.py:129
+msgid "Phone searching status:"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:264
 #, fuzzy
 msgid "Phone type"
 msgstr "Téléphone"
@@ -1694,7 +1717,7 @@ msgstr ""
 msgid "Please enter password for %(login)s@%(server)s"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:122
+#: Wammu/PhoneWizard.py:189
 #, fuzzy
 msgid "Please enter port where phone is connected:"
 msgstr "Périphérique, où votre téléphone est relié."
@@ -1703,11 +1726,11 @@ msgstr "Périphérique, où votre téléphone est relié."
 msgid "Please enter server name"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:286
+#: Wammu/PhoneWizard.py:355
 msgid "Please make sure you have phone ready:"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:176
+#: Wammu/PhoneWizard.py:244
 msgid "Please select connection type"
 msgstr ""
 
@@ -1716,14 +1739,19 @@ msgstr ""
 msgid "Please select folder on server %s where messages will be stored"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:197
+#: Wammu/PhoneWizard.py:265
 #, fuzzy
 msgid "Please select phone type"
 msgstr "Sélectionnez le format d'exportation"
 
-#: Wammu/PhoneWizard.py:153
+#: Wammu/PhoneWizard.py:221
 msgid "Please select which driver you want to use"
 msgstr ""
+
+#: Wammu/PhoneWizard.py:151
+#, fuzzy
+msgid "Port where phone is connected:"
+msgstr "Périphérique, où votre téléphone est relié."
 
 #: Wammu/Composer.py:313
 msgid "Predefined animation"
@@ -1853,7 +1881,7 @@ msgstr "Cochez pour demander le compte-rendu de livraison pour le message."
 msgid "Resend"
 msgstr "Renvoyer"
 
-#: Wammu/Data.py:662
+#: Wammu/Data.py:663
 msgid "Right"
 msgstr "Droite"
 
@@ -1943,7 +1971,7 @@ msgstr "Balayage à la recherche des périphériques bluetooth utilisant %s"
 msgid "Se&ttings"
 msgstr "Configuration"
 
-#: Wammu/PhoneWizard.py:220
+#: Wammu/PhoneWizard.py:289
 msgid "Seach all connections"
 msgstr ""
 
@@ -2103,7 +2131,7 @@ msgstr "Envoyé"
 msgid "Sent Messages"
 msgstr "Messages envoyés"
 
-#: Wammu/PhoneWizard.py:236
+#: Wammu/PhoneWizard.py:305
 msgid "Serial cable"
 msgstr ""
 
@@ -2131,7 +2159,7 @@ msgstr "Afficher l'information de débogage sur la sortie d'erreur."
 msgid "Show debug log"
 msgstr "Montrer le journal de débogage"
 
-#: Wammu/Data.py:667
+#: Wammu/Data.py:668
 msgid "Small"
 msgstr "Petit"
 
@@ -2143,7 +2171,7 @@ msgstr ""
 "Quelques parties de ce message n'ont pas été décodées correctement, il se "
 "peut que cela ne soit pas pris en charge dans Gammu."
 
-#: Wammu/PhoneWizard.py:149
+#: Wammu/PhoneWizard.py:217
 msgid ""
 "Sorry no driver matches your configuration, please return back and try "
 "different settings or manual configuration."
@@ -2172,7 +2200,7 @@ msgstr "Information de démarrage"
 msgid "State"
 msgstr "État"
 
-#: Wammu/Data.py:672
+#: Wammu/Data.py:673
 msgid "Strikethrough"
 msgstr "Barré"
 
@@ -2206,7 +2234,7 @@ msgstr "Synchronisez la date et l'heure"
 msgid "TaDa"
 msgstr "TaDa"
 
-#: Wammu/PhoneWizard.py:100 Wammu/PhoneWizard.py:109
+#: Wammu/PhoneWizard.py:101 Wammu/PhoneWizard.py:117
 msgid "Testing still active!"
 msgstr ""
 
@@ -2215,7 +2243,7 @@ msgstr ""
 msgid "Text"
 msgstr "Texte"
 
-#: Wammu/Data.py:665
+#: Wammu/Data.py:666
 msgid "Text Size"
 msgstr "Taille du texte"
 
@@ -2233,7 +2261,7 @@ msgid ""
 "implementation please contact authors."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:237
+#: Wammu/PhoneWizard.py:306
 msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr ""
@@ -2244,7 +2272,7 @@ msgid ""
 "other connection type."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:283
+#: Wammu/PhoneWizard.py:352
 msgid "This wizard will help you with configuring phone connection in Wammu."
 msgstr ""
 
@@ -2278,11 +2306,11 @@ msgstr ""
 msgid "Type"
 msgstr "Type"
 
-#: Wammu/PhoneWizard.py:224
+#: Wammu/PhoneWizard.py:293
 msgid "USB cable"
 msgstr ""
 
-#: Wammu/Data.py:671
+#: Wammu/Data.py:672
 msgid "Underlined"
 msgstr "Souligné"
 
@@ -2403,7 +2431,7 @@ msgstr "Écrire le message"
 msgid "WOW"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:273
+#: Wammu/PhoneWizard.py:342
 msgid "Wammu Phone Configuration Wizard"
 msgstr ""
 
@@ -2467,7 +2495,7 @@ msgstr ""
 msgid "Wearing glases"
 msgstr "Portant des lunettes"
 
-#: Wammu/PhoneWizard.py:282
+#: Wammu/PhoneWizard.py:351
 msgid "Welcome"
 msgstr ""
 
@@ -2518,11 +2546,11 @@ msgstr ""
 "Indique si vous voulez que l'application se connecte automatiquement au "
 "téléphone quand elle démarre."
 
-#: Wammu/PhoneWizard.py:263
+#: Wammu/PhoneWizard.py:332
 msgid "Wizard will attempt to search phone on usual ports."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:221
+#: Wammu/PhoneWizard.py:290
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
 "time to search all possible connection types"
@@ -2582,7 +2610,7 @@ msgstr "Vous n'avez pas indiqué de numéro de téléphone valide."
 msgid "You don't have to enter anything for this settings."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:288
+#: Wammu/PhoneWizard.py:357
 msgid "You have enabled connection method you want to use in it."
 msgstr ""
 
@@ -2592,17 +2620,21 @@ msgid ""
 "can find it in Gammu sources."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:265
+#: Wammu/PhoneWizard.py:334
 msgid ""
 "You know what you are doing and know exact parameters you need for "
 "connecting to phone."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:134
+#: Wammu/PhoneWizard.py:175
+msgid "You need to select connection type which will be used."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:169 Wammu/PhoneWizard.py:201
 msgid "You need to select port which will be used."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:264
+#: Wammu/PhoneWizard.py:333
 msgid ""
 "You will be guided through configuration by phone connection type and vendor."
 msgstr ""

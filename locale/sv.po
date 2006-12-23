@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2006-12-18 13:06+0100\n"
-"PO-Revision-Date: 2006-12-13 23:34+0100\n"
+"POT-Creation-Date: 2006-12-23 09:33+0100\n"
+"PO-Revision-Date: 2006-12-22 13:49+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "%d SIM-kontakter"
 #: Wammu/Main.py:1525
 #, python-format
 msgid "%d ToDo entries"
-msgstr "%d Attgöra-poster"
+msgstr "%d AttGöra-poster"
 
 #: Wammu/Main.py:1744
 #, python-format
@@ -95,7 +95,7 @@ msgstr "%d telefonkontakter"
 #: Wammu/Main.py:1742
 #, python-format
 msgid "%d todo"
-msgstr "%d attgöra"
+msgstr "%d AttGöra"
 
 #: Wammu/Main.py:307
 msgid "&About"
@@ -183,11 +183,11 @@ msgstr "&Synkronisera tid"
 
 #: Wammu/Main.py:291
 msgid "&Todo"
-msgstr "&Attgöra"
+msgstr "&AttGöra"
 
 #: Wammu/Main.py:282
 msgid "&Todos"
-msgstr "&Attgöra"
+msgstr "&AttGöra"
 
 #: Wammu/Main.py:261
 msgid "&Wammu"
@@ -256,15 +256,17 @@ msgstr "Åtgärden avbröts av användaren!"
 
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
-msgstr ""
+msgstr "Lägg till antal mottagare från kontakter."
 
 #: Wammu/Main.py:406
 msgid ""
 "After searching you will now be taken to configuration dialog to check "
 "whether it was detected correctly."
 msgstr ""
+"Efter sökningen kommer du att flyttas till konfigurationsdialogen för att "
+"kontrollera huruvida den blev korrekt identifierad."
 
-#: Wammu/Data.py:660
+#: Wammu/Data.py:661
 msgid "Alignment"
 msgstr "Justering"
 
@@ -286,7 +288,7 @@ msgstr "Alla meddelanden"
 
 #: Wammu/Main.py:121
 msgid "All Todo Items"
-msgstr "Alla Attgöra-poster"
+msgstr "Alla AttGöra-objekt"
 
 #: Wammu/Main.py:1357
 msgid "All backup formats"
@@ -306,7 +308,7 @@ msgstr "Alla färdiga, hittade %d telefoner"
 msgid "Are you sure you want to delete %s?"
 msgstr "Är du säker på att du vill ta bort %s?"
 
-#: Wammu/PhoneWizard.py:291
+#: Wammu/PhoneWizard.py:360
 msgid "As soon as your phone is ready, you can continue."
 msgstr ""
 
@@ -318,7 +320,7 @@ msgstr "Försök att formatera om text"
 msgid "Automatically connect to phone on startup"
 msgstr "Anslut automatiskt till telefonen vid uppstart"
 
-#: Wammu/PhoneWizard.py:257
+#: Wammu/PhoneWizard.py:326
 #, fuzzy
 msgid "Automatically search for a phone"
 msgstr "Anslut automatiskt till telefonen vid uppstart"
@@ -380,13 +382,13 @@ msgstr ""
 #: Wammu/Error.py:58
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
-msgstr ""
+msgstr "Innan du skickar in någonting, prova att leta efter liknande fel på %s"
 
-#: Wammu/PhoneWizard.py:228
+#: Wammu/PhoneWizard.py:297
 msgid "Bluetooth"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:229
+#: Wammu/PhoneWizard.py:298
 msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
@@ -396,7 +398,7 @@ msgstr ""
 msgid "Bluetooth device scan completed"
 msgstr "Sökning efter Blåtandsenheter färdig"
 
-#: Wammu/Data.py:669
+#: Wammu/Data.py:670
 msgid "Bold"
 msgstr "Fet"
 
@@ -404,7 +406,7 @@ msgstr "Fet"
 msgid "C&alls"
 msgstr "S&amtal"
 
-#: Wammu/PhoneWizard.py:289
+#: Wammu/PhoneWizard.py:358
 msgid "Cable is connected or phone is in wireless connection range."
 msgstr ""
 
@@ -438,28 +440,30 @@ msgstr "Kan inte skapa mapp!"
 
 #: Wammu/Main.py:1278
 msgid "Can not list folders on server, bailing out."
-msgstr ""
+msgstr "Kan inte lista mappar på servern, avslutar."
 
 #: Wammu/Main.py:1264
 msgid ""
 "Can not login, you probably entered invalid login information, bailing out."
 msgstr ""
+"Kan inte logga in, du angav antagligen felaktiga inloggningsuppgifter, "
+"avslutar."
 
 #: Wammu/Main.py:1329
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
-msgstr ""
+msgstr "Kan inte spara meddelande till mappen %s på servern, avslutar."
 
 #: Wammu/Main.py:1307
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
-msgstr ""
+msgstr "Kan inte välja mappen %s på server, avslutar."
 
 #: Wammu/Composer.py:442 Wammu/Editor.py:286
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: Wammu/Data.py:663
+#: Wammu/Data.py:664
 msgid "Center"
 msgstr "Centrera"
 
@@ -469,12 +473,14 @@ msgstr "Ändra Wammu-inställningar"
 
 #: Wammu/Composer.py:391 Wammu/Settings.py:168
 msgid "Check to request delivery report for message."
-msgstr ""
+msgstr "Kryssa i för att begära leveransrapport för meddelande."
 
 #: Wammu/Composer.py:396
 msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr ""
+"Kryssa i för att spara meddelandet som skickat (har endast effekt när "
+"meddelande sparas)."
 
 #: Wammu/PhoneSearch.py:124 Wammu/PhoneSearch.py:154
 #, python-format
@@ -483,23 +489,23 @@ msgstr "Kontrollerar %s"
 
 #: Wammu/Data.py:32
 msgid "Chimes high"
-msgstr ""
+msgstr "Klockor hög"
 
 #: Wammu/Data.py:33
 msgid "Chimes low"
-msgstr ""
+msgstr "Klockor låg"
 
 #: Wammu/Data.py:40
 msgid "Chord high"
-msgstr ""
+msgstr "Chord hög"
 
 #: Wammu/Data.py:41
 msgid "Chord low"
-msgstr ""
+msgstr "Chord låg"
 
 #: Wammu/Data.py:38
 msgid "Claps"
-msgstr ""
+msgstr "Claps"
 
 #: Wammu/PhoneSearch.py:47
 msgid "Close"
@@ -520,21 +526,21 @@ msgstr "Skriver SMS"
 
 #: Wammu/Composer.py:172 Wammu/Settings.py:155
 msgid "Concatenated"
-msgstr ""
+msgstr "Sammanlänkat"
 
 #: Wammu/PhoneWizard.py:42
 #, fuzzy
 msgid "Configuration done"
-msgstr "Konfiguration hittades inte"
+msgstr "Konfigurationen hittades inte"
 
 #: Wammu/Main.py:399 Wammu/Main.py:408
 msgid "Configuration not found"
-msgstr "Konfiguration hittades inte"
+msgstr "Konfigurationen hittades inte"
 
-#: Wammu/PhoneWizard.py:254
+#: Wammu/PhoneWizard.py:323
 #, fuzzy
 msgid "Configuration type"
-msgstr "Konfiguration hittades inte"
+msgstr "Konfigurationen hittades inte"
 
 #: Wammu/Settings.py:230 Wammu/Main.py:1747
 msgid "Confirm deleting"
@@ -561,9 +567,14 @@ msgstr "Anslutning"
 msgid "Connection test"
 msgstr "Anslutning"
 
-#: Wammu/PhoneWizard.py:175
+#: Wammu/PhoneWizard.py:243
 #, fuzzy
 msgid "Connection type"
+msgstr "Anslutning"
+
+#: Wammu/PhoneWizard.py:152
+#, fuzzy
+msgid "Connection type:"
 msgstr "Anslutning"
 
 #: Wammu/Settings.py:84
@@ -571,6 +582,8 @@ msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
 msgstr ""
+"Anslutning som din telefon förstår, kontrollera Gammu-dokumentationen för "
+"anslutningsdetaljer."
 
 #: Wammu/Composer.py:368 Wammu/Main.py:109
 msgid "Contacts"
@@ -627,15 +640,18 @@ msgstr "Skapar nytt meddelande"
 
 #: Wammu/Main.py:291
 msgid "Crates new todo"
-msgstr "Skapar ny Attgöra"
+msgstr "Skapar ny AttGöra"
 
 #: Wammu/Composer.py:173 Wammu/Settings.py:156
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
+"Skapa sammanlänkat meddelande, vilket tillåter att man skickar längre "
+"meddelanden."
 
 #: Wammu/Composer.py:436 Wammu/Composer.py:516
 msgid "Create new message by adding part to left list..."
 msgstr ""
+"Skapa nytt meddelande genom att lägga till delen till vänstra listan..."
 
 #: Wammu/Settings.py:161
 msgid "Create unicode message"
@@ -649,22 +665,22 @@ msgstr "Skapar nytt %s"
 #: Wammu/Main.py:1129 Wammu/Main.py:1203
 #, python-format
 msgid "Creating of file %s failed, bailing out."
-msgstr ""
+msgstr "Skapandet av filen %s misslyckades, avslutar."
 
 #: Wammu/Main.py:1166
 msgid "Creating of folder failed, bailing out."
-msgstr ""
+msgstr "Skapandet av mapp misslyckades, avslutar."
 
-#: Wammu/SettingsStorage.py:355
+#: Wammu/SettingsStorage.py:351
 msgid "DKU2 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:351
+#: Wammu/SettingsStorage.py:347
 msgid "DKU5 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:341
-msgid "DLR3-3P cable"
+#: Wammu/SettingsStorage.py:355
+msgid "DLR3-3P/CA-42 cable"
 msgstr ""
 
 #: Wammu/Main.py:1435 Wammu/Main.py:1451
@@ -699,12 +715,17 @@ msgid ""
 "communicating with phone, you are strongly encouraged to include it in "
 "bugreport. Debug log is saved in file %s."
 msgstr ""
+"Felsökningslogg sparades för telefonkommunikation, om det här felet dykte "
+"upp under kommunikation med telefonen, vill vi gärn att du inkluderar den i "
+"en felrapport. Felsökningsloggen sparades i filen %s."
 
 #: Wammu/Settings.py:256
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
 msgstr ""
+"Standarddatum att använda för nyligen skapade tidsfält. Ange antal dagar "
+"från idag (1 = imorgon)."
 
 #: Wammu/Settings.py:250
 msgid "Default time"
@@ -716,7 +737,7 @@ msgstr "Standardtid = nu + x dagar"
 
 #: Wammu/Settings.py:249
 msgid "Default time to be used for newly created time fields."
-msgstr ""
+msgstr "Standardtid att använda för nyligen skapade tidsfält."
 
 #: Wammu/Browser.py:323
 msgid "Delete current"
@@ -740,7 +761,7 @@ msgstr "Tar bort meddelande(n)..."
 
 #: Wammu/Main.py:1772
 msgid "Deleting todo(s)..."
-msgstr "Tar bort Attgöra..."
+msgstr "Tar bort AttGöra..."
 
 #: Wammu/Composer.py:390
 msgid "Delivery report"
@@ -760,11 +781,11 @@ msgstr "Enhet, där din telefon är ansluten."
 
 #: Wammu/Data.py:369
 msgid "Devil"
-msgstr ""
+msgstr "Devil"
 
 #: Wammu/Data.py:34
 msgid "Ding"
-msgstr ""
+msgstr "Ding"
 
 #: Wammu/Main.py:265
 msgid "Disconnect the device"
@@ -780,23 +801,23 @@ msgstr "Visa uppstart på telefonen (stöds inte av alla modeller)."
 
 #: Wammu/Main.py:1219
 msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr ""
+msgstr "Vill du använda SSL när du skickar upp meddelande till IMAP-servern?"
 
 #: Wammu/Composer.py:424
 msgid "Down"
 msgstr "Ner"
 
-#: Wammu/PhoneWizard.py:148 Wammu/PhoneWizard.py:152
+#: Wammu/PhoneWizard.py:216 Wammu/PhoneWizard.py:220
 msgid "Driver to use"
 msgstr ""
 
 #: Wammu/Data.py:37
 msgid "Drum"
-msgstr ""
+msgstr "Trumma"
 
 #: Wammu/Browser.py:320
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicera"
 
 #: Wammu/Main.py:259
 msgid "E&xit"
@@ -809,7 +830,7 @@ msgstr "Redigera"
 #: Wammu/Editor.py:242
 #, python-format
 msgid "Editing %(name)s %(location)s"
-msgstr ""
+msgstr "Redigerar %(name)s %(location)s"
 
 #: Wammu/Utils.py:439
 msgid ""
@@ -818,6 +839,10 @@ msgid ""
 "\n"
 "If you miss some entry, please contact Gammu/Wammu authors."
 msgstr ""
+"Tom post togs emot. Det här ska normalt sett inte hända och beror sannolikt "
+"på ett fel i telefonens fasta programvara eller i Gammu/Wammu.\n"
+"\n"
+"Om du saknar någon post, kontakta upphovsmännen för Gammu/Wammu."
 
 #: Wammu/Browser.py:93
 msgid "End"
@@ -845,10 +870,12 @@ msgid ""
 "Enter text to search for, please note that it is treated like regullar "
 "expression. Matching is done over all fields."
 msgstr ""
+"Ange text att söka efter, observera att den behandlas som reguljärt uttryck. "
+"Matchning sker för alla fält."
 
 #: Wammu/Settings.py:264
 msgid "Entries for new item"
-msgstr ""
+msgstr "Poster för nytt objekt"
 
 #: Wammu/Thread.py:57 Wammu/Main.py:689 Wammu/Main.py:1412 Wammu/Main.py:1649
 msgid "Error Occured"
@@ -935,7 +962,7 @@ msgstr "Datum för fast programvara"
 
 #: Wammu/Composer.py:399
 msgid "Flash"
-msgstr ""
+msgstr "Flash"
 
 #: Wammu/Main.py:764
 msgid "Folder"
@@ -943,13 +970,15 @@ msgstr "Mapp"
 
 #: Wammu/Main.py:1154
 msgid "Folder doesn't look like maildir!"
-msgstr ""
+msgstr "Mappen ser inte ut att vara maildir!"
 
 #: Wammu/Main.py:1470 Wammu/Main.py:1547
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
 msgstr ""
+"Följande data hittades i säkerhetskopian, välj vilka av dessa som du vill "
+"lägga till i telefonen."
 
 #: Wammu/Utils.py:445
 msgid "Function:"
@@ -961,7 +990,7 @@ msgstr "Gammu-kopia [allt data]"
 
 #: Wammu/Main.py:1353
 msgid "Gammu messages backup"
-msgstr ""
+msgstr "Säkerhetkopiering av Gammu-meddelanden"
 
 #: Wammu/Main.py:385
 msgid "Gammu module not working!"
@@ -1013,7 +1042,7 @@ msgid ""
 "to most phone features."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:258
+#: Wammu/PhoneWizard.py:327
 msgid "Guided configuration"
 msgstr ""
 
@@ -1021,24 +1050,26 @@ msgstr ""
 msgid "Hardware"
 msgstr "Hårdvara"
 
-#: Wammu/PhoneWizard.py:255
+#: Wammu/PhoneWizard.py:324
 msgid "How do you want to configure your phone connection?"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:241
+#: Wammu/PhoneWizard.py:310
 #, fuzzy
 msgid "How is your phone connected?"
 msgstr "Enhet, där din telefon är ansluten."
 
 #: Wammu/Settings.py:263
 msgid "How many entries will be shown in newly created item."
-msgstr ""
+msgstr "Hur många poster kommer att visas i nyligen skapad objekt."
 
 #: Wammu/Settings.py:207
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
 msgstr ""
+"Hur ofta telefontillståndet ska uppdateras i programmets statusrad. Ange "
+"värdet i millisekunder, 0 för att inaktivera."
 
 #: Wammu/Data.py:329
 msgid "I am angry"
@@ -1105,10 +1136,12 @@ msgid ""
 "If you get sometimes \"compressed\" messages likeTHIStext, you should be "
 "interested in this choice."
 msgstr ""
+"Om du ibland får \"komprimerade\" meddelanden som den här texten, kanske du "
+"är intresserade av det här valet."
 
 #: Wammu/Main.py:407
 msgid "If you press cancel, no searching will be performed."
-msgstr "Om du trycker på Avbryt kommer ingen sökning av genomföras."
+msgstr "Om du trycker på Avbryt kommer ingen sökning att genomföras."
 
 #: Wammu/Error.py:82
 #, python-format
@@ -1118,6 +1151,10 @@ msgid ""
 "english, otherwise you will be most likely told to translate you report to "
 "english later."
 msgstr ""
+"Om du vill hjälpa till att förbättra programmet, skicka in följande "
+"information och beskrivning hur och vad som hände till %s. Rapportera på "
+"engelska eller så kommer du senare bli informerad om att översätta din "
+"rapport till engelska."
 
 #: Wammu/SettingsStorage.py:95
 msgid "If your phone runs Symbian, please select directly it."
@@ -1147,17 +1184,17 @@ msgstr "Information om programmet"
 msgid "Invalid phone number"
 msgstr "Ogiltigt telefonnummer"
 
-#: Wammu/PhoneWizard.py:232
+#: Wammu/PhoneWizard.py:301
 msgid "IrDA"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:233
+#: Wammu/PhoneWizard.py:302
 msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:287
+#: Wammu/PhoneWizard.py:356
 msgid "It is powered on."
 msgstr ""
 
@@ -1166,6 +1203,8 @@ msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
 msgstr ""
+"Det var inte möjligt att läsa sparad post! Den kan skilja sig mot den som "
+"sparats i telefonen innan du läst om alla poster."
 
 #: Wammu/Main.py:834
 msgid ""
@@ -1173,8 +1212,11 @@ msgid ""
 "Gammu, please contact author with debug log of this operation. To see "
 "message in Wammu you need to reread all messsages."
 msgstr ""
+"Det var inte möjligt att läsa sparat meddelande! Det kan bero på något fel i "
+"Gammu, kontakta upphovsmannen och skicka in felsökningsloggen. För att se "
+"meddelandet i Wammu behöver du läsa om alla meddelanden."
 
-#: Wammu/Data.py:670
+#: Wammu/Data.py:671
 msgid "Italic"
 msgstr "Kursiv"
 
@@ -1186,11 +1228,11 @@ msgstr "LDIF [kontakter]"
 msgid "Language packs in phone"
 msgstr "Språkpaket i telefon"
 
-#: Wammu/Data.py:666
+#: Wammu/Data.py:667
 msgid "Large"
 msgstr "Stor"
 
-#: Wammu/Data.py:661
+#: Wammu/Data.py:662
 msgid "Left"
 msgstr "Vänster"
 
@@ -1230,13 +1272,13 @@ msgstr ""
 
 #: Wammu/Main.py:1090
 msgid "Mailbox file"
-msgstr ""
+msgstr "Postlådefil"
 
 #: Wammu/Main.py:1090
 msgid "Maildir folder"
-msgstr ""
+msgstr "Maildir-mapp"
 
-#: Wammu/PhoneWizard.py:259 Wammu/PhoneWizard.py:299
+#: Wammu/PhoneWizard.py:149 Wammu/PhoneWizard.py:328
 msgid "Manual configuration"
 msgstr ""
 
@@ -1248,7 +1290,7 @@ msgstr "Tillverkad månad"
 msgid "Manufacturer"
 msgstr "Tillverkare"
 
-#: Wammu/PhoneWizard.py:225
+#: Wammu/PhoneWizard.py:294
 msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
@@ -1260,7 +1302,7 @@ msgstr "Minne"
 
 #: Wammu/Utils.py:435
 msgid "Memory is full, try deleting some entries."
-msgstr ""
+msgstr "Minnet är fullt, försök att ta bort några poster."
 
 #: Wammu/Editor.py:494 Wammu/Main.py:750
 msgid "Memory type"
@@ -1272,7 +1314,7 @@ msgstr "Meddelandet är tomt!"
 
 #: Wammu/Composer.py:61
 msgid "Message preview"
-msgstr ""
+msgstr "Meddelandevisning"
 
 #: Wammu/Composer.py:635
 #, python-format
@@ -1329,7 +1371,7 @@ msgstr ""
 "Varken GNOME Bluetooth eller PyBluez hittades, inte möjligt att söka efter "
 "blåtandsenheter"
 
-#: Wammu/SettingsStorage.py:348
+#: Wammu/SettingsStorage.py:344
 msgid ""
 "New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100)."
 msgstr ""
@@ -1341,6 +1383,10 @@ msgstr "Nej"
 #: Wammu/PhoneSearch.py:118 Wammu/PhoneSearch.py:148
 msgid "No bluetooth device found"
 msgstr "Ingen blåtandsenhet hittades"
+
+#: Wammu/PhoneWizard.py:176
+msgid "No connection selected!"
+msgstr ""
 
 #: Wammu/Main.py:1466 Wammu/Main.py:1533
 msgid "No data to import"
@@ -1362,22 +1408,25 @@ msgid ""
 "searches only few ports, so if you are using some unusual, this might "
 "easilly happen."
 msgstr ""
+"Ingen telefon kunde hittas men du kan fortfarande välja den manuellt. Wammu "
+"söker endast på ett par portar, om du använder någonting ovanligt kan det "
+"här lätt hända."
 
 #: Wammu/Main.py:2048
 msgid "No phone found"
 msgstr "Ingen telefon hittades"
 
-#: Wammu/PhoneWizard.py:135
+#: Wammu/PhoneWizard.py:170 Wammu/PhoneWizard.py:202
 #, fuzzy
 msgid "No port selected!"
 msgstr "Säkerhetskopiera vald"
 
-#: Wammu/SettingsStorage.py:352
+#: Wammu/SettingsStorage.py:348
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (for phones with USB chip like 5100)."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:356
+#: Wammu/SettingsStorage.py:352
 msgid "Nokia Connectivity Cable DKU-2 (for phones without USB chip like 6230)."
 msgstr ""
 
@@ -1389,7 +1438,7 @@ msgstr ""
 msgid "Nokia MBUS"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:342
+#: Wammu/SettingsStorage.py:356
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
 "7110/6210/6310/6310."
@@ -1435,7 +1484,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:218 Wammu/Editor.py:421
+#: Wammu/Data.py:661 Wammu/Editor.py:218 Wammu/Editor.py:421
 msgid "None"
 msgstr "Ingen"
 
@@ -1443,26 +1492,26 @@ msgstr "Ingen"
 msgid "None of the above"
 msgstr ""
 
-#: Wammu/Data.py:665
+#: Wammu/Data.py:666
 msgid "Normal"
 msgstr "Normal"
 
 #: Wammu/Composer.py:502
 #, python-format
 msgid "Not supported id: %s"
-msgstr ""
+msgstr "Id stöds inte: %s"
 
 #: Wammu/Composer.py:624
 msgid "Nothing to preview, message is empty."
-msgstr ""
+msgstr "Ingenting att visa, meddelandet är tomt."
 
 #: Wammu/Main.py:657
 msgid "Notice"
-msgstr ""
+msgstr "Notering"
 
 #: Wammu/Data.py:36
 msgid "Notify"
-msgstr ""
+msgstr "Notifiera"
 
 #: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
 #: Wammu/Main.py:761
@@ -1508,7 +1557,7 @@ msgstr "Operation pågår"
 
 #: Wammu/Info.py:102
 msgid "Original IMEI"
-msgstr ""
+msgstr "Ursprunglig IMEI"
 
 #: Wammu/Settings.py:287
 msgid "Other"
@@ -1530,8 +1579,12 @@ msgid ""
 "\n"
 "Do you wish to overwrite file %s?"
 msgstr ""
+"Utdatafilen finns redan. Det betyder vanligtvis att det här meddelandet "
+"redan har sparats där.\n"
+"\n"
+"Vill du skriva över filen %s?"
 
-#: Wammu/SettingsStorage.py:347
+#: Wammu/SettingsStorage.py:343
 msgid "PL2303 cable"
 msgstr ""
 
@@ -1555,16 +1608,16 @@ msgstr "Telefonkontakter"
 msgid "Phone Information"
 msgstr "Telefoninformation"
 
-#: Wammu/PhoneWizard.py:240
+#: Wammu/PhoneWizard.py:309
 #, fuzzy
 msgid "Phone connection"
 msgstr "Anslutning"
 
-#: Wammu/PhoneWizard.py:99 Wammu/PhoneWizard.py:108
+#: Wammu/PhoneWizard.py:100 Wammu/PhoneWizard.py:116
 msgid "Phone connection test is still active, you can not continue."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:93
+#: Wammu/PhoneWizard.py:94
 #, python-format
 msgid ""
 "Phone has been found.\n"
@@ -1573,26 +1626,41 @@ msgid ""
 "Model: %(model)s"
 msgstr ""
 
+#: Wammu/PhoneWizard.py:106
+msgid "Phone has not been found, are you sure you want to continue?"
+msgstr ""
+
 #: Wammu/Settings.py:90
 msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr ""
+"Telefonmodell, du kan vanligtvis behålla \"auto\" såvida du inte har problem."
 
-#: Wammu/PhoneWizard.py:86
+#: Wammu/PhoneWizard.py:87 Wammu/PhoneWizard.py:107
 #, fuzzy
 msgid "Phone not found!"
 msgstr "Ingen telefon hittades"
 
-#: Wammu/PhoneWizard.py:121
+#: Wammu/PhoneWizard.py:188
 #, fuzzy
 msgid "Phone port"
 msgstr "Telefon"
+
+#: Wammu/PhoneWizard.py:128
+#, fuzzy
+msgid "Phone search"
+msgstr "Telefonsökningslogg"
 
 #: Wammu/PhoneSearch.py:39
 msgid "Phone searching log"
 msgstr "Telefonsökningslogg"
 
-#: Wammu/PhoneWizard.py:196
+#: Wammu/PhoneWizard.py:129
+#, fuzzy
+msgid "Phone searching status:"
+msgstr "Telefonsökningslogg"
+
+#: Wammu/PhoneWizard.py:264
 #, fuzzy
 msgid "Phone type"
 msgstr "Telefon"
@@ -1614,6 +1682,8 @@ msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
 msgstr ""
+"Stäng den öppna menyn i telefonen och försök igen, data kan inte kommas åt "
+"när du har öppnat dem."
 
 #: Wammu/Main.py:1234
 #, python-format
@@ -1625,7 +1695,7 @@ msgstr "Ange inloggningsnamnet på servern %s"
 msgid "Please enter password for %(login)s@%(server)s"
 msgstr "Ange lösenordet för %(login)s@%(server)s"
 
-#: Wammu/PhoneWizard.py:122
+#: Wammu/PhoneWizard.py:189
 #, fuzzy
 msgid "Please enter port where phone is connected:"
 msgstr "Enhet, där din telefon är ansluten."
@@ -1634,27 +1704,32 @@ msgstr "Enhet, där din telefon är ansluten."
 msgid "Please enter server name"
 msgstr "Ange servernamnet"
 
-#: Wammu/PhoneWizard.py:286
+#: Wammu/PhoneWizard.py:355
 msgid "Please make sure you have phone ready:"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:176
+#: Wammu/PhoneWizard.py:244
 msgid "Please select connection type"
 msgstr ""
 
 #: Wammu/Main.py:1292
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
-msgstr ""
+msgstr "Välj mapp på servern %s där meddelanden ska lagras"
 
-#: Wammu/PhoneWizard.py:197
+#: Wammu/PhoneWizard.py:265
 #, fuzzy
 msgid "Please select phone type"
 msgstr "Välj exporteringstyp"
 
-#: Wammu/PhoneWizard.py:153
+#: Wammu/PhoneWizard.py:221
 msgid "Please select which driver you want to use"
 msgstr ""
+
+#: Wammu/PhoneWizard.py:151
+#, fuzzy
+msgid "Port where phone is connected:"
+msgstr "Enhet, där din telefon är ansluten."
 
 #: Wammu/Composer.py:313
 msgid "Predefined animation"
@@ -1671,11 +1746,11 @@ msgstr "Fördefinierat ljud"
 
 #: Wammu/Settings.py:271
 msgid "Prefix for non international phone numbers."
-msgstr ""
+msgstr "Prefix för inrikesnummer."
 
 #: Wammu/Composer.py:443
 msgid "Preview"
-msgstr ""
+msgstr "Förhandsvisa"
 
 #: Wammu/Browser.py:90 Wammu/Editor.py:510 Wammu/Main.py:774
 msgid "Priority"
@@ -1735,7 +1810,7 @@ msgstr "Läser telefoninformation"
 
 #: Wammu/Main.py:1923
 msgid "Reading todos"
-msgstr "Läser Attgöra"
+msgstr "Läser AttGöra"
 
 #: Wammu/Main.py:253
 msgid "Reads data (except messages) from file (does not import to the phone)"
@@ -1783,7 +1858,7 @@ msgstr "Begär leveransrapport som standard"
 msgid "Resend"
 msgstr "Skicka igen"
 
-#: Wammu/Data.py:662
+#: Wammu/Data.py:663
 msgid "Right"
 msgstr "Höger"
 
@@ -1836,11 +1911,11 @@ msgstr "Spara i mapp"
 
 #: Wammu/Main.py:297
 msgid "Saves currently retrieved data (except messages) to backup"
-msgstr ""
+msgstr "Sparar aktuellt hämtat data (förutom meddelanden) till säkerhetskopia"
 
 #: Wammu/Main.py:298
 msgid "Saves currently retrieved messages to backup"
-msgstr ""
+msgstr "Sparar aktuellt hämtade meddelanden till säkerhetskopia"
 
 #: Wammu/Main.py:1330
 msgid "Saving failed!"
@@ -1856,7 +1931,7 @@ msgstr "Sparar meddelanden till postlåda"
 
 #: Wammu/Main.py:1173
 msgid "Saving messages to maildir"
-msgstr ""
+msgstr "Sparar meddelanden till maildir"
 
 #: Wammu/Settings.py:130
 msgid "Scale images"
@@ -1871,7 +1946,7 @@ msgstr "Söker efter blåtandsenheter med %s"
 msgid "Se&ttings"
 msgstr "Ins&tällningar"
 
-#: Wammu/PhoneWizard.py:220
+#: Wammu/PhoneWizard.py:289
 msgid "Seach all connections"
 msgstr ""
 
@@ -1910,7 +1985,7 @@ msgstr "Välj postlådefil..."
 
 #: Wammu/Main.py:1142
 msgid "Select maildir directory where to save files"
-msgstr ""
+msgstr "Välj maildir-katalog där filer ska sparas"
 
 #: Wammu/Select.py:68
 msgid "Select number for selected contact"
@@ -1996,10 +2071,14 @@ msgid ""
 "\n"
 "Do you want to create new subfolder and export to it?"
 msgstr ""
+"Vald mapp innehåller inte ny undermapp och är därför antagligen inte en "
+"giltig maildir.\n"
+"\n"
+"Vill du skapa en ny undermapp och exportera till den?"
 
 #: Wammu/Main.py:1308
 msgid "Selecting failed!"
-msgstr ""
+msgstr "Markering misslyckades!"
 
 #: Wammu/Main.py:1299
 msgid "Selecting folder on IMAP server..."
@@ -2014,6 +2093,8 @@ msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
 msgstr ""
+"Skicka flash-meddelande - det kommer bara att visas på skärmen, inte sparas "
+"i telefonen."
 
 #: Wammu/Browser.py:313 Wammu/Composer.py:348
 msgid "Send message"
@@ -2027,7 +2108,7 @@ msgstr "Skickade"
 msgid "Sent Messages"
 msgstr "Skickade meddelanden"
 
-#: Wammu/PhoneWizard.py:236
+#: Wammu/PhoneWizard.py:305
 msgid "Serial cable"
 msgstr ""
 
@@ -2055,7 +2136,7 @@ msgstr "Visa felsökningsinformation på standard fel."
 msgid "Show debug log"
 msgstr "Visa felsökningslogg"
 
-#: Wammu/Data.py:667
+#: Wammu/Data.py:668
 msgid "Small"
 msgstr "Liten"
 
@@ -2064,8 +2145,10 @@ msgid ""
 "Some parts of this message were not decoded correctly, probably due to "
 "missing support for it in Gammu."
 msgstr ""
+"Vissa delar av det här meddelandet avkodades inte korrekt, antagligen på "
+"grund av saknat stöd för det i Gammu."
 
-#: Wammu/PhoneWizard.py:149
+#: Wammu/PhoneWizard.py:217
 msgid ""
 "Sorry no driver matches your configuration, please return back and try "
 "different settings or manual configuration."
@@ -2094,7 +2177,7 @@ msgstr "Uppstartsinformation"
 msgid "State"
 msgstr "Tillstånd"
 
-#: Wammu/Data.py:672
+#: Wammu/Data.py:673
 msgid "Strikethrough"
 msgstr "Genomstruken"
 
@@ -2124,9 +2207,9 @@ msgstr "Synkronisera tid"
 
 #: Wammu/Data.py:35
 msgid "TaDa"
-msgstr ""
+msgstr "TaDa"
 
-#: Wammu/PhoneWizard.py:100 Wammu/PhoneWizard.py:109
+#: Wammu/PhoneWizard.py:101 Wammu/PhoneWizard.py:117
 msgid "Testing still active!"
 msgstr ""
 
@@ -2135,7 +2218,7 @@ msgstr ""
 msgid "Text"
 msgstr "Text"
 
-#: Wammu/Data.py:665
+#: Wammu/Data.py:666
 msgid "Text Size"
 msgstr "Textstorlek"
 
@@ -2155,7 +2238,7 @@ msgstr ""
 "Den här funktionen är inte implementerad för din telefon. Om du vill hjälpa "
 "till med implementationen, kontakta upphovsmännen."
 
-#: Wammu/PhoneWizard.py:237
+#: Wammu/PhoneWizard.py:306
 msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr ""
@@ -2166,7 +2249,7 @@ msgid ""
 "other connection type."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:283
+#: Wammu/PhoneWizard.py:352
 msgid "This wizard will help you with configuring phone connection in Wammu."
 msgstr ""
 
@@ -2185,7 +2268,7 @@ msgstr "Timidity hittades inte"
 
 #: Wammu/Main.py:121 Wammu/Main.py:282
 msgid "Todos"
-msgstr "Attgöra"
+msgstr "AttGöra"
 
 #: Wammu/Data.py:309
 msgid "Tongue hanging out"
@@ -2203,11 +2286,11 @@ msgstr ""
 msgid "Type"
 msgstr "Typ"
 
-#: Wammu/PhoneWizard.py:224
+#: Wammu/PhoneWizard.py:293
 msgid "USB cable"
 msgstr ""
 
-#: Wammu/Data.py:671
+#: Wammu/Data.py:672
 msgid "Underlined"
 msgstr "Understruken"
 
@@ -2217,15 +2300,20 @@ msgstr "Ohanterat undantag"
 
 #: Wammu/Error.py:81
 msgid "Unhandled exception appeared."
-msgstr ""
+msgstr "Ohanterat undantag upptäcktes."
 
 #: Wammu/Error.py:93
+#, fuzzy
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
 "please report this together with description how this situation has "
 "happened. Please report in english, otherwise you will be most likely told "
 "to translate you report to english later."
 msgstr ""
+"Om du vill hjälpa till att förbättra programmet, skicka in följande "
+"information och beskrivning hur och vad som hände till %s. Rapportera på "
+"engelska eller så kommer du senare bli informerad om att översätta din "
+"rapport till engelska."
 
 #: Wammu/Composer.py:379
 msgid "Unicode"
@@ -2234,7 +2322,7 @@ msgstr "Unicode"
 #: Wammu/Error.py:65
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
-msgstr ""
+msgstr "Unicode-kodningsfel visades, se fråga 1 i FAQ hur man löser det här."
 
 #: Wammu/Composer.py:380 Wammu/Settings.py:162
 msgid ""
@@ -2242,6 +2330,9 @@ msgid ""
 "this if you use non latin-1 characters. Your messages will require more "
 "space, so you can write less characters into single message."
 msgstr ""
+"Unicode-meddelanden kan innehålla nationella och andra specialtecken, kryssa "
+"i den här om du använder icke-latin-1-tecken. Dina meddelanden kommer att "
+"använda mer utrymme, så du kan skriva mindre antal tecken i meddelanden."
 
 #: Wammu/Editor.py:222 Wammu/Editor.py:425 Wammu/Main.py:455 Wammu/Main.py:471
 msgid "Unknown"
@@ -2274,11 +2365,11 @@ msgstr "Upp"
 
 #: Wammu/Settings.py:174
 msgid "Use 16 bit Id inside message. This is safe for most cases."
-msgstr ""
+msgstr "Använd 16-bitars Id i meddelanden. Det här är säkert i de flesta fall."
 
 #: Wammu/Settings.py:173
 msgid "Use 16bit Id"
-msgstr ""
+msgstr "Använd 16-bitars Id"
 
 #: Wammu/Main.py:1220
 msgid "Use SSL?"
@@ -2316,9 +2407,9 @@ msgstr "Sk&riv meddelande"
 
 #: Wammu/Data.py:169
 msgid "WOW"
-msgstr ""
+msgstr "WOW"
 
-#: Wammu/PhoneWizard.py:273
+#: Wammu/PhoneWizard.py:342
 msgid "Wammu Phone Configuration Wizard"
 msgstr ""
 
@@ -2326,21 +2417,22 @@ msgstr ""
 msgid ""
 "Wammu can now try to search for phone. Do you want Wammu to search for phone?"
 msgstr ""
-"Wammu kan nu försöka att söka efter telefonen. Vill du att Wammu ska söka "
+"Wammu kan nu försöka att leta efter telefonen. Vill du att Wammu ska söka "
 "efter telefonen?"
 
 #: Wammu/Main.py:404
 msgid "Wammu configuration was not found and Gammu settings couldn't be read."
 msgstr ""
-"Wammu-konfiguration hittades inte och Gammu-inställningarna kunde inte läsas."
+"Wammu-konfigurationen hittades inte och Gammu-inställningarna kunde inte "
+"läsas."
 
 #: Wammu/Main.py:397
 msgid ""
 "Wammu configuration was not found. Gammu settings were read and will be used "
 "as defaults."
 msgstr ""
-"Wammu-konfiguration hittades inte. Gammu-inställningar lästes in och kommer "
-"att användas som standard."
+"Wammu-konfigurationen hittades inte. Gammu-inställningar lästes in och "
+"kommer att användas som standard."
 
 #: Wammu/Main.py:384
 #, python-format
@@ -2351,6 +2443,11 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Wammu kunde inte importera gammu-modulen, programmet kommer att avslutas.\n"
+"\n"
+"Importeringen misslyckades med följande fel:\n"
+"\n"
+"%s"
 
 #: Wammu/PhoneWizard.py:64 Wammu/PhoneWizard.py:77
 msgid "Wammu is now testing phone connection, please wait..."
@@ -2363,19 +2460,21 @@ msgstr "Wammu version"
 #: Wammu/Utils.py:90
 #, python-format
 msgid "Warning: assuming charset %s for html widget"
-msgstr ""
+msgstr "Varning: antar teckentabellen %s för html-widget"
 
 #: Wammu/Utils.py:89
 msgid ""
 "Warning: you are using utf-8 locales and non unicode enabled wxPython, some "
 "text migth be displayed incorrectly!"
 msgstr ""
+"Varning: du använder utf-8-lokaler och en wxPython som saknar stöd för "
+"unicode, viss text kan visas felaktigt!"
 
 #: Wammu/Data.py:349
 msgid "Wearing glases"
 msgstr "Bär glasögon"
 
-#: Wammu/PhoneWizard.py:282
+#: Wammu/PhoneWizard.py:351
 msgid "Welcome"
 msgstr ""
 
@@ -2401,16 +2500,20 @@ msgid ""
 "Whether images in messages should be scaled when displayed. This is usually "
 "good idea as they are pretty small."
 msgstr ""
+"Huruvida bilder i meddelanden ska skalas när de visas. Det här är normalt "
+"sett en bra idé eftersom de blir mycket mindre."
 
 #: Wammu/Settings.py:231
 msgid "Whether to ask for confirmation when deleting entries."
-msgstr ""
+msgstr "Huruvida en bekräftelse ska visas när poster ska tas bort."
 
 #: Wammu/Settings.py:100
 msgid ""
 "Whether to lock device in /var/lock. On some systems you might lack "
 "privileges to do so."
 msgstr ""
+"Huruvoda enheten ska låsas under /var/lock. På vissa system kan du sakna "
+"behörighet att göra det."
 
 #: Wammu/Settings.py:106
 msgid ""
@@ -2420,11 +2523,11 @@ msgstr ""
 "Huruvida du vill att programmet ska ansluta automatiskt till telefonen när "
 "det startas."
 
-#: Wammu/PhoneWizard.py:263
+#: Wammu/PhoneWizard.py:332
 msgid "Wizard will attempt to search phone on usual ports."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:221
+#: Wammu/PhoneWizard.py:290
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
 "time to search all possible connection types"
@@ -2452,7 +2555,7 @@ msgstr "Skriver meddelande(n)..."
 
 #: Wammu/Main.py:961
 msgid "Writing todo..."
-msgstr "Skriver attgöra..."
+msgstr "Skriver AttGöra..."
 
 #: Wammu/Utils.py:334
 msgid "Yes"
@@ -2464,13 +2567,15 @@ msgstr ""
 
 #: Wammu/Main.py:1003 Wammu/Main.py:1053 Wammu/Main.py:1073
 msgid "You can not work on this data, please retrieve it first from phone"
-msgstr ""
+msgstr "Du kan inte arbeta på denna data, hämta den först från telefonen"
 
 #: Wammu/Main.py:656
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
 msgstr ""
+"Du ändrade parametrar som påverkar telefonanslutningen, de kommer att "
+"användas nästa gång du ansluter telefonen."
 
 #: Wammu/PhoneValidator.py:85
 msgid "You did not specify valid phone number."
@@ -2480,7 +2585,7 @@ msgstr "Du har inte angivit ett giltigt telefonnummer."
 msgid "You don't have to enter anything for this settings."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:288
+#: Wammu/PhoneWizard.py:357
 msgid "You have enabled connection method you want to use in it."
 msgstr ""
 
@@ -2490,17 +2595,21 @@ msgid ""
 "can find it in Gammu sources."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:265
+#: Wammu/PhoneWizard.py:334
 msgid ""
 "You know what you are doing and know exact parameters you need for "
 "connecting to phone."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:134
+#: Wammu/PhoneWizard.py:175
+msgid "You need to select connection type which will be used."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:169 Wammu/PhoneWizard.py:201
 msgid "You need to select port which will be used."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:264
+#: Wammu/PhoneWizard.py:333
 msgid ""
 "You will be guided through configuration by phone connection type and vendor."
 msgstr ""
@@ -2508,6 +2617,8 @@ msgstr ""
 #: Wammu/Main.py:398
 msgid "You will now be taken to configuration dialog to check configuration."
 msgstr ""
+"Du kommer nu att skickas till konfigurationsdialogen för att kontrollera "
+"konfigurationen."
 
 #: Wammu/Utils.py:433
 msgid "Your phone asks for PIN."
@@ -2559,7 +2670,7 @@ msgstr "fel"
 
 #: Wammu/Main.py:1375
 msgid "iCalendar [todo,calendar]"
-msgstr "iCalendar [attgöra,kalender]"
+msgstr "iCalendar [AttGöra,kalender]"
 
 #: Wammu/Main.py:1138
 msgid "mailbox"
@@ -2585,15 +2696,15 @@ msgstr "python-gammu version"
 #: Wammu/Main.py:1731
 #, python-format
 msgid "todo \"%s\""
-msgstr "attgöra \"%s\""
+msgstr "AttGöra \"%s\""
 
 #: Wammu/Editor.py:510
 msgid "todo item"
-msgstr ""
+msgstr "AttGöra-objekt"
 
 #: Wammu/Main.py:1372
 msgid "vCalendar [todo,calendar]"
-msgstr "vCalendar [attgöra,kalender]"
+msgstr "vCalendar [AttGöra,kalender]"
 
 #: Wammu/Main.py:1366
 msgid "vCard [contacts]"
@@ -2602,4 +2713,7 @@ msgstr "vCard [kontakter]"
 #: Wammu/Main.py:755
 #, python-format
 msgid "voice tag %x"
-msgstr ""
+msgstr "rösttagg %x"
+
+#~ msgid "supply"
+#~ msgstr "tillhandahåll"
