@@ -66,7 +66,7 @@ if len(args) != 0:
 
 for o, a in opts:
     if o in ('-l', '--local-locales'):
-        gettext.install('wammu','./locale/', unicode=1)
+        gettext.install('wammu',os.path.join('build', 'share', 'locale'), unicode=1)
     if o in ('-h', '--help'):
         usage()
         sys.exit()

@@ -24,13 +24,13 @@ this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 '''
 
-from distutils.core import setup
-from distutils.command.build_scripts import build_scripts
-from distutils.util import convert_path
-from distutils.dep_util import newer
-from distutils import log
-from distutils import sysconfig
+import distutils
+import distutils.command.build_scripts
+import distutils.command.build
+import distutils.command.clean
+import distutils.command.install_data
 from stat import ST_MODE
+from wammu_setup import msgfmt
 import sys
 import glob
 import Wammu
@@ -92,7 +92,7 @@ if not skip_deps:
 # check if Python is called on the first line with this expression
 first_line_re = re.compile('^#!.*python[0-9.]*([ \t].*)?$')
 
-class build_scripts_wammu(build_scripts):
+class build_scripts_wammu(distutils.command.build_scripts.build_scripts, object):
     '''
     This is mostly distutils copy, it just renames script according
     to platform (.pyw for Windows, without extension for others)
@@ -107,14 +107,14 @@ class build_scripts_wammu(build_scripts):
         outfiles = []
         for script in self.scripts:
             adjust = 0
-            script = convert_path(script)
+            script = distutils.util.convert_path(script)
             outfile = os.path.join(self.build_dir, os.path.splitext(os.path.basename(script))[0])
             if sys.platform == 'win32':
                 outfile += os.extsep + 'pyw'
             outfiles.append(outfile)
 
-            if not self.force and not newer(script, outfile):
-                log.debug("not copying %s (up-to-date)", script)
+            if not self.force and not distutils.dep_util.newer(script, outfile):
+                distutils.log.debug("not copying %s (up-to-date)", script)
                 continue
 
             # Always open the file, but ignore failures in dry-run mode --
@@ -138,19 +138,19 @@ class build_scripts_wammu(build_scripts):
                     post_interp = match.group(1) or ''
 
             if adjust:
-                log.info("copying and adjusting %s -> %s", script,
+                distutils.log.info("copying and adjusting %s -> %s", script,
                          self.build_dir)
                 if not self.dry_run:
                     outf = open(outfile, "w")
-                    if not sysconfig.python_build:
+                    if not distutils.sysconfig.python_build:
                         outf.write("#!%s%s\n" %
                                    (os.path.normpath(sys.executable),
                                     post_interp))
                     else:
                         outf.write("#!%s%s\n" %
                                    (os.path.join(
-                            sysconfig.get_config_var("BINDIR"),
-                            "python" + sysconfig.get_config_var("EXE")),
+                            distutils.sysconfig.get_config_var("BINDIR"),
+                            "python" + distutils.sysconfig.get_config_var("EXE")),
                                     post_interp))
                     outf.writelines(f.readlines())
                     outf.close()
@@ -163,20 +163,87 @@ class build_scripts_wammu(build_scripts):
         if os.name == 'posix':
             for file in outfiles:
                 if self.dry_run:
-                    log.info("changing mode of %s", file)
+                    distutils.log.info("changing mode of %s", file)
                 else:
                     oldmode = os.stat(file)[ST_MODE] & 07777
                     newmode = (oldmode | 0555) & 07777
                     if newmode != oldmode:
-                        log.info("changing mode of %s from %o to %o",
+                        distutils.log.info("changing mode of %s from %o to %o",
                                  file, oldmode, newmode)
                         os.chmod(file, newmode)
 
     # copy_scripts ()
 
+def list_message_files(package = 'wammu', suffix = '.po'):
+    """
+    Return list of all found message files and their installation paths.
+    """
+    _files = glob.glob('locale/*' + suffix)
+    _list = []
+    for _file in _files:
+        # basename (without extension) is a locale name
+        _locale = os.path.splitext(os.path.basename(_file))[0]
+        _list.append((_file, os.path.join(
+            'share', 'locale', _locale, 'LC_MESSAGES', '%s.mo' % package)))
+    return _list
 
+class build_wammu(distutils.command.build.build, object):
+    """
+    Custom build command with locales support.
+    """
 
-setup(name="wammu",
+    def build_message_files (self):
+        """
+        For each locale/*.po, build .mo file in target locale directory.
+        """
+        for (_src, _dst) in list_message_files(self.distribution.get_name()):
+            _build_dst = os.path.join('build', _dst)
+            destdir = os.path.dirname(_build_dst)
+            if not os.path.exists(destdir):
+                self.mkpath(destdir)
+            if not os.path.exists(_build_dst) or \
+              (os.path.getmtime(_build_dst) < os.path.getmtime(_src)):
+                distutils.log.info('compiling %s -> %s' % (_src, _build_dst))
+                msgfmt.make(_src, _build_dst)
+
+    def run (self):
+        self.build_message_files()
+        super(build_wammu, self).run()
+
+class clean_wammu(distutils.command.clean.clean, object):
+    """
+    Custom clean command.
+    """
+
+    def run (self):
+        if self.all:
+            # remove share directory
+            directory = os.path.join('build', 'share')
+            if os.path.exists(directory):
+                distutils.dir_util.remove_tree(directory, dry_run=self.dry_run)
+            else:
+                distutils.log.warn('\'%s\' does not exist -- can\'t clean it',
+                                   directory)
+        super(clean_wammu, self).run()
+
+class install_data_wammu(distutils.command.install_data.install_data, object):
+    """
+    Install locales in addition to regullar data.
+    """
+
+    def run (self):
+        """
+        Install also .mo files.
+        """
+        # add .mo files to data files
+        for (_src, _dst) in list_message_files(self.distribution.get_name()):
+            _build_dst = os.path.join('build', _dst)
+            item = [os.path.dirname(_dst), [_build_dst]]
+            self.data_files.append(item)
+        # install data files
+        super(install_data_wammu, self).run()
+
+distutils.core.setup(name="wammu",
     version = Wammu.__version__,
     description = "Wammu",
     long_description = "Phone manager built on top of python-gammu. Supports many phones.",
@@ -223,29 +290,16 @@ setup(name="wammu",
     data_files = [
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
-        (os.path.join('share','locale','ca','LC_MESSAGES'), ['locale/ca/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','cs','LC_MESSAGES'), ['locale/cs/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','de','LC_MESSAGES'), ['locale/de/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','es','LC_MESSAGES'), ['locale/es/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','et','LC_MESSAGES'), ['locale/et/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','fi','LC_MESSAGES'), ['locale/fi/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','fr','LC_MESSAGES'), ['locale/fr/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','hu','LC_MESSAGES'), ['locale/hu/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','ko','LC_MESSAGES'), ['locale/ko/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','nl','LC_MESSAGES'), ['locale/nl/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','it','LC_MESSAGES'), ['locale/it/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','pl','LC_MESSAGES'), ['locale/pl/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','pt_BR','LC_MESSAGES'), ['locale/pt_BR/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','ru','LC_MESSAGES'), ['locale/ru/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','sk','LC_MESSAGES'), ['locale/sk/LC_MESSAGES/wammu.mo']),
-        (os.path.join('share','locale','sv','LC_MESSAGES'), ['locale/sv/LC_MESSAGES/wammu.mo']),
         (os.path.join('share','applications'), ['wammu.desktop']),
         (os.path.join('share','pixmaps'), ['icon/wammu.png', 'icon/wammu.xpm', 'icon/wammu.ico']),
         (os.path.join('share','man','man1'), ['wammu.1'])
         ],
     # Override certain command classes with our own ones
     cmdclass = {
+        'build': build_wammu,
+        'clean': clean_wammu,
         'build_scripts': build_scripts_wammu,
+        'install_data': install_data_wammu,
         },
     # py2exe options
     options = {'py2exe': {
