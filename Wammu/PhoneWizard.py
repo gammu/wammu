@@ -126,7 +126,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
     def __init__(self, parent):
         Wammu.Wizard.TextPage.__init__(self, parent,
                 _('Phone search'),
-                _('Phone searching status:'))
+                _('Phone searching status') + ':')
 
     def GetNext(self):
 #        self.parent.settings.SetPort(self.edits[0].GetValue())
@@ -148,8 +148,8 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
         Wammu.Wizard.MultiInputPage.__init__(self, parent,
                 _('Manual configuration'),
                 [
-                    _('Port where phone is connected:'),
-                    _('Connection type:'),
+                    _('Port where phone is connected') + ':',
+                    _('Connection type') + ':',
                 ],
                 [
                     Wammu.Data.Devices,
@@ -186,7 +186,7 @@ class PhonePortPage(Wammu.Wizard.InputPage):
         ports, help = parent.settings.GetDevices()
         Wammu.Wizard.InputPage.__init__(self, parent,
                 _('Phone port'),
-                _('Please enter port where phone is connected:'),
+                _('Please enter port where phone is connected') + ':',
                 ports,
                 help)
 
@@ -352,7 +352,7 @@ class ConfigureWizard:
                 _('This wizard will help you with configuring phone connection in Wammu.'),
                 [
                     '',
-                    _('Please make sure you have phone ready:'),
+                    _('Please make sure you have phone ready') + ':',
                     '- %s' % _('It is powered on.'),
                     '- %s' % _('You have enabled connection method you want to use in it.'),
                     '- %s' % _('Cable is connected or phone is in wireless connection range.'),
