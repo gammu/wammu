@@ -25,9 +25,10 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import distutils
-import distutils.command.build_scripts
 import distutils.command.build
+import distutils.command.build_scripts
 import distutils.command.clean
+import distutils.command.install
 import distutils.command.install_data
 from stat import ST_MODE
 from wammu_setup import msgfmt
@@ -43,51 +44,12 @@ try:
 except:
     pass
 
-# detect whether we should check for dependencies
-skip_deps = 'clean' in sys.argv or '--help' in sys.argv or '--help-commands' in sys.argv or 'sdist' in sys.argv
+# used for passing state for skiping dependency check
+skip_dependencies = False
 
 # some defines
-PYTHONGAMMU_REQUIRED = (0,16)
-
-if not skip_deps:
-    if os.getenv('SKIPGAMMUCHECK') == 'yes':
-        print 'Skipping Gammu check, expecting you know what you are doing!'
-    else:
-        try:
-            import gammu
-        except ImportError:
-            print 'You need python-gammu!'
-            print 'You can get it from <http://cihar.com/gammu/python/>'
-            sys.exit(1)
-        pygver = tuple(map(int, gammu.Version()[1].split('.')))
-        if  pygver < PYTHONGAMMU_REQUIRED:
-            print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
-            print 'You can get it from <http://cihar.com/gammu/python/>'
-            sys.exit(1)
-
-    if os.getenv('SKIPWXCHECK') == 'yes':
-        print 'Skipping wx check, expecting you know what you are doing!'
-    else:
-        try:
-            import wx
-        except ImportError:
-            print 'You need wxPython!'
-            print 'You can get it from <http://www.wxpython.org>'
-            sys.exit(1)
-        if wx.VERSION < (2,6,0,0):
-            print 'You need at least wxPython 2.6.0.0!'
-            print 'You can get it from <http://www.wxpython.org>'
-            sys.exit(1)
-
-    try:
-        import gnomebt.controller
-    except ImportError:
-        try:
-            import bluetooth
-        except ImportError:
-            print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
-            print 'GNOME Bluetooth can be downloaded from <http://usefulinc.com/software/gnome-bluetooth>'
-            print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
+PYTHONGAMMU_REQUIRED = (0, 16)
+WXPYTHON_REQUIRED = (2, 6, 0, 0)
 
 # check if Python is called on the first line with this expression
 first_line_re = re.compile('^#!.*python[0-9.]*([ \t].*)?$')
@@ -191,6 +153,19 @@ class build_wammu(distutils.command.build.build, object):
     """
     Custom build command with locales support.
     """
+    user_options = distutils.command.build.build.user_options + [('skip-deps', 's', 'skip checking for dependencies')]
+    boolean_options = distutils.command.build.build.boolean_options + ['skip-deps']
+
+    def initialize_options(self):
+        global skip_dependencies
+        super(build_wammu, self).initialize_options()
+        self.skip_deps = skip_dependencies
+
+    def finalize_options(self):
+        global skip_dependencies
+        super(build_wammu, self).finalize_options()
+        if self.skip_deps:
+            skip_dependencies = self.skip_deps
 
     def build_message_files (self):
         """
@@ -206,8 +181,64 @@ class build_wammu(distutils.command.build.build, object):
                 distutils.log.info('compiling %s -> %s' % (_src, _build_dst))
                 msgfmt.make(_src, _build_dst)
 
+    def check_requirements(self):
+        if os.getenv('SKIPGAMMUCHECK') == 'yes':
+            print 'Skipping Gammu check, expecting you know what you are doing!'
+        else:
+            print 'Checking for python-gammu ...',
+            try:
+                import gammu
+                version = gammu.Version()
+                print 'found version %s using Gammu %s ...' % (version[1], version[0]),
+
+                pygver = tuple(map(int, version[1].split('.')))
+                if  pygver < PYTHONGAMMU_REQUIRED:
+                    print 'too old!'
+                    print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
+                    print 'You can get it from <http://cihar.com/gammu/python/>'
+                    sys.exit(1)
+                print 'OK'
+            except ImportError:
+                print 'You need python-gammu!'
+                print 'You can get it from <http://cihar.com/gammu/python/>'
+                sys.exit(1)
+
+        if os.getenv('SKIPWXCHECK') == 'yes':
+            print 'Skipping wxPython check, expecting you know what you are doing!'
+        else:
+            print 'Checking for wxPython ...',
+            try:
+                import wx
+                print 'found version %s ...' % wx.VERSION_STRING,
+                if wx.VERSION < WXPYTHON_REQUIRED:
+                    print 'too old!'
+                    print 'You need at least wxPython %s!' % '.'.join(map(str, WXPYTHON_REQUIRED))
+                    print 'You can get it from <http://www.wxpython.org>'
+                    sys.exit(1)
+                print 'OK'
+            except ImportError:
+                print 'You need wxPython!'
+                print 'You can get it from <http://www.wxpython.org>'
+                sys.exit(1)
+
+        print 'Checking for Bluetooth stack ...',
+        try:
+            import bluetooth
+            print 'PyBluez found'
+        except ImportError:
+            try:
+                import gnomebt.controller
+                print 'GNOME Bluetooth found'
+                print 'WARNING: GNOME Bluetooth support is limited, consider installing PyBluez'
+            except ImportError:
+                print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
+            print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
+
     def run (self):
+        global skip_dependencies
         self.build_message_files()
+        if not skip_dependencies:
+            self.check_requirements()
         super(build_wammu, self).run()
 
 class clean_wammu(distutils.command.clean.clean, object):
@@ -225,6 +256,25 @@ class clean_wammu(distutils.command.clean.clean, object):
                 distutils.log.warn('\'%s\' does not exist -- can\'t clean it',
                                    directory)
         super(clean_wammu, self).run()
+
+class install_wammu(distutils.command.install.install, object):
+    """
+    Install wrapper to support option for skipping deps
+    """
+
+    user_options = distutils.command.install.install.user_options + [('skip-deps', 's', 'skip checking for dependencies')]
+    boolean_options = distutils.command.install.install.boolean_options + ['skip-deps']
+
+    def initialize_options(self):
+        global skip_dependencies
+        super(install_wammu, self).initialize_options()
+        self.skip_deps = skip_dependencies
+
+    def finalize_options(self):
+        global skip_dependencies
+        super(install_wammu, self).finalize_options()
+        if self.skip_deps:
+            skip_dependencies = self.skip_deps
 
 class install_data_wammu(distutils.command.install_data.install_data, object):
     """
@@ -297,8 +347,9 @@ distutils.core.setup(name="wammu",
     # Override certain command classes with our own ones
     cmdclass = {
         'build': build_wammu,
-        'clean': clean_wammu,
         'build_scripts': build_scripts_wammu,
+        'clean': clean_wammu,
+        'install': install_wammu,
         'install_data': install_data_wammu,
         },
     # py2exe options

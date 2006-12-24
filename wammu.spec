@@ -43,10 +43,10 @@ supports - many Nokias, Siemens, Alcatel, ... Written using wxGTK.
 %setup
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" SKIPWXCHECK=yes python setup.py build
+CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
 
 %install
-SKIPWXCHECK=yes python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 sed -i '/man1/ D' INSTALLED_FILES
 
 %clean
