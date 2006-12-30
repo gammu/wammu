@@ -35,10 +35,13 @@ import copy
 import imaplib
 import tempfile
 import Wammu
+import re
 
 try:
     import gammu
 except SystemError, err:
+    Wammu.gammu_error = err
+except ImportError, err:
     Wammu.gammu_error = err
 
 import Wammu.Events
@@ -380,10 +383,32 @@ class WammuFrame(wx.Frame):
 
     def PostInit(self):
         if Wammu.gammu_error != None:
-            wx.MessageDialog(self,
-                _('Wammu could not import gammu module, program will be terminated.\n\nThe import failed with following error:\n\n%s') % Wammu.gammu_error,
-                _('Gammu module not working!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+            error =  str(Wammu.gammu_error)
+            if error.find('Runtime libGammu version does not match compile time version') != -1:
+                result = re.match('Runtime libGammu version does not match compile time version \(runtime: (\S+), compiletime: (\S+)\)', error)
+
+                wx.MessageDialog(self,
+                    _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
+                    _('The import failed because python-gammu is compiled with different ' +
+                    'version than it is now using (it was compiled with version %s and now ' +
+                    'it is using version %s)') % (result.group(2), result.group(1)) + '\n\n' +
+                    _('You can fix it by recompiling python-gammu against gammu library you ' +
+                    'are currently using.'),
+                    _('Gammu module not working!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+            elif error.find('No module named gammu') != -1:
+                wx.MessageDialog(self,
+                    _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
+                    _('Gammu module was not found, you probably don\'t have properly installed '
+                    'python-gammu for current python version.'),
+                    _('Gammu module not working!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+            else:
+                wx.MessageDialog(self,
+                    _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
+                    _('The import failed with following error:') + '\n\n%s' % error,
+                    _('Gammu module not working!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
             sys.exit()
 
         # things that need window opened

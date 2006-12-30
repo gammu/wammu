@@ -35,8 +35,9 @@ import time
 import tempfile
 import os
 import wx
-import gammu
 import Wammu.Data
+if Wammu.gammu_error == None:
+    import gammu
 
 header_format = 'X-Wammu-%s'
 cid_format = '%d*sms@wammu.sms'

@@ -55,7 +55,10 @@ def GetSystemInfo():
     pyver = sys.version.split()[0]
     wxver = wx.VERSION_STRING
     wammuver = Wammu.__version__
-    (gammuver, pgammuver) = gammu.Version()
+    try:
+        (gammuver, pgammuver) = gammu.Version()
+    except:
+        (gammuver, pgammuver) = ('Unknown', 'Unknown')
     (loc, charset) = locale.getdefaultlocale()
     bluez = 'None'
     try:
