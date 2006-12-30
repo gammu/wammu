@@ -34,7 +34,10 @@ def SelectContact(parent, list, index = False):
     list.sort(SortName)
     choices = []
     for e in list:
-        choices.append(StrConv(e['Name']))
+        if e['Name'] == '':
+            choices.append(StrConv(e['Number']))
+        else:
+            choices.append(StrConv(e['Name']))
 
     dlg = wx.SingleChoiceDialog(parent, _('Select contact from bellow list'), _('Select contact'),
                                 choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
