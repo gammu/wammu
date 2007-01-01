@@ -288,7 +288,7 @@ class Settings:
             elif self.connection == 'irda':
                 names.append('irdaat')
                 connections.append(_('AT over IrDA'))
-                helps.append(_('Select this if your phone is connected over IrDA and you want to use native Bluetooth connection.'))
+                helps.append(_('Select this if your phone is connected over IrDA and you want to use native IrDA connection.'))
 
             elif self.manufacturer == 'nokia':
                 names.append('dku2at')

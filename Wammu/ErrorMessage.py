@@ -65,7 +65,7 @@ class ErrorMessage(wx.Dialog):
             self.Bind(wx.EVT_BUTTON, self.OnSave, savebutton)
         else:
             self.traceid = traceid
-            searchbutton = wx.Button(self, -1, _('Search for simmilar reports'))
+            searchbutton = wx.Button(self, -1, _('Search for similar reports'))
             buttonsizer.SetCancelButton(searchbutton)
             self.Bind(wx.EVT_BUTTON, self.OnSearch, searchbutton)
 

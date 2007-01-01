@@ -286,7 +286,7 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
 
         if search:
             self.names.append('all')
-            connections.append(_('Seach all connections'))
+            connections.append(_('Search all connections'))
             helps.append(_('Wizard will search for all possible connections. It might take quite long time to search all possible connection types'))
 
         self.names.append('usb')
@@ -354,8 +354,8 @@ class ConfigureWizard:
                     '',
                     _('Please make sure you have phone ready') + ':',
                     '- %s' % _('It is powered on.'),
-                    '- %s' % _('You have enabled connection method you want to use in it.'),
                     '- %s' % _('Cable is connected or phone is in wireless connection range.'),
+                    '- %s' % _('You have enabled Bluetooth or IrDA if you want to use in it.'),
                     '',
                     _('As soon as your phone is ready, you can continue.'),
                 ])
