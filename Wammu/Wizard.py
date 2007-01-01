@@ -159,4 +159,4 @@ class TextPage(SimplePage):
     def __init__(self, parent, title, text):
         Wammu.Wizard.SimplePage.__init__(self, parent, title, text)
         self.edit = wx.TextCtrl(self, -1, '', style = wx.TE_MULTILINE | wx.TE_READONLY)
-        self.sizer.Add(self.edit, 0, wx.ALL | wx.EXPAND, 5)
+        self.sizer.Add(self.edit, 1, wx.ALL | wx.EXPAND, 5)
