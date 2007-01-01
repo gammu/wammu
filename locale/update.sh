@@ -15,7 +15,7 @@ ver=`python -c 'import Wammu; print Wammu.__version__'`
 sed -i '
     s/SOME DESCRIPTIVE TITLE/Wammu translation/;
     s/PACKAGE/Wammu/;
-    s/(C) YEAR/(C) 2003 - 2006/;
+    s/(C) YEAR/(C) 2003 - 2007/;
     s/VERSION/'$ver'/;
     ' locale/wammu.pot
 

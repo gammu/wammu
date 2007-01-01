@@ -7,7 +7,7 @@ About dialog
 __author__ = 'Michal Čihař'
 __email__ = 'michal@cihar.com'
 __license__ = '''
-Copyright (c) 2003 - 2006 Michal Čihař
+Copyright (c) 2003 - 2007 Michal Čihař
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License version 2 as published by
@@ -39,12 +39,12 @@ class AboutBox(wx.Dialog):
         wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
 
         if wx.USE_UNICODE:
-            copyrightline = u'Copyright &copy; 2003 - 2006 Michal Čihař'
+            copyrightline = u'Copyright &copy; 2003 - 2007 Michal Čihař'
             head = ''
         else:
-            copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2006 Michal Čihař')
+            copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2007 Michal Čihař')
             if copyrightline.find('?') != -1:
-                copyrightline = 'Copyright (c) 2003 - 2006 Michal Cihar'
+                copyrightline = 'Copyright (c) 2003 - 2007 Michal Cihar'
             head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
 
         # default system colours
