@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-01-01 16:03+0100\n"
+"POT-Creation-Date: 2007-01-06 13:33+0100\n"
 "PO-Revision-Date: 2006-12-23 20:55+0100\n"
 "Last-Translator: Michal <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -47,7 +47,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
 
 #: Wammu/Main.py:1547
-#, fuzzy, python-format
+#, python-format
 msgid "%d SIM contact entries"
 msgstr "%d kontaktů na SIM kartu"
 
@@ -77,12 +77,12 @@ msgid "%d messages"
 msgstr "%d zpráv"
 
 #: Wammu/Main.py:1544
-#, fuzzy, python-format
+#, python-format
 msgid "%d phone contact entries"
 msgstr "%d kontaktů do telefonu"
 
 #: Wammu/Main.py:1550
-#, fuzzy, python-format
+#, python-format
 msgid "%d to do entries"
 msgstr "%d úkolů"
 
@@ -531,18 +531,16 @@ msgid "Concatenated"
 msgstr "Spojená"
 
 #: Wammu/PhoneWizard.py:42
-#, fuzzy
 msgid "Configuration done"
-msgstr "Nastavení nenalezeno"
+msgstr "Nastavení hotovo"
 
 #: Wammu/Main.py:424 Wammu/Main.py:433
 msgid "Configuration not found"
 msgstr "Nastavení nenalezeno"
 
 #: Wammu/PhoneWizard.py:323
-#, fuzzy
 msgid "Configuration type"
-msgstr "Nastavení nenalezeno"
+msgstr "Způsob nastavení"
 
 #: Wammu/Main.py:1772 Wammu/Settings.py:230
 msgid "Confirm deleting"
@@ -667,15 +665,15 @@ msgstr "Vytváření složky selhalo, končím."
 
 #: Wammu/SettingsStorage.py:351
 msgid "DKU2 cable"
-msgstr ""
+msgstr "DKU2 kabel"
 
 #: Wammu/SettingsStorage.py:347
 msgid "DKU5 cable"
-msgstr ""
+msgstr "DKU5 kabel"
 
 #: Wammu/SettingsStorage.py:355
 msgid "DLR3-3P/CA-42 cable"
-msgstr ""
+msgstr "DLR3-3P/CA-32 kabel"
 
 #: Wammu/Main.py:1460 Wammu/Main.py:1476
 #, python-format
@@ -701,6 +699,7 @@ msgid ""
 "Debug log has been automatically saved to %s, you are strongly encouraged to "
 "include it in bugreport."
 msgstr ""
+"Ladicí log byl automaticky uložen do %s, prosím připojte ho ke hlášení chyby."
 
 #: Wammu/Error.py:49
 #, python-format
@@ -805,7 +804,7 @@ msgstr "Dolů"
 
 #: Wammu/PhoneWizard.py:216 Wammu/PhoneWizard.py:220
 msgid "Driver to use"
-msgstr ""
+msgstr "Zvolte ovladač"
 
 #: Wammu/Data.py:37
 msgid "Drum"
@@ -846,20 +845,20 @@ msgstr "Konec"
 
 #: Wammu/SettingsStorage.py:196 Wammu/SettingsStorage.py:239
 msgid "Enter Bluetooth address of your phone."
-msgstr ""
+msgstr "Zadejte Bluetooth adresu vašeho telefonu."
 
 #: Wammu/SettingsStorage.py:237
 msgid "Enter device name of USB port."
-msgstr ""
+msgstr "Zadejte jméno zařízení USB portu."
 
 #: Wammu/SettingsStorage.py:194 Wammu/SettingsStorage.py:217
 #: Wammu/SettingsStorage.py:222
 msgid "Enter device name of emulated serial port."
-msgstr ""
+msgstr "Zadejte jméno zařízení emulovaného sériového portu."
 
 #: Wammu/SettingsStorage.py:182 Wammu/SettingsStorage.py:212
 msgid "Enter device name of serial port."
-msgstr ""
+msgstr "Zadejte jméno zařízení sériového portu."
 
 #: Wammu/Main.py:221
 msgid ""
@@ -917,15 +916,15 @@ msgstr "Zapíše zprávy do emailů, umístění si vyberete"
 
 #: Wammu/SettingsStorage.py:360
 msgid "FBUS over Bluetooth"
-msgstr ""
+msgstr "FBUS přes Bluetooth"
 
 #: Wammu/SettingsStorage.py:373
 msgid "FBUS over IrDA"
-msgstr ""
+msgstr "FBUS přes IrDA"
 
 #: Wammu/SettingsStorage.py:337
 msgid "FBUS proprietary protocol"
-msgstr ""
+msgstr "Proprietární protokol FBUS"
 
 #: Wammu/App.py:60
 msgid "Failed to set exception handler."
@@ -997,6 +996,8 @@ msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
 msgstr ""
+"Modul Gammu nebyl nalezen, pravděpodobně nemáte nainstalováno python-gammu "
+"pro aktuální verzi pythonu."
 
 #: Wammu/Main.py:102
 msgid "Gammu version"
@@ -1054,7 +1055,7 @@ msgstr "Hardware"
 
 #: Wammu/PhoneWizard.py:324
 msgid "How do you want to configure your phone connection?"
-msgstr ""
+msgstr "Jak chcete nastavit připojení vašeho telefonu?"
 
 #: Wammu/PhoneWizard.py:310
 msgid "How is your phone connected?"
@@ -1114,7 +1115,7 @@ msgstr "Žertující"
 
 #: Wammu/SettingsStorage.py:90
 msgid "I don't know"
-msgstr ""
+msgstr "Nevím"
 
 #: Wammu/Main.py:303
 msgid "I&mport messages"
@@ -1159,6 +1160,7 @@ msgstr ""
 #: Wammu/SettingsStorage.py:95
 msgid "If your phone runs Symbian, please select directly it."
 msgstr ""
+"Pokud váš telefon používá systém Symbian, prosím zvolte přímo tuto možnost."
 
 #: Wammu/Main.py:1414
 msgid "Import backup"
@@ -1186,7 +1188,7 @@ msgstr "Chybné telefonní číslo"
 
 #: Wammu/PhoneWizard.py:301
 msgid "IrDA"
-msgstr ""
+msgstr "IrDA"
 
 #: Wammu/PhoneWizard.py:302
 msgid ""
@@ -1196,7 +1198,7 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:356
 msgid "It is powered on."
-msgstr ""
+msgstr "Telefon je zapnutý."
 
 #: Wammu/Main.py:910 Wammu/Main.py:964 Wammu/Main.py:1009
 msgid ""
@@ -1269,7 +1271,7 @@ msgstr "Přihlášení selhalo!"
 
 #: Wammu/SettingsStorage.py:331
 msgid "MBUS proprietary protocol"
-msgstr ""
+msgstr "Proprietární protokol MBUS"
 
 #: Wammu/Main.py:1115
 msgid "Mailbox file"
@@ -1281,7 +1283,7 @@ msgstr "Složka maildiru"
 
 #: Wammu/PhoneWizard.py:149 Wammu/PhoneWizard.py:328
 msgid "Manual configuration"
-msgstr ""
+msgstr "Ruční nastavení"
 
 #: Wammu/Info.py:167
 msgid "Manufacture month"
@@ -1611,9 +1613,8 @@ msgid "Phone Information"
 msgstr "Informace o telefonu"
 
 #: Wammu/PhoneWizard.py:309
-#, fuzzy
 msgid "Phone connection"
-msgstr "Připojení"
+msgstr "Připojení telefonu"
 
 #: Wammu/PhoneWizard.py:100 Wammu/PhoneWizard.py:116
 msgid "Phone connection test is still active, you can not continue."
@@ -1643,28 +1644,24 @@ msgid "Phone not found!"
 msgstr "Telefon nebyl nalezen!"
 
 #: Wammu/PhoneWizard.py:188
-#, fuzzy
 msgid "Phone port"
-msgstr "Telefon"
+msgstr "Port telefonu"
 
 #: Wammu/PhoneWizard.py:128
-#, fuzzy
 msgid "Phone search"
-msgstr "Průběh hledání telefonu"
+msgstr "Hledání telefonu"
 
 #: Wammu/PhoneSearch.py:39
 msgid "Phone searching log"
 msgstr "Průběh hledání telefonu"
 
 #: Wammu/PhoneWizard.py:129
-#, fuzzy
 msgid "Phone searching status"
-msgstr "Průběh hledání telefonu"
+msgstr "Stav hledání telefonu"
 
 #: Wammu/PhoneWizard.py:264
-#, fuzzy
 msgid "Phone type"
-msgstr "Telefon"
+msgstr "Typ telefonu"
 
 #: Wammu/SettingsStorage.py:364
 msgid "Phonet over Bluetooth"
@@ -1844,9 +1841,8 @@ msgid "Reply"
 msgstr "Odpovědět"
 
 #: Wammu/ErrorMessage.py:72
-#, fuzzy
 msgid "Report bug"
-msgstr "Importovat zálohu"
+msgstr "Nahlásit chybu"
 
 #: Wammu/Settings.py:167
 msgid "Request delivery report by default"
@@ -1894,9 +1890,8 @@ msgid "Save data as..."
 msgstr "Uložit data jako..."
 
 #: Wammu/ErrorMessage.py:84
-#, fuzzy
 msgid "Save debug log as..."
-msgstr "Uložit zálohu jako..."
+msgstr "Uložit ladicí hlášky jako..."
 
 #: Wammu/ErrorMessage.py:63
 msgid "Save debug log..."
@@ -1944,18 +1939,16 @@ msgid "Se&ttings"
 msgstr "&Nastavení"
 
 #: Wammu/PhoneWizard.py:289
-#, fuzzy
 msgid "Search all connections"
-msgstr "Připojení"
+msgstr "Prohledat všechna připojení"
 
 #: Wammu/Main.py:259
 msgid "Search for phone"
 msgstr "Hledat telefon"
 
 #: Wammu/ErrorMessage.py:68
-#, fuzzy
 msgid "Search for similar reports"
-msgstr "Hledat telefon"
+msgstr "Hledat podobné chyby"
 
 #: Wammu/Main.py:219
 msgid "Search:"
@@ -2291,7 +2284,7 @@ msgid ""
 "Traceback:\n"
 "%(traceback)s\n"
 "Exception: %(exception)s"
-msgstr ""
+msgstr "Traceback:%(traceback)sVýjimka: %(exception)s"
 
 #: Wammu/Main.py:805 Wammu/Browser.py:84 Wammu/Browser.py:93
 msgid "Type"
@@ -2299,7 +2292,7 @@ msgstr "Typ"
 
 #: Wammu/PhoneWizard.py:293
 msgid "USB cable"
-msgstr ""
+msgstr "USB kabel"
 
 #: Wammu/Data.py:672
 msgid "Underlined"
