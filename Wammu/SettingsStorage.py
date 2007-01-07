@@ -47,7 +47,7 @@ class Settings:
             if self.position == 0:
                 return 'gammu'
             else:
-                return 'gammu%d', self.position
+                return 'gammu%d' % self.position
         else:
             return self.name
 

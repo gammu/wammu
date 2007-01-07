@@ -6,10 +6,10 @@ xgettext \
     --msgid-bugs-address=michal@cihar.com \
     -o locale/wammu.pot \
     --language=Python \
-    --add-comments \
+    --add-comments=l10n \
     --add-location \
     --copyright-holder="Michal Čihař" \
-    `find Wammu/ -name '*.py'`
+    `find Wammu/ -name '*.py'` wammu-configure.py
 
 ver=`python -c 'import Wammu; print Wammu.__version__'`
 sed -i '

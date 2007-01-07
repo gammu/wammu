@@ -83,3 +83,47 @@ class GammuSettings:
         self.config.Write('name', name)
         if not found:
             self.list.append({'Id': position, 'Name': name, 'Path': path})
+
+    def FirstFree(self):
+        """
+        Find first free entry in configuration file.
+        """
+        idxmap = {}
+        first_free = None
+        for x in self.list:
+            idxmap[x['Id']] = 1
+        for x in range(1000):
+            if not idxmap.has_key(x):
+                first_free = x
+                break
+        if first_free is None:
+            raise 'Could not find free configuration entry!'
+        return first_free
+
+    def SelectConfig(self, parent = None, force = False, new = False):
+        """
+        Shows dialog (if needed) to select configuration.
+        """
+
+        lst = []
+        if new:
+            lst.append({'Id': self.FirstFree(), 'Path': None, 'Name': _('Create new configuration')})
+        lst += self.list
+
+        choices = []
+        for x in lst:
+            # l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
+            choices.append(_('%(name)s (position %(position)d)') % {'name': x['Name'], 'position': x['Id']})
+
+        if len(choices) == 1 and not force:
+            return lst[0]['Id']
+
+        dlg = wx.SingleChoiceDialog(parent,
+                _('Select which configration you want to modify from list bellow.'),
+                _('Select configuration section'),
+                choices)
+        if dlg.ShowModal() == wx.ID_OK:
+            return lst[dlg.GetSelection()]['Id']
+        else:
+            return None
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-01-06 13:33+0100\n"
+"POT-Creation-Date: 2007-01-07 23:08+0100\n"
 "PO-Revision-Date: 2006-10-17 12:33+0000\n"
 "Last-Translator: Peter Dedecker <peter.dedecker@ugent.be>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -46,6 +46,12 @@ msgstr ""
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d berichten geëxporteerd naar \"%(path)s\" (%(type)s)"
+
+#. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
+#: Wammu/GammuSettings.py:116
+#, python-format
+msgid "%(name)s (position %(position)d)"
+msgstr ""
 
 #: Wammu/Main.py:1547
 #, fuzzy, python-format
@@ -96,7 +102,6 @@ msgstr "%d todo"
 msgid "&About"
 msgstr "&Info over"
 
-#. Add menu to the menu bar
 #: Wammu/Main.py:307
 msgid "&Backups"
 msgstr "&Backups"
@@ -125,7 +130,6 @@ msgstr "&Contacten (Alle)"
 msgid "&Disconnect"
 msgstr "Verbinding ver&breken"
 
-#. Add menu to the menu bar
 #: Wammu/Main.py:312
 msgid "&Help"
 msgstr "&Help"
@@ -146,7 +150,6 @@ msgstr "Beri&cht"
 msgid "&Messages"
 msgstr "B&erichten"
 
-#. Add menu to the menu bar
 #: Wammu/Main.py:297
 msgid "&New"
 msgstr "&Nieuw"
@@ -155,7 +158,6 @@ msgstr "&Nieuw"
 msgid "&OK"
 msgstr "&OK"
 
-#. Add menu to the menu bar
 #: Wammu/Main.py:272
 msgid "&Phone"
 msgstr "&Telefoon"
@@ -164,7 +166,6 @@ msgstr "&Telefoon"
 msgid "&Read data"
 msgstr "&Lees gegevens"
 
-#. Add menu to the menu bar
 #: Wammu/Main.py:289
 msgid "&Retrieve"
 msgstr "Op&halen"
@@ -189,7 +190,6 @@ msgstr "&Todo"
 msgid "&Todos"
 msgstr "&Todo items"
 
-#. Add menu to the menu bar
 #: Wammu/Main.py:264
 msgid "&Wammu"
 msgstr "&Wammu"
@@ -203,11 +203,24 @@ msgstr "&Schrijf gegevens"
 msgid ", serial number %s"
 msgstr ", serienummer %s"
 
+#: wammu-configure.py:53
+msgid "-h/--help          ... show this help"
+msgstr ""
+
+#: wammu-configure.py:55
+msgid ""
+"-l/--local-locales ... use locales from current directory rather than system "
+"ones"
+msgstr ""
+
+#: wammu-configure.py:54
+msgid "-v/--version       ... show program version"
+msgstr ""
+
 #: Wammu/Editor.py:194
 msgid "..."
 msgstr "..."
 
-#. FIXME: add icons?
 #: Wammu/Composer.py:411
 msgid "<<< Add <<<"
 msgstr "<<< Toevoegen <<<"
@@ -417,7 +430,6 @@ msgstr ""
 msgid "Calenda&r"
 msgstr "Kalende&r"
 
-#. calendar
 #: Wammu/Main.py:127 Wammu/Main.py:287
 msgid "Calendar"
 msgstr "Kalender"
@@ -430,7 +442,6 @@ msgstr "Kalender &item"
 msgid "Call"
 msgstr "Bellen"
 
-#. calls
 #: Wammu/Main.py:106 Wammu/Main.py:281
 msgid "Calls"
 msgstr "Oproepen"
@@ -516,6 +527,10 @@ msgstr "Claps"
 msgid "Close"
 msgstr "Sluiten"
 
+#: wammu-configure.py:62
+msgid "Command line parsing failed with error:"
+msgstr ""
+
 #: Wammu/Utils.py:437
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr ""
@@ -564,7 +579,6 @@ msgstr "Verbonden"
 msgid "Connecting to IMAP server..."
 msgstr "Bezig met verbinden met IMAP server..."
 
-#. add pages to notebook
 #: Wammu/Settings.py:85 Wammu/Settings.py:285
 msgid "Connection"
 msgstr "Verbinding"
@@ -587,7 +601,6 @@ msgstr ""
 "Verbinding met telefoon geslaagd. Bekijk Gammu documentatie voor "
 "verbindingsdetails"
 
-#. contacts
 #: Wammu/Main.py:112 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Contacten"
@@ -649,6 +662,11 @@ msgstr "Maakt nieuwe todo aan"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 "Maak geconcateneerd bericht aan dat toelaat om langere berichten te sturen."
+
+#: Wammu/GammuSettings.py:110
+#, fuzzy
+msgid "Create new configuration"
+msgstr "Maakt nieuw contact aan"
 
 #: Wammu/Composer.py:436 Wammu/Composer.py:516
 msgid "Create new message by adding part to left list..."
@@ -922,6 +940,10 @@ msgstr "Exporteren beëindigd"
 #: Wammu/Main.py:305
 msgid "Exports messages to emails in storage you choose"
 msgstr "Exporteert berichten naar emails in de gekozen opslag"
+
+#: wammu-configure.py:68
+msgid "Extra unrecognized parameters passed to program"
+msgstr ""
 
 #: Wammu/SettingsStorage.py:360
 msgid "FBUS over Bluetooth"
@@ -1266,7 +1288,6 @@ msgstr "Locatie"
 msgid "Location (0 = auto):"
 msgstr "Lokatie (0= auto):"
 
-#. locking not available on windoze
 #: Wammu/Settings.py:99
 msgid "Lock device"
 msgstr "Vergrendel toestel"
@@ -1334,7 +1355,6 @@ msgstr "Bericht preview"
 msgid "Message will fit into %d SMSes"
 msgstr "Bericht zal in %d SMSjes passen"
 
-#. contacts
 #: Wammu/Main.py:117 Wammu/Main.py:283 Wammu/Settings.py:286
 msgid "Messages"
 msgstr "Berichten"
@@ -1570,6 +1590,11 @@ msgstr "Ogenblik aub, verbinding met telefoon verbreken..."
 msgid "Operation in progress"
 msgstr "Operatie in werking"
 
+#: wammu-configure.py:52
+#, fuzzy
+msgid "Options:"
+msgstr "Omschrijving:"
+
 #: Wammu/Info.py:102
 msgid "Original IMEI"
 msgstr "Origineel IMEI"
@@ -1611,7 +1636,6 @@ msgstr "Delen van huidige bericht"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#. information
 #: Wammu/Main.py:98 Wammu/Main.py:114
 msgid "Phone"
 msgstr "Telefoon"
@@ -1979,6 +2003,11 @@ msgstr "Zoeken voor telefoon"
 msgid "Search:"
 msgstr "Zoeken:"
 
+#: Wammu/GammuSettings.py:123
+#, fuzzy
+msgid "Select configuration section"
+msgstr "Configuratie niet gevonden"
+
 #: Wammu/Select.py:42
 msgid "Select contact"
 msgstr "Kies contactpersoon"
@@ -2086,6 +2115,10 @@ msgstr ""
 #: Wammu/Main.py:1495 Wammu/Main.py:1572
 msgid "Select what to import"
 msgstr "Selecteer wat te importeren"
+
+#: Wammu/GammuSettings.py:122
+msgid "Select which configration you want to modify from list bellow."
+msgstr ""
 
 #: Wammu/Main.py:1178
 msgid ""
@@ -2236,8 +2269,6 @@ msgstr "TaDa"
 msgid "Testing still active!"
 msgstr ""
 
-#. FIXME: should support more types...
-#. ID, display text, match types, editor, init type
 #: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
 #: Wammu/Composer.py:312
 msgid "Text"
@@ -2298,7 +2329,6 @@ msgstr ""
 msgid "Timidity not found"
 msgstr "Timidity niet gevonden"
 
-#. todos
 #: Wammu/Main.py:124 Wammu/Main.py:285
 msgid "Todos"
 msgstr "Taken"
@@ -2367,7 +2397,6 @@ msgstr ""
 "dit na indien je andere dan latin-1 karakters gebruikt.  Je berichten zullen "
 "meer plaats vereisen zodat je minder tekens in één enkel bericht krijgt."
 
-#. Parse power source
 #: Wammu/Main.py:480 Wammu/Main.py:496 Wammu/Editor.py:222 Wammu/Editor.py:425
 msgid "Unknown"
 msgstr "Onbekend"
@@ -2396,6 +2425,15 @@ msgstr "Niet-verstuurde berichten"
 #: Wammu/Composer.py:423
 msgid "Up"
 msgstr "Omhoog"
+
+#: wammu-configure.py:96
+#, fuzzy
+msgid "Updating gammu configuration..."
+msgstr "Maakt nieuw contact aan"
+
+#: wammu-configure.py:50
+msgid "Usage: wammu [OPTION...]"
+msgstr ""
 
 #: Wammu/Settings.py:174
 msgid "Use 16 bit Id inside message. This is safe for most cases."
@@ -2442,6 +2480,11 @@ msgstr "Sch&rijf bericht"
 #: Wammu/Data.py:169
 msgid "WOW"
 msgstr "WOW"
+
+#: wammu-configure.py:46
+#, python-format
+msgid "Wammu - Windowed Gammu version %s"
+msgstr ""
 
 #: Wammu/PhoneWizard.py:342
 msgid "Wammu Phone Configuration Wizard"
@@ -2501,12 +2544,10 @@ msgstr ""
 msgid "Wearing glases"
 msgstr "Draagt zonnebril"
 
-#. Create pages
 #: Wammu/PhoneWizard.py:351
 msgid "Welcome"
 msgstr ""
 
-#. initial content
 #: Wammu/Main.py:248
 #, python-format
 msgid "Welcome to Wammu %s"
@@ -2520,7 +2561,6 @@ msgstr "Wanneer aangevinkt wordt het bericht opgeslagen in de telefoon."
 msgid "When checked, message is sent to recipient."
 msgstr "Wanneer aangevinkt, wordt het bericht verstuurd naar de ontvanger."
 
-#. Select where to export
 #: Wammu/Main.py:1114
 msgid "Where do you want to export emails created from your messages?"
 msgstr "Waar wil je de emails aangemaakt van je berichten naar exporteren?"

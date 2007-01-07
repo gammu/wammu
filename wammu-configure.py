@@ -28,7 +28,11 @@ import os
 import gettext
 import sys
 import getopt
+import wx
+import re
+import time
 import Wammu
+import Wammu.GammuSettings
 
 # Try to import iconv_codec to allow working on chinese windows
 try:
@@ -77,6 +81,21 @@ for o, a in opts:
 # need to be imported after locales are initialised
 import Wammu.PhoneWizard
 app = Wammu.PhoneWizard.WizardApp()
-print Wammu.PhoneWizard.RunConfigureWizard(None)
+
+wammu_cfg = wx.Config(appName = 'Wammu', style = wx.CONFIG_USE_LOCAL_FILE)
+
+config = Wammu.GammuSettings.GammuSettings(wammu_cfg)
+
+position = config.SelectConfig(new = True)
+
+if position is None:
+    sys.exit()
+
+result = Wammu.PhoneWizard.RunConfigureWizard(None, position)
+if result is not None:
+    busy = wx.BusyInfo(_('Updating gammu configuration...'))
+    time.sleep(0.1)
+    wx.Yield()
+    config.SetConfig(result['Position'], result['Device'], result['Connection'], result['Name'])
 app.Destroy()
 
