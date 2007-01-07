@@ -142,9 +142,6 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
     Manual phone configuration.
     """
     def __init__(self, parent):
-        """
-        @todo: We should rather use SettingsStorage to get all valid devices.
-        """
         Wammu.Wizard.MultiInputPage.__init__(self, parent,
                 _('Manual configuration'),
                 [
@@ -152,7 +149,7 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
                     _('Connection type') + ':',
                 ],
                 [
-                    Wammu.Data.Devices,
+                    parent.settings.GetDevices()[0],
                     Wammu.Data.Connections,
                 ])
 

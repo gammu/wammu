@@ -154,8 +154,10 @@ class Settings:
             return 'dku'
         if self.gammudriver in ['irdaat', 'irdaobex', 'irdagnapbus', 'fbusirda', 'irdaphonet']:
             return 'irda'
+        if self.gammudriver is None:
+            return None
         # fallback
-        return 'serial'
+        return None
 
     def GetBluezDevices(self):
         try:
@@ -168,39 +170,39 @@ class Settings:
 
     def GetDevicesWindows(self):
         type = self.GetPortType()
+        result = []
+        if type in ['serial', 'btserial', 'irdaserial', 'usbserial', None]:
+            result += [
+                'COM1:',
+                'COM2:',
+                'COM3:',
+                'COM4:',
+                'COM5:',
+                'COM6:',
+                'COM7:',
+                'COM8:',
+                'COM9:',
+                ]
+        if type in ['bluetooth', None]:
+            result += self.GetBluezDevices()
+
+        help = ''
         if type == 'serial':
-            return [
-                'COM1:',
-                'COM2:',
-                'COM3:',
-                'COM4:',
-                'COM5:',
-                'COM6:',
-                'COM7:',
-                'COM8:',
-                'COM9:',
-                ], _('Enter device name of serial port.')
+            help = _('Enter device name of serial port.')
         elif type in ['btserial', 'irdaserial', 'usbserial']:
-            return [
-                'COM1:',
-                'COM2:',
-                'COM3:',
-                'COM4:',
-                'COM5:',
-                'COM6:',
-                'COM7:',
-                'COM8:',
-                'COM9:',
-                ], _('Enter device name of emulated serial port.')
+            help = _('Enter device name of emulated serial port.')
         elif type == 'bluetooth':
-            return self.GetBluezDevices(), _('Enter Bluetooth address of your phone.')
+            help = _('Enter Bluetooth address of your phone.')
         elif type in ['irda', 'dku']:
-            return [], _('You don\'t have to enter anything for this settings.')
+            help = _('You don\'t have to enter anything for this settings.')
+
+        return result, help
 
     def GetDevicesUNIX(self):
         type = self.GetPortType()
-        if type == 'serial':
-            return [
+        result = []
+        if type in ['serial', None]:
+            result += [
                 '/dev/ttyS0',
                 '/dev/ttyS1',
                 '/dev/ttyS2',
@@ -209,19 +211,19 @@ class Settings:
                 '/dev/tts/1',
                 '/dev/tts/2',
                 '/dev/tts/3',
-                ], _('Enter device name of serial port.')
-        elif type == 'btserial':
-            return [
+                ]
+        if type in ['btserial', None]:
+            result += [
                 '/dev/rfcomm0',
                 '/dev/rfcomm1',
-                ], _('Enter device name of emulated serial port.')
-        elif type == 'irdaserial':
-            return [
+                ]
+        if type in ['irdaserial', None]:
+            result += [
                 '/dev/ircomm0',
                 '/dev/ircomm1',
-                ], _('Enter device name of emulated serial port.')
-        elif type in ['usbserial', 'dku']:
-            return [
+                ]
+        if type in ['usbserial', 'dku', None]:
+            result += [
                 '/dev/ttyUSB0',
                 '/dev/ttyUSB1',
                 '/dev/ttyUSB2',
@@ -234,11 +236,23 @@ class Settings:
                 '/dev/usb/tts/1',
                 '/dev/usb/tts/2',
                 '/dev/usb/tts/3',
-                ], _('Enter device name of USB port.')
+                ]
+        if type in ['bluetooth', None]:
+            result += self.GetBluezDevices()
+
+        help = ''
+        if type == 'serial':
+            help = _('Enter device name of serial port.')
+        elif type in ['btserial', 'irdaserial']:
+            help = _('Enter device name of emulated serial port.')
         elif type == 'bluetooth':
-            return self.GetBluezDevices(), _('Enter Bluetooth address of your phone.')
-        elif type == 'irda':
-            return [], _('You don\'t have to enter anything for this settings.')
+            help = _('Enter Bluetooth address of your phone.')
+        elif type in ['usbserial', 'dku']:
+            help = _('Enter device name of USB port.')
+        elif type in ['irda', 'dku']:
+            help = _('You don\'t have to enter anything for this settings.')
+
+        return result, help
 
 
     def GetDevices(self):
