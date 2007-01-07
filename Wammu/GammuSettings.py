@@ -100,11 +100,10 @@ class GammuSettings:
             raise 'Could not find free configuration entry!'
         return first_free
 
-    def SelectConfig(self, parent = None, force = False, new = False):
+    def GetConfigList(self, new = False):
         """
-        Shows dialog (if needed) to select configuration.
+        Returns list of available configurations as tuple of (details, verbose).
         """
-
         lst = []
         if new:
             lst.append({'Id': self.FirstFree(), 'Path': None, 'Name': _('Create new configuration')})
@@ -114,6 +113,13 @@ class GammuSettings:
         for x in lst:
             # l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
             choices.append(_('%(name)s (position %(position)d)') % {'name': x['Name'], 'position': x['Id']})
+        return lst, choices
+
+    def SelectConfig(self, parent = None, force = False, new = False):
+        """
+        Shows dialog (if needed) to select configuration.
+        """
+        lst, choices = self.GetConfigList(new = new)
 
         if len(choices) == 1 and not force:
             return lst[0]['Id']
