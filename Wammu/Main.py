@@ -2046,10 +2046,16 @@ class WammuFrame(wx.Frame):
         self.TogglePhoneMenus(False)
 
     def SearchMessage(self, text):
+        """
+        This has to send message as it is called from different thread.
+        """
         evt = Wammu.Events.TextEvent(text = text + '\n')
         wx.PostEvent(self.searchlog, evt)
 
     def SearchDone(self, lst):
+        """
+        This has to send message as it is called from different thread.
+        """
         self.founddevices = lst
         evt = Wammu.Events.DoneEvent()
         wx.PostEvent(self.searchlog, evt)

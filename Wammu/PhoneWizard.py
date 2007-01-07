@@ -111,6 +111,7 @@ class TestPage(Wammu.Wizard.SimplePage):
         return False
 
     def Cancel(self, evt):
+        # FIXME: we should abort test here
         if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
                 _('Phone connection test is still active, you can not continue.'),
@@ -127,15 +128,115 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
         Wammu.Wizard.TextPage.__init__(self, parent,
                 _('Phone search'),
                 _('Phone searching status') + ':')
+        self.Bind(Wammu.Events.EVT_DONE, self.OnDone)
+        self.Bind(Wammu.Events.EVT_TEXT, self.OnText)
+        self.results = []
+        self.thread = None
 
     def GetNext(self):
-#        self.parent.settings.SetPort(self.edits[0].GetValue())
-#        self.parent.settings.SetGammuDriver(self.edits[1].GetValue())
         self.parent.pg_test.SetPrev(self)
         return self.parent.pg_test
 
     def Blocked(self, evt):
+        if self.thread is not None and self.thread.isAlive():
+            wx.MessageDialog(self,
+                _('Phone search is still active, you can not continue.'),
+                _('Searching still active!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return True
+        if evt.GetDirection() and len(self.results) == 0:
+            wx.MessageDialog(self,
+                _('No phone has not been found, you can not continue.'),
+                _('No phone found!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return True
         return False
+
+    def Cancel(self, evt):
+        # FIXME: we should abort searching here
+        if self.thread is not None and self.thread.isAlive():
+            wx.MessageDialog(self,
+                _('Phone search is still active, you can not continue.'),
+                _('Searching still active!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return False
+        return True
+
+    def Activated(self, evt):
+        if evt.GetDirection():
+            self.edit.Clear()
+            self.edit.AppendText(_('Wammu is now searching for phone:') + '\n')
+            self.thread = Wammu.PhoneSearch.AllSearchThread(
+                lock = 'no',
+                callback = self.SearchDone,
+                msgcallback = self.SearchMessage,
+                win = self)
+            self.thread.start()
+            self.results = []
+
+    def SearchMessage(self, text):
+        """
+        This has to send message as it is called from different thread.
+        """
+        evt = Wammu.Events.TextEvent(text = text + '\n')
+        wx.PostEvent(self, evt)
+
+    def SearchDone(self, lst):
+        """
+        This has to send message as it is called from different thread.
+        """
+        self.results = lst
+        evt = Wammu.Events.DoneEvent()
+        wx.PostEvent(self, evt)
+
+    def OnText(self, evt):
+        self.edit.AppendText(StrConv(evt.text))
+
+    def OnDone(self, evt):
+        """
+        Select one config to use.
+        """
+        if len(self.results) == 0:
+            self.edit.AppendText(_('No phone has been found!') + '\n')
+            return
+        if len(self.results) > 1:
+            # Allow user to select phone
+            # FIXME: This might be in wizard, but this selection should be rare...
+            choices = []
+            for x in self.results:
+                choices.append(_('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+                    {
+                        'model': x[2][0],
+                        'manufacturer': x[3],
+                        'port': x[0],
+                        'connection': x[1]
+                    })
+            dlg = wx.SingleChoiceDialog(self, _('Select phone to use from bellow list'), _('Select phone'),
+                                        choices)
+            if dlg.ShowModal() == wx.ID_OK:
+                idx = dlg.GetSelection()
+                config = self.results[idx]
+            else:
+                self.results = []
+                config = None
+        else:
+            # Use directly only found phone
+            config = self.results[0]
+
+        if config is not None:
+            self.parent.settings.SetPort(config[0])
+            self.parent.settings.SetGammuDriver(config[1])
+            self.edit.AppendText(_('Following phone will be used:') + '\n')
+            self.edit.AppendText(_('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+                    {
+                        'model': config[2][0],
+                        'manufacturer': config[3],
+                        'port': config[0],
+                        'connection': config[1]
+                    })
+        else:
+            self.edit.AppendText(_('No phone selected!') + '\n')
+
 
 class ManualPage(Wammu.Wizard.MultiInputPage):
     """
