@@ -1319,6 +1319,7 @@ class WammuFrame(wx.Frame):
                 folders, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
             if dlg.ShowModal() == wx.ID_CANCEL:
                 return
+            path = '%s@%s/%s' % (login, server, folders[dlg.GetSelection()])
             folder = folders[dlg.GetSelection()].encode('imap4-utf-7')
 
             busy = wx.BusyInfo(_('Selecting folder on IMAP server...'))
