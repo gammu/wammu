@@ -7,8 +7,13 @@ su
 python setup.py install
 
 You need python-gammu installed to run and install this program. If you
-want support for scanning bluetooth devices, you need btctl (part of GNOME
-Bluetooth) or PyBluez.
+want support for scanning bluetooth devices, you need PyBluez [1].
+
+For Windows you might want to install also Pywin32 [2], which allows to
+show only installed devices.
 
 If you want to obey dependency checking at build time for any reason,
 you can use --skip-deps option.
+
+[1]: http://org.csail.mit.edu/pybluez/
+[2]: https://sourceforge.net/projects/pywin32/

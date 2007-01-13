@@ -29,6 +29,10 @@ import Wammu.Paths
 import Wammu.Data
 from Wammu.Utils import StrConv, Str_ as _
 
+COM_PORTS = 16
+UNX_DEVICES = 4
+
+
 class Settings:
     """
     Helper class for generating settings.
@@ -168,21 +172,35 @@ class Settings:
         except bluetooth.BluetoothError:
             return []
 
+    def CheckDev(self, dev):
+        if sys.platform == 'win32':
+            try:
+                import win32file
+                if dev[:3] == 'COM':
+                    try:
+                        win32file.QueryDosDevice(dev)
+                        return True
+                    except:
+                        pass
+            except ImportError:
+                return True
+        else:
+            if dev[0] == '/' and os.path.exists(dev):
+                return True
+        return False
+
+    def AddDevs(self, lst, format, limit):
+        for x in range(limit):
+            name = format % x
+            if self.CheckDev(name):
+                lst.append(name)
+
+
     def GetDevicesWindows(self):
         type = self.GetPortType()
         result = []
         if type in ['serial', 'btserial', 'irdaserial', 'usbserial', None]:
-            result += [
-                'COM1:',
-                'COM2:',
-                'COM3:',
-                'COM4:',
-                'COM5:',
-                'COM6:',
-                'COM7:',
-                'COM8:',
-                'COM9:',
-                ]
+            self.AddDevs(result, 'COM%d', COM_PORTS)
         if type in ['bluetooth', None]:
             result += self.GetBluezDevices()
 
@@ -202,41 +220,19 @@ class Settings:
         type = self.GetPortType()
         result = []
         if type in ['serial', None]:
-            result += [
-                '/dev/ttyS0',
-                '/dev/ttyS1',
-                '/dev/ttyS2',
-                '/dev/ttyS3',
-                '/dev/tts/0',
-                '/dev/tts/1',
-                '/dev/tts/2',
-                '/dev/tts/3',
-                ]
+            self.AddDevs(result, '/dev/cua%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/ttyS%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/tts/%d', UNX_DEVICES)
         if type in ['btserial', None]:
-            result += [
-                '/dev/rfcomm0',
-                '/dev/rfcomm1',
-                ]
+            self.AddDevs(result, '/dev/rfcomm%d', UNX_DEVICES)
         if type in ['irdaserial', None]:
-            result += [
-                '/dev/ircomm0',
-                '/dev/ircomm1',
-                ]
+            self.AddDevs(result, '/dev/ircomm%d', UNX_DEVICES)
         if type in ['usbserial', 'dku', None]:
-            result += [
-                '/dev/ttyUSB0',
-                '/dev/ttyUSB1',
-                '/dev/ttyUSB2',
-                '/dev/ttyUSB3',
-                '/dev/ttyACM0',
-                '/dev/ttyACM1',
-                '/dev/ttyACM2',
-                '/dev/ttyACM3',
-                '/dev/usb/tts/0',
-                '/dev/usb/tts/1',
-                '/dev/usb/tts/2',
-                '/dev/usb/tts/3',
-                ]
+            self.AddDevs(result, '/dev/ttyACM%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/ttyUSB0%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/usb/tts/%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/usb/acm/%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/input/ttyACM%d', UNX_DEVICES)
         if type in ['bluetooth', None]:
             result += self.GetBluezDevices()
 
@@ -259,13 +255,7 @@ class Settings:
         if sys.platform == 'win32':
             return self.GetDevicesWindows()
         else:
-            devs = self.GetDevicesUNIX()
-            result = [], devs[1]
-            for dev in devs[0]:
-                if dev[0] == '/' and not os.path.exists(dev):
-                    continue
-                result[0].append(dev)
-            return result
+            return self.GetDevicesUNIX()
 
     def GetGammuDrivers(self):
         names = []

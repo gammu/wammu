@@ -234,6 +234,14 @@ class build_wammu(distutils.command.build.build, object):
                 print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
             print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
 
+        if sys.platform == 'win32':
+            print 'Checking for PyWin32 ...',
+            try:
+                import win32file
+                print 'win32file found'
+            except ImportError:
+                print 'win32file not found!'
+                print 'PyWin32 can be downloaded from <https://sourceforge.net/projects/pywin32/>'
     def run (self):
         global skip_dependencies
         self.build_message_files()
