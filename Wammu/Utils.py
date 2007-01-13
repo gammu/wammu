@@ -345,21 +345,66 @@ def ParseCalendar(entry):
     end = ''
     text = ''
     description = ''
+    tone_alarm = None
+    silent_alarm = None
+    recurrence = None
     for i in entry['Entries']:
         if i['Type'] == 'END_DATETIME':
             end = str(i['Value'])
         elif i['Type'] == 'START_DATETIME':
             start = str(i['Value'])
+        elif i['Type'] == 'TONE_ALARM_DATETIME':
+            tone_alarm = _('enabled (tone)')
+        elif i['Type'] == 'SILENT_ALARM_DATETIME':
+            silent_alarm = _('enabled (silent)')
         elif i['Type'] == 'TEXT':
             text = i['Value']
         elif i['Type'] == 'DESCRIPTION':
             description = i['Value']
+        elif i['Type'] == 'REPEAT_MONTH':
+            recurrence = _('yearly')
+        elif i['Type'] == 'REPEAT_DAY':
+            recurrence = _('monthly')
+        elif i['Type'] == 'REPEAT_FREQUENCY':
+            if i['Value'] == 1:
+                recurrence = _('daily')
+            elif i['Value'] == 2:
+                recurrence = _('biweekly')
+        elif (i['Type'] == 'REPEAT_DAYOFWEEK'):
+            if i['Value'] == 1:
+                recurrence = _('weekly on monday')
+            elif i['Value'] == 2:
+                recurrence = _('weekly on tuesday')
+            elif i['Value'] == 3:
+                recurrence = _('weekly on wednesday')
+            elif i['Value'] == 4:
+                recurrence = _('weekly on thursday')
+            elif i['Value'] == 5:
+                recurrence = _('weekly on friday')
+            elif i['Value'] == 6:
+                recurrence = _('weekly on saturday')
+            elif i['Value'] == 7:
+                recurrence = _('weekly on sunday')
+
+    if tone_alarm is not None:
+        entry['Alarm'] = tone_alarm
+    elif silent_alarm is not None:
+        entry['Alarm'] = silent_alarm
+    else:
+        entry['Alarm'] = _('disabled')
+
+    if recurrence is None:
+        entry['Recurrence'] = _('nonrecurring')
+    else:
+        entry['Recurrence'] = recurrence
+
     if text == '':
         entry['Text'] = description
     elif description == '':
         entry['Text'] = text
     else:
         entry['Text'] = '%s (%s)' % (text, description)
+
     entry['Start'] = start
     entry['End'] = end
     entry['Synced'] = False
