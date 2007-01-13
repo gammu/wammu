@@ -34,6 +34,8 @@ import time
 import copy
 import imaplib
 import tempfile
+import webbrowser
+import locale
 import Wammu
 import re
 
@@ -307,7 +309,11 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu5, _('&Backups'))
 
         menuhelp = wx.Menu()
-        menuhelp.Append(1001, _('&About'), _('Information about program'))
+        menuhelp.Append(1001, _('&Website'), _('Wammu website'))
+        menuhelp.Append(1002, _('&Support'), _('Wammu support website'))
+        menuhelp.Append(1003, _('&Report bug'), _('Report bug in Wammu'))
+        menuhelp.AppendSeparator()
+        menuhelp.Append(1100, _('&About'), _('Information about program'))
         # Add menu to the menu bar
         self.menuBar.Append(menuhelp, _('&Help'))
 
@@ -347,7 +353,10 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 504, self.ImportSMS)
         wx.EVT_MENU(self, 510, self.SMSToMails)
 
-        wx.EVT_MENU(self, 1001, self.About)
+        wx.EVT_MENU(self, 1001, self.Website)
+        wx.EVT_MENU(self, 1002, self.Support)
+        wx.EVT_MENU(self, 1003, self.ReportBug)
+        wx.EVT_MENU(self, 1100, self.About)
 
         self.timer = None
         self.TogglePhoneMenus(False)
@@ -2107,3 +2116,18 @@ class WammuFrame(wx.Frame):
 
     def About(self, evt = None):
         Wammu.About.AboutBox(self).ShowModal()
+
+    def GetWebsiteLang(self):
+        (loc, charset) = locale.getdefaultlocale()
+        if loc[:2].lower() == 'cs':
+            return 'cz.'
+        return ''
+
+    def Website(self, evt = None):
+        webbrowser.open("http://%scihar.com/gammu/wammu/?version=%s" % (self.GetWebsiteLang(), Wammu.__version__))
+
+    def Support(self, evt = None):
+        webbrowser.open("http://%scihar.com/gammu/wammu/support?version=%s" % (self.GetWebsiteLang(), Wammu.__version__))
+
+    def ReportBug(self, evt = None):
+        webbrowser.open("http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1")
