@@ -1779,6 +1779,8 @@ class WammuFrame(wx.Frame):
         try:
             if self.type[0] == 'contact' or self.type[0] == 'call':
                 busy = wx.BusyInfo(_('Deleting contact(s)...'))
+                time.sleep(0.1)
+                wx.Yield()
                 for v in lst:
                     self.sm.DeleteMemory(v['MemoryType'], v['Location'])
                     for idx in range(len(self.values[self.type[0]][v['MemoryType']])):
@@ -1787,6 +1789,8 @@ class WammuFrame(wx.Frame):
                             break
             elif self.type[0] == 'message':
                 busy = wx.BusyInfo(_('Deleting message(s)...'))
+                time.sleep(0.1)
+                wx.Yield()
                 for v in lst:
                     for loc in v['Location'].split(', '):
                         self.sm.DeleteSMS(0, int(loc))
@@ -1796,6 +1800,8 @@ class WammuFrame(wx.Frame):
                             break
             elif self.type[0] == 'todo':
                 busy = wx.BusyInfo(_('Deleting todo(s)...'))
+                time.sleep(0.1)
+                wx.Yield()
                 for v in lst:
                     self.sm.DeleteToDo(v['Location'])
                     for idx in range(len(self.values[self.type[0]]['  '])):
