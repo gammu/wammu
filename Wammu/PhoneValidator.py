@@ -29,7 +29,7 @@ from Wammu.Utils import Str_ as _
 
 validchars = '0123456789+#*'
 matcher = re.compile('^\\+?[0-9*#]+$')
-matcherp = re.compile('^\\+?[P0-9*#]+$')
+matcherp = re.compile('^\\+?[Pp0-9*#]+$')
 matchsplit = re.compile('[\s;,]+')
 
 def SplitNumbers(text):
