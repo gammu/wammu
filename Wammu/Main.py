@@ -1356,7 +1356,7 @@ class WammuFrame(wx.Frame):
                 filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
 
                 try:
-                    res = m.append(folder, None, None, data)
+                    res = m.append(folder, '$SMS', None, data)
                 except:
                     res = ['FAIL']
                 if res[0] != 'OK':
