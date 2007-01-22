@@ -70,6 +70,7 @@ def DateToString(dt):
 
 def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     msg = MIMEMultipart('related', None, None, type='text/html')
+    prepend = ''
     name = ''
     if lookuplist != None:
         i = SearchNumber(lookuplist, sms['Number'])
@@ -91,6 +92,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     else:
         msg['To'] = local
         msg['From'] = remote
+        prepend = ('Received: from %s via GSM\n' % unicode(sms['SMS'][0]['SMSC']['Number'])) + prepend
 
     if len(sms['Name']) > 0 :
         msg['Subject'] = SmsTextFormat(cfg, sms['Name'], False)
@@ -165,14 +167,15 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     else:
         filename = '%s-%s.eml' % (sms['SMS'][0]['Type'], md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
+    # Add message ID
+    msg.add_header('Message-ID', '<%s@%s>' % (filename[:-4], sms['Number']))
+
     if mailbox:
         if sms['DateTime'] is None:
             ts = email.Utils.formatdate(None, True)
         else:
             ts = DateToString(sms['DateTime'])
-        prepend = 'From wammu@wammu.sms %s\n' % ts
-    else:
-        prepend = ''
+        prepend = ('From wammu@wammu.sms %s\n' % ts) + prepend
 
     return filename, prepend + msg.as_string()
 
