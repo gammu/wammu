@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the wammu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2007-01-13 11:47+0100\n"
-"PO-Revision-Date: 2006-10-17 12:33+0000\n"
-"Last-Translator: Peter Dedecker <peter.dedecker@ugent.be>\n"
+"PO-Revision-Date: 2007-01-18 18:26+0100\n"
+"Last-Translator: Peter Dedecker <Peter.Dedecker@UGent.be>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 0.10.1\n"
 
 #: Wammu/About.py:114
 msgid ""
@@ -51,10 +51,10 @@ msgstr "%(count)d berichten geëxporteerd naar \"%(path)s\" (%(type)s)"
 #: Wammu/GammuSettings.py:115
 #, python-format
 msgid "%(name)s (position %(position)d)"
-msgstr ""
+msgstr "%s is de naam van de huidige configuratie of 'maak nieuwe configuratie', %d is de positie van deze config in .gammurc"
 
 #: Wammu/Main.py:1557
-#, fuzzy, python-format
+#, python-format
 msgid "%d SIM contact entries"
 msgstr "%d SIM contactpersonen"
 
@@ -84,14 +84,14 @@ msgid "%d messages"
 msgstr "%d berichten"
 
 #: Wammu/Main.py:1554
-#, fuzzy, python-format
+#, python-format
 msgid "%d phone contact entries"
 msgstr "%d telefoon contacten"
 
 #: Wammu/Main.py:1560
-#, fuzzy, python-format
+#, python-format
 msgid "%d to do entries"
-msgstr "%d ToDo items"
+msgstr "%d taken"
 
 #: Wammu/Main.py:1777
 #, python-format
@@ -167,9 +167,8 @@ msgid "&Read data"
 msgstr "&Lees gegevens"
 
 #: Wammu/Main.py:314
-#, fuzzy
 msgid "&Report bug"
-msgstr "Importeer backup"
+msgstr "Rapporteer foutje"
 
 #: Wammu/Main.py:291
 msgid "&Retrieve"
@@ -184,9 +183,8 @@ msgid "&Search phone"
 msgstr "&Zoek telefoon"
 
 #: Wammu/Main.py:313
-#, fuzzy
 msgid "&Support"
-msgstr "&Importeren"
+msgstr "&Ondersteuning"
 
 #: Wammu/Main.py:272
 msgid "&Synchronise time"
@@ -206,7 +204,7 @@ msgstr "&Wammu"
 
 #: Wammu/Main.py:312
 msgid "&Website"
-msgstr ""
+msgstr "&Website"
 
 #: Wammu/Main.py:256
 msgid "&Write data"
@@ -219,17 +217,17 @@ msgstr ", serienummer %s"
 
 #: wammu-configure.py:53
 msgid "-h/--help          ... show this help"
-msgstr ""
+msgstr "-h/--help          ... toon deze help"
 
 #: wammu-configure.py:55
 msgid ""
 "-l/--local-locales ... use locales from current directory rather than system "
 "ones"
-msgstr ""
+msgstr "-l/--local-locales ... gebruik lokalisaties van de huidige directory in plaats van deze van het systeem"
 
 #: wammu-configure.py:54
 msgid "-v/--version       ... show program version"
-msgstr ""
+msgstr "-v/--version       ... toon programma versie"
 
 #: Wammu/Editor.py:194
 msgid "..."
@@ -250,27 +248,27 @@ msgstr ">>> Verwijderen"
 
 #: Wammu/Main.py:493
 msgid "AC"
-msgstr ""
+msgstr "AC"
 
 #: Wammu/SettingsStorage.py:117
 msgid "AT based"
-msgstr ""
+msgstr "AT gebaseerd"
 
 #: Wammu/SettingsStorage.py:285
 msgid "AT over Bluetooth"
-msgstr ""
+msgstr "AT over Bluetooth"
 
 #: Wammu/SettingsStorage.py:289
 msgid "AT over Bluetooth with RF searching"
-msgstr ""
+msgstr "AT over Bluetooth met RF zoeken"
 
 #: Wammu/SettingsStorage.py:299
 msgid "AT over DKU2"
-msgstr ""
+msgstr "AT over DKU2"
 
 #: Wammu/SettingsStorage.py:294
 msgid "AT over IrDA"
-msgstr ""
+msgstr "AT over IrDA"
 
 #: Wammu/About.py:39
 msgid "About Wammu"
@@ -298,7 +296,7 @@ msgstr ""
 
 #: Wammu/Browser.py:93
 msgid "Alarm"
-msgstr ""
+msgstr "Alarm"
 
 #: Wammu/Data.py:661
 msgid "Alignment"
@@ -344,7 +342,7 @@ msgstr "Wilt u %s echt verwijderen?"
 
 #: Wammu/PhoneWizard.py:458
 msgid "As soon as your phone is ready, you can continue."
-msgstr ""
+msgstr "Van zodra uw telefoon klaar is, kunt verdergaan"
 
 #: Wammu/Settings.py:134
 msgid "Attempt to reformat text"
@@ -355,9 +353,8 @@ msgid "Automatically connect to phone on startup"
 msgstr "Automatisch verbinden met telefoon bij opstarten"
 
 #: Wammu/PhoneWizard.py:424
-#, fuzzy
 msgid "Automatically search for a phone"
-msgstr "Automatisch verbinden met telefoon bij opstarten"
+msgstr "Automatisch zoeken naar een telefoon"
 
 #: Wammu/Composer.py:408
 msgid "Available message parts"
@@ -420,13 +417,13 @@ msgstr "Vooraleer toe te voegen, zoek aub eerst voor gelijkaardige bugs op %s"
 
 #: Wammu/PhoneWizard.py:395
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: Wammu/PhoneWizard.py:396
 msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
-msgstr ""
+msgstr "Bluetooth is een draadloze verbinding en vereist geen direct zichtbaarheid. De telefoon moet gepaired zijn met de computer vooraleer u verdergaat."
 
 #: Wammu/PhoneSearch.py:128 Wammu/PhoneSearch.py:158
 msgid "Bluetooth device scan completed"
@@ -442,7 +439,7 @@ msgstr "Oproepen"
 
 #: Wammu/PhoneWizard.py:455
 msgid "Cable is connected or phone is in wireless connection range."
-msgstr ""
+msgstr "De kabel is aangesloten of de telefoon is binnen het draadloze bereik."
 
 #: Wammu/Main.py:289
 msgid "Calenda&r"
@@ -547,7 +544,7 @@ msgstr "Sluiten"
 
 #: wammu-configure.py:62
 msgid "Command line parsing failed with error:"
-msgstr ""
+msgstr "Commandolijn inlezen mislukt met error:"
 
 #: Wammu/Utils.py:482
 msgid "Communication canceled by phone, did you press cancel on phone?"
@@ -568,18 +565,16 @@ msgid "Concatenated"
 msgstr "Samengevoegd"
 
 #: Wammu/PhoneWizard.py:42
-#, fuzzy
 msgid "Configuration done"
-msgstr "Configuratie niet gevonden"
+msgstr "Configuratie klaar"
 
 #: Wammu/Main.py:433 Wammu/Main.py:442
 msgid "Configuration not found"
 msgstr "Configuratie niet gevonden"
 
 #: Wammu/PhoneWizard.py:421
-#, fuzzy
 msgid "Configuration type"
-msgstr "Configuratie niet gevonden"
+msgstr "Configuratie type"
 
 #: Wammu/Main.py:1782 Wammu/Settings.py:230
 msgid "Confirm deleting"
@@ -602,14 +597,12 @@ msgid "Connection"
 msgstr "Verbinding"
 
 #: Wammu/PhoneWizard.py:63
-#, fuzzy
 msgid "Connection test"
-msgstr "Verbinding"
+msgstr "Test verbinding"
 
 #: Wammu/PhoneWizard.py:250 Wammu/PhoneWizard.py:341
-#, fuzzy
 msgid "Connection type"
-msgstr "Verbinding"
+msgstr "Verbindingstype"
 
 #: Wammu/Settings.py:84
 msgid ""
@@ -682,9 +675,8 @@ msgstr ""
 "Maak geconcateneerd bericht aan dat toelaat om langere berichten te sturen."
 
 #: Wammu/GammuSettings.py:109
-#, fuzzy
 msgid "Create new configuration"
-msgstr "Maakt nieuw contact aan"
+msgstr "Maak nieuwe configuratie"
 
 #: Wammu/Composer.py:436 Wammu/Composer.py:516
 msgid "Create new message by adding part to left list..."
@@ -711,15 +703,15 @@ msgstr "Aanmaken van map mislukt, bailing out."
 
 #: Wammu/SettingsStorage.py:355
 msgid "DKU2 cable"
-msgstr ""
+msgstr "DKU2 kabel"
 
 #: Wammu/SettingsStorage.py:351
 msgid "DKU5 cable"
-msgstr ""
+msgstr "DKU5 kabel"
 
 #: Wammu/SettingsStorage.py:359
 msgid "DLR3-3P/CA-42 cable"
-msgstr ""
+msgstr "DLR3-3P/CA-42 kabel"
 
 #: Wammu/Main.py:1470 Wammu/Main.py:1486
 #, python-format
@@ -744,7 +736,7 @@ msgstr "Datum"
 msgid ""
 "Debug log has been automatically saved to %s, you are strongly encouraged to "
 "include it in bugreport."
-msgstr ""
+msgstr "Foutinformatie werd automatisch opgeslagen in %s, we verzoeken u dit bij het foutrapport toe te voegen."
 
 #: Wammu/Error.py:49
 #, python-format
@@ -848,7 +840,7 @@ msgstr "Neer"
 
 #: Wammu/PhoneWizard.py:314 Wammu/PhoneWizard.py:318
 msgid "Driver to use"
-msgstr ""
+msgstr "Te gebruiken driver"
 
 #: Wammu/Data.py:37
 msgid "Drum"
@@ -890,19 +882,19 @@ msgstr "Einde"
 
 #: Wammu/SettingsStorage.py:213 Wammu/SettingsStorage.py:245
 msgid "Enter Bluetooth address of your phone."
-msgstr ""
+msgstr "Geef Bluetooth adres van uw telefoon"
 
 #: Wammu/SettingsStorage.py:247
 msgid "Enter device name of USB port."
-msgstr ""
+msgstr "Geef apparaatnaam van uw USB poort"
 
 #: Wammu/SettingsStorage.py:211 Wammu/SettingsStorage.py:243
 msgid "Enter device name of emulated serial port."
-msgstr ""
+msgstr "Geef apparaatnaam van uw geëmuleerde seriële poort."
 
 #: Wammu/SettingsStorage.py:209 Wammu/SettingsStorage.py:241
 msgid "Enter device name of serial port."
-msgstr ""
+msgstr "Geef apparaatnaam van uw seriële poort."
 
 #: Wammu/Main.py:223
 msgid ""
@@ -960,19 +952,19 @@ msgstr "Exporteert berichten naar emails in de gekozen opslag"
 
 #: wammu-configure.py:68
 msgid "Extra unrecognized parameters passed to program"
-msgstr ""
+msgstr "Extra onherkende parameters meegegeven met programma"
 
 #: Wammu/SettingsStorage.py:364
 msgid "FBUS over Bluetooth"
-msgstr ""
+msgstr "FBUS over Bluetooth"
 
 #: Wammu/SettingsStorage.py:377
 msgid "FBUS over IrDA"
-msgstr ""
+msgstr "FBUS over IrDA"
 
 #: Wammu/SettingsStorage.py:341
 msgid "FBUS proprietary protocol"
-msgstr ""
+msgstr "FBUS propreïtair protocol"
 
 #: Wammu/App.py:60
 msgid "Failed to set exception handler."
@@ -1025,7 +1017,7 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:229
 msgid "Following phone will be used:"
-msgstr ""
+msgstr "Volgende telefoon zal gebruikt worden:"
 
 #: Wammu/Utils.py:490
 msgid "Function:"
@@ -1047,7 +1039,7 @@ msgstr "Gammu module werkt niet!"
 msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
-msgstr ""
+msgstr "Gammu module niet gevonden, je hebt mogelijks python-gammu niet goed geïnstalleerd voor de juiste python versie."
 
 #: Wammu/Main.py:104
 msgid "Gammu version"
@@ -1055,23 +1047,23 @@ msgstr "Gammu versie"
 
 #: Wammu/SettingsStorage.py:280
 msgid "Generic AT at 115200 bps"
-msgstr ""
+msgstr "Generic AT aan 115200 bps"
 
 #: Wammu/SettingsStorage.py:272
 msgid "Generic AT at 19200 bps"
-msgstr ""
+msgstr "Generic AT aan 19200 bps"
 
 #: Wammu/SettingsStorage.py:276
 msgid "Generic AT at 38400 bps"
-msgstr ""
+msgstr "Generic AT aan 38400 bps"
 
 #: Wammu/SettingsStorage.py:267
 msgid "Generic AT over serial line or it's emulation"
-msgstr ""
+msgstr "Generic AT over seriële lijn of emulatie"
 
 #: Wammu/SettingsStorage.py:304
 msgid "Generic OBEX over serial line or it's emulation"
-msgstr ""
+msgstr "Generieke OBEX over seriële lijn of emulatie"
 
 #: Wammu/Main.py:277
 msgid "Get phone information"
@@ -1079,25 +1071,25 @@ msgstr "Haal telefoon informatie"
 
 #: Wammu/SettingsStorage.py:324
 msgid "Gnapplet over Bluetooth"
-msgstr ""
+msgstr "Gnapplet over Bluetooth"
 
 #: Wammu/SettingsStorage.py:329
 msgid "Gnapplet over IrDA"
-msgstr ""
+msgstr "Gnapplet over IrDA"
 
 #: Wammu/SettingsStorage.py:103
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
-msgstr ""
+msgstr "Ga verder indien je telefoon Symbian OS gebruikt (onafhankelijk van de fabrikant)"
 
 #: Wammu/SettingsStorage.py:121
 msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
-msgstr ""
+msgstr "Goede keuze voor de meeste telefoons behalva Nokia en Symbian gebaseerde.  Geeft toegang tot de meeste telefoonfuncties."
 
 #: Wammu/PhoneWizard.py:425
 msgid "Guided configuration"
-msgstr ""
+msgstr "Configuratie gids"
 
 #: Wammu/Info.py:154
 msgid "Hardware"
@@ -1105,12 +1097,11 @@ msgstr "Hardware"
 
 #: Wammu/PhoneWizard.py:422
 msgid "How do you want to configure your phone connection?"
-msgstr ""
+msgstr "Hoe wilt u uw telefoonverbinding configureren?"
 
 #: Wammu/PhoneWizard.py:408
-#, fuzzy
 msgid "How is your phone connected?"
-msgstr "Apparaat waarmee uw telefoon verbonden is"
+msgstr "Hoe is uw telefoon verbonden?"
 
 #: Wammu/Settings.py:263
 msgid "How many entries will be shown in newly created item."
@@ -1120,9 +1111,7 @@ msgstr "Hoeveel entries zullen getoond worden in een nieuw aangemaakt item."
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
-msgstr ""
-"Hoe vaak de telefoonstatus in de statusbalk wordt ververst.  Vul een waarde "
-"in miliseconden in, 0 om uit te schakelen."
+msgstr "Hoe vaak de telefoonstatus in de statusbalk wordt ververst.  Vul een waarde in miliseconden in, 0 om uit te schakelen."
 
 #: Wammu/Data.py:329
 msgid "I am angry"
@@ -1166,7 +1155,7 @@ msgstr "Ik ben aan het knipogen"
 
 #: Wammu/SettingsStorage.py:94
 msgid "I don't know"
-msgstr ""
+msgstr "Ik weet het niet"
 
 #: Wammu/Main.py:305
 msgid "I&mport messages"
@@ -1174,7 +1163,7 @@ msgstr "I&mporteer berichten"
 
 #: Wammu/Data.py:89
 msgid "I'm ironic, flirty"
-msgstr "Ik ben ironisch"
+msgstr "Ik ben ironisch, aan het flirten"
 
 #: Wammu/Main.py:1124
 msgid "IMAP account"
@@ -1188,9 +1177,7 @@ msgstr "IMAP server"
 msgid ""
 "If you get sometimes \"compressed\" messages likeTHIStext, you should be "
 "interested in this choice."
-msgstr ""
-"Indien je soms gecomprimeerde berichten zoals THIStext krijgt, kan je "
-"geïnteresseerd zijn in deze keuze."
+msgstr "Indien je soms gecomprimeerde berichten zoals THIStext krijgt, kan je geïnteresseerd zijn in deze keuze."
 
 #: Wammu/Main.py:441
 msgid "If you press cancel, no searching will be performed."
@@ -1203,19 +1190,15 @@ msgid ""
 "infomation and description how did it happen to %s. Please report in "
 "english, otherwise you will be most likely told to translate you report to "
 "english later."
-msgstr ""
-"Indien je wil helpen dit programma te verbeteren, vul aub volgende "
-"informatie in en beschrijf hoe dit voorviel aan %s.  Probeer in het Engels "
-"in te vullen, anders word je later waarschijnlijk gevraagd je rapport te "
-"vertalen naar het Engels."
+msgstr "Indien je wil helpen dit programma te verbeteren, vul aub volgende informatie in en beschrijf hoe dit voorviel aan %s.  Probeer in het Engels in te vullen, anders word je later waarschijnlijk gevraagd je rapport te vertalen naar het Engels."
 
 #: Wammu/SettingsStorage.py:99
 msgid "If your phone runs Symbian, please select directly it."
-msgstr ""
+msgstr "Indien je telefoon Symbian OS draait, gelieve dit direct te selecteren."
 
 #: Wammu/Main.py:1424
 msgid "Import backup"
-msgstr "Importeer backup"
+msgstr "Importeer reservekopie"
 
 #: Wammu/Main.py:1516 Wammu/Main.py:1593
 msgid "Importing data..."
@@ -1239,26 +1222,23 @@ msgstr "Ongeldig telefoonnummer"
 
 #: Wammu/PhoneWizard.py:399
 msgid "IrDA"
-msgstr ""
+msgstr "Infrarood"
 
 #: Wammu/PhoneWizard.py:400
 msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
-msgstr ""
+msgstr "Infrarood (IrDA) verbinding vereist directe zichtbaarheid tussen zender en ontvanger. Zorg dat aan deze voorwaarde voldaan is en de telefoon de computer kan zien."
 
 #: Wammu/PhoneWizard.py:454
 msgid "It is powered on."
-msgstr ""
+msgstr "Het is aangeschakeld."
 
 #: Wammu/Main.py:919 Wammu/Main.py:973 Wammu/Main.py:1018
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
-msgstr ""
-"Het was niet mogelijk de opgeslagen entry te lezen.  Deze is mogelijks "
-"verschillend van een in de telefoon opgeslagen entry totdat je alle entries "
-"herlezen hebt."
+msgstr "Het was niet mogelijk de opgeslagen entry te lezen.  Deze is mogelijks verschillend van een in de telefoon opgeslagen entry totdat je alle entries herlezen hebt."
 
 #: Wammu/Main.py:868
 msgid ""
@@ -1323,7 +1303,7 @@ msgstr "Login mislukt!"
 
 #: Wammu/SettingsStorage.py:335
 msgid "MBUS proprietary protocol"
-msgstr ""
+msgstr "MBUS propiëtair protocol"
 
 #: Wammu/Main.py:1124
 msgid "Mailbox file"
@@ -1335,7 +1315,7 @@ msgstr "Maildir map"
 
 #: Wammu/PhoneWizard.py:247 Wammu/PhoneWizard.py:426
 msgid "Manual configuration"
-msgstr ""
+msgstr "Manuele configuratie"
 
 #: Wammu/Info.py:167
 msgid "Manufacture month"
@@ -1349,7 +1329,7 @@ msgstr "Fabrikant"
 msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
-msgstr ""
+msgstr "Vele telefoons komen met USB kabel, selecteer dit indien je dit verbindingstype gebruikt."
 
 #: Wammu/Main.py:799 Wammu/Browser.py:81
 msgid "Memory"
@@ -1429,7 +1409,7 @@ msgstr ""
 #: Wammu/SettingsStorage.py:348
 msgid ""
 "New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100)."
-msgstr ""
+msgstr "Nieuw Nokia protocol voor PL2303 USB kabel (voor telefoons met USB chips zoals 5100)."
 
 #: Wammu/Utils.py:336
 msgid "No"
@@ -1440,9 +1420,8 @@ msgid "No bluetooth device found"
 msgstr "Geen bluetooth toestel gevonden"
 
 #: Wammu/PhoneWizard.py:274
-#, fuzzy
 msgid "No connection selected!"
-msgstr "Backup geselecteerd"
+msgstr "Geen verbinding geselecteerd!"
 
 #: Wammu/Main.py:1501 Wammu/Main.py:1568
 msgid "No data to import"
@@ -1473,28 +1452,24 @@ msgid "No phone found"
 msgstr "Geen telefoon gevonden"
 
 #: Wammu/PhoneWizard.py:150
-#, fuzzy
 msgid "No phone found!"
-msgstr "Geen telefoon gevonden"
+msgstr "Geen telefoon gevonden!"
 
 #: Wammu/PhoneWizard.py:200
-#, fuzzy
 msgid "No phone has been found!"
-msgstr "Geen telefoon gevonden"
+msgstr "Geen telefoon gevonden!"
 
 #: Wammu/PhoneWizard.py:149
 msgid "No phone has not been found, you can not continue."
-msgstr ""
+msgstr "Geen telefoon gevonden, je kan niet verdergaan."
 
 #: Wammu/PhoneWizard.py:238
-#, fuzzy
 msgid "No phone selected!"
-msgstr "Backup geselecteerd"
+msgstr "Geen telefoon geselecteerd!"
 
 #: Wammu/PhoneWizard.py:268 Wammu/PhoneWizard.py:300
-#, fuzzy
 msgid "No port selected!"
-msgstr "Backup geselecteerd"
+msgstr "Geen poort geselecteerd!"
 
 #: Wammu/SettingsStorage.py:352
 msgid ""
