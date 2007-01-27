@@ -147,9 +147,9 @@ def HtmlStr_(txt):
 def GetItemType(txt):
     if txt == '':
         return None
-    elif txt[-8:] == 'DATETIME':
+    elif txt[-8:] == 'DATETIME' or txt == 'Date':
         return 'datetime'
-    elif txt[-4:] == 'DATE' or txt == 'Date':
+    elif txt[-4:] == 'DATE':
         return 'date'
     elif txt in ['TEXT', 'DESCRIPTION', 'LOCATION', 'LUID'] or txt[:4] == 'Text':
         return 'text'
