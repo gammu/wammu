@@ -32,6 +32,8 @@ import Wammu.ErrorMessage
 # set later in Wammu.App to have correct parent here
 handlerparent = None
 
+error_history = []
+
 def Handler(type, value, tback):
     """User friendly error handling """
 
@@ -47,6 +49,16 @@ def Handler(type, value, tback):
     if outf is not None:
         print 'Created debug log copy in %s for error reporting.' % logname
         logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % logname
+
+
+    # detection of same errors
+    tracehash = md5.new('%s,%s' % (textexc, texttrace)).hexdigest()
+    if tracehash in error_history:
+        print 'Same error already detected, not showing dialog!'
+        print texttrace
+        print 'Exception: %s' % textexc
+        return
+    error_history.append(tracehash)
 
     # traceback id (md5 sum of last topmost traceback item inside Wammu - file(function):code)
     try:
