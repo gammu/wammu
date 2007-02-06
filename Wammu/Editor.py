@@ -58,13 +58,20 @@ except ImportError:
     from wx.lib.maskedctrl import MaskedCtrl as maskedCtrl
 
 
-def TextToTime(txt):
+def TextToTime(txt, config):
     hms = txt.split(':')
-    return datetime.time(int(hms[0]), int(hms[1]), int(hms[2]))
+    try:
+        return datetime.time(int(hms[0]), int(hms[1]), int(hms[2]))
+    except UnicodeEncodeError:
+        hms = config.Read('Wammu/DefaultTime', '9:00:00').split(':')
+        return datetime.time(int(hms[0]), int(hms[1]), int(hms[2]))
 
 def TextToDate(txt):
     dmy = txt.split('.')
-    return datetime.date(int(dmy[2]), int(dmy[1]), int(dmy[0]))
+    try:
+        return datetime.date(int(dmy[2]), int(dmy[1]), int(dmy[0]))
+    except UnicodeEncodeError:
+        return datetime.date.today()
 
 def TimeToText(time, config):
     try:
@@ -437,7 +444,7 @@ class GenericEditor(wx.Dialog):
         if self.types[row] == 'date':
             return TextToDate(self.edits[row][0].GetValue())
         elif self.types[row] == 'datetime':
-            return datetime.datetime.combine(TextToDate(self.edits[row][1].GetValue()), TextToTime(self.edits[row][0].GetValue()))
+            return datetime.datetime.combine(TextToDate(self.edits[row][1].GetValue()), TextToTime(self.edits[row][0].GetValue(), self.cfg))
         elif self.types[row] == 'id':
             return int(self.edits[row][0].GetValue(), 16)
         elif self.types[row] in ['contact', 'bool', 'category', 'number']:
