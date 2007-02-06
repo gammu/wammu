@@ -49,7 +49,7 @@ skip_dependencies = False
 
 # some defines
 PYTHONGAMMU_REQUIRED = (0, 16)
-WXPYTHON_REQUIRED = (2, 6, 0, 0)
+WXPYTHON_REQUIRED = (2, 6, 2, 0)
 
 # check if Python is called on the first line with this expression
 first_line_re = re.compile('^#!.*python[0-9.]*([ \t].*)?$')
