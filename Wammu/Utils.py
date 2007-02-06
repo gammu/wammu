@@ -486,6 +486,8 @@ def FormatError(txt, info):
         message = _('Please close opened menu in phone and retry, data can not be accessed while you have opened them.')
     elif info['Code'] == gammu.Errors['ERR_TIMEOUT']:
         message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for bluetooth or IrDA).')
+    elif info['Code'] == gammu.Errors['ERR_DEVICENOTEXIST']:
+        message = _('Device for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.')
     else:
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), StrConv(info['Text']), _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
