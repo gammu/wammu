@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-01-22 22:51+0100\n"
+"POT-Creation-Date: 2007-02-06 21:02+0100\n"
 "PO-Revision-Date: 2007-01-18 18:03+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -229,7 +229,7 @@ msgstr ""
 msgid "-v/--version       ... show program version"
 msgstr "-v/--version       ... zobrazí verzi programu"
 
-#: Wammu/Editor.py:194
+#: Wammu/Editor.py:201
 msgid "..."
 msgstr "..."
 
@@ -409,7 +409,7 @@ msgstr ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
 "Čas: %(time)s"
 
-#: Wammu/Error.py:58
+#: Wammu/Error.py:70
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "Před odesláním prosím zkuste vyhledat podobné chyby na %s"
@@ -489,7 +489,7 @@ msgstr "Nepodařilo se zapsat zprávu do složky %s na serveru, končím."
 msgid "Can not select folder %s on server, bailing out."
 msgstr "Nepodařilo se vybrat složku %s, končím."
 
-#: Wammu/Composer.py:442 Wammu/Editor.py:286
+#: Wammu/Composer.py:442 Wammu/Editor.py:293
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -683,7 +683,7 @@ msgstr "Vytvořte novou zprávu přidáním částí do levého seznamu..."
 msgid "Create unicode message"
 msgstr "Vytvářet zprávu v unicode"
 
-#: Wammu/Editor.py:239
+#: Wammu/Editor.py:246
 #, python-format
 msgid "Creating new %s"
 msgstr "Vytvářím nový %s"
@@ -723,7 +723,7 @@ msgstr "Data byla uložena do souboru \"%s\""
 msgid "Data not up to date"
 msgstr "Dana nejsou aktuální"
 
-#: Wammu/Main.py:796 Wammu/Browser.py:87 Wammu/Browser.py:90
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Main.py:796
 msgid "Date"
 msgstr "Datum"
 
@@ -735,7 +735,7 @@ msgid ""
 msgstr ""
 "Ladicí log byl automaticky uložen do %s, prosím připojte ho ke hlášení chyby."
 
-#: Wammu/Error.py:49
+#: Wammu/Error.py:51
 #, python-format
 msgid ""
 "Debug log was saved for phone communication, if this error appeared during "
@@ -794,13 +794,19 @@ msgstr "Vymazávám úkoly..."
 msgid "Delivery report"
 msgstr "Potvrzení o doručení"
 
-#: Wammu/Utils.py:490
+#: Wammu/Utils.py:492
 msgid "Description:"
 msgstr "Popis:"
 
 #: Wammu/Settings.py:79
 msgid "Device"
 msgstr "Zařízení"
+
+#: Wammu/Utils.py:490
+msgid ""
+"Device for communication with phone does not exist. Maybe you don't have "
+"phone plugged or your configuration is wrong."
+msgstr ""
 
 #: Wammu/Settings.py:78
 msgid "Device, where your phone is connected."
@@ -856,7 +862,7 @@ msgstr "&Konec"
 msgid "Edit"
 msgstr "Upravit"
 
-#: Wammu/Editor.py:242
+#: Wammu/Editor.py:249
 #, python-format
 msgid "Editing %(name)s %(location)s"
 msgstr "Upravuji %(name)s %(location)s"
@@ -909,7 +915,7 @@ msgstr "Záznamy v nové položce"
 msgid "Error Occured"
 msgstr "Objevila se chyba"
 
-#: Wammu/Utils.py:490
+#: Wammu/Utils.py:492
 msgid "Error code:"
 msgstr "Číslo chyby:"
 
@@ -925,7 +931,7 @@ msgstr "Chyba při čtení zálohy"
 msgid "Error while saving backup"
 msgstr "Chyba při ukládání zálohy"
 
-#: Wammu/Editor.py:502
+#: Wammu/Editor.py:509
 msgid "Event type"
 msgstr "Typ události"
 
@@ -1016,7 +1022,7 @@ msgstr ""
 msgid "Following phone will be used:"
 msgstr "Bude použit následující telefon:"
 
-#: Wammu/Utils.py:490
+#: Wammu/Utils.py:492
 msgid "Function:"
 msgstr "Funkce:"
 
@@ -1187,7 +1193,7 @@ msgstr ""
 msgid "If you press cancel, no searching will be performed."
 msgstr "Pokud stisknete zrušit, hledání telefonu neproběhne."
 
-#: Wammu/Error.py:82
+#: Wammu/Error.py:94
 #, python-format
 msgid ""
 "If you want to help improving this program, please submit following "
@@ -1288,13 +1294,13 @@ msgstr "Vypisování selhalo!"
 msgid "Listing folders on IMAP server..."
 msgstr "Získávám seznam složek na IMAP serveru..."
 
-#: Wammu/Main.py:783 Wammu/Main.py:797 Wammu/Main.py:807 Wammu/Main.py:813
 #: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
-#: Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Browser.py:90 Wammu/Browser.py:93 Wammu/Main.py:783 Wammu/Main.py:797
+#: Wammu/Main.py:807 Wammu/Main.py:813
 msgid "Location"
 msgstr "Umístění"
 
-#: Wammu/Editor.py:260
+#: Wammu/Editor.py:267
 msgid "Location (0 = auto):"
 msgstr "Umístění (0 = automaticky):"
 
@@ -1342,7 +1348,7 @@ msgstr ""
 "Mnoho telefonů je dnes dodáváno s USB kabelem, zvolte toto, pokud používáte "
 "tento způsob připojení."
 
-#: Wammu/Main.py:799 Wammu/Browser.py:81
+#: Wammu/Browser.py:81 Wammu/Main.py:799
 msgid "Memory"
 msgstr "Pamět"
 
@@ -1350,7 +1356,7 @@ msgstr "Pamět"
 msgid "Memory is full, try deleting some entries."
 msgstr "Paměť je plná, zkuste vymazat některé položky."
 
-#: Wammu/Main.py:784 Wammu/Editor.py:494
+#: Wammu/Main.py:784 Wammu/Editor.py:501
 msgid "Memory type"
 msgstr "Typ paměti"
 
@@ -1383,7 +1389,7 @@ msgstr "Zmeškané hovory"
 msgid "Model"
 msgstr "Model"
 
-#: Wammu/Main.py:2101 Wammu/PhoneWizard.py:207 Wammu/PhoneWizard.py:230
+#: Wammu/PhoneWizard.py:207 Wammu/PhoneWizard.py:230 Wammu/Main.py:2101
 #, python-format
 msgid ""
 "Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
@@ -1400,12 +1406,12 @@ msgstr "Model (identifikace Gammu)"
 msgid "Model (real)"
 msgstr "Model (skutečný)"
 
-#: Wammu/Editor.py:287
+#: Wammu/Editor.py:294
 msgid "More"
 msgstr "Více"
 
-#: Wammu/Main.py:803 Wammu/Browser.py:78 Wammu/Browser.py:81
-#: Wammu/Browser.py:84
+#: Wammu/Browser.py:78 Wammu/Browser.py:81 Wammu/Browser.py:84
+#: Wammu/Main.py:803
 msgid "Name"
 msgstr "Jméno"
 
@@ -1545,7 +1551,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:661 Wammu/Editor.py:218 Wammu/Editor.py:421
+#: Wammu/Data.py:661 Wammu/Editor.py:225 Wammu/Editor.py:428
 msgid "None"
 msgstr "Žádné"
 
@@ -1574,8 +1580,8 @@ msgstr "Poznámka"
 msgid "Notify"
 msgstr "Upozornění"
 
-#: Wammu/Main.py:795 Wammu/Browser.py:81 Wammu/Browser.py:84
-#: Wammu/Browser.py:87
+#: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
+#: Wammu/Main.py:795
 msgid "Number"
 msgstr "Číslo"
 
@@ -1600,7 +1606,7 @@ msgid "OBEX over IrDA"
 msgstr ""
 
 #: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/Composer.py:441
-#: Wammu/About.py:120 Wammu/Editor.py:284
+#: Wammu/About.py:120 Wammu/Editor.py:291
 msgid "OK"
 msgstr "OK"
 
@@ -1814,7 +1820,7 @@ msgstr "Prefix pro místní telefonní čísla."
 msgid "Preview"
 msgstr "Náhled"
 
-#: Wammu/Main.py:808 Wammu/Browser.py:90 Wammu/Editor.py:510
+#: Wammu/Browser.py:90 Wammu/Main.py:808 Wammu/Editor.py:517
 msgid "Priority"
 msgstr "Priorita"
 
@@ -2066,7 +2072,7 @@ msgstr "Zvolte složku maildiru ve které budou uloženy soubory"
 msgid "Select number for selected contact"
 msgstr "Zvolte telefonní číslo vybraného kontaku"
 
-#: Wammu/Main.py:2108 Wammu/PhoneWizard.py:214
+#: Wammu/PhoneWizard.py:214 Wammu/Main.py:2108
 msgid "Select phone"
 msgstr "Vyberte telefon"
 
@@ -2074,7 +2080,7 @@ msgstr "Vyberte telefon"
 msgid "Select phone number"
 msgstr "Vyberte telefonní číslo"
 
-#: Wammu/Main.py:2108 Wammu/PhoneWizard.py:214
+#: Wammu/PhoneWizard.py:214 Wammu/Main.py:2108
 msgid "Select phone to use from bellow list"
 msgstr "Vyberte telefon, který chcete použít, ze seznamu"
 
@@ -2255,7 +2261,7 @@ msgstr "Začínám %s"
 msgid "Startup information"
 msgstr "Informace o spouštění"
 
-#: Wammu/Main.py:801 Wammu/Browser.py:87
+#: Wammu/Browser.py:87 Wammu/Main.py:801
 msgid "State"
 msgstr "Stav"
 
@@ -2363,7 +2369,7 @@ msgstr "Úkoly"
 msgid "Tongue hanging out"
 msgstr "Machrující"
 
-#: Wammu/Error.py:96
+#: Wammu/Error.py:108
 #, python-format
 msgid ""
 "Traceback:\n"
@@ -2371,7 +2377,7 @@ msgid ""
 "Exception: %(exception)s"
 msgstr "Traceback:%(traceback)sVýjimka: %(exception)s"
 
-#: Wammu/Main.py:814 Wammu/Browser.py:84 Wammu/Browser.py:93
+#: Wammu/Browser.py:84 Wammu/Browser.py:93 Wammu/Main.py:814
 msgid "Type"
 msgstr "Typ"
 
@@ -2383,15 +2389,15 @@ msgstr "USB kabel"
 msgid "Underlined"
 msgstr "Podtržené"
 
-#: Wammu/Error.py:94
+#: Wammu/Error.py:106
 msgid "Unhandled exception"
 msgstr "Nezachycená výjimka"
 
-#: Wammu/Error.py:81
+#: Wammu/Error.py:93
 msgid "Unhandled exception appeared."
 msgstr "Vyskytla se nezachycená výjimka."
 
-#: Wammu/Error.py:93
+#: Wammu/Error.py:105
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
 "please report this together with description how this situation has "
@@ -2407,7 +2413,7 @@ msgstr ""
 msgid "Unicode"
 msgstr "Unicode"
 
-#: Wammu/Error.py:65
+#: Wammu/Error.py:77
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr ""
@@ -2424,7 +2430,7 @@ msgstr ""
 "zaškrtněte, pokud používáte jiné znaky než latin-1. Zpráva bude zabírat více "
 "místa, takže můžete v jedné zprávě poslat méně znaků."
 
-#: Wammu/Main.py:489 Wammu/Main.py:505 Wammu/Editor.py:222 Wammu/Editor.py:425
+#: Wammu/Main.py:489 Wammu/Main.py:505 Wammu/Editor.py:229 Wammu/Editor.py:432
 msgid "Unknown"
 msgstr "Neznámý"
 
@@ -2753,7 +2759,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "událost v kalendáři \"%s\""
 
-#: Wammu/Editor.py:502
+#: Wammu/Editor.py:509
 msgid "calendar event"
 msgstr "událost kalendáře"
 
@@ -2771,7 +2777,7 @@ msgstr "Velké"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:494
+#: Wammu/Editor.py:501
 msgid "contact"
 msgstr "kontakt"
 
@@ -2838,7 +2844,7 @@ msgstr "Verze python-gammu"
 msgid "todo \"%s\""
 msgstr "úkol \"%s\""
 
-#: Wammu/Editor.py:510
+#: Wammu/Editor.py:517
 msgid "todo item"
 msgstr "úkol"
 

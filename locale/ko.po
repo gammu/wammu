@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-01-22 22:51+0100\n"
+"POT-Creation-Date: 2007-02-06 21:02+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -231,7 +231,7 @@ msgstr ""
 msgid "-v/--version       ... show program version"
 msgstr ""
 
-#: Wammu/Editor.py:194
+#: Wammu/Editor.py:201
 msgid "..."
 msgstr "..."
 
@@ -408,7 +408,7 @@ msgid ""
 "Time: %(time)s"
 msgstr ""
 
-#: Wammu/Error.py:58
+#: Wammu/Error.py:70
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "제출 전에 비슷한 버그를 %s 에서 검색해 보십시오"
@@ -488,7 +488,7 @@ msgstr "서버의 폴더 %s 에 메세지를 저장할 수 없습니다, 바깥�
 msgid "Can not select folder %s on server, bailing out."
 msgstr "서버의 폴더 %s (을)를 선택할 수 없습니다, 바깥으로 꺼냅니다."
 
-#: Wammu/Composer.py:442 Wammu/Editor.py:286
+#: Wammu/Composer.py:442 Wammu/Editor.py:293
 msgid "Cancel"
 msgstr "취소"
 
@@ -684,7 +684,7 @@ msgstr "왼쪽 목록에 부분을 추가하는 것으로 새로운 메세지를
 msgid "Create unicode message"
 msgstr "유니코드 메세지를 만듭니다"
 
-#: Wammu/Editor.py:239
+#: Wammu/Editor.py:246
 #, python-format
 msgid "Creating new %s"
 msgstr "새로운 %s (을)를 만듭니다"
@@ -724,7 +724,7 @@ msgstr "파일 \"%s\" 로 자료가 저장 되었습니다"
 msgid "Data not up to date"
 msgstr "자료가 최신이 아닙니다"
 
-#: Wammu/Main.py:796 Wammu/Browser.py:87 Wammu/Browser.py:90
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Main.py:796
 msgid "Date"
 msgstr "날짜"
 
@@ -735,7 +735,7 @@ msgid ""
 "include it in bugreport."
 msgstr ""
 
-#: Wammu/Error.py:49
+#: Wammu/Error.py:51
 #, python-format
 msgid ""
 "Debug log was saved for phone communication, if this error appeared during "
@@ -794,13 +794,19 @@ msgstr "해야할 것 삭제 중..."
 msgid "Delivery report"
 msgstr "배달 보고"
 
-#: Wammu/Utils.py:490
+#: Wammu/Utils.py:492
 msgid "Description:"
 msgstr "설명:"
 
 #: Wammu/Settings.py:79
 msgid "Device"
 msgstr "장치"
+
+#: Wammu/Utils.py:490
+msgid ""
+"Device for communication with phone does not exist. Maybe you don't have "
+"phone plugged or your configuration is wrong."
+msgstr ""
 
 #: Wammu/Settings.py:78
 msgid "Device, where your phone is connected."
@@ -854,7 +860,7 @@ msgstr "종료(&X)"
 msgid "Edit"
 msgstr "편집"
 
-#: Wammu/Editor.py:242
+#: Wammu/Editor.py:249
 #, fuzzy, python-format
 msgid "Editing %(name)s %(location)s"
 msgstr "%s %s 편집"
@@ -907,7 +913,7 @@ msgstr "새 항목을 위한 입력"
 msgid "Error Occured"
 msgstr "오류 발생됨"
 
-#: Wammu/Utils.py:490
+#: Wammu/Utils.py:492
 msgid "Error code:"
 msgstr "에러 코드:"
 
@@ -923,7 +929,7 @@ msgstr "백업 읽기 중 오류"
 msgid "Error while saving backup"
 msgstr "백업 저장 중 오류"
 
-#: Wammu/Editor.py:502
+#: Wammu/Editor.py:509
 msgid "Event type"
 msgstr "행사 종류"
 
@@ -1014,7 +1020,7 @@ msgstr ""
 msgid "Following phone will be used:"
 msgstr ""
 
-#: Wammu/Utils.py:490
+#: Wammu/Utils.py:492
 msgid "Function:"
 msgstr "기능:"
 
@@ -1183,7 +1189,7 @@ msgstr ""
 msgid "If you press cancel, no searching will be performed."
 msgstr "만약 취소를 누르면, 찾기를 수행하지 않습니다."
 
-#: Wammu/Error.py:82
+#: Wammu/Error.py:94
 #, python-format
 msgid ""
 "If you want to help improving this program, please submit following "
@@ -1281,13 +1287,13 @@ msgstr "목록 보이기 실패함!"
 msgid "Listing folders on IMAP server..."
 msgstr "IMAP 서버의 폴더 목록 표시..."
 
-#: Wammu/Main.py:783 Wammu/Main.py:797 Wammu/Main.py:807 Wammu/Main.py:813
 #: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
-#: Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Browser.py:90 Wammu/Browser.py:93 Wammu/Main.py:783 Wammu/Main.py:797
+#: Wammu/Main.py:807 Wammu/Main.py:813
 msgid "Location"
 msgstr "위치"
 
-#: Wammu/Editor.py:260
+#: Wammu/Editor.py:267
 msgid "Location (0 = auto):"
 msgstr "위치 (0 = 자동)"
 
@@ -1333,7 +1339,7 @@ msgid ""
 "connection type."
 msgstr ""
 
-#: Wammu/Main.py:799 Wammu/Browser.py:81
+#: Wammu/Browser.py:81 Wammu/Main.py:799
 msgid "Memory"
 msgstr "메모리"
 
@@ -1341,7 +1347,7 @@ msgstr "메모리"
 msgid "Memory is full, try deleting some entries."
 msgstr "메모리가 꽉참, 몇개의 입력 삭제를 시도합니다."
 
-#: Wammu/Main.py:784 Wammu/Editor.py:494
+#: Wammu/Main.py:784 Wammu/Editor.py:501
 msgid "Memory type"
 msgstr "메모리 종류"
 
@@ -1374,7 +1380,7 @@ msgstr "놓친 통화"
 msgid "Model"
 msgstr "모델"
 
-#: Wammu/Main.py:2101 Wammu/PhoneWizard.py:207 Wammu/PhoneWizard.py:230
+#: Wammu/PhoneWizard.py:207 Wammu/PhoneWizard.py:230 Wammu/Main.py:2101
 #, fuzzy, python-format
 msgid ""
 "Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
@@ -1389,12 +1395,12 @@ msgstr "모델 (Gammu 식별)"
 msgid "Model (real)"
 msgstr "모델 (실제)"
 
-#: Wammu/Editor.py:287
+#: Wammu/Editor.py:294
 msgid "More"
 msgstr "더 많이"
 
-#: Wammu/Main.py:803 Wammu/Browser.py:78 Wammu/Browser.py:81
-#: Wammu/Browser.py:84
+#: Wammu/Browser.py:78 Wammu/Browser.py:81 Wammu/Browser.py:84
+#: Wammu/Main.py:803
 msgid "Name"
 msgstr "이름"
 
@@ -1539,7 +1545,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:661 Wammu/Editor.py:218 Wammu/Editor.py:421
+#: Wammu/Data.py:661 Wammu/Editor.py:225 Wammu/Editor.py:428
 msgid "None"
 msgstr "없음"
 
@@ -1568,8 +1574,8 @@ msgstr "통보"
 msgid "Notify"
 msgstr "알림"
 
-#: Wammu/Main.py:795 Wammu/Browser.py:81 Wammu/Browser.py:84
-#: Wammu/Browser.py:87
+#: Wammu/Browser.py:81 Wammu/Browser.py:84 Wammu/Browser.py:87
+#: Wammu/Main.py:795
 msgid "Number"
 msgstr "번호"
 
@@ -1595,7 +1601,7 @@ msgid "OBEX over IrDA"
 msgstr ""
 
 #: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/Composer.py:441
-#: Wammu/About.py:120 Wammu/Editor.py:284
+#: Wammu/About.py:120 Wammu/Editor.py:291
 msgid "OK"
 msgstr "확인"
 
@@ -1817,7 +1823,7 @@ msgstr ""
 msgid "Preview"
 msgstr "미리보기"
 
-#: Wammu/Main.py:808 Wammu/Browser.py:90 Wammu/Editor.py:510
+#: Wammu/Browser.py:90 Wammu/Main.py:808 Wammu/Editor.py:517
 msgid "Priority"
 msgstr "순위"
 
@@ -2075,7 +2081,7 @@ msgstr "파일을 저장할 메세지 디렉토리 선택"
 msgid "Select number for selected contact"
 msgstr "선택된 연락처의 번호 선택"
 
-#: Wammu/Main.py:2108 Wammu/PhoneWizard.py:214
+#: Wammu/PhoneWizard.py:214 Wammu/Main.py:2108
 msgid "Select phone"
 msgstr "전화기 선택"
 
@@ -2083,7 +2089,7 @@ msgstr "전화기 선택"
 msgid "Select phone number"
 msgstr "전화 번호 선택"
 
-#: Wammu/Main.py:2108 Wammu/PhoneWizard.py:214
+#: Wammu/PhoneWizard.py:214 Wammu/Main.py:2108
 msgid "Select phone to use from bellow list"
 msgstr "아래 목록에서 사용할 전화기 선택"
 
@@ -2267,7 +2273,7 @@ msgstr "%s 시작"
 msgid "Startup information"
 msgstr "시작 정보"
 
-#: Wammu/Main.py:801 Wammu/Browser.py:87
+#: Wammu/Browser.py:87 Wammu/Main.py:801
 msgid "State"
 msgstr "상태"
 
@@ -2375,7 +2381,7 @@ msgstr "해야할 것"
 msgid "Tongue hanging out"
 msgstr "대화 유지 중"
 
-#: Wammu/Error.py:96
+#: Wammu/Error.py:108
 #, python-format
 msgid ""
 "Traceback:\n"
@@ -2383,7 +2389,7 @@ msgid ""
 "Exception: %(exception)s"
 msgstr ""
 
-#: Wammu/Main.py:814 Wammu/Browser.py:84 Wammu/Browser.py:93
+#: Wammu/Browser.py:84 Wammu/Browser.py:93 Wammu/Main.py:814
 msgid "Type"
 msgstr "종류"
 
@@ -2395,15 +2401,15 @@ msgstr ""
 msgid "Underlined"
 msgstr "밑줄"
 
-#: Wammu/Error.py:94
+#: Wammu/Error.py:106
 msgid "Unhandled exception"
 msgstr "처리못한 예외"
 
-#: Wammu/Error.py:81
+#: Wammu/Error.py:93
 msgid "Unhandled exception appeared."
 msgstr "처리못한 예외가 나타났습니다."
 
-#: Wammu/Error.py:93
+#: Wammu/Error.py:105
 #, fuzzy
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
@@ -2419,7 +2425,7 @@ msgstr ""
 msgid "Unicode"
 msgstr "유니코드"
 
-#: Wammu/Error.py:65
+#: Wammu/Error.py:77
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr ""
@@ -2436,7 +2442,7 @@ msgstr ""
 "를 사용하지 않는다면 이것을 점검 하십시오. 메세지는 좀 더 많은 공백을 요구해"
 "서 하나의 메세지에 적은 문자들을 쓸 수 있습니다."
 
-#: Wammu/Main.py:489 Wammu/Main.py:505 Wammu/Editor.py:222 Wammu/Editor.py:425
+#: Wammu/Main.py:489 Wammu/Main.py:505 Wammu/Editor.py:229 Wammu/Editor.py:432
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -2763,7 +2769,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "달력 항목 \"%s\""
 
-#: Wammu/Editor.py:502
+#: Wammu/Editor.py:509
 msgid "calendar event"
 msgstr "달력 행사"
 
@@ -2781,7 +2787,7 @@ msgstr "크게"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:494
+#: Wammu/Editor.py:501
 msgid "contact"
 msgstr "연락처"
 
@@ -2849,7 +2855,7 @@ msgstr "python-gammu 버전"
 msgid "todo \"%s\""
 msgstr "해야할 것 \"%s\""
 
-#: Wammu/Editor.py:510
+#: Wammu/Editor.py:517
 msgid "todo item"
 msgstr "해야할 것 항목"
 
