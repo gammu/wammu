@@ -198,9 +198,10 @@ class build_wammu(distutils.command.build.build, object):
                     print 'You can get it from <http://cihar.com/gammu/python/>'
                     sys.exit(1)
                 print 'OK'
-            except ImportError:
-                print 'You need python-gammu!'
+            except ImportError, message:
+                print 'Could not import python-gammu!'
                 print 'You can get it from <http://cihar.com/gammu/python/>'
+                print 'Import failed with following error: %s' % message
                 sys.exit(1)
 
         if os.getenv('SKIPWXCHECK') == 'yes':
