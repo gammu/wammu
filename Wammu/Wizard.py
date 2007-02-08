@@ -114,6 +114,7 @@ class ChoicePage(SimplePage):
             self.body.Wrap(400)
         except:
             self.body.SetLabel('')
+        self.sizer.Fit(self)
 
     def GetType(self):
         return self.type_rb.GetSelection()
