@@ -2030,6 +2030,7 @@ class WammuFrame(wx.Frame):
                 pass
             try:
                 self.Manufacturer = self.sm.GetManufacturer()
+                self.cfg.Write('/Phone-0/Manufacturer', self.Manufacturer)
             except:
                 pass
             try:
@@ -2038,6 +2039,7 @@ class WammuFrame(wx.Frame):
                     self.Model = m[1]
                 else:
                     self.Model = m[0]
+                self.cfg.Write('/Phone-0/Model', self.Model)
             except:
                 pass
             try:
