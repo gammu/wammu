@@ -47,7 +47,7 @@ class TalkbackDialog(wx.Dialog):
         self.info_label = wx.StaticText(self, -1, _("Please share your experiences with Wammu and Gammu which is backend library. When you fill in following form, other users can benefit from your experiences in Gammu Phone Database. Only information you see here will be submited."))
         self.top_static_line = wx.StaticLine(self, -1)
         self.manufacturer_label = wx.StaticText(self.main_panel, -1, _("Manufacturer:"), style=wx.ALIGN_CENTRE)
-        self.manufacturer_choice = wx.Choice(self.main_panel, -1, choices=[_("Alcatel"), _("Falcom"), _("LG"), _("Mitsubishi"), _("Motorola"), _("Nokia"), _("PalmOne"), _("Sagem"), _("Samsung"), _("Sharp"), _("Siemens"), _("Sony Ericsson")])
+        self.manufacturer_choice = wx.Choice(self.main_panel, -1, choices=['Alcatel', 'Falcom', 'LG', 'Mitsubishi', 'Motorola', 'Nokia', 'PalmOne', 'Sagem', 'Samsung', 'Sharp', 'Siemens', 'Sony Ericsson'])
         self.model_label = wx.StaticText(self.main_panel, -1, _("Phone model:"))
         self.model_text_ctrl = wx.TextCtrl(self.main_panel, -1, "")
         self.connection_label = wx.StaticText(self.main_panel, -1, _("Connection type:"))
