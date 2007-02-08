@@ -433,6 +433,22 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                 ],
                 [ pg0, pg1, pg2])
 
+class WelcomePage(Wammu.Wizard.SimplePage):
+    """
+    First page of Wizard.
+    """
+    def __init__(self, parent):
+        Wammu.Wizard.SimplePage.__init__(self, parent,  _('Welcome'),
+                _('This wizard will help you with configuring phone connection in Wammu.'),
+                [
+                    '',
+                    _('Please make sure you have phone ready, powered on and one of connection methods is set up') + ':',
+                    '  - %s' % _('Cable is connected.'),
+                    '  - %s' % _('You have enabled IrDA and phone is in visible range.'),
+                    '  - %s' % _('You have paired Bluetooth with computer.'),
+                    '',
+                    _('As soon as your phone is ready, you can continue.'),
+                ])
 
 class ConfigureWizard:
     def __init__(self, parent, position = 0):
@@ -446,17 +462,7 @@ class ConfigureWizard:
         self.wiz.Bind(wx.wizard.EVT_WIZARD_CANCEL, self.OnCancel)
 
         # Create pages
-        self.pg_title = Wammu.Wizard.SimplePage(self.wiz, _('Welcome'),
-                _('This wizard will help you with configuring phone connection in Wammu.'),
-                [
-                    '',
-                    _('Please make sure you have phone ready') + ':',
-                    '- %s' % _('It is powered on.'),
-                    '- %s' % _('Cable is connected or phone is in wireless connection range.'),
-                    '- %s' % _('You have enabled Bluetooth or IrDA if you want to use in it.'),
-                    '',
-                    _('As soon as your phone is ready, you can continue.'),
-                ])
+        self.pg_title = WelcomePage(self.wiz)
 
         self.pg_search1 = PhoneConnectionPage(self.wiz)
         self.pg_search2 = PhoneSearchPage(self.wiz)
