@@ -32,6 +32,7 @@ import re
 import wx
 import Wammu.TalkbackFeaturesDialog
 import Wammu.Utils
+import Wammu.Data
 if Wammu.gammu_error == None:
     import gammu
 
@@ -51,7 +52,7 @@ class TalkbackDialog(wx.Dialog):
         self.model_label = wx.StaticText(self.main_panel, -1, _("Phone model:"))
         self.model_text_ctrl = wx.TextCtrl(self.main_panel, -1, "")
         self.connection_label = wx.StaticText(self.main_panel, -1, _("Connection type:"))
-        self.connection_combo_box = wx.ComboBox(self.main_panel, -1, choices=[_("at")], style=wx.CB_DROPDOWN)
+        self.connection_combo_box = wx.ComboBox(self.main_panel, -1, choices=Wammu.Data.Connections, style=wx.CB_DROPDOWN)
         self.features_label = wx.StaticText(self.main_panel, -1, _("Working features:"))
         self.features_button = wx.Button(self.main_panel, -1, _("Please select features..."))
         self.gammu_version_text_label = wx.StaticText(self.main_panel, -1, _("Gammu version:"))
@@ -81,6 +82,9 @@ class TalkbackDialog(wx.Dialog):
         self.manufacturer_choice.SetStringSelection(manufacturer)
         model = self.wammu_cfg.Read('/Phone-%d/Model' % phoneid, '')
         self.model_text_ctrl.SetValue(model)
+        # Set connection type which is being used
+        print self.wammu_cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0])
+        self.connection_combo_box.SetValue(self.wammu_cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]))
 
 
     def __set_properties(self):
