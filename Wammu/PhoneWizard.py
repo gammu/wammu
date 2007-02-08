@@ -31,6 +31,8 @@ import Wammu.Data
 import Wammu.SettingsStorage
 import Wammu.PhoneSearch
 import Wammu.Events
+import Wammu.Utils
+import wx.lib.hyperlink
 from Wammu.Utils import StrConv, Str_ as _
 
 class FinalPage(Wammu.Wizard.InputPage):
@@ -417,7 +419,7 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
     Allows user to select how to configure phone.
     """
     def __init__(self, parent, pg0, pg1, pg2):
-         Wammu.Wizard.ChoicePage.__init__(self, parent,
+        Wammu.Wizard.ChoicePage.__init__(self, parent,
                 _('Configuration type'),
                 _('How do you want to configure your phone connection?'),
                 [
@@ -432,6 +434,11 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                     _('You know what you are doing and know exact parameters you need for connecting to phone.'),
                 ],
                 [ pg0, pg1, pg2])
+        self.info = wx.StaticText(self, -1, _('If you have no idea how to configure your phone, you can look at Gammu Phone Database for other users experiences:'))
+        self.info.Wrap(400)
+        self.sizer.Add(self.info, 0, wx.ALL, 5)
+        self.link = wx.lib.hyperlink.HyperLinkCtrl(self, -1, 'http://%scihar.com/gammu/phonedb' % Wammu.Utils.GetWebsiteLang())
+        self.sizer.Add(self.link, 0, wx.ALL, 5)
 
 class WelcomePage(Wammu.Wizard.SimplePage):
     """
