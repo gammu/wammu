@@ -313,6 +313,8 @@ class WammuFrame(wx.Frame):
         menuhelp.Append(1002, _('&Support'), _('Wammu support website'))
         menuhelp.Append(1003, _('&Report bug'), _('Report bug in Wammu'))
         menuhelp.AppendSeparator()
+        menuhelp.Append(1010, _('&Gammu Phone Database'), _('Database of user experiences with phones'))
+        menuhelp.AppendSeparator()
         menuhelp.Append(1100, _('&About'), _('Information about program'))
         # Add menu to the menu bar
         self.menuBar.Append(menuhelp, _('&Help'))
@@ -356,6 +358,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 1001, self.Website)
         wx.EVT_MENU(self, 1002, self.Support)
         wx.EVT_MENU(self, 1003, self.ReportBug)
+        wx.EVT_MENU(self, 1010, self.PhoneDB)
         wx.EVT_MENU(self, 1100, self.About)
 
         self.timer = None
@@ -2125,3 +2128,6 @@ class WammuFrame(wx.Frame):
 
     def ReportBug(self, evt = None):
         webbrowser.open("http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1")
+
+    def PhoneDB(self, evt = None):
+        webbrowser.open("http://%scihar.com/gammu/phonedb" % Wammu.Utils.GetWebsiteLang())
