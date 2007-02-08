@@ -180,6 +180,12 @@ def DoTalkback(parent, config, phoneid = 0):
     fail_matcher = re.compile('Invalid values: (.*)')
 
     while dlg.ShowModal() == wx.ID_OK:
+        if len(dlg.features) == 0:
+            wx.MessageDialog(parent,
+                _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Supported features'),
+                _('Entry not created!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            continue
         man_str = dlg.manufacturer_choice.GetStringSelection()
         try:
             man_id = ManufacturerMap[man_str]
@@ -188,6 +194,7 @@ def DoTalkback(parent, config, phoneid = 0):
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Manufacturer'),
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
+            continue
         garble_id = dlg.mangle_choice.GetSelection()
         try:
             garble_text = GarbleMap[garble_id]
@@ -196,6 +203,7 @@ def DoTalkback(parent, config, phoneid = 0):
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Email displaying'),
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
+            continue
 
         params_dict = {
             'irobot': 'wammu',
@@ -209,7 +217,8 @@ def DoTalkback(parent, config, phoneid = 0):
             'email_garble': garble_text,
             'gammu_version': gammu.Version()[0],
         }
-        print params_dict
+        for x in dlg.features:
+            params_dict['fts[%s]' % x] = 1
         params = urllib.urlencode(params_dict)
         headers = {'Content-type': 'application/x-www-form-urlencoded',
                     'Accept': 'text/plain'}
@@ -242,3 +251,4 @@ def DoTalkback(parent, config, phoneid = 0):
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % wrong_fields,
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
+            continue

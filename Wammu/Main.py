@@ -70,6 +70,7 @@ import Wammu.About
 import Wammu.MailWriter
 import Wammu.IMAP
 import Wammu.ErrorMessage
+import Wammu.TalkbackDialog
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -314,6 +315,7 @@ class WammuFrame(wx.Frame):
         menuhelp.Append(1003, _('&Report bug'), _('Report bug in Wammu'))
         menuhelp.AppendSeparator()
         menuhelp.Append(1010, _('&Gammu Phone Database'), _('Database of user experiences with phones'))
+        menuhelp.Append(1011, _('&Talkback'), _('Report your experiences in Gammu Phone Database'))
         menuhelp.AppendSeparator()
         menuhelp.Append(1100, _('&About'), _('Information about program'))
         # Add menu to the menu bar
@@ -359,6 +361,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 1002, self.Support)
         wx.EVT_MENU(self, 1003, self.ReportBug)
         wx.EVT_MENU(self, 1010, self.PhoneDB)
+        wx.EVT_MENU(self, 1011, self.Talkback)
         wx.EVT_MENU(self, 1100, self.About)
 
         self.timer = None
@@ -2131,3 +2134,7 @@ class WammuFrame(wx.Frame):
 
     def PhoneDB(self, evt = None):
         webbrowser.open("http://%scihar.com/gammu/phonedb" % Wammu.Utils.GetWebsiteLang())
+
+    def Talkback(self, evt = None):
+        Wammu.TalkbackDialog.DoTalkback(self, self.cfg, 0)
+
