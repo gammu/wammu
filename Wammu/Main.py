@@ -2117,17 +2117,11 @@ class WammuFrame(wx.Frame):
     def About(self, evt = None):
         Wammu.About.AboutBox(self).ShowModal()
 
-    def GetWebsiteLang(self):
-        (loc, charset) = locale.getdefaultlocale()
-        if loc[:2].lower() == 'cs':
-            return 'cz.'
-        return ''
-
     def Website(self, evt = None):
-        webbrowser.open("http://%scihar.com/gammu/wammu/?version=%s" % (self.GetWebsiteLang(), Wammu.__version__))
+        webbrowser.open("http://%scihar.com/gammu/wammu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def Support(self, evt = None):
-        webbrowser.open("http://%scihar.com/gammu/wammu/support?version=%s" % (self.GetWebsiteLang(), Wammu.__version__))
+        webbrowser.open("http://%scihar.com/gammu/wammu/support?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def ReportBug(self, evt = None):
         webbrowser.open("http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1")

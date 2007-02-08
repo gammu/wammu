@@ -498,3 +498,10 @@ def FixupMaskedEdit(edit):
         fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
         setattr(edit, '_validBackgroundColour', bgc)
         setattr(edit, '_foregroundColour', fgc)
+
+def GetWebsiteLang():
+    (loc, charset) = locale.getdefaultlocale()
+    if loc[:2].lower() == 'cs':
+        return 'cz.'
+    return ''
+
