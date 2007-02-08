@@ -83,7 +83,6 @@ class TalkbackDialog(wx.Dialog):
         model = self.wammu_cfg.Read('/Phone-%d/Model' % phoneid, '')
         self.model_text_ctrl.SetValue(model)
         # Set connection type which is being used
-        print self.wammu_cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0])
         self.connection_combo_box.SetValue(self.wammu_cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]))
 
 
