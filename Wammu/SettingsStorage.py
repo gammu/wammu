@@ -345,19 +345,19 @@ class Settings:
             if self.connection in ['serial', 'usb']:
                 names.append('fbuspl2303')
                 connections.append(_('PL2303 cable'))
-                helps.append(_('New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100).'))
+                helps.append(_('New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia 5100.'))
 
                 names.append('dku5')
                 connections.append(_('DKU5 cable'))
-                helps.append(_('Nokia Connectivity Adapter Cable DKU-5 (for phones with USB chip like 5100).'))
+                helps.append(_('Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100.'))
 
                 names.append('dku2')
                 connections.append(_('DKU2 cable'))
-                helps.append(_('Nokia Connectivity Cable DKU-2 (for phones without USB chip like 6230).'))
+                helps.append(_('Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230.'))
 
                 names.append('dlr3')
                 connections.append(_('DLR3-3P/CA-42 cable'))
-                helps.append(_('Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia 7110/6210/6310/6310.'))
+                helps.append(_('Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia 7110/6210/6310.'))
 
             elif self.connection == 'bluetooth':
                 names.append('bluerffbus')
