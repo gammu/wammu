@@ -242,7 +242,7 @@ def DoTalkback(parent, config, phoneid = 0):
         if ok_test is not None:
             url = 'http://%scihar.com%s' % (Wammu.Utils.GetWebsiteLang(), ok_test.groups()[1])
             if wx.MessageDialog(parent,
-                _('Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\nDo you want to open browser now?') % url,
+                _('Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\nDo you want to open it in browser now?') % url,
                 _('Entry created!'),
                 wx.YES_NO | wx.ICON_INFORMATION).ShowModal() == wx.ID_YES:
                 webbrowser.open(url)
