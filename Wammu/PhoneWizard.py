@@ -434,7 +434,7 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                     _('You know what you are doing and know exact parameters you need for connecting to phone.'),
                 ],
                 [ pg0, pg1, pg2])
-        self.info = wx.StaticText(self, -1, _('If you have no idea how to configure your phone, you can look at Gammu Phone Database for other users experiences:'))
+        self.info = wx.StaticText(self, -1, _('If you have no idea how to configure your phone connection, you can look at Gammu Phone Database for other users experiences:'))
         self.info.Wrap(400)
         self.sizer.Add(self.info, 0, wx.ALL, 5)
         self.link = wx.lib.hyperlink.HyperLinkCtrl(self, -1, 'http://%scihar.com/gammu/phonedb' % Wammu.Utils.GetWebsiteLang())
