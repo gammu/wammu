@@ -449,7 +449,7 @@ class WelcomePage(Wammu.Wizard.SimplePage):
                 _('This wizard will help you with configuring phone connection in Wammu.'),
                 [
                     '',
-                    _('Please make sure you have phone ready, powered on and one of connection methods is set up') + ':',
+                    _('Please make sure you have phone ready, powered on and one of connection methods is set up:'),
                     '  - %s' % _('Cable is connected.'),
                     '  - %s' % _('You have enabled IrDA and phone is in visible range.'),
                     '  - %s' % _('You have paired Bluetooth with computer.'),
