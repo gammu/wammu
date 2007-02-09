@@ -316,7 +316,7 @@ class Settings:
             elif self.connection == 'irda':
                 names.append('irdaobex')
                 connections.append(_('OBEX over IrDA'))
-                helps.append(_('Select this if your phone is connected over IrDA and you want to use native Bluetooth connection.'))
+                helps.append(_('Select this if your phone is connected over IrDA and you want to use native IrDA connection.'))
 
         elif self.driver == 'symbian':
             if self.connection == 'bluetooth':
@@ -327,7 +327,7 @@ class Settings:
             elif self.connection == 'irda':
                 names.append('irdagnapbus')
                 connections.append(_('Gnapplet over IrDA'))
-                helps.append(_('Select this if your phone is connected over IrDA and you want to use native Bluetooth connection.'))
+                helps.append(_('Select this if your phone is connected over IrDA and you want to use native IrDA connection.'))
 
         elif self.driver == 'mbus':
             if self.connection == 'serial':
