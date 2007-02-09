@@ -1,7 +1,6 @@
 #!/bin/sh
 LOCS=`ls locale/*.po | while read name; do basename $name ; done | sed 's/\.po$//'`
 xgettext \
-    -s \
     -d wammu \
     --msgid-bugs-address=michal@cihar.com \
     -o locale/wammu.pot \
