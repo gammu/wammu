@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-09 11:38+0100\n"
+"POT-Creation-Date: 2007-02-09 12:39+0100\n"
 "PO-Revision-Date: 2006-12-31 18:35+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -224,11 +224,11 @@ msgstr "&Skriv data"
 msgid ", serial number %s"
 msgstr ", serienummer %s"
 
-#: wammu-configure.py:53
+#: wammu-configure.py:53 wammu.py:49
 msgid "-h/--help          ... show this help"
 msgstr "-h/--help          ... visa den här hjälpen"
 
-#: wammu-configure.py:55
+#: wammu-configure.py:55 wammu.py:51
 msgid ""
 "-l/--local-locales ... use locales from current directory rather than system "
 "ones"
@@ -236,7 +236,7 @@ msgstr ""
 "-l/--local-locales ... använder lokaler från aktuell katalog istället för "
 "systemkatalogerna"
 
-#: wammu-configure.py:54
+#: wammu-configure.py:54 wammu.py:50
 msgid "-v/--version       ... show program version"
 msgstr "-v/--version       ... visa programversionen"
 
@@ -565,7 +565,7 @@ msgstr "Claps"
 msgid "Close"
 msgstr "Stäng"
 
-#: wammu-configure.py:62
+#: wammu-configure.py:62 wammu.py:58
 msgid "Command line parsing failed with error:"
 msgstr "Kommandoradstolkning misslyckades med följande fel:"
 
@@ -1041,7 +1041,7 @@ msgstr "Exportering avslutad"
 msgid "Exports messages to emails in storage you choose"
 msgstr "Exporterar meddelanden till e-post till den plats du valt"
 
-#: wammu-configure.py:68
+#: wammu-configure.py:68 wammu.py:64
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Okända extraparametrar skickades till program"
 
@@ -1306,8 +1306,8 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:437
 msgid ""
-"If you have no idea how to configure your phone, you can look at Gammu Phone "
-"Database for other users experiences:"
+"If you have no idea how to configure your phone connection, you can look at "
+"Gammu Phone Database for other users experiences:"
 msgstr ""
 
 #: Wammu/Main.py:447
@@ -1561,8 +1561,10 @@ msgstr ""
 "blåtandsenheter"
 
 #: Wammu/SettingsStorage.py:348
+#, fuzzy
 msgid ""
-"New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100)."
+"New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia "
+"5100."
 msgstr ""
 "Nytt Nokia-protokoll för PL2303 USB-kabeln (för telefoner med USB-chip som "
 "5100)."
@@ -1628,13 +1630,16 @@ msgid "No port selected!"
 msgstr "Ingen port vald!"
 
 #: Wammu/SettingsStorage.py:352
+#, fuzzy
 msgid ""
-"Nokia Connectivity Adapter Cable DKU-5 (for phones with USB chip like 5100)."
+"Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100."
 msgstr ""
 "Nokia Connectivity Adapter Cable DKU-5 (för telefoner med USB-chip som 5100)."
 
 #: Wammu/SettingsStorage.py:356
-msgid "Nokia Connectivity Cable DKU-2 (for phones without USB chip like 6230)."
+#, fuzzy
+msgid ""
+"Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230."
 msgstr "Nokia Connectivity Cable DKU-2 (för telefoner utan USB-chip som 6230)."
 
 #: Wammu/SettingsStorage.py:125
@@ -1646,9 +1651,10 @@ msgid "Nokia MBUS"
 msgstr "Nokia MBUS"
 
 #: Wammu/SettingsStorage.py:360
+#, fuzzy
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
-"7110/6210/6310/6310."
+"7110/6210/6310."
 msgstr ""
 "Nokia RS-232 Adapter Cable DLR-3P, oftast med telefoner som Nokia "
 "7110/6210/6310/6310."
@@ -1771,7 +1777,7 @@ msgstr "Vänta, kopplar från telefon..."
 msgid "Operation in progress"
 msgstr "Operation pågår"
 
-#: wammu-configure.py:52
+#: wammu-configure.py:52 wammu.py:48
 msgid "Options:"
 msgstr "Alternativ:"
 
@@ -1944,7 +1950,7 @@ msgstr ""
 #: Wammu/PhoneWizard.py:452
 msgid ""
 "Please make sure you have phone ready, powered on and one of connection "
-"methods is set up"
+"methods is set up:"
 msgstr ""
 
 #: Wammu/PhoneWizard.py:344
@@ -2311,15 +2317,8 @@ msgstr ""
 "Välj den här om din telefon ansluts över blåtand och du vill använda "
 "standardiserad blåtandsanslutning."
 
-#: Wammu/SettingsStorage.py:319 Wammu/SettingsStorage.py:330
-msgid ""
-"Select this if your phone is connected over IrDA and you want to use native "
-"Bluetooth connection."
-msgstr ""
-"Välj den här om din telefon ansluts över IrDA (infraröd) och du vill använda "
-"standardiserad blåtandsanslutning."
-
-#: Wammu/SettingsStorage.py:295
+#: Wammu/SettingsStorage.py:295 Wammu/SettingsStorage.py:319
+#: Wammu/SettingsStorage.py:330
 msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
@@ -2715,8 +2714,9 @@ msgstr "Upp"
 msgid "Updating gammu configuration..."
 msgstr "Uppdaterar gammu-konfiguration..."
 
-#: wammu-configure.py:50
-msgid "Usage: wammu [OPTION...]"
+#: wammu-configure.py:50 wammu.py:46
+#, fuzzy, python-format
+msgid "Usage: %s [OPTION...]"
 msgstr "Användning: wammu [FLAGGA...]"
 
 #: Wammu/Settings.py:174
@@ -2749,8 +2749,8 @@ msgstr ""
 msgid "Use regullar expression for searching?"
 msgstr "Använd reguljära uttryck för sökning?"
 
-#: wammu-configure.py:74
-msgid "Using local locales!"
+#: wammu-configure.py:74 wammu.py:70
+msgid "Using local built locales!"
 msgstr ""
 
 #: Wammu/About.py:102
@@ -2776,9 +2776,14 @@ msgstr "Sk&riv meddelande"
 msgid "WOW"
 msgstr "WOW"
 
-#: wammu-configure.py:46
+#: wammu.py:42
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
+msgstr "Wammu - Windowed Gammu version %s"
+
+#: wammu-configure.py:46
+#, fuzzy, python-format
+msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Wammu - Windowed Gammu version %s"
 
 #: Wammu/PhoneWizard.py:463
@@ -3110,10 +3115,6 @@ msgstr "fel"
 msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [AttGöra,kalender]"
 
-#: Wammu/TalkbackDialog.py:59
-msgid "label_2"
-msgstr ""
-
 #: Wammu/Main.py:1178
 msgid "mailbox"
 msgstr "mailbox"
@@ -3207,6 +3208,17 @@ msgstr "årligen"
 
 #~ msgid "Please make sure you have phone ready"
 #~ msgstr "Se till att du har din telefon redo"
+
+#~ msgid ""
+#~ "Select this if your phone is connected over IrDA and you want to use "
+#~ "native Bluetooth connection."
+#~ msgstr ""
+#~ "Välj den här om din telefon ansluts över IrDA (infraröd) och du vill "
+#~ "använda standardiserad blåtandsanslutning."
+
+#, fuzzy
+#~ msgid "Usage: wammu-configure [OPTION...]"
+#~ msgstr "Användning: wammu [FLAGGA...]"
 
 #, fuzzy
 #~ msgid "at"

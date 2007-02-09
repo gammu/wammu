@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-09 11:38+0100\n"
+"POT-Creation-Date: 2007-02-09 12:39+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
@@ -230,17 +230,17 @@ msgstr "&Escrever dados"
 msgid ", serial number %s"
 msgstr ", número de série %s"
 
-#: wammu-configure.py:53
+#: wammu-configure.py:53 wammu.py:49
 msgid "-h/--help          ... show this help"
 msgstr ""
 
-#: wammu-configure.py:55
+#: wammu-configure.py:55 wammu.py:51
 msgid ""
 "-l/--local-locales ... use locales from current directory rather than system "
 "ones"
 msgstr ""
 
-#: wammu-configure.py:54
+#: wammu-configure.py:54 wammu.py:50
 msgid "-v/--version       ... show program version"
 msgstr ""
 
@@ -565,7 +565,7 @@ msgstr "Aplausos"
 msgid "Close"
 msgstr "Fechar"
 
-#: wammu-configure.py:62
+#: wammu-configure.py:62 wammu.py:58
 msgid "Command line parsing failed with error:"
 msgstr ""
 
@@ -1043,7 +1043,7 @@ msgstr "Exportação terminada."
 msgid "Exports messages to emails in storage you choose"
 msgstr "Exporta mensagens para emails no armazenamento que você escolher"
 
-#: wammu-configure.py:68
+#: wammu-configure.py:68 wammu.py:64
 msgid "Extra unrecognized parameters passed to program"
 msgstr ""
 
@@ -1305,8 +1305,8 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:437
 msgid ""
-"If you have no idea how to configure your phone, you can look at Gammu Phone "
-"Database for other users experiences:"
+"If you have no idea how to configure your phone connection, you can look at "
+"Gammu Phone Database for other users experiences:"
 msgstr ""
 
 #: Wammu/Main.py:447
@@ -1554,7 +1554,8 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:348
 msgid ""
-"New Nokia protocol for PL2303 USB cable (for phones with USB chip like 5100)."
+"New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia "
+"5100."
 msgstr ""
 
 #: Wammu/Utils.py:336
@@ -1624,11 +1625,12 @@ msgstr "Cópia de segurança selecionada"
 
 #: Wammu/SettingsStorage.py:352
 msgid ""
-"Nokia Connectivity Adapter Cable DKU-5 (for phones with USB chip like 5100)."
+"Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100."
 msgstr ""
 
 #: Wammu/SettingsStorage.py:356
-msgid "Nokia Connectivity Cable DKU-2 (for phones without USB chip like 6230)."
+msgid ""
+"Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230."
 msgstr ""
 
 #: Wammu/SettingsStorage.py:125
@@ -1642,7 +1644,7 @@ msgstr ""
 #: Wammu/SettingsStorage.py:360
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
-"7110/6210/6310/6310."
+"7110/6210/6310."
 msgstr ""
 
 #: Wammu/Main.py:1404
@@ -1762,7 +1764,7 @@ msgstr "Um momento por favor, desconectando do telefone..."
 msgid "Operation in progress"
 msgstr "Operação em progresso"
 
-#: wammu-configure.py:52
+#: wammu-configure.py:52 wammu.py:48
 #, fuzzy
 msgid "Options:"
 msgstr "Descrição:"
@@ -1940,7 +1942,7 @@ msgstr ""
 #: Wammu/PhoneWizard.py:452
 msgid ""
 "Please make sure you have phone ready, powered on and one of connection "
-"methods is set up"
+"methods is set up:"
 msgstr ""
 
 #: Wammu/PhoneWizard.py:344
@@ -2312,13 +2314,8 @@ msgid ""
 "native Bluetooth connection."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:319 Wammu/SettingsStorage.py:330
-msgid ""
-"Select this if your phone is connected over IrDA and you want to use native "
-"Bluetooth connection."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:295
+#: Wammu/SettingsStorage.py:295 Wammu/SettingsStorage.py:319
+#: Wammu/SettingsStorage.py:330
 #, fuzzy
 msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
@@ -2692,8 +2689,9 @@ msgstr ""
 msgid "Updating gammu configuration..."
 msgstr "Cria novo contato"
 
-#: wammu-configure.py:50
-msgid "Usage: wammu [OPTION...]"
+#: wammu-configure.py:50 wammu.py:46
+#, python-format
+msgid "Usage: %s [OPTION...]"
 msgstr ""
 
 #: Wammu/Settings.py:174
@@ -2723,8 +2721,8 @@ msgstr ""
 msgid "Use regullar expression for searching?"
 msgstr ""
 
-#: wammu-configure.py:74
-msgid "Using local locales!"
+#: wammu-configure.py:74 wammu.py:70
+msgid "Using local built locales!"
 msgstr ""
 
 #: Wammu/About.py:102
@@ -2749,9 +2747,14 @@ msgstr "E&screver mensagem"
 msgid "WOW"
 msgstr "UAU"
 
-#: wammu-configure.py:46
+#: wammu.py:42
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
+msgstr ""
+
+#: wammu-configure.py:46
+#, python-format
+msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr ""
 
 #: Wammu/PhoneWizard.py:463
@@ -3059,10 +3062,6 @@ msgstr "falha"
 
 #: Wammu/Main.py:1416
 msgid "iCalendar [todo,calendar]"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:59
-msgid "label_2"
 msgstr ""
 
 #: Wammu/Main.py:1178
