@@ -184,8 +184,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.ShowHeaders()
         # restore sort order
         found = False
-        readsort = self.cfg.Read('/BrowserSortKey/%s' % self.type, '')
-        readorder = self.cfg.ReadInt('/BrowserSortOrder/%s' % self.type, 1)
+        readsort = self.cfg.Read('/BrowserSortKey/%s' % self.type)
+        readorder = self.cfg.ReadInt('/BrowserSortOrder/%s' % self.type)
         for i in range(len(self.keys)):
             if self.keys[i] == readsort:
                 if readorder == -1:

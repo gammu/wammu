@@ -27,7 +27,6 @@ import os
 import sys
 import wx
 import re
-import Wammu.Defaults
 
 class GammuSettings:
     """
@@ -40,7 +39,7 @@ class GammuSettings:
         @todo: filename is calculated wrongly.
         """
         self.wammu_cfg = wammu_cfg
-        self.filename = self.wammu_cfg.Read('/Gammu/Gammurc', Wammu.Defaults.ConfigPath)
+        self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
         self.config = wx.FileConfig(localFilename = self.filename, style = wx.CONFIG_USE_LOCAL_FILE)
         self.list = []
 

@@ -71,6 +71,7 @@ import Wammu.MailWriter
 import Wammu.IMAP
 import Wammu.ErrorMessage
 import Wammu.TalkbackDialog
+import Wammu.WammuSettings
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -134,12 +135,12 @@ displaydata['calendar']['  '] = ('info', _('Calendar'), _('All Calendar Events')
 class WammuFrame(wx.Frame):
 
     def __init__(self, parent, id):
-        self.cfg = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
+        self.cfg = Wammu.WammuSettings.WammuConfig()
         if self.cfg.HasEntry('/Main/X') and self.cfg.HasEntry('/Main/Y'):
-            pos = wx.Point(self.cfg.ReadInt('/Main/X', 0), self.cfg.ReadInt('/Main/Y', 0))
+            pos = wx.Point(self.cfg.ReadInt('/Main/X'), self.cfg.ReadInt('/Main/Y'))
         else:
             pos =wx.DefaultPosition
-        size = wx.Size(self.cfg.ReadInt('/Main/Width', 640), self.cfg.ReadInt('/Main/Height', 480))
+        size = wx.Size(self.cfg.ReadInt('/Main/Width'), self.cfg.ReadInt('/Main/Height'))
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
 
@@ -225,7 +226,7 @@ class WammuFrame(wx.Frame):
         self.searchpanel.sizer.Add(self.searchinput, 1, wx.LEFT | wx.CENTER | wx.EXPAND)
         self.searchchoice = wx.CheckBox(self.searchpanel, -1, _('Regexp'))
         self.searchchoice.SetToolTipString(_('Use regullar expression for searching?'))
-        self.searchchoice.SetValue(self.cfg.Read('/Defaults/SearchRegexp', 'yes') == 'yes')
+        self.searchchoice.SetValue(self.cfg.Read('/Defaults/SearchRegexp') == 'yes')
         self.searchpanel.sizer.Add(self.searchchoice, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
         self.searchclear = wx.Button(self.searchpanel, -1, _('&Clear'), style = wx.BU_EXACTFIT)
         self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
@@ -244,8 +245,8 @@ class WammuFrame(wx.Frame):
         # values displayer
         self.content = Wammu.Displayer.Displayer(self.rightsplitter, self)
 
-        self.splitter.SplitVertically(self.tree, self.rightsplitter, self.cfg.ReadInt('/Main/Split', 160))
-        self.rightsplitter.SplitHorizontally(self.rightwin, self.content, self.cfg.ReadInt('/Main/SplitRight', -200))
+        self.splitter.SplitVertically(self.tree, self.rightsplitter, self.cfg.ReadInt('/Main/Split'))
+        self.rightsplitter.SplitHorizontally(self.rightwin, self.content, self.cfg.ReadInt('/Main/SplitRight'))
 
         # initial content
         self.content.SetContent('<font size=+1><b>%s</b></font>' % (_('Welcome to Wammu %s') % Wammu.__version__))
@@ -449,9 +450,9 @@ class WammuFrame(wx.Frame):
                     wx.OK | wx.CANCEL | wx.ICON_WARNING)
                 if dlg.ShowModal() == wx.ID_OK:
                     self.SearchPhone()
-                    config['Model'] = self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
-                    config['Connection'] = self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0])
-                    config['Device'] = self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0])
+                    config['Model'] = self.cfg.Read('/Gammu/Model')
+                    config['Connection'] = self.cfg.Read('/Gammu/Connection')
+                    config['Device'] = self.cfg.Read('/Gammu/Device')
 
             # make some defaults
             if not config.has_key('Model') or config['Model'] == None or config['Model'] == '':
@@ -476,9 +477,9 @@ class WammuFrame(wx.Frame):
 
             self.Settings()
         else:
-            self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
+            self.DoDebug(self.cfg.Read('/Debug/Show'))
 
-        if (self.cfg.Read('/Wammu/AutoConnect', 'no') == 'yes'):
+        if (self.cfg.Read('/Wammu/AutoConnect') == 'yes'):
             self.PhoneConnect()
 
         self.SetupNumberPrefix()
@@ -523,7 +524,7 @@ class WammuFrame(wx.Frame):
                 pass
 
     def SetupNumberPrefix(self):
-        self.prefix = self.cfg.Read('/Wammu/PhonePrefix', 'Auto')
+        self.prefix = self.cfg.Read('/Wammu/PhonePrefix')
         if self.prefix == 'Auto':
             if self.connected:
                 self.prefix = None
@@ -539,15 +540,15 @@ class WammuFrame(wx.Frame):
                     except gammu.GSMError:
                         pass
                 if self.prefix is None:
-                    self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix', '')
+                    self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix')
                 else:
                     self.cfg.Write('/Wammu/LastPhonePrefix', self.prefix)
             else:
-                self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix', '')
+                self.prefix = self.cfg.Read('/Wammu/LastPhonePrefix')
         Wammu.Utils.NumberPrefix = self.prefix
 
     def SetupStatusRefresh(self):
-        repeat = self.cfg.ReadInt('/Wammu/RefreshState', 5000)
+        repeat = self.cfg.ReadInt('/Wammu/RefreshState')
         if repeat == 0:
             self.timer = None
         else:
@@ -576,15 +577,15 @@ class WammuFrame(wx.Frame):
         x,y = win.GetPositionTuple()
         w,h = win.GetSizeTuple()
 
-        self.cfg.WriteInt(key + '/X', x)
-        self.cfg.WriteInt(key + '/Y', y)
-        self.cfg.WriteInt(key + '/Width', w)
-        self.cfg.WriteInt(key + '/Height', h)
+        self.cfg.WriteInt('/%s/X' % key, x)
+        self.cfg.WriteInt('/%s/Y' % key, y)
+        self.cfg.WriteInt('/%s/Width' % key, w)
+        self.cfg.WriteInt('/%s/Height' % key, h)
 
 
     def LogClose(self, evt):
         self.logger.canceled = True
-        self.SaveWinSize(self.logwin, '/Debug')
+        self.SaveWinSize(self.logwin, 'Debug')
         self.cfg.Write('/Debug/Show', 'no')
         self.logwin.Destroy()
         del self.logger
@@ -675,20 +676,20 @@ class WammuFrame(wx.Frame):
     def Settings(self, event = None):
         if self.connected:
             connection_settings = {
-                'Connection': self.cfg.Read('/Gammu/Connection', ''),
-                'LockDevice': self.cfg.Read('/Gammu/LockDevice', ''),
-                'Device': self.cfg.Read('/Gammu/Device', ''),
-                'Model': self.cfg.Read('/Gammu/Model', '')
+                'Connection': self.cfg.Read('/Gammu/Connection'),
+                'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
+                'Device': self.cfg.Read('/Gammu/Device'),
+                'Model': self.cfg.Read('/Gammu/Model')
             }
 
         result = Wammu.Settings.Settings(self, self.cfg).ShowModal()
         if result == wx.ID_OK:
             if self.connected:
                 connection_settings_new = {
-                    'Connection': self.cfg.Read('/Gammu/Connection', ''),
-                    'LockDevice': self.cfg.Read('/Gammu/LockDevice', ''),
-                    'Device': self.cfg.Read('/Gammu/Device', ''),
-                    'Model': self.cfg.Read('/Gammu/Model', '')
+                    'Connection': self.cfg.Read('/Gammu/Connection'),
+                    'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
+                    'Device': self.cfg.Read('/Gammu/Device'),
+                    'Model': self.cfg.Read('/Gammu/Model')
                 }
 
                 if connection_settings != connection_settings_new:
@@ -696,14 +697,14 @@ class WammuFrame(wx.Frame):
                         _('You changed parameters affecting phone connection, they will be used next time you connect to phone.'),
                         _('Notice'),
                         wx.OK | wx.ICON_INFORMATION).ShowModal()
-            self.DoDebug(self.cfg.Read('/Debug/Show', 'no'))
+            self.DoDebug(self.cfg.Read('/Debug/Show'))
             self.SetupNumberPrefix()
             self.SetupStatusRefresh()
 
     def CloseWindow(self, event):
-        self.SaveWinSize(self, '/Main')
+        self.SaveWinSize(self, 'Main')
         if hasattr(self, 'logwin'):
-            self.SaveWinSize(self.logwin, '/Debug')
+            self.SaveWinSize(self.logwin, 'Debug')
         self.cfg.WriteInt('/Main/Split', self.splitter.GetSashPosition())
         self.cfg.WriteInt('/Main/SplitRight', self.rightsplitter.GetSashPosition())
         if self.searchchoice.GetValue():
@@ -1261,51 +1262,67 @@ class WammuFrame(wx.Frame):
                 wx.YES_NO | wx.YES_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
                 ssl = True
 
+            default_server = self.cfg.Read('/IMAP/Server')
             dlg = wx.TextEntryDialog(self,
                 _('Please enter server name'),
                 _('Server name'),
-                self.cfg.Read('/IMAP/Server', ''))
+                default_server)
             if dlg.ShowModal() == wx.ID_CANCEL:
                 return
             server = dlg.GetValue()
             self.cfg.Write('/IMAP/Server', server)
 
+            default_login = self.cfg.Read('/IMAP/Login')
             dlg = wx.TextEntryDialog(self,
                 _('Please enter login on server %s') % server,
                 _('Login'),
-                self.cfg.Read('/IMAP/Login', ''))
+                default_login)
             if dlg.ShowModal() == wx.ID_CANCEL:
                 return
             login = dlg.GetValue()
             self.cfg.Write('/IMAP/Login', login)
 
-            dlg = wx.PasswordEntryDialog(self,
-                _('Please enter password for %(login)s@%(server)s') % {'login': login,'server': server},
-                _('Password'),
-                '')
-            if dlg.ShowModal() == wx.ID_CANCEL:
-                return
-            password = dlg.GetValue()
-
-            busy = wx.BusyInfo(_('Connecting to IMAP server...'))
-
-            if ssl:
-                m = imaplib.IMAP4_SSL(server)
+            if server == default_server and login == default_login:
+                default_password = self.cfg.Read('/IMAP/Password')
             else:
-                m = imaplib.IMAP4(server)
+                default_password = ''
+            while True:
+                dlg = wx.PasswordEntryDialog(self,
+                    _('Please enter password for %(login)s@%(server)s') % {'login': login,'server': server},
+                    _('Password'),
+                    default_password)
+                if dlg.ShowModal() == wx.ID_CANCEL:
+                    return
+                password = dlg.GetValue()
 
-            try:
-                res = m.login(login, password)
-            except:
-                res = ['FAIL']
-            del busy
-            if res[0] != 'OK':
-                wx.MessageDialog(self,
-                    _('Can not login, you probably entered invalid login information, bailing out.'),
-                    _('Login failed!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-                self.SetStatusText(_('Export terminated'))
-                return
+                busy = wx.BusyInfo(_('Connecting to IMAP server...'))
+
+                if ssl:
+                    m = imaplib.IMAP4_SSL(server)
+                else:
+                    m = imaplib.IMAP4(server)
+
+                try:
+                    res = m.login(login, password)
+                except:
+                    res = ['FAIL']
+                del busy
+                if res[0] == 'OK':
+                    break
+                else:
+                    if wx.MessageDialog(self,
+                        _('Can not login, you probably entered invalid login information. Do you want to retry?'),
+                        _('Login failed!'),
+                        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_CANCEL:
+                        return
+
+            if password != default_password:
+                if wx.MessageDialog(self,
+                    _('Connection suceeded, do you want to remember password? This is a bit insecure.'),
+                    _('Save password?'),
+                    wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
+                        self.cfg.Write('/IMAP/Password', password)
+
 
             busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
             try:
@@ -1758,7 +1775,7 @@ class WammuFrame(wx.Frame):
             return
 
         # check for confirmation
-        if self.cfg.Read('/Wammu/ConfirmDelete', 'yes') == 'yes':
+        if self.cfg.Read('/Wammu/ConfirmDelete') == 'yes':
             txt = _('Are you sure you want to delete %s?')
             if len(lst) == 1:
                 v = lst[0]
@@ -2006,16 +2023,16 @@ class WammuFrame(wx.Frame):
         time.sleep(0.1)
         wx.Yield()
         cfg = {
-            'StartInfo': self.cfg.Read('/Gammu/StartInfo', 'no'),
+            'StartInfo': self.cfg.Read('/Gammu/StartInfo'),
             'UseGlobalDebugFile': 1,
             'DebugFile': None, # Set on other place
-            'SyncTime': self.cfg.Read('/Gammu/SyncTime', 'no'),
-            'Connection': self.cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]),
-            'LockDevice': self.cfg.Read('/Gammu/LockDevice', 'no'),
+            'SyncTime': self.cfg.Read('/Gammu/SyncTime'),
+            'Connection': self.cfg.Read('/Gammu/Connection'),
+            'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
             'DebugLevel': 'textall', # Set on other place
-            'Device': self.cfg.Read('/Gammu/Device', Wammu.Data.Devices[0]),
+            'Device': self.cfg.Read('/Gammu/Device'),
             'Localize': None,  # Set automatically by python-gammu
-            'Model': self.cfg.Read('/Gammu/Model', Wammu.Data.Models[0])
+            'Model': self.cfg.Read('/Gammu/Model')
             }
         if cfg['Model'] == 'auto':
             cfg['Model'] = ''
@@ -2090,7 +2107,7 @@ class WammuFrame(wx.Frame):
         d = Wammu.PhoneSearch.LogDialog(self)
         self.searchlog = d
         t = Wammu.PhoneSearch.AllSearchThread(
-            lock = self.cfg.Read('/Gammu/LockDevice', 'no'),
+            lock = self.cfg.Read('/Gammu/LockDevice'),
             callback = self.SearchDone,
             msgcallback = self.SearchMessage,
             win = self)

@@ -282,7 +282,7 @@ class GenericEditor(wx.Dialog):
         self.fulltypes = {}
         x = 0
         if wasempty:
-            for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries', 3)):
+            for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries')):
                 self.AddEdit(x)
         else:
             for i in range(len(entry['Entries'])):

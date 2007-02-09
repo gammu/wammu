@@ -223,7 +223,7 @@ class TextEditor(GenericEditor):
 
     def GetValue(self):
         if self.concat.GetValue():
-            if self.cfg.Read('/Message/16bitId', 'yes') == 'yes':
+            if self.cfg.Read('/Message/16bitId') == 'yes':
                 self.part['ID'] = 'ConcatenatedTextLong16bit'
             else:
                 self.part['ID'] = 'ConcatenatedTextLong'
@@ -323,8 +323,8 @@ class SMSComposer(wx.Dialog):
         if not entry.has_key('SMSInfo'):
             entry['SMSInfo'] = {}
             entry['SMSInfo']['Entries'] = []
-            if self.cfg.Read('/Message/Concatenated', 'yes') == 'yes':
-                if self.cfg.Read('/Message/16bitId', 'yes') == 'yes':
+            if self.cfg.Read('/Message/Concatenated') == 'yes':
+                if self.cfg.Read('/Message/16bitId') == 'yes':
                     typ = 'ConcatenatedTextLong16bit'
                 else:
                     typ = 'ConcatenatedTextLong'
@@ -381,7 +381,7 @@ class SMSComposer(wx.Dialog):
         if self.entry.has_key('Unicode'):
             self.unicode.SetValue(self.entry['Unicode'])
         else:
-            self.unicode.SetValue(self.cfg.Read('/Message/Unicode', 'no') == 'yes')
+            self.unicode.SetValue(self.cfg.Read('/Message/Unicode') == 'yes')
 
         self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
 
@@ -389,7 +389,7 @@ class SMSComposer(wx.Dialog):
 
         self.report = wx.CheckBox(self, -1, _('Delivery report'))
         self.report.SetToolTipString(_('Check to request delivery report for message.'))
-        self.report.SetValue(self.cfg.Read('/Message/DeliveryReport', 'no') == 'yes')
+        self.report.SetValue(self.cfg.Read('/Message/DeliveryReport') == 'yes')
         self.sizer.Add(self.report, pos = (row,2), flag = wx.ALIGN_LEFT)
 
         self.sent = wx.CheckBox(self, -1, _('Sent'))
@@ -586,7 +586,7 @@ class SMSComposer(wx.Dialog):
         if self.availsel == -1:
             return
         v = {'ID': SMSParts[self.availsel][4]}
-        if v['ID'][-5:] == '16bit' and self.cfg.Read('/Message/16bitId', 'yes') != 'yes':
+        if v['ID'][-5:] == '16bit' and self.cfg.Read('/Message/16bitId') != 'yes':
             v['ID'] = v['ID'][:-5]
         self.StoreEdited()
         self.entry['SMSInfo']['Entries'].insert(self.prevedit + 1, v)

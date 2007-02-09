@@ -78,12 +78,12 @@ class TalkbackDialog(wx.Dialog):
         self.gammu_version_label.SetLabel(gammu.Version()[0])
         self.note_text_ctrl.SetValue('Report created using Wammu %s\n' % Wammu.__version__)
         # Read phone name and manufacturer
-        manufacturer = self.wammu_cfg.Read('/Phone-%d/Manufacturer' % phoneid, '')
+        manufacturer = self.wammu_cfg.Read('/Phone-%d/Manufacturer' % phoneid)
         self.manufacturer_choice.SetStringSelection(manufacturer)
-        model = self.wammu_cfg.Read('/Phone-%d/Model' % phoneid, '')
+        model = self.wammu_cfg.Read('/Phone-%d/Model' % phoneid)
         self.model_text_ctrl.SetValue(model)
         # Set connection type which is being used
-        self.connection_combo_box.SetValue(self.wammu_cfg.Read('/Gammu/Connection', Wammu.Data.Connections[0]))
+        self.connection_combo_box.SetValue(self.wammu_cfg.Read('/Gammu/Connection'))
 
 
     def __set_properties(self):

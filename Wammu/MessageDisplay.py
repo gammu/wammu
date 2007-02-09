@@ -31,7 +31,7 @@ import re
 from Wammu.Utils import UnicodeConv, HtmlStr_ as _, HtmlStrConv
 
 def SmsTextFormat(cfg, txt, dohtml = True):
-    if cfg.Read('/Wammu/FormatSMS', 'yes') == 'yes':
+    if cfg.Read('/Message/Format') == 'yes':
         ret = ''
         arr = txt.split(' ')
         for a in arr:
@@ -143,7 +143,7 @@ def SmsToHtml(cfg, v):
                 x = i['Bitmap'][0]
                 text = text + \
                     '<wxp module="Wammu.Image" class="Bitmap">' + \
-                    '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage', 1)) + ')">' + \
+                    '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage')) + ')">' + \
                     '<param name="image" value="' + "['" + string.join(x['XPM'], "', '") + "']" + '">' + \
                     '</wxp>'
 
@@ -153,7 +153,7 @@ def SmsToHtml(cfg, v):
                     data.append("['" + string.join(x['XPM'], "', '") + "']")
                     text = text + \
                         '<wxp module="Wammu.Image" class="Throbber">' + \
-                        '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage', 1)) + ')">' + \
+                        '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage')) + ')">' + \
                         '<param name="images" value="' + "['" + string.join(data, "', '") + "']" + '">' + \
                         '</wxp>'
         if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:

@@ -64,10 +64,10 @@ class LogFrame(wx.Frame):
     def __init__(self, parent, cfg):
         self.cfg = cfg
         if cfg.HasEntry('/Debug/X') and cfg.HasEntry('/Debug/Y'):
-            pos = wx.Point(cfg.ReadInt('/Debug/X', 0), cfg.ReadInt('/Debug/Y', 0))
+            pos = wx.Point(cfg.ReadInt('/Debug/X'), cfg.ReadInt('/Debug/Y'))
         else:
-            pos =wx.DefaultPosition
-        size = wx.Size(cfg.ReadInt('/Debug/Width', 400), cfg.ReadInt('/Debug/Height', 200))
+            pos = wx.DefaultPosition
+        size = wx.Size(cfg.ReadInt('/Debug/Width'), cfg.ReadInt('/Debug/Height'))
         wx.Frame.__init__(self, parent, -1, 'Wammu debug log', pos, size, wx.DEFAULT_FRAME_STYLE | wx.RESIZE_BORDER)
         self.txt = wx.TextCtrl(self,-1, 'Here will appear debug messages from Gammu...\n',style = wx.TE_MULTILINE | wx.TE_READONLY)
         self.txt.SetFont(wx.Font(9, wx.MODERN, wx.NORMAL, wx.NORMAL))
