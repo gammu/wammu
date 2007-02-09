@@ -43,11 +43,11 @@ except:
 gettext.install('wammu', unicode=1)
 
 def version():
-    print _('Wammu - Windowed Gammu version %s') % Wammu.__version__
+    print _('Wammu Configurator - Wammu and Gammu configurator version %s') % Wammu.__version__
 
 def usage():
     version()
-    print _('Usage: wammu [OPTION...]')
+    print _('Usage: %s [OPTION...]' % os.path.basename(__file__))
     print
     print _('Options:')
     print _('-h/--help          ... show this help')
@@ -71,7 +71,7 @@ if len(args) != 0:
 for o, a in opts:
     if o in ('-l', '--local-locales'):
         gettext.install('wammu',os.path.join('build', 'share', 'locale'), unicode=1)
-        print _('Using local locales!')
+        print _('Using local built locales!')
     if o in ('-h', '--help'):
         usage()
         sys.exit()
