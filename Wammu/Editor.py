@@ -288,10 +288,11 @@ class GenericEditor(wx.Dialog):
             for i in range(len(entry['Entries'])):
                 self.AddEdit(i, entry['Entries'][i])
 
-        self.ok = wx.Button(self, wx.ID_OK, _('OK'))
-        self.Bind(wx.EVT_BUTTON, self.Okay, self.ok)
-        self.cancel = wx.Button(self, wx.ID_CANCEL, _('Cancel'))
         self.more = wx.Button(self, -1, _('More'))
+        self.button_sizer = self.CreateStdDialogButtonSizer(wx.OK | wx.CANCEL)
+        self.button_sizer.SetNegativeButton(self.more)
+        self.button_sizer.Realize()
+        self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)
         self.Bind(wx.EVT_BUTTON, self.More, self.more)
 
         self.SetAutoLayout(True)
@@ -300,17 +301,14 @@ class GenericEditor(wx.Dialog):
         self.AddButtons()
 
     def AddButtons(self):
-        self.sizer.Add(self.ok, (self.rowoffset + self.rows + 1, 0), (1, 2))
-        self.sizer.Add(self.more, (self.rowoffset + self.rows + 1, 3), (1, 2))
-        self.sizer.Add(self.cancel, (self.rowoffset + self.rows + 1, 6), (1, 2))
+        row = self.rowoffset + self.rows + 1
+        self.sizer.Add(self.button_sizer, pos = (row, 1), span = wx.GBSpan(colspan = 7), flag = wx.ALIGN_RIGHT)
         self.sizer.Fit(self)
         self.sizer.SetSizeHints(self)
         self.sizer.Layout()
 
     def RemoveButtons(self):
-        self.sizer.Detach(self.ok)
-        self.sizer.Detach(self.more)
-        self.sizer.Detach(self.cancel)
+        self.sizer.Detach(self.button_sizer)
 
     def AddEdit(self, row, value = {'Type':'', 'Value':''}):
         self.rows += 1
