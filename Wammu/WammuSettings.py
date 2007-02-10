@@ -74,13 +74,13 @@ Defaults = {
     }
 
 if sys.platform == 'win32':
-    # FIXME: is this really good idea?
-    Defaults['/Gammu/Gammurc'] = '~/.gammurc'
+    # ~ is expanded to HOMEDRIVE and HOMEPATH on Windows
+    Defaults['/Gammu/Gammurc'] = os.path.join('~', 'gammurc')
 else:
     import pwd
     import string
 
-    Defaults['/Gammu/Gammurc'] = '~/.gammurc'
+    Defaults['/Gammu/Gammurc'] = os.path.join('~', '.gammurc')
 
     name = pwd.getpwuid(os.getuid())[4]
     if ',' in name:
@@ -100,7 +100,7 @@ class WammuConfig:
     '''
     def __init__(self):
         # We don't want to subclass from wx.Config to hide it's API
-        self.cfg = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
+        self.cfg = wx.Config(appName = 'Wammu', style = wx.CONFIG_USE_LOCAL_FILE)
 
     def Read(self, path):
         try:
