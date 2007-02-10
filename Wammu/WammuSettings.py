@@ -87,6 +87,7 @@ class WammuConfig:
     ~ in path).
     '''
     def __init__(self):
+        # We don't want to subclass from wx.Config to hide it's API
         self.cfg = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
 
     def Read(self, path):

@@ -28,11 +28,9 @@ import wx.html
 import sys
 
 import os
-import os.path
 import datetime
 import time
 import copy
-import imaplib
 import tempfile
 import webbrowser
 import locale
@@ -67,11 +65,10 @@ import Wammu.Composer
 import Wammu.MessageDisplay
 import Wammu.PhoneSearch
 import Wammu.About
-import Wammu.MailWriter
-import Wammu.IMAP
 import Wammu.ErrorMessage
 import Wammu.TalkbackDialog
 import Wammu.WammuSettings
+import Wammu.SMSExport
 from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 
 def SortDataKeys(a, b):
@@ -1126,284 +1123,13 @@ class WammuFrame(wx.Frame):
                 self.ShowError(val[0])
 
     def SMSToMails(self, evt):
-        # Select where to export
-        dlg = wx.SingleChoiceDialog(self, _('Where do you want to export emails created from your messages?'), _('Select export type'),
-                                    [_('Mailbox file'), _('Maildir folder'), _('IMAP account')], wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
-        if dlg.ShowModal() != wx.ID_OK:
-            return
-
-        idx = dlg.GetSelection()
-        del dlg
-
-        backup = self.values['message']['Read'] + self.values['message']['UnRead'] + self.values['message']['Sent'] +  self.values['message']['UnSent']
-        count = len(backup)
-
-        # Mailbox
-        if idx == 0:
-            wildcard = _('All files') + ' (*.*)|*.*;*'
-            dlg = wx.FileDialog(self, _('Select mailbox file...'), os.getcwd(), "", wildcard, wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
-
-            if dlg.ShowModal() != wx.ID_OK:
-                return
-
-            path = dlg.GetPath()
-
-            self.ShowProgress(_('Saving messages to mailbox'))
-            try:
-                f = file(path, 'w')
-                for i in range(count):
-                    if not self.progress.Update(i * 100 / count):
-                        del self.progress
-                        self.SetStatusText(_('Export terminated'))
-                        return
-
-                    sms = backup[i]
-                    filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'], True)
-                    f.write(data)
-                    f.write('\n')
-                    f.write('\n')
-
-                f.close()
-            except IOError:
-                del self.progress
-                wx.MessageDialog(self,
-                    _('Creating of file %s failed, bailing out.') % path,
-                    _('Can not create file!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-                del self.progress
-                self.SetStatusText(_('Export terminated'))
-                return
-
-            self.progress.Update(100)
-            del self.progress
-            self.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('mailbox')})
-
-        # Maildir
-        elif idx == 1:
-            dlg = wx.DirDialog(self, _('Select maildir directory where to save files'), os.getcwd(),
-                      style=wx.DD_DEFAULT_STYLE|wx.DD_NEW_DIR_BUTTON)
-
-            if dlg.ShowModal() != wx.ID_OK:
-                return
-
-            path = dlg.GetPath()
-            outpath = path
-
-            if not os.path.isdir(os.path.join(outpath, 'new')):
-                res = wx.MessageDialog(self,
-                    _('Selected folder does not contain new subfolder and thus probably is not valid maildir.\n\nDo you want to create new subfolder and export to it?'),
-                    _('Folder doesn\'t look like maildir!'),
-                    wx.YES_NO | wx.YES_DEFAULT | wx.CANCEL | wx.ICON_WARNING).ShowModal()
-
-                if res == wx.ID_CANCEL:
-                    return
-
-                if res == wx.ID_YES:
-                    outpath = os.path.join(outpath, 'new')
-                    try:
-                        os.mkdir(outpath)
-                    except OSError:
-                        wx.MessageDialog(self,
-                            _('Creating of folder failed, bailing out.'),
-                            _('Can not create folder!'),
-                            wx.OK | wx.ICON_ERROR).ShowModal()
-                        return
-            else:
-                outpath = os.path.join(outpath, 'new')
-
-            self.ShowProgress(_('Saving messages to maildir'))
-            for i in range(count):
-                if not self.progress.Update(i * 100 / count):
-                    del self.progress
-                    self.SetStatusText(_('Export terminated'))
-                    return
-
-                sms = backup[i]
-                filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
-
-                outfile = os.path.join(outpath, filename)
-                if os.path.exists(outfile):
-                    res = wx.MessageDialog(self,
-                        _('Output file already exists, this usually means that this message was already saved there.\n\nDo you wish to overwrite file %s?') % outfile,
-                        _('File already exists!'),
-                        wx.YES_NO | wx.NO_DEFAULT | wx.CANCEL | wx.ICON_WARNING).ShowModal()
-
-                    if res == wx.ID_CANCEL:
-                        del self.progress
-                        self.SetStatusText(_('Export terminated'))
-                        return
-
-                    if res == wx.ID_NO:
-                        continue
-                try:
-                    f = file(outfile, 'w')
-                    f.write(data)
-                    f.close()
-                except IOError:
-                    wx.MessageDialog(self,
-                        _('Creating of file %s failed, bailing out.') % outfile,
-                        _('Can not create file!'),
-                        wx.OK | wx.ICON_ERROR).ShowModal()
-                    del self.progress
-                    self.SetStatusText(_('Export terminated'))
-                    return
-
-            self.progress.Update(100)
-            del self.progress
-
-            self.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('maildir')})
-
-        # IMAP
-        elif idx == 2:
-            ssl = False
-            if wx.MessageDialog(self,
-                _('Do you wish to use SSL while uploading messages to IMAP server?'),
-                _('Use SSL?'),
-                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
-                ssl = True
-
-            default_server = self.cfg.Read('/IMAP/Server')
-            dlg = wx.TextEntryDialog(self,
-                _('Please enter server name'),
-                _('Server name'),
-                default_server)
-            if dlg.ShowModal() == wx.ID_CANCEL:
-                return
-            server = dlg.GetValue()
-            self.cfg.Write('/IMAP/Server', server)
-
-            default_login = self.cfg.Read('/IMAP/Login')
-            dlg = wx.TextEntryDialog(self,
-                _('Please enter login on server %s') % server,
-                _('Login'),
-                default_login)
-            if dlg.ShowModal() == wx.ID_CANCEL:
-                return
-            login = dlg.GetValue()
-            self.cfg.Write('/IMAP/Login', login)
-
-            if server == default_server and login == default_login:
-                default_password = self.cfg.Read('/IMAP/Password')
-            else:
-                default_password = ''
-            while True:
-                dlg = wx.PasswordEntryDialog(self,
-                    _('Please enter password for %(login)s@%(server)s') % {'login': login,'server': server},
-                    _('Password'),
-                    default_password)
-                if dlg.ShowModal() == wx.ID_CANCEL:
-                    return
-                password = dlg.GetValue()
-
-                busy = wx.BusyInfo(_('Connecting to IMAP server...'))
-
-                if ssl:
-                    m = imaplib.IMAP4_SSL(server)
-                else:
-                    m = imaplib.IMAP4(server)
-
-                try:
-                    res = m.login(login, password)
-                except:
-                    res = ['FAIL']
-                del busy
-                if res[0] == 'OK':
-                    break
-                else:
-                    if wx.MessageDialog(self,
-                        _('Can not login, you probably entered invalid login information. Do you want to retry?'),
-                        _('Login failed!'),
-                        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_NO:
-                        return
-
-            if password != default_password:
-                if wx.MessageDialog(self,
-                    _('Connection suceeded, do you want to remember password? This is a bit insecure.'),
-                    _('Save password?'),
-                    wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
-                        self.cfg.Write('/IMAP/Password', password)
-
-
-            busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
-            try:
-                res, list = m.list()
-            except:
-                res = 'FAIL'
-            del busy
-            if res != 'OK':
-                wx.MessageDialog(self,
-                    _('Can not list folders on server, bailing out.'),
-                    _('Listing failed!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-                self.SetStatusText(_('Export terminated'))
-                return
-
-            folders = []
-            for item in list:
-                vals = item.split('"')
-                folders.append(unicode(vals[-2], 'imap4-utf-7'))
-
-            folders.sort()
-
-            dlg = wx.SingleChoiceDialog(self,
-                _('Please select folder on server %s where messages will be stored') % server,
-                _('Select folder'),
-                folders, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
-            if dlg.ShowModal() == wx.ID_CANCEL:
-                return
-            path = '%s@%s/%s' % (login, server, folders[dlg.GetSelection()])
-            folder = folders[dlg.GetSelection()].encode('imap4-utf-7')
-
-            busy = wx.BusyInfo(_('Selecting folder on IMAP server...'))
-            try:
-                res = m.select(folder)
-            except:
-                res = ['FAIL']
-            del busy
-            if res[0] != 'OK':
-                wx.MessageDialog(self,
-                    _('Can not select folder %s on server, bailing out.') % folder,
-                    _('Selecting failed!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-                self.SetStatusText(_('Export terminated'))
-                return
-
-            self.ShowProgress(_('Saving messages to IMAP'))
-            for i in range(count):
-                if not self.progress.Update(i * 100 / count):
-                    del self.progress
-                    self.SetStatusText(_('Export terminated'))
-                    return
-
-                sms = backup[i]
-                filename, data = Wammu.MailWriter.SMSToMail(self.cfg, sms, self.values['contact']['ME'] + self.values['contact']['SM'])
-
-                try:
-                    res = m.append(folder, '$SMS', None, data)
-                except:
-                    res = ['FAIL']
-                if res[0] != 'OK':
-                    wx.MessageDialog(self,
-                        _('Can not save message to folder %s on server, bailing out.') % folder,
-                        _('Saving failed!'),
-                        wx.OK | wx.ICON_ERROR).ShowModal()
-                    self.progress.Update(100)
-                    del self.progress
-                    self.SetStatusText(_('Export terminated'))
-                    return
-
-            self.progress.Update(100)
-            del self.progress
-
-            try:
-                m.logout()
-            except:
-                pass
-
-            self.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('IMAP server')})
-
-        else:
-            raise Exception('Not implemented export functionality!')
+        messages = self.values['message']['Read'] + \
+            self.values['message']['UnRead'] + \
+            self.values['message']['Sent'] + \
+            self.values['message']['UnSent']
+        contacts =  self.values['contact']['ME'] + \
+            self.values['contact']['SM']
+        Wammu.SMSExport.SMSExport(self, messages, contacts)
 
     def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''
