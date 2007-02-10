@@ -1202,7 +1202,7 @@ class WammuFrame(wx.Frame):
                     outpath = os.path.join(outpath, 'new')
                     try:
                         os.mkdir(outpath)
-                    except:
+                    except OSError:
                         wx.MessageDialog(self,
                             _('Creating of folder failed, bailing out.'),
                             _('Can not create folder!'),
@@ -1313,7 +1313,7 @@ class WammuFrame(wx.Frame):
                     if wx.MessageDialog(self,
                         _('Can not login, you probably entered invalid login information. Do you want to retry?'),
                         _('Login failed!'),
-                        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_CANCEL:
+                        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_NO:
                         return
 
             if password != default_password:
