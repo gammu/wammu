@@ -35,8 +35,6 @@ class GammuSettings:
     def __init__(self, wammu_cfg):
         """
         Reads gammu configuration and prepares it for use.
-
-        @todo: filename is calculated wrongly.
         """
         self.wammu_cfg = wammu_cfg
         self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
