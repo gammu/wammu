@@ -81,9 +81,10 @@ for o, a in opts:
 
 # need to be imported after locales are initialised
 import Wammu.PhoneWizard
+import Wammu.WammuSettings
 app = Wammu.PhoneWizard.WizardApp()
 
-wammu_cfg = wx.Config(appName = 'Wammu', style = wx.CONFIG_USE_LOCAL_FILE)
+wammu_cfg = Wammu.WammuSettings.WammuConfig()
 
 config = Wammu.GammuSettings.GammuSettings(wammu_cfg)
 
