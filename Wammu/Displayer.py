@@ -27,7 +27,7 @@ import wx
 import wx.html
 import Wammu.Events
 import Wammu.Utils
-from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
+from Wammu.Utils import HtmlStrConv, StrConv
 
 class Displayer(wx.html.HtmlWindow):
     def __init__(self, parent, win):

@@ -29,7 +29,7 @@ import Wammu
 import Wammu.Events
 import Wammu.Utils
 from Wammu.Paths import *
-from Wammu.Utils import StrConv, Str_ as _
+from Wammu.Utils import StrConv
 
 import wx.lib.mixins.listctrl
 

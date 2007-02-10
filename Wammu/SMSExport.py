@@ -28,7 +28,6 @@ import imaplib
 import wx
 import Wammu.MailWriter
 import Wammu.IMAP
-from Wammu.Utils import Str_ as _
 
 def SMSToMailbox(parent, messages, contacts):
     count = len(messages)

@@ -31,7 +31,6 @@ if Wammu.gammu_error == None:
 import os
 import thread
 import commands
-from Wammu.Utils import Str_ as _
 
 ringtones = {}
 

@@ -35,7 +35,7 @@ import Wammu.Select
 if Wammu.gammu_error == None:
     import gammu
 import locale
-from Wammu.Utils import UnicodeConv, Str_ as _
+from Wammu.Utils import UnicodeConv
 
 if wx.USE_UNICODE:
     htmlhead = ''

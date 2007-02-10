@@ -33,7 +33,7 @@ if Wammu.gammu_error == None:
 import Wammu.Data
 import Wammu.Events
 import wxPython.lib.layoutf
-from Wammu.Utils import StrConv, Str_ as _
+from Wammu.Utils import StrConv
 
 class LogDialog(wx.Dialog):
     def __init__(self, parent, msg = '', caption = _('Phone searching log'), pos = wx.DefaultPosition, size = (500,300)):

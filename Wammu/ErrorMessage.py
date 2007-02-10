@@ -29,7 +29,6 @@ import Wammu
 import webbrowser
 import Wammu.Paths
 import Wammu.ErrorLog
-from Wammu.Utils import HtmlStrConv, StrConv, Str_ as _
 if Wammu.gammu_error == None:
     import gammu
 

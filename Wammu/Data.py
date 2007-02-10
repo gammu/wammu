@@ -25,7 +25,6 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import sys
-from Wammu.Utils import Str_ as _
 
 # When support for sound will be implemented, here should be sounds
 PredefinedSounds = [

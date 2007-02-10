@@ -27,7 +27,6 @@ import sys
 import os
 import Wammu.Paths
 import Wammu.Data
-from Wammu.Utils import StrConv, Str_ as _
 
 COM_PORTS = 16
 UNX_DEVICES = 4

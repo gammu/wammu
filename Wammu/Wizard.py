@@ -26,7 +26,6 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import wx
 import wx.wizard
 import Wammu.Paths
-from Wammu.Utils import StrConv, Str_ as _
 
 
 class SimplePage(wx.wizard.PyWizardPage):

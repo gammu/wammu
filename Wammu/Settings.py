@@ -27,7 +27,6 @@ import wx
 import wx.lib.rcsizer
 import sys
 import Wammu
-from Wammu.Utils import Str_ as _
 try:
     from wx.lib.timectrl import TimeCtrl
 except ImportError:

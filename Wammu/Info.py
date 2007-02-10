@@ -26,7 +26,6 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import Wammu.Thread
 if Wammu.gammu_error == None:
     import gammu
-from Wammu.Utils import Str_ as _
 
 class GetInfo(Wammu.Thread.Thread):
     def Run(self):

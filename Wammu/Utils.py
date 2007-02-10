@@ -139,10 +139,16 @@ def UnicodeConv(txt):
         return unicode('???')
 
 def Str_(txt):
-    return StrConv(_(txt))
+    return StrConv(Original_(txt))
 
 def HtmlStr_(txt):
-    return HtmlStrConv(_(txt))
+    return HtmlStrConv(Original_(txt))
+
+# Replace _ with our wrapper which handles charset conversions
+import __builtin__
+Original_ = __builtin__.__dict__['_']
+__builtin__.__dict__['_'] = Str_
+_ = Str_
 
 def GetItemType(txt):
     if txt == '':
@@ -320,7 +326,6 @@ def ParseMemoryEntry(entry):
     return entry
 
 def ParseTodo(entry):
-    _ = Str_
     dt = ''
     text = ''
     completed = ''
@@ -469,7 +474,6 @@ def ProcessMessages(list, synced):
     return {'read':read, 'unread':unread, 'sent':sent, 'unsent':unsent}
 
 def FormatError(txt, info):
-    _ = Str_
     if info['Code'] == gammu.Errors['ERR_NOTSUPPORTED']:
         message = _('Your phone doesn\'t support this function.')
     elif info['Code'] == gammu.Errors['ERR_NOTIMPLEMENTED']:

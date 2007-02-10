@@ -27,7 +27,6 @@ import sys
 import threading
 import wx
 import Wammu.Events
-from Wammu.Utils import Str_ as _
 
 class Thread(threading.Thread):
     def __init__(self, win, sm):

@@ -50,7 +50,7 @@ import Wammu.Data
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
-from Wammu.Utils import StrConv, UnicodeConv, Str_ as _
+from Wammu.Utils import StrConv, UnicodeConv
 try:
     from wx.lib.masked import Ctrl as maskedCtrl
 except ImportError:
