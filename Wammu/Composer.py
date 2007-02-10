@@ -353,8 +353,8 @@ class SMSComposer(wx.Dialog):
         self.save.SetToolTipString(_('When checked, message is saved to phone.'))
         self.save.SetValue(action == 'save')
 
-        wx.EVT_CHECKBOX(self.save, self.save.GetId(), self.OnSave)
-        wx.EVT_CHECKBOX(self.send, self.send.GetId(), self.OnSend)
+        self.Bind(wx.EVT_CHECKBOX, self.OnSave, self.save)
+        self.Bind(wx.EVT_CHECKBOX, self.OnSend, self.send)
 
         self.folder = wx.SpinCtrl(self, -1, '2', style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = 0, max = 3, initial = 2)
 
@@ -372,7 +372,7 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, span = wx.GBSpan(colspan = 5))
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
 
-        wx.EVT_BUTTON(self, self.contbut.GetId(), self.ContactPressed)
+        self.Bind(wx.EVT_BUTTON, self.ContactPressed, self.contbut)
 
         row = row + 2
 
@@ -385,7 +385,7 @@ class SMSComposer(wx.Dialog):
 
         self.sizer.Add(self.unicode, pos = (row,1), flag = wx.ALIGN_LEFT)
 
-        wx.EVT_CHECKBOX(self.unicode, self.unicode.GetId(), self.OnUnicode)
+        self.Bind(wx.EVT_CHECKBOX, self.OnUnicode, self.unicode)
 
         self.report = wx.CheckBox(self, -1, _('Delivery report'))
         self.report.SetToolTipString(_('Check to request delivery report for message.'))
@@ -410,8 +410,9 @@ class SMSComposer(wx.Dialog):
 
         self.addbut = wx.Button(self, -1, _('<<< Add <<<'))
         self.delbut = wx.Button(self, -1, _('>>> Delete'))
-        wx.EVT_BUTTON(self, self.addbut.GetId(), self.AddPressed)
-        wx.EVT_BUTTON(self, self.delbut.GetId(), self.DeletePressed)
+
+        self.Bind(wx.EVT_BUTTON, self.AddPressed, self.addbut)
+        self.Bind(wx.EVT_BUTTON, self.DeletePressed, self.delbut)
 
         self.sizer.Add(self.current, pos = (row,1), flag = wx.EXPAND, span = wx.GBSpan(colspan = 2, rowspan = 2))
         self.sizer.Add(self.addbut, pos = (row,4), flag = wx.ALIGN_CENTER)
@@ -426,8 +427,8 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(self.upbut, pos = (row,1), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.dnbut, pos = (row,2), flag = wx.ALIGN_CENTER)
 
-        wx.EVT_BUTTON(self, self.upbut.GetId(), self.UpPressed)
-        wx.EVT_BUTTON(self, self.dnbut.GetId(), self.DnPressed)
+        self.Bind(wx.EVT_BUTTON, self.UpPressed, self.upbut)
+        self.Bind(wx.EVT_BUTTON, self.DnPressed, self.dnbut)
 
         row = row + 2
         self.sizer.AddGrowableRow(row)
@@ -444,8 +445,8 @@ class SMSComposer(wx.Dialog):
         self.button_sizer.Realize()
         self.sizer.Add(self.button_sizer, pos = (row, 1), span = wx.GBSpan(colspan = 7), flag = wx.ALIGN_RIGHT)
 
-        wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
-        wx.EVT_BUTTON(self, self.preview.GetId(), self.Preview)
+        self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)
+        self.Bind(wx.EVT_BUTTON, self.Preview, self.preview)
 
         self.sizer.AddSpacer((5,5), pos=(row + 1,8))
         self.sizer.AddGrowableCol(1)
@@ -459,8 +460,8 @@ class SMSComposer(wx.Dialog):
         self.prevedit = -1
         self.availsel = -1
 
-        wx.EVT_LIST_ITEM_SELECTED(self.current, self.current.GetId(), self.CurrentSelected)
-        wx.EVT_LIST_ITEM_SELECTED(self.available, self.available.GetId(), self.AvailableSelected)
+        self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.CurrentSelected, self.current)
+        self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.AvailableSelected, self.available)
 
         if action == 'send':
             self.OnSave()
