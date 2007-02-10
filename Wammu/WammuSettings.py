@@ -29,6 +29,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import sys
 import os
 import wx
+import email.Utils
 # FIXME: can be later removed
 import Wammu.Data
 
@@ -65,6 +66,8 @@ Defaults = {
     '/Wammu/DefaultTime': '09:00:00',
     '/Wammu/DefaultDateOffset': 1,
     '/Wammu/DefaultEntries': 3,
+    '/Wammu/FirstRun': -1,
+    '/Wammu/TalkbackDone': 'no',
     '/IMAP/Server': '',
     '/IMAP/Login': '',
     '/IMAP/Password': '',
@@ -74,7 +77,16 @@ if sys.platform == 'win32':
     # FIXME: is this really good idea?
     Defaults['/Gammu/Gammurc'] = '~/.gammurc'
 else:
+    import pwd
+    import string
+
     Defaults['/Gammu/Gammurc'] = '~/.gammurc'
+
+    name = pwd.getpwuid(os.getuid())[4]
+    if ',' in name:
+        name = name[:string.index(name, ',')]
+    if name:
+        Defaults['/User/Name'] = name
 
 Expandable = [
     '/Gammu/Gammurc',
@@ -110,11 +122,23 @@ class WammuConfig:
             result = self.cfg.ReadInt(path, 0)
         return result
 
+    def ReadFloat(self, path):
+        try:
+            result = self.cfg.ReadFloat(path, Defaults[path])
+        except KeyError:
+            # Following line is for debugging purposes only
+            print 'Warning: no default value for %s' % path
+            result = self.cfg.ReadFloat(path, 0)
+        return result
+
     def Write(self, path, value):
         self.cfg.Write(path, value)
 
     def WriteInt(self, path, value):
         self.cfg.WriteInt(path, value)
+
+    def WriteFloat(self, path, value):
+        self.cfg.WriteFloat(path, value)
 
     def HasEntry(self, path):
         return self.cfg.HasEntry(path)

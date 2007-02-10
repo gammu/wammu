@@ -84,6 +84,8 @@ class TalkbackDialog(wx.Dialog):
         self.model_text_ctrl.SetValue(model)
         # Set connection type which is being used
         self.connection_combo_box.SetValue(self.wammu_cfg.Read('/Gammu/Connection'))
+        self.name_text_ctrl.SetValue(self.wammu_cfg.Read('/User/Name'))
+        self.email_text_ctrl.SetValue(self.wammu_cfg.Read('/User/Email'))
 
 
     def __set_properties(self):
@@ -208,6 +210,9 @@ def DoTalkback(parent, config, phoneid = 0):
                 wx.OK | wx.ICON_ERROR).ShowModal()
             continue
 
+        config.Write('/User/Name', dlg.name_text_ctrl.GetValue())
+        config.Write('/User/Email', dlg.email_text_ctrl.GetValue())
+
         params_dict = {
             'irobot': 'wammu',
             'manufacturer': man_id,
@@ -246,6 +251,7 @@ def DoTalkback(parent, config, phoneid = 0):
                 _('Entry created!'),
                 wx.YES_NO | wx.ICON_INFORMATION).ShowModal() == wx.ID_YES:
                 webbrowser.open(url)
+            config.Write('/Wammu/TalkbackDone', 'yes')
             break
         fail_test = fail_matcher.match(data)
         if fail_test is not None:

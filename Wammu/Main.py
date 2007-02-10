@@ -479,6 +479,22 @@ class WammuFrame(wx.Frame):
         if (self.cfg.Read('/Wammu/AutoConnect') == 'yes'):
             self.PhoneConnect()
 
+        # Do ask for talkback after month of usage
+        if self.cfg.ReadFloat('/Wammu/FirstRun') == -1:
+            self.cfg.WriteFloat('/Wammu/FirstRun', time.time())
+        if self.cfg.Read('/Wammu/TalkbackDone') == 'no':
+            if self.cfg.ReadFloat('/Wammu/FirstRun') + (3600 * 24 * 30) < time.time():
+                dlg = wx.MessageDialog(self,
+                    _('You are using Wammu for more than a month. We would like to hear from you how your phone is supported. Do you want to participate in this survey?') +
+                    '\n\n' + _('Press Cancel to never show this question again.'),
+                    _('Thanks for using Wammu'),
+                    wx.YES_NO | wx.CANCEL | wx.ICON_INFORMATION)
+                ret = dlg.ShowModal()
+                if ret == wx.ID_YES:
+                    self.Talkback()
+                elif ret == wx.ID_CANCEL:
+                    self.cfg.Write('/Wammu/TalkbackDone', 'skipped')
+
         self.SetupNumberPrefix()
         self.SetupStatusRefresh()
 
