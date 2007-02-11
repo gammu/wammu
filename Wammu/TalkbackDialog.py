@@ -225,7 +225,7 @@ def DoTalkback(parent, config, phoneid = 0):
             'irobot': 'wammu',
             'manufacturer': man_id,
             'name': dlg.model_text_ctrl.GetValue(),
-            'model': '', # We don't use this config option much...
+            'model': dlg.model_combo_box.GetValue(),
             'connection': dlg.connection_combo_box.GetValue(),
             'note': dlg.note_text_ctrl.GetValue(),
             'author_name': dlg.name_text_ctrl.GetValue(),
