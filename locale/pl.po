@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: Łukasz Szymański <allegro@kowalstwo.com.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -50,7 +50,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%d wiadomości wyeksportowanych do skrzynki pocztowej \"%s\""
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -289,6 +289,10 @@ msgstr "Akcja anulowana przez użytkownika!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Dodaj numer odbiorcy do kontaktów."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -693,7 +697,7 @@ msgstr "Stwórz nowe 'DoZrobienia'"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 #, fuzzy
 msgid "Create new configuration"
 msgstr "Utwórz nowy kontakt"
@@ -1007,7 +1011,7 @@ msgstr "Błąd podczas odczytu kopi zapasowej"
 msgid "Error while saving backup"
 msgstr "Błąd podczas zapisywania kopi zapasowej"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Typ wydarzenia"
 
@@ -1462,7 +1466,7 @@ msgstr "Pamięć"
 msgid "Memory is full, try deleting some entries."
 msgstr "Pamięć jest pełna, spróbuj wykasować trcohe pozycji."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Typ pamięci"
 
@@ -1509,10 +1513,6 @@ msgstr "Model (Identyfikacja Gammu)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Model (rzeczywisty)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Więcej"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1663,7 +1663,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Brak"
 
@@ -1971,7 +1971,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr ""
 
@@ -2209,7 +2209,7 @@ msgstr ""
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "Nie odnaleziono konfiguracji"
@@ -2320,7 +2320,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr ""
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2611,7 +2611,7 @@ msgid ""
 "space, so you can write less characters into single message."
 msgstr ""
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr ""
 
@@ -2965,7 +2965,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr ""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr ""
 
@@ -2982,7 +2982,7 @@ msgstr ""
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr ""
 
@@ -3049,7 +3049,7 @@ msgstr ""
 msgid "todo \"%s\""
 msgstr ""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr ""
 
@@ -3119,6 +3119,9 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "Anuluj"
+
+#~ msgid "More"
+#~ msgstr "Więcej"
 
 #, fuzzy
 #~ msgid "at"

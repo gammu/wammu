@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2007-01-18 18:26+0100\n"
 "Last-Translator: Peter Dedecker <Peter.Dedecker@UGent.be>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -48,7 +48,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d berichten geëxporteerd naar \"%(path)s\" (%(type)s)"
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -289,6 +289,10 @@ msgstr "Handeling geannuleerd door gebruiker!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Voeg nummer van de bestemmeling in uit de contactpersonen."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -699,7 +703,7 @@ msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 "Maak geconcateneerd bericht aan dat toelaat om langere berichten te sturen."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 msgid "Create new configuration"
 msgstr "Maak nieuwe configuratie"
 
@@ -1018,7 +1022,7 @@ msgstr "Fout tijdens lezen backup"
 msgid "Error while saving backup"
 msgstr "Fout tijdens opslaan backup"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Gebeurtenis type"
 
@@ -1494,7 +1498,7 @@ msgstr "Geheugen"
 msgid "Memory is full, try deleting some entries."
 msgstr "Geheugen is vol, probeer enkele entries te wissen."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Geheugen type"
 
@@ -1543,10 +1547,6 @@ msgstr "Model (Gammu identificatie)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Model (echt)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Meer"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1704,7 +1704,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Geen"
 
@@ -2019,7 +2019,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Voorbeeld"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Prioriteit"
 
@@ -2263,7 +2263,7 @@ msgstr "Zoeken:"
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "Configuratie niet gevonden"
@@ -2376,7 +2376,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "Selecteer wat te importeren"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2683,7 +2683,7 @@ msgstr ""
 "dit na indien je andere dan latin-1 karakters gebruikt.  Je berichten zullen "
 "meer plaats vereisen zodat je minder tekens in één enkel bericht krijgt."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -3064,7 +3064,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "kalender item \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "Kalender gebeurtenis"
 
@@ -3082,7 +3082,7 @@ msgstr "Groot"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "contact"
 
@@ -3149,7 +3149,7 @@ msgstr "python-gammu versie"
 msgid "todo \"%s\""
 msgstr "taak \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "Taak"
 
@@ -3213,6 +3213,9 @@ msgstr ""
 
 #~ msgid "It is powered on."
 #~ msgstr "Het is aangeschakeld."
+
+#~ msgid "More"
+#~ msgstr "Meer"
 
 #, fuzzy
 #~ msgid "at"

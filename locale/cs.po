@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2007-02-09 12:36+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -46,7 +46,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr "%(name)s (na pozici %(position)d)"
@@ -283,6 +283,10 @@ msgstr "Akce zrušena uživatelem!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Přidat číslo příjemce ze seznamu."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -688,7 +692,7 @@ msgstr "Vytvoří nový úkol"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Vytvoří spojené zprávy, které umožní posílat delší text."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 msgid "Create new configuration"
 msgstr "Vytvořit nové nastavení"
 
@@ -1011,7 +1015,7 @@ msgstr "Chyba při čtení zálohy"
 msgid "Error while saving backup"
 msgstr "Chyba při ukládání zálohy"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Typ události"
 
@@ -1485,7 +1489,7 @@ msgstr "Pamět"
 msgid "Memory is full, try deleting some entries."
 msgstr "Paměť je plná, zkuste vymazat některé položky."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Typ paměti"
 
@@ -1534,10 +1538,6 @@ msgstr "Model (identifikace Gammu)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Model (skutečný)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Více"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1693,7 +1693,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Žádné"
 
@@ -1997,7 +1997,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Náhled"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Priorita"
 
@@ -2232,7 +2232,7 @@ msgstr "Vyhledávání:"
 msgid "Searching still active!"
 msgstr "Hledání ještě probíhá!"
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 msgid "Select configuration section"
 msgstr "Zvolte sekci konfigurace"
 
@@ -2342,7 +2342,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "Vyberte co importovat"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2648,7 +2648,7 @@ msgstr ""
 "zaškrtněte, pokud používáte jiné znaky než latin-1. Zpráva bude zabírat více "
 "místa, takže můžete v jedné zprávě poslat méně znaků."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "Neznámý"
 
@@ -3014,7 +3014,7 @@ msgstr "ob týden"
 msgid "calendar entry \"%s\""
 msgstr "událost v kalendáři \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "událost kalendáře"
 
@@ -3031,7 +3031,7 @@ msgstr "nabitý"
 msgid "charging"
 msgstr "nabíjí se"
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "kontakt"
 
@@ -3098,7 +3098,7 @@ msgstr "Verze python-gammu"
 msgid "todo \"%s\""
 msgstr "úkol \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "úkol"
 
@@ -3180,6 +3180,9 @@ msgstr "ročně"
 
 #~ msgid "It is powered on."
 #~ msgstr "Telefon je zapnutý."
+
+#~ msgid "More"
+#~ msgstr "Více"
 
 #~ msgid "R&ead SMS data"
 #~ msgstr "Přečís&t SMS data"

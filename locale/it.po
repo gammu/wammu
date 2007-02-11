@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2006-11-06 18:39+0000\n"
 "Last-Translator: Magnifico Giovanni <magnifico.giovanni@email.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -48,7 +48,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d messaggi esportati verso \"%(path)s\" (%(type)s)"
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -286,6 +286,10 @@ msgstr "Azione annullata dall'utente!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Aggiungi destinatari dai contatti."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -699,7 +703,7 @@ msgstr ""
 "Creare messaggi concatenati, quello che permette di inviare messaggi più "
 "lunghi."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 #, fuzzy
 msgid "Create new configuration"
 msgstr "Crea un nuovo contatto"
@@ -1015,7 +1019,7 @@ msgstr "Errore durante la lettura del backup"
 msgid "Error while saving backup"
 msgstr "Errore durante la scrittura del backup"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Tipo di evento"
 
@@ -1479,7 +1483,7 @@ msgstr "Memoria"
 msgid "Memory is full, try deleting some entries."
 msgstr "Memoria piena, cancellare qualche voce."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Tipo di memoria"
 
@@ -1528,10 +1532,6 @@ msgstr "Modello (identificazione di Gammu)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Modello (reale)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Di più"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1684,7 +1684,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Nessuno"
 
@@ -2002,7 +2002,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Anteprima"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Priorità"
 
@@ -2246,7 +2246,7 @@ msgstr "Cerca:"
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "Configurazione non trovata"
@@ -2358,7 +2358,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "Selezionare cosa importare"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2667,7 +2667,7 @@ msgstr ""
 "più spazio, per cui si potranno usare meno caratteri in ogni singolo "
 "messaggio."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -3047,7 +3047,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "voce di calendario \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "evento di calendario"
 
@@ -3065,7 +3065,7 @@ msgstr "Grande"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "contatto"
 
@@ -3132,7 +3132,7 @@ msgstr "Versione di python-gammu"
 msgid "todo \"%s\""
 msgstr "promemoria \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "oggetto promemoria"
 
@@ -3207,6 +3207,9 @@ msgstr ""
 
 #~ msgid "Model %s (%s) on %s port using connection %s"
 #~ msgstr "Modello %s (%s) sulla porta %s usando la connessione %s"
+
+#~ msgid "More"
+#~ msgstr "Di più"
 
 #~ msgid "Please enter password for %s@%s"
 #~ msgstr "Per favore inserire la password per %s@%s"

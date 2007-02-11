@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2006-10-13 11:21+0000\n"
 "Last-Translator: inessinia <inessinia@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -48,7 +48,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d viestit lähetetty \"%(path)s\" (%(type)s)"
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -287,6 +287,10 @@ msgstr "Käyttäjä peruuttanut toiminnon!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Lisää vastaanottaja yhteystiedoista"
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -697,7 +701,7 @@ msgstr "luo uusi tehtävä"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 #, fuzzy
 msgid "Create new configuration"
 msgstr "Luo uusi yhteystieto"
@@ -1013,7 +1017,7 @@ msgstr "Virhe luettaessa varmuuskopioita"
 msgid "Error while saving backup"
 msgstr "Virhe tallennettaessa varmuuskopiota"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Tapahtuma tyyppi"
 
@@ -1475,7 +1479,7 @@ msgstr "Muisti"
 msgid "Memory is full, try deleting some entries."
 msgstr "Muisti on täynnä, poista jokin merkintä."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Muistityyppi"
 
@@ -1524,10 +1528,6 @@ msgstr "Malli (Gammun tunniste)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Malli (aito)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Lisää"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1680,7 +1680,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Ei mikään"
 
@@ -1995,7 +1995,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Esikatselu"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Tärkeys"
 
@@ -2238,7 +2238,7 @@ msgstr "Etsi:"
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "Asetuksia ei löytynyt"
@@ -2350,7 +2350,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "Valitse mitä tuodaan"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2657,7 +2657,7 @@ msgstr ""
 "tämä jos käytät muita kuin latin-1 merkkejä. Viestisi vaativat enemmän tilaa "
 "joten voit kirjoittaa vähemmän merkkejä yhteen viestiin."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -3031,7 +3031,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "kalenterimerkintä \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "kalenteritapahtuma"
 
@@ -3049,7 +3049,7 @@ msgstr "Suuri"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "yhteystieto"
 
@@ -3116,7 +3116,7 @@ msgstr "python-gammu versio"
 msgid "todo \"%s\""
 msgstr "tehtävä \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "tehtävä kohta"
 
@@ -3186,6 +3186,9 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "Peruuta"
+
+#~ msgid "More"
+#~ msgstr "Lisää"
 
 #, fuzzy
 #~ msgid "at"

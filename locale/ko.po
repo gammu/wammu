@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -48,7 +48,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%d 메세지가 메일박스 \"%s\" 로 내보내짐"
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -286,6 +286,10 @@ msgstr "사용자에 의해 실행 취소됨!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "연락처에서 수신자 번호를 추가 합니다."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -690,7 +694,7 @@ msgstr "새로운 해야할 것을 만듭니다"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "연결된 메세지를 만듭니다, 긴 메세지를 송신할 경우 허용이 됩니다."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 #, fuzzy
 msgid "Create new configuration"
 msgstr "새로운 연락처를 만듭니다"
@@ -1005,7 +1009,7 @@ msgstr "백업 읽기 중 오류"
 msgid "Error while saving backup"
 msgstr "백업 저장 중 오류"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "행사 종류"
 
@@ -1465,7 +1469,7 @@ msgstr "메모리"
 msgid "Memory is full, try deleting some entries."
 msgstr "메모리가 꽉참, 몇개의 입력 삭제를 시도합니다."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "메모리 종류"
 
@@ -1512,10 +1516,6 @@ msgstr "모델 (Gammu 식별)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "모델 (실제)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "더 많이"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1669,7 +1669,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "없음"
 
@@ -1986,7 +1986,7 @@ msgstr ""
 msgid "Preview"
 msgstr "미리보기"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "순위"
 
@@ -2230,7 +2230,7 @@ msgstr "찾기:"
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "설정을 찾지 못함"
@@ -2342,7 +2342,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "가져올 것을 선택"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2650,7 +2650,7 @@ msgstr ""
 "를 사용하지 않는다면 이것을 점검 하십시오. 메세지는 좀 더 많은 공백을 요구해"
 "서 하나의 메세지에 적은 문자들을 쓸 수 있습니다."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -3024,7 +3024,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "달력 항목 \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "달력 행사"
 
@@ -3042,7 +3042,7 @@ msgstr "크게"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "연락처"
 
@@ -3110,7 +3110,7 @@ msgstr "python-gammu 버전"
 msgid "todo \"%s\""
 msgstr "해야할 것 \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "해야할 것 항목"
 
@@ -3180,6 +3180,9 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "취소"
+
+#~ msgid "More"
+#~ msgstr "더 많이"
 
 #, fuzzy
 #~ msgid "at"

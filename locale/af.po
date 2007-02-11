@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.18\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2007-01-06 09:49+0100\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr ""
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -277,6 +277,10 @@ msgstr "Aksie gekanselleer deur gebruiker!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Voeg aantal ontvangers by vanaf kontakte."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -681,7 +685,7 @@ msgstr ""
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Skep saamgevoegde boodskap, wat langer boodskappe moontlik maak."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 #, fuzzy
 msgid "Create new configuration"
 msgstr "Handmatige opstelling"
@@ -991,7 +995,7 @@ msgstr "Fout tydens lees van rugsteun"
 msgid "Error while saving backup"
 msgstr "Fout tydens stoor van rugsteun"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr ""
 
@@ -1452,7 +1456,7 @@ msgstr "Geheue"
 msgid "Memory is full, try deleting some entries."
 msgstr "Geheue is vol. Probeer 'n paar inskrywings uitvee."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Geheuetipe"
 
@@ -1501,10 +1505,6 @@ msgstr "Model (Gammu-identifikasie)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Model (werklik)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Meer"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1664,7 +1664,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr "Nokia-protokol vir infrarooi met ander Nokia-modelle"
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Geen"
 
@@ -1971,7 +1971,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Voorskou"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Prioriteit"
 
@@ -2212,7 +2212,7 @@ msgstr "Soek:"
 msgid "Searching still active!"
 msgstr "Toets steeds onderweg!"
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "Opstelling voltooi"
@@ -2322,7 +2322,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr ""
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2623,7 +2623,7 @@ msgstr ""
 "Merk hierdie as u karakters buite Latin-1 gebruik. U boodskappe sal meer "
 "plek benodig en 'n enkele boodskap kan dus minder karakters bevat."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -2996,7 +2996,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "kalenderinskrywing \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr ""
 
@@ -3013,7 +3013,7 @@ msgstr "gelaai"
 msgid "charging"
 msgstr "laai nou"
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr ""
 
@@ -3080,7 +3080,7 @@ msgstr "python-gammu-weergawe"
 msgid "todo \"%s\""
 msgstr ""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "doenitem"
 
@@ -3143,6 +3143,9 @@ msgstr ""
 
 #~ msgid "It is powered on."
 #~ msgstr "Dit is aangeskakel."
+
+#~ msgid "More"
+#~ msgstr "Meer"
 
 #~ msgid "Please make sure you have phone ready"
 #~ msgstr "Maak asb. seker u het die foon gereed"

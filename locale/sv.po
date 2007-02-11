@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2006-12-31 18:35+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -49,7 +49,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d meddelanden exporterade till \"%(path)s\" (%(type)s)"
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr "%(name)s (position %(position)d)"
@@ -287,6 +287,10 @@ msgstr "Åtgärden avbröts av användaren!"
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
 msgstr "Lägg till antal mottagare från kontakter."
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
 
 #: Wammu/Main.py:444
 msgid ""
@@ -698,7 +702,7 @@ msgstr ""
 "Skapa sammanlänkat meddelande, vilket tillåter att man skickar längre "
 "meddelanden."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 msgid "Create new configuration"
 msgstr "Skapa ny konfiguration"
 
@@ -1015,7 +1019,7 @@ msgstr "Fel vid läsning av säkerhetskopia"
 msgid "Error while saving backup"
 msgstr "Fel vid skrivning av säkerhetskopia"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Händelsetyp"
 
@@ -1485,7 +1489,7 @@ msgstr "Minne"
 msgid "Memory is full, try deleting some entries."
 msgstr "Minnet är fullt, försök att ta bort några poster."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Minnestyp"
 
@@ -1534,10 +1538,6 @@ msgstr "Modell (identifierad av Gammu)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Modell (riktig)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Mer"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1697,7 +1697,7 @@ msgstr "Nokia-protokoll för infrarött med Nokia 6110/6130/6150"
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr "Nokia-protokoll för infrarött med andra Nokia-modeller"
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Ingen"
 
@@ -2007,7 +2007,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Förhandsvisa"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Prioritet"
 
@@ -2247,7 +2247,7 @@ msgstr "Sök:"
 msgid "Searching still active!"
 msgstr "Sökningen är fortfarande aktiv!"
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 msgid "Select configuration section"
 msgstr "Välj konfigurationssektion"
 
@@ -2369,7 +2369,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "Välj vad som ska importeras"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr "Välj vilken konfiguration du vill ändra från listan nedanför."
 
@@ -2689,7 +2689,7 @@ msgstr ""
 "i den här om du använder icke-latin-1-tecken. Dina meddelanden kommer att "
 "använda mer utrymme, så du kan skriva mindre antal tecken i meddelanden."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -3079,7 +3079,7 @@ msgstr "två gånger i veckan"
 msgid "calendar entry \"%s\""
 msgstr "kalenderpost \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "kalenderhändelse"
 
@@ -3096,7 +3096,7 @@ msgstr "laddad"
 msgid "charging"
 msgstr "laddar"
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "kontakt"
 
@@ -3163,7 +3163,7 @@ msgstr "python-gammu version"
 msgid "todo \"%s\""
 msgstr "AttGöra \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "AttGöra-objekt"
 
@@ -3228,6 +3228,9 @@ msgstr "årligen"
 
 #~ msgid "It is powered on."
 #~ msgstr "Den är påslagen."
+
+#~ msgid "More"
+#~ msgstr "Mer"
 
 #~ msgid "Please make sure you have phone ready"
 #~ msgstr "Se till att du har din telefon redo"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-10 13:20+0100\n"
+"POT-Creation-Date: 2007-02-11 11:29+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
@@ -53,7 +53,7 @@ msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%d mensagens exportadas para caixa de correio \"%s\""
 
 #. l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-#: Wammu/GammuSettings.py:114
+#: Wammu/GammuSettings.py:112
 #, python-format
 msgid "%(name)s (position %(position)d)"
 msgstr ""
@@ -290,6 +290,10 @@ msgstr "Ação cancelada pelo usuário!"
 
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
+msgstr ""
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
 msgstr ""
 
 #: Wammu/Main.py:444
@@ -701,7 +705,7 @@ msgstr "Cria nova tarefa"
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Cria mensagem concatenada, o que permite enviar mensagens maiores."
 
-#: Wammu/GammuSettings.py:108
+#: Wammu/GammuSettings.py:106
 #, fuzzy
 msgid "Create new configuration"
 msgstr "Cria novo contato"
@@ -1017,7 +1021,7 @@ msgstr "Erro ao ler cópia de segurança"
 msgid "Error while saving backup"
 msgstr "Erro ao salvar cópia de segurança"
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "Event type"
 msgstr "Tipo de evento"
 
@@ -1479,7 +1483,7 @@ msgstr "Memória"
 msgid "Memory is full, try deleting some entries."
 msgstr "Memória cheia, tente apagar algumas entradas."
 
-#: Wammu/Editor.py:499 Wammu/Main.py:804
+#: Wammu/Editor.py:500 Wammu/Main.py:804
 msgid "Memory type"
 msgstr "Tipo de memória"
 
@@ -1526,10 +1530,6 @@ msgstr "Modelo (Identificação do Gammu)"
 #: Wammu/Info.py:58
 msgid "Model (real)"
 msgstr "Modelo (real)"
-
-#: Wammu/Editor.py:291
-msgid "More"
-msgstr "Mais"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
@@ -1683,7 +1683,7 @@ msgstr ""
 msgid "Nokia protocol for infrared with other Nokia models"
 msgstr ""
 
-#: Wammu/Data.py:660 Wammu/Editor.py:225 Wammu/Editor.py:426
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
 msgid "None"
 msgstr "Nenhum"
 
@@ -2003,7 +2003,7 @@ msgstr ""
 msgid "Preview"
 msgstr "Pré-visualização"
 
-#: Wammu/Editor.py:515 Wammu/Browser.py:90 Wammu/Main.py:828
+#: Wammu/Editor.py:516 Wammu/Browser.py:90 Wammu/Main.py:828
 msgid "Priority"
 msgstr "Prioridade"
 
@@ -2247,7 +2247,7 @@ msgstr "Procurar:"
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/GammuSettings.py:128
+#: Wammu/GammuSettings.py:126
 #, fuzzy
 msgid "Select configuration section"
 msgstr "Configuração não encontrada"
@@ -2359,7 +2359,7 @@ msgstr ""
 msgid "Select what to import"
 msgstr "Selecionar o que será importado"
 
-#: Wammu/GammuSettings.py:127
+#: Wammu/GammuSettings.py:125
 msgid "Select which configration you want to modify from list bellow."
 msgstr ""
 
@@ -2663,7 +2663,7 @@ msgstr ""
 "ocupar mais espaço, então você deverá escrever menos caracteres em uma "
 "mensagem única."
 
-#: Wammu/Editor.py:229 Wammu/Editor.py:430 Wammu/Main.py:509 Wammu/Main.py:525
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:509 Wammu/Main.py:525
 msgid "Unknown"
 msgstr ""
 
@@ -3027,7 +3027,7 @@ msgstr ""
 msgid "calendar entry \"%s\""
 msgstr "entrada de calendário \"%s\""
 
-#: Wammu/Editor.py:507
+#: Wammu/Editor.py:508
 msgid "calendar event"
 msgstr "evento de calendário"
 
@@ -3045,7 +3045,7 @@ msgstr "Largo"
 msgid "charging"
 msgstr ""
 
-#: Wammu/Editor.py:499
+#: Wammu/Editor.py:500
 msgid "contact"
 msgstr "contato"
 
@@ -3113,7 +3113,7 @@ msgstr "versão python-gammu"
 msgid "todo \"%s\""
 msgstr "tarefa \"%s\""
 
-#: Wammu/Editor.py:515
+#: Wammu/Editor.py:516
 msgid "todo item"
 msgstr "item de tarefa"
 
@@ -3180,6 +3180,9 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"
+
+#~ msgid "More"
+#~ msgstr "Mais"
 
 #, fuzzy
 #~ msgid "at"
