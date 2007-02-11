@@ -986,3 +986,24 @@ InternationalPrefixes = [
     '+998',
     '+999',
     ]
+# dump from Gammu Phone Database
+ManufacturerMap = {
+    'Alcatel': 1,
+    'Nokia': 2,
+    'Siemens': 3,
+    'Sony Ericsson': 4,
+    'Sagem': 5,
+    'Motorola': 6,
+    'Falcom': 7,
+    'Samsung': 8,
+    'LG': 9,
+    'Sharp': 10,
+    'Mitsubishi': 11,
+    'PalmOne': 12,
+}
+GarbleMap = {
+    0: 'atdot',
+    1: 'nospam',
+    2: 'none',
+    3: 'hide',
+}

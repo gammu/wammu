@@ -48,13 +48,13 @@ class TalkbackDialog(wx.Dialog):
         self.info_label = wx.StaticText(self, -1, _("Please share your experiences with Wammu and Gammu which is backend library. When you fill in following form, other users can benefit from your experiences in Gammu Phone Database. Only information you see here will be submited."))
         self.top_static_line = wx.StaticLine(self, -1)
         self.manufacturer_label = wx.StaticText(self.main_panel, -1, _("Manufacturer:"), style=wx.ALIGN_CENTRE)
-        self.manufacturer_choice = wx.Choice(self.main_panel, -1, choices=['Alcatel', 'Falcom', 'LG', 'Mitsubishi', 'Motorola', 'Nokia', 'PalmOne', 'Sagem', 'Samsung', 'Sharp', 'Siemens', 'Sony Ericsson'])
+        self.manufacturer_choice = wx.Choice(self.main_panel, -1, choices=[])
         self.model_label = wx.StaticText(self.main_panel, -1, _("Phone model:"))
         self.model_text_ctrl = wx.TextCtrl(self.main_panel, -1, "")
         self.connection_label = wx.StaticText(self.main_panel, -1, _("Connection type:"))
-        self.connection_combo_box = wx.ComboBox(self.main_panel, -1, choices=Wammu.Data.Connections, style=wx.CB_DROPDOWN)
-        self.model_label = wx.StaticText(self.main_panel, -1, _("Model:"))
-        self.model_combo_box = wx.ComboBox(self.main_panel, -1, choices=Wammu.Data.Models, style=wx.CB_DROPDOWN)
+        self.connection_combo_box = wx.ComboBox(self.main_panel, -1, choices=[], style=wx.CB_DROPDOWN)
+        self.gammu_model_label = wx.StaticText(self.main_panel, -1, _("Model in gammu configuration:"))
+        self.model_combo_box = wx.ComboBox(self.main_panel, -1, choices=[], style=wx.CB_DROPDOWN)
         self.features_label = wx.StaticText(self.main_panel, -1, _("Working features:"))
         self.features_button = wx.Button(self.main_panel, -1, _("Please select features..."))
         self.gammu_version_text_label = wx.StaticText(self.main_panel, -1, _("Gammu version:"))
@@ -74,6 +74,12 @@ class TalkbackDialog(wx.Dialog):
 
         self.Bind(wx.EVT_BUTTON, self.OnFeatures, self.features_button)
         # end wxGlade
+        for x in Wammu.Data.Connections:
+            self.connection_combo_box.Append(x)
+        for x in Wammu.Data.Models:
+            self.model_combo_box.Append(x)
+        for x in Wammu.Data.ManufacturerMap.keys():
+            self.manufacturer_choice.Append(x)
         self.wammu_cfg = config
         self.phoneid = phoneid
         self.features = []
@@ -96,9 +102,6 @@ class TalkbackDialog(wx.Dialog):
     def __set_properties(self):
         # begin wxGlade: TalkbackDialog.__set_properties
         self.SetTitle(_("Gammu Phone Database Talkback"))
-        self.manufacturer_choice.SetSelection(0)
-        self.connection_combo_box.SetSelection(0)
-        self.model_combo_box.SetSelection(0)
         self.features_label.SetToolTipString(_("Select which features work correctly with your phone"))
         self.gammu_version_label.SetToolTipString(_("This information is automatically included in report."))
         self.note_text_ctrl.SetToolTipString(_("Describe some glitches of this phone or other experiences with Gammu."))
@@ -121,7 +124,7 @@ class TalkbackDialog(wx.Dialog):
         main_grid_sizer.Add(self.model_text_ctrl, 0, wx.EXPAND|wx.ADJUST_MINSIZE, 0)
         main_grid_sizer.Add(self.connection_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ADJUST_MINSIZE, 0)
         main_grid_sizer.Add(self.connection_combo_box, 0, wx.EXPAND|wx.ADJUST_MINSIZE, 0)
-        main_grid_sizer.Add(self.model_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ADJUST_MINSIZE, 0)
+        main_grid_sizer.Add(self.gammu_model_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ADJUST_MINSIZE, 0)
         main_grid_sizer.Add(self.model_combo_box, 0, wx.EXPAND|wx.ADJUST_MINSIZE, 0)
         main_grid_sizer.Add(self.features_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ADJUST_MINSIZE, 0)
         main_grid_sizer.Add(self.features_button, 0, wx.EXPAND|wx.ADJUST_MINSIZE, 0)
@@ -165,28 +168,6 @@ class TalkbackDialog(wx.Dialog):
 
 # end of class TalkbackDialog
 
-# dump from Gammu Phone Database
-ManufacturerMap = {
-    'Alcatel': 1,
-    'Nokia': 2,
-    'Siemens': 3,
-    'Sony Ericsson': 4,
-    'Sagem': 5,
-    'Motorola': 6,
-    'Falcom': 7,
-    'Samsung': 8,
-    'LG': 9,
-    'Sharp': 10,
-    'Mitsubishi': 11,
-    'PalmOne': 12,
-}
-GarbleMap = {
-    0: 'atdot',
-    1: 'nospam',
-    2: 'none',
-    3: 'hide',
-}
-
 def DoTalkback(parent, config, phoneid = 0):
     dlg = TalkbackDialog(parent, config, phoneid)
     ok_matcher = re.compile('Entry created, id=(\d*), url=(.*)')
@@ -201,7 +182,7 @@ def DoTalkback(parent, config, phoneid = 0):
             continue
         man_str = dlg.manufacturer_choice.GetStringSelection()
         try:
-            man_id = ManufacturerMap[man_str]
+            man_id = Wammu.Data.ManufacturerMap[man_str]
         except:
             wx.MessageDialog(parent,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Manufacturer'),
@@ -210,7 +191,7 @@ def DoTalkback(parent, config, phoneid = 0):
             continue
         garble_id = dlg.mangle_choice.GetSelection()
         try:
-            garble_text = GarbleMap[garble_id]
+            garble_text = Wammu.Data.GarbleMap[garble_id]
         except:
             wx.MessageDialog(parent,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Email displaying'),
