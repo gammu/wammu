@@ -119,20 +119,30 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             self.SetColumnWidth(i, maxval[i] + spc)
         self.resizeLastColumn(maxval[cnt - 1] + spc)
 
-    def Filter(self, text, regexp):
+    def Filter(self, text, type):
         if text == '':
             self.values = self.allvalues
         else:
             num = None
             if text.isdigit():
                 num = int(text)
-            if regexp:
+            if type == 0:
+                match = re.compile('.*%s.*' % re.escape(text), re.I)
+            elif type == 1:
                 try:
                     match = re.compile(text, re.I)
                 except:
                     raise FilterException('Failed to compile regexp')
+            elif type == 2:
+                text = text.replace('*', '__SEARCH_ALL__')
+                text = text.replace('?', '__SEARCH_ONE__')
+                text = re.escape(text)
+                text = text.replace('\\_\\_SEARCH\\_ALL\\_\\_', '.*')
+                text = text.replace('\\_\\_SEARCH\\_ONE\\_\\_', '.')
+                print text
+                match = re.compile('.*%s.*' % text, re.I)
             else:
-                match = re.compile('.*%s.*' % re.escape(text), re.I)
+                raise "Unsupported filter type!"
             self.values = [item for item in self.allvalues if Wammu.Utils.MatchesText(item, match, num)]
         self.SetItemCount(len(self.values))
         self.RefreshView()

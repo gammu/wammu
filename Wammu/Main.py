@@ -219,20 +219,20 @@ class WammuFrame(wx.Frame):
         self.searchpanel.sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.searchpanel.sizer.Add(wx.StaticText(self.searchpanel, -1, _('Search:')), 0, wx.LEFT | wx.CENTER)
         self.searchinput = wx.TextCtrl(self.searchpanel, -1)
-        self.searchinput.SetToolTipString(_('Enter text to search for, please note that it is treated like regullar expression. Matching is done over all fields.'))
-        self.searchpanel.sizer.Add(self.searchinput, 1, wx.LEFT | wx.CENTER | wx.EXPAND)
-        self.searchchoice = wx.CheckBox(self.searchpanel, -1, _('Regexp'))
-        self.searchchoice.SetToolTipString(_('Use regullar expression for searching?'))
-        self.searchchoice.SetValue(self.cfg.Read('/Defaults/SearchRegexp') == 'yes')
+        self.searchinput.SetToolTipString(_('Enter text to search for, please note that search type is selected next to this field. Matching is done over all fields.'))
+        self.searchpanel.sizer.Add(self.searchinput, 1, wx.CENTER | wx.ALIGN_CENTER_VERTICAL)
+        self.searchchoice = wx.Choice(self.searchpanel, choices = [_('Text'), _('Regexp'), _('Wildcard')])
+        self.searchchoice.SetToolTipString(_('Select search type'))
+        self.searchchoice.SetSelection(self.cfg.ReadInt('/Defaults/SearchType'))
         self.searchpanel.sizer.Add(self.searchchoice, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
-        self.searchclear = wx.Button(self.searchpanel, -1, _('&Clear'), style = wx.BU_EXACTFIT)
+        self.searchclear = wx.Button(self.searchpanel, wx.ID_CLEAR)
         self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
         self.searchpanel.SetSizer(self.searchpanel.sizer)
         self.rightwin.sizer.Add(self.searchpanel, 0, wx.LEFT | wx.ALL | wx.EXPAND)
 
-        wx.EVT_TEXT(self.searchinput, self.searchinput.GetId(), self.OnSearch)
-        wx.EVT_CHECKBOX(self.searchchoice, self.searchchoice.GetId(), self.OnSearch)
-        wx.EVT_BUTTON(self, self.searchclear.GetId(), self.ClearSearch)
+        self.Bind(wx.EVT_CHOICE, self.OnSearch, self.searchchoice)
+        self.Bind(wx.EVT_TEXT, self.OnSearch, self.searchinput)
+        self.Bind(wx.EVT_BUTTON, self.ClearSearch, self.searchclear)
 
         # item browser
         self.browser = Wammu.Browser.Browser(self.rightwin, self, self.cfg)
@@ -676,7 +676,7 @@ class WammuFrame(wx.Frame):
 
     def OnSearch(self, event):
         text = self.searchinput.GetValue()
-        type = self.searchchoice.GetValue()
+        type = self.searchchoice.GetSelection()
         try:
             self.browser.Filter(text, type)
             self.searchinput.SetBackgroundColour(wx.NullColour)
@@ -720,10 +720,7 @@ class WammuFrame(wx.Frame):
             self.SaveWinSize(self.logwin, 'Debug')
         self.cfg.WriteInt('/Main/Split', self.splitter.GetSashPosition())
         self.cfg.WriteInt('/Main/SplitRight', self.rightsplitter.GetSashPosition())
-        if self.searchchoice.GetValue():
-            self.cfg.Write('/Defaults/SearchRegexp', 'yes')
-        else:
-            self.cfg.Write('/Defaults/SearchRegexp', 'no')
+        self.cfg.WriteInt('/Defaults/SearchType', self.searchchoice.GetCurrentSelection())
 
         gammu.SetDebugFile(None)
         gammu.SetDebugLevel('nothing')

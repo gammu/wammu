@@ -40,7 +40,7 @@ Defaults = {
     '/Main/SplitRight': -200,
     '/Main/Width': 640,
     '/Main/Height': 480,
-    '/Defaults/SearchRegexp': 'yes',
+    '/Defaults/SearchType': 0,
     '/Wammu/AutoConnect': 'no',
     '/Gammu/Model': Wammu.Data.Models[0],
     '/Gammu/Connection': Wammu.Data.Connections[0],
