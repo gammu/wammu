@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-11 11:29+0100\n"
+"POT-Creation-Date: 2007-02-11 11:40+0100\n"
 "PO-Revision-Date: 2006-11-06 18:39+0000\n"
 "Last-Translator: Magnifico Giovanni <magnifico.giovanni@email.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -235,17 +235,9 @@ msgstr ""
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:411
-msgid "<<< Add <<<"
-msgstr "<<< Aggiungi <<<"
-
 #: Wammu/About.py:107
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> è un'interfaccia grafica per Gammu basata su wxPython"
-
-#: Wammu/Composer.py:412
-msgid ">>> Delete"
-msgstr ">>> Cancella"
 
 #: Wammu/Main.py:513
 msgid "AC"
@@ -516,7 +508,7 @@ msgstr "Centro"
 msgid "Change Wammu settings"
 msgstr "Cambia le impostazioni di Wammu"
 
-#: Wammu/Composer.py:391 Wammu/Settings.py:167
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Selezionare per richiedere un rapporto di consegna."
 
@@ -573,7 +565,7 @@ msgstr "Completato"
 msgid "Composing SMS"
 msgstr "Creazione SMS"
 
-#: Wammu/Composer.py:172 Wammu/Settings.py:154
+#: Wammu/Settings.py:154 Wammu/Composer.py:172
 msgid "Concatenated"
 msgstr "Concatenati"
 
@@ -640,7 +632,7 @@ msgstr ""
 "Connessioni supportate dal telefono, leggere la documentazione di Gammu per "
 "dettagli sulle connessioni."
 
-#: Wammu/Composer.py:368 Wammu/Main.py:113
+#: Wammu/Main.py:113 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Contatti"
 
@@ -697,7 +689,7 @@ msgstr "Crea un nuovo messaggio"
 msgid "Crates new todo"
 msgstr "Crea un nuovo promemoria"
 
-#: Wammu/Composer.py:173 Wammu/Settings.py:155
+#: Wammu/Settings.py:155 Wammu/Composer.py:173
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 "Creare messaggi concatenati, quello che permette di inviare messaggi più "
@@ -884,10 +876,6 @@ msgstr "Si vuole utilizzare SSL nell'upload dei messaggi al server IMAP?"
 #: Wammu/TalkbackDialog.py:67
 msgid "Don't show email at all"
 msgstr ""
-
-#: Wammu/Composer.py:425
-msgid "Down"
-msgstr "In basso"
 
 #: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
 msgid "Driver to use"
@@ -1743,7 +1731,7 @@ msgstr ""
 msgid "OBEX over IrDA"
 msgstr ""
 
-#: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/About.py:120
+#: Wammu/About.py:120 Wammu/Composer.py:63 Wammu/Composer.py:123
 msgid "OK"
 msgstr "OK"
 
@@ -2404,7 +2392,7 @@ msgstr ""
 "Invia messaggio flash - verrà solo visualizzato sul display, ma non salvato "
 "sul telefono."
 
-#: Wammu/Composer.py:348 Wammu/Browser.py:313
+#: Wammu/Browser.py:313 Wammu/Composer.py:348
 msgid "Send message"
 msgstr "Invia messaggio"
 
@@ -2412,7 +2400,7 @@ msgstr "Invia messaggio"
 msgid "Sending and saving SMS"
 msgstr ""
 
-#: Wammu/Composer.py:395 Wammu/Main.py:121
+#: Wammu/Main.py:121 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Inviati"
 
@@ -2529,8 +2517,8 @@ msgstr "TaDa"
 msgid "Testing still active!"
 msgstr ""
 
-#: Wammu/Composer.py:312 Wammu/Browser.py:87 Wammu/Browser.py:90
-#: Wammu/Browser.py:93
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Composer.py:312
 msgid "Text"
 msgstr "Testo"
 
@@ -2656,7 +2644,7 @@ msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr "Errore di unicode, vedere la prima domanda nelle FAQ per risolverlo."
 
-#: Wammu/Composer.py:380 Wammu/Settings.py:161
+#: Wammu/Settings.py:161 Wammu/Composer.py:380
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -2691,10 +2679,6 @@ msgstr "Non inviati"
 #: Wammu/Main.py:122
 msgid "Unsent Messages"
 msgstr "Messaggi non inviati"
-
-#: Wammu/Composer.py:424
-msgid "Up"
-msgstr "In alto"
 
 #: wammu-configure.py:98
 #, fuzzy
@@ -3196,11 +3180,20 @@ msgstr ""
 #~ msgid "&OK"
 #~ msgstr "&OK"
 
+#~ msgid "<<< Add <<<"
+#~ msgstr "<<< Aggiungi <<<"
+
+#~ msgid ">>> Delete"
+#~ msgstr ">>> Cancella"
+
 #~ msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
 #~ msgstr "Batt: %d %% (%s), Segn: %d %%, Ora: %s"
 
 #~ msgid "Cancel"
 #~ msgstr "Annulla"
+
+#~ msgid "Down"
+#~ msgstr "In basso"
 
 #~ msgid "Editing %s %s"
 #~ msgstr "Modifica %s %s"
@@ -3213,6 +3206,9 @@ msgstr ""
 
 #~ msgid "Please enter password for %s@%s"
 #~ msgstr "Per favore inserire la password per %s@%s"
+
+#~ msgid "Up"
+#~ msgstr "In alto"
 
 #~ msgid "Using python-gammu %s and Gammu %s"
 #~ msgstr "python-gammu %s e Gammu %s in uso"

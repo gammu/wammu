@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-11 11:29+0100\n"
+"POT-Creation-Date: 2007-02-11 11:40+0100\n"
 "PO-Revision-Date: 2006-11-04 14:44+0000\n"
 "Last-Translator: René Peters <ice.face@gmx.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -239,19 +239,11 @@ msgstr ""
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:411
-msgid "<<< Add <<<"
-msgstr "<<< Hinzufügen <<<"
-
 #: Wammu/About.py:107
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr ""
 "<b>Wammu</b> ist eine auf wxPython basierende graphische Oberfläche für "
 "Gammu."
-
-#: Wammu/Composer.py:412
-msgid ">>> Delete"
-msgstr ">>> Löschen"
 
 #: Wammu/Main.py:513
 msgid "AC"
@@ -528,7 +520,7 @@ msgstr "Zentriert"
 msgid "Change Wammu settings"
 msgstr "Ändere Wammu Einstellungen"
 
-#: Wammu/Composer.py:391 Wammu/Settings.py:167
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Auswählen um für diese Nachricht die Empfangsbestätigung anzufordern."
 
@@ -585,7 +577,7 @@ msgstr "Fertig"
 msgid "Composing SMS"
 msgstr "Erstelle SMS"
 
-#: Wammu/Composer.py:172 Wammu/Settings.py:154
+#: Wammu/Settings.py:154 Wammu/Composer.py:172
 msgid "Concatenated"
 msgstr "Zusammengesetzt"
 
@@ -652,7 +644,7 @@ msgstr ""
 "Verbindung, die von ihrem Handy unterstützt wird. Konsultieren sie die Gammu "
 "Dokumentation für Details."
 
-#: Wammu/Composer.py:368 Wammu/Main.py:113
+#: Wammu/Main.py:113 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Adressbuch"
 
@@ -711,7 +703,7 @@ msgstr "Erstellt eine neue Nachricht"
 msgid "Crates new todo"
 msgstr "Erstellt eine neue Aufgabe"
 
-#: Wammu/Composer.py:173 Wammu/Settings.py:155
+#: Wammu/Settings.py:155 Wammu/Composer.py:173
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 "Zusammengesetzte Nachricht erstellen, die es Ihnen erlaubt, längere "
@@ -903,10 +895,6 @@ msgstr ""
 #: Wammu/TalkbackDialog.py:67
 msgid "Don't show email at all"
 msgstr ""
-
-#: Wammu/Composer.py:425
-msgid "Down"
-msgstr "Runter"
 
 #: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
 msgid "Driver to use"
@@ -1762,7 +1750,7 @@ msgstr ""
 msgid "OBEX over IrDA"
 msgstr ""
 
-#: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/About.py:120
+#: Wammu/About.py:120 Wammu/Composer.py:63 Wammu/Composer.py:123
 msgid "OK"
 msgstr "OK"
 
@@ -2435,7 +2423,7 @@ msgstr ""
 "Flash SMS versenden - die Nachricht wird nur angezeigt aber nicht im Handy "
 "gespeichert."
 
-#: Wammu/Composer.py:348 Wammu/Browser.py:313
+#: Wammu/Browser.py:313 Wammu/Composer.py:348
 msgid "Send message"
 msgstr "Nachricht versenden"
 
@@ -2443,7 +2431,7 @@ msgstr "Nachricht versenden"
 msgid "Sending and saving SMS"
 msgstr ""
 
-#: Wammu/Composer.py:395 Wammu/Main.py:121
+#: Wammu/Main.py:121 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Gesendet"
 
@@ -2560,8 +2548,8 @@ msgstr "TaDa"
 msgid "Testing still active!"
 msgstr ""
 
-#: Wammu/Composer.py:312 Wammu/Browser.py:87 Wammu/Browser.py:90
-#: Wammu/Browser.py:93
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Composer.py:312
 msgid "Text"
 msgstr "Text"
 
@@ -2688,7 +2676,7 @@ msgstr ""
 "Fehler beim Kodieren in Unicode. Um dieses Problem zu beheben, konsultieren "
 "sie Frage 1 der FAQ."
 
-#: Wammu/Composer.py:380 Wammu/Settings.py:161
+#: Wammu/Settings.py:161 Wammu/Composer.py:380
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -2723,10 +2711,6 @@ msgstr "Ungesendet"
 #: Wammu/Main.py:122
 msgid "Unsent Messages"
 msgstr "Ungesendete Nachrichten"
-
-#: Wammu/Composer.py:424
-msgid "Up"
-msgstr "Rauf"
 
 #: wammu-configure.py:98
 #, fuzzy
@@ -3230,14 +3214,26 @@ msgstr ""
 #~ msgid "&OK"
 #~ msgstr "&OK"
 
+#~ msgid "<<< Add <<<"
+#~ msgstr "<<< Hinzufügen <<<"
+
+#~ msgid ">>> Delete"
+#~ msgstr ">>> Löschen"
+
 #~ msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
 #~ msgstr "Akku: %d %% (%s), Sig: %d %%, Zeit: %s"
 
 #~ msgid "Cancel"
 #~ msgstr "Abbrechen"
 
+#~ msgid "Down"
+#~ msgstr "Runter"
+
 #~ msgid "More"
 #~ msgstr "Mehr"
+
+#~ msgid "Up"
+#~ msgstr "Rauf"
 
 #, fuzzy
 #~ msgid "at"

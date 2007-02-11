@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-11 11:29+0100\n"
+"POT-Creation-Date: 2007-02-11 11:40+0100\n"
 "PO-Revision-Date: 2005-11-04 23:22+0000\n"
 "Last-Translator: Nicolas Velin <nsv@fr.st>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -243,18 +243,10 @@ msgstr ""
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:411
-msgid "<<< Add <<<"
-msgstr "<<< Ajouter <<<"
-
 #: Wammu/About.py:107
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr ""
 "<b>Wammu</b> est un Interface Utilisateur Graphique wxPython pour Gammu."
-
-#: Wammu/Composer.py:412
-msgid ">>> Delete"
-msgstr ">>> Supprimer"
 
 #: Wammu/Main.py:513
 msgid "AC"
@@ -530,7 +522,7 @@ msgstr "Centre"
 msgid "Change Wammu settings"
 msgstr "Changer la configuration de Wammu"
 
-#: Wammu/Composer.py:391 Wammu/Settings.py:167
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Cochez pour demander le compte-rendu de livraison pour le message."
 
@@ -591,7 +583,7 @@ msgstr "Accompli"
 msgid "Composing SMS"
 msgstr "Composition du SMS"
 
-#: Wammu/Composer.py:172 Wammu/Settings.py:154
+#: Wammu/Settings.py:154 Wammu/Composer.py:172
 #, fuzzy
 msgid "Concatenated"
 msgstr "Concaténé"
@@ -660,7 +652,7 @@ msgstr ""
 "Connexion que votre téléphone comprend, vérifier la documentation de Gammu "
 "pour les détails du connexion."
 
-#: Wammu/Composer.py:368 Wammu/Main.py:113
+#: Wammu/Main.py:113 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Contacts"
 
@@ -717,7 +709,7 @@ msgstr "Crée un nouveau message"
 msgid "Crates new todo"
 msgstr "Crée le nouveau tâche à faire"
 
-#: Wammu/Composer.py:173 Wammu/Settings.py:155
+#: Wammu/Settings.py:155 Wammu/Composer.py:173
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 "Créer un message concaténé, ce qui permet d'envoyer des messages plus longs."
@@ -908,10 +900,6 @@ msgstr ""
 #: Wammu/TalkbackDialog.py:67
 msgid "Don't show email at all"
 msgstr ""
-
-#: Wammu/Composer.py:425
-msgid "Down"
-msgstr "Vers le bas"
 
 #: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
 msgid "Driver to use"
@@ -1769,7 +1757,7 @@ msgstr ""
 msgid "OBEX over IrDA"
 msgstr ""
 
-#: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/About.py:120
+#: Wammu/About.py:120 Wammu/Composer.py:63 Wammu/Composer.py:123
 msgid "OK"
 msgstr "OK"
 
@@ -2424,7 +2412,7 @@ msgstr ""
 "Envoyez le message instantané - il sera juste montré sur l'affichage, mais "
 "pas sauvegardé dans le téléphone."
 
-#: Wammu/Composer.py:348 Wammu/Browser.py:313
+#: Wammu/Browser.py:313 Wammu/Composer.py:348
 msgid "Send message"
 msgstr "Envoyer le message"
 
@@ -2432,7 +2420,7 @@ msgstr "Envoyer le message"
 msgid "Sending and saving SMS"
 msgstr ""
 
-#: Wammu/Composer.py:395 Wammu/Main.py:121
+#: Wammu/Main.py:121 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Envoyé"
 
@@ -2551,8 +2539,8 @@ msgstr "TaDa"
 msgid "Testing still active!"
 msgstr ""
 
-#: Wammu/Composer.py:312 Wammu/Browser.py:87 Wammu/Browser.py:90
-#: Wammu/Browser.py:93
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Composer.py:312
 msgid "Text"
 msgstr "Texte"
 
@@ -2675,7 +2663,7 @@ msgstr ""
 "Une erreur de codage Unicode est apparue, voir la question 1 dans la FAQ, "
 "pour comment résoudre ceci."
 
-#: Wammu/Composer.py:380 Wammu/Settings.py:161
+#: Wammu/Settings.py:161 Wammu/Composer.py:380
 #, fuzzy
 msgid ""
 "Unicode messages can contain national and other special characters, check "
@@ -2707,10 +2695,6 @@ msgstr "Non envoyé"
 #: Wammu/Main.py:122
 msgid "Unsent Messages"
 msgstr "Messages non envoyés"
-
-#: Wammu/Composer.py:424
-msgid "Up"
-msgstr "Vers le haut"
 
 #: wammu-configure.py:98
 #, fuzzy
@@ -3222,14 +3206,26 @@ msgstr ""
 #~ msgid "&OK"
 #~ msgstr "&OK"
 
+#~ msgid "<<< Add <<<"
+#~ msgstr "<<< Ajouter <<<"
+
+#~ msgid ">>> Delete"
+#~ msgstr ">>> Supprimer"
+
 #~ msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
 #~ msgstr "Bat: %d %% (%s), Sig: %d %%, Heure: %s"
 
 #~ msgid "Cancel"
 #~ msgstr "Annuler"
 
+#~ msgid "Down"
+#~ msgstr "Vers le bas"
+
 #~ msgid "More"
 #~ msgstr "Suite"
+
+#~ msgid "Up"
+#~ msgstr "Vers le haut"
 
 #, fuzzy
 #~ msgid "at"

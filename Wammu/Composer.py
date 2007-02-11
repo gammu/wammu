@@ -408,8 +408,8 @@ class SMSComposer(wx.Dialog):
         self.available = AutoSizeList(self, _('Available message parts'))
         # FIXME: add icons?
 
-        self.addbut = wx.Button(self, -1, _('<<< Add <<<'))
-        self.delbut = wx.Button(self, -1, _('>>> Delete'))
+        self.addbut = wx.Button(self, wx.ID_ADD)
+        self.delbut = wx.Button(self, wx.ID_REMOVE)
 
         self.Bind(wx.EVT_BUTTON, self.AddPressed, self.addbut)
         self.Bind(wx.EVT_BUTTON, self.DeletePressed, self.delbut)
@@ -421,8 +421,8 @@ class SMSComposer(wx.Dialog):
 
         row = row + 3
 
-        self.upbut = wx.Button(self, -1, _('Up'))
-        self.dnbut = wx.Button(self, -1, _('Down'))
+        self.upbut = wx.Button(self, wx.ID_UP)
+        self.dnbut = wx.Button(self, wx.ID_DOWN)
 
         self.sizer.Add(self.upbut, pos = (row,1), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.dnbut, pos = (row,2), flag = wx.ALIGN_CENTER)

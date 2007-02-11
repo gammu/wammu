@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.18\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-11 11:29+0100\n"
+"POT-Creation-Date: 2007-02-11 11:40+0100\n"
 "PO-Revision-Date: 2007-01-06 09:49+0100\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,17 +226,9 @@ msgstr ""
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:411
-msgid "<<< Add <<<"
-msgstr "<<< Voeg by <<<"
-
 #: Wammu/About.py:107
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> is 'n wxPython-gebaseerde gebruikerkoppelvlak vir Gammu."
-
-#: Wammu/Composer.py:412
-msgid ">>> Delete"
-msgstr ">>> Verwyder"
 
 #: Wammu/Main.py:513
 msgid "AC"
@@ -506,7 +498,7 @@ msgstr "Sentreer"
 msgid "Change Wammu settings"
 msgstr "Wysig Wammu-instellings"
 
-#: Wammu/Composer.py:391 Wammu/Settings.py:167
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Merk op aflewerverslag tevra vir 'n boodskap."
 
@@ -561,7 +553,7 @@ msgstr "Voltooi"
 msgid "Composing SMS"
 msgstr "Skryf SMS"
 
-#: Wammu/Composer.py:172 Wammu/Settings.py:154
+#: Wammu/Settings.py:154 Wammu/Composer.py:172
 msgid "Concatenated"
 msgstr "Saamgevoeg"
 
@@ -624,7 +616,7 @@ msgstr ""
 "'n Verbinding wat u foon verstaan. Gaan Gammu-dokumentasie na vir "
 "verbindingdetail."
 
-#: Wammu/Composer.py:368 Wammu/Main.py:113
+#: Wammu/Main.py:113 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Kontakte"
 
@@ -681,7 +673,7 @@ msgstr ""
 msgid "Crates new todo"
 msgstr ""
 
-#: Wammu/Composer.py:173 Wammu/Settings.py:155
+#: Wammu/Settings.py:155 Wammu/Composer.py:173
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Skep saamgevoegde boodskap, wat langer boodskappe moontlik maak."
 
@@ -859,10 +851,6 @@ msgstr "Wil u SSL gebruik vir die oplaai van boodskappe na die IMAP-bediener?"
 
 #: Wammu/TalkbackDialog.py:67
 msgid "Don't show email at all"
-msgstr ""
-
-#: Wammu/Composer.py:425
-msgid "Down"
 msgstr ""
 
 #: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
@@ -1723,7 +1711,7 @@ msgstr "OBEX oor Bluetooth met RF-soek"
 msgid "OBEX over IrDA"
 msgstr "OBEX oor IrDA"
 
-#: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/About.py:120
+#: Wammu/About.py:120 Wammu/Composer.py:63 Wammu/Composer.py:123
 msgid "OK"
 msgstr "Regso"
 
@@ -2362,7 +2350,7 @@ msgid ""
 "phone."
 msgstr ""
 
-#: Wammu/Composer.py:348 Wammu/Browser.py:313
+#: Wammu/Browser.py:313 Wammu/Composer.py:348
 msgid "Send message"
 msgstr "Stuur boodskappe"
 
@@ -2370,7 +2358,7 @@ msgstr "Stuur boodskappe"
 msgid "Sending and saving SMS"
 msgstr ""
 
-#: Wammu/Composer.py:395 Wammu/Main.py:121
+#: Wammu/Main.py:121 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Gestuur"
 
@@ -2489,8 +2477,8 @@ msgstr ""
 msgid "Testing still active!"
 msgstr "Toets steeds onderweg!"
 
-#: Wammu/Composer.py:312 Wammu/Browser.py:87 Wammu/Browser.py:90
-#: Wammu/Browser.py:93
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Composer.py:312
 msgid "Text"
 msgstr "Teks"
 
@@ -2613,7 +2601,7 @@ msgid ""
 msgstr ""
 "Fout met Unicode-enkodering. Sien vraag 1 in die vraelys vir 'n oplossing."
 
-#: Wammu/Composer.py:380 Wammu/Settings.py:161
+#: Wammu/Settings.py:161 Wammu/Composer.py:380
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -2647,10 +2635,6 @@ msgstr "Ongestuur"
 #: Wammu/Main.py:122
 msgid "Unsent Messages"
 msgstr "Ongestuurde boodskappe"
-
-#: Wammu/Composer.py:424
-msgid "Up"
-msgstr "Op"
 
 #: wammu-configure.py:98
 #, fuzzy
@@ -3135,6 +3119,12 @@ msgstr ""
 #~ msgid "&OK"
 #~ msgstr "&Regso"
 
+#~ msgid "<<< Add <<<"
+#~ msgstr "<<< Voeg by <<<"
+
+#~ msgid ">>> Delete"
+#~ msgstr ">>> Verwyder"
+
 #~ msgid "Cable is connected or phone is in wireless connection range."
 #~ msgstr "Kabel is verbind of foon is in draadlose verbindingsomvang."
 
@@ -3149,6 +3139,9 @@ msgstr ""
 
 #~ msgid "Please make sure you have phone ready"
 #~ msgstr "Maak asb. seker u het die foon gereed"
+
+#~ msgid "Up"
+#~ msgstr "Op"
 
 #, fuzzy
 #~ msgid "at"

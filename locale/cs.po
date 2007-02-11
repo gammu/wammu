@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-11 11:29+0100\n"
+"POT-Creation-Date: 2007-02-11 11:40+0100\n"
 "PO-Revision-Date: 2007-02-09 12:36+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -232,17 +232,9 @@ msgstr "-v/--version       ... zobrazí verzi programu"
 msgid "..."
 msgstr "..."
 
-#: Wammu/Composer.py:411
-msgid "<<< Add <<<"
-msgstr "<<< Přídat <<<"
-
 #: Wammu/About.py:107
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> je GUI pro Gammu napsané v wxPythonu."
-
-#: Wammu/Composer.py:412
-msgid ">>> Delete"
-msgstr ">>> Odebrat"
 
 #: Wammu/Main.py:513
 msgid "AC"
@@ -512,7 +504,7 @@ msgstr "Na střed"
 msgid "Change Wammu settings"
 msgstr "Změnit nastavení Wammu"
 
-#: Wammu/Composer.py:391 Wammu/Settings.py:167
+#: Wammu/Settings.py:167 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Zaškrtněte pro požadování doručenky pro zprávu."
 
@@ -569,7 +561,7 @@ msgstr "Hotovo"
 msgid "Composing SMS"
 msgstr "Tvorba SMS"
 
-#: Wammu/Composer.py:172 Wammu/Settings.py:154
+#: Wammu/Settings.py:154 Wammu/Composer.py:172
 msgid "Concatenated"
 msgstr "Spojená"
 
@@ -631,7 +623,7 @@ msgstr ""
 "Připojení, kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
 "dostupné možnosti."
 
-#: Wammu/Composer.py:368 Wammu/Main.py:113
+#: Wammu/Main.py:113 Wammu/Composer.py:368
 msgid "Contacts"
 msgstr "Kontakty"
 
@@ -688,7 +680,7 @@ msgstr "Vytvoří novou zprávu"
 msgid "Crates new todo"
 msgstr "Vytvoří nový úkol"
 
-#: Wammu/Composer.py:173 Wammu/Settings.py:155
+#: Wammu/Settings.py:155 Wammu/Composer.py:173
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Vytvoří spojené zprávy, které umožní posílat delší text."
 
@@ -877,10 +869,6 @@ msgstr "Přejete si pro komunikaci s IMAP serverem použít SSL?"
 #: Wammu/TalkbackDialog.py:67
 msgid "Don't show email at all"
 msgstr "Vůbec email nezobrazovat"
-
-#: Wammu/Composer.py:425
-msgid "Down"
-msgstr "Dolů"
 
 #: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
 msgid "Driver to use"
@@ -1751,7 +1739,7 @@ msgstr "OBEX přes Bluetooth s vyhledáváním RF"
 msgid "OBEX over IrDA"
 msgstr "OBEX přes IrDA"
 
-#: Wammu/Composer.py:63 Wammu/Composer.py:123 Wammu/About.py:120
+#: Wammu/About.py:120 Wammu/Composer.py:63 Wammu/Composer.py:123
 msgid "OK"
 msgstr "OK"
 
@@ -2386,7 +2374,7 @@ msgid ""
 "phone."
 msgstr "Odešle zprávy jen na displej, tato zpráva nebude uložena do telefonu."
 
-#: Wammu/Composer.py:348 Wammu/Browser.py:313
+#: Wammu/Browser.py:313 Wammu/Composer.py:348
 msgid "Send message"
 msgstr "Odeslat zprávu"
 
@@ -2394,7 +2382,7 @@ msgstr "Odeslat zprávu"
 msgid "Sending and saving SMS"
 msgstr "Posílání a ukládání SMS"
 
-#: Wammu/Composer.py:395 Wammu/Main.py:121
+#: Wammu/Main.py:121 Wammu/Composer.py:395
 msgid "Sent"
 msgstr "Odeslaná"
 
@@ -2511,8 +2499,8 @@ msgstr "TaDa"
 msgid "Testing still active!"
 msgstr "Testování ještě probíhá!"
 
-#: Wammu/Composer.py:312 Wammu/Browser.py:87 Wammu/Browser.py:90
-#: Wammu/Browser.py:93
+#: Wammu/Browser.py:87 Wammu/Browser.py:90 Wammu/Browser.py:93
+#: Wammu/Composer.py:312
 msgid "Text"
 msgstr "Text"
 
@@ -2638,7 +2626,7 @@ msgstr ""
 "Chyba souvisí s unicode, přečtě si prosím otázku 1 ve FAQ jak tento problém "
 "řešit."
 
-#: Wammu/Composer.py:380 Wammu/Settings.py:161
+#: Wammu/Settings.py:161 Wammu/Composer.py:380
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -2672,10 +2660,6 @@ msgstr "Neodeslané"
 #: Wammu/Main.py:122
 msgid "Unsent Messages"
 msgstr "Neodeslané zprávy"
-
-#: Wammu/Composer.py:424
-msgid "Up"
-msgstr "Nahoru"
 
 #: wammu-configure.py:98
 msgid "Updating gammu configuration..."
@@ -3163,6 +3147,12 @@ msgstr "ročně"
 #~ msgid "&OK"
 #~ msgstr "&OK"
 
+#~ msgid "<<< Add <<<"
+#~ msgstr "<<< Přídat <<<"
+
+#~ msgid ">>> Delete"
+#~ msgstr ">>> Odebrat"
+
 #~ msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
 #~ msgstr "Bat: %d %% (%s), Sig: %d %%, Čas %s"
 
@@ -3171,6 +3161,9 @@ msgstr "ročně"
 
 #~ msgid "Cancel"
 #~ msgstr "Zrušit"
+
+#~ msgid "Down"
+#~ msgstr "Dolů"
 
 #~ msgid "I&mport SMS"
 #~ msgstr "I&mport SMS"
@@ -3195,6 +3188,9 @@ msgstr "ročně"
 
 #~ msgid "Scanning for bluetooth devices using GNOME Bluetooth"
 #~ msgstr "Vyhledávám zařízení Bluetooth pomocí GNOME Bluetooth"
+
+#~ msgid "Up"
+#~ msgstr "Nahoru"
 
 #~ msgid "Usage: wammu-configure [OPTION...]"
 #~ msgstr "Použití: wammu-configure [PARAMETR...]"
