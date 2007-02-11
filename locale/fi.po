@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-11 12:05+0100\n"
+"POT-Creation-Date: 2007-02-11 12:32+0100\n"
 "PO-Revision-Date: 2006-10-13 11:21+0000\n"
 "Last-Translator: inessinia <inessinia@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -338,11 +338,11 @@ msgstr "Haluatko varmasti poistaa %s?"
 msgid "As soon as your phone is ready, you can continue."
 msgstr ""
 
-#: Wammu/Settings.py:133
+#: Wammu/Settings.py:180
 msgid "Attempt to reformat text"
 msgstr "Yritetään uudelleenmuotoilla teksti"
 
-#: Wammu/Settings.py:104
+#: Wammu/Settings.py:151
 msgid "Automatically connect to phone on startup"
 msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
 
@@ -505,7 +505,7 @@ msgstr "Keskitetty"
 msgid "Change Wammu settings"
 msgstr "Vaihda Wammun asetuksia"
 
-#: Wammu/Settings.py:167 Wammu/Composer.py:391
+#: Wammu/Settings.py:214 Wammu/Composer.py:391
 msgid "Check to request delivery report for message."
 msgstr "Merkitse pyytääksesi välitystietoja viestistä."
 
@@ -561,7 +561,7 @@ msgstr "Valmis"
 msgid "Composing SMS"
 msgstr "Tekstiviestin kirjoitus"
 
-#: Wammu/Settings.py:154 Wammu/Composer.py:172
+#: Wammu/Settings.py:201 Wammu/Composer.py:172
 msgid "Concatenated"
 msgstr "Yhteenliitetty"
 
@@ -579,7 +579,7 @@ msgstr "Asetuksia ei löytynyt"
 msgid "Configuration type"
 msgstr "Asetuksia ei löytynyt"
 
-#: Wammu/Settings.py:229 Wammu/Main.py:1544
+#: Wammu/Settings.py:258 Wammu/Main.py:1544
 msgid "Confirm deleting"
 msgstr "Vahvista poisto"
 
@@ -595,7 +595,7 @@ msgstr "Yhdistetty"
 msgid "Connecting to IMAP server..."
 msgstr "Yhdistetään IMAP palvelimeen..."
 
-#: Wammu/Settings.py:84 Wammu/Settings.py:284
+#: Wammu/Settings.py:131 Wammu/Settings.py:314
 msgid "Connection"
 msgstr "Yhteys"
 
@@ -620,7 +620,7 @@ msgstr "Yhteys"
 msgid "Connection type:"
 msgstr "Yhteys"
 
-#: Wammu/Settings.py:83
+#: Wammu/Settings.py:130
 msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
@@ -685,7 +685,7 @@ msgstr "Luo uusi viesti"
 msgid "Crates new todo"
 msgstr "luo uusi tehtävä"
 
-#: Wammu/Settings.py:155 Wammu/Composer.py:173
+#: Wammu/Settings.py:202 Wammu/Composer.py:173
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
 
@@ -698,7 +698,7 @@ msgstr "Luo uusi yhteystieto"
 msgid "Create new message by adding part to left list..."
 msgstr "Luo uusi viesti lisäämällä osa vasemmasta listasta..."
 
-#: Wammu/Settings.py:160
+#: Wammu/Settings.py:207
 msgid "Create unicode message"
 msgstr "Luo unicode-viesti"
 
@@ -768,7 +768,7 @@ msgstr ""
 "kommunioitaessa puhelimen kanssa, toivomme todella sinun liittävän sen "
 "bugiraporttiin. Debuggausloki tallennettiin tiedostoon %s."
 
-#: Wammu/Settings.py:255
+#: Wammu/Settings.py:284
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
@@ -776,15 +776,15 @@ msgstr ""
 "Oletuspäiväys, jota käytetään äskettäin luodulle aikakentille. Syötä päivien "
 "määrä alkaen tästä päivästä (1=eilen)"
 
-#: Wammu/Settings.py:249
+#: Wammu/Settings.py:278
 msgid "Default time"
 msgstr "Oletusaika"
 
-#: Wammu/Settings.py:256
+#: Wammu/Settings.py:285
 msgid "Default time = now + x days"
 msgstr "Oletusaika = nyt + x päivää"
 
-#: Wammu/Settings.py:248
+#: Wammu/Settings.py:277
 msgid "Default time to be used for newly created time fields."
 msgstr "Oletusaika, jota tullaan käyttämään uusissa aikavyöhykkeissä."
 
@@ -824,7 +824,7 @@ msgstr ""
 msgid "Description:"
 msgstr "Kuvaus:"
 
-#: Wammu/Settings.py:78
+#: Wammu/Settings.py:125
 msgid "Device"
 msgstr "Laite"
 
@@ -834,7 +834,7 @@ msgid ""
 "phone plugged or your configuration is wrong."
 msgstr ""
 
-#: Wammu/Settings.py:77
+#: Wammu/Settings.py:124
 msgid "Device, where your phone is connected."
 msgstr "Laite, johon puhelimesi on kytketty."
 
@@ -858,7 +858,7 @@ msgstr "Yhteys katkaistu"
 msgid "Display it normally"
 msgstr ""
 
-#: Wammu/Settings.py:218
+#: Wammu/Settings.py:102
 msgid "Display startup on phone (not supported by all models)."
 msgstr "Näytä käynnistys puhelimessa (ei tuettu kaikissa malleissa)"
 
@@ -950,7 +950,7 @@ msgstr ""
 "Syötä etsittävä teksti, huomaa, että sitä käsitellään kuten perusilmaisua. "
 "Haku tehdään kaikilla kentillä."
 
-#: Wammu/Settings.py:263
+#: Wammu/Settings.py:292
 msgid "Entries for new item"
 msgstr "Uuden tiedon syötteet."
 
@@ -1101,6 +1101,11 @@ msgstr ""
 msgid "Function:"
 msgstr "Toiminto:"
 
+#: Wammu/Settings.py:313
+#, fuzzy
+msgid "Gammu"
+msgstr "&Wammu"
+
 #: Wammu/TalkbackDialog.py:93
 msgid "Gammu Phone Database Talkback"
 msgstr ""
@@ -1131,6 +1136,10 @@ msgstr "Gammu versio"
 #, fuzzy
 msgid "Gammu version:"
 msgstr "Gammu versio"
+
+#: Wammu/Settings.py:79
+msgid "Gammurc path:"
+msgstr ""
 
 #: Wammu/SettingsStorage.py:279
 msgid "Generic AT at 115200 bps"
@@ -1198,11 +1207,11 @@ msgstr ""
 msgid "How is your phone connected?"
 msgstr "Laite, johon puhelimesi on kytketty."
 
-#: Wammu/Settings.py:262
+#: Wammu/Settings.py:291
 msgid "How many entries will be shown in newly created item."
 msgstr "Kuinka monta syötettä näytetään uusissa tiedoissa?"
 
-#: Wammu/Settings.py:206
+#: Wammu/Settings.py:253
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
@@ -1276,7 +1285,7 @@ msgid ""
 "option."
 msgstr ""
 
-#: Wammu/Settings.py:134
+#: Wammu/Settings.py:181
 msgid ""
 "If you get sometimes \"compressed\" messages likeTHIStext, you should be "
 "interested in this choice."
@@ -1404,7 +1413,7 @@ msgstr "Sijainti"
 msgid "Location (0 = auto):"
 msgstr "Sijainti (0=automaattinen valinta):"
 
-#: Wammu/Settings.py:98
+#: Wammu/Settings.py:145
 msgid "Lock device"
 msgstr "Lukitse laite"
 
@@ -1481,7 +1490,7 @@ msgstr "Viestin esikatselu"
 msgid "Message will fit into %d SMSes"
 msgstr "Viesti mahtuu %d tekstiviesteihin"
 
-#: Wammu/Settings.py:285 Wammu/Main.py:118 Wammu/Main.py:284
+#: Wammu/Settings.py:315 Wammu/Main.py:118 Wammu/Main.py:284
 msgid "Messages"
 msgstr "Viestit"
 
@@ -1493,7 +1502,7 @@ msgstr "Menetetyt"
 msgid "Missed Calls"
 msgstr "Menetetyt puhelut"
 
-#: Wammu/Settings.py:92
+#: Wammu/Settings.py:139
 msgid "Model"
 msgstr "Malli"
 
@@ -1704,7 +1713,7 @@ msgstr "Ilmoita"
 msgid "Number"
 msgstr "Numero"
 
-#: Wammu/Settings.py:271
+#: Wammu/Settings.py:300
 msgid "Number prefix"
 msgstr "Numeron etuliite"
 
@@ -1749,7 +1758,7 @@ msgstr "Kuvaus:"
 msgid "Original IMEI"
 msgstr "Alkuperäinen IMEI"
 
-#: Wammu/Settings.py:286
+#: Wammu/Settings.py:316
 msgid "Other"
 msgstr "Muu"
 
@@ -1825,7 +1834,7 @@ msgstr ""
 msgid "Phone information"
 msgstr "Puhelimen tiedot"
 
-#: Wammu/Settings.py:89
+#: Wammu/Settings.py:136
 msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr "Puhelin malli, voit yleensä pitää tämän auto:na jos ei ole ongelmia."
@@ -1968,7 +1977,7 @@ msgstr "Esivalittu animaatio numero %d"
 msgid "Predefined sound"
 msgstr "Esivalittu ääni"
 
-#: Wammu/Settings.py:270
+#: Wammu/Settings.py:299
 msgid "Prefix for non international phone numbers."
 msgstr "Etuliite ei kansainvälisiin puhelinnumeroihin."
 
@@ -2069,7 +2078,7 @@ msgstr "Vastaanottajien numerot:"
 msgid "Recurrence"
 msgstr ""
 
-#: Wammu/Settings.py:207
+#: Wammu/Settings.py:254
 msgid "Refresh phone state"
 msgstr "Päivitä puhelimen tila"
 
@@ -2095,7 +2104,7 @@ msgstr "Tuo varmuuskopio"
 msgid "Report your experiences in Gammu Phone Database"
 msgstr ""
 
-#: Wammu/Settings.py:166
+#: Wammu/Settings.py:213
 msgid "Request delivery report by default"
 msgstr "Pyydä välitystiedot oletuksena"
 
@@ -2188,7 +2197,7 @@ msgstr "Tallennetaan viestejä postilaatikkoon."
 msgid "Saving messages to maildir"
 msgstr "Tallennetaan viestejä postitiedostoon."
 
-#: Wammu/Settings.py:129
+#: Wammu/Settings.py:176
 msgid "Scale images"
 msgstr "Skaalaa kuvia"
 
@@ -2417,15 +2426,15 @@ msgstr "Palvelimen nimi"
 msgid "Setting time in phone..."
 msgstr "Asettaa puhelimen aikaa..."
 
-#: Wammu/Settings.py:38
+#: Wammu/Settings.py:35
 msgid "Settings"
 msgstr "Asetukset"
 
-#: Wammu/Settings.py:224
+#: Wammu/Settings.py:90
 msgid "Show debug information on error output."
 msgstr "Näytä debuggaus tiedot virheilmoituksessa."
 
-#: Wammu/Settings.py:223
+#: Wammu/Settings.py:89
 msgid "Show debug log"
 msgstr "Näytä debuggaus loki"
 
@@ -2462,7 +2471,7 @@ msgstr "Aloita"
 msgid "Starting %s"
 msgstr "Käynnistetään %s"
 
-#: Wammu/Settings.py:217
+#: Wammu/Settings.py:101
 msgid "Startup information"
 msgstr "Käynnistystietoja"
 
@@ -2490,7 +2499,7 @@ msgstr ""
 msgid "Symbian using Gnapplet"
 msgstr ""
 
-#: Wammu/Settings.py:212
+#: Wammu/Settings.py:96
 msgid "Synchronise time in phone with computer time while connecting."
 msgstr "Tahdista puhelimen aika tietokoneen aikaan yhdistämisen aikana."
 
@@ -2498,7 +2507,7 @@ msgstr "Tahdista puhelimen aika tietokoneen aikaan yhdistämisen aikana."
 msgid "Synchronises time in mobile with PC"
 msgstr "Tahdista kännykän aika PC:n kanssa"
 
-#: Wammu/Settings.py:211
+#: Wammu/Settings.py:95
 msgid "Synchronize time"
 msgstr "Tahdista aika"
 
@@ -2637,7 +2646,7 @@ msgstr ""
 "Unicode-koodivirhe ilmaantui, selvittääksesi ongelman, katso kysymys 1 FAQ:"
 "sta."
 
-#: Wammu/Settings.py:161 Wammu/Composer.py:380
+#: Wammu/Settings.py:208 Wammu/Composer.py:380
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -2682,11 +2691,11 @@ msgstr "Luo uusi yhteystieto"
 msgid "Usage: %s [OPTION...]"
 msgstr ""
 
-#: Wammu/Settings.py:173
+#: Wammu/Settings.py:220
 msgid "Use 16 bit Id inside message. This is safe for most cases."
 msgstr "Käytä 16 bittistä Id:tä viestissä. Tämä on useimmiten turvallisinta."
 
-#: Wammu/Settings.py:172
+#: Wammu/Settings.py:219
 msgid "Use 16bit Id"
 msgstr "Käytä 16 bittistä Id:tä"
 
@@ -2834,7 +2843,7 @@ msgstr "Kun merkitty, viesti on lähetetty vastaanottajalle."
 msgid "Where do you want to export emails created from your messages?"
 msgstr "Mihin haluat lähettää viesteistäsi luodut sähköpostit?"
 
-#: Wammu/Settings.py:128
+#: Wammu/Settings.py:175
 msgid ""
 "Whether images in messages should be scaled when displayed. This is usually "
 "good idea as they are pretty small."
@@ -2842,11 +2851,11 @@ msgstr ""
 "Pitäisikö viesteissä olevia kuvia skaalata näytettäessä. Tämä on yleensä "
 "hyvä idea, koska ne ovat hyvin pieniä."
 
-#: Wammu/Settings.py:230
+#: Wammu/Settings.py:259
 msgid "Whether to ask for confirmation when deleting entries."
 msgstr "Haluatko kuittauksen kun poistetaan merkintöjä?"
 
-#: Wammu/Settings.py:99
+#: Wammu/Settings.py:146
 msgid ""
 "Whether to lock device in /var/lock. On some systems you might lack "
 "privileges to do so."
@@ -2854,7 +2863,7 @@ msgstr ""
 "Lukitaanko laite tiedostoon /var/lock. Joissakin järjestelmissä oikeutesi ei "
 "ehkä riitä tämän tekemiseen."
 
-#: Wammu/Settings.py:105
+#: Wammu/Settings.py:152
 msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
@@ -2916,6 +2925,10 @@ msgstr ""
 #, fuzzy
 msgid "You can access name and phone number."
 msgstr "Et antanut toimivaa puhelinnumeroa."
+
+#: Wammu/Settings.py:83
+msgid "You can configure connection parameters on Connection tab."
+msgstr ""
 
 #: Wammu/PhoneWizard.py:47
 msgid "You can enter any name which you will use to identify your phone."

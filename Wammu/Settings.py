@@ -25,13 +25,10 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 import wx.lib.rcsizer
+from wx.lib.filebrowsebutton import FileBrowseButton
+from wx.lib.masked.timectrl import TimeCtrl
 import sys
 import Wammu
-try:
-    from wx.lib.timectrl import TimeCtrl
-except ImportError:
-    # wxPython 2.5.2
-    from wx.lib.masked.timectrl import TimeCtrl
 
 class Settings(wx.Dialog):
     def __init__(self, parent, config):
@@ -39,6 +36,7 @@ class Settings(wx.Dialog):
 
         # notebook
         self.notebook= wx.Notebook(self, -1)
+        self.notebook_gammu = wx.Panel(self.notebook, -1)
         self.notebook_connection = wx.Panel(self.notebook, -1)
         self.notebook_messages = wx.Panel(self.notebook, -1)
         self.notebook_other = wx.Panel(self.notebook, -1)
@@ -64,6 +62,55 @@ class Settings(wx.Dialog):
         self.sizer.AddSpacer(1, 1, pos = (4, 0), colspan = 5)
 
         self.config = config
+
+        # gammu tab
+        self.sizer_gammu = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer_gammu.AddGrowableCol(1)
+
+        self.sizer_gammu.AddSpacer(1, 1, pos = (0, 0))
+        r = 1
+
+        self.editcfgpath = wx.lib.filebrowsebutton.FileBrowseButton(self.notebook_gammu,
+            size = (250, -1),
+            labelText = '',
+            initialValue = config.Read('/Gammu/Gammurc', False),
+            fileMode = wx.OPEN)
+        self.sizer_gammu.Add(wx.StaticText(self.notebook_gammu, -1, _('Gammurc path:')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer_gammu.Add(self.editcfgpath, pos = (r, 2), flag = wx.EXPAND)
+        r += 1
+
+        self.sizer_gammu.Add(wx.StaticText(self.notebook_gammu, -1, _('You can configure connection parameters on Connection tab.')), pos = (r, 1), colspan = 2)
+        r += 1
+
+        self.sizer_gammu.AddSpacer(1, 1, pos = (r, 3))
+        r += 1
+
+        self.editdebug = wx.CheckBox(self.notebook_gammu, -1, _('Show debug log'))
+        self.editdebug.SetToolTipString(_('Show debug information on error output.'))
+        self.editdebug.SetValue(config.Read('/Debug/Show') == 'yes')
+        self.sizer_gammu.Add(self.editdebug, pos = (r, 1), colspan = 2)
+        r += 1
+
+        self.editsync = wx.CheckBox(self.notebook_gammu, -1, _('Synchronize time'))
+        self.editsync.SetToolTipString(_('Synchronise time in phone with computer time while connecting.'))
+        self.editsync.SetValue(config.Read('/Gammu/SyncTime') == 'yes')
+        self.sizer_gammu.Add(self.editsync, pos = (r, 1), colspan = 2)
+        r += 1
+
+        self.editinfo = wx.CheckBox(self.notebook_gammu, -1, _('Startup information'))
+        self.editinfo.SetToolTipString(_('Display startup on phone (not supported by all models).'))
+        self.editinfo.SetValue(config.Read('/Gammu/StartInfo') == 'yes')
+        self.sizer_gammu.Add(self.editinfo, pos = (r, 1), colspan = 2)
+        r += 1
+
+        self.sizer_gammu.AddSpacer(1, 1, pos = (r, 3))
+
+        # size gammu tab
+        self.notebook_gammu.SetAutoLayout(True)
+        self.notebook_gammu.SetSizer(self.sizer_gammu)
+        self.sizer_gammu.Fit(self.notebook_gammu)
+        self.sizer_gammu.SetSizeHints(self.notebook_gammu)
 
         # connection tab
         self.sizer_connection = wx.lib.rcsizer.RowColSizer()
@@ -208,24 +255,6 @@ class Settings(wx.Dialog):
         self.sizer_other.Add(self.editrefresh, pos = (r, 2))
         r += 1
 
-        self.editsync = wx.CheckBox(self.notebook_other, -1, _('Synchronize time'))
-        self.editsync.SetToolTipString(_('Synchronise time in phone with computer time while connecting.'))
-        self.editsync.SetValue(config.Read('/Gammu/SyncTime') == 'yes')
-        self.sizer_other.Add(self.editsync, pos = (r, 1), colspan = 2)
-        r += 1
-
-        self.editinfo = wx.CheckBox(self.notebook_other, -1, _('Startup information'))
-        self.editinfo.SetToolTipString(_('Display startup on phone (not supported by all models).'))
-        self.editinfo.SetValue(config.Read('/Gammu/StartInfo') == 'yes')
-        self.sizer_other.Add(self.editinfo, pos = (r, 1), colspan = 2)
-        r += 1
-
-        self.editdebug = wx.CheckBox(self.notebook_other, -1, _('Show debug log'))
-        self.editdebug.SetToolTipString(_('Show debug information on error output.'))
-        self.editdebug.SetValue(config.Read('/Debug/Show') == 'yes')
-        self.sizer_other.Add(self.editdebug, pos = (r, 1), colspan = 2)
-        r += 1
-
         self.editconfirm = wx.CheckBox(self.notebook_other, -1, _('Confirm deleting'))
         self.editconfirm.SetToolTipString(_('Whether to ask for confirmation when deleting entries.'))
         self.editconfirm.SetValue(config.Read('/Wammu/ConfirmDelete') == 'yes')
@@ -281,6 +310,7 @@ class Settings(wx.Dialog):
         self.sizer_other.SetSizeHints(self.notebook_other)
 
         # add pages to notebook
+        self.notebook.AddPage(self.notebook_gammu, _("Gammu"))
         self.notebook.AddPage(self.notebook_connection, _("Connection"))
         self.notebook.AddPage(self.notebook_messages, _("Messages"))
         self.notebook.AddPage(self.notebook_other, _("Other"))
@@ -300,6 +330,7 @@ class Settings(wx.Dialog):
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
 
     def Okay(self, evt):
+        self.config.Write('/Gammu/Gammurc', self.editcfgpath.GetValue())
         self.config.Write('/Gammu/Model', self.editmodel.GetValue())
         self.config.Write('/Gammu/Device', self.editdev.GetValue())
         self.config.Write('/Gammu/Connection', self.editconn.GetValue())

@@ -102,14 +102,14 @@ class WammuConfig:
         # We don't want to subclass from wx.Config to hide it's API
         self.cfg = wx.Config(appName = 'Wammu', style = wx.CONFIG_USE_LOCAL_FILE)
 
-    def Read(self, path):
+    def Read(self, path, expand = True):
         try:
             result = self.cfg.Read(path, Defaults[path])
         except KeyError:
             # Following line is for debugging purposes only
             print 'Warning: no default value for %s' % path
             result = self.cfg.Read(path, '')
-        if path in Expandable:
+        if expand and path in Expandable:
             result = os.path.expanduser(result)
         return result
 
