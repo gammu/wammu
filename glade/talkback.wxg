@@ -115,6 +115,26 @@
                             <flag>wxALIGN_CENTER_VERTICAL|wxADJUST_MINSIZE</flag>
                             <border>0</border>
                             <option>0</option>
+                            <object class="wxStaticText" name="model_label" base="EditStaticText">
+                                <attribute>1</attribute>
+                                <label>Model:</label>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <flag>wxEXPAND|wxADJUST_MINSIZE</flag>
+                            <border>0</border>
+                            <option>0</option>
+                            <object class="wxComboBox" name="model_combo_box" base="EditComboBox">
+                                <selection>0</selection>
+                                <choices>
+                                    <choice></choice>
+                                </choices>
+                            </object>
+                        </object>
+                        <object class="sizeritem">
+                            <flag>wxALIGN_CENTER_VERTICAL|wxADJUST_MINSIZE</flag>
+                            <border>0</border>
+                            <option>0</option>
                             <object class="wxStaticText" name="features_label" base="EditStaticText">
                                 <attribute>1</attribute>
                                 <tooltip>Select which features work correctly with your phone</tooltip>
@@ -148,7 +168,7 @@
                             <object class="wxStaticText" name="gammu_version_label" base="EditStaticText">
                                 <attribute>1</attribute>
                                 <tooltip>This information is automatically included in report.</tooltip>
-                                <label>label_2</label>
+                                <label></label>
                             </object>
                         </object>
                         <object class="sizeritem">
