@@ -32,12 +32,15 @@ class GammuSettings:
     """
     Class wrapping gammu configuration file for reading and writing.
     """
-    def __init__(self, wammu_cfg):
+    def __init__(self, wammu_cfg, path = None):
         """
         Reads gammu configuration and prepares it for use.
         """
         self.wammu_cfg = wammu_cfg
-        self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
+        if path is not None:
+            self.filename = path
+        else:
+            self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
         self.config = wx.FileConfig(localFilename = self.filename, style = wx.CONFIG_USE_LOCAL_FILE)
         self.list = []
 
@@ -62,7 +65,18 @@ class GammuSettings:
             result.append(x)
         return result
 
-    def SetConfig(self, position, device, connection, name = None):
+    def GetConfig(self, position):
+        if position == 0:
+            path ='gammu'
+        else:
+            path = 'gammu%s' % position
+        device = self.config.Read('/%s/port' % path)
+        connection = self.config.Read('/%s/connection' % path)
+        model = self.config.Read('/%s/model' % path)
+        name = self.config.Read('/%s/name' % path)
+        return {'Name': name, 'Device': device, 'Connection': connection, 'Model': model}
+
+    def SetConfig(self, position, device, connection, name = None, model = None):
         found = False
         if position == 0:
             path ='gammu'
@@ -74,12 +88,15 @@ class GammuSettings:
                 x['Name'] = name
                 found = True
                 break
-        self.config.SetPath(path)
-        self.config.Write('port', device)
-        self.config.Write('connection', connection)
-        self.config.Write('name', name)
+        self.config.Write('/%s/port' % path, device)
+        self.config.Write('/%s/connection' % path, connection)
+        if name is not None:
+            self.config.Write('/%s/name' % path, name)
+        if model is not None:
+            self.config.Write('/%s/model' % path, model)
         if not found:
             self.list.append({'Id': position, 'Name': name, 'Path': path})
+        self.config.Flush()
 
     def FirstFree(self):
         """

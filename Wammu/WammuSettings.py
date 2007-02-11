@@ -30,8 +30,7 @@ import sys
 import os
 import wx
 import email.Utils
-# FIXME: can be later removed
-import Wammu.Data
+import Wammu.GammuSettings
 
 Defaults = {
     '/Main/X': 0,
@@ -42,9 +41,6 @@ Defaults = {
     '/Main/Height': 480,
     '/Defaults/SearchType': 0,
     '/Wammu/AutoConnect': 'no',
-    '/Gammu/Model': Wammu.Data.Models[0],
-    '/Gammu/Connection': Wammu.Data.Connections[0],
-    '/Gammu/Device': Wammu.Data.Devices[0],
     '/Gammu/LockDevice': 'no',
     '/Debug/Show': 'no',
     '/Wammu/PhonePrefix': 'Auto',
@@ -71,6 +67,7 @@ Defaults = {
     '/IMAP/Server': '',
     '/IMAP/Login': '',
     '/IMAP/Password': '',
+    '/Gammu/Section': 0,
     }
 
 if sys.platform == 'win32':
@@ -101,6 +98,14 @@ class WammuConfig:
     def __init__(self):
         # We don't want to subclass from wx.Config to hide it's API
         self.cfg = wx.Config(appName = 'Wammu', style = wx.CONFIG_USE_LOCAL_FILE)
+        self.InitGammu()
+
+    def InitGammu(self, path = None):
+        try:
+            self.gammu.Flush()
+        except:
+            pass
+        self.gammu = Wammu.GammuSettings.GammuSettings(self, path)
 
     def Read(self, path, expand = True):
         try:

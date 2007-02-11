@@ -27,8 +27,10 @@ import wx
 import wx.lib.rcsizer
 from wx.lib.filebrowsebutton import FileBrowseButton
 from wx.lib.masked.timectrl import TimeCtrl
+import os
 import sys
 import Wammu
+import Wammu.GammuSettings
 
 class Settings(wx.Dialog):
     def __init__(self, parent, config):
@@ -62,6 +64,7 @@ class Settings(wx.Dialog):
         self.sizer.AddSpacer(1, 1, pos = (4, 0), colspan = 5)
 
         self.config = config
+        self.gammu_config = config.gammu
 
         # gammu tab
         self.sizer_gammu = wx.lib.rcsizer.RowColSizer()
@@ -75,8 +78,10 @@ class Settings(wx.Dialog):
             size = (250, -1),
             labelText = '',
             initialValue = config.Read('/Gammu/Gammurc', False),
+            toolTip = _('Please enter here path to gammu configuration file you want to use.'),
+            changeCallback = self.OnConfigChange,
             fileMode = wx.OPEN)
-        self.sizer_gammu.Add(wx.StaticText(self.notebook_gammu, -1, _('Gammurc path:')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer_gammu.Add(wx.StaticText(self.notebook_gammu, -1, _('Gammurc path')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer_gammu.Add(self.editcfgpath, pos = (r, 2), flag = wx.EXPAND)
         r += 1
 
@@ -84,6 +89,12 @@ class Settings(wx.Dialog):
         r += 1
 
         self.sizer_gammu.AddSpacer(1, 1, pos = (r, 3))
+        r += 1
+
+        self.editauto = wx.CheckBox(self.notebook_gammu, -1, _('Automatically connect to phone on startup'))
+        self.editauto.SetToolTipString(_('Whether you want application automatically connect to phone when it is started.'))
+        self.editauto.SetValue(config.Read('/Wammu/AutoConnect') == 'yes')
+        self.sizer_gammu.Add(self.editauto, pos = (r, 1), colspan = 2)
         r += 1
 
         self.editdebug = wx.CheckBox(self.notebook_gammu, -1, _('Show debug log'))
@@ -104,6 +115,14 @@ class Settings(wx.Dialog):
         self.sizer_gammu.Add(self.editinfo, pos = (r, 1), colspan = 2)
         r += 1
 
+        if sys.platform != 'win32':
+            # locking not available on windoze
+            self.editlock = wx.CheckBox(self.notebook_gammu, -1, _('Lock device'))
+            self.editlock.SetToolTipString(_('Whether to lock device in /var/lock. On some systems you might lack privileges to do so.'))
+            self.editlock.SetValue(config.Read('/Gammu/LockDevice') == 'yes')
+            self.sizer_gammu.Add(self.editlock, pos = (r, 1), colspan = 2)
+            r += 1
+
         self.sizer_gammu.AddSpacer(1, 1, pos = (r, 3))
 
         # size gammu tab
@@ -120,39 +139,46 @@ class Settings(wx.Dialog):
         self.sizer_connection.AddSpacer(1, 1, pos = (0, 0))
         r = 1
 
-        self.editdev = wx.ComboBox(self.notebook_connection, -1, config.Read('/Gammu/Device'), choices = Wammu.Data.Devices, size = (150, -1))
+        lst, choices = config.gammu.GetConfigList()
+        self.editsection = wx.Choice(self.notebook_connection, choices = choices, size = (150, -1))
+        section = config.ReadInt('/Gammu/Section')
+        for i in range(len(lst)):
+            if lst[i]['Id'] == section:
+                self.editsection.SetSelection(i)
+                break
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Phone connection')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer_connection.Add(self.editsection, pos = (r, 2))
+        self.Bind(wx.EVT_CHOICE, self.OnConnectionChange, self.editsection)
+        r += 1
+
+        self.editname = wx.TextCtrl(self.notebook_connection, -1, '', size = (150, -1))
+        self.editname.SetToolTipString(_('Name for this configuration.'))
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Name')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer_connection.Add(self.editname, pos = (r, 2))
+        r += 1
+
+        self.editdev = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Devices, size = (150, -1))
         self.editdev.SetToolTipString(_('Device, where your phone is connected.'))
-        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Device')), pos = (r, 1))
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Device')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer_connection.Add(self.editdev, pos = (r, 2))
         r += 1
 
-        self.editconn = wx.ComboBox(self.notebook_connection, -1, config.Read('/Gammu/Connection'), choices = Wammu.Data.Connections, size = (150, -1))
+        self.editconn = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Connections, size = (150, -1))
         self.editconn.SetToolTipString(_('Connection which your phone understands, check Gammu documentation for connection details.'))
-        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Connection')), pos = (r, 1))
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Connection')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer_connection.Add(self.editconn, pos = (r, 2))
         r += 1
 
-        self.editmodel = wx.ComboBox(self.notebook_connection, -1, config.Read('/Gammu/Model'), choices = Wammu.Data.Models, size = (150, -1))
+        self.editmodel = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Models, size = (150, -1))
         self.editmodel.SetToolTipString(_('Phone model, you can usually keep here auto unless you have any problems.'))
         if self.editmodel.GetValue() == '':
             self.editmodel.SetValue('auto')
-        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Model')), pos = (r, 1))
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Model')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer_connection.Add(self.editmodel, pos = (r, 2))
         r += 1
 
-        if sys.platform != 'win32':
-            # locking not available on windoze
-            self.editlock = wx.CheckBox(self.notebook_connection, -1, _('Lock device'))
-            self.editlock.SetToolTipString(_('Whether to lock device in /var/lock. On some systems you might lack privileges to do so.'))
-            self.editlock.SetValue(config.Read('/Gammu/LockDevice') == 'yes')
-            self.sizer_connection.Add(self.editlock, pos = (r, 1), colspan = 2)
-            r += 1
-
-        self.editauto = wx.CheckBox(self.notebook_connection, -1, _('Automatically connect to phone on startup'))
-        self.editauto.SetToolTipString(_('Whether you want application automatically connect to phone when it is started.'))
-        self.editauto.SetValue(config.Read('/Wammu/AutoConnect') == 'yes')
-        self.sizer_connection.Add(self.editauto, pos = (r, 1), colspan = 2)
-        r += 1
+        # Initialise above fields
+        self.OnConnectionChange()
 
         self.sizer_connection.AddSpacer(1, 1, pos = (r, 3))
 
@@ -326,14 +352,55 @@ class Settings(wx.Dialog):
         if sz.y < 150:
             self.SetSize((400, 400))
 
-        # event handler
-        wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
+        # event handlers
+        self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)
+
+    def OnConnectionChange(self, evt = None):
+        selection = self.editsection.GetSelection()
+        if selection < 0:
+            selection = 0
+        lst, choices = self.gammu_config.GetConfigList()
+        if len(lst) == 0:
+            self.editdev.Enable(False)
+            self.editmodel.Enable(False)
+            self.editname.Enable(False)
+            self.editconn.Enable(False)
+            return
+
+        self.editdev.Enable(True)
+        self.editmodel.Enable(True)
+        self.editname.Enable(True)
+        self.editconn.Enable(True)
+        current = lst[selection]
+        gammu = self.gammu_config.GetConfig(current['Id'])
+        self.editdev.SetValue(gammu['Device'])
+        self.editmodel.SetValue(gammu['Model'])
+        self.editname.SetValue(gammu['Name'])
+        self.editconn.SetValue(gammu['Connection'])
+
+    def OnConfigChange(self, evt = None):
+        # temporarily change gammu config data
+        newpath = self.editcfgpath.GetValue()
+        self.gammu_config = Wammu.GammuSettings.GammuSettings(os.path.expanduser(newpath))
+        lst, choices = self.gammu_config.GetConfigList()
+        self.editsection.Clear()
+        for x in choices:
+            self.editsection.Append(x)
+        if len(choices) > 0:
+            self.editsection.SetSelection(0)
+        self.OnConnectionChange()
 
     def Okay(self, evt):
+        lst, choices = self.config.gammu.GetConfigList()
+        current = lst[self.editsection.GetSelection()]
+        self.config.gammu = self.gammu_config
+        self.config.gammu.SetConfig(current['Id'],
+            self.editdev.GetValue(),
+            self.editconn.GetValue(),
+            self.editname.GetValue(),
+            self.editmodel.GetValue())
         self.config.Write('/Gammu/Gammurc', self.editcfgpath.GetValue())
-        self.config.Write('/Gammu/Model', self.editmodel.GetValue())
-        self.config.Write('/Gammu/Device', self.editdev.GetValue())
-        self.config.Write('/Gammu/Connection', self.editconn.GetValue())
+        self.config.WriteInt('/Gammu/Section', current['Id'])
         if self.editsync.GetValue():
             value = 'yes'
         else:

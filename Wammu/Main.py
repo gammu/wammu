@@ -1761,18 +1761,21 @@ class WammuFrame(wx.Frame):
         busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
         time.sleep(0.1)
         wx.Yield()
+        section = self.cfg.ReadInt('/Gammu/Section')
+        config = self.cfg.gammu.GetConfig(section)
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo'),
             'UseGlobalDebugFile': 1,
             'DebugFile': None, # Set on other place
             'SyncTime': self.cfg.Read('/Gammu/SyncTime'),
-            'Connection': self.cfg.Read('/Gammu/Connection'),
+            'Connection': config['Connection'],
             'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
             'DebugLevel': 'textall', # Set on other place
-            'Device': self.cfg.Read('/Gammu/Device'),
+            'Device': config['Device'],
             'Localize': None,  # Set automatically by python-gammu
-            'Model': self.cfg.Read('/Gammu/Model')
+            'Model': config['Model'],
             }
+        print cfg
         if cfg['Model'] == 'auto':
             cfg['Model'] = ''
         self.sm.SetConfig(0, cfg)
@@ -1782,12 +1785,12 @@ class WammuFrame(wx.Frame):
             self.SetupNumberPrefix()
             try:
                 self.IMEI = self.sm.GetIMEI()
-            except:
+            except gammu.GSMError:
                 pass
             try:
                 self.Manufacturer = self.sm.GetManufacturer()
                 self.cfg.Write('/Phone-0/Manufacturer', self.Manufacturer)
-            except:
+            except gammu.GSMError:
                 pass
             try:
                 m = self.sm.GetModel()
@@ -1796,7 +1799,7 @@ class WammuFrame(wx.Frame):
                 else:
                     self.Model = m[0]
                 self.cfg.Write('/Phone-0/Model', self.Model)
-            except:
+            except gammu.GSMError:
                 pass
             try:
                 self.Version = self.sm.GetFirmware()[0]
