@@ -31,6 +31,7 @@ import os
 import sys
 import Wammu
 import Wammu.GammuSettings
+import Wammu.PhoneWizard
 
 class Settings(wx.Dialog):
     def __init__(self, parent, config):
@@ -146,9 +147,16 @@ class Settings(wx.Dialog):
             if lst[i]['Id'] == section:
                 self.editsection.SetSelection(i)
                 break
-        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Phone connection')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Phone connection')), pos = (r, 1), rowspan = 2, flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer_connection.Add(self.editsection, pos = (r, 2))
         self.Bind(wx.EVT_CHOICE, self.OnConnectionChange, self.editsection)
+        r += 1
+
+        self.addsection = wx.Button(self.notebook_connection, wx.ID_ADD)
+        self.sizer_connection.Add(self.addsection, pos = (r, 2), flag = wx.EXPAND)
+        r += 1
+
+        self.sizer_connection.AddSpacer(1, 1, pos = (r, 3))
         r += 1
 
         self.editname = wx.TextCtrl(self.notebook_connection, -1, '', size = (150, -1))
@@ -354,6 +362,7 @@ class Settings(wx.Dialog):
 
         # event handlers
         self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)
+        self.Bind(wx.EVT_BUTTON, self.AddPhone, id = wx.ID_ADD)
 
     def OnConnectionChange(self, evt = None):
         selection = self.editsection.GetSelection()
@@ -382,6 +391,9 @@ class Settings(wx.Dialog):
         # temporarily change gammu config data
         newpath = self.editcfgpath.GetValue()
         self.gammu_config = Wammu.GammuSettings.GammuSettings(os.path.expanduser(newpath))
+        self.RereadConfig()
+
+    def RereadConfig(self):
         lst, choices = self.gammu_config.GetConfigList()
         self.editsection.Clear()
         for x in choices:
@@ -389,6 +401,16 @@ class Settings(wx.Dialog):
         if len(choices) > 0:
             self.editsection.SetSelection(0)
         self.OnConnectionChange()
+
+    def AddPhone(self, evt = None):
+        index = self.gammu_config.FirstFree()
+        result = Wammu.PhoneWizard.RunConfigureWizard(self, index)
+        if result is not None:
+            self.gammu_config.SetConfig(result['Position'], result['Device'], result['Connection'], result['Name'])
+            self.RereadConfig()
+            lst, choices = self.gammu_config.GetConfigList()
+            self.editsection.SetSelection(len(lst) - 1)
+            self.OnConnectionChange()
 
     def Okay(self, evt):
         lst, choices = self.config.gammu.GetConfigList()
