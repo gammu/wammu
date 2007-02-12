@@ -141,7 +141,7 @@ class Settings(wx.Dialog):
         r = 1
 
         lst, choices = config.gammu.GetConfigList()
-        self.editsection = wx.Choice(self.notebook_connection, choices = choices, size = (150, -1))
+        self.editsection = wx.Choice(self.notebook_connection, choices = choices, size = (250, -1))
         section = config.ReadInt('/Gammu/Section')
         for i in range(len(lst)):
             if lst[i]['Id'] == section:
@@ -159,7 +159,7 @@ class Settings(wx.Dialog):
         self.sizer_connection.AddSpacer(1, 1, pos = (r, 3))
         r += 1
 
-        self.editname = wx.TextCtrl(self.notebook_connection, -1, '', size = (150, -1))
+        self.editname = wx.TextCtrl(self.notebook_connection, -1, '', size = (250, -1))
         self.editname.SetToolTipString(_('Name for this configuration.'))
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Name')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer_connection.Add(self.editname, pos = (r, 2))
@@ -168,13 +168,13 @@ class Settings(wx.Dialog):
         self.editdev = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Devices, size = (150, -1))
         self.editdev.SetToolTipString(_('Device, where your phone is connected.'))
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Device')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
-        self.sizer_connection.Add(self.editdev, pos = (r, 2))
+        self.sizer_connection.Add(self.editdev, pos = (r, 2), flag = wx.ALIGN_RIGHT)
         r += 1
 
         self.editconn = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Connections, size = (150, -1))
         self.editconn.SetToolTipString(_('Connection which your phone understands, check Gammu documentation for connection details.'))
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Connection')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
-        self.sizer_connection.Add(self.editconn, pos = (r, 2))
+        self.sizer_connection.Add(self.editconn, pos = (r, 2), flag = wx.ALIGN_RIGHT)
         r += 1
 
         self.editmodel = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Models, size = (150, -1))
@@ -182,7 +182,7 @@ class Settings(wx.Dialog):
         if self.editmodel.GetValue() == '':
             self.editmodel.SetValue('auto')
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Model')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
-        self.sizer_connection.Add(self.editmodel, pos = (r, 2))
+        self.sizer_connection.Add(self.editmodel, pos = (r, 2), flag = wx.ALIGN_RIGHT)
         r += 1
 
         # Initialise above fields
