@@ -393,92 +393,84 @@ class WammuFrame(wx.Frame):
         self.Model = ''
         self.Version = ''
 
+    def HandleGammuError(self):
+        error =  str(Wammu.gammu_error)
+        if error.find('Runtime libGammu version does not match compile time version') != -1:
+            result = re.match('Runtime libGammu version does not match compile time version \(runtime: (\S+), compiletime: (\S+)\)', error)
 
-    def PostInit(self):
-        if Wammu.gammu_error != None:
-            error =  str(Wammu.gammu_error)
-            if error.find('Runtime libGammu version does not match compile time version') != -1:
-                result = re.match('Runtime libGammu version does not match compile time version \(runtime: (\S+), compiletime: (\S+)\)', error)
-
-                wx.MessageDialog(self,
-                    _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
-                    _('The import failed because python-gammu is compiled with different ' +
-                    'version than it is now using (it was compiled with version %s and now ' +
-                    'it is using version %s)') % (result.group(2), result.group(1)) + '\n\n' +
-                    _('You can fix it by recompiling python-gammu against gammu library you ' +
-                    'are currently using.'),
-                    _('Gammu module not working!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-            elif error.find('No module named gammu') != -1:
-                wx.MessageDialog(self,
-                    _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
-                    _('Gammu module was not found, you probably don\'t have properly installed '
-                    'python-gammu for current python version.'),
-                    _('Gammu module not working!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-            else:
-                wx.MessageDialog(self,
-                    _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
-                    _('The import failed with following error:') + '\n\n%s' % error,
-                    _('Gammu module not working!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
-            sys.exit()
-
-        # things that need window opened
-        self.ActivateView('info', '  ')
-        if not self.cfg.HasGroup('/Gammu'):
-            try:
-                self.sm.ReadConfig()
-                config = self.sm.GetConfig()
-
-                wx.MessageDialog(self,
-                    _('Wammu configuration was not found. Gammu settings were read and will be used as defaults.') + '\n' +
-                    _('You will now be taken to configuration dialog to check configuration.'),
-                    _('Configuration not found'),
-                    wx.OK | wx.ICON_INFORMATION).ShowModal()
-            except:
-                config = {}
-                dlg = wx.MessageDialog(self,
-                    _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' +
-                    _('Wammu can now try to search for phone. Do you want Wammu to search for phone?') + '\n' +
-                    _('After searching you will now be taken to configuration dialog to check whether it was detected correctly.') + '\n\n' +
-                    _('If you press cancel, no searching will be performed.'),
-                    _('Configuration not found'),
-                    wx.OK | wx.CANCEL | wx.ICON_WARNING)
-                if dlg.ShowModal() == wx.ID_OK:
-                    self.SearchPhone()
-                    config['Model'] = self.cfg.Read('/Gammu/Model')
-                    config['Connection'] = self.cfg.Read('/Gammu/Connection')
-                    config['Device'] = self.cfg.Read('/Gammu/Device')
-
-            # make some defaults
-            if not config.has_key('Model') or config['Model'] == None or config['Model'] == '':
-                config['Model'] = Wammu.Data.Models[0]
-            if not config.has_key('Connection') or config['Connection'] == None:
-                config['Connection'] = Wammu.Data.Connections[0]
-            if not config.has_key('Device') or config['Device'] == None:
-                config['Device'] = Wammu.Data.Devices[0]
-            if not config.has_key('SyncTime') or not config['SyncTime'] == 'yes':
-                config['SyncTime'] = 'no'
-            if not config.has_key('LockDevice') or not config['LockDevice'] == 'yes':
-                config['LockDevice'] = 'no'
-            if not config.has_key('StartInfo') or not config['StartInfo'] == 'yes':
-                config['StartInfo'] = 'no'
-
-            self.cfg.Write('/Gammu/Model', config['Model'])
-            self.cfg.Write('/Gammu/Device', config['Device'])
-            self.cfg.Write('/Gammu/Connection', config['Connection'])
-            self.cfg.Write('/Gammu/SyncTime', config['SyncTime'])
-            self.cfg.Write('/Gammu/LockDevice', config['LockDevice'])
-            self.cfg.Write('/Gammu/StartInfo', config['StartInfo'])
-
-            self.Settings()
+            wx.MessageDialog(self,
+                _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
+                _('The import failed because python-gammu is compiled with different ' +
+                'version than it is now using (it was compiled with version %s and now ' +
+                'it is using version %s)') % (result.group(2), result.group(1)) + '\n\n' +
+                _('You can fix it by recompiling python-gammu against gammu library you ' +
+                'are currently using.'),
+                _('Gammu module not working!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+        elif error.find('No module named gammu') != -1:
+            wx.MessageDialog(self,
+                _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
+                _('Gammu module was not found, you probably don\'t have properly installed '
+                'python-gammu for current python version.'),
+                _('Gammu module not working!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
         else:
-            self.DoDebug(self.cfg.Read('/Debug/Show'))
+            wx.MessageDialog(self,
+                _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
+                _('The import failed with following error:') + '\n\n%s' % error,
+                _('Gammu module not working!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+        sys.exit()
 
-        if (self.cfg.Read('/Wammu/AutoConnect') == 'yes'):
-            self.PhoneConnect()
+    def InitConfiguration(self):
+        try:
+            self.sm.ReadConfig()
+            config = self.sm.GetConfig()
 
+            wx.MessageDialog(self,
+                _('Wammu configuration was not found. Gammu settings were read and will be used as defaults.') + '\n' +
+                _('You will now be taken to configuration dialog to check configuration.'),
+                _('Configuration not found'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+        except:
+            config = {}
+            dlg = wx.MessageDialog(self,
+                _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' +
+                _('Wammu can now try to search for phone. Do you want Wammu to search for phone?') + '\n' +
+                _('After searching you will now be taken to configuration dialog to check whether it was detected correctly.') + '\n\n' +
+                _('If you press cancel, no searching will be performed.'),
+                _('Configuration not found'),
+                wx.OK | wx.CANCEL | wx.ICON_WARNING)
+            if dlg.ShowModal() == wx.ID_OK:
+                self.SearchPhone()
+                config['Model'] = self.cfg.Read('/Gammu/Model')
+                config['Connection'] = self.cfg.Read('/Gammu/Connection')
+                config['Device'] = self.cfg.Read('/Gammu/Device')
+
+        # make some defaults
+        if not config.has_key('Model') or config['Model'] == None or config['Model'] == '':
+            config['Model'] = Wammu.Data.Models[0]
+        if not config.has_key('Connection') or config['Connection'] == None:
+            config['Connection'] = Wammu.Data.Connections[0]
+        if not config.has_key('Device') or config['Device'] == None:
+            config['Device'] = Wammu.Data.Devices[0]
+        if not config.has_key('SyncTime') or not config['SyncTime'] == 'yes':
+            config['SyncTime'] = 'no'
+        if not config.has_key('LockDevice') or not config['LockDevice'] == 'yes':
+            config['LockDevice'] = 'no'
+        if not config.has_key('StartInfo') or not config['StartInfo'] == 'yes':
+            config['StartInfo'] = 'no'
+
+        self.cfg.Write('/Gammu/Model', config['Model'])
+        self.cfg.Write('/Gammu/Device', config['Device'])
+        self.cfg.Write('/Gammu/Connection', config['Connection'])
+        self.cfg.Write('/Gammu/SyncTime', config['SyncTime'])
+        self.cfg.Write('/Gammu/LockDevice', config['LockDevice'])
+        self.cfg.Write('/Gammu/StartInfo', config['StartInfo'])
+
+        self.Settings()
+
+    def TalkbackCheck(self):
         # Do ask for talkback after month of usage
         if self.cfg.ReadFloat('/Wammu/FirstRun') == -1:
             self.cfg.WriteFloat('/Wammu/FirstRun', time.time())
@@ -495,7 +487,26 @@ class WammuFrame(wx.Frame):
                 elif ret == wx.ID_CANCEL:
                     self.cfg.Write('/Wammu/TalkbackDone', 'skipped')
 
+
+    def PostInit(self):
+        if Wammu.gammu_error != None:
+            self.HandleGammuError()
+
+        # things that need window opened
+        self.ActivateView('info', '  ')
+
+        if not self.cfg.HasGroup('/Gammu'):
+            self.InitConfiguration()
+
+        self.DoDebug(self.cfg.Read('/Debug/Show'))
+
+        if (self.cfg.Read('/Wammu/AutoConnect') == 'yes'):
+            self.PhoneConnect()
+
+        self.TalkbackCheck()
+
         self.SetupNumberPrefix()
+
         self.SetupStatusRefresh()
 
     def OnTimer(self, evt = None):
