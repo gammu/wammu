@@ -120,7 +120,7 @@ class StyleEdit(wx.Dialog):
             maxcol = max(col, maxcol)
             col = 1
 
-        self.ok = wx.Button(self, wx.ID_OK, _('OK'))
+        self.ok = wx.Button(self, wx.ID_OK)
         self.sizer.Add(self.ok, pos = (row, 1), span = wx.GBSpan(colspan = maxcol), flag = wx.ALIGN_CENTER)
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
 
