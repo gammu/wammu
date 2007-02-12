@@ -1844,42 +1844,11 @@ class WammuFrame(wx.Frame):
         wx.PostEvent(self.searchlog, evt)
 
     def SearchPhone(self, evt = None):
-        self.founddevices = []
-        self.PhoneDisconnect()
-        d = Wammu.PhoneSearch.LogDialog(self)
-        self.searchlog = d
-        t = Wammu.PhoneSearch.AllSearchThread(
-            lock = self.cfg.Read('/Gammu/LockDevice'),
-            callback = self.SearchDone,
-            msgcallback = self.SearchMessage,
-            win = self)
-        t.start()
-        d.ShowModal()
-
-        if len(self.founddevices) == 0:
-            wx.MessageDialog(self,
-                _('No phone could not be found, you still can try to select it manually. Wammu searches only few ports, so if you are using some unusual, this might easilly happen.'),
-                _('No phone found'),
-                wx.OK | wx.ICON_WARNING).ShowModal()
-            return
-
-        choices = []
-        for x in self.founddevices:
-            choices.append(_('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
-                {
-                    'model':x[2][1],
-                    'manufacturer':x[3],
-                    'port':x[0],
-                    'connection': x[1]
-                })
-        dlg = wx.SingleChoiceDialog(self, _('Select phone to use from bellow list'), _('Select phone'),
-                                    choices, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
-        if dlg.ShowModal() == wx.ID_OK:
-            idx = dlg.GetSelection()
-            x = self.founddevices[idx]
-            self.cfg.Write('/Gammu/Model', 'auto')
-            self.cfg.Write('/Gammu/Device', x[0])
-            self.cfg.Write('/Gammu/Connection', x[1])
+        index = self.cfg.gammu.FirstFree()
+        result = Wammu.PhoneWizard.RunConfigureWizard(self, index)
+        if result is not None:
+            self.cfg.gammu.SetConfig(result['Position'], result['Device'], result['Connection'], result['Name'])
+            self.cfg.WriteInt('/Gammu/Section', index)
 
     def About(self, evt = None):
         Wammu.About.AboutBox(self).ShowModal()
