@@ -487,6 +487,8 @@ class WammuFrame(wx.Frame):
                 elif ret == wx.ID_CANCEL:
                     self.cfg.Write('/Wammu/TalkbackDone', 'skipped')
 
+    def MigrateConfiguration(self):
+        return
 
     def PostInit(self):
         if Wammu.gammu_error != None:
@@ -497,6 +499,9 @@ class WammuFrame(wx.Frame):
 
         if not self.cfg.HasGroup('/Gammu'):
             self.InitConfiguration()
+
+        if self.cfg.HasEntry('/Gammu/Connection'):
+            self.MigrateConfiguration()
 
         self.DoDebug(self.cfg.Read('/Debug/Show'))
 
