@@ -423,52 +423,18 @@ class WammuFrame(wx.Frame):
         sys.exit()
 
     def InitConfiguration(self):
-        try:
-            self.sm.ReadConfig()
-            config = self.sm.GetConfig()
-
-            wx.MessageDialog(self,
-                _('Wammu configuration was not found. Gammu settings were read and will be used as defaults.') + '\n' +
-                _('You will now be taken to configuration dialog to check configuration.'),
-                _('Configuration not found'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
-        except:
-            config = {}
+        gammucfg = self.cfg.gammu.GetConfigs()
+        if len(gammucfg) == 0:
             dlg = wx.MessageDialog(self,
                 _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' +
-                _('Wammu can now try to search for phone. Do you want Wammu to search for phone?') + '\n' +
-                _('After searching you will now be taken to configuration dialog to check whether it was detected correctly.') + '\n\n' +
-                _('If you press cancel, no searching will be performed.'),
+                _('Do you want to configure phone connection now?') + '\n' +
                 _('Configuration not found'),
-                wx.OK | wx.CANCEL | wx.ICON_WARNING)
-            if dlg.ShowModal() == wx.ID_OK:
+                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_WARNING)
+            if dlg.ShowModal() == wx.ID_YES:
                 self.SearchPhone()
-                config['Model'] = self.cfg.Read('/Gammu/Model')
-                config['Connection'] = self.cfg.Read('/Gammu/Connection')
-                config['Device'] = self.cfg.Read('/Gammu/Device')
-
-        # make some defaults
-        if not config.has_key('Model') or config['Model'] == None or config['Model'] == '':
-            config['Model'] = Wammu.Data.Models[0]
-        if not config.has_key('Connection') or config['Connection'] == None:
-            config['Connection'] = Wammu.Data.Connections[0]
-        if not config.has_key('Device') or config['Device'] == None:
-            config['Device'] = Wammu.Data.Devices[0]
-        if not config.has_key('SyncTime') or not config['SyncTime'] == 'yes':
-            config['SyncTime'] = 'no'
-        if not config.has_key('LockDevice') or not config['LockDevice'] == 'yes':
-            config['LockDevice'] = 'no'
-        if not config.has_key('StartInfo') or not config['StartInfo'] == 'yes':
-            config['StartInfo'] = 'no'
-
-        self.cfg.Write('/Gammu/Model', config['Model'])
-        self.cfg.Write('/Gammu/Device', config['Device'])
-        self.cfg.Write('/Gammu/Connection', config['Connection'])
-        self.cfg.Write('/Gammu/SyncTime', config['SyncTime'])
-        self.cfg.Write('/Gammu/LockDevice', config['LockDevice'])
-        self.cfg.Write('/Gammu/StartInfo', config['StartInfo'])
-
-        self.Settings()
+        else:
+            # behave as Gammu
+            self.cfg.WriteInt('/Gammu/Section', 0)
 
     def TalkbackCheck(self):
         # Do ask for talkback after month of usage
@@ -488,7 +454,20 @@ class WammuFrame(wx.Frame):
                     self.cfg.Write('/Wammu/TalkbackDone', 'skipped')
 
     def MigrateConfiguration(self):
-        return
+        connection = self.cfg.Read('/Gammu/Connection')
+        device = self.cfg.Read('/Gammu/Device')
+        model = self.cfg.Read('/Gammu/Model')
+        gammucfg = self.cfg.gammu.GetConfigs()
+        if len(gammucfg) > 0:
+            for i in gammucfg:
+                cfg = self.cfg.gammu.GetConfig(i['Id'])
+                if cfg['Model'] == model and cfg['Connection'] == connection and cfg['Device'] == device:
+                    self.cfg.WriteInt('/Gammu/Section', i['Id'])
+                    break
+            if not self.cfg.HasEntry('/Gammu/Section'):
+                index = self.cfg.gammu.FirstFree()
+                self.cfg.gammu.SetConfig(index, device, connection, _('Migrated from older Wammu'), model)
+                self.cfg.WriteInt('/Gammu/Section', index)
 
     def PostInit(self):
         if Wammu.gammu_error != None:
@@ -500,7 +479,7 @@ class WammuFrame(wx.Frame):
         if not self.cfg.HasGroup('/Gammu'):
             self.InitConfiguration()
 
-        if self.cfg.HasEntry('/Gammu/Connection'):
+        if not self.cfg.HasEntry('/Gammu/Section'):
             self.MigrateConfiguration()
 
         self.DoDebug(self.cfg.Read('/Debug/Show'))
