@@ -4,8 +4,8 @@
 Wammu - Phone manager
 Config handler wrapper with various defaults, which might be platform dependant.
 
-@var Defaults: Dictionary of default values.
-@var Expandable: List of variables where path expansion should happen.
+@var DEFAULT_CONFIG: Dictionary of default values.
+@var EXPANDABLE_CONFIGS: List of variables where path expansion should happen.
 '''
 __author__ = 'Michal Čihař'
 __email__ = 'michal@cihar.com'
@@ -29,17 +29,16 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import sys
 import os
 import wx
-import email.Utils
 import Wammu.GammuSettings
 
-Defaults = {
+DEFAULT_CONFIG = {
     '/Main/X': 0,
     '/Main/Y': 0,
     '/Main/Split': 160,
     '/Main/SplitRight': -200,
     '/Main/Width': 640,
     '/Main/Height': 480,
-    '/Defaults/SearchType': 0,
+    '/DEFAULT_CONFIG/SearchType': 0,
     '/Wammu/AutoConnect': 'no',
     '/Gammu/LockDevice': 'no',
     '/Debug/Show': 'no',
@@ -67,25 +66,34 @@ Defaults = {
     '/IMAP/Server': '',
     '/IMAP/Login': '',
     '/IMAP/Password': '',
+    '/MesageExport/From': 'Wammu <wammu@wammu.sms>',
     '/Gammu/Section': 0,
     }
 
+def GetUserFullName():
+    '''
+    Detects full user name from system information.
+    '''
+    if sys.platform == 'win32':
+        return ''
+    else:
+        import pwd
+
+        name = pwd.getpwuid(os.getuid())[4]
+        if ',' in name:
+            name = name[:name.index(',')]
+        return name
+
+DEFAULT_CONFIG['/User/Name'] = GetUserFullName()
+
 if sys.platform == 'win32':
     # ~ is expanded to HOMEDRIVE and HOMEPATH on Windows
-    Defaults['/Gammu/Gammurc'] = os.path.join('~', 'gammurc')
+    DEFAULT_CONFIG['/Gammu/Gammurc'] = os.path.join('~', 'gammurc')
 else:
-    import pwd
-    import string
+    DEFAULT_CONFIG['/Gammu/Gammurc'] = os.path.join('~', '.gammurc')
 
-    Defaults['/Gammu/Gammurc'] = os.path.join('~', '.gammurc')
 
-    name = pwd.getpwuid(os.getuid())[4]
-    if ',' in name:
-        name = name[:string.index(name, ',')]
-    if name:
-        Defaults['/User/Name'] = name
-
-Expandable = [
+EXPANDABLE_CONFIGS = [
     '/Gammu/Gammurc',
 ]
 
@@ -97,30 +105,37 @@ class WammuConfig:
     '''
     def __init__(self):
         # We don't want to subclass from wx.Config to hide it's API
-        self.cfg = wx.Config(appName = 'Wammu', style = wx.CONFIG_USE_LOCAL_FILE)
+        self.cfg = wx.Config(appName = 'Wammu', 
+                style = wx.CONFIG_USE_LOCAL_FILE)
+        self.gammu = None
         self.InitGammu()
 
     def InitGammu(self, path = None):
-        try:
-            self.gammu.Flush()
-        except:
-            pass
+        '''
+        Initializes gammu configuration as sub part of this class.
+        '''
         self.gammu = Wammu.GammuSettings.GammuSettings(self, path)
 
     def Read(self, path, expand = True):
+        '''
+        Reads string option from configuration.
+        '''
         try:
-            result = self.cfg.Read(path, Defaults[path])
+            result = self.cfg.Read(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
             print 'Warning: no default value for %s' % path
             result = self.cfg.Read(path, '')
-        if expand and path in Expandable:
+        if expand and path in EXPANDABLE_CONFIGS:
             result = os.path.expanduser(result)
         return result
 
     def ReadInt(self, path):
+        '''
+        Reads integer option from configuration.
+        '''
         try:
-            result = self.cfg.ReadInt(path, Defaults[path])
+            result = self.cfg.ReadInt(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
             print 'Warning: no default value for %s' % path
@@ -128,8 +143,11 @@ class WammuConfig:
         return result
 
     def ReadFloat(self, path):
+        '''
+        Reads float option from configuration.
+        '''
         try:
-            result = self.cfg.ReadFloat(path, Defaults[path])
+            result = self.cfg.ReadFloat(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
             print 'Warning: no default value for %s' % path
@@ -137,16 +155,31 @@ class WammuConfig:
         return result
 
     def Write(self, path, value):
+        '''
+        Writes string option to configuration.
+        '''
         self.cfg.Write(path, value)
 
     def WriteInt(self, path, value):
+        '''
+        Writes integer option to configuration.
+        '''
         self.cfg.WriteInt(path, value)
 
     def WriteFloat(self, path, value):
+        '''
+        Writes float option to configuration.
+        '''
         self.cfg.WriteFloat(path, value)
 
     def HasEntry(self, path):
+        '''
+        Checks whether configuration has some entry.
+        '''
         return self.cfg.HasEntry(path)
 
     def HasGroup(self, path):
+        '''
+        Checks whether configuration has some group.
+        '''
         return self.cfg.HasGroup(path)

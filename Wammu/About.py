@@ -31,10 +31,14 @@ import Wammu
 if Wammu.gammu_error == None:
     import gammu
 import Wammu.Utils
-from Wammu.Paths import *
+import Wammu.Paths
 from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
 
 class AboutBox(wx.Dialog):
+    '''
+    Displays box showing information about program including versions of used
+    components.
+    '''
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
 
@@ -45,7 +49,8 @@ class AboutBox(wx.Dialog):
             copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2007 Michal Čihař')
             if copyrightline.find('?') != -1:
                 copyrightline = 'Copyright (c) 2003 - 2007 Michal Cihar'
-            head = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
+            htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>'
+            head = htmlhead % Wammu.Utils.htmlcharset
 
         # default system colours
         bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
@@ -95,7 +100,7 @@ cellpadding="0" border="1">
     %s<br>
     %s<br>
     %s<br>
-''' % (AppIconPath('wammu'),
+''' % (Wammu.Paths.AppIconPath('wammu'),
             Wammu.__version__,
             _('Running on Python %s') % sys.version.split()[0],
             _('Using wxPython %s') % wx.VERSION_STRING,
@@ -124,7 +129,7 @@ GNU General Public License for more details.
         btn = html.FindWindowById(wx.ID_OK)
         if btn != None:
             btn.SetDefault()
-        ir = html.GetInternalRepresentation()
-        html.SetSize( (ir.GetWidth()+25, ir.GetHeight()+25) )
+        representation = html.GetInternalRepresentation()
+        html.SetSize( (representation.GetWidth()+25, representation.GetHeight()+25) )
         self.SetClientSize(html.GetSize())
         self.CentreOnParent(wx.BOTH)

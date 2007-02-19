@@ -29,15 +29,18 @@ import Wammu
 import webbrowser
 import Wammu.Paths
 import Wammu.ErrorLog
-if Wammu.gammu_error == None:
-    import gammu
+
+
+BUG_SEARCH_URL = 'http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s'
+BUG_REPORT_URL = 'http://bugs.cihar.com/bug_report_page.php?project_id=1'
 
 class ErrorMessage(wx.Dialog):
-    """
+    '''
     Error message box with support for saving debug log and reporting
     bug to http://bugs.cihar.com/.
-    """
-    def __init__(self, parent, message, title, traceid=None, autolog=None, exception=None):
+    '''
+    def __init__(self, parent, message, title, traceid=None, 
+            autolog=None, exception=None):
         wx.Dialog.__init__(self, parent, -1, title)
 
         sizer = wx.BoxSizer(wx.VERTICAL)
@@ -45,13 +48,18 @@ class ErrorMessage(wx.Dialog):
         sizer.Add(textsizer, flag=wx.ALL, border=10)
 
         bitmap = wx.Bitmap(Wammu.Paths.MiscPath('error'))
-        icon = wx.StaticBitmap(self, -1, bitmap, size = (bitmap.GetWidth(), bitmap.GetHeight()))
+        icon = wx.StaticBitmap(self, -1, bitmap, 
+                size = (bitmap.GetWidth(), bitmap.GetHeight()))
         textsizer.Add(icon, flag=wx.RIGHT, border=10)
 
         if exception is not None:
-            message += '\n\n' + exception
+            message += '\n\n'
+            message += exception
         if autolog is not None:
-            message += '\n\n' + _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.') % autolog
+            message += '\n\n' 
+            message += _('Debug log has been automatically saved to %s, ' +
+                    'you are strongly encouraged to include it in bugreport.'
+                    ) % autolog
         msg = wx.StaticText(self, -1, message)
         msg.Wrap(400)
         textsizer.Add(msg)
@@ -80,12 +88,26 @@ class ErrorMessage(wx.Dialog):
         self.SetSizer(sizer)
 
     def OnSave(self, evt):
-        dlg = wx.FileDialog(self, _('Save debug log as...'), os.getcwd(), 'wammu.log', '', wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+        '''
+        Saves debug log to file.
+        '''
+        dlg = wx.FileDialog(self, 
+                _('Save debug log as...'), 
+                os.getcwd(), 
+                'wammu.log', 
+                '', 
+                wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             Wammu.ErrorLog.SaveLog(filename = dlg.GetPath())
 
     def OnSearch(self, evt):
-        webbrowser.open("http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s" % self.traceid)
+        '''
+        Opens search for simmilar problems in browser.
+        '''
+        webbrowser.open(BUG_SEARCH_URL % self.traceid)
 
     def OnReport(self, evt):
-        webbrowser.open("http://bugs.cihar.com/bug_report_page.php?project_id=1")
+        '''
+        Opens web browser with bug reporting page.
+        '''
+        webbrowser.open(BUG_REPORT_URL)

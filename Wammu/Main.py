@@ -1770,7 +1770,6 @@ class WammuFrame(wx.Frame):
             'Localize': None,  # Set automatically by python-gammu
             'Model': config['Model'],
             }
-        print cfg
         if cfg['Model'] == 'auto':
             cfg['Model'] = ''
         self.sm.SetConfig(0, cfg)

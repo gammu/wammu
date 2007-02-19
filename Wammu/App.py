@@ -27,13 +27,17 @@ import wx
 import sys
 import Wammu.Main
 import Wammu.Error
-from Wammu.Paths import *
 from Wammu.Utils import StrConv
 
 class WammuApp(wx.App):
+    '''
+    Wammu appliction class, it initializes wx and creates main Wammu window.
+    '''
 
-    # wxWindows calls this method to initialize the application
     def OnInit(self):
+        '''
+        wxWindows call this method to initialize the application.
+        '''
 
         self.SetAppName('Wammu')
         vendor = StrConv(u'Michal Čihař')
@@ -54,6 +58,10 @@ class WammuApp(wx.App):
         return True
 
 def Run():
+    '''
+    Wrapper to execute Wammu. Installs graphical error handler and launches
+    WammuApp.
+    '''
     try:
         sys.excepthook = Wammu.Error.Handler
     except:

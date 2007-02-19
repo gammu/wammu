@@ -23,25 +23,26 @@ this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 '''
 
-import os
-import sys
 import wx
 import re
 
 class GammuSettings:
-    """
+    '''
     Class wrapping gammu configuration file for reading and writing.
-    """
+    '''
     def __init__(self, wammu_cfg, path = None):
-        """
+        '''
         Reads gammu configuration and prepares it for use.
-        """
+        '''
         self.wammu_cfg = wammu_cfg
         if path is not None:
             self.filename = path
         else:
             self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
-        self.config = wx.FileConfig(localFilename = self.filename, style = wx.CONFIG_USE_LOCAL_FILE)
+        self.config = wx.FileConfig(
+                localFilename = self.filename, 
+                style = wx.CONFIG_USE_LOCAL_FILE
+                )
         self.list = []
 
         cont, val, idx = self.config.GetFirstGroup()
@@ -49,43 +50,58 @@ class GammuSettings:
         while cont:
             match = matcher.match(val)
             if match is not None:
-                id = match.groups(1)[0]
-                if id == '':
-                    id = 0
+                index = match.groups(1)[0]
+                if index == '':
+                    index = 0
                 else:
-                    id = int(id)
+                    index = int(index)
                 name = self.config.Read('%s/name' % val, val)
-                self.list.append({'Id': id, 'Name': name, 'Path': val})
+                self.list.append({'Id': index, 'Name': name, 'Path': val})
             cont, val, idx = self.config.GetNextGroup(idx)
 
     def GetConfigs(self):
+        '''
+        Returns copy of list of configuration settings.
+        '''
         # we need deep copy here
         result = []
-        for x in self.list:
-            result.append(x)
+        for config in self.list:
+            result.append(config)
         return result
 
     def GetConfig(self, position):
+        '''
+        Returns complete configuration.
+        '''
         if position == 0:
-            path ='gammu'
+            path = 'gammu'
         else:
             path = 'gammu%s' % position
         device = self.config.Read('/%s/port' % path)
         connection = self.config.Read('/%s/connection' % path)
         model = self.config.Read('/%s/model' % path)
         name = self.config.Read('/%s/name' % path)
-        return {'Name': name, 'Device': device, 'Connection': connection, 'Model': model}
+        return {
+            'Name': name, 
+            'Device': device, 
+            'Connection': connection, 
+            'Model': model
+            }
 
-    def SetConfig(self, position, device, connection, name = None, model = None):
+    def SetConfig(self, position, device, connection, 
+            name = None, model = None):
+        '''
+        Set configuration at defined position.
+        '''
         found = False
         if position == 0:
-            path ='gammu'
+            path = 'gammu'
         else:
             path = 'gammu%s' % position
-        for x in self.list:
-            if x['Id'] == position:
-                path = x['Path']
-                x['Name'] = name
+        for config in self.list:
+            if config['Id'] == position:
+                path = config['Path']
+                config['Name'] = name
                 found = True
                 break
         self.config.Write('/%s/port' % path, device)
@@ -99,47 +115,53 @@ class GammuSettings:
         self.config.Flush()
 
     def FirstFree(self):
-        """
+        '''
         Find first free entry in configuration file.
-        """
+        '''
         idxmap = {}
         first_free = None
-        for x in self.list:
-            idxmap[x['Id']] = 1
-        for x in range(1000):
-            if not idxmap.has_key(x):
-                first_free = x
+        for config in self.list:
+            idxmap[config['Id']] = 1
+        for i in range(1000):
+            if not idxmap.has_key(i):
+                first_free = i
                 break
         if first_free is None:
-            raise 'Could not find free configuration entry!'
+            raise Exception('Could not find free configuration entry!')
         return first_free
 
     def GetConfigList(self, new = False):
-        """
+        '''
         Returns list of available configurations as tuple of (details, verbose).
-        """
+        '''
         lst = []
         if new:
-            lst.append({'Id': self.FirstFree(), 'Path': None, 'Name': _('Create new configuration')})
+            lst.append({
+                'Id': self.FirstFree(), 
+                'Path': None, 
+                'Name': _('Create new configuration')
+                })
         lst += self.list
 
         choices = []
-        for x in lst:
-            # l10n: %s is name of current configuration or 'Create new configuration', %d is position of this config in .gammurc
-            choices.append(_('%(name)s (position %(position)d)') % {'name': x['Name'], 'position': x['Id']})
+        for config in lst:
+            # l10n: %s is name of current configuration or 'Create new
+            # configuration', %d is position of this config in .gammurc
+            choices.append(_('%(name)s (position %(position)d)') % 
+                    {'name': config['Name'], 'position': config['Id']})
         return lst, choices
 
     def SelectConfig(self, parent = None, force = False, new = False):
-        """
+        '''
         Shows dialog (if needed) to select configuration.
-        """
+        '''
         lst, choices = self.GetConfigList(new = new)
 
         if len(choices) == 1 and not force:
             return lst[0]['Id']
 
         dlg = wx.SingleChoiceDialog(parent,
-                _('Select which configration you want to modify from list bellow.'),
+                _('Select which configration you want to modify.'),
                 _('Select configuration section'),
                 choices)
         if dlg.ShowModal() == wx.ID_OK:
