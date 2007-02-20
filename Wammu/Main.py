@@ -315,6 +315,8 @@ class WammuFrame(wx.Frame):
         menuhelp.Append(1010, _('&Gammu Phone Database'), _('Database of user experiences with phones'))
         menuhelp.Append(1011, _('&Talkback'), _('Report your experiences in Gammu Phone Database'))
         menuhelp.AppendSeparator()
+        menuhelp.Append(1020, _('&Donate'), _('Donate to Wammu author'))
+        menuhelp.AppendSeparator()
         menuhelp.Append(1100, _('&About'), _('Information about program'))
         # Add menu to the menu bar
         self.menuBar.Append(menuhelp, _('&Help'))
@@ -360,6 +362,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 1003, self.ReportBug)
         wx.EVT_MENU(self, 1010, self.PhoneDB)
         wx.EVT_MENU(self, 1011, self.Talkback)
+        wx.EVT_MENU(self, 1020, self.Donate)
         wx.EVT_MENU(self, 1100, self.About)
 
         self.timer = None
@@ -1861,4 +1864,7 @@ class WammuFrame(wx.Frame):
 
     def Talkback(self, evt = None):
         Wammu.TalkbackDialog.DoTalkback(self, self.cfg, 0)
+
+    def Donate(self, evt = None):
+        webbrowser.open("http://%scihar.com/donate?src=wammu" % Wammu.Utils.GetWebsiteLang())
 
