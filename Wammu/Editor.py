@@ -25,9 +25,9 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 from wx import DateTimeFromDMY, DateTime_Today
-
 import wx.calendar
-from wx.lib.masked.timectrl import TimeCtrl
+import wx.lib.masked.timectrl
+from wx.lib.masked import Ctrl as maskedCtrl
 from Wammu.Paths import *
 import sys
 import datetime
@@ -38,11 +38,6 @@ import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
 from Wammu.Utils import StrConv, UnicodeConv
-try:
-    from wx.lib.masked import Ctrl as maskedCtrl
-except ImportError:
-    # wxPython 2.5
-    from wx.lib.maskedctrl import MaskedCtrl as maskedCtrl
 
 
 def TextToTime(txt, config):
@@ -50,7 +45,7 @@ def TextToTime(txt, config):
     try:
         return datetime.time(int(hms[0]), int(hms[1]), int(hms[2]))
     except UnicodeEncodeError:
-        hms = config.Read('Wammu/DefaultTime', '9:00:00').split(':')
+        hms = config.Read('/Wammu/DefaultTime').split(':')
         return datetime.time(int(hms[0]), int(hms[1]), int(hms[2]))
 
 def TextToDate(txt):
@@ -68,7 +63,7 @@ def TimeToText(time, config):
             pass
         return time.isoformat()
     except:
-        return config.Read('Wammu/DefaultTime', '9:00:00')
+        return config.Read('/Wammu/DefaultTime')
 
 def DateToText(date, config):
     try:
@@ -78,7 +73,11 @@ def DateToText(date, config):
             pass
         return date.strftime('%d.%m.%Y')
     except:
-        return datetime.datetime.fromtimestamp(time.time() + 24*60*60*config.ReadInt('/Wammu/DefaultDateOffset', 1)).date().strftime('%d.%m.%Y')
+        return datetime.datetime.fromtimestamp(time.time() + 24*60*60*config.ReadInt('/Wammu/DefaultDateOffset')).date().strftime('%d.%m.%Y')
+
+class TimeCtrl(wx.lib.masked.timectrl.TimeCtrl):
+    def Validate(self):
+        return self.IsValid(self.GetValue())
 
 class CalendarPopup(wx.PopupTransientWindow):
     def __init__(self, parent):
@@ -462,10 +461,10 @@ class GenericEditor(wx.Dialog):
 
     def Okay(self, evt):
         # FIXME: why it needed to call validators directly?
-#        for e in self.edits:
-#            for i in e:
-#                if i.hasattr('Validate') and not i.Validate():
-#                    return
+        for row in self.edits.keys():
+            for input in self.edits[row]:
+                if hasattr(input, 'Validate') and not input.Validate():
+                    return
 
         v = []
         for row in range(self.rows):
