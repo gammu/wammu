@@ -36,6 +36,7 @@ if Wammu.gammu_error == None:
     import gammu
 import locale
 from Wammu.Utils import UnicodeConv
+import gettext
 
 if wx.USE_UNICODE:
     htmlhead = ''
@@ -173,14 +174,14 @@ class TextEditor(GenericEditor):
         self.concat.SetToolTipString(_('Create concatenated message, what allows to send longer messages.'))
         self.concat.SetValue(self.part['ID'] != 'Text')
         wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.OnConcatChange)
-        self.sizer.Add(self.concat, pos = (1, 0))
+        self.sizer.Add(self.concat, pos = (1, 0), flag = wx.ALIGN_CENTER_VERTICAL)
 
-        self.leninfo = wx.StaticText(self, -1, _('%d chars') % 999)
+        self.leninfo = wx.StaticText(self, -1, '')
         self.sizer.Add(self.leninfo, pos = (1, 3), flag = wx.ALIGN_RIGHT)
 
         self.stylebut = wx.Button(self, -1, _('Style'))
         wx.EVT_BUTTON(self, self.stylebut.GetId(), self.StylePressed)
-        self.sizer.Add(self.stylebut, pos = (1, 1))
+        self.sizer.Add(self.stylebut, pos = (1, 1), flag = wx.ALIGN_CENTER)
 
         self.OnConcatChange()
 
@@ -191,6 +192,7 @@ class TextEditor(GenericEditor):
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
+        self.TextChanged()
 
     def OnUnicode(self, newu):
         self.unicode = newu
@@ -218,7 +220,9 @@ class TextEditor(GenericEditor):
         if not self.concat.GetValue() and ((self.unicode and length > 70) or (not self.unicode and length > 160)):
             self.edit.SetValue(self.backuptext)
             return
-        self.leninfo.SetLabel( _('%d chars') % len(self.edit.GetValue()))
+        length = len(self.edit.GetValue())
+        self.leninfo.SetLabel(gettext.ngettext('%d char', '%d chars', length) % length)
+        self.sizer.Layout()
         self.backuptext = txt
 
     def GetValue(self):
@@ -368,7 +372,7 @@ class SMSComposer(wx.Dialog):
         self.contbut = wx.Button(self, -1, _('Contacts'))
         self.contbut.SetToolTipString(_('Add number of recipient from contacts.'))
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT)
+        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
         self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, span = wx.GBSpan(colspan = 5))
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
 
