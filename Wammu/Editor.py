@@ -24,23 +24,10 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import wx
-try:
-    # wxPython 2.4
-    from wxPython.utils import wxDateTimeFromDMY as DateTimeFromDMY, wxDateTime_Today as DateTime_Today
-except ImportError:
-    try:
-        # wxPython 2.5.1
-        from wx.misc import DateTimeFromDMY, DateTime_Today
-    except ImportError:
-        # wxPython 2.5.2
-        from wx import DateTimeFromDMY, DateTime_Today
+from wx import DateTimeFromDMY, DateTime_Today
 
 import wx.calendar
-try:
-    from wx.lib.timectrl import TimeCtrl
-except ImportError:
-    # wxPython 2.5.2
-    from wx.lib.masked.timectrl import TimeCtrl
+from wx.lib.masked.timectrl import TimeCtrl
 from Wammu.Paths import *
 import sys
 import datetime
