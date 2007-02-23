@@ -1,6 +1,7 @@
 #! /usr/bin/env python
-# -*- coding: iso-8859-1 -*-
-# Written by Martin v. Löwis <loewis@informatik.hu-berlin.de>
+# -*- coding: utf-8 -*-
+# Written by Martin v. LÃ¶wis <loewis@informatik.hu-berlin.de>
+# Plural forms support added by alexander smishlajev <alex@tycobka.lv>
 
 """Generate binary message catalog from textual translation description.
 
@@ -36,7 +37,7 @@ __version__ = "1.1"
 MESSAGES = {}
 
 
-
+
 def usage(code, msg=''):
     print >> sys.stderr, __doc__
     if msg:
@@ -44,15 +45,15 @@ def usage(code, msg=''):
     sys.exit(code)
 
 
-
+
 def add(id, str, fuzzy):
     "Add a non-fuzzy translation to the dictionary."
     global MESSAGES
-    if not fuzzy and str:
+    if not fuzzy and str and not str.startswith('\0'):
         MESSAGES[id] = str
 
 
-
+
 def generate():
     "Return the generated output."
     global MESSAGES
@@ -95,11 +96,11 @@ def generate():
     return output
 
 
-
+
 def make(filename, outfile):
-    global MESSAGES
     ID = 1
     STR = 2
+    global MESSAGES
     MESSAGES = {}
 
     # Compute .mo name from .po name and arguments
@@ -129,13 +130,17 @@ def make(filename, outfile):
             section = None
             fuzzy = 0
         # Record a fuzzy mark
-        if l[:2] == '#,' and 'fuzzy' in l:
+        if l[:2] == '#,' and (l.find('fuzzy') >= 0):
             fuzzy = 1
         # Skip comments
         if l[0] == '#':
             continue
+        # Start of msgid_plural section, separate from singular form with \0
+        if l.startswith('msgid_plural'):
+            msgid += '\0'
+            l = l[12:]
         # Now we are in a msgid section, output previous section
-        if l.startswith('msgid'):
+        elif l.startswith('msgid'):
             if section == STR:
                 add(msgid, msgstr, fuzzy)
             section = ID
@@ -145,6 +150,13 @@ def make(filename, outfile):
         elif l.startswith('msgstr'):
             section = STR
             l = l[6:]
+            # Check for plural forms
+            if l.startswith('['):
+                # Separate plural forms with \0
+                if not l.startswith('[0]'):
+                    msgstr += '\0'
+                # Ignore the index - must come in sequence
+                l = l[l.index(']') + 1:]
         # Skip empty lines
         l = l.strip()
         if not l:
@@ -173,7 +185,7 @@ def make(filename, outfile):
         print >> sys.stderr, msg
 
 
-
+
 def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], 'hVo:',
