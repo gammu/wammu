@@ -285,17 +285,17 @@ class WammuFrame(wx.Frame):
         menu3.AppendSeparator()
         menu3.Append(340, _('&Todos'), _('Todos'))
         menu3.AppendSeparator()
-        menu3.Append(350, _('Calenda&r'), _('Calendar'))
+        menu3.Append(350, _('Calenda&r'), _('Calendar events'))
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
         menu4 = wx.Menu()
         menu4.Append(401, _('&Contact'), _('Crates new contact'))
-        menu4.Append(402, _('Calendar &event'), _('Crates new calendar event'))
+        menu4.Append(402, _('&Event'), _('Crates new calendar event'))
         menu4.Append(403, _('&Todo'), _('Crates new todo'))
         menu4.Append(404, _('&Message'), _('Crates new message'))
         # Add menu to the menu bar
-        self.menuBar.Append(menu4, _('&New'))
+        self.menuBar.Append(menu4, _('&Create'))
 
         menu5 = wx.Menu()
         menu5.Append(501, _('&Save'), _('Saves currently retrieved data (except messages) to backup'))
