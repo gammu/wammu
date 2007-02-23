@@ -19,5 +19,5 @@ sed -i '
     ' locale/wammu.pot
 
 for loc in $LOCS ; do
-    msgmerge -s -U locale/$loc.po locale/wammu.pot
+    msgmerge -U locale/$loc.po locale/wammu.pot
 done

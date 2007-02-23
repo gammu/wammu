@@ -8,13 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.18\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-20 20:17+0100\n"
+"POT-Creation-Date: 2007-02-23 21:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: Wammu/Editor.py:201
 msgid "..."
@@ -385,22 +386,24 @@ msgstr ""
 
 #: Wammu/ErrorMessage.py:60
 #, python-format
-msgid "Debug log has been automatically saved to %s, "
+msgid ""
+"Debug log has been automatically saved to %s, you are strongly encouraged to "
+"include it in bugreport."
 msgstr ""
 
-#: Wammu/ErrorMessage.py:70
+#: Wammu/ErrorMessage.py:69
 msgid "Save debug log..."
 msgstr ""
 
-#: Wammu/ErrorMessage.py:75
+#: Wammu/ErrorMessage.py:74
 msgid "Search for similar reports"
 msgstr ""
 
-#: Wammu/ErrorMessage.py:79
+#: Wammu/ErrorMessage.py:78
 msgid "Report bug"
 msgstr ""
 
-#: Wammu/ErrorMessage.py:95
+#: Wammu/ErrorMessage.py:94
 msgid "Save debug log as..."
 msgstr ""
 
@@ -1361,7 +1364,7 @@ msgid ""
 "GNU General Public License for more details.\n"
 msgstr ""
 
-#: Wammu/About.py:125 Wammu/Composer.py:63
+#: Wammu/About.py:125 Wammu/Composer.py:64
 msgid "OK"
 msgstr ""
 
@@ -1481,11 +1484,11 @@ msgid ""
 "interested in this choice."
 msgstr ""
 
-#: Wammu/Settings.py:235 Wammu/Composer.py:172
+#: Wammu/Settings.py:235 Wammu/Composer.py:173
 msgid "Concatenated"
 msgstr ""
 
-#: Wammu/Settings.py:236 Wammu/Composer.py:173
+#: Wammu/Settings.py:236 Wammu/Composer.py:174
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
 
@@ -1493,7 +1496,7 @@ msgstr ""
 msgid "Create unicode message"
 msgstr ""
 
-#: Wammu/Settings.py:242 Wammu/Composer.py:380
+#: Wammu/Settings.py:242 Wammu/Composer.py:384
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -1504,7 +1507,7 @@ msgstr ""
 msgid "Request delivery report by default"
 msgstr ""
 
-#: Wammu/Settings.py:248 Wammu/Composer.py:391
+#: Wammu/Settings.py:248 Wammu/Composer.py:395
 msgid "Check to request delivery report for message."
 msgstr ""
 
@@ -1616,7 +1619,7 @@ msgid "Date"
 msgstr ""
 
 #: Wammu/Browser.py:86 Wammu/Browser.py:102 Wammu/Browser.py:120
-#: Wammu/Composer.py:312 Wammu/Main.py:224
+#: Wammu/Composer.py:316 Wammu/Main.py:224
 msgid "Text"
 msgstr ""
 
@@ -1656,7 +1659,7 @@ msgstr ""
 msgid "Call"
 msgstr ""
 
-#: Wammu/Browser.py:519 Wammu/Composer.py:348
+#: Wammu/Browser.py:519 Wammu/Composer.py:352
 msgid "Send message"
 msgstr ""
 
@@ -1855,129 +1858,131 @@ msgid ""
 "email."
 msgstr ""
 
-#: Wammu/Composer.py:61
+#: Wammu/Composer.py:62
 msgid "Message preview"
 msgstr ""
 
-#: Wammu/Composer.py:73
+#: Wammu/Composer.py:74
 msgid "Text style"
 msgstr ""
 
-#: Wammu/Composer.py:178 Wammu/Composer.py:221
-#, python-format
-msgid "%d chars"
-msgstr ""
-
-#: Wammu/Composer.py:181
+#: Wammu/Composer.py:182
 msgid "Style"
 msgstr ""
 
-#: Wammu/Composer.py:261
+#: Wammu/Composer.py:224
+#, python-format
+msgid "%d char"
+msgid_plural "%d chars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: Wammu/Composer.py:265
 msgid "Select predefined animation:"
 msgstr ""
 
-#: Wammu/Composer.py:297
+#: Wammu/Composer.py:301
 msgid "Select predefined sound:"
 msgstr ""
 
-#: Wammu/Composer.py:313
+#: Wammu/Composer.py:317
 msgid "Predefined animation"
 msgstr ""
 
-#: Wammu/Composer.py:314
+#: Wammu/Composer.py:318
 msgid "Predefined sound"
 msgstr ""
 
-#: Wammu/Composer.py:319
+#: Wammu/Composer.py:323
 msgid "Composing SMS"
 msgstr ""
 
-#: Wammu/Composer.py:349
+#: Wammu/Composer.py:353
 msgid "When checked, message is sent to recipient."
 msgstr ""
 
-#: Wammu/Composer.py:352
+#: Wammu/Composer.py:356
 msgid "Save into folder"
 msgstr ""
 
-#: Wammu/Composer.py:353
+#: Wammu/Composer.py:357
 msgid "When checked, message is saved to phone."
 msgstr ""
 
-#: Wammu/Composer.py:368 Wammu/Main.py:113
+#: Wammu/Composer.py:372 Wammu/Main.py:113
 msgid "Contacts"
 msgstr ""
 
-#: Wammu/Composer.py:369
+#: Wammu/Composer.py:373
 msgid "Add number of recipient from contacts."
 msgstr ""
 
-#: Wammu/Composer.py:371
+#: Wammu/Composer.py:375
 msgid "Recipient's numbers:"
 msgstr ""
 
-#: Wammu/Composer.py:379
+#: Wammu/Composer.py:383
 msgid "Unicode"
 msgstr ""
 
-#: Wammu/Composer.py:390
+#: Wammu/Composer.py:394
 msgid "Delivery report"
 msgstr ""
 
-#: Wammu/Composer.py:395 Wammu/Main.py:121
+#: Wammu/Composer.py:399 Wammu/Main.py:121
 msgid "Sent"
 msgstr ""
 
-#: Wammu/Composer.py:396
+#: Wammu/Composer.py:400
 msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr ""
 
-#: Wammu/Composer.py:399
+#: Wammu/Composer.py:403
 msgid "Flash"
 msgstr ""
 
-#: Wammu/Composer.py:400
+#: Wammu/Composer.py:404
 msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
 msgstr ""
 
-#: Wammu/Composer.py:407
+#: Wammu/Composer.py:411
 msgid "Parts of current message"
 msgstr ""
 
-#: Wammu/Composer.py:408
+#: Wammu/Composer.py:412
 msgid "Available message parts"
 msgstr ""
 
-#: Wammu/Composer.py:437 Wammu/Composer.py:514
+#: Wammu/Composer.py:441 Wammu/Composer.py:518
 msgid "Create new message by adding part to left list..."
 msgstr ""
 
-#: Wammu/Composer.py:442
+#: Wammu/Composer.py:446
 msgid "Preview"
 msgstr ""
 
-#: Wammu/Composer.py:500
+#: Wammu/Composer.py:504
 #, python-format
 msgid "Not supported id: %s"
 msgstr ""
 
-#: Wammu/Composer.py:541
+#: Wammu/Composer.py:545
 #, python-format
 msgid "No editor available for type %s"
 msgstr ""
 
-#: Wammu/Composer.py:622
+#: Wammu/Composer.py:626
 msgid "Nothing to preview, message is empty."
 msgstr ""
 
-#: Wammu/Composer.py:623
+#: Wammu/Composer.py:627
 msgid "Message empty!"
 msgstr ""
 
-#: Wammu/Composer.py:633
+#: Wammu/Composer.py:637
 #, python-format
 msgid "Message will fit into %d SMSes"
 msgstr ""
@@ -2086,7 +2091,7 @@ msgstr ""
 msgid "All Todo Items"
 msgstr ""
 
-#: Wammu/Main.py:128 Wammu/Main.py:288
+#: Wammu/Main.py:128
 msgid "Calendar"
 msgstr ""
 
@@ -2257,6 +2262,10 @@ msgstr ""
 msgid "Calenda&r"
 msgstr ""
 
+#: Wammu/Main.py:288
+msgid "Calendar events"
+msgstr ""
+
 #: Wammu/Main.py:290
 msgid "&Retrieve"
 msgstr ""
@@ -2270,7 +2279,7 @@ msgid "Crates new contact"
 msgstr ""
 
 #: Wammu/Main.py:294
-msgid "Calendar &event"
+msgid "&Event"
 msgstr ""
 
 #: Wammu/Main.py:294
@@ -2294,7 +2303,7 @@ msgid "Crates new message"
 msgstr ""
 
 #: Wammu/Main.py:298
-msgid "&New"
+msgid "&Create"
 msgstr ""
 
 #: Wammu/Main.py:301
@@ -2950,51 +2959,51 @@ msgstr ""
 msgid "Error code:"
 msgstr ""
 
-#: wammu-configure.py:46
+#: wammu-configure.py:52
 #, python-format
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr ""
 
-#: wammu-configure.py:50 wammu.py:46
+#: wammu-configure.py:56 wammu.py:52
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr ""
 
-#: wammu-configure.py:52 wammu.py:48
+#: wammu-configure.py:58 wammu.py:54
 msgid "Options:"
 msgstr ""
 
-#: wammu-configure.py:53 wammu.py:49
+#: wammu-configure.py:59 wammu.py:55
 msgid "-h/--help          ... show this help"
 msgstr ""
 
-#: wammu-configure.py:54 wammu.py:50
+#: wammu-configure.py:60 wammu.py:56
 msgid "-v/--version       ... show program version"
 msgstr ""
 
-#: wammu-configure.py:55 wammu.py:51
+#: wammu-configure.py:61 wammu.py:57
 msgid ""
 "-l/--local-locales ... use locales from current directory rather than system "
 "ones"
 msgstr ""
 
-#: wammu-configure.py:62 wammu.py:58
+#: wammu-configure.py:68 wammu.py:64
 msgid "Command line parsing failed with error:"
 msgstr ""
 
-#: wammu-configure.py:68 wammu.py:64
+#: wammu-configure.py:74 wammu.py:70
 msgid "Extra unrecognized parameters passed to program"
 msgstr ""
 
-#: wammu-configure.py:74 wammu.py:70
+#: wammu-configure.py:81 wammu.py:77
 msgid "Using local built locales!"
 msgstr ""
 
-#: wammu-configure.py:98
+#: wammu-configure.py:105
 msgid "Updating gammu configuration..."
 msgstr ""
 
-#: wammu.py:42
+#: wammu.py:48
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr ""

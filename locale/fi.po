@@ -8,13 +8,1425 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-02-20 20:17+0100\n"
+"POT-Creation-Date: 2007-02-23 21:08+0100\n"
 "PO-Revision-Date: 2006-10-13 11:21+0000\n"
 "Last-Translator: inessinia <inessinia@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: Wammu/Editor.py:201
+msgid "..."
+msgstr "..."
+
+#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
+msgid "None"
+msgstr "Ei mikään"
+
+#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:507 Wammu/Main.py:523
+msgid "Unknown"
+msgstr "Tuntematon"
+
+#: Wammu/Editor.py:246
+#, python-format
+msgid "Creating new %s"
+msgstr "Luodaan uusi %s"
+
+#: Wammu/Editor.py:249
+#, python-format
+msgid "Editing %(name)s %(location)s"
+msgstr "Muokataan %(name)s %(location)s"
+
+#: Wammu/Editor.py:267
+msgid "Location (0 = auto):"
+msgstr "Sijainti (0=automaattinen valinta):"
+
+#: Wammu/Editor.py:292
+msgid "Add one more field."
+msgstr ""
+
+#: Wammu/Editor.py:500
+msgid "contact"
+msgstr "yhteystieto"
+
+#: Wammu/Editor.py:500 Wammu/Main.py:799
+msgid "Memory type"
+msgstr "Muistityyppi"
+
+#: Wammu/Editor.py:508
+msgid "calendar event"
+msgstr "kalenteritapahtuma"
+
+#: Wammu/Editor.py:508
+msgid "Event type"
+msgstr "Tapahtuma tyyppi"
+
+#: Wammu/Editor.py:516
+msgid "todo item"
+msgstr "tehtävä kohta"
+
+#: Wammu/Editor.py:516 Wammu/Browser.py:101 Wammu/Main.py:823
+msgid "Priority"
+msgstr "Tärkeys"
+
+#: Wammu/PhoneValidator.py:84
+msgid "You did not specify valid phone number."
+msgstr "Et antanut toimivaa puhelinnumeroa."
+
+#: Wammu/PhoneValidator.py:85
+msgid "Invalid phone number"
+msgstr "Väärä puhelinnumero"
+
+#: Wammu/TalkbackDialog.py:48
+msgid ""
+"Please share your experiences with Wammu and Gammu which is backend library. "
+"When you fill in following form, other users can benefit from your "
+"experiences in Gammu Phone Database. Only information you see here will be "
+"submited."
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:50
+#, fuzzy
+msgid "Manufacturer:"
+msgstr "Valmistaja"
+
+#: Wammu/TalkbackDialog.py:52
+#, fuzzy
+msgid "Phone model:"
+msgstr "Puhelin"
+
+#: Wammu/TalkbackDialog.py:54
+#, fuzzy
+msgid "Connection type:"
+msgstr "Yhteys"
+
+#: Wammu/TalkbackDialog.py:56
+#, fuzzy
+msgid "Model in gammu configuration:"
+msgstr "Luo uusi yhteystieto"
+
+#: Wammu/TalkbackDialog.py:58
+msgid "Working features:"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:59
+#, fuzzy
+msgid "Please select features..."
+msgstr "Valitse vientityyppi"
+
+#: Wammu/TalkbackDialog.py:60
+#, fuzzy
+msgid "Gammu version:"
+msgstr "Gammu versio"
+
+#: Wammu/TalkbackDialog.py:62
+#, fuzzy
+msgid "Note:"
+msgstr "Huomautus"
+
+#: Wammu/TalkbackDialog.py:64
+msgid "Your name:"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:66
+msgid "Your email:"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:68
+msgid "Email displaying:"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Use [at] and [dot]"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Insert NOSPAM text at random position"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Display it normally"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Don't show email at all"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:104
+msgid "Gammu Phone Database Talkback"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:105
+msgid "Select which features work correctly with your phone"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:106
+msgid "This information is automatically included in report."
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:107
+msgid "Describe some glitches of this phone or other experiences with Gammu."
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:108
+msgid ""
+"Please enter valid mail here, choose display options bellow. Your email "
+"won't be given or sold to anybody."
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:109
+msgid ""
+"If you don't want to display email clear text, please select one mangling "
+"option."
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:179 Wammu/TalkbackDialog.py:188
+#: Wammu/TalkbackDialog.py:197 Wammu/TalkbackDialog.py:249
+#, python-format
+msgid ""
+"Entry in Gammu Phone Database was not created, following fields are "
+"invalid:\n"
+"%s"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:179
+msgid "Supported features"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:180 Wammu/TalkbackDialog.py:189
+#: Wammu/TalkbackDialog.py:198 Wammu/TalkbackDialog.py:231
+#: Wammu/TalkbackDialog.py:250
+#, fuzzy
+msgid "Entry not created!"
+msgstr "Kansiota ei voi luoda!"
+
+#: Wammu/TalkbackDialog.py:188 Wammu/Info.py:44
+msgid "Manufacturer"
+msgstr "Valmistaja"
+
+#: Wammu/TalkbackDialog.py:197
+msgid "Email displaying"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:227
+#, python-format
+msgid ""
+"HTTP request failed with status %(code)d (%(text)s), please retry later or "
+"create entry manually."
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:239
+#, python-format
+msgid ""
+"Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
+"Do you want to open it in browser now?"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:240
+#, fuzzy
+msgid "Entry created!"
+msgstr "Kansiota ei voi luoda!"
+
+#: Wammu/MessageDisplay.py:105
+#, python-format
+msgid "Predefined animation number %d"
+msgstr "Esivalittu animaatio numero %d"
+
+#: Wammu/MessageDisplay.py:117
+#, python-format
+msgid "Unknown predefined sound #%d"
+msgstr "Tuntematon esivalittu ääni #%d"
+
+#: Wammu/MessageDisplay.py:160
+msgid ""
+"Some parts of this message were not decoded correctly, probably due to "
+"missing support for it in Gammu."
+msgstr ""
+"Joitain osia viestistä ei ole koodattu oikein, luultavasti Gammu ei tue "
+"kyseistä koodausta."
+
+#: Wammu/Data.py:31
+msgid "Chimes high"
+msgstr "Soittoääni korkea"
+
+#: Wammu/Data.py:32
+msgid "Chimes low"
+msgstr "Soittoääni matala"
+
+#: Wammu/Data.py:33
+msgid "Ding"
+msgstr "Ding"
+
+#: Wammu/Data.py:34
+msgid "TaDa"
+msgstr "Tadaa"
+
+#: Wammu/Data.py:35
+msgid "Notify"
+msgstr "Ilmoita"
+
+#: Wammu/Data.py:36
+msgid "Drum"
+msgstr "Rumpu"
+
+#: Wammu/Data.py:37
+msgid "Claps"
+msgstr "Taputukset"
+
+#: Wammu/Data.py:38
+msgid "Fanfare"
+msgstr "Fanfaari"
+
+#: Wammu/Data.py:39
+msgid "Chord high"
+msgstr "Korkea sointu"
+
+#: Wammu/Data.py:40
+msgid "Chord low"
+msgstr "Matala sointu"
+
+#: Wammu/Data.py:88
+msgid "I'm ironic, flirty"
+msgstr "Olen ironinen, flirttaileva"
+
+#: Wammu/Data.py:108
+msgid "I am glad"
+msgstr "Olen iloinen"
+
+#: Wammu/Data.py:128
+msgid "I am skeptic"
+msgstr "En usko"
+
+#: Wammu/Data.py:148
+msgid "I am sad"
+msgstr "Olen surullinen"
+
+#: Wammu/Data.py:168
+msgid "WOW"
+msgstr "VAUTSI"
+
+#: Wammu/Data.py:188
+msgid "I am crying"
+msgstr "Itken"
+
+#: Wammu/Data.py:208
+msgid "I am winking"
+msgstr "Isken silmää"
+
+#: Wammu/Data.py:228
+msgid "I am laughing"
+msgstr "Nauran"
+
+#: Wammu/Data.py:248
+msgid "I am indifferent"
+msgstr "Olen välinpitämätön"
+
+#: Wammu/Data.py:268
+msgid "I am in love"
+msgstr "Olen ihastunut"
+
+#: Wammu/Data.py:288
+msgid "I am confused"
+msgstr "Olen ymmälläni"
+
+#: Wammu/Data.py:308
+msgid "Tongue hanging out"
+msgstr "Kieli ulkona"
+
+#: Wammu/Data.py:328
+msgid "I am angry"
+msgstr "Olen vihainen"
+
+#: Wammu/Data.py:348
+msgid "Wearing glases"
+msgstr "Käyttää laseja"
+
+#: Wammu/Data.py:368
+msgid "Devil"
+msgstr "Bill Gates"
+
+#: Wammu/Data.py:660
+msgid "Alignment"
+msgstr "Tasaus"
+
+#: Wammu/Data.py:661
+msgid "Left"
+msgstr "Vasen"
+
+#: Wammu/Data.py:662
+msgid "Right"
+msgstr "Oikea"
+
+#: Wammu/Data.py:663
+msgid "Center"
+msgstr "Keskitetty"
+
+#: Wammu/Data.py:665
+msgid "Text Size"
+msgstr "Tekstin koko"
+
+#: Wammu/Data.py:665
+msgid "Normal"
+msgstr "Normaali"
+
+#: Wammu/Data.py:666
+msgid "Large"
+msgstr "Suuri"
+
+#: Wammu/Data.py:667
+msgid "Small"
+msgstr "Pieni"
+
+#: Wammu/Data.py:669
+msgid "Bold"
+msgstr "Lihavointi"
+
+#: Wammu/Data.py:670
+msgid "Italic"
+msgstr "Kursivoitu"
+
+#: Wammu/Data.py:671
+msgid "Underlined"
+msgstr "Alleviivattu"
+
+#: Wammu/Data.py:672
+msgid "Strikethrough"
+msgstr "Yliviivaus"
+
+#: Wammu/ErrorMessage.py:60
+#, python-format
+msgid ""
+"Debug log has been automatically saved to %s, you are strongly encouraged to "
+"include it in bugreport."
+msgstr ""
+
+#: Wammu/ErrorMessage.py:69
+#, fuzzy
+msgid "Save debug log..."
+msgstr "Näytä debuggaus loki"
+
+#: Wammu/ErrorMessage.py:74
+#, fuzzy
+msgid "Search for similar reports"
+msgstr "Etsi puhelin"
+
+#: Wammu/ErrorMessage.py:78
+#, fuzzy
+msgid "Report bug"
+msgstr "Tuo varmuuskopio"
+
+#: Wammu/ErrorMessage.py:94
+#, fuzzy
+msgid "Save debug log as..."
+msgstr "Tallenna varmuuskopio nimellä..."
+
+#: Wammu/PhoneWizard.py:44
+#, fuzzy
+msgid "Configuration done"
+msgstr "Asetuksia ei löytynyt"
+
+#: Wammu/PhoneWizard.py:45
+msgid "Thank you for configuring phone connection."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:47
+msgid "You can enter any name which you will use to identify your phone."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:65
+#, fuzzy
+msgid "Connection test"
+msgstr "Yhteys"
+
+#: Wammu/PhoneWizard.py:66 Wammu/PhoneWizard.py:79
+msgid "Wammu is now testing phone connection, please wait..."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:89 Wammu/PhoneWizard.py:109
+#, fuzzy
+msgid "Phone not found!"
+msgstr "Puhelinta ei löydy"
+
+#: Wammu/PhoneWizard.py:96
+#, python-format
+msgid ""
+"Phone has been found.\n"
+"\n"
+"Manufacturer: %(manufacturer)s\n"
+"Model: %(model)s"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:102 Wammu/PhoneWizard.py:119
+msgid "Phone connection test is still active, you can not continue."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:103 Wammu/PhoneWizard.py:120
+msgid "Testing still active!"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:108
+msgid "Phone has not been found, are you sure you want to continue?"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:131
+#, fuzzy
+msgid "Phone search"
+msgstr "Puhelimen etsintäloki"
+
+#: Wammu/PhoneWizard.py:132
+#, fuzzy
+msgid "Phone searching status"
+msgstr "Puhelimen etsintäloki"
+
+#: Wammu/PhoneWizard.py:145 Wammu/PhoneWizard.py:161
+msgid "Phone search is still active, you can not continue."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:146 Wammu/PhoneWizard.py:162
+msgid "Searching still active!"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:151
+msgid "No phone has not been found, you can not continue."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:152
+#, fuzzy
+msgid "No phone found!"
+msgstr "Puhelinta ei löydy"
+
+#: Wammu/PhoneWizard.py:170
+#, fuzzy
+msgid "Wammu is now searching for phone:"
+msgstr "Etsi puhelin"
+
+#: Wammu/PhoneWizard.py:202
+#, fuzzy
+msgid "No phone has been found!"
+msgstr "Puhelinta ei löydy"
+
+#: Wammu/PhoneWizard.py:209 Wammu/PhoneWizard.py:232
+#, python-format
+msgid ""
+"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
+"(connection)s"
+msgstr ""
+"Malli %(model)s (%(manufacturer)s) portissa %(port)s käyttää yhteyttä %"
+"(connection)s"
+
+#: Wammu/PhoneWizard.py:216
+msgid "Select phone to use from bellow list"
+msgstr "Valitse puhelin listasta"
+
+#: Wammu/PhoneWizard.py:216
+msgid "Select phone"
+msgstr "Valitse puhelin"
+
+#: Wammu/PhoneWizard.py:231
+msgid "Following phone will be used:"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:240
+#, fuzzy
+msgid "No phone selected!"
+msgstr "Varmuuskopio valittu"
+
+#: Wammu/PhoneWizard.py:249 Wammu/PhoneWizard.py:428
+msgid "Manual configuration"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:251
+#, fuzzy
+msgid "Port where phone is connected"
+msgstr "Laite, johon puhelimesi on kytketty."
+
+#: Wammu/PhoneWizard.py:252 Wammu/PhoneWizard.py:343
+#, fuzzy
+msgid "Connection type"
+msgstr "Yhteys"
+
+#: Wammu/PhoneWizard.py:269 Wammu/PhoneWizard.py:301
+msgid "You need to select port which will be used."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:270 Wammu/PhoneWizard.py:302
+#, fuzzy
+msgid "No port selected!"
+msgstr "Varmuuskopio valittu"
+
+#: Wammu/PhoneWizard.py:275
+msgid "You need to select connection type which will be used."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:276
+#, fuzzy
+msgid "No connection selected!"
+msgstr "Varmuuskopio valittu"
+
+#: Wammu/PhoneWizard.py:288
+#, fuzzy
+msgid "Phone port"
+msgstr "Puhelin"
+
+#: Wammu/PhoneWizard.py:289
+#, fuzzy
+msgid "Please enter port where phone is connected"
+msgstr "Laite, johon puhelimesi on kytketty."
+
+#: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
+msgid "Driver to use"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:317
+msgid ""
+"Sorry no driver matches your configuration, please return back and try "
+"different settings or manual configuration."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:321
+msgid "Please select which driver you want to use"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:344
+msgid "Please select connection type"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:364
+#, fuzzy
+msgid "Phone type"
+msgstr "Puhelin"
+
+#: Wammu/PhoneWizard.py:365
+#, fuzzy
+msgid "Please select phone type"
+msgstr "Valitse vientityyppi"
+
+#: Wammu/PhoneWizard.py:389
+#, fuzzy
+msgid "Search all connections"
+msgstr "Yhteys"
+
+#: Wammu/PhoneWizard.py:390
+msgid ""
+"Wizard will search for all possible connections. It might take quite long "
+"time to search all possible connection types"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:393
+msgid "USB cable"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:394
+msgid ""
+"Many phones now come with USB cable, select this if you're using this "
+"connection type."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:397
+msgid "Bluetooth"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:398
+msgid ""
+"Bluetooth connection is wireless and does not require direct visibility. "
+"Phone needs to be properly paired with computer before proceeding."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:401
+msgid "IrDA"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:402
+msgid ""
+"IrDA wireless connection requires direct visibility, please make sure this "
+"is fullfilled and computer can see phone."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:405
+msgid "Serial cable"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:406
+msgid ""
+"This is not often used connection, but was very popular for older phones."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:409 Wammu/Settings.py:150
+#, fuzzy
+msgid "Phone connection"
+msgstr "Yhteys"
+
+#: Wammu/PhoneWizard.py:410
+#, fuzzy
+msgid "How is your phone connected?"
+msgstr "Laite, johon puhelimesi on kytketty."
+
+#: Wammu/PhoneWizard.py:423
+#, fuzzy
+msgid "Configuration type"
+msgstr "Asetuksia ei löytynyt"
+
+#: Wammu/PhoneWizard.py:424
+msgid "How do you want to configure your phone connection?"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:426
+#, fuzzy
+msgid "Automatically search for a phone"
+msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
+
+#: Wammu/PhoneWizard.py:427
+msgid "Guided configuration"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:432
+msgid "Wizard will attempt to search phone on usual ports."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:433
+msgid ""
+"You will be guided through configuration by phone connection type and vendor."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:434
+msgid ""
+"You know what you are doing and know exact parameters you need for "
+"connecting to phone."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:437
+msgid ""
+"If you have no idea how to configure your phone connection, you can look at "
+"Gammu Phone Database for other users experiences:"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:448
+msgid "Welcome"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:449
+msgid "This wizard will help you with configuring phone connection in Wammu."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:452
+msgid ""
+"Please make sure you have phone ready, powered on and one of connection "
+"methods is set up:"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:453
+#, fuzzy
+msgid "Cable is connected."
+msgstr "Yhteys katkaistu"
+
+#: Wammu/PhoneWizard.py:454
+msgid "You have enabled IrDA and phone is in visible range."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:455
+msgid "You have paired Bluetooth with computer."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:457
+msgid "As soon as your phone is ready, you can continue."
+msgstr ""
+
+#: Wammu/PhoneWizard.py:463
+msgid "Wammu Phone Configuration Wizard"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:93
+msgid "I don't know"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:94
+msgid ""
+"Select this option only if really necessary. You will be provided with too "
+"much options in next step."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:97
+#, fuzzy
+msgid "Nokia phone"
+msgstr "Puhelinta ei löydy"
+
+#: Wammu/SettingsStorage.py:98
+msgid "If your phone runs Symbian, please select directly it."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:101
+msgid "Symbian based phone"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:102
+msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:105
+msgid "None of the above"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:106
+msgid ""
+"Select this option if nothing above matches, good choice for other "
+"manufacturers like Alcatel, BenQ, LG, Sharp, Sony Ericsson..."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:116
+msgid "AT based"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:118
+msgid ""
+"This provides minimal access to phone features. It is recommended to use "
+"other connection type."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:120
+msgid ""
+"Good choice for most phones except Nokia and Symbian based. Provides access "
+"to most phone features."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:124
+msgid "Nokia FBUS"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:125
+msgid "Nokia proprietary protocol."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:129
+msgid "Nokia MBUS"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:130
+msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:133
+msgid "OBEX based"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:134
+msgid ""
+"Standard access to filesystem and sometimes also to phone data. Good choice "
+"for recent phones."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:138
+msgid "Symbian using Gnapplet"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:139
+msgid ""
+"You have to install Gnapplet into phone before using this connection. You "
+"can find it in Gammu sources."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:208 Wammu/SettingsStorage.py:240
+msgid "Enter device name of serial port."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:210 Wammu/SettingsStorage.py:242
+msgid "Enter device name of emulated serial port."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:212 Wammu/SettingsStorage.py:244
+msgid "Enter Bluetooth address of your phone."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:214 Wammu/SettingsStorage.py:248
+msgid "You don't have to enter anything for this settings."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:246
+msgid "Enter device name of USB port."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:266
+msgid "Generic AT over serial line or it's emulation"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:267 Wammu/SettingsStorage.py:304
+msgid ""
+"Select this if you have real serial port or it is emulated by phone driver "
+"(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:271
+msgid "Generic AT at 19200 bps"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:272
+msgid "Select this if your phone requires transfer speed 19200 bps."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:275
+msgid "Generic AT at 38400 bps"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:276
+msgid "Select this if your phone requires transfer speed 38400 bps."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:279
+msgid "Generic AT at 115200 bps"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:280
+msgid "Select this if your phone requires transfer speed 115200 bps."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:284
+msgid "AT over Bluetooth"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:285 Wammu/SettingsStorage.py:309
+#: Wammu/SettingsStorage.py:324
+msgid ""
+"Select this if your phone is connected over Bluetooth and you want to use "
+"native Bluetooth connection."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:288
+msgid "AT over Bluetooth with RF searching"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:289 Wammu/SettingsStorage.py:313
+msgid ""
+"Use for Bluetooth stack and 6210 / DCT4 Nokia models, which don't inform "
+"about Bluetooth services correctly (6310, 6310i with firmware lower than "
+"5.50, 8910,..)"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:293
+msgid "AT over IrDA"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:294 Wammu/SettingsStorage.py:318
+#: Wammu/SettingsStorage.py:329
+#, fuzzy
+msgid ""
+"Select this if your phone is connected over IrDA and you want to use native "
+"IrDA connection."
+msgstr "Laite, johon puhelimesi on kytketty."
+
+#: Wammu/SettingsStorage.py:298
+msgid "AT over DKU2"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:299
+#, fuzzy
+msgid "Select this if your phone is connected using DKU2 cable."
+msgstr "Laite, johon puhelimesi on kytketty."
+
+#: Wammu/SettingsStorage.py:303
+msgid "Generic OBEX over serial line or it's emulation"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:308
+msgid "OBEX over Bluetooth"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:312
+msgid "OBEX over Bluetooth with RF searching"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:317
+msgid "OBEX over IrDA"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:323
+msgid "Gnapplet over Bluetooth"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:328
+msgid "Gnapplet over IrDA"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:334
+msgid "MBUS proprietary protocol"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:335
+msgid "Protocol used in older Nokia phones."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:340
+msgid "FBUS proprietary protocol"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:341
+msgid ""
+"Protocol used in Nokia phones. Please try selecting more specific options "
+"first."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:346
+msgid "PL2303 cable"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:347
+msgid ""
+"New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia "
+"5100."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:350
+msgid "DKU5 cable"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:351
+msgid ""
+"Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:354
+msgid "DKU2 cable"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:355
+msgid ""
+"Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:358
+msgid "DLR3-3P/CA-42 cable"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:359
+msgid ""
+"Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
+"7110/6210/6310."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:363
+msgid "FBUS over Bluetooth"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:364
+msgid "Nokia protocol for Bluetooth stack with Nokia 6210"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:367
+msgid "Phonet over Bluetooth"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:368
+msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:371
+msgid "Phonet over Bluetooth with RF searching"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:372
+msgid ""
+"Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don't "
+"inform about services correctly (6310, 6310i with firmware lower than 5.50, "
+"8910,..)"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:376
+msgid "FBUS over IrDA"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:377
+msgid "Nokia protocol for infrared with Nokia 6110/6130/6150"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:380
+msgid "Phonet over IrDA"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:381
+msgid "Nokia protocol for infrared with other Nokia models"
+msgstr ""
+
+#: Wammu/Error.py:50
+#, python-format
+msgid ""
+"Debug log was saved for phone communication, if this error appeared during "
+"communicating with phone, you are strongly encouraged to include it in "
+"bugreport. Debug log is saved in file %s."
+msgstr ""
+"Debuggausloki tallennettiin puhelinkommunikaatiosta, jos virhe tapahtui "
+"kommunioitaessa puhelimen kanssa, toivomme todella sinun liittävän sen "
+"bugiraporttiin. Debuggausloki tallennettiin tiedostoon %s."
+
+#: Wammu/Error.py:69
+#, python-format
+msgid "Before submiting please try searching for simmilar bugs on %s"
+msgstr "Ennen lähettämistä yritä etsiä samanlaisia bugeja %s :sta"
+
+#: Wammu/Error.py:76
+msgid ""
+"Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
+msgstr ""
+"Unicode-koodivirhe ilmaantui, selvittääksesi ongelman, katso kysymys 1 FAQ:"
+"sta."
+
+#: Wammu/Error.py:92
+msgid "Unhandled exception appeared."
+msgstr "Käsittämätön poikkeus ilmaantui."
+
+#: Wammu/Error.py:93
+#, python-format
+msgid ""
+"If you want to help improving this program, please submit following "
+"infomation and description how did it happen to %s. Please report in "
+"english, otherwise you will be most likely told to translate you report to "
+"english later."
+msgstr ""
+"Jos haluat auttaa tämän ohjelman kehittämisessä, lähetä oheinen tieto ja "
+"miten se tapahtui %s :n. Kirjoita englanniksi, muuten sinua pyydettänee "
+"myöhemmin kääntämään viestisi englanniksi."
+
+#: Wammu/Error.py:104
+#, fuzzy
+msgid ""
+"Unhandled exception appeared. If you want to help improving this program, "
+"please report this together with description how this situation has "
+"happened. Please report in english, otherwise you will be most likely told "
+"to translate you report to english later."
+msgstr ""
+"Jos haluat auttaa tämän ohjelman kehittämisessä, lähetä oheinen tieto ja "
+"miten se tapahtui %s :n. Kirjoita englanniksi, muuten sinua pyydettänee "
+"myöhemmin kääntämään viestisi englanniksi."
+
+#: Wammu/Error.py:105
+msgid "Unhandled exception"
+msgstr "Käsittämätön poikkeus"
+
+#: Wammu/Error.py:107
+#, python-format
+msgid ""
+"Traceback:\n"
+"%(traceback)s\n"
+"Exception: %(exception)s"
+msgstr ""
+
+#: Wammu/Ringtone.py:48
+msgid "Could not find timidity, melody can not be played"
+msgstr "Timidy ohjelmaa ei löydy, melodiaa ei voi soittaa"
+
+#: Wammu/Ringtone.py:49
+msgid "Timidity not found"
+msgstr "Timidityä ei löydy"
+
+#: Wammu/SMSExport.py:34 Wammu/Main.py:1173
+msgid "All files"
+msgstr "Kaikki tiedostot"
+
+#: Wammu/SMSExport.py:35
+msgid "Select mailbox file..."
+msgstr "Valitse postilaatikkotiedosto..."
+
+#: Wammu/SMSExport.py:42
+msgid "Saving messages to mailbox"
+msgstr "Tallennetaan viestejä postilaatikkoon."
+
+#: Wammu/SMSExport.py:48 Wammu/SMSExport.py:65 Wammu/SMSExport.py:109
+#: Wammu/SMSExport.py:124 Wammu/SMSExport.py:139 Wammu/SMSExport.py:229
+#: Wammu/SMSExport.py:259 Wammu/SMSExport.py:266 Wammu/SMSExport.py:283
+msgid "Export terminated"
+msgstr "Vienti keskeytetty"
+
+#: Wammu/SMSExport.py:61 Wammu/SMSExport.py:135
+#, python-format
+msgid "Creating of file %s failed, bailing out."
+msgstr "Tiedoston %s luonti epäonnistui, keskeytetään."
+
+#: Wammu/SMSExport.py:62 Wammu/SMSExport.py:136
+msgid "Can not create file!"
+msgstr "Tiedostoa ei voi luoda!"
+
+#: Wammu/SMSExport.py:70 Wammu/SMSExport.py:145 Wammu/SMSExport.py:294
+#, python-format
+msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
+msgstr "%(count)d viestit lähetetty \"%(path)s\" (%(type)s)"
+
+#: Wammu/SMSExport.py:70
+msgid "mailbox"
+msgstr "postilaatikko"
+
+#: Wammu/SMSExport.py:74
+msgid "Select maildir directory where to save files"
+msgstr "Valitse postitiedostokansio, johon tiedosto tallennetaan"
+
+#: Wammu/SMSExport.py:85
+msgid ""
+"Selected folder does not contain new subfolder and thus probably is not "
+"valid maildir.\n"
+"\n"
+"Do you want to create new subfolder and export to it?"
+msgstr ""
+"Valittu kansio ei sisällä uutta alikansiota joten se ei ehkä ole oikea "
+"postitiedosto.\n"
+"\n"
+"Haluatko luoda uuden alikansion ja viedä sinne?"
+
+#: Wammu/SMSExport.py:86
+msgid "Folder doesn't look like maildir!"
+msgstr "Kansio ei vaikuta postitiedostolta!"
+
+#: Wammu/SMSExport.py:98
+msgid "Creating of folder failed, bailing out."
+msgstr "Kansion luonti epäonnistui, keskeytetään."
+
+#: Wammu/SMSExport.py:99
+msgid "Can not create folder!"
+msgstr "Kansiota ei voi luoda!"
+
+#: Wammu/SMSExport.py:105
+msgid "Saving messages to maildir"
+msgstr "Tallennetaan viestejä postitiedostoon."
+
+#: Wammu/SMSExport.py:118
+#, python-format
+msgid ""
+"Output file already exists, this usually means that this message was already "
+"saved there.\n"
+"\n"
+"Do you wish to overwrite file %s?"
+msgstr ""
+"Output tiedosto on jo olemassa, tämä tarkoittaa yleensä sitä, että tämä "
+"viesti on jo tallennettu sinne.\n"
+"\n"
+"Haluatko ylikirjoittaa tiedoston %s?"
+
+#: Wammu/SMSExport.py:119
+msgid "File already exists!"
+msgstr "Tiedosto on jo olemassa!"
+
+#: Wammu/SMSExport.py:145
+msgid "maildir"
+msgstr "postihakemisto"
+
+#: Wammu/SMSExport.py:151
+msgid "Do you wish to use SSL while uploading messages to IMAP server?"
+msgstr "Haluatko käyttää SSL-salausta ladatessasi viestejä IMAP-palvelimelta?"
+
+#: Wammu/SMSExport.py:152
+msgid "Use SSL?"
+msgstr "Käytä SSL?"
+
+#: Wammu/SMSExport.py:158
+msgid "Please enter server name"
+msgstr "Anna palvelimen nimi"
+
+#: Wammu/SMSExport.py:159
+msgid "Server name"
+msgstr "Palvelimen nimi"
+
+#: Wammu/SMSExport.py:168
+#, python-format
+msgid "Please enter login on server %s"
+msgstr "Ole hyvä ja anna sisäänkirjautumistietosi palvelimelle %s"
+
+#: Wammu/SMSExport.py:169
+msgid "Login"
+msgstr "Kirjautuminen"
+
+#: Wammu/SMSExport.py:182
+#, python-format
+msgid "Please enter password for %(login)s@%(server)s"
+msgstr "Kirjoita salasana %(login)s@%(server)s"
+
+#: Wammu/SMSExport.py:183
+msgid "Password"
+msgstr "Salasana"
+
+#: Wammu/SMSExport.py:189
+msgid "Connecting to IMAP server..."
+msgstr "Yhdistetään IMAP palvelimeen..."
+
+#: Wammu/SMSExport.py:205
+#, fuzzy
+msgid ""
+"Can not login, you probably entered invalid login information. Do you want "
+"to retry?"
+msgstr ""
+"Sisäänkirjautuminen ei onnistu, olet ehkä antanut väärät tiedot, "
+"keskeytetään."
+
+#: Wammu/SMSExport.py:206
+msgid "Login failed!"
+msgstr "Kirjautuminen epäonnistui!"
+
+#: Wammu/SMSExport.py:212
+msgid ""
+"Connection suceeded, do you want to remember password? This is a bit "
+"insecure."
+msgstr ""
+
+#: Wammu/SMSExport.py:213
+#, fuzzy
+msgid "Save password?"
+msgstr "Salasana"
+
+#: Wammu/SMSExport.py:218
+msgid "Listing folders on IMAP server..."
+msgstr "Listataan IMAP palvelimen kansioita..."
+
+#: Wammu/SMSExport.py:226
+msgid "Can not list folders on server, bailing out."
+msgstr "Palvelimen hakemistoja ei voi näyttää, keskeytetään."
+
+#: Wammu/SMSExport.py:227
+msgid "Listing failed!"
+msgstr "Listaus epäonnistui!"
+
+#: Wammu/SMSExport.py:240
+#, python-format
+msgid "Please select folder on server %s where messages will be stored"
+msgstr "Valitse viestin tallennuskansio palvelimella %s"
+
+#: Wammu/SMSExport.py:241
+msgid "Select folder"
+msgstr "Valitse kansio"
+
+#: Wammu/SMSExport.py:248
+msgid "Selecting folder on IMAP server..."
+msgstr "Valitaan kansio IMAP palvelimella..."
+
+#: Wammu/SMSExport.py:256
+#, python-format
+msgid "Can not select folder %s on server, bailing out."
+msgstr "Kansiota %s ei voi valita palvelimelta, keskeytetään."
+
+#: Wammu/SMSExport.py:257
+msgid "Selecting failed!"
+msgstr "Valinta epäonnistui!"
+
+#: Wammu/SMSExport.py:262
+msgid "Saving messages to IMAP"
+msgstr "Tallennetaan viestejä IMAP:n"
+
+#: Wammu/SMSExport.py:278
+#, python-format
+msgid "Can not save message to folder %s on server, bailing out."
+msgstr "Viestiä ei voi tallentaa kansioon %s palvelimelle, keskeytetään."
+
+#: Wammu/SMSExport.py:279
+msgid "Saving failed!"
+msgstr "Tallennus epäonnistui!"
+
+#: Wammu/SMSExport.py:294
+msgid "IMAP server"
+msgstr "IMAP palvelin"
+
+#: Wammu/SMSExport.py:298
+msgid "Where do you want to export emails created from your messages?"
+msgstr "Mihin haluat lähettää viesteistäsi luodut sähköpostit?"
+
+#: Wammu/SMSExport.py:298
+msgid "Select export type"
+msgstr "Valitse vientityyppi"
+
+#: Wammu/SMSExport.py:299
+msgid "Mailbox file"
+msgstr "Sähköpostitiedosto"
+
+#: Wammu/SMSExport.py:299
+msgid "Maildir folder"
+msgstr "Postitiedosto kansio"
+
+#: Wammu/SMSExport.py:299
+msgid "IMAP account"
+msgstr "IMAP tili"
+
+#: Wammu/PhoneSearch.py:39
+msgid "Phone searching log"
+msgstr "Puhelimen etsintäloki"
+
+#: Wammu/PhoneSearch.py:47
+msgid "Close"
+msgstr "Sulje"
+
+#: Wammu/PhoneSearch.py:95
+#, python-format
+msgid "Starting %s"
+msgstr "Käynnistetään %s"
+
+#: Wammu/PhoneSearch.py:112 Wammu/PhoneSearch.py:142
+#, python-format
+msgid "Scanning for bluetooth devices using %s"
+msgstr "Etsitään bluetooth-laitteita käyttäen %s"
+
+#: Wammu/PhoneSearch.py:118 Wammu/PhoneSearch.py:148
+msgid "No bluetooth device found"
+msgstr "Bluetooth-laitetta ei löydetty"
+
+#: Wammu/PhoneSearch.py:124 Wammu/PhoneSearch.py:154
+#, python-format
+msgid "Checking %s"
+msgstr "Tarkistetaan %s"
+
+#: Wammu/PhoneSearch.py:128 Wammu/PhoneSearch.py:158
+msgid "Bluetooth device scan completed"
+msgstr "Bluetooth laitteiden etsintä valmis"
+
+#: Wammu/PhoneSearch.py:131
+#, python-format
+msgid "Could not access Bluetooth subsystem (%s)"
+msgstr "Ei pääsyä bluetooth alijärjestelmään (%s)"
+
+#: Wammu/PhoneSearch.py:161
+msgid ""
+"Neither GNOME Bluetooth nor PyBluez found, not possible to scan for "
+"bluetooth devices"
+msgstr ""
+"Gnome Bluetoothia tai PyBluezia ei löydy, ei voi etsiä Bluetooth-laitteita."
+
+#: Wammu/PhoneSearch.py:169
+#, python-format
+msgid "Finished %s"
+msgstr "Lopetettu %s"
+
+#: Wammu/PhoneSearch.py:174
+#, python-format
+msgid "All finished, found %d phones"
+msgstr "Valmis, löytyi %d puhelinta"
+
+#: Wammu/About.py:43
+msgid "About Wammu"
+msgstr "Tietoja Wammusta"
+
+#: Wammu/About.py:105
+#, python-format
+msgid "Running on Python %s"
+msgstr "Käyttää Pythonia %s"
+
+#: Wammu/About.py:106
+#, python-format
+msgid "Using wxPython %s"
+msgstr "Käyttää wxPython %s"
+
+#: Wammu/About.py:107
+#, python-format
+msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
+msgstr ""
+"Käyttää python-gammu %(python_gammu_version)s ja Gammu %(gammu_version)s"
+
+#: Wammu/About.py:112
+msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
+msgstr ""
+"<b>Wammu</b> on wxPython pohjainen graafinenkäyttöliittymä Gammu-ohjelmaan."
+
+#: Wammu/About.py:114
+msgid ""
+"\n"
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License version 2 as\n"
+"published by the Free Software Foundation.\n"
+msgstr ""
+"\n"
+"Tämä ohjelma on ilmainen ohjelmisto; voit jaella sitä ja/tai muuttaa\n"
+"sitä the Free Software Foundation julkaiseman GNU General Public License "
+"version 2 ehtojen mukaisesti.\n"
 
 #: Wammu/About.py:119
 msgid ""
@@ -30,22 +1442,438 @@ msgstr ""
 "TOIMIVUUDESTA tai SOPIVUUDESTA TIETTYYN TARKOITUKSEEN. Katso\n"
 "\"GNU General Public License\":stä tarkemmat  tiedot.\n"
 
-#: Wammu/About.py:114
-msgid ""
-"\n"
-"This program is free software; you can redistribute it and/or modify\n"
-"it under the terms of the GNU General Public License version 2 as\n"
-"published by the Free Software Foundation.\n"
-msgstr ""
-"\n"
-"Tämä ohjelma on ilmainen ohjelmisto; voit jaella sitä ja/tai muuttaa\n"
-"sitä the Free Software Foundation julkaiseman GNU General Public License "
-"version 2 ehtojen mukaisesti.\n"
+#: Wammu/About.py:125 Wammu/Composer.py:64
+msgid "OK"
+msgstr "OK"
 
-#: Wammu/SMSExport.py:70 Wammu/SMSExport.py:145 Wammu/SMSExport.py:294
-#, python-format
-msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(count)d viestit lähetetty \"%(path)s\" (%(type)s)"
+#: Wammu/Settings.py:38
+msgid "Settings"
+msgstr "Asetukset"
+
+#: Wammu/Settings.py:82
+msgid "Please enter here path to gammu configuration file you want to use."
+msgstr ""
+
+#: Wammu/Settings.py:85
+msgid "Gammurc path"
+msgstr ""
+
+#: Wammu/Settings.py:89
+msgid "You can configure connection parameters on Connection tab."
+msgstr ""
+
+#: Wammu/Settings.py:95
+msgid "Automatically connect to phone on startup"
+msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
+
+#: Wammu/Settings.py:96
+msgid ""
+"Whether you want application automatically connect to phone when it is "
+"started."
+msgstr "Haluatko ohjelman ottavan yhteyden puhelimeen käynnistyessään."
+
+#: Wammu/Settings.py:101
+msgid "Show debug log"
+msgstr "Näytä debuggaus loki"
+
+#: Wammu/Settings.py:102
+msgid "Show debug information on error output."
+msgstr "Näytä debuggaus tiedot virheilmoituksessa."
+
+#: Wammu/Settings.py:107
+msgid "Synchronize time"
+msgstr "Tahdista aika"
+
+#: Wammu/Settings.py:108
+msgid "Synchronise time in phone with computer time while connecting."
+msgstr "Tahdista puhelimen aika tietokoneen aikaan yhdistämisen aikana."
+
+#: Wammu/Settings.py:113
+msgid "Startup information"
+msgstr "Käynnistystietoja"
+
+#: Wammu/Settings.py:114
+msgid "Display startup on phone (not supported by all models)."
+msgstr "Näytä käynnistys puhelimessa (ei tuettu kaikissa malleissa)"
+
+#: Wammu/Settings.py:121
+msgid "Lock device"
+msgstr "Lukitse laite"
+
+#: Wammu/Settings.py:122
+msgid ""
+"Whether to lock device in /var/lock. On some systems you might lack "
+"privileges to do so."
+msgstr ""
+"Lukitaanko laite tiedostoon /var/lock. Joissakin järjestelmissä oikeutesi ei "
+"ehkä riitä tämän tekemiseen."
+
+#: Wammu/Settings.py:163
+#, fuzzy
+msgid "Name for this configuration."
+msgstr "Luo uusi yhteystieto"
+
+#: Wammu/Settings.py:164 Wammu/Browser.py:40 Wammu/Browser.py:53
+#: Wammu/Browser.py:68 Wammu/Main.py:818
+msgid "Name"
+msgstr "Nimi"
+
+#: Wammu/Settings.py:169
+msgid "Device, where your phone is connected."
+msgstr "Laite, johon puhelimesi on kytketty."
+
+#: Wammu/Settings.py:170
+msgid "Device"
+msgstr "Laite"
+
+#: Wammu/Settings.py:175
+msgid ""
+"Connection which your phone understands, check Gammu documentation for "
+"connection details."
+msgstr ""
+"Yhteys, jonka puhelimesi ymmärtää, tarkista yksityiskohdat Gammu-"
+"dokumentaatiosta."
+
+#: Wammu/Settings.py:176 Wammu/Settings.py:348
+msgid "Connection"
+msgstr "Yhteys"
+
+#: Wammu/Settings.py:181
+msgid ""
+"Phone model, you can usually keep here auto unless you have any problems."
+msgstr "Puhelin malli, voit yleensä pitää tämän auto:na jos ei ole ongelmia."
+
+#: Wammu/Settings.py:184
+msgid "Model"
+msgstr "Malli"
+
+#: Wammu/Settings.py:209
+msgid ""
+"Whether images in messages should be scaled when displayed. This is usually "
+"good idea as they are pretty small."
+msgstr ""
+"Pitäisikö viesteissä olevia kuvia skaalata näytettäessä. Tämä on yleensä "
+"hyvä idea, koska ne ovat hyvin pieniä."
+
+#: Wammu/Settings.py:210
+msgid "Scale images"
+msgstr "Skaalaa kuvia"
+
+#: Wammu/Settings.py:214
+msgid "Attempt to reformat text"
+msgstr "Yritetään uudelleenmuotoilla teksti"
+
+#: Wammu/Settings.py:215
+msgid ""
+"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
+"interested in this choice."
+msgstr ""
+"Jos saat toisinaan TÄMÄNkaltaisia \"tiivistettyjä\" viestejä, sinun pitäisi "
+"olla kiinnostunut tästä valinnasta."
+
+#: Wammu/Settings.py:235 Wammu/Composer.py:173
+msgid "Concatenated"
+msgstr "Yhteenliitetty"
+
+#: Wammu/Settings.py:236 Wammu/Composer.py:174
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
+
+#: Wammu/Settings.py:241
+msgid "Create unicode message"
+msgstr "Luo unicode-viesti"
+
+#: Wammu/Settings.py:242 Wammu/Composer.py:384
+msgid ""
+"Unicode messages can contain national and other special characters, check "
+"this if you use non latin-1 characters. Your messages will require more "
+"space, so you can write less characters into single message."
+msgstr ""
+"Unicode viestit voi sisältää kansallisia tai muita erikoismerkkejä, merkitse "
+"tämä jos käytät muita kuin latin-1 merkkejä. Viestisi vaativat enemmän tilaa "
+"joten voit kirjoittaa vähemmän merkkejä yhteen viestiin."
+
+#: Wammu/Settings.py:247
+msgid "Request delivery report by default"
+msgstr "Pyydä välitystiedot oletuksena"
+
+#: Wammu/Settings.py:248 Wammu/Composer.py:395
+msgid "Check to request delivery report for message."
+msgstr "Merkitse pyytääksesi välitystietoja viestistä."
+
+#: Wammu/Settings.py:253
+msgid "Use 16bit Id"
+msgstr "Käytä 16 bittistä Id:tä"
+
+#: Wammu/Settings.py:254
+msgid "Use 16 bit Id inside message. This is safe for most cases."
+msgstr "Käytä 16 bittistä Id:tä viestissä. Tämä on useimmiten turvallisinta."
+
+#: Wammu/Settings.py:287
+msgid ""
+"How often refresh phone state in application status bar. Enter value in "
+"miliseconds, 0 to disable."
+msgstr ""
+"Kuinka usein puhelimen tila päivitetään ohjelman statusbarissa. Anna arvo "
+"millisekunneissa, 0 ottaa pois käytöstä."
+
+#: Wammu/Settings.py:288
+msgid "Refresh phone state"
+msgstr "Päivitä puhelimen tila"
+
+#: Wammu/Settings.py:292 Wammu/Main.py:1542
+msgid "Confirm deleting"
+msgstr "Vahvista poisto"
+
+#: Wammu/Settings.py:293
+msgid "Whether to ask for confirmation when deleting entries."
+msgstr "Haluatko kuittauksen kun poistetaan merkintöjä?"
+
+#: Wammu/Settings.py:311
+msgid "Default time to be used for newly created time fields."
+msgstr "Oletusaika, jota tullaan käyttämään uusissa aikavyöhykkeissä."
+
+#: Wammu/Settings.py:312
+msgid "Default time"
+msgstr "Oletusaika"
+
+#: Wammu/Settings.py:318
+msgid ""
+"Default date to be used for newly created time fields. Enter amount of days "
+"from today (1 = tommorow)."
+msgstr ""
+"Oletuspäiväys, jota käytetään äskettäin luodulle aikakentille. Syötä päivien "
+"määrä alkaen tästä päivästä (1=eilen)"
+
+#: Wammu/Settings.py:319
+msgid "Default time = now + x days"
+msgstr "Oletusaika = nyt + x päivää"
+
+#: Wammu/Settings.py:325
+msgid "How many entries will be shown in newly created item."
+msgstr "Kuinka monta syötettä näytetään uusissa tiedoissa?"
+
+#: Wammu/Settings.py:326
+msgid "Entries for new item"
+msgstr "Uuden tiedon syötteet."
+
+#: Wammu/Settings.py:333
+msgid "Prefix for non international phone numbers."
+msgstr "Etuliite ei kansainvälisiin puhelinnumeroihin."
+
+#: Wammu/Settings.py:334
+msgid "Number prefix"
+msgstr "Numeron etuliite"
+
+#: Wammu/Settings.py:347
+#, fuzzy
+msgid "Gammu"
+msgstr "&Wammu"
+
+#: Wammu/Settings.py:349 Wammu/Main.py:118 Wammu/Main.py:284
+msgid "Messages"
+msgstr "Viestit"
+
+#: Wammu/Settings.py:350
+msgid "Other"
+msgstr "Muu"
+
+#: Wammu/App.py:68
+msgid "Failed to set exception handler."
+msgstr "Virhe asettaessa exception handleria."
+
+#: Wammu/Browser.py:41
+msgid "Value"
+msgstr "Arvo"
+
+#: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:82
+#: Wammu/Browser.py:99 Wammu/Browser.py:116 Wammu/Main.py:798
+#: Wammu/Main.py:812 Wammu/Main.py:822 Wammu/Main.py:828
+msgid "Location"
+msgstr "Sijainti"
+
+#: Wammu/Browser.py:52 Wammu/Main.py:814
+msgid "Memory"
+msgstr "Muisti"
+
+#: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:84
+#: Wammu/Main.py:810
+msgid "Number"
+msgstr "Numero"
+
+#: Wammu/Browser.py:67 Wammu/Browser.py:117 Wammu/Main.py:829
+msgid "Type"
+msgstr "Tyyppi"
+
+#: Wammu/Browser.py:83 Wammu/Main.py:816
+msgid "State"
+msgstr "Tila"
+
+#: Wammu/Browser.py:85 Wammu/Browser.py:103 Wammu/Main.py:811
+msgid "Date"
+msgstr "Päiväys"
+
+#: Wammu/Browser.py:86 Wammu/Browser.py:102 Wammu/Browser.py:120
+#: Wammu/Composer.py:316 Wammu/Main.py:224
+msgid "Text"
+msgstr "Teksti"
+
+#: Wammu/Browser.py:100
+msgid "Completed"
+msgstr "Valmis"
+
+#: Wammu/Browser.py:118
+msgid "Start"
+msgstr "Aloita"
+
+#: Wammu/Browser.py:119
+msgid "End"
+msgstr "Lopeta"
+
+#: Wammu/Browser.py:121
+msgid "Alarm"
+msgstr ""
+
+#: Wammu/Browser.py:122
+msgid "Recurrence"
+msgstr ""
+
+#: Wammu/Browser.py:508
+msgid "Resend"
+msgstr "Lähetä uudelleen"
+
+#: Wammu/Browser.py:510
+msgid "Send"
+msgstr "Lähetä"
+
+#: Wammu/Browser.py:513
+msgid "Reply"
+msgstr "Vastaa"
+
+#: Wammu/Browser.py:515 Wammu/Browser.py:520
+msgid "Call"
+msgstr "Puhelu"
+
+#: Wammu/Browser.py:519 Wammu/Composer.py:352
+msgid "Send message"
+msgstr "Lähetä viesti"
+
+#: Wammu/Browser.py:524
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: Wammu/Browser.py:526
+msgid "Duplicate"
+msgstr "Monista"
+
+#: Wammu/Browser.py:529
+msgid "Delete current"
+msgstr "Tuhoa nykyinen"
+
+#: Wammu/Browser.py:530
+msgid "Delete selected"
+msgstr "Tuhoa valittu"
+
+#: Wammu/Browser.py:533
+msgid "Backup current"
+msgstr "Varmuuskopioi nykyinen"
+
+#: Wammu/Browser.py:534
+msgid "Backup selected"
+msgstr "Varmuuskopio valittu"
+
+#: Wammu/Browser.py:535
+msgid "Backup all"
+msgstr "Varmuuskopioi kaikki"
+
+#: Wammu/Thread.py:55 Wammu/Main.py:737
+msgid "Error while communicating with phone"
+msgstr "Virhe ottaessa yhteyttä puhelimeen"
+
+#: Wammu/Thread.py:56 Wammu/Main.py:738 Wammu/Main.py:1207 Wammu/Main.py:1444
+msgid "Error Occured"
+msgstr "Virhe"
+
+#: Wammu/Thread.py:91
+msgid "Action canceled by user!"
+msgstr "Käyttäjä peruuttanut toiminnon!"
+
+#: Wammu/Thread.py:92
+msgid "Action canceled"
+msgstr "Toiminto peruutettu"
+
+#: Wammu/Select.py:42
+msgid "Select contact from bellow list"
+msgstr "Valitse yhteystieto listasta"
+
+#: Wammu/Select.py:42
+msgid "Select contact"
+msgstr "Valitse yhteystieto"
+
+#: Wammu/Select.py:71
+msgid "Select number for selected contact"
+msgstr "Valitse numero valitulle yhteystiedolle"
+
+#: Wammu/Select.py:71
+msgid "Select phone number"
+msgstr "Valitse puhelinnumero"
+
+#: Wammu/Info.py:57
+msgid "Model (Gammu identification)"
+msgstr "Malli (Gammun tunniste)"
+
+#: Wammu/Info.py:58
+msgid "Model (real)"
+msgstr "Malli (aito)"
+
+#: Wammu/Info.py:71
+msgid "Firmware"
+msgstr "Firmware"
+
+#: Wammu/Info.py:73
+msgid "Firmware date"
+msgstr "Firmware päiväys"
+
+#: Wammu/Info.py:75
+msgid "Firmware (numeric)"
+msgstr "Firmware (numeerinen)"
+
+#: Wammu/Info.py:88
+msgid "Serial number (IMEI)"
+msgstr "Sarjanumero (IMEI)"
+
+#: Wammu/Info.py:101
+msgid "Original IMEI"
+msgstr "Alkuperäinen IMEI"
+
+#: Wammu/Info.py:114
+msgid "Product code"
+msgstr "Tuotekoodi"
+
+#: Wammu/Info.py:127
+msgid "SIM IMSI"
+msgstr "SIM IMSI"
+
+#: Wammu/Info.py:140 Wammu/Main.py:815
+msgid "SMSC"
+msgstr "SMSC"
+
+#: Wammu/Info.py:153
+msgid "Hardware"
+msgstr "Laitteisto"
+
+#: Wammu/Info.py:166
+msgid "Manufacture month"
+msgstr "Valmistuskuukausi"
+
+#: Wammu/Info.py:179
+msgid "Language packs in phone"
+msgstr "Puhelimen kielipaketit"
+
+#: Wammu/GammuSettings.py:142
+#, fuzzy
+msgid "Create new configuration"
+msgstr "Luo uusi yhteystieto"
 
 #. l10n: %s is name of current configuration or 'Create new
 #. configuration', %d is position of this config in .gammurc
@@ -54,349 +1882,741 @@ msgstr "%(count)d viestit lähetetty \"%(path)s\" (%(type)s)"
 msgid "%(name)s (position %(position)d)"
 msgstr ""
 
-#: Wammu/Main.py:1317
-#, fuzzy, python-format
-msgid "%d SIM contact entries"
-msgstr "%d SIM yhteystiedot"
-
-#: Wammu/Main.py:1323 Wammu/Main.py:1539
-#, python-format
-msgid "%d calendar entries"
-msgstr "%d Kalenteri merkinnät"
-
-#: Wammu/Main.py:1533
-#, python-format
-msgid "%d calls"
-msgstr "%d puhelut"
-
-#: Wammu/Composer.py:178 Wammu/Composer.py:221
-#, python-format
-msgid "%d chars"
-msgstr "%d merkit"
-
-#: Wammu/Main.py:1531
-#, python-format
-msgid "%d contacts"
-msgstr "%d yhteystiedot"
-
-#: Wammu/Main.py:1256 Wammu/Main.py:1535
-#, python-format
-msgid "%d messages"
-msgstr "%d viestit"
-
-#: Wammu/Main.py:1314
-#, fuzzy, python-format
-msgid "%d phone contact entries"
-msgstr "%d puhelimen yhteystiedot"
-
-#: Wammu/Main.py:1320
-#, fuzzy, python-format
-msgid "%d to do entries"
-msgstr "%d Tehtävä merkinnät"
-
-#: Wammu/Main.py:1537
-#, python-format
-msgid "%d todo"
-msgstr "%d tehtävä"
-
-#: Wammu/Main.py:320
-msgid "&About"
-msgstr "&Tietoja"
-
-#: Wammu/Main.py:308
-msgid "&Backups"
-msgstr "&Varmuuskopiot"
-
-#: Wammu/Main.py:268
-msgid "&Connect"
-msgstr "&Yhdistä"
-
-#: Wammu/Main.py:293
-msgid "&Contact"
-msgstr "&Yhteystieto"
-
-#: Wammu/Main.py:280
-msgid "&Contacts (All)"
-msgstr "&Yhteystiedot (kaikki)"
-
-#: Wammu/Main.py:269
-msgid "&Disconnect"
-msgstr "&Katkaise yhteys"
-
-#: Wammu/Main.py:318
+#: Wammu/GammuSettings.py:164
 #, fuzzy
-msgid "&Donate"
-msgstr "Päiväys"
+msgid "Select which configration you want to modify."
+msgstr "Asetuksia ei löytynyt"
 
-#: Wammu/Main.py:315
-msgid "&Gammu Phone Database"
+#: Wammu/GammuSettings.py:165
+#, fuzzy
+msgid "Select configuration section"
+msgstr "Asetuksia ei löytynyt"
+
+#: Wammu/TalkbackFeaturesDialog.py:37
+msgid ""
+"Select which functionality works without problems on your phone (either in "
+"Wammu or in some other tool using Gammu library)."
 msgstr ""
 
-#: Wammu/Main.py:322
-msgid "&Help"
-msgstr "&Ohje"
+#: Wammu/TalkbackFeaturesDialog.py:39
+#, fuzzy
+msgid "Phone information"
+msgstr "Puhelimen tiedot"
 
-#: Wammu/Main.py:303
-msgid "&Import"
-msgstr "T&uo"
+#: Wammu/TalkbackFeaturesDialog.py:40
+msgid "Sending and saving SMS"
+msgstr ""
 
-#: Wammu/Main.py:276
-msgid "&Info"
-msgstr "&Tietoja"
+#: Wammu/TalkbackFeaturesDialog.py:41
+msgid "Multimedia messaging"
+msgstr ""
 
-#: Wammu/Main.py:296
-msgid "&Message"
-msgstr "&Viesti"
+#: Wammu/TalkbackFeaturesDialog.py:42
+msgid "Basic phonebook functions"
+msgstr ""
 
-#: Wammu/Main.py:284
-msgid "&Messages"
-msgstr "&Viestit"
+#: Wammu/TalkbackFeaturesDialog.py:43
+#, fuzzy
+msgid "Enhanced phonebook entries"
+msgstr "%d puhelimen yhteystiedot"
 
-#: Wammu/Main.py:298
-msgid "&New"
-msgstr "&Uusi"
+#: Wammu/TalkbackFeaturesDialog.py:44
+#, fuzzy
+msgid "Calendar entries"
+msgstr "%d Kalenteri merkinnät"
 
-#: Wammu/Main.py:273
-msgid "&Phone"
-msgstr "&Puhelin"
+#: Wammu/TalkbackFeaturesDialog.py:45 Wammu/Main.py:125 Wammu/Main.py:286
+msgid "Todos"
+msgstr "Tehtävät"
+
+#: Wammu/TalkbackFeaturesDialog.py:46
+msgid "Filesystem manipulation"
+msgstr ""
+
+#: Wammu/TalkbackFeaturesDialog.py:47
+#, fuzzy
+msgid "Reading and making calls"
+msgstr "Luetaan kalenteria"
+
+#: Wammu/TalkbackFeaturesDialog.py:48
+#, fuzzy
+msgid "Logos"
+msgstr "Kirjautuminen"
+
+#: Wammu/TalkbackFeaturesDialog.py:49
+#, fuzzy
+msgid "Ringtones"
+msgstr "Luetaan tehtäviä"
+
+#: Wammu/TalkbackFeaturesDialog.py:60
+#, fuzzy
+msgid "Select features"
+msgstr "Valitse kansio"
+
+#: Wammu/TalkbackFeaturesDialog.py:61
+#, fuzzy
+msgid "You can access name and phone number."
+msgstr "Et antanut toimivaa puhelinnumeroa."
+
+#: Wammu/TalkbackFeaturesDialog.py:62
+msgid ""
+"You have access to more phone numbers per entry or additional fields as "
+"email."
+msgstr ""
+
+#: Wammu/Composer.py:62
+msgid "Message preview"
+msgstr "Viestin esikatselu"
+
+#: Wammu/Composer.py:74
+msgid "Text style"
+msgstr "Tekstin tyyli"
+
+#: Wammu/Composer.py:182
+msgid "Style"
+msgstr "Tyyli"
+
+#: Wammu/Composer.py:224
+#, fuzzy, python-format
+msgid "%d char"
+msgid_plural "%d chars"
+msgstr[0] "%d merkit"
+msgstr[1] "%d merkit"
+
+#: Wammu/Composer.py:265
+msgid "Select predefined animation:"
+msgstr "Valitse esivalittu animaatio:"
+
+#: Wammu/Composer.py:301
+msgid "Select predefined sound:"
+msgstr "Valitse esivalittu ääni:"
+
+#: Wammu/Composer.py:317
+msgid "Predefined animation"
+msgstr "Esivalittu animaatio"
+
+#: Wammu/Composer.py:318
+msgid "Predefined sound"
+msgstr "Esivalittu ääni"
+
+#: Wammu/Composer.py:323
+msgid "Composing SMS"
+msgstr "Tekstiviestin kirjoitus"
+
+#: Wammu/Composer.py:353
+msgid "When checked, message is sent to recipient."
+msgstr "Kun merkitty, viesti on lähetetty vastaanottajalle."
+
+#: Wammu/Composer.py:356
+msgid "Save into folder"
+msgstr "Tallenna kansioon"
+
+#: Wammu/Composer.py:357
+msgid "When checked, message is saved to phone."
+msgstr "Kun merkitty, viesti tallennetaan puhelimeen"
+
+#: Wammu/Composer.py:372 Wammu/Main.py:113
+msgid "Contacts"
+msgstr "Yhteystiedot"
+
+#: Wammu/Composer.py:373
+msgid "Add number of recipient from contacts."
+msgstr "Lisää vastaanottaja yhteystiedoista"
+
+#: Wammu/Composer.py:375
+msgid "Recipient's numbers:"
+msgstr "Vastaanottajien numerot:"
+
+#: Wammu/Composer.py:383
+msgid "Unicode"
+msgstr "Unicode"
+
+#: Wammu/Composer.py:394
+msgid "Delivery report"
+msgstr "Välitystieto"
+
+#: Wammu/Composer.py:399 Wammu/Main.py:121
+msgid "Sent"
+msgstr "Lähetetyt"
+
+#: Wammu/Composer.py:400
+msgid ""
+"Check to save message as sent (has only effect when only saving message)."
+msgstr ""
+"Merkitse tallentaaksesi viestin lähetetyksi (vaikuttaa kun viesti vain "
+"tallennetaan)."
+
+#: Wammu/Composer.py:403
+msgid "Flash"
+msgstr "Flash"
+
+#: Wammu/Composer.py:404
+msgid ""
+"Send flash message - it will be just displayed on display, but not saved in "
+"phone."
+msgstr ""
+"Lähetä flash viesti - se näytetään vain näytöllä, ei tallenneta puhelimeen."
+
+#: Wammu/Composer.py:411
+msgid "Parts of current message"
+msgstr "Osia nykyisestä viestistä"
+
+#: Wammu/Composer.py:412
+msgid "Available message parts"
+msgstr "Saatavilla olevat viestin osat"
+
+#: Wammu/Composer.py:441 Wammu/Composer.py:518
+msgid "Create new message by adding part to left list..."
+msgstr "Luo uusi viesti lisäämällä osa vasemmasta listasta..."
+
+#: Wammu/Composer.py:446
+msgid "Preview"
+msgstr "Esikatselu"
+
+#: Wammu/Composer.py:504
+#, python-format
+msgid "Not supported id: %s"
+msgstr "Ei tuettu id: %s"
+
+#: Wammu/Composer.py:545
+#, python-format
+msgid "No editor available for type %s"
+msgstr "Ei muokkainta saatavilla tyypille %s"
+
+#: Wammu/Composer.py:626
+msgid "Nothing to preview, message is empty."
+msgstr "Ei esikatseltavaa, viesti on tyhjä."
+
+#: Wammu/Composer.py:627
+msgid "Message empty!"
+msgstr "Tyhjä viesti!"
+
+#: Wammu/Composer.py:637
+#, python-format
+msgid "Message will fit into %d SMSes"
+msgstr "Viesti mahtuu %d tekstiviesteihin"
+
+#: Wammu/Main.py:99 Wammu/Main.py:115
+msgid "Phone"
+msgstr "Puhelin"
+
+#: Wammu/Main.py:99
+msgid "Phone Information"
+msgstr "Puhelimen tiedot"
+
+#: Wammu/Main.py:100
+msgid "Wammu version"
+msgstr "Wammu versio"
+
+#: Wammu/Main.py:103
+msgid "Gammu version"
+msgstr "Gammu versio"
+
+#: Wammu/Main.py:104
+msgid "python-gammu version"
+msgstr "python-gammu versio"
+
+#: Wammu/Main.py:107 Wammu/Main.py:282
+msgid "Calls"
+msgstr "Puhelut"
+
+#: Wammu/Main.py:107
+msgid "All Calls"
+msgstr "Kaikki Puhelut"
+
+#: Wammu/Main.py:108
+msgid "Received"
+msgstr "Vastatut"
+
+#: Wammu/Main.py:108
+msgid "Received Calls"
+msgstr "Vastatut puhelut"
+
+#: Wammu/Main.py:109
+msgid "Missed"
+msgstr "Menetetyt"
+
+#: Wammu/Main.py:109
+msgid "Missed Calls"
+msgstr "Menetetyt puhelut"
+
+#: Wammu/Main.py:110
+msgid "Outgoing"
+msgstr "Lähtevät"
+
+#: Wammu/Main.py:110
+msgid "Outgoing Calls"
+msgstr "Lähtevät puhelut"
+
+#: Wammu/Main.py:113
+msgid "All Contacts"
+msgstr "Kaikki Yhteystiedot"
+
+#: Wammu/Main.py:114
+msgid "SIM"
+msgstr "SIM"
+
+#: Wammu/Main.py:114
+msgid "SIM Contacts"
+msgstr "SIM yhteystiedot"
+
+#: Wammu/Main.py:115
+msgid "Phone Contacts"
+msgstr "Puhelimen yhteystiedot"
+
+#: Wammu/Main.py:118
+msgid "All Messages"
+msgstr "Kaikki Viestit"
+
+#: Wammu/Main.py:119
+msgid "Read"
+msgstr "Luettu"
+
+#: Wammu/Main.py:119
+msgid "Read Messages"
+msgstr "Luetut viestit"
+
+#: Wammu/Main.py:120
+msgid "Unread"
+msgstr "Lukemattomat"
+
+#: Wammu/Main.py:120
+msgid "Unread Messages"
+msgstr "Lukemattomat viestit"
+
+#: Wammu/Main.py:121
+msgid "Sent Messages"
+msgstr "Lähetetyt viestit"
+
+#: Wammu/Main.py:122
+msgid "Unsent"
+msgstr "Ei lähetetty"
+
+#: Wammu/Main.py:122
+msgid "Unsent Messages"
+msgstr "Lähettämättömät viestit"
+
+#: Wammu/Main.py:125
+msgid "All Todo Items"
+msgstr "Kaikki Tehtävät"
+
+#: Wammu/Main.py:128
+msgid "Calendar"
+msgstr "Kalenteri"
+
+#: Wammu/Main.py:128
+msgid "All Calendar Events"
+msgstr "Kaikki Kalenterin Tapahtumat"
+
+#: Wammu/Main.py:220
+msgid "Search:"
+msgstr "Etsi:"
+
+#: Wammu/Main.py:222
+#, fuzzy
+msgid ""
+"Enter text to search for, please note that search type is selected next to "
+"this field. Matching is done over all fields."
+msgstr ""
+"Syötä etsittävä teksti, huomaa, että sitä käsitellään kuten perusilmaisua. "
+"Haku tehdään kaikilla kentillä."
+
+#: Wammu/Main.py:224
+msgid "Regexp"
+msgstr "Säännöke"
+
+#: Wammu/Main.py:224
+msgid "Wildcard"
+msgstr ""
+
+#: Wammu/Main.py:225
+#, fuzzy
+msgid "Select search type"
+msgstr "Valitse vientityyppi"
+
+#: Wammu/Main.py:249
+#, python-format
+msgid "Welcome to Wammu %s"
+msgstr "Tervetuloa Wammuun %s"
+
+#: Wammu/Main.py:255
+msgid "&Write data"
+msgstr "&Tallenna tiedo"
+
+#: Wammu/Main.py:255
+msgid "Writes data (except messages) to file"
+msgstr "Kirjoittaa tietoja (paitsi viestejä) tiedostoon"
+
+#: Wammu/Main.py:256
+msgid "W&rite message"
+msgstr "Tallenna vie&sti"
+
+#: Wammu/Main.py:256
+msgid "Writes messages to file"
+msgstr "Kirjoittaa viestin tiedostoon"
 
 #: Wammu/Main.py:257
 msgid "&Read data"
 msgstr "&Lue tiedot"
 
-#: Wammu/Main.py:313
+#: Wammu/Main.py:257
+msgid "Reads data (except messages) from file (does not import to the phone)"
+msgstr "Luetaan tietoja (paitsi viestejä) tiedostosta (ei tuo puhelimeen)"
+
+#: Wammu/Main.py:258
+msgid "R&ead messages"
+msgstr "Lue &viestit"
+
+#: Wammu/Main.py:258
+msgid "Reads messages from file (does not import to the phone)"
+msgstr "Lukee tiedot tiedostosta (ei tuo puhelimeen)"
+
+#: Wammu/Main.py:260
+msgid "&Search phone"
+msgstr "&Etsi puhelin"
+
+#: Wammu/Main.py:260
+msgid "Search for phone"
+msgstr "Etsi puhelin"
+
+#: Wammu/Main.py:261
+msgid "Se&ttings"
+msgstr "&Asetukset"
+
+#: Wammu/Main.py:261
+msgid "Change Wammu settings"
+msgstr "Vaihda Wammun asetuksia"
+
+#: Wammu/Main.py:263
+msgid "E&xit"
+msgstr "&Lopeta"
+
+#: Wammu/Main.py:263
+msgid "Exit Wammu"
+msgstr "Poistu Wammusta"
+
+#: Wammu/Main.py:265
+msgid "&Wammu"
+msgstr "&Wammu"
+
+#: Wammu/Main.py:268
+msgid "&Connect"
+msgstr "&Yhdistä"
+
+#: Wammu/Main.py:268
+msgid "Connect the device"
+msgstr "Yhdistä laite"
+
+#: Wammu/Main.py:269
+msgid "&Disconnect"
+msgstr "&Katkaise yhteys"
+
+#: Wammu/Main.py:269
+msgid "Disconnect the device"
+msgstr "Irroita laite"
+
+#: Wammu/Main.py:271
+msgid "&Synchronise time"
+msgstr "&Synkronoi aika"
+
+#: Wammu/Main.py:271
+msgid "Synchronises time in mobile with PC"
+msgstr "Tahdista kännykän aika PC:n kanssa"
+
+#: Wammu/Main.py:273
+msgid "&Phone"
+msgstr "&Puhelin"
+
+#: Wammu/Main.py:276
+msgid "&Info"
+msgstr "&Tietoja"
+
+#: Wammu/Main.py:276
+msgid "Get phone information"
+msgstr "Hae puhelimen tiedot"
+
+#: Wammu/Main.py:278
+msgid "Contacts (&SIM)"
+msgstr "Yhteystiedot (&SIM)"
+
+#: Wammu/Main.py:278
+msgid "Contacts from SIM"
+msgstr "Yhteystiedot sim-kortilta"
+
+#: Wammu/Main.py:279
+msgid "Contacts (&phone)"
+msgstr "Yhteystiedot (p&uhelin)"
+
+#: Wammu/Main.py:279
+msgid "Contacts from phone memory"
+msgstr "Yhteystiedot puhelimen muistista"
+
+#: Wammu/Main.py:280
+msgid "&Contacts (All)"
+msgstr "&Yhteystiedot (kaikki)"
+
+#: Wammu/Main.py:280
+msgid "Contacts from phone and SIM memory"
+msgstr "Yhteystiedot puhelimesta ja SIM-kortin muistista"
+
+#: Wammu/Main.py:282
+msgid "C&alls"
+msgstr "&Soitot"
+
+#: Wammu/Main.py:284
+msgid "&Messages"
+msgstr "&Viestit"
+
+#: Wammu/Main.py:286
+msgid "&Todos"
+msgstr "Te&htävät"
+
+#: Wammu/Main.py:288
+msgid "Calenda&r"
+msgstr "&Kalenteri"
+
+#: Wammu/Main.py:288
 #, fuzzy
-msgid "&Report bug"
-msgstr "Tuo varmuuskopio"
+msgid "Calendar events"
+msgstr "Kalenteri &tapahtuma"
 
 #: Wammu/Main.py:290
 msgid "&Retrieve"
 msgstr "&Hae"
 
+#: Wammu/Main.py:293
+msgid "&Contact"
+msgstr "&Yhteystieto"
+
+#: Wammu/Main.py:293
+msgid "Crates new contact"
+msgstr "Luo uusi yhteystieto"
+
+#: Wammu/Main.py:294
+#, fuzzy
+msgid "&Event"
+msgstr "Tapahtuma tyyppi"
+
+#: Wammu/Main.py:294
+msgid "Crates new calendar event"
+msgstr "Luo uusi kalenteri merkintä"
+
+#: Wammu/Main.py:295
+msgid "&Todo"
+msgstr "&Tehtävä"
+
+#: Wammu/Main.py:295
+msgid "Crates new todo"
+msgstr "luo uusi tehtävä"
+
+#: Wammu/Main.py:296
+msgid "&Message"
+msgstr "&Viesti"
+
+#: Wammu/Main.py:296
+msgid "Crates new message"
+msgstr "Luo uusi viesti"
+
+#: Wammu/Main.py:298
+#, fuzzy
+msgid "&Create"
+msgstr "Keskitetty"
+
 #: Wammu/Main.py:301
 msgid "&Save"
 msgstr "&Tallenna"
 
-#: Wammu/Main.py:260
-msgid "&Search phone"
-msgstr "&Etsi puhelin"
+#: Wammu/Main.py:301
+msgid "Saves currently retrieved data (except messages) to backup"
+msgstr "Varmuuskopioi äskettäin ladatun tiedon (ei viestejä)"
+
+#: Wammu/Main.py:302
+msgid "S&ave messages"
+msgstr "Tallenna &viestit"
+
+#: Wammu/Main.py:302
+msgid "Saves currently retrieved messages to backup"
+msgstr "Tallennetaan äskettäin haetut viestit varmuuskopioihin"
+
+#: Wammu/Main.py:303
+msgid "&Import"
+msgstr "T&uo"
+
+#: Wammu/Main.py:303
+msgid "Imports data from backup to phone"
+msgstr "Tuo tietoa varmuuskopioista puhelimeen"
+
+#: Wammu/Main.py:304
+msgid "I&mport messages"
+msgstr "Tu&o viestit"
+
+#: Wammu/Main.py:304
+msgid "Imports messages from backup to phone"
+msgstr "Tuo viestejä varmuuskopioista puhelimeen"
+
+#: Wammu/Main.py:306
+msgid "Export messages to &emails"
+msgstr "Vie viestit &sähköposteihin"
+
+#: Wammu/Main.py:306
+msgid "Exports messages to emails in storage you choose"
+msgstr "Vie viestit valitsemassasi paikassa oleviin sähköposteihin"
+
+#: Wammu/Main.py:308
+msgid "&Backups"
+msgstr "&Varmuuskopiot"
+
+#: Wammu/Main.py:311
+msgid "&Website"
+msgstr ""
+
+#: Wammu/Main.py:311
+#, fuzzy
+msgid "Wammu website"
+msgstr "Wammu versio"
 
 #: Wammu/Main.py:312
 #, fuzzy
 msgid "&Support"
 msgstr "T&uo"
 
-#: Wammu/Main.py:271
-msgid "&Synchronise time"
-msgstr "&Synkronoi aika"
+#: Wammu/Main.py:312
+msgid "Wammu support website"
+msgstr ""
+
+#: Wammu/Main.py:313
+#, fuzzy
+msgid "&Report bug"
+msgstr "Tuo varmuuskopio"
+
+#: Wammu/Main.py:313
+#, fuzzy
+msgid "Report bug in Wammu"
+msgstr "Tuo varmuuskopio"
+
+#: Wammu/Main.py:315
+msgid "&Gammu Phone Database"
+msgstr ""
+
+#: Wammu/Main.py:315
+msgid "Database of user experiences with phones"
+msgstr ""
 
 #: Wammu/Main.py:316
 msgid "&Talkback"
 msgstr ""
 
-#: Wammu/Main.py:295
-msgid "&Todo"
-msgstr "&Tehtävä"
-
-#: Wammu/Main.py:286
-msgid "&Todos"
-msgstr "Te&htävät"
-
-#: Wammu/Main.py:265
-msgid "&Wammu"
-msgstr "&Wammu"
-
-#: Wammu/Main.py:311
-msgid "&Website"
+#: Wammu/Main.py:316
+msgid "Report your experiences in Gammu Phone Database"
 msgstr ""
 
-#: Wammu/Main.py:255
-msgid "&Write data"
-msgstr "&Tallenna tiedo"
+#: Wammu/Main.py:318
+#, fuzzy
+msgid "&Donate"
+msgstr "Päiväys"
 
-#: Wammu/Main.py:1336
-#, python-format
-msgid ", serial number %s"
-msgstr ", sarjanumero %s"
-
-#: wammu-configure.py:53 wammu.py:49
-msgid "-h/--help          ... show this help"
+#: Wammu/Main.py:318
+msgid "Donate to Wammu author"
 msgstr ""
 
-#: wammu-configure.py:55 wammu.py:51
+#: Wammu/Main.py:320
+msgid "&About"
+msgstr "&Tietoja"
+
+#: Wammu/Main.py:320
+msgid "Information about program"
+msgstr "Tietoa ohjelmasta"
+
+#: Wammu/Main.py:322
+msgid "&Help"
+msgstr "&Ohje"
+
+#: Wammu/Main.py:405 Wammu/Main.py:415 Wammu/Main.py:422
+#, fuzzy
+msgid "Wammu could not import gammu module, program will be terminated."
+msgstr ""
+"Wammu ei voinut tuoda gammu moduulia, joten ohjelma lopetetaan.\n"
+"\n"
+"Tuonti epäonnistui seuraavin virhein:\n"
+"\n"
+"%s"
+
+#: Wammu/Main.py:406
+msgid "The import failed because python-gammu is compiled with different "
+msgstr ""
+
+#: Wammu/Main.py:409
+msgid "You can fix it by recompiling python-gammu against gammu library you "
+msgstr ""
+
+#: Wammu/Main.py:411 Wammu/Main.py:418 Wammu/Main.py:424
+msgid "Gammu module not working!"
+msgstr "Gammu moduuli ei toimi!"
+
+#: Wammu/Main.py:416
 msgid ""
-"-l/--local-locales ... use locales from current directory rather than system "
-"ones"
+"Gammu module was not found, you probably don't have properly installed "
+"python-gammu for current python version."
 msgstr ""
 
-#: wammu-configure.py:54 wammu.py:50
-msgid "-v/--version       ... show program version"
+#: Wammu/Main.py:423
+msgid "The import failed with following error:"
 msgstr ""
 
-#: Wammu/Editor.py:201
-msgid "..."
-msgstr "..."
+#: Wammu/Main.py:432
+msgid "Wammu configuration was not found and Gammu settings couldn't be read."
+msgstr "Wammun asetuksia ei löydetty ja Gammun asetuksia ei voi lukea."
 
-#: Wammu/About.py:112
-msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
+#: Wammu/Main.py:433
+msgid "Do you want to configure phone connection now?"
 msgstr ""
-"<b>Wammu</b> on wxPython pohjainen graafinenkäyttöliittymä Gammu-ohjelmaan."
+
+#: Wammu/Main.py:434
+msgid "Configuration not found"
+msgstr "Asetuksia ei löytynyt"
+
+#: Wammu/Main.py:449
+msgid ""
+"You are using Wammu for more than a month. We would like to hear from you "
+"how your phone is supported. Do you want to participate in this survey?"
+msgstr ""
+
+#: Wammu/Main.py:450
+msgid "Press Cancel to never show this question again."
+msgstr ""
+
+#: Wammu/Main.py:451
+msgid "Thanks for using Wammu"
+msgstr ""
+
+#: Wammu/Main.py:472
+msgid "Migrated from older Wammu"
+msgstr ""
+
+#: Wammu/Main.py:509
+msgid "battery"
+msgstr "akku"
 
 #: Wammu/Main.py:511
 msgid "AC"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:116
-msgid "AT based"
+#: Wammu/Main.py:513
+msgid "no battery"
+msgstr "ei akkua"
+
+#: Wammu/Main.py:515
+msgid "fault"
+msgstr "virhe"
+
+#: Wammu/Main.py:517
+msgid "charging"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:284
-msgid "AT over Bluetooth"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:288
-msgid "AT over Bluetooth with RF searching"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:298
-msgid "AT over DKU2"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:293
-msgid "AT over IrDA"
-msgstr ""
-
-#: Wammu/About.py:43
-msgid "About Wammu"
-msgstr "Tietoja Wammusta"
-
-#: Wammu/Thread.py:92
-msgid "Action canceled"
-msgstr "Toiminto peruutettu"
-
-#: Wammu/Thread.py:91
-msgid "Action canceled by user!"
-msgstr "Käyttäjä peruuttanut toiminnon!"
-
-#: Wammu/Composer.py:369
-msgid "Add number of recipient from contacts."
-msgstr "Lisää vastaanottaja yhteystiedoista"
-
-#: Wammu/Editor.py:292
-msgid "Add one more field."
-msgstr ""
-
-#: Wammu/Browser.py:121
-msgid "Alarm"
-msgstr ""
-
-#: Wammu/Data.py:660
-msgid "Alignment"
-msgstr "Tasaus"
-
-#: Wammu/Main.py:128
-msgid "All Calendar Events"
-msgstr "Kaikki Kalenterin Tapahtumat"
-
-#: Wammu/Main.py:107
-msgid "All Calls"
-msgstr "Kaikki Puhelut"
-
-#: Wammu/Main.py:113
-msgid "All Contacts"
-msgstr "Kaikki Yhteystiedot"
-
-#: Wammu/Main.py:118
-msgid "All Messages"
-msgstr "Kaikki Viestit"
-
-#: Wammu/Main.py:125
-msgid "All Todo Items"
-msgstr "Kaikki Tehtävät"
-
-#: Wammu/Main.py:1152
-msgid "All backup formats"
-msgstr "Kaikki varmuuskopio muodot"
-
-#: Wammu/SMSExport.py:34 Wammu/Main.py:1173
-msgid "All files"
-msgstr "Kaikki tiedostot"
-
-#: Wammu/PhoneSearch.py:174
-#, python-format
-msgid "All finished, found %d phones"
-msgstr "Valmis, löytyi %d puhelinta"
-
-#: Wammu/Main.py:1516
-#, python-format
-msgid "Are you sure you want to delete %s?"
-msgstr "Haluatko varmasti poistaa %s?"
-
-#: Wammu/PhoneWizard.py:457
-msgid "As soon as your phone is ready, you can continue."
-msgstr ""
-
-#: Wammu/Settings.py:214
-msgid "Attempt to reformat text"
-msgstr "Yritetään uudelleenmuotoilla teksti"
-
-#: Wammu/Settings.py:95
-msgid "Automatically connect to phone on startup"
-msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
-
-#: Wammu/PhoneWizard.py:426
+#: Wammu/Main.py:519
 #, fuzzy
-msgid "Automatically search for a phone"
-msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
-
-#: Wammu/Composer.py:408
-msgid "Available message parts"
-msgstr "Saatavilla olevat viestin osat"
-
-#: Wammu/Browser.py:535
-msgid "Backup all"
-msgstr "Varmuuskopioi kaikki"
-
-#: Wammu/Browser.py:533
-msgid "Backup current"
-msgstr "Varmuuskopioi nykyinen"
-
-#: Wammu/Main.py:1302 Wammu/Main.py:1402
-#, python-format
-msgid "Backup has been imported from file \"%s\""
-msgstr "Varmuuskopio tuotu tiedostosta \"%s\""
-
-#: Wammu/Main.py:1437
-#, python-format
-msgid "Backup has been saved to file \"%s\""
-msgstr "Varmuuskopio tallennettu tiedostoon \"%s\""
-
-#: Wammu/Main.py:1303 Wammu/Main.py:1403
-msgid "Backup imported"
-msgstr "Varmuuskopio tuotu"
-
-#: Wammu/Main.py:1334
-#, python-format
-msgid "Backup saved from phone %s"
-msgstr "Vamuuskopio tallennettu puhelimesta %s"
-
-#: Wammu/Main.py:1340
-#, python-format
-msgid "Backup saved on %s"
-msgstr "Varmuuskopio tallennettu %s :sta"
-
-#: Wammu/Browser.py:534
-msgid "Backup selected"
-msgstr "Varmuuskopio valittu"
-
-#: Wammu/Main.py:1338
-#, python-format
-msgid "Backup was created by %s"
-msgstr "%s loi varmuuskopion"
-
-#: Wammu/TalkbackFeaturesDialog.py:42
-msgid "Basic phonebook functions"
-msgstr ""
+msgid "charged"
+msgstr "Suuri"
 
 #: Wammu/Main.py:527
 #, python-format
@@ -407,394 +2627,283 @@ msgstr ""
 "Akku: %(battery_percent)d %% (%(power_source)s), Signaali: %(signal_percent)"
 "d %%, Aika: %(time)s"
 
-#: Wammu/Error.py:69
-#, python-format
-msgid "Before submiting please try searching for simmilar bugs on %s"
-msgstr "Ennen lähettämistä yritä etsiä samanlaisia bugeja %s :sta"
-
-#: Wammu/PhoneWizard.py:397
-msgid "Bluetooth"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:398
-msgid ""
-"Bluetooth connection is wireless and does not require direct visibility. "
-"Phone needs to be properly paired with computer before proceeding."
-msgstr ""
-
-#: Wammu/PhoneSearch.py:128 Wammu/PhoneSearch.py:158
-msgid "Bluetooth device scan completed"
-msgstr "Bluetooth laitteiden etsintä valmis"
-
-#: Wammu/Data.py:669
-msgid "Bold"
-msgstr "Lihavointi"
-
-#: Wammu/Main.py:282
-msgid "C&alls"
-msgstr "&Soitot"
-
-#: Wammu/PhoneWizard.py:453
-#, fuzzy
-msgid "Cable is connected."
-msgstr "Yhteys katkaistu"
-
-#: Wammu/Main.py:288
-msgid "Calenda&r"
-msgstr "&Kalenteri"
-
-#: Wammu/Main.py:128 Wammu/Main.py:288
-msgid "Calendar"
-msgstr "Kalenteri"
-
-#: Wammu/Main.py:294
-msgid "Calendar &event"
-msgstr "Kalenteri &tapahtuma"
-
-#: Wammu/TalkbackFeaturesDialog.py:44
-#, fuzzy
-msgid "Calendar entries"
-msgstr "%d Kalenteri merkinnät"
-
-#: Wammu/Browser.py:515 Wammu/Browser.py:520
-msgid "Call"
-msgstr "Puhelu"
-
-#: Wammu/Main.py:107 Wammu/Main.py:282
-msgid "Calls"
-msgstr "Puhelut"
-
-#: Wammu/SMSExport.py:62 Wammu/SMSExport.py:136
-msgid "Can not create file!"
-msgstr "Tiedostoa ei voi luoda!"
-
-#: Wammu/SMSExport.py:99
-msgid "Can not create folder!"
-msgstr "Kansiota ei voi luoda!"
-
-#: Wammu/SMSExport.py:226
-msgid "Can not list folders on server, bailing out."
-msgstr "Palvelimen hakemistoja ei voi näyttää, keskeytetään."
-
-#: Wammu/SMSExport.py:205
-#, fuzzy
-msgid ""
-"Can not login, you probably entered invalid login information. Do you want "
-"to retry?"
-msgstr ""
-"Sisäänkirjautuminen ei onnistu, olet ehkä antanut väärät tiedot, "
-"keskeytetään."
-
-#: Wammu/SMSExport.py:278
-#, python-format
-msgid "Can not save message to folder %s on server, bailing out."
-msgstr "Viestiä ei voi tallentaa kansioon %s palvelimelle, keskeytetään."
-
-#: Wammu/SMSExport.py:256
-#, python-format
-msgid "Can not select folder %s on server, bailing out."
-msgstr "Kansiota %s ei voi valita palvelimelta, keskeytetään."
-
-#: Wammu/Data.py:663
-msgid "Center"
-msgstr "Keskitetty"
-
-#: Wammu/Main.py:261
-msgid "Change Wammu settings"
-msgstr "Vaihda Wammun asetuksia"
-
-#: Wammu/Settings.py:248 Wammu/Composer.py:391
-msgid "Check to request delivery report for message."
-msgstr "Merkitse pyytääksesi välitystietoja viestistä."
-
-#: Wammu/Composer.py:396
-msgid ""
-"Check to save message as sent (has only effect when only saving message)."
-msgstr ""
-"Merkitse tallentaaksesi viestin lähetetyksi (vaikuttaa kun viesti vain "
-"tallennetaan)."
-
-#: Wammu/PhoneSearch.py:124 Wammu/PhoneSearch.py:154
-#, python-format
-msgid "Checking %s"
-msgstr "Tarkistetaan %s"
-
-#: Wammu/Data.py:31
-msgid "Chimes high"
-msgstr "Soittoääni korkea"
-
-#: Wammu/Data.py:32
-msgid "Chimes low"
-msgstr "Soittoääni matala"
-
-#: Wammu/Data.py:39
-msgid "Chord high"
-msgstr "Korkea sointu"
-
-#: Wammu/Data.py:40
-msgid "Chord low"
-msgstr "Matala sointu"
-
-#: Wammu/Data.py:37
-msgid "Claps"
-msgstr "Taputukset"
-
-#: Wammu/PhoneSearch.py:47
-msgid "Close"
-msgstr "Sulje"
-
-#: wammu-configure.py:62 wammu.py:58
-msgid "Command line parsing failed with error:"
-msgstr ""
-
-#: Wammu/Utils.py:486
-msgid "Communication canceled by phone, did you press cancel on phone?"
-msgstr "Yhteys peruutettu puhelimesta, painoitko puhelimesta peruuta-nappia?"
-
-#: Wammu/Browser.py:100
-msgid "Completed"
-msgstr "Valmis"
-
-#: Wammu/Composer.py:319
-msgid "Composing SMS"
-msgstr "Tekstiviestin kirjoitus"
-
-#: Wammu/Settings.py:235 Wammu/Composer.py:172
-msgid "Concatenated"
-msgstr "Yhteenliitetty"
-
-#: Wammu/PhoneWizard.py:44
-#, fuzzy
-msgid "Configuration done"
-msgstr "Asetuksia ei löytynyt"
-
-#: Wammu/Main.py:434
-msgid "Configuration not found"
-msgstr "Asetuksia ei löytynyt"
-
-#: Wammu/PhoneWizard.py:423
-#, fuzzy
-msgid "Configuration type"
-msgstr "Asetuksia ei löytynyt"
-
-#: Wammu/Settings.py:292 Wammu/Main.py:1542
-msgid "Confirm deleting"
-msgstr "Vahvista poisto"
-
-#: Wammu/Main.py:268
-msgid "Connect the device"
-msgstr "Yhdistä laite"
-
 #: Wammu/Main.py:608
 msgid "Connected"
 msgstr "Yhdistetty"
 
-#: Wammu/SMSExport.py:189
-msgid "Connecting to IMAP server..."
-msgstr "Yhdistetään IMAP palvelimeen..."
+#: Wammu/Main.py:612
+msgid "Disconnected"
+msgstr "Yhteys katkaistu"
 
-#: Wammu/Settings.py:176 Wammu/Settings.py:348
-msgid "Connection"
-msgstr "Yhteys"
-
-#: Wammu/SMSExport.py:212
+#: Wammu/Main.py:708
 msgid ""
-"Connection suceeded, do you want to remember password? This is a bit "
-"insecure."
+"You changed parameters affecting phone connection, they will be used next "
+"time you connect to phone."
 msgstr ""
+"Vaihtamasi parametrit vaikuttavat puhelin yhteyteen, niitä käytetään kun "
+"seuraavan kerran yhdistät puhelimen."
 
-#: Wammu/PhoneWizard.py:65
-#, fuzzy
-msgid "Connection test"
-msgstr "Yhteys"
+#: Wammu/Main.py:709
+msgid "Notice"
+msgstr "Huomautus"
 
-#: Wammu/PhoneWizard.py:252 Wammu/PhoneWizard.py:343
-#, fuzzy
-msgid "Connection type"
-msgstr "Yhteys"
+#: Wammu/Main.py:745
+msgid "Operation in progress"
+msgstr "Toiminto käynnissä"
 
-#: Wammu/TalkbackDialog.py:54
-#, fuzzy
-msgid "Connection type:"
-msgstr "Yhteys"
-
-#: Wammu/Settings.py:175
-msgid ""
-"Connection which your phone understands, check Gammu documentation for "
-"connection details."
-msgstr ""
-"Yhteys, jonka puhelimesi ymmärtää, tarkista yksityiskohdat Gammu-"
-"dokumentaatiosta."
-
-#: Wammu/Composer.py:368 Wammu/Main.py:113
-msgid "Contacts"
-msgstr "Yhteystiedot"
-
-#: Wammu/Main.py:278
-msgid "Contacts (&SIM)"
-msgstr "Yhteystiedot (&SIM)"
-
-#: Wammu/Main.py:279
-msgid "Contacts (&phone)"
-msgstr "Yhteystiedot (p&uhelin)"
-
-#: Wammu/Main.py:278
-msgid "Contacts from SIM"
-msgstr "Yhteystiedot sim-kortilta"
-
-#: Wammu/Main.py:280
-msgid "Contacts from phone and SIM memory"
-msgstr "Yhteystiedot puhelimesta ja SIM-kortin muistista"
-
-#: Wammu/Main.py:279
-msgid "Contacts from phone memory"
-msgstr "Yhteystiedot puhelimen muistista"
-
-#: Wammu/PhoneSearch.py:131
+#: Wammu/Main.py:804
 #, python-format
-msgid "Could not access Bluetooth subsystem (%s)"
-msgstr "Ei pääsyä bluetooth alijärjestelmään (%s)"
+msgid "voice tag %x"
+msgstr "äänikomento %x"
 
-#: Wammu/Ringtone.py:48
-msgid "Could not find timidity, melody can not be played"
-msgstr "Timidy ohjelmaa ei löydy, melodiaa ei voi soittaa"
+#: Wammu/Main.py:813
+msgid "Folder"
+msgstr "Hakemisto"
 
-#: Wammu/Main.py:934 Wammu/Main.py:988 Wammu/Main.py:1033
-msgid "Could not read saved entry!"
-msgstr "Ei voitu lukea talletettua tietoa!"
+#: Wammu/Main.py:855
+msgid "Writing message(s)..."
+msgstr "Kirjoitetaan viesti(t)..."
+
+#: Wammu/Main.py:883
+msgid ""
+"It was not possible to read saved message! There is most likely some bug in "
+"Gammu, please contact author with debug log of this operation. To see "
+"message in Wammu you need to reread all messsages."
+msgstr ""
+"Ei ollut mahdollista lukea tallennettua viestiä! Gammussa vaikuttaa olevan "
+"bugi, ole hyvä ja ota yhteyttä ohjelman luojaan. Liitä mukaan debuggausloki. "
+"Nähdäksesi viestit Wammussa pitää sinun uudelleen lukea kaikki viestit."
 
 #: Wammu/Main.py:883
 msgid "Could not read saved message!"
 msgstr "Tallennettua viestiä ei pysty avaamaan!"
 
-#: Wammu/Main.py:294
-msgid "Crates new calendar event"
-msgstr "Luo uusi kalenteri merkintä"
+#: Wammu/Main.py:911
+msgid "Writing contact..."
+msgstr "Kirjoitetaan yhteystietoja..."
 
-#: Wammu/Main.py:293
-msgid "Crates new contact"
-msgstr "Luo uusi yhteystieto"
-
-#: Wammu/Main.py:296
-msgid "Crates new message"
-msgstr "Luo uusi viesti"
-
-#: Wammu/Main.py:295
-msgid "Crates new todo"
-msgstr "luo uusi tehtävä"
-
-#: Wammu/Settings.py:236 Wammu/Composer.py:173
-msgid "Create concatenated message, what allows to send longer messages."
-msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
-
-#: Wammu/GammuSettings.py:142
-#, fuzzy
-msgid "Create new configuration"
-msgstr "Luo uusi yhteystieto"
-
-#: Wammu/Composer.py:437 Wammu/Composer.py:514
-msgid "Create new message by adding part to left list..."
-msgstr "Luo uusi viesti lisäämällä osa vasemmasta listasta..."
-
-#: Wammu/Settings.py:241
-msgid "Create unicode message"
-msgstr "Luo unicode-viesti"
-
-#: Wammu/Editor.py:246
-#, python-format
-msgid "Creating new %s"
-msgstr "Luodaan uusi %s"
-
-#: Wammu/SMSExport.py:61 Wammu/SMSExport.py:135
-#, python-format
-msgid "Creating of file %s failed, bailing out."
-msgstr "Tiedoston %s luonti epäonnistui, keskeytetään."
-
-#: Wammu/SMSExport.py:98
-msgid "Creating of folder failed, bailing out."
-msgstr "Kansion luonti epäonnistui, keskeytetään."
-
-#: Wammu/SettingsStorage.py:354
-msgid "DKU2 cable"
+#: Wammu/Main.py:934 Wammu/Main.py:988 Wammu/Main.py:1033
+msgid ""
+"It was not possible to read saved entry! It might be different than one "
+"saved in phone untill you reread all entries."
 msgstr ""
+"Ei ollut mahdollista lukea tallennettua tietoa! Ehkä se on erillainen kuin "
+"puhelimeen tallennettu kunnes uudelleen luet kaikki tiedot."
 
-#: Wammu/SettingsStorage.py:350
-msgid "DKU5 cable"
-msgstr ""
+#: Wammu/Main.py:934 Wammu/Main.py:988 Wammu/Main.py:1033
+msgid "Could not read saved entry!"
+msgstr "Ei voitu lukea talletettua tietoa!"
 
-#: Wammu/SettingsStorage.py:358
-msgid "DLR3-3P/CA-42 cable"
-msgstr ""
+#: Wammu/Main.py:963
+msgid "Writing calendar..."
+msgstr "Kirjoitetaan kalenteria..."
+
+#: Wammu/Main.py:1010
+msgid "Writing todo..."
+msgstr "Kirjoitetaan tehtävä..."
+
+#: Wammu/Main.py:1052 Wammu/Main.py:1102 Wammu/Main.py:1122
+msgid "You can not work on this data, please retrieve it first from phone"
+msgstr "Et voi käsitellä tätä tietoa, hae se ensin puhelimesta"
+
+#: Wammu/Main.py:1052 Wammu/Main.py:1102 Wammu/Main.py:1122
+msgid "Data not up to date"
+msgstr "Tieto ei ajantasainen"
+
+#: Wammu/Main.py:1148
+msgid "Gammu messages backup"
+msgstr "Gammu viestien varmuuskopio"
+
+#: Wammu/Main.py:1152
+msgid "All backup formats"
+msgstr "Kaikki varmuuskopio muodot"
+
+#: Wammu/Main.py:1154
+msgid "Gammu backup [all data]"
+msgstr "Gammu varmuuskopio [kaikki tieto]"
+
+#: Wammu/Main.py:1158
+msgid "Nokia backup [contacts]"
+msgstr "Nokia varmuuskopio [yhteystiedot]"
+
+#: Wammu/Main.py:1161
+msgid "vCard [contacts]"
+msgstr "vCard [yhteystiedot]"
+
+#: Wammu/Main.py:1164
+msgid "LDIF [concacts]"
+msgstr "LDIF [yhteystiedot]"
+
+#: Wammu/Main.py:1167
+msgid "vCalendar [todo,calendar]"
+msgstr "vKalenteri [tehtävä,kalenteri]"
+
+#: Wammu/Main.py:1170
+msgid "iCalendar [todo,calendar]"
+msgstr "iKalenteri [tehtävä,kalenteri]"
+
+#: Wammu/Main.py:1177
+msgid "Save data as..."
+msgstr "Talleta tieto nimellä..."
+
+#: Wammu/Main.py:1179
+msgid "Read data"
+msgstr "Lue tietoja"
+
+#: Wammu/Main.py:1182
+msgid "Save backup as..."
+msgstr "Tallenna varmuuskopio nimellä..."
+
+#: Wammu/Main.py:1184
+msgid "Import backup"
+msgstr "Tuo varmuuskopio"
+
+#: Wammu/Main.py:1206
+msgid "Error while reading backup"
+msgstr "Virhe luettaessa varmuuskopioita"
 
 #: Wammu/Main.py:1230 Wammu/Main.py:1246
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "Tieto luettu tiedostosta \"%s\""
 
+#: Wammu/Main.py:1256 Wammu/Main.py:1535
+#, python-format
+msgid "%d messages"
+msgstr "%d viestit"
+
+#: Wammu/Main.py:1260 Wammu/Main.py:1327
+#, python-format
+msgid "No importable data were found in file \"%s\""
+msgstr "Tuotavaa tietoa ei löytynyt tiedostosta \"%s\""
+
+#: Wammu/Main.py:1261 Wammu/Main.py:1328
+msgid "No data to import"
+msgstr "Ei tietoa tuotavaksi"
+
+#: Wammu/Main.py:1265 Wammu/Main.py:1342
+msgid ""
+"Following data was found in backup, select which of these do you want to be "
+"added into phone."
+msgstr ""
+"Varmuuskopioista löytyi seuraavat tiedot, valitse ne, jotka haluat lisätä "
+"puhelimeen."
+
+#: Wammu/Main.py:1265 Wammu/Main.py:1342
+msgid "Select what to import"
+msgstr "Valitse mitä tuodaan"
+
+#: Wammu/Main.py:1276 Wammu/Main.py:1353
+msgid "Importing data..."
+msgstr "Tuodaan tietoa..."
+
+#: Wammu/Main.py:1302 Wammu/Main.py:1402
+#, python-format
+msgid "Backup has been imported from file \"%s\""
+msgstr "Varmuuskopio tuotu tiedostosta \"%s\""
+
+#: Wammu/Main.py:1303 Wammu/Main.py:1403
+msgid "Backup imported"
+msgstr "Varmuuskopio tuotu"
+
+#: Wammu/Main.py:1314
+#, fuzzy, python-format
+msgid "%d phone contact entries"
+msgstr "%d puhelimen yhteystiedot"
+
+#: Wammu/Main.py:1317
+#, fuzzy, python-format
+msgid "%d SIM contact entries"
+msgstr "%d SIM yhteystiedot"
+
+#: Wammu/Main.py:1320
+#, fuzzy, python-format
+msgid "%d to do entries"
+msgstr "%d Tehtävä merkinnät"
+
+#: Wammu/Main.py:1323 Wammu/Main.py:1539
+#, python-format
+msgid "%d calendar entries"
+msgstr "%d Kalenteri merkinnät"
+
+#: Wammu/Main.py:1334
+#, python-format
+msgid "Backup saved from phone %s"
+msgstr "Vamuuskopio tallennettu puhelimesta %s"
+
+#: Wammu/Main.py:1336
+#, python-format
+msgid ", serial number %s"
+msgstr ", sarjanumero %s"
+
+#: Wammu/Main.py:1338
+#, python-format
+msgid "Backup was created by %s"
+msgstr "%s loi varmuuskopion"
+
+#: Wammu/Main.py:1340
+#, python-format
+msgid "Backup saved on %s"
+msgstr "Varmuuskopio tallennettu %s :sta"
+
+#: Wammu/Main.py:1437
+#, python-format
+msgid "Backup has been saved to file \"%s\""
+msgstr "Varmuuskopio tallennettu tiedostoon \"%s\""
+
 #: Wammu/Main.py:1439
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "Tieto tallennettu tiedostoon \"%s\""
 
-#: Wammu/Main.py:1052 Wammu/Main.py:1102 Wammu/Main.py:1122
-msgid "Data not up to date"
-msgstr "Tieto ei ajantasainen"
+#: Wammu/Main.py:1443
+msgid "Error while saving backup"
+msgstr "Virhe tallennettaessa varmuuskopiota"
 
-#: Wammu/Main.py:315
-msgid "Database of user experiences with phones"
-msgstr ""
-
-#: Wammu/Browser.py:85 Wammu/Browser.py:103 Wammu/Main.py:811
-msgid "Date"
-msgstr "Päiväys"
-
-#: Wammu/ErrorMessage.py:60
+#: Wammu/Main.py:1516
 #, python-format
-msgid "Debug log has been automatically saved to %s, "
-msgstr ""
+msgid "Are you sure you want to delete %s?"
+msgstr "Haluatko varmasti poistaa %s?"
 
-#: Wammu/Error.py:50
+#: Wammu/Main.py:1520
 #, python-format
-msgid ""
-"Debug log was saved for phone communication, if this error appeared during "
-"communicating with phone, you are strongly encouraged to include it in "
-"bugreport. Debug log is saved in file %s."
-msgstr ""
-"Debuggausloki tallennettiin puhelinkommunikaatiosta, jos virhe tapahtui "
-"kommunioitaessa puhelimen kanssa, toivomme todella sinun liittävän sen "
-"bugiraporttiin. Debuggausloki tallennettiin tiedostoon %s."
+msgid "contact \"%s\""
+msgstr "yhteystieto \"%s\""
 
-#: Wammu/Settings.py:318
-msgid ""
-"Default date to be used for newly created time fields. Enter amount of days "
-"from today (1 = tommorow)."
-msgstr ""
-"Oletuspäiväys, jota käytetään äskettäin luodulle aikakentille. Syötä päivien "
-"määrä alkaen tästä päivästä (1=eilen)"
+#: Wammu/Main.py:1522
+#, python-format
+msgid "call \"%s\""
+msgstr "soita \"%s\""
 
-#: Wammu/Settings.py:312
-msgid "Default time"
-msgstr "Oletusaika"
+#: Wammu/Main.py:1524
+#, python-format
+msgid "message from \"%s\""
+msgstr "viesti \"%s\""
 
-#: Wammu/Settings.py:319
-msgid "Default time = now + x days"
-msgstr "Oletusaika = nyt + x päivää"
+#: Wammu/Main.py:1526
+#, python-format
+msgid "todo \"%s\""
+msgstr "tehtävä \"%s\""
 
-#: Wammu/Settings.py:311
-msgid "Default time to be used for newly created time fields."
-msgstr "Oletusaika, jota tullaan käyttämään uusissa aikavyöhykkeissä."
+#: Wammu/Main.py:1528
+#, python-format
+msgid "calendar entry \"%s\""
+msgstr "kalenterimerkintä \"%s\""
 
-#: Wammu/Browser.py:529
-msgid "Delete current"
-msgstr "Tuhoa nykyinen"
+#: Wammu/Main.py:1531
+#, python-format
+msgid "%d contacts"
+msgstr "%d yhteystiedot"
 
-#: Wammu/Browser.py:530
-msgid "Delete selected"
-msgstr "Tuhoa valittu"
+#: Wammu/Main.py:1533
+#, python-format
+msgid "%d calls"
+msgstr "%d puhelut"
 
-#: Wammu/Main.py:1581
-msgid "Deleting calendar event(s)..."
-msgstr "Poistetaan kalenterimerkintää(töjä)"
+#: Wammu/Main.py:1537
+#, python-format
+msgid "%d todo"
+msgstr "%d tehtävä"
 
 #: Wammu/Main.py:1550
 msgid "Deleting contact(s)..."
@@ -808,1233 +2917,13 @@ msgstr "Tuhoa viesti(t)..."
 msgid "Deleting todo(s)..."
 msgstr "Poistetaan tehtävä(iä)"
 
-#: Wammu/Composer.py:390
-msgid "Delivery report"
-msgstr "Välitystieto"
-
-#: Wammu/TalkbackDialog.py:107
-msgid "Describe some glitches of this phone or other experiences with Gammu."
-msgstr ""
-
-#: Wammu/Utils.py:496
-msgid "Description:"
-msgstr "Kuvaus:"
-
-#: Wammu/Settings.py:170
-msgid "Device"
-msgstr "Laite"
-
-#: Wammu/Utils.py:494
-msgid ""
-"Device for communication with phone does not exist. Maybe you don't have "
-"phone plugged or your configuration is wrong."
-msgstr ""
-
-#: Wammu/Settings.py:169
-msgid "Device, where your phone is connected."
-msgstr "Laite, johon puhelimesi on kytketty."
-
-#: Wammu/Data.py:368
-msgid "Devil"
-msgstr "Bill Gates"
-
-#: Wammu/Data.py:33
-msgid "Ding"
-msgstr "Ding"
-
-#: Wammu/Main.py:269
-msgid "Disconnect the device"
-msgstr "Irroita laite"
-
-#: Wammu/Main.py:612
-msgid "Disconnected"
-msgstr "Yhteys katkaistu"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Display it normally"
-msgstr ""
-
-#: Wammu/Settings.py:114
-msgid "Display startup on phone (not supported by all models)."
-msgstr "Näytä käynnistys puhelimessa (ei tuettu kaikissa malleissa)"
-
-#: Wammu/Main.py:433
-msgid "Do you want to configure phone connection now?"
-msgstr ""
-
-#: Wammu/SMSExport.py:151
-msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr "Haluatko käyttää SSL-salausta ladatessasi viestejä IMAP-palvelimelta?"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Don't show email at all"
-msgstr ""
-
-#: Wammu/Main.py:318
-msgid "Donate to Wammu author"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:316 Wammu/PhoneWizard.py:320
-msgid "Driver to use"
-msgstr ""
-
-#: Wammu/Data.py:36
-msgid "Drum"
-msgstr "Rumpu"
-
-#: Wammu/Browser.py:526
-msgid "Duplicate"
-msgstr "Monista"
-
-#: Wammu/Main.py:263
-msgid "E&xit"
-msgstr "&Lopeta"
-
-#: Wammu/Browser.py:524
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: Wammu/Editor.py:249
-#, python-format
-msgid "Editing %(name)s %(location)s"
-msgstr "Muokataan %(name)s %(location)s"
-
-#: Wammu/TalkbackDialog.py:197
-msgid "Email displaying"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:68
-msgid "Email displaying:"
-msgstr ""
-
-#: Wammu/Utils.py:488
-msgid ""
-"Empty entry received. This usually should not happen and most likely is "
-"caused by bug in phone firmware or in Gammu/Wammu.\n"
-"\n"
-"If you miss some entry, please contact Gammu/Wammu authors."
-msgstr ""
-"Tyhjä tieto vastaanotettu. Tätä ei yleensä pitäisi tapahtua ja "
-"todennäköisesti kyse onkin bugista puhelimen firmwaressa tai Gammussa/"
-"Wammussa.\n"
-"\n"
-"Jos kaipaat jotain tietoa, ota yhteyttä Gammun/Wammun luojiin."
-
-#: Wammu/Browser.py:119
-msgid "End"
-msgstr "Lopeta"
-
-#: Wammu/TalkbackFeaturesDialog.py:43
-#, fuzzy
-msgid "Enhanced phonebook entries"
-msgstr "%d puhelimen yhteystiedot"
-
-#: Wammu/SettingsStorage.py:212 Wammu/SettingsStorage.py:244
-msgid "Enter Bluetooth address of your phone."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:246
-msgid "Enter device name of USB port."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:210 Wammu/SettingsStorage.py:242
-msgid "Enter device name of emulated serial port."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:208 Wammu/SettingsStorage.py:240
-msgid "Enter device name of serial port."
-msgstr ""
-
-#: Wammu/Main.py:222
-#, fuzzy
-msgid ""
-"Enter text to search for, please note that search type is selected next to "
-"this field. Matching is done over all fields."
-msgstr ""
-"Syötä etsittävä teksti, huomaa, että sitä käsitellään kuten perusilmaisua. "
-"Haku tehdään kaikilla kentillä."
-
-#: Wammu/Settings.py:326
-msgid "Entries for new item"
-msgstr "Uuden tiedon syötteet."
-
-#: Wammu/TalkbackDialog.py:240
-#, fuzzy
-msgid "Entry created!"
-msgstr "Kansiota ei voi luoda!"
-
-#: Wammu/TalkbackDialog.py:239
-#, python-format
-msgid ""
-"Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
-"Do you want to open it in browser now?"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:179 Wammu/TalkbackDialog.py:188
-#: Wammu/TalkbackDialog.py:197 Wammu/TalkbackDialog.py:249
-#, python-format
-msgid ""
-"Entry in Gammu Phone Database was not created, following fields are "
-"invalid:\n"
-"%s"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:180 Wammu/TalkbackDialog.py:189
-#: Wammu/TalkbackDialog.py:198 Wammu/TalkbackDialog.py:231
-#: Wammu/TalkbackDialog.py:250
-#, fuzzy
-msgid "Entry not created!"
-msgstr "Kansiota ei voi luoda!"
-
-#: Wammu/Thread.py:56 Wammu/Main.py:738 Wammu/Main.py:1207 Wammu/Main.py:1444
-msgid "Error Occured"
-msgstr "Virhe"
-
-#: Wammu/Utils.py:496
-msgid "Error code:"
-msgstr "Virhekoodi:"
-
-#: Wammu/Thread.py:55 Wammu/Main.py:737
-msgid "Error while communicating with phone"
-msgstr "Virhe ottaessa yhteyttä puhelimeen"
-
-#: Wammu/Main.py:1206
-msgid "Error while reading backup"
-msgstr "Virhe luettaessa varmuuskopioita"
-
-#: Wammu/Main.py:1443
-msgid "Error while saving backup"
-msgstr "Virhe tallennettaessa varmuuskopiota"
-
-#: Wammu/Editor.py:508
-msgid "Event type"
-msgstr "Tapahtuma tyyppi"
-
-#: Wammu/Main.py:263
-msgid "Exit Wammu"
-msgstr "Poistu Wammusta"
-
-#: Wammu/Main.py:306
-msgid "Export messages to &emails"
-msgstr "Vie viestit &sähköposteihin"
-
-#: Wammu/SMSExport.py:48 Wammu/SMSExport.py:65 Wammu/SMSExport.py:109
-#: Wammu/SMSExport.py:124 Wammu/SMSExport.py:139 Wammu/SMSExport.py:229
-#: Wammu/SMSExport.py:259 Wammu/SMSExport.py:266 Wammu/SMSExport.py:283
-msgid "Export terminated"
-msgstr "Vienti keskeytetty"
-
-#: Wammu/Main.py:306
-msgid "Exports messages to emails in storage you choose"
-msgstr "Vie viestit valitsemassasi paikassa oleviin sähköposteihin"
-
-#: wammu-configure.py:68 wammu.py:64
-msgid "Extra unrecognized parameters passed to program"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:363
-msgid "FBUS over Bluetooth"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:376
-msgid "FBUS over IrDA"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:340
-msgid "FBUS proprietary protocol"
-msgstr ""
-
-#: Wammu/App.py:68
-msgid "Failed to set exception handler."
-msgstr "Virhe asettaessa exception handleria."
-
-#: Wammu/Data.py:38
-msgid "Fanfare"
-msgstr "Fanfaari"
-
-#: Wammu/SMSExport.py:119
-msgid "File already exists!"
-msgstr "Tiedosto on jo olemassa!"
-
-#: Wammu/TalkbackFeaturesDialog.py:46
-msgid "Filesystem manipulation"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:169
-#, python-format
-msgid "Finished %s"
-msgstr "Lopetettu %s"
-
-#: Wammu/Info.py:71
-msgid "Firmware"
-msgstr "Firmware"
-
-#: Wammu/Info.py:75
-msgid "Firmware (numeric)"
-msgstr "Firmware (numeerinen)"
-
-#: Wammu/Info.py:73
-msgid "Firmware date"
-msgstr "Firmware päiväys"
-
-#: Wammu/Composer.py:399
-msgid "Flash"
-msgstr "Flash"
-
-#: Wammu/Main.py:813
-msgid "Folder"
-msgstr "Hakemisto"
-
-#: Wammu/SMSExport.py:86
-msgid "Folder doesn't look like maildir!"
-msgstr "Kansio ei vaikuta postitiedostolta!"
-
-#: Wammu/Main.py:1265 Wammu/Main.py:1342
-msgid ""
-"Following data was found in backup, select which of these do you want to be "
-"added into phone."
-msgstr ""
-"Varmuuskopioista löytyi seuraavat tiedot, valitse ne, jotka haluat lisätä "
-"puhelimeen."
-
-#: Wammu/PhoneWizard.py:231
-msgid "Following phone will be used:"
-msgstr ""
-
-#: Wammu/Utils.py:496
-msgid "Function:"
-msgstr "Toiminto:"
-
-#: Wammu/Settings.py:347
-#, fuzzy
-msgid "Gammu"
-msgstr "&Wammu"
-
-#: Wammu/TalkbackDialog.py:104
-msgid "Gammu Phone Database Talkback"
-msgstr ""
-
-#: Wammu/Main.py:1154
-msgid "Gammu backup [all data]"
-msgstr "Gammu varmuuskopio [kaikki tieto]"
-
-#: Wammu/Main.py:1148
-msgid "Gammu messages backup"
-msgstr "Gammu viestien varmuuskopio"
-
-#: Wammu/Main.py:411 Wammu/Main.py:418 Wammu/Main.py:424
-msgid "Gammu module not working!"
-msgstr "Gammu moduuli ei toimi!"
-
-#: Wammu/Main.py:416
-msgid ""
-"Gammu module was not found, you probably don't have properly installed "
-"python-gammu for current python version."
-msgstr ""
-
-#: Wammu/Main.py:103
-msgid "Gammu version"
-msgstr "Gammu versio"
-
-#: Wammu/TalkbackDialog.py:60
-#, fuzzy
-msgid "Gammu version:"
-msgstr "Gammu versio"
-
-#: Wammu/Settings.py:85
-msgid "Gammurc path"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:279
-msgid "Generic AT at 115200 bps"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:271
-msgid "Generic AT at 19200 bps"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:275
-msgid "Generic AT at 38400 bps"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:266
-msgid "Generic AT over serial line or it's emulation"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:303
-msgid "Generic OBEX over serial line or it's emulation"
-msgstr ""
-
-#: Wammu/Main.py:276
-msgid "Get phone information"
-msgstr "Hae puhelimen tiedot"
-
-#: Wammu/SettingsStorage.py:323
-msgid "Gnapplet over Bluetooth"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:328
-msgid "Gnapplet over IrDA"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:102
-msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:120
-msgid ""
-"Good choice for most phones except Nokia and Symbian based. Provides access "
-"to most phone features."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:427
-msgid "Guided configuration"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:227
-#, python-format
-msgid ""
-"HTTP request failed with status %(code)d (%(text)s), please retry later or "
-"create entry manually."
-msgstr ""
-
-#: Wammu/Info.py:153
-msgid "Hardware"
-msgstr "Laitteisto"
-
-#: Wammu/PhoneWizard.py:424
-msgid "How do you want to configure your phone connection?"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:410
-#, fuzzy
-msgid "How is your phone connected?"
-msgstr "Laite, johon puhelimesi on kytketty."
-
-#: Wammu/Settings.py:325
-msgid "How many entries will be shown in newly created item."
-msgstr "Kuinka monta syötettä näytetään uusissa tiedoissa?"
-
-#: Wammu/Settings.py:287
-msgid ""
-"How often refresh phone state in application status bar. Enter value in "
-"miliseconds, 0 to disable."
-msgstr ""
-"Kuinka usein puhelimen tila päivitetään ohjelman statusbarissa. Anna arvo "
-"millisekunneissa, 0 ottaa pois käytöstä."
-
-#: Wammu/Data.py:328
-msgid "I am angry"
-msgstr "Olen vihainen"
-
-#: Wammu/Data.py:288
-msgid "I am confused"
-msgstr "Olen ymmälläni"
-
-#: Wammu/Data.py:188
-msgid "I am crying"
-msgstr "Itken"
-
-#: Wammu/Data.py:108
-msgid "I am glad"
-msgstr "Olen iloinen"
-
-#: Wammu/Data.py:268
-msgid "I am in love"
-msgstr "Olen ihastunut"
-
-#: Wammu/Data.py:248
-msgid "I am indifferent"
-msgstr "Olen välinpitämätön"
-
-#: Wammu/Data.py:228
-msgid "I am laughing"
-msgstr "Nauran"
-
-#: Wammu/Data.py:148
-msgid "I am sad"
-msgstr "Olen surullinen"
-
-#: Wammu/Data.py:128
-msgid "I am skeptic"
-msgstr "En usko"
-
-#: Wammu/Data.py:208
-msgid "I am winking"
-msgstr "Isken silmää"
-
-#: Wammu/SettingsStorage.py:93
-msgid "I don't know"
-msgstr ""
-
-#: Wammu/Main.py:304
-msgid "I&mport messages"
-msgstr "Tu&o viestit"
-
-#: Wammu/Data.py:88
-msgid "I'm ironic, flirty"
-msgstr "Olen ironinen, flirttaileva"
-
-#: Wammu/SMSExport.py:299
-msgid "IMAP account"
-msgstr "IMAP tili"
-
-#: Wammu/SMSExport.py:294
-msgid "IMAP server"
-msgstr "IMAP palvelin"
-
-#: Wammu/TalkbackDialog.py:109
-msgid ""
-"If you don't want to display email clear text, please select one mangling "
-"option."
-msgstr ""
-
-#: Wammu/Settings.py:215
-msgid ""
-"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
-"interested in this choice."
-msgstr ""
-"Jos saat toisinaan TÄMÄNkaltaisia \"tiivistettyjä\" viestejä, sinun pitäisi "
-"olla kiinnostunut tästä valinnasta."
-
-#: Wammu/PhoneWizard.py:437
-msgid ""
-"If you have no idea how to configure your phone connection, you can look at "
-"Gammu Phone Database for other users experiences:"
-msgstr ""
-
-#: Wammu/Error.py:93
-#, python-format
-msgid ""
-"If you want to help improving this program, please submit following "
-"infomation and description how did it happen to %s. Please report in "
-"english, otherwise you will be most likely told to translate you report to "
-"english later."
-msgstr ""
-"Jos haluat auttaa tämän ohjelman kehittämisessä, lähetä oheinen tieto ja "
-"miten se tapahtui %s :n. Kirjoita englanniksi, muuten sinua pyydettänee "
-"myöhemmin kääntämään viestisi englanniksi."
-
-#: Wammu/SettingsStorage.py:98
-msgid "If your phone runs Symbian, please select directly it."
-msgstr ""
-
-#: Wammu/Main.py:1184
-msgid "Import backup"
-msgstr "Tuo varmuuskopio"
-
-#: Wammu/Main.py:1276 Wammu/Main.py:1353
-msgid "Importing data..."
-msgstr "Tuodaan tietoa..."
-
-#: Wammu/Main.py:303
-msgid "Imports data from backup to phone"
-msgstr "Tuo tietoa varmuuskopioista puhelimeen"
-
-#: Wammu/Main.py:304
-msgid "Imports messages from backup to phone"
-msgstr "Tuo viestejä varmuuskopioista puhelimeen"
-
-#: Wammu/Main.py:320
-msgid "Information about program"
-msgstr "Tietoa ohjelmasta"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Insert NOSPAM text at random position"
-msgstr ""
-
-#: Wammu/PhoneValidator.py:85
-msgid "Invalid phone number"
-msgstr "Väärä puhelinnumero"
-
-#: Wammu/PhoneWizard.py:401
-msgid "IrDA"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:402
-msgid ""
-"IrDA wireless connection requires direct visibility, please make sure this "
-"is fullfilled and computer can see phone."
-msgstr ""
-
-#: Wammu/Main.py:934 Wammu/Main.py:988 Wammu/Main.py:1033
-msgid ""
-"It was not possible to read saved entry! It might be different than one "
-"saved in phone untill you reread all entries."
-msgstr ""
-"Ei ollut mahdollista lukea tallennettua tietoa! Ehkä se on erillainen kuin "
-"puhelimeen tallennettu kunnes uudelleen luet kaikki tiedot."
-
-#: Wammu/Main.py:883
-msgid ""
-"It was not possible to read saved message! There is most likely some bug in "
-"Gammu, please contact author with debug log of this operation. To see "
-"message in Wammu you need to reread all messsages."
-msgstr ""
-"Ei ollut mahdollista lukea tallennettua viestiä! Gammussa vaikuttaa olevan "
-"bugi, ole hyvä ja ota yhteyttä ohjelman luojaan. Liitä mukaan debuggausloki. "
-"Nähdäksesi viestit Wammussa pitää sinun uudelleen lukea kaikki viestit."
-
-#: Wammu/Data.py:670
-msgid "Italic"
-msgstr "Kursivoitu"
-
-#: Wammu/Main.py:1164
-msgid "LDIF [concacts]"
-msgstr "LDIF [yhteystiedot]"
-
-#: Wammu/Info.py:179
-msgid "Language packs in phone"
-msgstr "Puhelimen kielipaketit"
-
-#: Wammu/Data.py:666
-msgid "Large"
-msgstr "Suuri"
-
-#: Wammu/Data.py:661
-msgid "Left"
-msgstr "Vasen"
-
-#: Wammu/SMSExport.py:227
-msgid "Listing failed!"
-msgstr "Listaus epäonnistui!"
-
-#: Wammu/SMSExport.py:218
-msgid "Listing folders on IMAP server..."
-msgstr "Listataan IMAP palvelimen kansioita..."
-
-#: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:82
-#: Wammu/Browser.py:99 Wammu/Browser.py:116 Wammu/Main.py:798
-#: Wammu/Main.py:812 Wammu/Main.py:822 Wammu/Main.py:828
-msgid "Location"
-msgstr "Sijainti"
-
-#: Wammu/Editor.py:267
-msgid "Location (0 = auto):"
-msgstr "Sijainti (0=automaattinen valinta):"
-
-#: Wammu/Settings.py:121
-msgid "Lock device"
-msgstr "Lukitse laite"
-
-#: Wammu/SMSExport.py:169
-msgid "Login"
-msgstr "Kirjautuminen"
-
-#: Wammu/SMSExport.py:206
-msgid "Login failed!"
-msgstr "Kirjautuminen epäonnistui!"
-
-#: Wammu/TalkbackFeaturesDialog.py:48
-#, fuzzy
-msgid "Logos"
-msgstr "Kirjautuminen"
-
-#: Wammu/SettingsStorage.py:334
-msgid "MBUS proprietary protocol"
-msgstr ""
-
-#: Wammu/SMSExport.py:299
-msgid "Mailbox file"
-msgstr "Sähköpostitiedosto"
-
-#: Wammu/SMSExport.py:299
-msgid "Maildir folder"
-msgstr "Postitiedosto kansio"
-
-#: Wammu/PhoneWizard.py:249 Wammu/PhoneWizard.py:428
-msgid "Manual configuration"
-msgstr ""
-
-#: Wammu/Info.py:166
-msgid "Manufacture month"
-msgstr "Valmistuskuukausi"
-
-#: Wammu/TalkbackDialog.py:188 Wammu/Info.py:44
-msgid "Manufacturer"
-msgstr "Valmistaja"
-
-#: Wammu/TalkbackDialog.py:50
-#, fuzzy
-msgid "Manufacturer:"
-msgstr "Valmistaja"
-
-#: Wammu/PhoneWizard.py:394
-msgid ""
-"Many phones now come with USB cable, select this if you're using this "
-"connection type."
-msgstr ""
-
-#: Wammu/Browser.py:52 Wammu/Main.py:814
-msgid "Memory"
-msgstr "Muisti"
-
-#: Wammu/Utils.py:484
-msgid "Memory is full, try deleting some entries."
-msgstr "Muisti on täynnä, poista jokin merkintä."
-
-#: Wammu/Editor.py:500 Wammu/Main.py:799
-msgid "Memory type"
-msgstr "Muistityyppi"
-
-#: Wammu/Composer.py:623
-msgid "Message empty!"
-msgstr "Tyhjä viesti!"
-
-#: Wammu/Composer.py:61
-msgid "Message preview"
-msgstr "Viestin esikatselu"
-
-#: Wammu/Composer.py:633
-#, python-format
-msgid "Message will fit into %d SMSes"
-msgstr "Viesti mahtuu %d tekstiviesteihin"
-
-#: Wammu/Settings.py:349 Wammu/Main.py:118 Wammu/Main.py:284
-msgid "Messages"
-msgstr "Viestit"
-
-#: Wammu/Main.py:472
-msgid "Migrated from older Wammu"
-msgstr ""
-
-#: Wammu/Main.py:109
-msgid "Missed"
-msgstr "Menetetyt"
-
-#: Wammu/Main.py:109
-msgid "Missed Calls"
-msgstr "Menetetyt puhelut"
-
-#: Wammu/Settings.py:184
-msgid "Model"
-msgstr "Malli"
-
-#: Wammu/PhoneWizard.py:209 Wammu/PhoneWizard.py:232
-#, python-format
-msgid ""
-"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
-"(connection)s"
-msgstr ""
-"Malli %(model)s (%(manufacturer)s) portissa %(port)s käyttää yhteyttä %"
-"(connection)s"
-
-#: Wammu/Info.py:57
-msgid "Model (Gammu identification)"
-msgstr "Malli (Gammun tunniste)"
-
-#: Wammu/Info.py:58
-msgid "Model (real)"
-msgstr "Malli (aito)"
-
-#: Wammu/TalkbackDialog.py:56
-#, fuzzy
-msgid "Model in gammu configuration:"
-msgstr "Luo uusi yhteystieto"
-
-#: Wammu/TalkbackFeaturesDialog.py:41
-msgid "Multimedia messaging"
-msgstr ""
-
-#: Wammu/Settings.py:164 Wammu/Browser.py:40 Wammu/Browser.py:53
-#: Wammu/Browser.py:68 Wammu/Main.py:818
-msgid "Name"
-msgstr "Nimi"
-
-#: Wammu/Settings.py:163
-#, fuzzy
-msgid "Name for this configuration."
-msgstr "Luo uusi yhteystieto"
-
-#: Wammu/PhoneSearch.py:161
-msgid ""
-"Neither GNOME Bluetooth nor PyBluez found, not possible to scan for "
-"bluetooth devices"
-msgstr ""
-"Gnome Bluetoothia tai PyBluezia ei löydy, ei voi etsiä Bluetooth-laitteita."
-
-#: Wammu/SettingsStorage.py:347
-msgid ""
-"New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia "
-"5100."
-msgstr ""
-
-#: Wammu/Utils.py:341
-msgid "No"
-msgstr "Ei"
-
-#: Wammu/PhoneSearch.py:118 Wammu/PhoneSearch.py:148
-msgid "No bluetooth device found"
-msgstr "Bluetooth-laitetta ei löydetty"
-
-#: Wammu/PhoneWizard.py:276
-#, fuzzy
-msgid "No connection selected!"
-msgstr "Varmuuskopio valittu"
-
-#: Wammu/Main.py:1261 Wammu/Main.py:1328
-msgid "No data to import"
-msgstr "Ei tietoa tuotavaksi"
-
-#: Wammu/Composer.py:541
-#, python-format
-msgid "No editor available for type %s"
-msgstr "Ei muokkainta saatavilla tyypille %s"
-
-#: Wammu/Main.py:1260 Wammu/Main.py:1327
-#, python-format
-msgid "No importable data were found in file \"%s\""
-msgstr "Tuotavaa tietoa ei löytynyt tiedostosta \"%s\""
-
-#: Wammu/PhoneWizard.py:152
-#, fuzzy
-msgid "No phone found!"
-msgstr "Puhelinta ei löydy"
-
-#: Wammu/PhoneWizard.py:202
-#, fuzzy
-msgid "No phone has been found!"
-msgstr "Puhelinta ei löydy"
-
-#: Wammu/PhoneWizard.py:151
-msgid "No phone has not been found, you can not continue."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:240
-#, fuzzy
-msgid "No phone selected!"
-msgstr "Varmuuskopio valittu"
-
-#: Wammu/PhoneWizard.py:270 Wammu/PhoneWizard.py:302
-#, fuzzy
-msgid "No port selected!"
-msgstr "Varmuuskopio valittu"
-
-#: Wammu/SettingsStorage.py:351
-msgid ""
-"Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:355
-msgid ""
-"Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:124
-msgid "Nokia FBUS"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:129
-msgid "Nokia MBUS"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:359
-msgid ""
-"Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
-"7110/6210/6310."
-msgstr ""
-
-#: Wammu/Main.py:1158
-msgid "Nokia backup [contacts]"
-msgstr "Nokia varmuuskopio [yhteystiedot]"
-
-#: Wammu/SettingsStorage.py:97
-#, fuzzy
-msgid "Nokia phone"
-msgstr "Puhelinta ei löydy"
-
-#: Wammu/SettingsStorage.py:125
-msgid "Nokia proprietary protocol."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:130
-msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:372
-msgid ""
-"Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don't "
-"inform about services correctly (6310, 6310i with firmware lower than 5.50, "
-"8910,..)"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:364
-msgid "Nokia protocol for Bluetooth stack with Nokia 6210"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:368
-msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:377
-msgid "Nokia protocol for infrared with Nokia 6110/6130/6150"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:381
-msgid "Nokia protocol for infrared with other Nokia models"
-msgstr ""
-
-#: Wammu/Editor.py:225 Wammu/Editor.py:427 Wammu/Data.py:660
-msgid "None"
-msgstr "Ei mikään"
-
-#: Wammu/SettingsStorage.py:105
-msgid "None of the above"
-msgstr ""
-
-#: Wammu/Data.py:665
-msgid "Normal"
-msgstr "Normaali"
-
-#: Wammu/Composer.py:500
-#, python-format
-msgid "Not supported id: %s"
-msgstr "Ei tuettu id: %s"
-
-#: Wammu/TalkbackDialog.py:62
-#, fuzzy
-msgid "Note:"
-msgstr "Huomautus"
-
-#: Wammu/Composer.py:622
-msgid "Nothing to preview, message is empty."
-msgstr "Ei esikatseltavaa, viesti on tyhjä."
-
-#: Wammu/Main.py:709
-msgid "Notice"
-msgstr "Huomautus"
-
-#: Wammu/Data.py:35
-msgid "Notify"
-msgstr "Ilmoita"
-
-#: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:84
-#: Wammu/Main.py:810
-msgid "Number"
-msgstr "Numero"
-
-#: Wammu/Settings.py:334
-msgid "Number prefix"
-msgstr "Numeron etuliite"
-
-#: Wammu/SettingsStorage.py:133
-msgid "OBEX based"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:308
-msgid "OBEX over Bluetooth"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:312
-msgid "OBEX over Bluetooth with RF searching"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:317
-msgid "OBEX over IrDA"
-msgstr ""
-
-#: Wammu/About.py:125 Wammu/Composer.py:63
-msgid "OK"
-msgstr "OK"
-
-#: Wammu/Main.py:1759
-msgid "One moment please, connecting to phone..."
-msgstr "Hetkinen, yhdistetään puhelimeen..."
-
-#: Wammu/Main.py:1815
-msgid "One moment please, disconnecting from phone..."
-msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen..."
-
-#: Wammu/Main.py:745
-msgid "Operation in progress"
-msgstr "Toiminto käynnissä"
-
-#: wammu-configure.py:52 wammu.py:48
-#, fuzzy
-msgid "Options:"
-msgstr "Kuvaus:"
-
-#: Wammu/Info.py:101
-msgid "Original IMEI"
-msgstr "Alkuperäinen IMEI"
-
-#: Wammu/Settings.py:350
-msgid "Other"
-msgstr "Muu"
-
-#: Wammu/Main.py:110
-msgid "Outgoing"
-msgstr "Lähtevät"
-
-#: Wammu/Main.py:110
-msgid "Outgoing Calls"
-msgstr "Lähtevät puhelut"
-
-#: Wammu/SMSExport.py:118
-#, python-format
-msgid ""
-"Output file already exists, this usually means that this message was already "
-"saved there.\n"
-"\n"
-"Do you wish to overwrite file %s?"
-msgstr ""
-"Output tiedosto on jo olemassa, tämä tarkoittaa yleensä sitä, että tämä "
-"viesti on jo tallennettu sinne.\n"
-"\n"
-"Haluatko ylikirjoittaa tiedoston %s?"
-
-#: Wammu/SettingsStorage.py:346
-msgid "PL2303 cable"
-msgstr ""
-
-#: Wammu/Composer.py:407
-msgid "Parts of current message"
-msgstr "Osia nykyisestä viestistä"
-
-#: Wammu/SMSExport.py:183
-msgid "Password"
-msgstr "Salasana"
-
-#: Wammu/Main.py:99 Wammu/Main.py:115
-msgid "Phone"
-msgstr "Puhelin"
-
-#: Wammu/Main.py:115
-msgid "Phone Contacts"
-msgstr "Puhelimen yhteystiedot"
-
-#: Wammu/Main.py:99
-msgid "Phone Information"
-msgstr "Puhelimen tiedot"
-
-#: Wammu/PhoneWizard.py:409 Wammu/Settings.py:150
-#, fuzzy
-msgid "Phone connection"
-msgstr "Yhteys"
-
-#: Wammu/PhoneWizard.py:102 Wammu/PhoneWizard.py:119
-msgid "Phone connection test is still active, you can not continue."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:96
-#, python-format
-msgid ""
-"Phone has been found.\n"
-"\n"
-"Manufacturer: %(manufacturer)s\n"
-"Model: %(model)s"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:108
-msgid "Phone has not been found, are you sure you want to continue?"
-msgstr ""
-
-#: Wammu/TalkbackFeaturesDialog.py:39
-#, fuzzy
-msgid "Phone information"
-msgstr "Puhelimen tiedot"
-
-#: Wammu/Settings.py:181
-msgid ""
-"Phone model, you can usually keep here auto unless you have any problems."
-msgstr "Puhelin malli, voit yleensä pitää tämän auto:na jos ei ole ongelmia."
-
-#: Wammu/TalkbackDialog.py:52
-#, fuzzy
-msgid "Phone model:"
-msgstr "Puhelin"
-
-#: Wammu/PhoneWizard.py:89 Wammu/PhoneWizard.py:109
-#, fuzzy
-msgid "Phone not found!"
-msgstr "Puhelinta ei löydy"
-
-#: Wammu/PhoneWizard.py:288
-#, fuzzy
-msgid "Phone port"
-msgstr "Puhelin"
-
-#: Wammu/PhoneWizard.py:131
-#, fuzzy
-msgid "Phone search"
-msgstr "Puhelimen etsintäloki"
-
-#: Wammu/PhoneWizard.py:145 Wammu/PhoneWizard.py:161
-msgid "Phone search is still active, you can not continue."
-msgstr ""
-
-#: Wammu/PhoneSearch.py:39
-msgid "Phone searching log"
-msgstr "Puhelimen etsintäloki"
-
-#: Wammu/PhoneWizard.py:132
-#, fuzzy
-msgid "Phone searching status"
-msgstr "Puhelimen etsintäloki"
-
-#: Wammu/PhoneWizard.py:364
-#, fuzzy
-msgid "Phone type"
-msgstr "Puhelin"
-
-#: Wammu/SettingsStorage.py:367
-msgid "Phonet over Bluetooth"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:371
-msgid "Phonet over Bluetooth with RF searching"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:380
-msgid "Phonet over IrDA"
-msgstr ""
-
-#: Wammu/Utils.py:490
-msgid ""
-"Please close opened menu in phone and retry, data can not be accessed while "
-"you have opened them."
-msgstr ""
-"Ole hyvä ja sulje avattu valikko puhelimessa, tietoon ei päästä käsiksi, "
-"niiden ollessa auki."
-
-#: Wammu/Settings.py:82
-msgid "Please enter here path to gammu configuration file you want to use."
-msgstr ""
-
-#: Wammu/SMSExport.py:168
-#, python-format
-msgid "Please enter login on server %s"
-msgstr "Ole hyvä ja anna sisäänkirjautumistietosi palvelimelle %s"
-
-#: Wammu/SMSExport.py:182
-#, python-format
-msgid "Please enter password for %(login)s@%(server)s"
-msgstr "Kirjoita salasana %(login)s@%(server)s"
-
-#: Wammu/PhoneWizard.py:289
-#, fuzzy
-msgid "Please enter port where phone is connected"
-msgstr "Laite, johon puhelimesi on kytketty."
-
-#: Wammu/SMSExport.py:158
-msgid "Please enter server name"
-msgstr "Anna palvelimen nimi"
-
-#: Wammu/TalkbackDialog.py:108
-msgid ""
-"Please enter valid mail here, choose display options bellow. Your email "
-"won't be given or sold to anybody."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:452
-msgid ""
-"Please make sure you have phone ready, powered on and one of connection "
-"methods is set up:"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:344
-msgid "Please select connection type"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:59
-#, fuzzy
-msgid "Please select features..."
-msgstr "Valitse vientityyppi"
-
-#: Wammu/SMSExport.py:240
-#, python-format
-msgid "Please select folder on server %s where messages will be stored"
-msgstr "Valitse viestin tallennuskansio palvelimella %s"
-
-#: Wammu/PhoneWizard.py:365
-#, fuzzy
-msgid "Please select phone type"
-msgstr "Valitse vientityyppi"
-
-#: Wammu/PhoneWizard.py:321
-msgid "Please select which driver you want to use"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:48
-msgid ""
-"Please share your experiences with Wammu and Gammu which is backend library. "
-"When you fill in following form, other users can benefit from your "
-"experiences in Gammu Phone Database. Only information you see here will be "
-"submited."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:251
-#, fuzzy
-msgid "Port where phone is connected"
-msgstr "Laite, johon puhelimesi on kytketty."
-
-#: Wammu/Composer.py:313
-msgid "Predefined animation"
-msgstr "Esivalittu animaatio"
-
-#: Wammu/MessageDisplay.py:105
-#, python-format
-msgid "Predefined animation number %d"
-msgstr "Esivalittu animaatio numero %d"
-
-#: Wammu/Composer.py:314
-msgid "Predefined sound"
-msgstr "Esivalittu ääni"
-
-#: Wammu/Settings.py:333
-msgid "Prefix for non international phone numbers."
-msgstr "Etuliite ei kansainvälisiin puhelinnumeroihin."
-
-#: Wammu/Main.py:450
-msgid "Press Cancel to never show this question again."
-msgstr ""
-
-#: Wammu/Composer.py:442
-msgid "Preview"
-msgstr "Esikatselu"
-
-#: Wammu/Editor.py:516 Wammu/Browser.py:101 Wammu/Main.py:823
-msgid "Priority"
-msgstr "Tärkeys"
-
-#: Wammu/Info.py:114
-msgid "Product code"
-msgstr "Tuotekoodi"
-
-#: Wammu/SettingsStorage.py:341
-msgid ""
-"Protocol used in Nokia phones. Please try selecting more specific options "
-"first."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:335
-msgid "Protocol used in older Nokia phones."
-msgstr ""
-
-#: Wammu/Main.py:258
-msgid "R&ead messages"
-msgstr "Lue &viestit"
-
-#: Wammu/Main.py:119
-msgid "Read"
-msgstr "Luettu"
-
-#: Wammu/Main.py:119
-msgid "Read Messages"
-msgstr "Luetut viestit"
-
-#: Wammu/Main.py:1179
-msgid "Read data"
-msgstr "Lue tietoja"
-
-#: Wammu/TalkbackFeaturesDialog.py:47
-#, fuzzy
-msgid "Reading and making calls"
-msgstr "Luetaan kalenteria"
-
-#: Wammu/Main.py:1734
-msgid "Reading calendar"
-msgstr "Luetaan kalenteria"
+#: Wammu/Main.py:1581
+msgid "Deleting calendar event(s)..."
+msgstr "Poistetaan kalenterimerkintää(töjä)"
+
+#: Wammu/Main.py:1653
+msgid "Reading phone information"
+msgstr "Luetaan puhelimen tietoja"
 
 #: Wammu/Main.py:1678
 #, python-format
@@ -2050,756 +2939,25 @@ msgstr "Luetaan yhteystietoja %s :tä"
 msgid "Reading messages"
 msgstr "Luetaan viestejä"
 
-#: Wammu/Main.py:1653
-msgid "Reading phone information"
-msgstr "Luetaan puhelimen tietoja"
-
 #: Wammu/Main.py:1724
 msgid "Reading todos"
 msgstr "Luetaan tehtäviä"
 
-#: Wammu/Main.py:257
-msgid "Reads data (except messages) from file (does not import to the phone)"
-msgstr "Luetaan tietoja (paitsi viestejä) tiedostosta (ei tuo puhelimeen)"
-
-#: Wammu/Main.py:258
-msgid "Reads messages from file (does not import to the phone)"
-msgstr "Lukee tiedot tiedostosta (ei tuo puhelimeen)"
-
-#: Wammu/Main.py:108
-msgid "Received"
-msgstr "Vastatut"
-
-#: Wammu/Main.py:108
-msgid "Received Calls"
-msgstr "Vastatut puhelut"
-
-#: Wammu/Composer.py:371
-msgid "Recipient's numbers:"
-msgstr "Vastaanottajien numerot:"
-
-#: Wammu/Browser.py:122
-msgid "Recurrence"
-msgstr ""
-
-#: Wammu/Settings.py:288
-msgid "Refresh phone state"
-msgstr "Päivitä puhelimen tila"
-
-#: Wammu/Main.py:224
-msgid "Regexp"
-msgstr "Säännöke"
-
-#: Wammu/Browser.py:513
-msgid "Reply"
-msgstr "Vastaa"
-
-#: Wammu/ErrorMessage.py:79
-#, fuzzy
-msgid "Report bug"
-msgstr "Tuo varmuuskopio"
-
-#: Wammu/Main.py:313
-#, fuzzy
-msgid "Report bug in Wammu"
-msgstr "Tuo varmuuskopio"
-
-#: Wammu/Main.py:316
-msgid "Report your experiences in Gammu Phone Database"
-msgstr ""
-
-#: Wammu/Settings.py:247
-msgid "Request delivery report by default"
-msgstr "Pyydä välitystiedot oletuksena"
-
-#: Wammu/Browser.py:508
-msgid "Resend"
-msgstr "Lähetä uudelleen"
-
-#: Wammu/Data.py:662
-msgid "Right"
-msgstr "Oikea"
-
-#: Wammu/TalkbackFeaturesDialog.py:49
-#, fuzzy
-msgid "Ringtones"
-msgstr "Luetaan tehtäviä"
-
-#: Wammu/About.py:105
-#, python-format
-msgid "Running on Python %s"
-msgstr "Käyttää Pythonia %s"
-
-#: Wammu/Main.py:302
-msgid "S&ave messages"
-msgstr "Tallenna &viestit"
-
-#: Wammu/Main.py:114
-msgid "SIM"
-msgstr "SIM"
-
-#: Wammu/Main.py:114
-msgid "SIM Contacts"
-msgstr "SIM yhteystiedot"
-
-#: Wammu/Info.py:127
-msgid "SIM IMSI"
-msgstr "SIM IMSI"
-
-#: Wammu/Info.py:140 Wammu/Main.py:815
-msgid "SMSC"
-msgstr "SMSC"
-
-#: Wammu/Main.py:1182
-msgid "Save backup as..."
-msgstr "Tallenna varmuuskopio nimellä..."
-
-#: Wammu/Main.py:1177
-msgid "Save data as..."
-msgstr "Talleta tieto nimellä..."
-
-#: Wammu/ErrorMessage.py:95
-#, fuzzy
-msgid "Save debug log as..."
-msgstr "Tallenna varmuuskopio nimellä..."
-
-#: Wammu/ErrorMessage.py:70
-#, fuzzy
-msgid "Save debug log..."
-msgstr "Näytä debuggaus loki"
-
-#: Wammu/Composer.py:352
-msgid "Save into folder"
-msgstr "Tallenna kansioon"
-
-#: Wammu/SMSExport.py:213
-#, fuzzy
-msgid "Save password?"
-msgstr "Salasana"
-
-#: Wammu/Main.py:301
-msgid "Saves currently retrieved data (except messages) to backup"
-msgstr "Varmuuskopioi äskettäin ladatun tiedon (ei viestejä)"
-
-#: Wammu/Main.py:302
-msgid "Saves currently retrieved messages to backup"
-msgstr "Tallennetaan äskettäin haetut viestit varmuuskopioihin"
-
-#: Wammu/SMSExport.py:279
-msgid "Saving failed!"
-msgstr "Tallennus epäonnistui!"
-
-#: Wammu/SMSExport.py:262
-msgid "Saving messages to IMAP"
-msgstr "Tallennetaan viestejä IMAP:n"
-
-#: Wammu/SMSExport.py:42
-msgid "Saving messages to mailbox"
-msgstr "Tallennetaan viestejä postilaatikkoon."
-
-#: Wammu/SMSExport.py:105
-msgid "Saving messages to maildir"
-msgstr "Tallennetaan viestejä postitiedostoon."
-
-#: Wammu/Settings.py:210
-msgid "Scale images"
-msgstr "Skaalaa kuvia"
-
-#: Wammu/PhoneSearch.py:112 Wammu/PhoneSearch.py:142
-#, python-format
-msgid "Scanning for bluetooth devices using %s"
-msgstr "Etsitään bluetooth-laitteita käyttäen %s"
-
-#: Wammu/Main.py:261
-msgid "Se&ttings"
-msgstr "&Asetukset"
-
-#: Wammu/PhoneWizard.py:389
-#, fuzzy
-msgid "Search all connections"
-msgstr "Yhteys"
-
-#: Wammu/Main.py:260
-msgid "Search for phone"
-msgstr "Etsi puhelin"
-
-#: Wammu/ErrorMessage.py:75
-#, fuzzy
-msgid "Search for similar reports"
-msgstr "Etsi puhelin"
-
-#: Wammu/Main.py:220
-msgid "Search:"
-msgstr "Etsi:"
-
-#: Wammu/PhoneWizard.py:146 Wammu/PhoneWizard.py:162
-msgid "Searching still active!"
-msgstr ""
-
-#: Wammu/GammuSettings.py:165
-#, fuzzy
-msgid "Select configuration section"
-msgstr "Asetuksia ei löytynyt"
-
-#: Wammu/Select.py:42
-msgid "Select contact"
-msgstr "Valitse yhteystieto"
-
-#: Wammu/Select.py:42
-msgid "Select contact from bellow list"
-msgstr "Valitse yhteystieto listasta"
-
-#: Wammu/SMSExport.py:298
-msgid "Select export type"
-msgstr "Valitse vientityyppi"
-
-#: Wammu/TalkbackFeaturesDialog.py:60
-#, fuzzy
-msgid "Select features"
-msgstr "Valitse kansio"
-
-#: Wammu/SMSExport.py:241
-msgid "Select folder"
-msgstr "Valitse kansio"
-
-#: Wammu/SMSExport.py:35
-msgid "Select mailbox file..."
-msgstr "Valitse postilaatikkotiedosto..."
-
-#: Wammu/SMSExport.py:74
-msgid "Select maildir directory where to save files"
-msgstr "Valitse postitiedostokansio, johon tiedosto tallennetaan"
-
-#: Wammu/Select.py:71
-msgid "Select number for selected contact"
-msgstr "Valitse numero valitulle yhteystiedolle"
-
-#: Wammu/PhoneWizard.py:216
-msgid "Select phone"
-msgstr "Valitse puhelin"
-
-#: Wammu/Select.py:71
-msgid "Select phone number"
-msgstr "Valitse puhelinnumero"
-
-#: Wammu/PhoneWizard.py:216
-msgid "Select phone to use from bellow list"
-msgstr "Valitse puhelin listasta"
-
-#: Wammu/Composer.py:261
-msgid "Select predefined animation:"
-msgstr "Valitse esivalittu animaatio:"
-
-#: Wammu/Composer.py:297
-msgid "Select predefined sound:"
-msgstr "Valitse esivalittu ääni:"
-
-#: Wammu/Main.py:225
-#, fuzzy
-msgid "Select search type"
-msgstr "Valitse vientityyppi"
-
-#: Wammu/SettingsStorage.py:267 Wammu/SettingsStorage.py:304
-msgid ""
-"Select this if you have real serial port or it is emulated by phone driver "
-"(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:285 Wammu/SettingsStorage.py:309
-#: Wammu/SettingsStorage.py:324
-msgid ""
-"Select this if your phone is connected over Bluetooth and you want to use "
-"native Bluetooth connection."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:294 Wammu/SettingsStorage.py:318
-#: Wammu/SettingsStorage.py:329
-#, fuzzy
-msgid ""
-"Select this if your phone is connected over IrDA and you want to use native "
-"IrDA connection."
-msgstr "Laite, johon puhelimesi on kytketty."
-
-#: Wammu/SettingsStorage.py:299
-#, fuzzy
-msgid "Select this if your phone is connected using DKU2 cable."
-msgstr "Laite, johon puhelimesi on kytketty."
-
-#: Wammu/SettingsStorage.py:280
-msgid "Select this if your phone requires transfer speed 115200 bps."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:272
-msgid "Select this if your phone requires transfer speed 19200 bps."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:276
-msgid "Select this if your phone requires transfer speed 38400 bps."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:106
-msgid ""
-"Select this option if nothing above matches, good choice for other "
-"manufacturers like Alcatel, BenQ, LG, Sharp, Sony Ericsson..."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:94
-msgid ""
-"Select this option only if really necessary. You will be provided with too "
-"much options in next step."
-msgstr ""
-
-#: Wammu/Main.py:1265 Wammu/Main.py:1342
-msgid "Select what to import"
-msgstr "Valitse mitä tuodaan"
-
-#: Wammu/GammuSettings.py:164
-#, fuzzy
-msgid "Select which configration you want to modify."
-msgstr "Asetuksia ei löytynyt"
-
-#: Wammu/TalkbackDialog.py:105
-msgid "Select which features work correctly with your phone"
-msgstr ""
-
-#: Wammu/TalkbackFeaturesDialog.py:37
-msgid ""
-"Select which functionality works without problems on your phone (either in "
-"Wammu or in some other tool using Gammu library)."
-msgstr ""
-
-#: Wammu/SMSExport.py:85
-msgid ""
-"Selected folder does not contain new subfolder and thus probably is not "
-"valid maildir.\n"
-"\n"
-"Do you want to create new subfolder and export to it?"
-msgstr ""
-"Valittu kansio ei sisällä uutta alikansiota joten se ei ehkä ole oikea "
-"postitiedosto.\n"
-"\n"
-"Haluatko luoda uuden alikansion ja viedä sinne?"
-
-#: Wammu/SMSExport.py:257
-msgid "Selecting failed!"
-msgstr "Valinta epäonnistui!"
-
-#: Wammu/SMSExport.py:248
-msgid "Selecting folder on IMAP server..."
-msgstr "Valitaan kansio IMAP palvelimella..."
-
-#: Wammu/Browser.py:510
-msgid "Send"
-msgstr "Lähetä"
-
-#: Wammu/Composer.py:400
-msgid ""
-"Send flash message - it will be just displayed on display, but not saved in "
-"phone."
-msgstr ""
-"Lähetä flash viesti - se näytetään vain näytöllä, ei tallenneta puhelimeen."
-
-#: Wammu/Browser.py:519 Wammu/Composer.py:348
-msgid "Send message"
-msgstr "Lähetä viesti"
-
-#: Wammu/TalkbackFeaturesDialog.py:40
-msgid "Sending and saving SMS"
-msgstr ""
-
-#: Wammu/Composer.py:395 Wammu/Main.py:121
-msgid "Sent"
-msgstr "Lähetetyt"
-
-#: Wammu/Main.py:121
-msgid "Sent Messages"
-msgstr "Lähetetyt viestit"
-
-#: Wammu/PhoneWizard.py:405
-msgid "Serial cable"
-msgstr ""
-
-#: Wammu/Info.py:88
-msgid "Serial number (IMEI)"
-msgstr "Sarjanumero (IMEI)"
-
-#: Wammu/SMSExport.py:159
-msgid "Server name"
-msgstr "Palvelimen nimi"
+#: Wammu/Main.py:1734
+msgid "Reading calendar"
+msgstr "Luetaan kalenteria"
 
 #: Wammu/Main.py:1744
 msgid "Setting time in phone..."
 msgstr "Asettaa puhelimen aikaa..."
 
-#: Wammu/Settings.py:38
-msgid "Settings"
-msgstr "Asetukset"
-
-#: Wammu/Settings.py:102
-msgid "Show debug information on error output."
-msgstr "Näytä debuggaus tiedot virheilmoituksessa."
-
-#: Wammu/Settings.py:101
-msgid "Show debug log"
-msgstr "Näytä debuggaus loki"
-
-#: Wammu/Data.py:667
-msgid "Small"
-msgstr "Pieni"
-
-#: Wammu/MessageDisplay.py:160
-msgid ""
-"Some parts of this message were not decoded correctly, probably due to "
-"missing support for it in Gammu."
-msgstr ""
-"Joitain osia viestistä ei ole koodattu oikein, luultavasti Gammu ei tue "
-"kyseistä koodausta."
-
-#: Wammu/PhoneWizard.py:317
-msgid ""
-"Sorry no driver matches your configuration, please return back and try "
-"different settings or manual configuration."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:134
-msgid ""
-"Standard access to filesystem and sometimes also to phone data. Good choice "
-"for recent phones."
-msgstr ""
-
-#: Wammu/Browser.py:118
-msgid "Start"
-msgstr "Aloita"
-
-#: Wammu/PhoneSearch.py:95
-#, python-format
-msgid "Starting %s"
-msgstr "Käynnistetään %s"
-
-#: Wammu/Settings.py:113
-msgid "Startup information"
-msgstr "Käynnistystietoja"
-
-#: Wammu/Browser.py:83 Wammu/Main.py:816
-msgid "State"
-msgstr "Tila"
-
-#: Wammu/Data.py:672
-msgid "Strikethrough"
-msgstr "Yliviivaus"
-
-#: Wammu/Composer.py:181
-msgid "Style"
-msgstr "Tyyli"
-
-#: Wammu/TalkbackDialog.py:179
-msgid "Supported features"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:101
-msgid "Symbian based phone"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:138
-msgid "Symbian using Gnapplet"
-msgstr ""
-
-#: Wammu/Settings.py:108
-msgid "Synchronise time in phone with computer time while connecting."
-msgstr "Tahdista puhelimen aika tietokoneen aikaan yhdistämisen aikana."
-
-#: Wammu/Main.py:271
-msgid "Synchronises time in mobile with PC"
-msgstr "Tahdista kännykän aika PC:n kanssa"
-
-#: Wammu/Settings.py:107
-msgid "Synchronize time"
-msgstr "Tahdista aika"
-
-#: Wammu/Data.py:34
-msgid "TaDa"
-msgstr "Tadaa"
-
-#: Wammu/PhoneWizard.py:103 Wammu/PhoneWizard.py:120
-msgid "Testing still active!"
-msgstr ""
-
-#: Wammu/Browser.py:86 Wammu/Browser.py:102 Wammu/Browser.py:120
-#: Wammu/Composer.py:312 Wammu/Main.py:224
-msgid "Text"
-msgstr "Teksti"
-
-#: Wammu/Data.py:665
-msgid "Text Size"
-msgstr "Tekstin koko"
-
-#: Wammu/Composer.py:73
-msgid "Text style"
-msgstr "Tekstin tyyli"
-
-#: Wammu/PhoneWizard.py:45
-msgid "Thank you for configuring phone connection."
-msgstr ""
-
-#: Wammu/Main.py:451
-msgid "Thanks for using Wammu"
-msgstr ""
-
-#: Wammu/Main.py:406
-msgid "The import failed because python-gammu is compiled with different "
-msgstr ""
-
-#: Wammu/Main.py:423
-msgid "The import failed with following error:"
-msgstr ""
-
-#: Wammu/Utils.py:480
-msgid ""
-"This function is not implemented for your phone. If you want help with "
-"implementation please contact authors."
-msgstr ""
-"Tämä toiminne ei ole puhelintasi varten. Jos haluat apua välineen kanssa, "
-"ole hyvä ja ota yhteyttä ohjelman tekijään."
-
-#: Wammu/TalkbackDialog.py:106
-msgid "This information is automatically included in report."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:406
-msgid ""
-"This is not often used connection, but was very popular for older phones."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:118
-msgid ""
-"This provides minimal access to phone features. It is recommended to use "
-"other connection type."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:449
-msgid "This wizard will help you with configuring phone connection in Wammu."
-msgstr ""
-
-#: Wammu/Utils.py:492
-msgid ""
-"Timeout while trying to communicate with phone. Maybe phone is not connected "
-"(for cable) or out of range (for bluetooth or IrDA)."
-msgstr ""
-"Aikakatkaisu yritettäessä kommunikoida puhelimen kanssa. Ehkä puhelin ei ole "
-"kytketty (johdolla) taikka on yhteyden ulottumattomissa (bluetooth tai IrDA)."
-
-#: Wammu/Ringtone.py:49
-msgid "Timidity not found"
-msgstr "Timidityä ei löydy"
-
-#: Wammu/TalkbackFeaturesDialog.py:45 Wammu/Main.py:125 Wammu/Main.py:286
-msgid "Todos"
-msgstr "Tehtävät"
-
-#: Wammu/Data.py:308
-msgid "Tongue hanging out"
-msgstr "Kieli ulkona"
-
-#: Wammu/Error.py:107
-#, python-format
-msgid ""
-"Traceback:\n"
-"%(traceback)s\n"
-"Exception: %(exception)s"
-msgstr ""
-
-#: Wammu/Browser.py:67 Wammu/Browser.py:117 Wammu/Main.py:829
-msgid "Type"
-msgstr "Tyyppi"
-
-#: Wammu/PhoneWizard.py:393
-msgid "USB cable"
-msgstr ""
-
-#: Wammu/Data.py:671
-msgid "Underlined"
-msgstr "Alleviivattu"
-
-#: Wammu/Error.py:105
-msgid "Unhandled exception"
-msgstr "Käsittämätön poikkeus"
-
-#: Wammu/Error.py:92
-msgid "Unhandled exception appeared."
-msgstr "Käsittämätön poikkeus ilmaantui."
-
-#: Wammu/Error.py:104
-#, fuzzy
-msgid ""
-"Unhandled exception appeared. If you want to help improving this program, "
-"please report this together with description how this situation has "
-"happened. Please report in english, otherwise you will be most likely told "
-"to translate you report to english later."
-msgstr ""
-"Jos haluat auttaa tämän ohjelman kehittämisessä, lähetä oheinen tieto ja "
-"miten se tapahtui %s :n. Kirjoita englanniksi, muuten sinua pyydettänee "
-"myöhemmin kääntämään viestisi englanniksi."
-
-#: Wammu/Composer.py:379
-msgid "Unicode"
-msgstr "Unicode"
-
-#: Wammu/Error.py:76
-msgid ""
-"Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
-msgstr ""
-"Unicode-koodivirhe ilmaantui, selvittääksesi ongelman, katso kysymys 1 FAQ:"
-"sta."
-
-#: Wammu/Settings.py:242 Wammu/Composer.py:380
-msgid ""
-"Unicode messages can contain national and other special characters, check "
-"this if you use non latin-1 characters. Your messages will require more "
-"space, so you can write less characters into single message."
-msgstr ""
-"Unicode viestit voi sisältää kansallisia tai muita erikoismerkkejä, merkitse "
-"tämä jos käytät muita kuin latin-1 merkkejä. Viestisi vaativat enemmän tilaa "
-"joten voit kirjoittaa vähemmän merkkejä yhteen viestiin."
-
-#: Wammu/Editor.py:229 Wammu/Editor.py:431 Wammu/Main.py:507 Wammu/Main.py:523
-msgid "Unknown"
-msgstr "Tuntematon"
-
-#: Wammu/MessageDisplay.py:117
-#, python-format
-msgid "Unknown predefined sound #%d"
-msgstr "Tuntematon esivalittu ääni #%d"
-
-#: Wammu/Main.py:120
-msgid "Unread"
-msgstr "Lukemattomat"
-
-#: Wammu/Main.py:120
-msgid "Unread Messages"
-msgstr "Lukemattomat viestit"
-
-#: Wammu/Main.py:122
-msgid "Unsent"
-msgstr "Ei lähetetty"
-
-#: Wammu/Main.py:122
-msgid "Unsent Messages"
-msgstr "Lähettämättömät viestit"
-
-#: wammu-configure.py:98
-#, fuzzy
-msgid "Updating gammu configuration..."
-msgstr "Luo uusi yhteystieto"
-
-#: wammu-configure.py:50 wammu.py:46
-#, python-format
-msgid "Usage: %s [OPTION...]"
-msgstr ""
-
-#: Wammu/Settings.py:254
-msgid "Use 16 bit Id inside message. This is safe for most cases."
-msgstr "Käytä 16 bittistä Id:tä viestissä. Tämä on useimmiten turvallisinta."
-
-#: Wammu/Settings.py:253
-msgid "Use 16bit Id"
-msgstr "Käytä 16 bittistä Id:tä"
-
-#: Wammu/SMSExport.py:152
-msgid "Use SSL?"
-msgstr "Käytä SSL?"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Use [at] and [dot]"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:289 Wammu/SettingsStorage.py:313
-msgid ""
-"Use for Bluetooth stack and 6210 / DCT4 Nokia models, which don't inform "
-"about Bluetooth services correctly (6310, 6310i with firmware lower than "
-"5.50, 8910,..)"
-msgstr ""
-
-#: wammu-configure.py:74 wammu.py:70
-msgid "Using local built locales!"
-msgstr ""
-
-#: Wammu/About.py:107
-#, python-format
-msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
-msgstr ""
-"Käyttää python-gammu %(python_gammu_version)s ja Gammu %(gammu_version)s"
-
-#: Wammu/About.py:106
-#, python-format
-msgid "Using wxPython %s"
-msgstr "Käyttää wxPython %s"
-
-#: Wammu/Browser.py:41
-msgid "Value"
-msgstr "Arvo"
-
-#: Wammu/Main.py:256
-msgid "W&rite message"
-msgstr "Tallenna vie&sti"
-
-#: Wammu/Data.py:168
-msgid "WOW"
-msgstr "VAUTSI"
-
-#: wammu.py:42
-#, python-format
-msgid "Wammu - Windowed Gammu version %s"
-msgstr ""
-
-#: wammu-configure.py:46
-#, python-format
-msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:463
-msgid "Wammu Phone Configuration Wizard"
-msgstr ""
-
-#: Wammu/Main.py:432
-msgid "Wammu configuration was not found and Gammu settings couldn't be read."
-msgstr "Wammun asetuksia ei löydetty ja Gammun asetuksia ei voi lukea."
-
-#: Wammu/Main.py:405 Wammu/Main.py:415 Wammu/Main.py:422
-#, fuzzy
-msgid "Wammu could not import gammu module, program will be terminated."
-msgstr ""
-"Wammu ei voinut tuoda gammu moduulia, joten ohjelma lopetetaan.\n"
-"\n"
-"Tuonti epäonnistui seuraavin virhein:\n"
-"\n"
-"%s"
-
-#: Wammu/PhoneWizard.py:170
-#, fuzzy
-msgid "Wammu is now searching for phone:"
-msgstr "Etsi puhelin"
-
-#: Wammu/PhoneWizard.py:66 Wammu/PhoneWizard.py:79
-msgid "Wammu is now testing phone connection, please wait..."
-msgstr ""
-
-#: Wammu/Main.py:312
-msgid "Wammu support website"
-msgstr ""
-
-#: Wammu/Main.py:100
-msgid "Wammu version"
-msgstr "Wammu versio"
-
-#: Wammu/Main.py:311
-#, fuzzy
-msgid "Wammu website"
-msgstr "Wammu versio"
-
-#: Wammu/Utils.py:90
-#, python-format
-msgid "Warning: assuming charset %s for html widget"
-msgstr "Varoitus: oletetaan merkistöä %s html widgetille"
+#: Wammu/Main.py:1759
+msgid "One moment please, connecting to phone..."
+msgstr "Hetkinen, yhdistetään puhelimeen..."
+
+#: Wammu/Main.py:1815
+msgid "One moment please, disconnecting from phone..."
+msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen..."
 
 #: Wammu/Utils.py:89
 msgid ""
@@ -2809,334 +2967,45 @@ msgstr ""
 "Varoitus: käytät utf-8 lokaaleja ja ei unicodea hyväksyvää wxPythonia, joten "
 "osa tekstistä saattaa näkyä virheellisesti!"
 
-#: Wammu/Data.py:348
-msgid "Wearing glases"
-msgstr "Käyttää laseja"
-
-#: Wammu/PhoneWizard.py:448
-msgid "Welcome"
-msgstr ""
-
-#: Wammu/Main.py:249
+#: Wammu/Utils.py:90
 #, python-format
-msgid "Welcome to Wammu %s"
-msgstr "Tervetuloa Wammuun %s"
-
-#: Wammu/Composer.py:353
-msgid "When checked, message is saved to phone."
-msgstr "Kun merkitty, viesti tallennetaan puhelimeen"
-
-#: Wammu/Composer.py:349
-msgid "When checked, message is sent to recipient."
-msgstr "Kun merkitty, viesti on lähetetty vastaanottajalle."
-
-#: Wammu/SMSExport.py:298
-msgid "Where do you want to export emails created from your messages?"
-msgstr "Mihin haluat lähettää viesteistäsi luodut sähköpostit?"
-
-#: Wammu/Settings.py:209
-msgid ""
-"Whether images in messages should be scaled when displayed. This is usually "
-"good idea as they are pretty small."
-msgstr ""
-"Pitäisikö viesteissä olevia kuvia skaalata näytettäessä. Tämä on yleensä "
-"hyvä idea, koska ne ovat hyvin pieniä."
-
-#: Wammu/Settings.py:293
-msgid "Whether to ask for confirmation when deleting entries."
-msgstr "Haluatko kuittauksen kun poistetaan merkintöjä?"
-
-#: Wammu/Settings.py:122
-msgid ""
-"Whether to lock device in /var/lock. On some systems you might lack "
-"privileges to do so."
-msgstr ""
-"Lukitaanko laite tiedostoon /var/lock. Joissakin järjestelmissä oikeutesi ei "
-"ehkä riitä tämän tekemiseen."
-
-#: Wammu/Settings.py:96
-msgid ""
-"Whether you want application automatically connect to phone when it is "
-"started."
-msgstr "Haluatko ohjelman ottavan yhteyden puhelimeen käynnistyessään."
-
-#: Wammu/Main.py:224
-msgid "Wildcard"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:432
-msgid "Wizard will attempt to search phone on usual ports."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:390
-msgid ""
-"Wizard will search for all possible connections. It might take quite long "
-"time to search all possible connection types"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:58
-msgid "Working features:"
-msgstr ""
-
-#: Wammu/Main.py:255
-msgid "Writes data (except messages) to file"
-msgstr "Kirjoittaa tietoja (paitsi viestejä) tiedostoon"
-
-#: Wammu/Main.py:256
-msgid "Writes messages to file"
-msgstr "Kirjoittaa viestin tiedostoon"
-
-#: Wammu/Main.py:963
-msgid "Writing calendar..."
-msgstr "Kirjoitetaan kalenteria..."
-
-#: Wammu/Main.py:911
-msgid "Writing contact..."
-msgstr "Kirjoitetaan yhteystietoja..."
-
-#: Wammu/Main.py:855
-msgid "Writing message(s)..."
-msgstr "Kirjoitetaan viesti(t)..."
-
-#: Wammu/Main.py:1010
-msgid "Writing todo..."
-msgstr "Kirjoitetaan tehtävä..."
+msgid "Warning: assuming charset %s for html widget"
+msgstr "Varoitus: oletetaan merkistöä %s html widgetille"
 
 #: Wammu/Utils.py:339
 msgid "Yes"
 msgstr "Kyllä"
 
-#: Wammu/Main.py:449
-msgid ""
-"You are using Wammu for more than a month. We would like to hear from you "
-"how your phone is supported. Do you want to participate in this survey?"
-msgstr ""
+#: Wammu/Utils.py:341
+msgid "No"
+msgstr "Ei"
 
-#: Wammu/TalkbackFeaturesDialog.py:61
-#, fuzzy
-msgid "You can access name and phone number."
-msgstr "Et antanut toimivaa puhelinnumeroa."
-
-#: Wammu/Settings.py:89
-msgid "You can configure connection parameters on Connection tab."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:47
-msgid "You can enter any name which you will use to identify your phone."
-msgstr ""
-
-#: Wammu/Main.py:409
-msgid "You can fix it by recompiling python-gammu against gammu library you "
-msgstr ""
-
-#: Wammu/Main.py:1052 Wammu/Main.py:1102 Wammu/Main.py:1122
-msgid "You can not work on this data, please retrieve it first from phone"
-msgstr "Et voi käsitellä tätä tietoa, hae se ensin puhelimesta"
-
-#: Wammu/Main.py:708
-msgid ""
-"You changed parameters affecting phone connection, they will be used next "
-"time you connect to phone."
-msgstr ""
-"Vaihtamasi parametrit vaikuttavat puhelin yhteyteen, niitä käytetään kun "
-"seuraavan kerran yhdistät puhelimen."
-
-#: Wammu/PhoneValidator.py:84
-msgid "You did not specify valid phone number."
-msgstr "Et antanut toimivaa puhelinnumeroa."
-
-#: Wammu/SettingsStorage.py:214 Wammu/SettingsStorage.py:248
-msgid "You don't have to enter anything for this settings."
-msgstr ""
-
-#: Wammu/TalkbackFeaturesDialog.py:62
-msgid ""
-"You have access to more phone numbers per entry or additional fields as "
-"email."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:454
-msgid "You have enabled IrDA and phone is in visible range."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:455
-msgid "You have paired Bluetooth with computer."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:139
-msgid ""
-"You have to install Gnapplet into phone before using this connection. You "
-"can find it in Gammu sources."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:434
-msgid ""
-"You know what you are doing and know exact parameters you need for "
-"connecting to phone."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:275
-msgid "You need to select connection type which will be used."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:269 Wammu/PhoneWizard.py:301
-msgid "You need to select port which will be used."
-msgstr ""
-
-#: Wammu/PhoneWizard.py:433
-msgid ""
-"You will be guided through configuration by phone connection type and vendor."
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:66
-msgid "Your email:"
-msgstr ""
-
-#: Wammu/TalkbackDialog.py:64
-msgid "Your name:"
-msgstr ""
-
-#: Wammu/Utils.py:482
-msgid "Your phone asks for PIN."
-msgstr "Puhelimesi kysyy PIN-koodia."
-
-#: Wammu/Utils.py:478
-msgid "Your phone doesn't support this function."
-msgstr "Puhelimesi ei tue tätä toimintoa."
-
-#: Wammu/Main.py:509
-msgid "battery"
-msgstr "akku"
-
-#: Wammu/Utils.py:377
-msgid "biweekly"
-msgstr ""
-
-#: Wammu/Main.py:1528
-#, python-format
-msgid "calendar entry \"%s\""
-msgstr "kalenterimerkintä \"%s\""
-
-#: Wammu/Editor.py:508
-msgid "calendar event"
-msgstr "kalenteritapahtuma"
-
-#: Wammu/Main.py:1522
-#, python-format
-msgid "call \"%s\""
-msgstr "soita \"%s\""
-
-#: Wammu/Main.py:519
-#, fuzzy
-msgid "charged"
-msgstr "Suuri"
-
-#: Wammu/Main.py:517
-msgid "charging"
-msgstr ""
-
-#: Wammu/Editor.py:500
-msgid "contact"
-msgstr "yhteystieto"
-
-#: Wammu/Main.py:1520
-#, python-format
-msgid "contact \"%s\""
-msgstr "yhteystieto \"%s\""
-
-#: Wammu/Utils.py:375
-msgid "daily"
-msgstr ""
-
-#: Wammu/Utils.py:399
-msgid "disabled"
+#: Wammu/Utils.py:362
+msgid "enabled (tone)"
 msgstr ""
 
 #: Wammu/Utils.py:364
 msgid "enabled (silent)"
 msgstr ""
 
-#: Wammu/Utils.py:362
-msgid "enabled (tone)"
+#: Wammu/Utils.py:370
+msgid "yearly"
 msgstr ""
-
-#: Wammu/Main.py:515
-msgid "fault"
-msgstr "virhe"
-
-#: Wammu/Main.py:1170
-msgid "iCalendar [todo,calendar]"
-msgstr "iKalenteri [tehtävä,kalenteri]"
-
-#: Wammu/SMSExport.py:70
-msgid "mailbox"
-msgstr "postilaatikko"
-
-#: Wammu/SMSExport.py:145
-msgid "maildir"
-msgstr "postihakemisto"
-
-#: Wammu/Main.py:1524
-#, python-format
-msgid "message from \"%s\""
-msgstr "viesti \"%s\""
 
 #: Wammu/Utils.py:372
 msgid "monthly"
 msgstr ""
 
-#: Wammu/Main.py:513
-msgid "no battery"
-msgstr "ei akkua"
-
-#: Wammu/Utils.py:402
-msgid "nonrecurring"
+#: Wammu/Utils.py:375
+msgid "daily"
 msgstr ""
 
-#: Wammu/Main.py:104
-msgid "python-gammu version"
-msgstr "python-gammu versio"
-
-#: Wammu/Main.py:1526
-#, python-format
-msgid "todo \"%s\""
-msgstr "tehtävä \"%s\""
-
-#: Wammu/Editor.py:516
-msgid "todo item"
-msgstr "tehtävä kohta"
-
-#: Wammu/Main.py:1167
-msgid "vCalendar [todo,calendar]"
-msgstr "vKalenteri [tehtävä,kalenteri]"
-
-#: Wammu/Main.py:1161
-msgid "vCard [contacts]"
-msgstr "vCard [yhteystiedot]"
-
-#: Wammu/Main.py:804
-#, python-format
-msgid "voice tag %x"
-msgstr "äänikomento %x"
-
-#: Wammu/Utils.py:388
-msgid "weekly on friday"
+#: Wammu/Utils.py:377
+msgid "biweekly"
 msgstr ""
 
 #: Wammu/Utils.py:380
 msgid "weekly on monday"
-msgstr ""
-
-#: Wammu/Utils.py:390
-msgid "weekly on saturday"
-msgstr ""
-
-#: Wammu/Utils.py:392
-msgid "weekly on sunday"
-msgstr ""
-
-#: Wammu/Utils.py:386
-msgid "weekly on thursday"
 msgstr ""
 
 #: Wammu/Utils.py:382
@@ -3147,8 +3016,150 @@ msgstr ""
 msgid "weekly on wednesday"
 msgstr ""
 
-#: Wammu/Utils.py:370
-msgid "yearly"
+#: Wammu/Utils.py:386
+msgid "weekly on thursday"
+msgstr ""
+
+#: Wammu/Utils.py:388
+msgid "weekly on friday"
+msgstr ""
+
+#: Wammu/Utils.py:390
+msgid "weekly on saturday"
+msgstr ""
+
+#: Wammu/Utils.py:392
+msgid "weekly on sunday"
+msgstr ""
+
+#: Wammu/Utils.py:399
+msgid "disabled"
+msgstr ""
+
+#: Wammu/Utils.py:402
+msgid "nonrecurring"
+msgstr ""
+
+#: Wammu/Utils.py:478
+msgid "Your phone doesn't support this function."
+msgstr "Puhelimesi ei tue tätä toimintoa."
+
+#: Wammu/Utils.py:480
+msgid ""
+"This function is not implemented for your phone. If you want help with "
+"implementation please contact authors."
+msgstr ""
+"Tämä toiminne ei ole puhelintasi varten. Jos haluat apua välineen kanssa, "
+"ole hyvä ja ota yhteyttä ohjelman tekijään."
+
+#: Wammu/Utils.py:482
+msgid "Your phone asks for PIN."
+msgstr "Puhelimesi kysyy PIN-koodia."
+
+#: Wammu/Utils.py:484
+msgid "Memory is full, try deleting some entries."
+msgstr "Muisti on täynnä, poista jokin merkintä."
+
+#: Wammu/Utils.py:486
+msgid "Communication canceled by phone, did you press cancel on phone?"
+msgstr "Yhteys peruutettu puhelimesta, painoitko puhelimesta peruuta-nappia?"
+
+#: Wammu/Utils.py:488
+msgid ""
+"Empty entry received. This usually should not happen and most likely is "
+"caused by bug in phone firmware or in Gammu/Wammu.\n"
+"\n"
+"If you miss some entry, please contact Gammu/Wammu authors."
+msgstr ""
+"Tyhjä tieto vastaanotettu. Tätä ei yleensä pitäisi tapahtua ja "
+"todennäköisesti kyse onkin bugista puhelimen firmwaressa tai Gammussa/"
+"Wammussa.\n"
+"\n"
+"Jos kaipaat jotain tietoa, ota yhteyttä Gammun/Wammun luojiin."
+
+#: Wammu/Utils.py:490
+msgid ""
+"Please close opened menu in phone and retry, data can not be accessed while "
+"you have opened them."
+msgstr ""
+"Ole hyvä ja sulje avattu valikko puhelimessa, tietoon ei päästä käsiksi, "
+"niiden ollessa auki."
+
+#: Wammu/Utils.py:492
+msgid ""
+"Timeout while trying to communicate with phone. Maybe phone is not connected "
+"(for cable) or out of range (for bluetooth or IrDA)."
+msgstr ""
+"Aikakatkaisu yritettäessä kommunikoida puhelimen kanssa. Ehkä puhelin ei ole "
+"kytketty (johdolla) taikka on yhteyden ulottumattomissa (bluetooth tai IrDA)."
+
+#: Wammu/Utils.py:494
+msgid ""
+"Device for communication with phone does not exist. Maybe you don't have "
+"phone plugged or your configuration is wrong."
+msgstr ""
+
+#: Wammu/Utils.py:496
+msgid "Description:"
+msgstr "Kuvaus:"
+
+#: Wammu/Utils.py:496
+msgid "Function:"
+msgstr "Toiminto:"
+
+#: Wammu/Utils.py:496
+msgid "Error code:"
+msgstr "Virhekoodi:"
+
+#: wammu-configure.py:52
+#, python-format
+msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
+msgstr ""
+
+#: wammu-configure.py:56 wammu.py:52
+#, python-format
+msgid "Usage: %s [OPTION...]"
+msgstr ""
+
+#: wammu-configure.py:58 wammu.py:54
+#, fuzzy
+msgid "Options:"
+msgstr "Kuvaus:"
+
+#: wammu-configure.py:59 wammu.py:55
+msgid "-h/--help          ... show this help"
+msgstr ""
+
+#: wammu-configure.py:60 wammu.py:56
+msgid "-v/--version       ... show program version"
+msgstr ""
+
+#: wammu-configure.py:61 wammu.py:57
+msgid ""
+"-l/--local-locales ... use locales from current directory rather than system "
+"ones"
+msgstr ""
+
+#: wammu-configure.py:68 wammu.py:64
+msgid "Command line parsing failed with error:"
+msgstr ""
+
+#: wammu-configure.py:74 wammu.py:70
+msgid "Extra unrecognized parameters passed to program"
+msgstr ""
+
+#: wammu-configure.py:81 wammu.py:77
+msgid "Using local built locales!"
+msgstr ""
+
+#: wammu-configure.py:105
+#, fuzzy
+msgid "Updating gammu configuration..."
+msgstr "Luo uusi yhteystieto"
+
+#: wammu.py:48
+#, python-format
+msgid "Wammu - Windowed Gammu version %s"
 msgstr ""
 
 #, fuzzy
@@ -3166,6 +3177,9 @@ msgstr ""
 
 #~ msgid "&Clear"
 #~ msgstr "&Tyhjennä"
+
+#~ msgid "&New"
+#~ msgstr "&Uusi"
 
 #~ msgid "&OK"
 #~ msgstr "&OK"
@@ -3185,6 +3199,9 @@ msgstr ""
 
 #~ msgid "Bat: %d %% (%s), Sig: %d %%, Time: %s"
 #~ msgstr "Akku: %d %% (%s), Verkko: %d %%, Aika: %s"
+
+#~ msgid "Calendar &event"
+#~ msgstr "Kalenteri &tapahtuma"
 
 #~ msgid "Cancel"
 #~ msgstr "Peruuta"
