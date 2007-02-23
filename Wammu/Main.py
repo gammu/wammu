@@ -820,13 +820,16 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'todo':
             data = [
                 (_('Location'), str(v['Location'])),
-                (_('Priority'), v['Priority'])]
+                (_('Priority'), v['Priority']),
+                (_('Type'), v['Type']),
+                ]
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         elif self.type[0] == 'calendar':
             data = [
                 (_('Location'), str(v['Location'])),
-                (_('Type'), v['Type'])]
+                (_('Type'), v['Type']),
+                ]
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         else:

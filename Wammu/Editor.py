@@ -500,3 +500,7 @@ class TodoEditor(GenericEditor):
         else:
             location = '%d' % entry['Location']
         GenericEditor.__init__(self, parent, cfg, values, entry, 'todo',  _('todo item'), location, 'Priority', 'Medium', _('Priority'), Wammu.Data.TodoPriorities, Wammu.Data.TodoValueTypes)
+
+    def Okay(self, evt):
+        self.entry['Type'] = 'MEMO'
+        GenericEditor.Okay(self, evt)
