@@ -33,6 +33,7 @@ import re
 import time
 import Wammu
 import Wammu.GammuSettings
+import __builtin__
 
 # Try to import iconv_codec to allow working on chinese windows
 try:
@@ -40,7 +41,12 @@ try:
 except:
     pass
 
-gettext.install('wammu', unicode=1)
+gettext.textdomain('wammu')
+# Almost gettext.install, use lgettext if available
+try:
+    __builtin__.__dict__['_'] = gettext.lgettext
+except AttributeError:
+    __builtin__.__dict__['_'] = gettext.gettext
 
 def version():
     print _('Wammu Configurator - Wammu and Gammu configurator version %s') % Wammu.__version__
@@ -70,7 +76,8 @@ if len(args) != 0:
 
 for o, a in opts:
     if o in ('-l', '--local-locales'):
-        gettext.install('wammu',os.path.join('build', 'share', 'locale'), unicode=1)
+        localepath = os.path.join('build', 'share', 'locale')
+        gettext.bindtextdomain('wammu', localepath)
         print _('Using local built locales!')
     if o in ('-h', '--help'):
         usage()
