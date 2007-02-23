@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Usage: make-release [branch]
+
+version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
+
+tmp=`mktemp -dt wammu-build-XXXXXX`
+
+cd $tmp
+echo Working in $tmp
+if [ "x$1" = "xbranch" ] ; then
+    baz branch wammu--devel--1 wammu--release--$version
+    baz export wammu--release--$version wammu-$version
+else
+    baz export wammu--devel--1 wammu-$version
+fi
+find wammu-$version -name .arch-inventory -print0 | xargs -0 rm -f
+rm wammu-$version/make-release
+cd wammu-$version
+./setup.py sdist --formats=gztar,bztar,zip
+mv dist/* ../
+
+echo "Release is in $tmp directory"
