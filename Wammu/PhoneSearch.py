@@ -32,7 +32,7 @@ if Wammu.gammu_error == None:
     import gammu
 import Wammu.Data
 import Wammu.Events
-import wxPython.lib.layoutf
+import wx.lib.layoutf
 from Wammu.Utils import StrConv
 
 class LogDialog(wx.Dialog):
@@ -45,8 +45,8 @@ class LogDialog(wx.Dialog):
                              wx.DefaultSize,
                              wx.TE_MULTILINE | wx.TE_READONLY)
         ok = wx.Button(self, wx.ID_OK, _('Close'))
-        text.SetConstraints(wxPython.lib.layoutf.Layoutf('t=t5#1;b=t5#2;l=l5#1;r=r5#1', (self,ok)))
-        ok.SetConstraints(wxPython.lib.layoutf.Layoutf('b=b5#1;x%w50#1;w!80;h!25', (self,)))
+        text.SetConstraints(wx.lib.layoutf.Layoutf('t=t5#1;b=t5#2;l=l5#1;r=r5#1', (self,ok)))
+        ok.SetConstraints(wx.lib.layoutf.Layoutf('b=b5#1;x%w50#1;w!80;h!25', (self,)))
         self.SetAutoLayout(1)
         self.Layout()
         self.text = text
