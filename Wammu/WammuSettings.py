@@ -105,7 +105,7 @@ class WammuConfig:
     '''
     def __init__(self):
         # We don't want to subclass from wx.Config to hide it's API
-        self.cfg = wx.Config(appName = 'Wammu', 
+        self.cfg = wx.Config(appName = 'Wammu',
                 style = wx.CONFIG_USE_LOCAL_FILE)
         self.gammu = None
         self.InitGammu()
@@ -124,7 +124,7 @@ class WammuConfig:
             result = self.cfg.Read(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            print 'Warning: no default value for %s' % path
+            #print 'Warning: no default value for %s' % path
             result = self.cfg.Read(path, '')
         if expand and path in EXPANDABLE_CONFIGS:
             result = os.path.expanduser(result)
@@ -138,7 +138,7 @@ class WammuConfig:
             result = self.cfg.ReadInt(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            print 'Warning: no default value for %s' % path
+            #print 'Warning: no default value for %s' % path
             result = self.cfg.ReadInt(path, 0)
         return result
 
@@ -150,7 +150,7 @@ class WammuConfig:
             result = self.cfg.ReadFloat(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            print 'Warning: no default value for %s' % path
+            #print 'Warning: no default value for %s' % path
             result = self.cfg.ReadFloat(path, 0)
         return result
 
