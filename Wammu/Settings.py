@@ -57,7 +57,9 @@ class Settings(wx.Dialog):
 
         self.sizer.Add(wx.StaticLine(self, -1), pos = (2, 1), colspan = 3, flag = wx.EXPAND)
 
-        self.button_sizer = self.CreateStdDialogButtonSizer(wx.OK | wx.CANCEL)
+        self.button_sizer = wx.StdDialogButtonSizer()
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_OK))
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.button_sizer.Realize()
 
         self.sizer.Add(self.button_sizer, pos = (3, 1), colspan = 3, flag = wx.ALIGN_RIGHT)
@@ -390,7 +392,7 @@ class Settings(wx.Dialog):
     def OnConfigChange(self, evt = None):
         # temporarily change gammu config data
         newpath = self.editcfgpath.GetValue()
-        self.gammu_config = Wammu.GammuSettings.GammuSettings(os.path.expanduser(newpath))
+        self.gammu_config = Wammu.GammuSettings.GammuSettings(self.config, os.path.expanduser(newpath))
         self.RereadConfig()
 
     def RereadConfig(self):

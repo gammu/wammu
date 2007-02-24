@@ -444,7 +444,9 @@ class SMSComposer(wx.Dialog):
         row = row + 2
 
         self.preview = wx.Button(self, -1, _('Preview'))
-        self.button_sizer = self.CreateStdDialogButtonSizer(wx.OK | wx.CANCEL)
+        self.button_sizer = wx.StdDialogButtonSizer()
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_OK))
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.button_sizer.SetNegativeButton(self.preview)
         self.button_sizer.Realize()
         self.sizer.Add(self.button_sizer, pos = (row, 1), span = wx.GBSpan(colspan = 7), flag = wx.ALIGN_RIGHT)

@@ -276,7 +276,9 @@ class GenericEditor(wx.Dialog):
 
         self.more = wx.Button(self, wx.ID_ADD)
         self.more.SetToolTipString(_('Add one more field.'))
-        self.button_sizer = self.CreateStdDialogButtonSizer(wx.OK | wx.CANCEL)
+        self.button_sizer = wx.StdDialogButtonSizer()
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_OK))
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.button_sizer.SetNegativeButton(self.more)
         self.button_sizer.Realize()
         self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)

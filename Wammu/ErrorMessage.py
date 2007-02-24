@@ -39,7 +39,7 @@ class ErrorMessage(wx.Dialog):
     Error message box with support for saving debug log and reporting
     bug to http://bugs.cihar.com/.
     '''
-    def __init__(self, parent, message, title, traceid=None, 
+    def __init__(self, parent, message, title, traceid=None,
             autolog=None, exception=None):
         wx.Dialog.__init__(self, parent, -1, title)
 
@@ -48,7 +48,7 @@ class ErrorMessage(wx.Dialog):
         sizer.Add(textsizer, flag=wx.ALL, border=10)
 
         bitmap = wx.Bitmap(Wammu.Paths.MiscPath('error'))
-        icon = wx.StaticBitmap(self, -1, bitmap, 
+        icon = wx.StaticBitmap(self, -1, bitmap,
                 size = (bitmap.GetWidth(), bitmap.GetHeight()))
         textsizer.Add(icon, flag=wx.RIGHT, border=10)
 
@@ -56,14 +56,15 @@ class ErrorMessage(wx.Dialog):
             message += '\n\n'
             message += exception
         if autolog is not None:
-            message += '\n\n' 
+            message += '\n\n'
             message += _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.'
                     ) % autolog
         msg = wx.StaticText(self, -1, message)
         msg.Wrap(400)
         textsizer.Add(msg)
 
-        buttonsizer = self.CreateStdDialogButtonSizer(wx.OK)
+        buttonsizer = wx.StdDialogButtonSizer()
+        buttonsizer.AddButton(wx.Button(self, wx.ID_OK))
 
         if traceid is None:
             savebutton = wx.Button(self, -1, _('Save debug log...'))
@@ -90,11 +91,11 @@ class ErrorMessage(wx.Dialog):
         '''
         Saves debug log to file.
         '''
-        dlg = wx.FileDialog(self, 
-                _('Save debug log as...'), 
-                os.getcwd(), 
-                'wammu.log', 
-                '', 
+        dlg = wx.FileDialog(self,
+                _('Save debug log as...'),
+                os.getcwd(),
+                'wammu.log',
+                '',
                 wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             Wammu.ErrorLog.SaveLog(filename = dlg.GetPath())

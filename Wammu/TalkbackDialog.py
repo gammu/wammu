@@ -111,7 +111,9 @@ class TalkbackDialog(wx.Dialog):
         # end wxGlade
 
     def __do_layout(self):
-        self.button_sizer = self.CreateStdDialogButtonSizer(wx.OK | wx.CANCEL)
+        self.button_sizer = wx.StdDialogButtonSizer()
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_OK))
+        self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.info_label.Wrap(400)
         # begin wxGlade: TalkbackDialog.__do_layout
         window_grid_sizer = wx.FlexGridSizer(3, 1, 0, 0)
