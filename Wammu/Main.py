@@ -403,7 +403,7 @@ class WammuFrame(wx.Frame):
 
             wx.MessageDialog(self,
                 _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
-                _('The import failed because python-gammu is compiled with different version than it is now using (it was compiled with version %(compile)s and now it is using version %(runtime)s)') % {'compile': result.group(2), 'runtime': result.group(1)} + '\n\n' +
+                _('The import failed because python-gammu is compiled with different version than it is now using (it was compiled with version %(compile)s and now it is using version %(runtime)s).') % {'compile': result.group(2), 'runtime': result.group(1)} + '\n\n' +
                 _('You can fix it by recompiling python-gammu against gammu library you are currently using.'),
                 _('Gammu module not working!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
