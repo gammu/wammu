@@ -267,17 +267,10 @@ class Settings:
             helps.append(_('Select this if you have real serial port or it is emulated by phone driver (eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.).'))
 
             if self.connection == 'serial':
-                names.append('at19200')
-                connections.append(_('Generic AT at 19200 bps'))
-                helps.append(_('Select this if your phone requires transfer speed 19200 bps.'))
-
-                names.append('at38400')
-                connections.append(_('Generic AT at 38400 bps'))
-                helps.append(_('Select this if your phone requires transfer speed 38400 bps.'))
-
-                names.append('at115200')
-                connections.append(_('Generic AT at 115200 bps'))
-                helps.append(_('Select this if your phone requires transfer speed 115200 bps.'))
+                for rate in [19200, 38400, 115200]:
+                    names.append('at%d' % rate)
+                    connections.append(_('Generic AT at %d bps') % rate)
+                    helps.append(_('Select this if your phone requires transfer speed %d bps.') % rate)
 
             elif self.connection == 'bluetooth':
                 names.append('blueat')
