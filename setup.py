@@ -302,6 +302,12 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         # install data files
         super(install_data_wammu, self).run()
 
+py2exepackages = ['Wammu']
+if sys.version_info >= (2, 5):
+    # Email module changed a lot in python 2.5 and we can not yet use new API
+    py2exepackages.append('email')
+    py2exepackages.append('email.mime')
+
 distutils.core.setup(name="wammu",
     version = Wammu.__version__,
     description = "Wammu",
@@ -365,7 +371,7 @@ distutils.core.setup(name="wammu",
     # py2exe options
     options = {'py2exe': {
             'optimize': 2,
-            'packages': 'Wammu',
+            'packages': py2exepackages,
         }},
     windows = [
         {
