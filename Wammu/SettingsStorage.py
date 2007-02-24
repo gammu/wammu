@@ -103,7 +103,7 @@ class Settings:
 
         names.append('nota')
         connections.append(_('None of the above'))
-        helps.append(_('Select this option if nothing above matches, good choice for other manufacturers like Alcatel, BenQ, LG, Sharp, Sony Ericsson...'))
+        helps.append(_('Select this option if nothing above matches, good choice for other manufacturers like Alcatel, BenQ, LG, Samsung, Sharp, Sony Ericsson...'))
 
         return (names, connections, helps)
 
