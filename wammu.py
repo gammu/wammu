@@ -25,24 +25,16 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import os
-import gettext
 import sys
 import getopt
 import Wammu
-import __builtin__
+import Wammu.Locales
 
 # Try to import iconv_codec to allow working on chinese windows
 try:
     import iconv_codec
 except:
     pass
-
-gettext.textdomain('wammu')
-# Almost gettext.install, use lgettext if available
-try:
-    __builtin__.__dict__['_'] = gettext.lgettext
-except AttributeError:
-    __builtin__.__dict__['_'] = gettext.gettext
 
 def version():
     print _('Wammu - Windowed Gammu version %s') % Wammu.__version__
@@ -57,6 +49,7 @@ def usage():
     print _('-l/--local-locales ... use locales from current directory rather than system ones')
     print
 
+Wammu.Locales.Init()
 try:
     opts, args = getopt.getopt(sys.argv[1:], 'hvl', ['help', 'version', 'local-locales'])
 except getopt.GetoptError, val:
@@ -72,8 +65,7 @@ if len(args) != 0:
 
 for o, a in opts:
     if o in ('-l', '--local-locales'):
-        localepath = os.path.join('build', 'share', 'locale')
-        gettext.bindtextdomain('wammu', localepath)
+        Wammu.Locales.UseLocal()
         print _('Using local built locales!')
     if o in ('-h', '--help'):
         usage()
