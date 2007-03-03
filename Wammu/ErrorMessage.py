@@ -32,7 +32,7 @@ import Wammu.ErrorLog
 
 
 BUG_SEARCH_URL = 'http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s'
-BUG_REPORT_URL = 'http://bugs.cihar.com/bug_report_page.php?project_id=1'
+BUG_REPORT_URL = 'http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1'
 
 class ErrorMessage(wx.Dialog):
     '''
