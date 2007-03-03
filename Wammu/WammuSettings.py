@@ -88,7 +88,12 @@ DEFAULT_CONFIG['/User/Name'] = GetUserFullName()
 
 if sys.platform == 'win32':
     # ~ is expanded to HOMEDRIVE and HOMEPATH on Windows
-    DEFAULT_CONFIG['/Gammu/Gammurc'] = os.path.join('~', 'gammurc')
+    path = os.path.join('~', 'gammurc')
+    try:
+        os.path.expanduser(path)
+    except UnicodeDecodeError:
+        path = 'c://gammurc'
+    DEFAULT_CONFIG['/Gammu/Gammurc'] =
 else:
     DEFAULT_CONFIG['/Gammu/Gammurc'] = os.path.join('~', '.gammurc')
 
