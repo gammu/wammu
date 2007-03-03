@@ -246,6 +246,7 @@ class PredefinedAnimEditor(GenericEditor):
             values.append(x[0])
 
         self.sizer.AddGrowableRow(0)
+        self.sizer.AddGrowableCol(0)
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
 
@@ -262,7 +263,7 @@ class PredefinedAnimEditor(GenericEditor):
         self.edit.SetSelection(self.part['Number'])
         self.OnChange()
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos = (0,0), flag = wx.ALIGN_CENTER_VERTICAL | wx.EXPAND)
+        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos = (0,0), flag = wx.ALIGN_CENTER_VERTICAL)
         self.sizer.Add(self.edit, pos = (0,1), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.bitmap, pos = (0,2), flag = wx.ALIGN_CENTER)
 
@@ -289,6 +290,7 @@ class PredefinedSoundEditor(GenericEditor):
             values.append(x[0])
 
         self.sizer.AddGrowableRow(0)
+        self.sizer.AddGrowableCol(0)
         self.sizer.AddGrowableCol(1)
 
         self.edit = wx.Choice(self, -1, choices = values)
@@ -368,12 +370,16 @@ class SMSComposer(wx.Dialog):
 
         row = row + 2
 
-        self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator(multi = True))
+        self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator(multi = True), size = (150, -1))
         self.contbut = wx.Button(self, -1, _('Contacts'))
         self.contbut.SetToolTipString(_('Add number of recipient from contacts.'))
+        # TODO: when switching to wx 2.8, use wx.ID_EDIT
+        self.editlistbut = wx.Button(self, -1, _('Edit'))
+        self.editlistbut.SetToolTipString(_('Edit recipients list.'))
 
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
-        self.sizer.Add(self.number, pos = (row,2), flag = wx.EXPAND, span = wx.GBSpan(colspan = 5))
+        self.sizer.Add(self.number, pos = (row,2), flag = wx.ALIGN_CENTER_VERTICAL, span = wx.GBSpan(colspan = 2))
+        self.sizer.Add(self.editlistbut, pos = (row,5), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
 
         self.Bind(wx.EVT_BUTTON, self.ContactPressed, self.contbut)
