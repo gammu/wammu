@@ -397,6 +397,10 @@ class WammuFrame(wx.Frame):
         self.Version = ''
 
     def HandleGammuError(self):
+        '''
+        Show error about gammu import failure. Try to help user with various
+        situation which could happened, so that he can solve this problem.
+        '''
         error =  str(Wammu.gammu_error)
         if error.find('Runtime libGammu version does not match compile time version') != -1:
             result = re.match('Runtime libGammu version does not match compile time version \(runtime: (\S+), compiletime: (\S+)\)', error)
@@ -422,11 +426,16 @@ class WammuFrame(wx.Frame):
         sys.exit()
 
     def InitConfiguration(self):
+        '''
+        Binds Wammu configuration to Gammu one. If at least one section
+        exists, use first one (same as Gammu), otherwise we suggest search to
+        user.
+        '''
         gammucfg = self.cfg.gammu.GetConfigs()
         if len(gammucfg) == 0:
             dlg = wx.MessageDialog(self,
                 _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' +
-                _('Do you want to configure phone connection now?') + '\n' +
+                _('Do you want to configure phone connection now?') + '\n',
                 _('Configuration not found'),
                 wx.YES_NO | wx.YES_DEFAULT | wx.ICON_WARNING)
             if dlg.ShowModal() == wx.ID_YES:
@@ -436,7 +445,9 @@ class WammuFrame(wx.Frame):
             self.cfg.WriteInt('/Gammu/Section', 0)
 
     def TalkbackCheck(self):
-        # Do ask for talkback after month of usage
+        '''
+        Do ask for talkback after month of usage.
+        '''
         if self.cfg.ReadFloat('/Wammu/FirstRun') == -1:
             self.cfg.WriteFloat('/Wammu/FirstRun', time.time())
         if self.cfg.Read('/Wammu/TalkbackDone') == 'no':
@@ -453,6 +464,10 @@ class WammuFrame(wx.Frame):
                     self.cfg.Write('/Wammu/TalkbackDone', 'skipped')
 
     def MigrateConfiguration(self):
+        '''
+        Migrate configuration from pre-0.18 style one (Gammu was configured
+        inside Wammu configuration) to using .gammurc.
+        '''
         connection = self.cfg.Read('/Gammu/Connection')
         device = self.cfg.Read('/Gammu/Device')
         model = self.cfg.Read('/Gammu/Model')
@@ -469,17 +484,26 @@ class WammuFrame(wx.Frame):
                 self.cfg.WriteInt('/Gammu/Section', index)
 
     def PostInit(self):
+        '''
+        Do things which need window opened to behave correctly.
+
+        - Activate initial view.
+        - Show if something wrong has happened on gammu import.
+        - Initialize or migrate Gammu configuration.
+        - Connect to phone if required.
+        - Ask for talkback.
+        - Setup internal information.
+        '''
+        self.ActivateView('info', '  ')
+
         if Wammu.gammu_error != None:
             self.HandleGammuError()
 
-        # things that need window opened
-        self.ActivateView('info', '  ')
-
-        if not self.cfg.HasGroup('/Gammu'):
-            self.InitConfiguration()
+        if not self.cfg.HasEntry('/Gammu/Section') and self.cfg.HasEntry('/Gammu/Connection'):
+            self.MigrateConfiguration()
 
         if not self.cfg.HasEntry('/Gammu/Section'):
-            self.MigrateConfiguration()
+            self.InitConfiguration()
 
         self.DoDebug(self.cfg.Read('/Debug/Show'))
 
@@ -852,6 +876,8 @@ class WammuFrame(wx.Frame):
 
             for number in v['Numbers']:
                 busy = wx.BusyInfo(_('Writing message(s)...'))
+                time.sleep(0.1)
+                wx.Yield()
                 v['Number'] = number
                 v['SMS'] = gammu.EncodeSMS(v['SMSInfo'])
 
@@ -908,6 +934,8 @@ class WammuFrame(wx.Frame):
         if Wammu.Editor.ContactEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
                 busy = wx.BusyInfo(_('Writing contact...'))
+                time.sleep(0.1)
+                wx.Yield()
                 # was entry moved => delete it
                 if not shoulddelete:
                     # delete from internal list
@@ -1007,6 +1035,8 @@ class WammuFrame(wx.Frame):
         if Wammu.Editor.TodoEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
                 busy = wx.BusyInfo(_('Writing todo...'))
+                time.sleep(0.1)
+                wx.Yield()
                 # was entry moved => delete it
                 if not shoulddelete:
                     # delete from internal list
@@ -1273,6 +1303,8 @@ class WammuFrame(wx.Frame):
 
         try:
             busy = wx.BusyInfo(_('Importing data...'))
+            time.sleep(0.1)
+            wx.Yield()
             for i in lst:
                 datatype = values[i]
                 if datatype == 'message':
@@ -1743,7 +1775,6 @@ class WammuFrame(wx.Frame):
         busy = wx.BusyInfo(_('Setting time in phone...'))
         time.sleep(0.1)
         wx.Yield()
-        time.sleep(0.5)
         try:
             self.sm.SetDateTime(datetime.datetime.now())
         except gammu.GSMError, val:
@@ -1814,7 +1845,6 @@ class WammuFrame(wx.Frame):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
         time.sleep(0.1)
         wx.Yield()
-        time.sleep(1)
         try:
             self.sm.Terminate()
         except gammu.ERR_NOTCONNECTED:

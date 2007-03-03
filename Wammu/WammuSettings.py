@@ -182,9 +182,3 @@ class WammuConfig:
         Checks whether configuration has some entry.
         '''
         return self.cfg.HasEntry(path)
-
-    def HasGroup(self, path):
-        '''
-        Checks whether configuration has some group.
-        '''
-        return self.cfg.HasGroup(path)
