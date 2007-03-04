@@ -92,8 +92,8 @@ if sys.platform == 'win32':
     try:
         os.path.expanduser(path)
     except UnicodeDecodeError:
-        path = 'c://gammurc'
-    DEFAULT_CONFIG['/Gammu/Gammurc'] =
+        path = os.path.join('.', 'gammurc')
+    DEFAULT_CONFIG['/Gammu/Gammurc'] = path
 else:
     DEFAULT_CONFIG['/Gammu/Gammurc'] = os.path.join('~', '.gammurc')
 
