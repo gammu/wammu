@@ -32,6 +32,7 @@ import Wammu.MessageDisplay
 import Wammu.Utils
 import Wammu.PhoneValidator
 import Wammu.Select
+import Wammu.EditContactList
 if Wammu.gammu_error == None:
     import gammu
 import locale
@@ -371,18 +372,19 @@ class SMSComposer(wx.Dialog):
         row = row + 2
 
         self.number = wx.TextCtrl(self, -1, entry['Number'], validator = Wammu.PhoneValidator.PhoneValidator(multi = True), size = (150, -1))
-        self.contbut = wx.Button(self, -1, _('Contacts'))
+        self.contbut = wx.Button(self, -1, _('Add'))
         self.contbut.SetToolTipString(_('Add number of recipient from contacts.'))
         # TODO: when switching to wx 2.8, use wx.ID_EDIT
         self.editlistbut = wx.Button(self, -1, _('Edit'))
         self.editlistbut.SetToolTipString(_('Edit recipients list.'))
 
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos = (row,1), flag = wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
-        self.sizer.Add(self.number, pos = (row,2), flag = wx.ALIGN_CENTER_VERTICAL, span = wx.GBSpan(colspan = 2))
-        self.sizer.Add(self.editlistbut, pos = (row,5), flag = wx.ALIGN_CENTER)
+        self.sizer.Add(self.number, pos = (row,2), flag = wx.ALIGN_CENTER_VERTICAL | wx.EXPAND, span = wx.GBSpan(colspan = 4))
+        self.sizer.Add(self.editlistbut, pos = (row,6), flag = wx.ALIGN_CENTER)
         self.sizer.Add(self.contbut, pos = (row,7), flag = wx.ALIGN_CENTER)
 
         self.Bind(wx.EVT_BUTTON, self.ContactPressed, self.contbut)
+        self.Bind(wx.EVT_BUTTON, self.EditContactPressed, self.editlistbut)
 
         row = row + 2
 
@@ -490,6 +492,16 @@ class SMSComposer(wx.Dialog):
         v = Wammu.Select.SelectNumber(self, [] + self.values['contact']['ME'] + self.values['contact']['SM'])
         if v != None:
             self.number.SetValue(self.number.GetValue() + ' ' + v)
+
+    def EditContactPressed(self, evt):
+        '''
+        Opens dialog for editing contact list.
+        '''
+        contacts = [] + self.values['contact']['ME'] + self.values['contact']['SM']
+        current = self.number.GetValue()
+        dlg = Wammu.EditContactList.EditContactList(self, contacts, current)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.number.SetValue(dlg.GetNumbers())
 
     def OnSend(self, evt = None):
         self.save.Enable(self.send.GetValue())

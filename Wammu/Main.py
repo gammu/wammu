@@ -1199,7 +1199,7 @@ class WammuFrame(wx.Frame):
                 wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
                 exts += ['ics']
 
-        wildcard += _('All files') + ' (*.*)|*.*;*'
+        wildcard += _('All files') + ' (*.*)|*.*'
 
         if data:
             if save:
