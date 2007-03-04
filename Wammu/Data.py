@@ -415,6 +415,8 @@ Connections = [
     'bluephonet',
     'bluerfat',
     'blueat',
+    'phonetblue',
+    'fbusblue',
     'fbuspl2303',
     ]
 Conn_Generic = [
@@ -429,6 +431,8 @@ Conn_Cable = [
     'fbus',
     'mbus',
     'fbuspl2303',
+    'phonetblue',
+    'fbusblue',
     ]
 Conn_IrDA_Win = [
     'irdaphonet',

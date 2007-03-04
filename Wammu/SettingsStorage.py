@@ -141,7 +141,7 @@ class Settings:
         return (names, connections, helps)
 
     def GetPortType(self):
-        if self.gammudriver in ['mbus', 'fbus', 'dlr3', 'at', 'at19200', 'at38400', 'at115200', 'obex']:
+        if self.gammudriver in ['mbus', 'fbus', 'dlr3', 'at', 'at19200', 'at38400', 'at115200', 'obex', 'phonetblue', 'fbusblue']:
             if self.connection == 'serial':
                 return 'serial'
             elif self.connection == 'bluetooth':
@@ -352,25 +352,39 @@ class Settings:
                 helps.append(_('Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia 7110/6210/6310.'))
 
             elif self.connection == 'bluetooth':
+                names.append('fbusblue')
+                connections.append(_('FBUS over Bluetooth (emulated serial port)'))
+                helps.append(_('Nokia protocol for Bluetooth stack with Nokia 6210.') +
+                    ' ' +
+                    _('Using emulated serial port.')
+                    )
+
+                names.append('phonetblue')
+                connections.append(_('Phonet over Bluetooth (emulated serial port)'))
+                helps.append(_('Nokia protocol for Bluetooth stack with other DCT4 Nokia models.') +
+                    ' ' +
+                    _('Using emulated serial port.')
+                    )
+
                 names.append('bluerffbus')
                 connections.append(_('FBUS over Bluetooth'))
-                helps.append(_('Nokia protocol for Bluetooth stack with Nokia 6210'))
+                helps.append(_('Nokia protocol for Bluetooth stack with Nokia 6210.'))
 
                 names.append('bluephonet')
                 connections.append(_('Phonet over Bluetooth'))
-                helps.append(_('Nokia protocol for Bluetooth stack with other DCT4 Nokia models'))
+                helps.append(_('Nokia protocol for Bluetooth stack with other DCT4 Nokia models.'))
 
                 names.append('bluerfphonet')
                 connections.append(_('Phonet over Bluetooth with RF searching'))
-                helps.append(_('Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don\'t inform about services correctly (6310, 6310i with firmware lower than 5.50, 8910,..)'))
+                helps.append(_('Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don\'t inform about services correctly (6310, 6310i with firmware lower than 5.50, 8910,..).'))
 
             elif self.connection == 'irda':
                 names.append('fbusirda')
                 connections.append(_('FBUS over IrDA'))
-                helps.append(_('Nokia protocol for infrared with Nokia 6110/6130/6150'))
+                helps.append(_('Nokia protocol for infrared with Nokia 6110/6130/6150.'))
 
                 names.append('irdaphonet')
                 connections.append(_('Phonet over IrDA'))
-                helps.append(_('Nokia protocol for infrared with other Nokia models'))
+                helps.append(_('Nokia protocol for infrared with other Nokia models.'))
 
         return (names, connections, helps)
