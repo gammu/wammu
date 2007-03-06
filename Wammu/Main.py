@@ -269,6 +269,8 @@ class WammuFrame(wx.Frame):
         menu2.Append(202, _('&Disconnect'), _('Disconnect the device'))
         menu2.AppendSeparator()
         menu2.Append(210, _('&Synchronise time'), _('Synchronises time in mobile with PC'))
+        menu2.AppendSeparator()
+        menu2.Append(250, _('Send &file'), _('Sends file to phone'))
         # Add menu to the menu bar
         self.menuBar.Append(menu2, _('&Phone'))
 
@@ -336,6 +338,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 201, self.PhoneConnect)
         wx.EVT_MENU(self, 202, self.PhoneDisconnect)
         wx.EVT_MENU(self, 210, self.SyncTime)
+        wx.EVT_MENU(self, 250, self.SendFile)
 
         wx.EVT_MENU(self, 301, self.ShowInfo)
         wx.EVT_MENU(self, 310, self.ShowContactsSM)
@@ -636,6 +639,8 @@ class WammuFrame(wx.Frame):
         mb.Enable(202, enable);
 
         mb.Enable(210, enable);
+
+        mb.Enable(250, enable);
 
         mb.Enable(301, enable);
 
@@ -1780,6 +1785,52 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             del busy
             self.ShowError(val[0])
+
+    #
+    # Files
+    #
+
+    def SendFile(self, event):
+        '''
+        Sends file to phone.
+
+        @todo: Maybe we could add some wildcards for commonly used file types.
+        '''
+        dlg = wx.FileDialog(self, _('Send file to phone'), os.getcwd(), '', _('All files') + ' (*.*)|*.*', wx.OPEN|wx.CHANGE_DIR)
+        if dlg.ShowModal() == wx.ID_OK:
+            path = dlg.GetPath()
+            try:
+                file_data = open(path, 'r').read()
+                file_f = {
+                    'ID_FullName': '',
+                    'Name': os.path.basename(path),
+                    'Folder': 0,
+                    'Level': 1,
+                    'Used': len(file_data),
+                    'Buffer': file_data,
+                    'Type': 'Other',
+                    'Protected': 0,
+                    'ReadOnly': 0,
+                    'Hidden': 0,
+                    'System': 0,
+                    'Handle': 0,
+                    'Pos': 0,
+                    'Finished': 0
+                }
+                busy = wx.BusyInfo(_('Sending file to phone...'))
+                time.sleep(0.1)
+                wx.Yield()
+                try:
+                    while (not file_f['Finished']):
+                        file_f = self.sm.SendFilePart(file_f)
+                except gammu.GSMError, val:
+                    del busy
+                    self.ShowError(val[0])
+            except IOError:
+                wx.MessageDialog(self,
+                    _('Selected file "%s" was not found, no data read.') % path,
+                    _('File not found!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
 
     #
     # Connecting / Disconnecting
