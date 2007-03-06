@@ -141,12 +141,22 @@ class WammuFrame(wx.Frame):
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
 
-        icon = wx.EmptyIcon()
         if sys.platform == 'win32':
-            icon.LoadFile(AppIconPath('wammu'), wx.BITMAP_TYPE_ICO)
+            img = wx.Image(AppIconPath('wammu'), wx.BITMAP_TYPE_ICO)
         else:
-            icon.LoadFile(AppIconPath('wammu'), wx.BITMAP_TYPE_PNG)
-        self.SetIcon(icon)
+            img = wx.Image(AppIconPath('wammu'), wx.BITMAP_TYPE_PNG)
+
+        self.icon = wx.EmptyIcon()
+        self.icon.CopyFromBitmap(wx.BitmapFromImage(img))
+
+        if self.icon.GetWidth() == 16 and self.icon.GetHeight() == 16:
+            self.icon16 = self.icon
+        else:
+            img.Rescale(16, 16)
+            self.icon16 = wx.EmptyIcon()
+            self.icon16.CopyFromBitmap(wx.BitmapFromImage(img))
+
+        self.SetIcon(self.icon)
 
         self.CreateStatusBar(2)
         self.SetStatusWidths([-1,400])
@@ -398,6 +408,7 @@ class WammuFrame(wx.Frame):
         self.Manufacturer = ''
         self.Model = ''
         self.Version = ''
+        self.tbicon = None
 
     def HandleGammuError(self):
         '''
@@ -518,6 +529,56 @@ class WammuFrame(wx.Frame):
         self.SetupNumberPrefix()
 
         self.SetupStatusRefresh()
+
+        self.SetupTrayIcon()
+
+    def SetupTrayIcon(self):
+        if self.cfg.Read('/Wammu/TaskBarIcon') != 'yes':
+            if self.tbicon is not None:
+                self.tbicon.Destroy()
+            return
+        if self.tbicon is not None:
+            # Nothing to do
+            return
+        self.tbicon = wx.TaskBarIcon()
+        self.tbicon.SetIcon(self.icon16, 'Wammu')
+        self.tbicon.Bind(wx.EVT_TASKBAR_RIGHT_UP, self.OnTaskBarRightClick)
+        self.tbicon.Bind(wx.EVT_TASKBAR_LEFT_UP, self.OnTaskBarLeftClick)
+        self.tbicon.Bind(wx.EVT_MENU, self.Settings, id=151)
+        self.tbicon.Bind(wx.EVT_MENU, self.PhoneConnect, id=201)
+        self.tbicon.Bind(wx.EVT_MENU, self.PhoneDisconnect, id=202)
+        self.tbicon.Bind(wx.EVT_MENU, self.OnTaskBarRestore, id=100000)
+        self.tbicon.Bind(wx.EVT_MENU, self.OnTaskBarMinimize, id=100001)
+        self.tbicon.Bind(wx.EVT_MENU, self.OnTaskBarClose, id=100002)
+
+    def OnTaskBarRightClick(self, evt):
+        menutaskbar = wx.Menu()
+        menutaskbar.Append(201, _('Connect'))
+        menutaskbar.Append(202, _('Disconnect'))
+        menutaskbar.AppendSeparator()
+        menutaskbar.Append(151, _('Settings'))
+        menutaskbar.AppendSeparator()
+        menutaskbar.Append(100000, _('Restore'))
+        menutaskbar.Append(100001, _('Minimize'))
+        menutaskbar.AppendSeparator()
+        menutaskbar.Append(100002, _('Close'))
+        self.tbicon.PopupMenu(menutaskbar)
+        menutaskbar.Destroy()
+
+    def OnTaskBarLeftClick(self, evt):
+        if self.IsShown():
+            self.Show(False)
+        else:
+            self.Show(True)
+
+    def OnTaskBarRestore(self, evt):
+        self.Show(True)
+
+    def OnTaskBarMinimize(self, evt):
+        self.Show(False)
+
+    def OnTaskBarClose(self, evt):
+        self.CloseWindow(evt)
 
     def OnTimer(self, evt = None):
         if self.connected:
@@ -736,6 +797,7 @@ class WammuFrame(wx.Frame):
             self.DoDebug(self.cfg.Read('/Debug/Show'))
             self.SetupNumberPrefix()
             self.SetupStatusRefresh()
+            self.SetupTrayIcon()
 
     def CloseWindow(self, event):
         self.SaveWinSize(self, 'Main')
@@ -756,6 +818,8 @@ class WammuFrame(wx.Frame):
         os.unlink(self.logfilename)
         # tell the window to kill itself
         self.Destroy()
+        if self.tbicon is not None:
+            self.tbicon.Destroy()
 
     def ShowError(self, info):
         evt = Wammu.Events.ShowMessageEvent(

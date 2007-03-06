@@ -297,6 +297,12 @@ class Settings(wx.Dialog):
         self.sizer_other.Add(self.editconfirm, pos = (r, 1), colspan = 2)
         r += 1
 
+        self.taskbaricon = wx.CheckBox(self.notebook_other, -1, _('Task bar icon'))
+        self.taskbaricon.SetToolTipString(_('Show icon in task bar.'))
+        self.taskbaricon.SetValue(config.Read('/Wammu/TaskBarIcon') == 'yes')
+        self.sizer_other.Add(self.taskbaricon, pos = (r, 1), colspan = 2)
+        r += 1
+
         dtime = config.Read('/Wammu/DefaultTime')
         try:
             times = dtime.split(':')
@@ -483,6 +489,11 @@ class Settings(wx.Dialog):
         else:
             value = 'no'
         self.config.Write('Wammu/ConfirmDelete', value)
+        if self.taskbaricon.GetValue():
+            value = 'yes'
+        else:
+            value = 'no'
+        self.config.Write('/Wammu/TaskBarIcon', value)
         self.config.Write('Wammu/DefaultTime', self.edittime.GetValue())
         self.config.WriteInt('/Wammu/DefaultDateOffset', self.editdate.GetValue())
         self.config.WriteInt('/Wammu/DefaultEntries', self.editentries.GetValue())
