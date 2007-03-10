@@ -70,10 +70,9 @@ COLUMN_INFO = {
             ),
             (
                 'Location', 
-                'State', 
-                'Number', 
-                'DateTime', 
-                'Text'
+                'MemoryType', 
+                'Name', 
+                'Number'
             ),
         ),
         'message': 
