@@ -810,22 +810,24 @@ class WammuFrame(wx.Frame):
         gammu.SetDebugFile(None)
         gammu.SetDebugLevel('nothing')
 
+        self.logfilefd.close()
+
         if hasattr(self, 'logger'):
             self.logger.canceled = True
             self.logger.join()
 
-        try:
-            self.sm.Terminate()
-        except gammu.GSMError, val:
-            pass
-
-        self.logfilefd.close()
-        print 'Looks like normal program termination, deleting log file.'
-        os.unlink(self.logfilename)
-        # tell the window to kill itself
-        self.Destroy()
         if self.tbicon is not None:
             self.tbicon.Destroy()
+
+        print 'Looks like normal program termination, deleting log file.'
+        try:
+            os.unlink(self.logfilename)
+        except:
+            print 'Failed to unlink temporary log file, please delete it yourself'
+            print 'Filename: %s' % self.logfilename
+
+        # tell the window to kill itself
+        self.Destroy()
 
     def ShowError(self, info):
         evt = Wammu.Events.ShowMessageEvent(
