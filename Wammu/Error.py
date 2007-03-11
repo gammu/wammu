@@ -27,6 +27,7 @@ import traceback
 import md5
 import Wammu.ErrorLog
 import Wammu.ErrorMessage
+from Wammu.Utils import StrConv
 
 # set later in Wammu.App to have correct parent here
 handlerparent = None
@@ -78,7 +79,7 @@ def Handler(type, value, tback):
         unicodewarning = ''
 
     # prepare message
-    text = """%s
+    text = u"""%s
 
 %s
 %s%s%s
@@ -91,7 +92,13 @@ def Handler(type, value, tback):
 """ % (
     _('Unhandled exception appeared.'),
     _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
-    logtext, tracetext, unicodewarning, Wammu.ErrorLog.GetSystemInfo(), traceid, texttrace, textexc)
+    logtext,
+    tracetext,
+    unicodewarning,
+    Wammu.ErrorLog.GetSystemInfo(),
+    traceid,
+    StrConv(texttrace),
+    StrConv(textexc))
 
     # Include exception info in crash file
     if outf is not None:
@@ -104,6 +111,6 @@ def Handler(type, value, tback):
             _('Unhandled exception appeared. If you want to help improving this program, please report this together with description how this situation has happened. Please report in english, otherwise you will be most likely told to translate you report to english later.'),
             _('Unhandled exception'),
             traceid = traceid, autolog = logname,
-            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % { 'traceback': texttrace, 'exception' : textexc }).ShowModal()
+            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % { 'traceback': StrConv(texttrace), 'exception' : StrConv(textexc) }).ShowModal()
     except:
         print text

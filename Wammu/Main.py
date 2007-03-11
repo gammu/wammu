@@ -812,6 +812,12 @@ class WammuFrame(wx.Frame):
 
         if hasattr(self, 'logger'):
             self.logger.canceled = True
+            self.logger.join()
+
+        try:
+            self.sm.Terminate()
+        except gammu.GSMError, val:
+            pass
 
         self.logfilefd.close()
         print 'Looks like normal program termination, deleting log file.'

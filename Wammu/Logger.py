@@ -26,6 +26,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import threading
 import wx
 import os
+import sys
 import time
 import Wammu.Events
 
@@ -43,22 +44,23 @@ class Logger(threading.Thread):
         """
         while not self.canceled:
             where = self.fd.tell()
-            txt = self.fd.readline()
-            if not txt:
+            txt = self.fd.readlines()
+            if len(txt) == 0:
                 fd_results = os.fstat(self.fd.fileno())
                 try:
                     st_results = os.stat(self.filename)
                 except OSError:
                     st_results = fd_results
 
-                if st_results[1] == fd_results[1]:
+                if st_results[1] == fd_results[1] or sys.platform == 'win32':
                     time.sleep(1)
                     self.fd.seek(where)
                 else:
                     self.fd = open(self.filename, 'r')
             else:
-                evt = Wammu.Events.LogEvent(txt = txt)
+                evt = Wammu.Events.LogEvent(txt = ''.join(txt))
                 wx.PostEvent(self.win, evt)
+        self.fd.close()
 
 class LogFrame(wx.Frame):
     def __init__(self, parent, cfg):
