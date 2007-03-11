@@ -35,7 +35,7 @@ def Init():
     which handles translations.
     '''
     gettext.textdomain('wammu')
-    __builtin__.__dict__['_'] = gettext.gettext
+    Install()
     if (os.path.exists('setup.py') and
         os.path.exists(LOCALEPATH) and
         os.path.exists(
@@ -49,3 +49,7 @@ def UseLocal():
     Use locales from current build dir.
     '''
     gettext.bindtextdomain('wammu', LOCALEPATH)
+    Install()
+
+def Install():
+    gettext.install('wammu', unicode = True)
