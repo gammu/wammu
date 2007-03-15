@@ -2003,10 +2003,10 @@ class WammuFrame(wx.Frame):
         Wammu.About.AboutBox(self).ShowModal()
 
     def Website(self, evt = None):
-        webbrowser.open("http://%scihar.com/gammu/wammu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
+        webbrowser.open("http://%swammu.eu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def Support(self, evt = None):
-        webbrowser.open("http://%scihar.com/gammu/wammu/support?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
+        webbrowser.open("http://%swammu.eu/support?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def ReportBug(self, evt = None):
         webbrowser.open("http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1")
@@ -2018,5 +2018,5 @@ class WammuFrame(wx.Frame):
         Wammu.TalkbackDialog.DoTalkback(self, self.cfg, 0)
 
     def Donate(self, evt = None):
-        webbrowser.open("http://%scihar.com/donate?src=wammu" % Wammu.Utils.GetWebsiteLang())
+        webbrowser.open("http://%swammu.eu/donate?src=wammu" % Wammu.Utils.GetWebsiteLang())
 
