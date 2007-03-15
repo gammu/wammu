@@ -27,7 +27,7 @@ import wx
 import wx.html
 import Wammu.Events
 import Wammu.Utils
-from Wammu.Utils import HtmlStrConv, StrConv
+from Wammu.Locales import HtmlStrConv, StrConv
 
 class Displayer(wx.html.HtmlWindow):
     def __init__(self, parent, win):
@@ -47,13 +47,9 @@ class Displayer(wx.html.HtmlWindow):
 
         pagefmt = u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body %s>%s</body></html>'
 
-        if wx.USE_UNICODE:
-            charset = 'ucs-2'
-            text = StrConv(text)
-            self.SetPage(pagefmt % (charset, colours, text))
-        else:
-            charset = Wammu.Utils.htmlcharset
-            self.SetPage(HtmlStrConv(pagefmt % (colours, charset, text)))
+        charset = 'ucs-2'
+        text = StrConv(text)
+        self.SetPage(pagefmt % (charset, colours, text))
 
 
     def OnLinkClicked(self, linkinfo):

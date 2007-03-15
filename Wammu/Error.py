@@ -27,7 +27,7 @@ import traceback
 import md5
 import Wammu.ErrorLog
 import Wammu.ErrorMessage
-from Wammu.Utils import StrConv
+from Wammu.Locales import StrConv
 
 # set later in Wammu.App to have correct parent here
 handlerparent = None

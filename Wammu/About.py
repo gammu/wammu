@@ -32,7 +32,7 @@ if Wammu.gammu_error == None:
     import gammu
 import Wammu.Utils
 import Wammu.Paths
-from Wammu.Utils import HtmlStr_ as _, HtmlStrConv
+from Wammu.Locales import hgettext as _, HtmlStrConv
 
 class AboutBox(wx.Dialog):
     '''
@@ -42,15 +42,7 @@ class AboutBox(wx.Dialog):
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
 
-        if wx.USE_UNICODE:
-            copyrightline = u'Copyright &copy; 2003 - 2007 Michal Čihař'
-            head = ''
-        else:
-            copyrightline = HtmlStrConv(u'Copyright (c) 2003 - 2007 Michal Čihař')
-            if copyrightline.find('?') != -1:
-                copyrightline = 'Copyright (c) 2003 - 2007 Michal Cihar'
-            htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>'
-            head = htmlhead % Wammu.Utils.htmlcharset
+        copyrightline = u'Copyright &copy; 2003 - 2007 Michal Čihař'
 
         # default system colours
         bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
@@ -64,7 +56,6 @@ class AboutBox(wx.Dialog):
 
         text = '''
 <html>
-%s
 <body %s>
 <center><font color="#ffffff"><table bgcolor="#458154" width="100%%" cellspacing="0"
 cellpadding="0" border="1">
@@ -96,7 +87,7 @@ cellpadding="0" border="1">
 </body>
 </html>
 
-''' % (head, colours, '''<img src="%s"><br><h2> Wammu %s</h2>
+''' % (colours, '''<img src="%s"><br><h2> Wammu %s</h2>
     %s<br>
     %s<br>
     %s<br>

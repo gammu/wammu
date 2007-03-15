@@ -28,7 +28,7 @@ import Wammu.Data
 import Wammu.Ringtone
 import string
 import re
-from Wammu.Utils import UnicodeConv, HtmlStr_ as _, HtmlStrConv
+from Wammu.Locales import UnicodeConv, HtmlStrConv, hgettext as _
 
 def SmsTextFormat(cfg, txt, dohtml = True):
     if cfg.Read('/Message/Format') == 'yes':

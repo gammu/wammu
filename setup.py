@@ -216,6 +216,11 @@ class build_wammu(distutils.command.build.build, object):
                     print 'You need at least wxPython %s!' % '.'.join(map(str, WXPYTHON_REQUIRED))
                     print 'You can get it from <http://www.wxpython.org>'
                     sys.exit(1)
+                if not wx.USE_UNICODE:
+                    print 'not unicode!'
+                    print 'You need at least wxPython %s with unicode enabled!' % '.'.join(map(str, WXPYTHON_REQUIRED))
+                    print 'You can get it from <http://www.wxpython.org>'
+                    sys.exit(1)
                 print 'OK'
             except ImportError:
                 print 'You need wxPython!'

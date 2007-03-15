@@ -33,7 +33,7 @@ import Wammu.PhoneSearch
 import Wammu.Events
 import Wammu.Utils
 import wx.lib.hyperlink
-from Wammu.Utils import StrConv
+from Wammu.Locales import StrConv
 
 class FinalPage(Wammu.Wizard.InputPage):
     """

@@ -69,7 +69,7 @@ import Wammu.ErrorMessage
 import Wammu.TalkbackDialog
 import Wammu.WammuSettings
 import Wammu.SMSExport
-from Wammu.Utils import StrConv
+from Wammu.Locales import StrConv
 
 def SortDataKeys(a, b):
     if a == 'info':

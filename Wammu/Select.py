@@ -25,7 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 import Wammu.Utils
-from Wammu.Utils import StrConv
+from Wammu.Locales import StrConv
 
 def SortName(i1, i2):
     return cmp(i1['Name'], i2['Name'])

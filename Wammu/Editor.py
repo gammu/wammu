@@ -37,7 +37,7 @@ import Wammu.Data
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
-from Wammu.Utils import StrConv, UnicodeConv
+from Wammu.Locales import StrConv, UnicodeConv
 
 
 def TextToTime(txt, config):

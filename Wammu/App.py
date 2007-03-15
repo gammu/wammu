@@ -27,7 +27,7 @@ import wx
 import sys
 import Wammu.Main
 import Wammu.Error
-from Wammu.Utils import StrConv
+from Wammu.Locales import StrConv
 
 class WammuApp(wx.App):
     '''

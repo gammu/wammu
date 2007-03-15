@@ -23,132 +23,18 @@ this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 '''
 
-import wx
 import codecs
 import locale
 import sys
 import re
 import string
+import Wammu.Locales
+from Wammu.Locales import StrConv
 
 import Wammu
 if Wammu.gammu_error == None:
     import gammu
 
-fallbacklocalecharset = 'iso-8859-1'
-
-# Determine "correct" character set
-try:
-    # works only in python > 2.3
-    localecharset = locale.getpreferredencoding()
-except:
-    try:
-        localecharset = locale.getdefaultlocale()[1]
-    except:
-        try:
-            localecharset = sys.getdefaultencoding()
-        except:
-            localecharset = fallbacklocalecharset
-if localecharset in [None, 'ANSI_X3.4-1968']:
-    localecharset = fallbacklocalecharset
-
-# prepare encoder for strings
-charsetencoder = codecs.getencoder(localecharset)
-
-def StrConv(txt):
-    """
-    This function coverts something (txt) to string form usable by wxPython. There
-    is problem that in default configuration in most distros (maybe all) default
-    encoding for unicode objects is ascii. This leads to exception when converting
-    something different than ascii. And this exception is not catched inside
-    wxPython and leads to segfault.
-
-    So if wxPython supports unicode, we give it unicode, otherwise locale
-    dependant text.
-    """
-    try:
-        if wx.USE_UNICODE:
-            if type(txt) == type(u''):
-                return txt
-            if type(txt) == type(''):
-                return unicode(txt, localecharset)
-        else:
-            if type(txt) == type(''):
-                return txt
-            if type(txt) == type(u''):
-                return str(charsetencoder(txt, 'replace')[0])
-        return str(txt)
-    except UnicodeEncodeError:
-        return '???'
-
-# detect html charset
-htmlcharset = localecharset
-if localecharset.lower() == 'utf-8' and not wx.USE_UNICODE:
-    htmlcharset = 'iso-8859-1'
-    if locale.getdefaultlocale()[0][:2] in ['cs', 'pl', 'sk']:
-        htmlcharset = 'iso-8859-2'
-    print StrConv(_('Warning: you are using utf-8 locales and non unicode enabled wxPython, some text migth be displayed incorrectly!'))
-    print StrConv(_('Warning: assuming charset %s for html widget') % htmlcharset)
-
-# prepare html encoder
-htmlencoder = codecs.getencoder(htmlcharset)
-
-def HtmlStrConv(txt):
-    """
-    This function coverts something (txt) to string form usable by wxPython
-    html widget. There is problem that in default configuration in most distros
-    (maybe all) default encoding for unicode objects is ascii. This leads to
-    exception when converting something different than ascii. And this
-    exception is not catched inside wxPython and leads to segfault.
-
-    So if wxPython supports unicode, we give it unicode, otherwise locale
-    dependant text.
-    """
-    try:
-        if wx.USE_UNICODE:
-            if type(txt) == type(u''):
-                return txt
-            if type(txt) == type(''):
-                return unicode(txt, localecharset)
-        else:
-            if type(txt) == type(''):
-                return txt
-            if type(txt) == type(u''):
-                return str(htmlencoder(txt, 'replace')[0])
-        return str(txt)
-    except UnicodeEncodeError:
-        return '???'
-
-def UnicodeConv(txt):
-    """
-    This function coverts something (txt) to string form usable by wxPython. There
-    is problem that in default configuration in most distros (maybe all) default
-    encoding for unicode objects is ascii. This leads to exception when converting
-    something different than ascii. And this exception is not catched inside
-    wxPython and leads to segfault.
-
-    So if wxPython supports unicode, we give it unicode, otherwise locale
-    dependant text.
-    """
-    try:
-        if type(txt) == type(u''):
-            return txt
-        if type(txt) == type(''):
-            return unicode(txt, localecharset)
-        return unicode(str(txt), localecharset)
-    except UnicodeEncodeError:
-        return unicode('???')
-
-def Str_(txt):
-    return StrConv(Original_(txt))
-
-def HtmlStr_(txt):
-    return HtmlStrConv(Original_(txt))
-
-# Replace _ with our wrapper which handles charset conversions
-import __builtin__
-Original_ = __builtin__.__dict__['_']
-__builtin__.__dict__['_'] = Str_
-_ = Str_
 
 def GetItemType(txt):
     if txt == '':

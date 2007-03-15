@@ -31,7 +31,7 @@ import wx
 import Wammu.Select
 import Wammu.Utils
 import Wammu.PhoneValidator
-from Wammu.Utils import StrConv
+from Wammu.Locales import StrConv
 
 class EditContactList(wx.Dialog):
     def __init__(self, parent, contacts, current, *args, **kwds):

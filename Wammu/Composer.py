@@ -36,18 +36,11 @@ import Wammu.EditContactList
 if Wammu.gammu_error == None:
     import gammu
 import locale
-from Wammu.Utils import UnicodeConv
-import gettext
-
-if wx.USE_UNICODE:
-    htmlhead = ''
-else:
-    htmlhead = '<head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head>' % Wammu.Utils.htmlcharset
+import Wammu.Locales
 
 class MessagePreview(wx.Dialog):
     text = '''
 <html>
-%s
 <body>
 %s
 <center>
@@ -62,7 +55,7 @@ class MessagePreview(wx.Dialog):
     def __init__(self, parent, content):
         wx.Dialog.__init__(self, parent, -1, _('Message preview'))
         html = wx.html.HtmlWindow(self, -1, size=(420, -1))
-        html.SetPage(self.text % (htmlhead, content, _('OK')))
+        html.SetPage(self.text % (content, _('OK')))
         btn = html.FindWindowById(wx.ID_OK)
         btn.SetDefault()
         ir = html.GetInternalRepresentation()
@@ -222,7 +215,7 @@ class TextEditor(GenericEditor):
             self.edit.SetValue(self.backuptext)
             return
         length = len(self.edit.GetValue())
-        self.leninfo.SetLabel(gettext.ngettext('%d char', '%d chars', length) % length)
+        self.leninfo.SetLabel(Wammu.Locales.ngettext('%d char', '%d chars', length) % length)
         self.sizer.Layout()
         self.backuptext = txt
 
@@ -234,7 +227,7 @@ class TextEditor(GenericEditor):
                 self.part['ID'] = 'ConcatenatedTextLong'
         else:
             self.part['ID'] = 'Text'
-        self.part['Buffer'] = UnicodeConv(self.edit.GetValue())
+        self.part['Buffer'] = Wammu.Locales.UnicodeConv(self.edit.GetValue())
         return self.part
 
 class PredefinedAnimEditor(GenericEditor):
