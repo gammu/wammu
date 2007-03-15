@@ -34,99 +34,101 @@ from Wammu.Locales import StrConv
 import wx.lib.mixins.listctrl
 
 COLUMN_INFO = {
-        'info': 
+        'info':
         (
             (
-                _('Name'), 
+                _('Name'),
                 _('Value')
             ),
             (
-                'Name', 
+                'Name',
                 'Value'
             ),
         ),
-        'contact': 
+        'contact':
         (
             (
                 _('Location'),
-                _('Memory'), 
-                _('Name'), 
+                _('Memory'),
+                _('Name'),
                 _('Number')
             ),
             (
-                'Location', 
-                'MemoryType', 
-                'Name', 
+                'Location',
+                'MemoryType',
+                'Name',
                 'Number'
             ),
         ),
-        'call': 
+        'call':
         (
             (
-                _('Location'), 
-                _('Type'), 
-                _('Name'), 
-                _('Number')
-            ),
-            (
-                'Location', 
-                'MemoryType', 
-                'Name', 
-                'Number'
-            ),
-        ),
-        'message': 
-        (
-            (
-                _('Location'), 
-                _('State'), 
-                _('Number'), 
-                _('Date'), 
-                _('Text')
-            ),
-            (
-                'Location', 
-                'State', 
-                'Number', 
-                'DateTime', 
-                'Text'
-            ),
-        ),
-        'todo': 
-        (
-            (
-                _('Location'), 
-                _('Completed'), 
-                _('Priority'), 
-                _('Text'), 
+                _('Location'),
+                _('Type'),
+                _('Name'),
+                _('Number'),
                 _('Date')
             ),
             (
-                'Location', 
-                'Completed', 
-                'Priority', 
-                'Text', 
+                'Location',
+                'MemoryType',
+                'Name',
+                'Number',
                 'Date'
             ),
         ),
-        'calendar': 
+        'message':
         (
             (
-                _('Location'), 
-                _('Type'), 
-                _('Start'), 
-                _('End'), 
-                _('Text'), 
-                _('Alarm'), 
+                _('Location'),
+                _('State'),
+                _('Number'),
+                _('Date'),
+                _('Text')
+            ),
+            (
+                'Location',
+                'State',
+                'Number',
+                'DateTime',
+                'Text'
+            ),
+        ),
+        'todo':
+        (
+            (
+                _('Location'),
+                _('Completed'),
+                _('Priority'),
+                _('Text'),
+                _('Date')
+            ),
+            (
+                'Location',
+                'Completed',
+                'Priority',
+                'Text',
+                'Date'
+            ),
+        ),
+        'calendar':
+        (
+            (
+                _('Location'),
+                _('Type'),
+                _('Start'),
+                _('End'),
+                _('Text'),
+                _('Alarm'),
                 _('Recurrence')
             ),
             (
-                'Location', 
-                'Type', 
-                'Start', 
-                'End', 
-                'Text', 
-                'Alarm', 
+                'Location',
+                'Type',
+                'Start',
+                'End',
+                'Text',
+                'Alarm',
                 'Recurrence'
             ),
         )
@@ -144,12 +146,12 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     Generic class for browsing values.
     '''
     def __init__(self, parent, win, cfg):
-        wx.ListCtrl.__init__(self, 
-                parent, 
+        wx.ListCtrl.__init__(self,
+                parent,
                 -1,
-                style = wx.LC_REPORT | 
-                    wx.LC_VIRTUAL | 
-                    wx.LC_HRULES | 
+                style = wx.LC_REPORT |
+                    wx.LC_VIRTUAL |
+                    wx.LC_HRULES |
                     wx.LC_VRULES)
         self.win = win
         self.cfg = cfg
@@ -319,7 +321,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 match = re.compile('.*%s.*' % text, re.I)
             else:
                 raise Exception('Unsupported filter type %s!' % filter_type)
-            self.values = [item for item in self.allvalues 
+            self.values = [item for item in self.allvalues
                     if Wammu.Utils.MatchesText(item, match, num)]
         self.SetItemCount(len(self.values))
         self.RefreshView()
@@ -331,7 +333,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         '''
         if self.sortkey == 'Location' and type(item1[self.sortkey]) == type(''):
             return self.sortorder * cmp(
-                int(item1[self.sortkey].split(',')[0]), 
+                int(item1[self.sortkey].split(',')[0]),
                 int(item2[self.sortkey].split(', ')[0]))
         elif item1[self.sortkey] == None:
             return -self.sortorder
@@ -352,16 +354,16 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         '''
         Activates id-th row.
         '''
-        if (self.GetItemCount() > index 
-                and index >= 0 
+        if (self.GetItemCount() > index
+                and index >= 0
                 and self.GetCountPerPage() > 0):
             self.itemno = index
             while self.GetSelectedItemCount() > 0:
                 index = self.GetFirstSelected()
                 self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
 
-            self.SetItemState(index, 
-                    wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, 
+            self.SetItemState(index,
+                    wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED,
                     wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
             self.EnsureVisible(index)
         else:
@@ -373,9 +375,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         Change type of browser component.
         '''
         if self.type != '':
-            self.cfg.Write('/BrowserSortKey/%s' % self.type, 
+            self.cfg.Write('/BrowserSortKey/%s' % self.type,
                     self.sortkey)
-            self.cfg.WriteInt('/BrowserSortOrder/%s' % self.type, 
+            self.cfg.WriteInt('/BrowserSortOrder/%s' % self.type,
                     self.sortorder)
         self.type = newtype
         self.values = values
@@ -507,7 +509,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 menu.Append(self.popup_id_send,       _('Resend'))
             if self.values[evt.m_itemIndex]['State'] == 'UnSent':
                 menu.Append(self.popup_id_send,       _('Send'))
-            if (self.values[evt.m_itemIndex]['State'] == 'Read' 
+            if (self.values[evt.m_itemIndex]['State'] == 'Read'
                     or self.values[evt.m_itemIndex]['State'] == 'UnRead'):
                 menu.Append(self.popup_id_reply,      _('Reply'))
             if self.values[evt.m_itemIndex]['Number'] != '':

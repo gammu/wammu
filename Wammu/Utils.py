@@ -178,6 +178,7 @@ def ParseMemoryEntry(entry):
     number = ''
     number_result = ''
     name_result = ''
+    date = None
     for i in entry['Entries']:
         if i['Type'] == 'Text_Name':
             name = i['Value']
@@ -185,6 +186,8 @@ def ParseMemoryEntry(entry):
             first = i['Value']
         if i['Type'] == 'Text_LastName':
             last = i['Value']
+        if i['Type'] == 'Date':
+            date = i['Value']
         if i['Type'] == 'Text_Company':
             company = i['Value']
         if i['Type'] == 'Number_General':
@@ -209,6 +212,7 @@ def ParseMemoryEntry(entry):
     entry['Number'] = number_result
     entry['Name'] = name_result
     entry['Synced'] = False
+    entry['Date'] = date
     return entry
 
 def ParseTodo(entry):
