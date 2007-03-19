@@ -200,11 +200,17 @@ def hgettext(message):
     return message
 
 def Install():
-    global LOCALE_PATH
-    global ngettext
-    trans = gettext.translation('wammu', class_ = WammuTranslations, localedir = LOCALE_PATH)
-    __builtin__.__dict__['_'] = trans.gettext
-    ngettext = trans.ngettext
-    ugettext = trans.ugettext
-    lgettext = trans.lgettext
-    hgettext = trans.hgettext
+    global LOCALE_PATH, ngettext, ugettext, lgettext, hgettext
+    try:
+        trans = gettext.translation('wammu',
+            class_ = WammuTranslations,
+            localedir = LOCALE_PATH)
+        __builtin__.__dict__['_'] = trans.gettext
+        ngettext = trans.ngettext
+        ugettext = trans.ugettext
+        lgettext = trans.lgettext
+        hgettext = trans.hgettext
+    except IOError:
+        # No translation found for current locale
+        __builtin__.__dict__['_'] = ugettext
+        pass
