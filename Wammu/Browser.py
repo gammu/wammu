@@ -317,7 +317,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 text = re.escape(text)
                 text = text.replace('\\_\\_SEARCH\\_ALL\\_\\_', '.*')
                 text = text.replace('\\_\\_SEARCH\\_ONE\\_\\_', '.')
-                print text
                 match = re.compile('.*%s.*' % text, re.I)
             else:
                 raise Exception('Unsupported filter type %s!' % filter_type)
@@ -358,9 +357,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 and index >= 0
                 and self.GetCountPerPage() > 0):
             self.itemno = index
-            while self.GetSelectedItemCount() > 0:
-                index = self.GetFirstSelected()
-                self.SetItemState(index, 0, wx.LIST_STATE_SELECTED)
+
+            while self.GetFirstSelected() != -1:
+                self.SetItemState(self.GetFirstSelected(), 0, wx.LIST_STATE_SELECTED)
 
             self.SetItemState(index,
                     wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED,
