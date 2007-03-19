@@ -28,6 +28,7 @@ import Wammu.Data
 import Wammu.Ringtone
 import string
 import re
+import xml.sax.saxutils
 from Wammu.Locales import UnicodeConv, HtmlStrConv, hgettext as _
 
 def SmsTextFormat(cfg, txt, dohtml = True):
@@ -88,7 +89,8 @@ def SmsTextFormat(cfg, txt, dohtml = True):
     else:
         ret = txt
     if dohtml:
-        return ret.replace('\n', '<br>')
+        xmlsafe = xml.sax.saxutils.escape(ret)
+        return xmlsafe.replace('\n', '<br>')
     else:
         return ret.replace('\n', ' ')
 
