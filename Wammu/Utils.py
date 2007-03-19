@@ -153,6 +153,10 @@ def GetNumberLink(lst, number):
     return GetContactLink(lst, i, number)
 
 def GetTypeString(type, value, values, linkphone = True):
+    '''
+    Returns string for entry in data dictionary. Formats it according to
+    knowledge of format types.
+    '''
     t = GetItemType(type)
     if t == 'contact':
         i = SearchLocation(values['contact']['ME'], value)
