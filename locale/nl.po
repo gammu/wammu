@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-03-16 00:13+0100\n"
+"POT-Creation-Date: 2007-04-01 18:28+0200\n"
 "PO-Revision-Date: 2007-01-18 18:26+0100\n"
 "Last-Translator: Peter Dedecker <Peter.Dedecker@UGent.be>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -52,24 +52,6 @@ msgstr "Importeer backup"
 #, fuzzy
 msgid "Save debug log as..."
 msgstr "Backup opslaan als"
-
-#: Wammu/MessageDisplay.py:105
-#, python-format
-msgid "Predefined animation number %d"
-msgstr "Voorgedefinieerd animatie nummer %d"
-
-#: Wammu/MessageDisplay.py:117
-#, python-format
-msgid "Unknown predefined sound #%d"
-msgstr "Onbekend voorgedefinieerd geluid #%d"
-
-#: Wammu/MessageDisplay.py:160
-msgid ""
-"Some parts of this message were not decoded correctly, probably due to "
-"missing support for it in Gammu."
-msgstr ""
-"Sommige delen van dit bericht zijn niet goed gedecodeerd, waarschijnlijk "
-"heeft Gammu hier geen ondersteuning voor."
 
 #: Wammu/TalkbackDialog.py:48
 msgid ""
@@ -270,79 +252,79 @@ msgstr ""
 msgid "File not found!"
 msgstr "Geen telefoon gevonden"
 
-#: Wammu/Utils.py:229
+#: Wammu/Utils.py:233
 msgid "Yes"
 msgstr "Ja"
 
-#: Wammu/Utils.py:231
+#: Wammu/Utils.py:235
 msgid "No"
 msgstr "Nee"
 
-#: Wammu/Utils.py:252
+#: Wammu/Utils.py:256
 msgid "enabled (tone)"
 msgstr ""
 
-#: Wammu/Utils.py:254
+#: Wammu/Utils.py:258
 msgid "enabled (silent)"
 msgstr ""
 
-#: Wammu/Utils.py:260
+#: Wammu/Utils.py:264
 msgid "yearly"
 msgstr ""
 
-#: Wammu/Utils.py:262
+#: Wammu/Utils.py:266
 msgid "monthly"
 msgstr ""
 
-#: Wammu/Utils.py:265
+#: Wammu/Utils.py:269
 msgid "daily"
 msgstr ""
 
-#: Wammu/Utils.py:267
+#: Wammu/Utils.py:271
 msgid "biweekly"
 msgstr ""
 
-#: Wammu/Utils.py:270
+#: Wammu/Utils.py:274
 msgid "weekly on monday"
 msgstr ""
 
-#: Wammu/Utils.py:272
+#: Wammu/Utils.py:276
 msgid "weekly on tuesday"
 msgstr ""
 
-#: Wammu/Utils.py:274
+#: Wammu/Utils.py:278
 msgid "weekly on wednesday"
 msgstr ""
 
-#: Wammu/Utils.py:276
+#: Wammu/Utils.py:280
 msgid "weekly on thursday"
 msgstr ""
 
-#: Wammu/Utils.py:278
+#: Wammu/Utils.py:282
 msgid "weekly on friday"
 msgstr ""
 
-#: Wammu/Utils.py:280
+#: Wammu/Utils.py:284
 msgid "weekly on saturday"
 msgstr ""
 
-#: Wammu/Utils.py:282
+#: Wammu/Utils.py:286
 msgid "weekly on sunday"
 msgstr ""
 
-#: Wammu/Utils.py:289
+#: Wammu/Utils.py:293
 msgid "disabled"
 msgstr ""
 
-#: Wammu/Utils.py:292
+#: Wammu/Utils.py:296
 msgid "nonrecurring"
 msgstr ""
 
-#: Wammu/Utils.py:368
+#: Wammu/Utils.py:372
 msgid "Your phone doesn't support this function."
 msgstr "Je telefoon ondersteunt deze functie niet."
 
-#: Wammu/Utils.py:370
+#: Wammu/Utils.py:374
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
@@ -350,21 +332,21 @@ msgstr ""
 "Deze functie is niet geïmplementeerd in jouw telefoon.  Indien je hulp wil "
 "voor de implementatie, contacteer de auteurs."
 
-#: Wammu/Utils.py:372
+#: Wammu/Utils.py:376
 msgid "Your phone asks for PIN."
 msgstr "Je telefoon vraagt naar de PIN."
 
-#: Wammu/Utils.py:374
+#: Wammu/Utils.py:378
 msgid "Memory is full, try deleting some entries."
 msgstr "Geheugen is vol, probeer enkele entries te wissen."
 
-#: Wammu/Utils.py:376
+#: Wammu/Utils.py:380
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr ""
 "Communicatie werd geannuleerd door de telefoon.  Heb je \"annuleren\" "
 "gekozen op de telefoon?"
 
-#: Wammu/Utils.py:378
+#: Wammu/Utils.py:382
 msgid ""
 "Empty entry received. This usually should not happen and most likely is "
 "caused by bug in phone firmware or in Gammu/Wammu.\n"
@@ -377,7 +359,7 @@ msgstr ""
 "\n"
 "Indien je een entry mist, contacteer de Gammu/Wammu ontwikkelaars."
 
-#: Wammu/Utils.py:380
+#: Wammu/Utils.py:384
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
@@ -385,7 +367,7 @@ msgstr ""
 "Sluit aub geopende menu's in de telefoon en probeer opnieuw, er kan geen "
 "toegang tot de data zijn terwijl je deze hebt geopend."
 
-#: Wammu/Utils.py:382
+#: Wammu/Utils.py:386
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
@@ -393,21 +375,30 @@ msgstr ""
 "Timeout tijdens de communicatie met de telefoon.  Misschien is de telefoon "
 "niet verbonden (via kabel) of buiten bereik (voor bluetooth of IrDA)."
 
-#: Wammu/Utils.py:384
+#: Wammu/Utils.py:388
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
 
-#: Wammu/Utils.py:386
+#: Wammu/Utils.py:390
+#, fuzzy
+msgid "Can not access device for communication with phone."
+msgstr "Fout tijdens communiceren met telefoon"
+
+#: Wammu/Utils.py:392
+msgid "Maybe you need to be member of some group to have acces to device."
+msgstr ""
+
+#: Wammu/Utils.py:394
 msgid "Description:"
 msgstr "Omschrijving:"
 
-#: Wammu/Utils.py:386
+#: Wammu/Utils.py:394
 msgid "Function:"
 msgstr "Functie:"
 
-#: Wammu/Utils.py:386
+#: Wammu/Utils.py:394
 msgid "Error code:"
 msgstr "Error code:"
 
@@ -1002,7 +993,7 @@ msgstr "Voorgedefinieerd geluid"
 msgid "Composing SMS"
 msgstr "Opstellen SMS"
 
-#: Wammu/Composer.py:348 Wammu/Browser.py:520
+#: Wammu/Composer.py:348 Wammu/Browser.py:519
 msgid "Send message"
 msgstr "Stuur bericht"
 
@@ -1026,7 +1017,7 @@ msgstr ""
 msgid "Add number of recipient from contacts."
 msgstr "Voeg nummer van de bestemmeling in uit de contactpersonen."
 
-#: Wammu/Composer.py:371 Wammu/Browser.py:525
+#: Wammu/Composer.py:371 Wammu/Browser.py:524
 msgid "Edit"
 msgstr "Bewerken"
 
@@ -1394,6 +1385,24 @@ msgstr ""
 "VERHANDELBAARHEID of GESCHIKTHEID VOOR EEN BEPAALD DOEL. \n"
 "Raadpleeg GNU General Public License voor meer informatie.\n"
 
+#: Wammu/MessageDisplay.py:107
+#, python-format
+msgid "Predefined animation number %d"
+msgstr "Voorgedefinieerd animatie nummer %d"
+
+#: Wammu/MessageDisplay.py:119
+#, python-format
+msgid "Unknown predefined sound #%d"
+msgstr "Onbekend voorgedefinieerd geluid #%d"
+
+#: Wammu/MessageDisplay.py:162
+msgid ""
+"Some parts of this message were not decoded correctly, probably due to "
+"missing support for it in Gammu."
+msgstr ""
+"Sommige delen van dit bericht zijn niet goed gedecodeerd, waarschijnlijk "
+"heeft Gammu hier geen ondersteuning voor."
+
 #: Wammu/Locales.py:177
 #, fuzzy
 msgid "Automatically switched to local locales."
@@ -1465,43 +1474,43 @@ msgstr "Alarm"
 msgid "Recurrence"
 msgstr ""
 
-#: Wammu/Browser.py:509
+#: Wammu/Browser.py:508
 msgid "Resend"
 msgstr "Opnieuw verzenden"
 
-#: Wammu/Browser.py:511
+#: Wammu/Browser.py:510
 msgid "Send"
 msgstr "Verzenden"
 
-#: Wammu/Browser.py:514
+#: Wammu/Browser.py:513
 msgid "Reply"
 msgstr "Beantwoorden"
 
-#: Wammu/Browser.py:516 Wammu/Browser.py:521
+#: Wammu/Browser.py:515 Wammu/Browser.py:520
 msgid "Call"
 msgstr "Bellen"
 
-#: Wammu/Browser.py:527
+#: Wammu/Browser.py:526
 msgid "Duplicate"
 msgstr "Dupliceren"
 
-#: Wammu/Browser.py:530
+#: Wammu/Browser.py:529
 msgid "Delete current"
 msgstr "Verwijder huidige"
 
-#: Wammu/Browser.py:531
+#: Wammu/Browser.py:530
 msgid "Delete selected"
 msgstr "Verwijder selectie"
 
-#: Wammu/Browser.py:534
+#: Wammu/Browser.py:533
 msgid "Backup current"
 msgstr "Maak een backup van het huidige"
 
-#: Wammu/Browser.py:535
+#: Wammu/Browser.py:534
 msgid "Backup selected"
 msgstr "Backup geselecteerd"
 
-#: Wammu/Browser.py:536
+#: Wammu/Browser.py:535
 msgid "Backup all"
 msgstr "Maak een backup van alles"
 
