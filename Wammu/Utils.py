@@ -386,6 +386,10 @@ def FormatError(txt, info):
         message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for bluetooth or IrDA).')
     elif info['Code'] == gammu.Errors['ERR_DEVICENOTEXIST']:
         message = _('Device for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.')
+    elif info['Code'] == gammu.Errors['ERR_DEVICENOPERMISSION']:
+        message = _('Can not access device for communication with phone.')
+        if sys.platform == 'linux2':
+            message += ' ' + _('Maybe you need to be member of some group to have acces to device.')
     else:
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), StrConv(info['Text']), _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
