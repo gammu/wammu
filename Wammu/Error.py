@@ -91,7 +91,7 @@ def Handler(type, value, tback):
 %s---------------------------------------------------
 """ % (
     _('Unhandled exception appeared.'),
-    _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.cihar.com',
+    _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.wammu.eu/',
     logtext,
     tracetext,
     unicodewarning,

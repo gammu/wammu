@@ -321,7 +321,7 @@ distutils.core.setup(name="wammu",
     author_email = "michal@cihar.com",
     maintainer = "Michal Čihař",
     maintainer_email = "michal@cihar.com",
-    url = "http://cihar.com/gammu/wammu",
+    url = "http://wammu.eu/",
     license = "GPL",
     classifiers = [
         'Development Status :: 5 - Production/Stable',

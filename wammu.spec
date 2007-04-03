@@ -32,7 +32,7 @@ Requires:       /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
 BuildRequires:  /usr/bin/pycrust, python-gammu >= %{python_gammu_req}, python, python-devel
 Requires:       python >= %py_minver, python < %py_maxver
 
-Url:        http://cihar.com/gammu/wammu
+Url:        http://wammu.eu/
 Buildroot:  %{_tmppath}/%name-%version-root
 
 %description
