@@ -133,6 +133,7 @@ class WammuFrame(wx.Frame):
 
     def __init__(self, parent, id):
         self.cfg = Wammu.WammuSettings.WammuConfig()
+        Wammu.configuration = self.cfg
         if self.cfg.HasEntry('/Main/X') and self.cfg.HasEntry('/Main/Y'):
             pos = wx.Point(self.cfg.ReadInt('/Main/X'), self.cfg.ReadInt('/Main/Y'))
         else:

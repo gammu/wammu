@@ -71,7 +71,7 @@ def GetSystemInfo():
         except ImportError:
             pass
 
-    return system_template % (
+    result = system_template % (
         sys.platform,
         pyver,
         wxver,
@@ -81,6 +81,14 @@ def GetSystemInfo():
         bluez,
         loc,
         charset)
+
+    if Wammu.configuration is not None:
+        section = Wammu.configuration.ReadInt('/Gammu/Section')
+        config = Wammu.configuration.gammu.GetConfig(section)
+        result += 'connection   %s\n' % config['Connection']
+        result += 'device       %s\n' % config['Device']
+        result += 'model        %s\n' % config['Model']
+    return result
 
 def SaveLog(outf = None, filename = None):
     """

@@ -26,3 +26,4 @@ this program; if not, write to the Free Software Foundation, Inc.,
 __version__ = '0.20'
 
 gammu_error = None
+configuration = None
