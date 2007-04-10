@@ -352,10 +352,10 @@ class Settings(wx.Dialog):
         self.sizer_other.SetSizeHints(self.notebook_other)
 
         # add pages to notebook
-        self.notebook.AddPage(self.notebook_gammu, _("Gammu"))
-        self.notebook.AddPage(self.notebook_connection, _("Connection"))
-        self.notebook.AddPage(self.notebook_messages, _("Messages"))
-        self.notebook.AddPage(self.notebook_other, _("Other"))
+        self.notebook.AddPage(self.notebook_gammu, _('Gammu'))
+        self.notebook.AddPage(self.notebook_connection, _('Connection'))
+        self.notebook.AddPage(self.notebook_messages, _('Messages'))
+        self.notebook.AddPage(self.notebook_other, _('Other'))
 
         # size main layout
         self.SetAutoLayout(True)

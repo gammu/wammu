@@ -387,7 +387,7 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
         if search:
             self.names.append('all')
             connections.append(_('Search all connections'))
-            helps.append(_('Wizard will search for all possible connections. It might take quite long time to search all possible connection types'))
+            helps.append(_('Wizard will search for all possible connections. It might take quite long time to search all possible connection types.'))
 
         self.names.append('usb')
         connections.append(_('USB cable'))

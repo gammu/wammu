@@ -79,7 +79,6 @@ cellpadding="0" border="1">
 </p>
 <p>
 <wxp module="wx" class="Button">
-    <param name="label" value="%s">
     <param name="id"    value="ID_OK">
 </wxp>
 </p>
@@ -112,8 +111,7 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-'''),
-            _('OK'))
+'''))
 
         html = wx.html.HtmlWindow(self, -1, size = (500, -1))
         html.SetPage(text)

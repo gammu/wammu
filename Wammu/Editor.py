@@ -184,7 +184,7 @@ class ContactEdit(wx.Panel):
         self.sizer.AddGrowableCol(1)
         self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000, initial = val, size = (200, -1))
         self.txt = wx.StaticText(self, -1, self.GetText(val))
-        self.btn = wx.Button(self, -1, _('...'), style = wx.BU_EXACTFIT)
+        self.btn = wx.Button(self, -1, '...', style = wx.BU_EXACTFIT)
         self.sizer.AddMany([
             (self.edit,                     0, wx.EXPAND),
             (self.txt,                      1, wx.EXPAND),

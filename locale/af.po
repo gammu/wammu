@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.18\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-04-01 18:28+0200\n"
+"POT-Creation-Date: 2007-04-10 20:52+0200\n"
 "PO-Revision-Date: 2007-01-06 09:49+0100\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -572,7 +572,7 @@ msgstr "Deursoek alle verbindings"
 #: Wammu/PhoneWizard.py:390
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
-"time to search all possible connection types"
+"time to search all possible connection types."
 msgstr ""
 
 #: Wammu/PhoneWizard.py:393
@@ -917,10 +917,6 @@ msgstr "Doodtrek"
 #: Wammu/Composer.py:56
 msgid "Message preview"
 msgstr "Boodskapvoorskou"
-
-#: Wammu/Composer.py:58 Wammu/About.py:116
-msgid "OK"
-msgstr "Regso"
 
 #: Wammu/Composer.py:68
 msgid "Text style"
@@ -1301,27 +1297,27 @@ msgstr "IMAP-rekening"
 msgid "About Wammu"
 msgstr "Aangaande"
 
-#: Wammu/About.py:96
+#: Wammu/About.py:95
 #, python-format
 msgid "Running on Python %s"
 msgstr "Loop met Python %s"
 
-#: Wammu/About.py:97
+#: Wammu/About.py:96
 #, python-format
 msgid "Using wxPython %s"
 msgstr "Gebruik wxPython %s"
 
-#: Wammu/About.py:98
+#: Wammu/About.py:97
 #, python-format
 msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
 msgstr ""
 "Gebruik python-gammu %(python_gammu_version)s en Gammu %(gammu_version)s"
 
-#: Wammu/About.py:103
+#: Wammu/About.py:102
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> is 'n wxPython-gebaseerde gebruikerkoppelvlak vir Gammu."
 
-#: Wammu/About.py:105
+#: Wammu/About.py:104
 msgid ""
 "\n"
 "This program is free software; you can redistribute it and/or modify\n"
@@ -1329,7 +1325,7 @@ msgid ""
 "published by the Free Software Foundation.\n"
 msgstr ""
 
-#: Wammu/About.py:110
+#: Wammu/About.py:109
 msgid ""
 "\n"
 "This program is distributed in the hope that it will be useful,\n"
@@ -1799,8 +1795,9 @@ msgid "&Contact"
 msgstr "&Kontak"
 
 #: Wammu/Main.py:305
-msgid "Crates new contact"
-msgstr ""
+#, fuzzy
+msgid "Creates new contact"
+msgstr "Handmatige opstelling"
 
 #: Wammu/Main.py:306
 #, fuzzy
@@ -1808,24 +1805,27 @@ msgid "&Event"
 msgstr "Gestuur"
 
 #: Wammu/Main.py:306
-msgid "Crates new calendar event"
-msgstr ""
+#, fuzzy
+msgid "Creates new calendar event"
+msgstr "Kalender&inskrywing"
 
 #: Wammu/Main.py:307
 msgid "&Todo"
 msgstr "&Doending"
 
 #: Wammu/Main.py:307
-msgid "Crates new todo"
-msgstr ""
+#, fuzzy
+msgid "Creates new todo"
+msgstr "Handmatige opstelling"
 
 #: Wammu/Main.py:308
 msgid "&Message"
 msgstr "&Boodskap"
 
 #: Wammu/Main.py:308
-msgid "Crates new message"
-msgstr ""
+#, fuzzy
+msgid "Creates new message"
+msgstr "Skep unicode-boodskap"
 
 #: Wammu/Main.py:310
 #, fuzzy
@@ -3106,10 +3106,6 @@ msgid ""
 "email."
 msgstr ""
 
-#: Wammu/Editor.py:187
-msgid "..."
-msgstr "..."
-
 #: Wammu/Editor.py:232
 #, python-format
 msgid "Creating new %s"
@@ -3244,6 +3240,12 @@ msgstr "Handmatige opstelling"
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr ""
+
+#~ msgid "OK"
+#~ msgstr "Regso"
+
+#~ msgid "..."
+#~ msgstr "..."
 
 #~ msgid ""
 #~ "Warning: you are using utf-8 locales and non unicode enabled wxPython, "

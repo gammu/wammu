@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-04-01 18:28+0200\n"
+"POT-Creation-Date: 2007-04-10 20:52+0200\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
@@ -581,7 +581,7 @@ msgstr "Conexão"
 #: Wammu/PhoneWizard.py:390
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
-"time to search all possible connection types"
+"time to search all possible connection types."
 msgstr ""
 
 #: Wammu/PhoneWizard.py:393
@@ -935,10 +935,6 @@ msgstr "Riscado"
 #: Wammu/Composer.py:56
 msgid "Message preview"
 msgstr "Pré-visualização da mensagem"
-
-#: Wammu/Composer.py:58 Wammu/About.py:116
-msgid "OK"
-msgstr "OK"
 
 #: Wammu/Composer.py:68
 msgid "Text style"
@@ -1333,26 +1329,26 @@ msgstr "Conta IMAP"
 msgid "About Wammu"
 msgstr "Sobre Wammu"
 
-#: Wammu/About.py:96
+#: Wammu/About.py:95
 #, python-format
 msgid "Running on Python %s"
 msgstr "Executando no Python %s"
 
-#: Wammu/About.py:97
+#: Wammu/About.py:96
 #, python-format
 msgid "Using wxPython %s"
 msgstr "Usando wxPython %s"
 
-#: Wammu/About.py:98
+#: Wammu/About.py:97
 #, fuzzy, python-format
 msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
 msgstr "Usando python-gammu %s e Gammu %s."
 
-#: Wammu/About.py:103
+#: Wammu/About.py:102
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> é uma GUI baseada em wxPython para Gammu"
 
-#: Wammu/About.py:105
+#: Wammu/About.py:104
 #, fuzzy
 msgid ""
 "\n"
@@ -1368,7 +1364,7 @@ msgstr ""
 "Fundação do Software Livre [Free Software Foundation], versão 2 da licença "
 "ou (caso queira) outra versão posterior.\n"
 
-#: Wammu/About.py:110
+#: Wammu/About.py:109
 msgid ""
 "\n"
 "This program is distributed in the hope that it will be useful,\n"
@@ -1842,7 +1838,8 @@ msgid "&Contact"
 msgstr "&contato"
 
 #: Wammu/Main.py:305
-msgid "Crates new contact"
+#, fuzzy
+msgid "Creates new contact"
 msgstr "Cria novo contato"
 
 #: Wammu/Main.py:306
@@ -1851,7 +1848,8 @@ msgid "&Event"
 msgstr "Tipo de evento"
 
 #: Wammu/Main.py:306
-msgid "Crates new calendar event"
+#, fuzzy
+msgid "Creates new calendar event"
 msgstr "Cria novo evento do calendário"
 
 #: Wammu/Main.py:307
@@ -1859,7 +1857,8 @@ msgid "&Todo"
 msgstr "&Tarefa"
 
 #: Wammu/Main.py:307
-msgid "Crates new todo"
+#, fuzzy
+msgid "Creates new todo"
 msgstr "Cria nova tarefa"
 
 #: Wammu/Main.py:308
@@ -1867,7 +1866,8 @@ msgid "&Message"
 msgstr "&Mensagem"
 
 #: Wammu/Main.py:308
-msgid "Crates new message"
+#, fuzzy
+msgid "Creates new message"
 msgstr "Cria nova mensagem"
 
 #: Wammu/Main.py:310
@@ -3129,10 +3129,6 @@ msgid ""
 "email."
 msgstr ""
 
-#: Wammu/Editor.py:187
-msgid "..."
-msgstr "..."
-
 #: Wammu/Editor.py:232
 #, python-format
 msgid "Creating new %s"
@@ -3267,6 +3263,12 @@ msgstr "Cria novo contato"
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr ""
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "..."
+#~ msgstr "..."
 
 #, fuzzy
 #~ msgid "%(count)d messages exported to \"%(path)s (%(type)s)\""

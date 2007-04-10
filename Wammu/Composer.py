@@ -45,17 +45,17 @@ class MessagePreview(wx.Dialog):
 %s
 <center>
 <p><wxp module="wx" class="Button">
-    <param name="label" value="%s">
     <param name="id"    value="ID_OK">
 </wxp></p>
 </center>
 </body>
 </html>
 '''
+
     def __init__(self, parent, content):
         wx.Dialog.__init__(self, parent, -1, _('Message preview'))
         html = wx.html.HtmlWindow(self, -1, size=(420, -1))
-        html.SetPage(self.text % (content, _('OK')))
+        html.SetPage(self.text % content)
         btn = html.FindWindowById(wx.ID_OK)
         btn.SetDefault()
         ir = html.GetInternalRepresentation()
