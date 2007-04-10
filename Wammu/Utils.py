@@ -403,7 +403,10 @@ def FixupMaskedEdit(edit):
 
 def GetWebsiteLang():
     (loc, charset) = locale.getdefaultlocale()
-    if loc[:2].lower() == 'cs':
-        return 'cz.'
+    try:
+        if loc[:2].lower() == 'cs':
+            return 'cz.'
+    except TypeError:
+        pass
     return ''
 
