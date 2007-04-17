@@ -44,9 +44,15 @@ def usage():
     print _('Usage: %s [OPTION...]' % os.path.basename(__file__))
     print
     print _('Options:')
-    print _('-h/--help          ... show this help')
-    print _('-v/--version       ... show program version')
-    print _('-l/--local-locales ... use locales from current directory rather than system ones')
+    print '%-20s ... %s' % (
+            '-h/--help',
+            _('show this help'))
+    print '%-20s ... %s' % (
+            '-v/--version',
+            _('show program version'))
+    print '%-20s ... %s' % (
+            '-l/--local-locales',
+            _('force using of locales from current directory rather than system ones '))
     print
 
 Wammu.Locales.Init()
