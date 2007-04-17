@@ -1,5 +1,5 @@
 #!/bin/sh
-LOCS=`ls locale/*.po | while read name; do basename $name ; done | sed 's/\.po$//'`
+LOCS=`ls locale/*/wammu.po | sed 's@.*/\(.*\)/[^/]*@\1@'`
 xgettext \
     -d wammu \
     --msgid-bugs-address=michal@cihar.com \
@@ -19,5 +19,5 @@ sed -i '
     ' locale/wammu.pot
 
 for loc in $LOCS ; do
-    msgmerge -U locale/$loc.po locale/wammu.pot
+    msgmerge -U locale/$loc/wammu.po locale/wammu.pot
 done

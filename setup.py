@@ -140,11 +140,11 @@ def list_message_files(package = 'wammu', suffix = '.po'):
     """
     Return list of all found message files and their installation paths.
     """
-    _files = glob.glob('locale/*' + suffix)
+    _files = glob.glob('locale/*/' + package + suffix)
     _list = []
     for _file in _files:
         # basename (without extension) is a locale name
-        _locale = os.path.splitext(os.path.basename(_file))[0]
+        _locale = os.path.basename(os.path.dirname(_file))
         _list.append((_file, os.path.join(
             'share', 'locale', _locale, 'LC_MESSAGES', '%s.mo' % package)))
     return _list
