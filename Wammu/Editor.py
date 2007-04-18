@@ -12,7 +12,6 @@ import Wammu
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
-from Wammu.Utils import StrConv
 
 def TextToTime(txt):
     hms = txt.split(':')
@@ -252,11 +251,11 @@ class OneEdit(wx.Panel):
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableCol(3)
-        self.text = wx.StaticText(self, -1, text, size = (20, -1))
-        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY, size = (180, -1))
+        self.text = wx.StaticText(self, -1, text)
+        self.combo = wx.ComboBox(self, -1, type, choices = choices, style = wx.CB_READONLY, size = (150, -1))
         self.sizer.AddMany([
-            (self.text,   0, wx.ALL),
-            (self.combo,  1, wx.ALL),
+            (self.text,   0, wx.EXPAND|wx.ALL),
+            (self.combo,  1, wx.EXPAND|wx.ALL),
             ])
         self.CreateEdit(type, value)
         self.sizer.Fit(self)
@@ -290,15 +289,15 @@ class OneEdit(wx.Panel):
 
         self.edit2 = wx.StaticText(self, -1, '')
         if newt == 'text' or newt == None:
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
+            self.edit = wx.TextCtrl(self, -1, str(value), size = (200, -1))
         elif newt == 'phone':
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
+            self.edit = wx.TextCtrl(self, -1, str(value), size = (200, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
         elif newt == 'bool':
             try:
                 val = bool(value)
             except:
                 val = False
-            self.edit = wx.CheckBox(self, -1, '', size = (200, -1))
+            self.edit = wx.CheckBox(self, -1, '')
             self.edit.SetValue(val)
         elif newt == 'contact':
             try:
@@ -307,17 +306,12 @@ class OneEdit(wx.Panel):
                 val = 0
             lst = [] + self.values['contact']['ME']
             self.edit = ContactEdit(self, val, lst)
-        elif newt == 'id':
-            v = hex(value)
-            if v[-1] == 'L':
-                v = v[:-1]
-            self.edit = wx.TextCtrl(self, -1, v, size = (200, -1))
         elif newt == 'category' or newt == 'number':
             try:
                 val = int(value)
             except:
                 val = 0
-            self.edit = wx.lib.intctrl.IntCtrl(self, -1, val, size = (200, -1))
+            self.edit = wx.lib.intctrl.IntCtrl(self, -1, val)
         elif newt == 'datetime':
             self.edit = wx.lib.timectrl.TimeCtrl( self, -1, TimeToText(value), fmt24hr=True)
             self.edit2.Destroy()
@@ -326,10 +320,10 @@ class OneEdit(wx.Panel):
             self.edit = DateControl(self, DateToText(value))
         else:
             print 'warning: creating TextCtrl for %s' % newt
-            self.edit = wx.TextCtrl(self, -1, StrConv(value), size = (200, -1))
+            self.edit = wx.TextCtrl(self, -1, str(value))
 
         self.sizer.AddMany([
-            (self.edit,   1, wx.EXPAND|wx.ALIGN_LEFT|wx.ALL),
+            (self.edit,   1, wx.EXPAND|wx.ALL),
             (self.edit2,  1, wx.EXPAND|wx.ALL)
             ])
 
@@ -343,8 +337,6 @@ class OneEdit(wx.Panel):
             return TextToDate(self.edit.GetValue())
         elif t == 'datetime':
             return datetime.datetime.combine(TextToDate(self.edit2.GetValue()), TextToTime(self.edit.GetValue()))
-        elif t == 'id':
-            return int(self.edit.GetValue(), 16)
         else:
             return self.edit.GetValue()
 
@@ -422,7 +414,7 @@ class GenericEditor(wx.Dialog):
                 x = x + 1
 
         self.buttons = OkCancelMore(self)
-        list.append((self.buttons, 0, wx.ALL|wx.ALIGN_CENTER, 2))
+        list.append((self.buttons, 0, wx.EXPAND|wx.ALL, 2))
 
         self.sizer.AddMany(list)
         self.sizer.Fit(self)
@@ -442,7 +434,7 @@ class GenericEditor(wx.Dialog):
 
         self.sizer.AddMany([
             (e, 0, wx.EXPAND|wx.ALL,2),
-            (self.buttons, 0, wx.ALL|wx.ALIGN_CENTER, 2)
+            (self.buttons, 0, wx.EXPAND|wx.ALL, 2)
             ])
         self.sizer.Fit(self)
 

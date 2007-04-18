@@ -1,28 +1,61 @@
-import Wammu.Reader
+import Wammu.Thread
 import Wammu.Utils
 import gammu
 
-class GetMemory(Wammu.Reader.Reader):
+class GetMemory(Wammu.Thread.Thread):
     def __init__(self, win, sm, datatype, type):
-        Wammu.Reader.Reader.__init__(self, win, sm)
+        Wammu.Thread.Thread.__init__(self, win, sm)
         self.datatype = datatype
         self.type = type
 
-    def GetStatus(self):
-        status = self.sm.GetMemoryStatus(Type = self.type)
-        return status['Used'] 
+    def run(self):
+        self.ShowProgress(0)
         
-    def GetNextStart(self):
-        return self.sm.GetNextMemory(Start = True, Type = self.type)
+        try:
+            status = self.sm.GetMemoryStatus(Type = self.type)
+            total = remain = status['Used'] 
+        except gammu.GSMError, val:
+            total = remain = 999
 
-    def GetNext(self, location):
-        return self.sm.GetNextMemory(Location = location, Type = self.type)
-                        
-    def Get(self, location):
-        return self.sm.GetMemory(Location = location, Type = self.type)
+        data = []
+        
+        try:
+            start = True
+            while remain > 0:
+                self.ShowProgress(100 * (total - remain) / total)
+                if self.canceled:
+                    self.Canceled()
+                    return
+                try:
+                    if start:
+                        value = self.sm.GetNextMemory(Start = True, Type = self.type)
+                        start = False
+                    else:
+                        value = self.sm.GetNextMemory(Location = value['Location'], Type = self.type)
+                except gammu.ERR_EMPTY:
+                    break
 
-    def Parse(self, value):
-        Wammu.Utils.ParseMemoryEntry(value)
+                Wammu.Utils.ParseMemoryEntry(value)
+                data.append(value)
+                remain = remain - 1
+        except gammu.ERR_NOTSUPPORTED:
+            location = 1
+            while remain > 0:
+                self.ShowProgress(100 * (total - remain) / total)
+                if self.canceled:
+                    self.Canceled()
+                    return
+                try:
+                    value = self.sm.GetMemory(Type = self.type, Location = location)
+                    Wammu.Utils.ParseMemoryEntry(value)
+                    data.append(value)
+                    remain = remain - 1
+                except gammu.ERR_EMPTY:
+                    pass
+                location = location + 1
+        except gammu.GSMError, val:
+            self.ShowError(val[0], True)
+            return
 
-    def Send(self, data):
+        self.ShowProgress(100)
         self.SendData([self.datatype, self.type], data)
