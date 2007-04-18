@@ -1,5 +1,5 @@
 %define name wammu
-%define version 0.4
+%define version 0.3
 %define release 1
 
 Summary:    Mobile phone manager
@@ -16,8 +16,8 @@ Group:      Applications/Communications
 Packager:   Michal Cihar <michal@cihar.com>
 Vendor:     Michal Cihar <michal@cihar.com>
 Prefix:     %{_prefix}
-Requires:   python >= 2.2.0, python-wxGTK >= 2.4.1.2, python-gammu >= 0.3
-BuildRequires: python-devel, python-wxGTK >= 2.4.1.2, python-gammu >= 0.3
+Requires:   python >= 2.2.0, python-wxGTK, python-gammu
+BuildRequires: python-devel, python-wxGTK, python-gammu
 Url:        http://www.cohar.com/gammu/wammu
 Buildroot:  %{_tmppath}/%name-%version-root
 
@@ -39,4 +39,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
-%doc ChangeLog README TODO AUTHORS FAQ COPYING NEWS
+%doc ChangeLog README TODO AUTHORS FAQ COPYING

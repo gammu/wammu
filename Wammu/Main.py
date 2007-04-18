@@ -269,24 +269,23 @@ class WammuFrame(wx.Frame):
                     _('Configuration not found'),
                     wx.OK | wx.ICON_INFORMATION).ShowModal()
             except:
-                config = {}
                 wx.MessageDialog(self,
                     _('Wammu configuration was not found. Gammu settings couldn\'t be read. You will now be taken to configuration dialog to confige Wammu.'),
                     _('Configuration not found'),
                     wx.OK | wx.ICON_WARNING).ShowModal()
                     
             # make some defaults
-            if not config.has_key('Model') or config['Model'] == None:
+            if config['Model'] == None:
                 config['Model'] = Wammu.Models[0]
-            if not config.has_key('Connection') or config['Connection'] == None:
+            if config['Connection'] == None:
                 config['Connection'] = Wammu.Connections[0]
-            if not config.has_key('Device') or config['Device'] == None:
+            if config['Device'] == None:
                 config['Device'] = Wammu.Devices[0]
-            if not config.has_key('SyncTime') or not config['SyncTime'] == 'yes':
+            if not config['SyncTime'] == 'yes':
                 config['SyncTime'] = 'no'
-            if not config.has_key('LockDevice') or not config['LockDevice'] == 'yes':
+            if not config['LockDevice'] == 'yes':
                 config['LockDevice'] = 'no'
-            if not config.has_key('StartInfo') or not config['StartInfo'] == 'yes':
+            if not config['StartInfo'] == 'yes':
                 config['StartInfo'] = 'no'
 
             self.cfg.Write('/Gammu/Model', config['Model'])
