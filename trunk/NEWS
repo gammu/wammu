@@ -1,0 +1,61 @@
+NEWS
+====
+
+Major changes for each release are described here. Detailed changes between
+two versions are allways in ChangeLog.
+
+0.6
+===
+
+New features:
+
+* Can expand "compressed" SMSes - TextCOMPRESSIONlikeTHIS.
+* Allow direct calls/send message for contacts.
+
+Bug fixes:
+
+* Lots of charset issues fixed.
+
+0.5.1
+=====
+
+* Fixed typo in Wammu/Utils.py.
+
+0.5
+===
+
+New features:
+
+* Searching for phone.
+* Backup and import functionality.
+* Deleting of multiple entries at once.
+* Reply on message.
+* Playback of ringtones using timidity.
+* More decoded SMS parts are now recognized (especially Nokia ones were not
+  recognised before).
+* Unexpected exceptions are handled and reported as bugs.
+* Czech localisation.
+
+Bug fixes:
+
+* HTML displayer now should display non ascii texts correctly.
+* Reads really all sms.
+* Better handling of exceptions when reading data.
+* Broken wxListCtrl.GetColumn on wxPython 2.4.1.2 is workarounded.
+* Workaround charset conversion problems in wxPython.
+* Fixed creating multiple roots in tree control.
+
+0.4
+===
+
+* Improves compatibility with more phone modules, by not requiring all
+  functions to be implemented/supported. For now reading of all stuff should
+  work with all phones Gammu supports.
+* Now doesn't require wxPython 2.4.2.4, but 2.4.1.2, which should be in all
+  recent distributions.
+* Will work even if you didn't have Gammu configured before.
+
+0.3
+===
+
+* First widely announced release.
