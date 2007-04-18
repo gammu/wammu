@@ -1,12 +1,10 @@
 import wx
 import Wammu
 import Wammu.Events
+import Wammu.Utils
 import gammu
-from Wammu.Paths import *
 
-import wx.lib.mixins.listctrl 
-
-class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
+class Browser(wx.ListCtrl):
     def __init__(self, parent, win):
         wx.ListCtrl.__init__(self, parent, -1,
                             style=wx.LC_REPORT|wx.LC_VIRTUAL|wx.LC_HRULES|wx.LC_VRULES)
@@ -15,119 +13,43 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.attr1 = wx.ListItemAttr()
 
         self.attr2 = wx.ListItemAttr()
-        self.attr2.SetBackgroundColour('light blue')
-
-        il = wx.ImageList(16, 16)
-        self.downarrow = il.Add(wx.Bitmap(MiscPath('downarrow')))
-        self.uparrow = il.Add(wx.Bitmap(MiscPath('uparrow')))
-        self.AssignImageList(il, wx.IMAGE_LIST_SMALL)
+        self.attr2.SetBackgroundColour("light blue")
 
         wx.EVT_LIST_ITEM_SELECTED(self, self.GetId(), self.OnItemSelected)
         wx.EVT_LIST_ITEM_ACTIVATED(self, self.GetId(), self.OnItemActivated)
-#        wx.EVT_LIST_DELETE_ITEM(self, self.GetId(), self.OnItemDeleted)
-        wx.EVT_LIST_KEY_DOWN(self, self.GetId(), self.OnKey)
-        wx.EVT_LIST_COL_CLICK(self, self.GetId(), self.OnColClick)
-        wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
     def ShowHeaders(self):
-        if self.type == 'info':
-            self.InsertColumn(0, 'Name')
-            self.InsertColumn(1, 'Value')
-            self.keys = (0, 1)
+        if self.type == "info":
+            self.InsertColumn(0, "Name")
+            self.InsertColumn(1, "Value")
+            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
         elif self.type == 'memory':
-            self.InsertColumn(0, 'Location')
-            self.InsertColumn(1, 'Memory')
-            self.InsertColumn(2, 'Name')
-            self.InsertColumn(3, 'Number')
-            self.keys = ('Location', 'MemoryType', 'Name', 'Number')
+            self.InsertColumn(0, "Location")
+            self.InsertColumn(1, "Memory")
+            self.InsertColumn(2, "Name")
+            self.InsertColumn(3, "Number")
+            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(3, wx.LIST_AUTOSIZE)
         elif self.type == 'call':
-            self.InsertColumn(0, 'Location')
-            self.InsertColumn(1, 'Type')
-            self.InsertColumn(2, 'Name')
-            self.InsertColumn(3, 'Number')
-            self.keys = ('Location', 'MemoryType', 'Name', 'Number')
-        elif self.type == 'message':
-            self.InsertColumn(0, 'Location') 
-            self.InsertColumn(1, 'State')
-            self.InsertColumn(2, 'Number')
-            self.InsertColumn(3, 'Date')
-            self.InsertColumn(4, 'Text')
-            self.keys = ('Location', 'State', 'Number', 'DateTime', 'Text')
-        elif self.type == 'todo':
-            self.InsertColumn(0, 'Location')
-            self.InsertColumn(1, 'Completed')
-            self.InsertColumn(2, 'Priority')
-            self.InsertColumn(3, 'Text')
-            self.InsertColumn(4, 'Date')
-            self.keys = ('Location', 'Completed', 'Priority', 'Text', 'Date')
-
-        # resize columns to fit content
-        
-        # FIXME: this should be acquired better!
-        spc = 10
-        cnt = self.GetColumnCount()
-        
-        max = [0] * cnt
-        for i in range(cnt):
-            size = self.GetTextExtent(self.GetColumn(i).GetText())
-            # 16 bellow is for sort arrrow
-            if (size[0] + 16 > max[i]):
-                max[i] = size[0] + 16
-            
-        for x in self.values:
-            for i in range(cnt):
-                size = self.GetTextExtent(str(x[self.keys[i]]))
-                if (size[0] > max[i]):
-                    max[i] = size[0]
-        for i in range(cnt - 1):
-            self.SetColumnWidth(i, max[i] + spc)
-        self.resizeLastColumn(max[cnt - 1] + spc)
-    
-    def Sorter(self, i1, i2):
-        return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
+            self.InsertColumn(0, "Location")
+            self.InsertColumn(1, "Type")
+            self.InsertColumn(2, "Name")
+            self.InsertColumn(3, "Number")
+            self.SetColumnWidth(0, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(1, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(2, wx.LIST_AUTOSIZE)
+            self.SetColumnWidth(3, wx.LIST_AUTOSIZE)
     
     def Change(self, type, values):
         self.type = type
         self.values = values
-        self.sortkey = ''
         self.ClearAll()
-        self.SetItemCount(len(values))
+        self.SetItemCount(len(self.values))
         self.ShowHeaders()
-        self.Resort(0)
 
-    def Resort(self, col):
-        # find keys and order
-        nextsort = self.keys[col]
-        if nextsort == self.sortkey:
-            self.sortorder = -1 * self.sortorder
-        else:
-            self.sortorder = 1
-        self.sortkey = nextsort
-
-        # do the real sort
-        self.values.sort(self.Sorter)
-
-        # set image
-        for i in range(self.GetColumnCount()):
-            self.ClearColumnImage(i)
-        if self.sortorder == 1:
-            image = self.downarrow
-        else:
-            image = self.uparrow
-        self.SetColumnImage(col, image)
-
-        # refresh displayed items
-        top = self.GetTopItem() 
-        self.RefreshItems(top, top + self.GetCountPerPage())
-
-    def OnKey(self, evt):
-        if evt.GetKeyCode() == wx.WXK_DELETE:
-            evt = Wammu.Events.DeleteEvent(index = evt.m_itemIndex)
-            wx.PostEvent(self.win, evt)
-        
-    def OnColClick(self, evt):
-        self.Resort(evt.GetColumn())
-        
     def OnItemSelected(self, event):
         evt = Wammu.Events.ShowEvent(index = event.m_itemIndex)
         wx.PostEvent(self.win, evt)
@@ -136,18 +58,35 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         evt = Wammu.Events.EditEvent(index = event.m_itemIndex)
         wx.PostEvent(self.win, evt)
 
-    def OnItemDeleted(self, event):
-        evt = Wammu.Events.DeleteEvent(index = event.m_itemIndex)
-        wx.PostEvent(self.win, evt)
-
     def getColumnText(self, index, col):
         item = self.GetItem(index, col)
         return item.GetText()
 
 
-
     def OnGetItemText(self, item, col):
-        return self.values[item][self.keys[col]]
+        if self.type == "info":
+            return self.values[item][col]
+        elif self.type == "memory":
+            if col == 0:
+                return self.values[item]["Location"]
+            elif col == 1:
+                return self.values[item]["MemoryType"]
+            elif col == 2:
+                return Wammu.Utils.GetMemoryEntryName(self.values[item])
+            else:
+                return Wammu.Utils.GetMemoryEntryNumber(self.values[item])
+        elif self.type == "call":
+            if col == 0:
+                return self.values[item]["Location"]
+            elif col == 1:
+                return self.values[item]["MemoryType"]
+            elif col == 2:
+                return Wammu.Utils.GetMemoryEntryName(self.values[item])
+            else:
+                return Wammu.Utils.GetMemoryEntryNumber(self.values[item])
+                
+        else:
+            return "Item %d, column %d" % (item, col)
 
     def OnGetItemAttr(self, item):
         if item % 2 == 1:

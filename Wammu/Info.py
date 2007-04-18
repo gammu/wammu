@@ -5,8 +5,6 @@ class GetInfo(Wammu.Thread.Thread):
     def run(self):
         self.ShowProgress(0)
 
-        progress = 9
-
         data = []
 
         if self.canceled:
@@ -15,7 +13,7 @@ class GetInfo(Wammu.Thread.Thread):
 
         try:
             Manufacturer = self.sm.GetManufacturer()
-            data.append([_('Manufacturer'), Manufacturer])
+            data.append(['Manufacturer', Manufacturer])
         except gammu.GSMError, val:
             self.ShowError(val[0])
           
@@ -23,11 +21,11 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(1*100/progress)
+        self.ShowProgress(12)
         try:
             Model = self.sm.GetModel()
-            data.append([_('Model (Gammu identification)'), Model[0]])
-            data.append([_('Model (real)'), Model[1]])
+            data.append(['Model (Gammu identification)', Model[0]])
+            data.append(['Model (real)', Model[1]])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -35,10 +33,10 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(2*100/progress)
+        self.ShowProgress(25)
         try:
             Firmware = self.sm.GetFirmware()
-            data.append([_('Firmware'), Firmware])
+            data.append(['Firmware', Firmware])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -46,10 +44,10 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(3*100/progress)
+        self.ShowProgress(37)
         try:
             IMEI = self.sm.GetIMEI()
-            data.append([_('Serial number (IMEI)'), IMEI])
+            data.append(['IMEI', IMEI])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -57,10 +55,10 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(4*100/progress)
+        self.ShowProgress(50)
         try:
             OriginalIMEI = self.sm.GetOriginalIMEI()
-            data.append([_('Original IMEI'), OriginalIMEI])
+            data.append(['OriginalIMEI', OriginalIMEI])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -68,10 +66,10 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(5*100/progress)
+        self.ShowProgress(42)
         try:
             ProductCode = self.sm.GetProductCode()
-            data.append([_('Product code'), ProductCode])
+            data.append(['ProductCode', ProductCode])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -79,10 +77,10 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(6*100/progress)
+        self.ShowProgress(75)
         try:
             SIMIMSI = self.sm.GetSIMIMSI()
-            data.append([_('SIM IMSI'), SIMIMSI])
+            data.append(['SIM IMSI', SIMIMSI])
         except gammu.GSMError, val:
             self.ShowError(val[0])
             
@@ -90,21 +88,10 @@ class GetInfo(Wammu.Thread.Thread):
             self.Canceled()
             return
 
-        self.ShowProgress(7*100/progress)
-        try:
-            SMSC = self.sm.GetSMSC()
-            data.append([_('SMSC'), SMSC['Number']])
-        except gammu.GSMError, val:
-            self.ShowError(val[0])
-           
-        if self.canceled:
-            self.Canceled()
-            return
-
-        self.ShowProgress(8*100/progress)
+        self.ShowProgress(87)
         try:
             DateTime = self.sm.GetDateTime()
-            data.append([_('Date and time'), DateTime.strftime('%c')])
+            data.append(['DateTime ', DateTime.strftime('%c')])
         except gammu.GSMError, val:
             self.ShowError(val[0])
            
