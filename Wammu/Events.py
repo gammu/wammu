@@ -7,8 +7,5 @@ LinkEvent, EVT_LINK = wx.lib.newevent.NewEvent()
 DataEvent, EVT_DATA = wx.lib.newevent.NewEvent()
 ShowEvent, EVT_SHOW = wx.lib.newevent.NewEvent()
 EditEvent, EVT_EDIT = wx.lib.newevent.NewEvent()
-SendEvent, EVT_SEND = wx.lib.newevent.NewEvent()
-DuplicateEvent, EVT_DUPLICATE = wx.lib.newevent.NewEvent()
 DeleteEvent, EVT_DELETE = wx.lib.newevent.NewEvent()
-LogEvent, EVT_LOG = wx.lib.newevent.NewEvent()
 

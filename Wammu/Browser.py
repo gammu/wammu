@@ -1,7 +1,6 @@
 import wx
 import Wammu
 import Wammu.Events
-import Wammu.Utils
 import gammu
 from Wammu.Paths import *
 
@@ -28,46 +27,39 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 #        wx.EVT_LIST_DELETE_ITEM(self, self.GetId(), self.OnItemDeleted)
         wx.EVT_LIST_KEY_DOWN(self, self.GetId(), self.OnKey)
         wx.EVT_LIST_COL_CLICK(self, self.GetId(), self.OnColClick)
-        wx.EVT_LIST_ITEM_RIGHT_CLICK(self, self.GetId(), self.OnRightClick)
         wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin.__init__(self)
 
     def ShowHeaders(self):
         if self.type == 'info':
-            self.InsertColumn(0, _('Name'))
-            self.InsertColumn(1, _('Value'))
+            self.InsertColumn(0, 'Name')
+            self.InsertColumn(1, 'Value')
             self.keys = (0, 1)
-        elif self.type == 'contact':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Memory'))
-            self.InsertColumn(2, _('Name'))
-            self.InsertColumn(3, _('Number'))
+        elif self.type == 'memory':
+            self.InsertColumn(0, 'Location')
+            self.InsertColumn(1, 'Memory')
+            self.InsertColumn(2, 'Name')
+            self.InsertColumn(3, 'Number')
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'call':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Type'))
-            self.InsertColumn(2, _('Name'))
-            self.InsertColumn(3, _('Number'))
+            self.InsertColumn(0, 'Location')
+            self.InsertColumn(1, 'Type')
+            self.InsertColumn(2, 'Name')
+            self.InsertColumn(3, 'Number')
             self.keys = ('Location', 'MemoryType', 'Name', 'Number')
         elif self.type == 'message':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('State'))
-            self.InsertColumn(2, _('Number'))
-            self.InsertColumn(3, _('Date'))
-            self.InsertColumn(4, _('Text'))
+            self.InsertColumn(0, 'Location') 
+            self.InsertColumn(1, 'State')
+            self.InsertColumn(2, 'Number')
+            self.InsertColumn(3, 'Date')
+            self.InsertColumn(4, 'Text')
             self.keys = ('Location', 'State', 'Number', 'DateTime', 'Text')
         elif self.type == 'todo':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Completed'))
-            self.InsertColumn(2, _('Priority'))
-            self.InsertColumn(3, _('Text'))
-            self.InsertColumn(4, _('Date'))
+            self.InsertColumn(0, 'Location')
+            self.InsertColumn(1, 'Completed')
+            self.InsertColumn(2, 'Priority')
+            self.InsertColumn(3, 'Text')
+            self.InsertColumn(4, 'Date')
             self.keys = ('Location', 'Completed', 'Priority', 'Text', 'Date')
-        elif self.type == 'calendar':
-            self.InsertColumn(0, _('Location'))
-            self.InsertColumn(1, _('Start'))
-            self.InsertColumn(2, _('End'))
-            self.InsertColumn(3, _('Text'))
-            self.keys = ('Location', 'Start', 'End', 'Text')
 
         # resize columns to fit content
         
@@ -92,19 +84,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.resizeLastColumn(max[cnt - 1] + spc)
     
     def Sorter(self, i1, i2):
-        if self.sortkey == 'Location' and type(i1[self.sortkey]) == type(''):
-            return self.sortorder * cmp(int(i1[self.sortkey].split(', ')[0]), int(i2[self.sortkey].split(', ')[0]))
         return self.sortorder * cmp(i1[self.sortkey], i2[self.sortkey])
-
-    def ShowLocation(self, loc, second = None):
-        result = Wammu.Utils.SearchLocation(self.values, loc, second)
-        if result != -1:
-            self.ShowRow(result)
     
-    def ShowRow(self, id):
-        self.SetItemState(id, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED, wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
-        self.EnsureVisible(id)
-        
     def Change(self, type, values):
         self.type = type
         self.values = values
@@ -144,58 +125,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             evt = Wammu.Events.DeleteEvent(index = evt.m_itemIndex)
             wx.PostEvent(self.win, evt)
         
-    def OnRightClick(self, evt):
-        if self.type == 'info':
-            return
-        self.popupIndex = evt.m_itemIndex
-        # only do this part the first time so the events are only bound once
-        if not hasattr(self, "popupIDEdit"):
-            self.popupIDSend        = wx.NewId()
-            self.popupIDEdit        = wx.NewId()
-            self.popupIDDelete      = wx.NewId()
-            self.popupIDDuplicate   = wx.NewId()
-            wx.EVT_MENU(self, self.popupIDSend,         self.OnPopupSend)
-            wx.EVT_MENU(self, self.popupIDEdit,         self.OnPopupEdit)
-            wx.EVT_MENU(self, self.popupIDDelete,       self.OnPopupDelete)
-            wx.EVT_MENU(self, self.popupIDDuplicate,    self.OnPopupDuplicate)
-
-        # make a menu
-        menu = wx.Menu()
-        # add some items
-        if self.type == 'message':
-            if self.values[evt.m_itemIndex]['State'] == 'Sent':
-                menu.Append(self.popupIDSend,       _('Resend'))
-            if self.values[evt.m_itemIndex]['State'] == 'UnSent':
-                menu.Append(self.popupIDSend,       _('Send'))
-            
-        if not self.type in ['call', 'message']:
-            menu.Append(self.popupIDEdit,       _('Edit'))
-        if not self.type in ['call']:
-            menu.Append(self.popupIDDuplicate,  _('Duplicate'))
-
-        menu.Append(self.popupIDDelete,     _('Delete'))
-
-        # Popup the menu.  If an item is selected then its handler
-        # will be called before PopupMenu returns.
-        self.PopupMenu(menu, evt.GetPoint())
-        menu.Destroy()
-    
-    def OnPopupDuplicate(self, event):
-        evt = Wammu.Events.DuplicateEvent(index = self.popupIndex)
-        wx.PostEvent(self.win, evt)
-
-    def OnPopupSend(self, event):
-        evt = Wammu.Events.SendEvent(index = self.popupIndex)
-        wx.PostEvent(self.win, evt)
-
-    def OnPopupEdit(self, event):
-        evt = Wammu.Events.EditEvent(index = self.popupIndex)
-        wx.PostEvent(self.win, evt)
-
-    def OnPopupDelete(self, event):
-        evt = Wammu.Events.DeleteEvent(index = self.popupIndex)
-        wx.PostEvent(self.win, evt)
-
     def OnColClick(self, evt):
         self.Resort(evt.GetColumn())
         
