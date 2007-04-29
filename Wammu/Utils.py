@@ -27,6 +27,7 @@ import codecs
 import locale
 import sys
 import re
+import wx
 import string
 import Wammu.Locales
 from Wammu.Locales import StrConv
