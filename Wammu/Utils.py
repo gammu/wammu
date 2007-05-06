@@ -40,7 +40,7 @@ if Wammu.gammu_error == None:
 def GetItemType(txt):
     if txt == '':
         return None
-    elif txt[-8:] == 'DATETIME' or txt == 'Date':
+    elif txt[-8:] == 'DATETIME' or txt == 'Date' or txt == 'LastModified' or txt == 'LAST_MODIFIED':
         return 'datetime'
     elif txt[-4:] == 'DATE':
         return 'date'
