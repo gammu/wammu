@@ -5,7 +5,7 @@
 %define python_gammu_req 0.20
 
 %if %{!?py_ver:1}0 == 10
-%define py_ver                 %(python -c "import sys; v=sys.version_info[:2]; print '%%d.%%d'%%v" 2>/dev/null || echo PYTHON-NOT-FOUND)}
+%define py_ver                 %(python -c "import sys; v=sys.version_info[:2]; print '%%d.%%d'%%v" 2>/dev/null || echo PYTHON-NOT-FOUND)
 %endif
 
 %define py_minver %py_ver
