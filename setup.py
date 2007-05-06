@@ -48,7 +48,7 @@ except:
 skip_dependencies = False
 
 # some defines
-PYTHONGAMMU_REQUIRED = (0, 19)
+PYTHONGAMMU_REQUIRED = (0, 20)
 WXPYTHON_REQUIRED = (2, 6, 2, 0)
 
 # check if Python is called on the first line with this expression
