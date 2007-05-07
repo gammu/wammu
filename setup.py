@@ -243,10 +243,10 @@ class build_wammu(distutils.command.build.build, object):
         if sys.platform == 'win32':
             print 'Checking for PyWin32 ...',
             try:
-                import win32file, win32com
-                print 'win32file and win32com found'
+                import win32file, win32com, win32api
+                print 'found'
             except ImportError:
-                print 'win32file or win32com not found!'
+                print 'not found!'
                 print 'This module is now needed for Windows!'
                 print 'PyWin32 can be downloaded from <https://sourceforge.net/projects/pywin32/>'
                 sys.exit(1)

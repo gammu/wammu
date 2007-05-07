@@ -32,6 +32,7 @@ import wx
 import Wammu.GammuSettings
 if sys.platform == 'win32':
     from win32com.shell import shellcon, shell
+    import win32api
 
 DEFAULT_CONFIG = {
     '/Main/X': 0,
@@ -77,7 +78,7 @@ def GetUserFullName():
     Detects full user name from system information.
     '''
     if sys.platform == 'win32':
-        return ''
+        return win32api.GetUserNameEx(win32api.NameDisplay)
     else:
         import pwd
 
