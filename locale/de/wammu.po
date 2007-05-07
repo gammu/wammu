@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-05-07 11:46+0200\n"
-"PO-Revision-Date: 2007-05-06 14:32+0200\n"
+"POT-Creation-Date: 2007-05-07 14:36+0200\n"
+"PO-Revision-Date: 2007-05-07 14:32+0200\n"
 "Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +71,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:93
 msgid "I don't know"
-msgstr "ich weiß nicht"
+msgstr "Ich weiß nicht"
 
 #: Wammu/SettingsStorage.py:94
 msgid ""
@@ -617,18 +617,16 @@ msgstr ""
 "vermutlich aufgrund der fehlenden Unterstützung durch Gammu."
 
 #: Wammu/Logger.py:94
-#, fuzzy
 msgid "Wammu debug log"
-msgstr "Debug Log anzeigen"
+msgstr "Wammu Fehlerbeseitigungs-Log"
 
 #: Wammu/Logger.py:101
 msgid "Here will appear debug messages from Gammu...\n"
-msgstr ""
+msgstr "Hier werden Fehlerbeseitigungsmeldungen aus Gamu angezeigt...\n"
 
 #: Wammu/GammuSettings.py:142
-#, fuzzy
 msgid "Create new configuration"
-msgstr "Erstellt einen neuen Kontakt"
+msgstr "Erstelle eine neue Konfiguration"
 
 #. l10n: %s is name of current configuration or 'Create new
 #. configuration', %d is position of this config in .gammurc
@@ -638,14 +636,12 @@ msgid "%(name)s (position %(position)d)"
 msgstr "%(name)s (Position %(position)d)"
 
 #: Wammu/GammuSettings.py:164
-#, fuzzy
 msgid "Select which configration you want to modify."
-msgstr "Einstellungen nicht gefunden"
+msgstr "Wählen Sie aus, welche Konfiguration Sie bearbeiten möchten."
 
 #: Wammu/GammuSettings.py:165
-#, fuzzy
 msgid "Select configuration section"
-msgstr "Einstellungen nicht gefunden"
+msgstr "Wählen Sie den Konfigurationsbereich"
 
 #: Wammu/PhoneWizard.py:44
 msgid "Configuration done"
@@ -674,18 +670,15 @@ msgid "Phone not found!"
 msgstr "Kein Handy gefunden!"
 
 #: Wammu/PhoneWizard.py:101
-#, fuzzy
 msgid "Phone has been found."
-msgstr "Es wurde kein Handy gefunden!"
+msgstr "Handy wurde gefunden!"
 
 #: Wammu/PhoneWizard.py:102
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Manufacturer: %(manufacturer)s\n"
 "Model: %(model)s"
 msgstr ""
-"Handy wurde gefunden.\n"
-"\n"
 "Hersteller: %(manufacturer)s\n"
 "Modell: %(model)s"
 
@@ -953,6 +946,8 @@ msgid ""
 "Please make sure you have phone ready, powered on and one of connection "
 "methods is set up:"
 msgstr ""
+"Bitte stellen Sie sicher, dass Ihr Handy bereit  und eingeschaltet ist sowie "
+"eine der Verbindungsmethoden eingerichtet ist:"
 
 #: Wammu/PhoneWizard.py:469
 msgid "Cable is connected."
@@ -961,10 +956,12 @@ msgstr "Kabel ist angeschlossen."
 #: Wammu/PhoneWizard.py:471
 msgid "You have enabled IrDA and phone is in visible range."
 msgstr ""
+"Sie haben IrDA (Infrarot) aktiviert und das Handy befindet sich in einer "
+"sichtbaren Entfernung."
 
 #: Wammu/PhoneWizard.py:473
 msgid "You have paired Bluetooth with computer."
-msgstr ""
+msgstr "Sie haben die Bluetoothverbindung mit dem Computer hergestellt."
 
 #: Wammu/PhoneWizard.py:475
 msgid "As soon as your phone is ready, you can continue."
@@ -984,26 +981,28 @@ msgstr ""
 msgid "Timidity not found"
 msgstr "Timidity nicht gefunden"
 
-#: Wammu/ErrorMessage.py:60
+#: Wammu/ErrorMessage.py:61
 #, python-format
 msgid ""
 "Debug log has been automatically saved to %s, you are strongly encouraged to "
 "include it in bugreport."
 msgstr ""
+"Das Fehlersuch-Log wurde automatisch nach %s gespeichert, es ist dringend "
+"angeraten, es dem Fehlerbericht beizufügen."
 
-#: Wammu/ErrorMessage.py:70
+#: Wammu/ErrorMessage.py:71
 msgid "Save debug log..."
 msgstr "Fehlersuch-Log speichern..."
 
-#: Wammu/ErrorMessage.py:75
+#: Wammu/ErrorMessage.py:76
 msgid "Search for similar reports"
 msgstr "Nach ähnlichen Berichten suchen"
 
-#: Wammu/ErrorMessage.py:79
+#: Wammu/ErrorMessage.py:80
 msgid "Report bug"
 msgstr "Fehler berichten"
 
-#: Wammu/ErrorMessage.py:95
+#: Wammu/ErrorMessage.py:96
 msgid "Save debug log as..."
 msgstr "Fehlersuch-Log speichern unter..."
 
@@ -1063,7 +1062,7 @@ msgstr "Ihre eMail-Adresse:"
 
 #: Wammu/TalkbackDialog.py:68
 msgid "Email displaying:"
-msgstr ""
+msgstr "eMail-Adresse wie folgt anzeigen:"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Use [at] and [dot]"
@@ -1075,7 +1074,7 @@ msgstr "Füge NOSPAM-Text an zufälliger Stelle ein"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Display it normally"
-msgstr ""
+msgstr "eMail-Adresse normal anzeigen"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Don't show email at all"
@@ -1083,7 +1082,7 @@ msgstr "eMail-Adresse überhaupt nicht anzeigen"
 
 #: Wammu/TalkbackDialog.py:104
 msgid "Gammu Phone Database Talkback"
-msgstr ""
+msgstr "Gammu Handydatenbank Rückmeldung"
 
 #: Wammu/TalkbackDialog.py:105
 msgid "Select which features work correctly with your phone"
@@ -1096,15 +1095,14 @@ msgstr "Diese Information wird automatisch in den Bericht eingefügt."
 #: Wammu/TalkbackDialog.py:107
 msgid "Describe some glitches of this phone or other experiences with Gammu."
 msgstr ""
+"Beschreiben Sie einige Funktionsstörungen mit diesem Handy oder andere "
+"Erfahrungen mit Gammu."
 
 #: Wammu/TalkbackDialog.py:108
 msgid ""
 "Please enter valid mail here, choose display options bellow. Your email "
 "won't be given or sold to anybody."
-msgstr ""
-"Bitte tragen Sie eine gültige eMail-Adresse ein und wählen Sie unten ein "
-"Anzeigeformat. Ihre eMail-Adresse wird an niemand weitergegeben oder "
-"verkauft."
+msgstr "Unterstützte Merkmale"
 
 #: Wammu/TalkbackDialog.py:109
 msgid ""
@@ -1122,18 +1120,19 @@ msgid ""
 "invalid:\n"
 "%s"
 msgstr ""
+"Der Eintrag in der Gammu Handydatenbank wurde nicht erstellt, folgende "
+"Felder sind ungültig:\n"
+"%s"
 
 #: Wammu/TalkbackDialog.py:181
-#, fuzzy
 msgid "Supported features"
-msgstr "Ordner auswählen"
+msgstr "Unterstützte Merkmale"
 
 #: Wammu/TalkbackDialog.py:182 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:233
 #: Wammu/TalkbackDialog.py:252
-#, fuzzy
 msgid "Entry not created!"
-msgstr "Ordnererstellung fehlgeschlagen!"
+msgstr "Eintrag wurde nicht erstellt!"
 
 #: Wammu/TalkbackDialog.py:190 Wammu/Info.py:44
 msgid "Manufacturer"
@@ -1141,7 +1140,7 @@ msgstr "Hersteller"
 
 #: Wammu/TalkbackDialog.py:199
 msgid "Email displaying"
-msgstr ""
+msgstr "Anzeige der eMail-Adresse"
 
 #: Wammu/TalkbackDialog.py:229
 #, python-format
@@ -1149,6 +1148,9 @@ msgid ""
 "HTTP request failed with status %(code)d (%(text)s), please retry later or "
 "create entry manually."
 msgstr ""
+"Die HTTP-Anfrage ist mit dem Status %(code)d (%(text)s) fehlgeschlagen, "
+"bitte versuchen Sie es später noch einmal oder erstellen Sie den Eintrag "
+"manuell."
 
 #: Wammu/TalkbackDialog.py:241
 #, python-format
@@ -1156,16 +1158,17 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
+"Der Eintrag in die Gammu Handydatenbank wurde erstellt, Sie können Ihn hier "
+"einsehen: <%s> URL.\n"
+"Möchten Sie ihn jetzt in Ihrem Browser öffnen?"
 
 #: Wammu/TalkbackDialog.py:242
-#, fuzzy
 msgid "Entry created!"
-msgstr "Ordnererstellung fehlgeschlagen!"
+msgstr "Der Eintrag wurde erstellt!"
 
 #: Wammu/Locales.py:177
-#, fuzzy
 msgid "Automatically switched to local locales."
-msgstr "Beim Start automatisch mit dem Telefon verbinden"
+msgstr "Es wurde automatisch auf die lokale Sprache umgeschaltet."
 
 #: Wammu/Select.py:42
 msgid "Select contact from bellow list"
@@ -1382,13 +1385,13 @@ msgid "Search:"
 msgstr "Suchen"
 
 #: Wammu/Main.py:233
-#, fuzzy
 msgid ""
 "Enter text to search for, please note that search type is selected next to "
 "this field. Matching is done over all fields."
 msgstr ""
-"Suchtext eingeben. Bitte daran denken, dass es wie ein regulärer Ausdruck "
-"behandelt wird. Der Abgleich wird über alle Felder vorgenommen."
+"Gesuchten Text eingeben. Bitte daran denken, dass die Suchmethode neben "
+"diesem Feld festgelegt wird. Es wird in allen Feldern nach Übereinstimmungen "
+"gesucht."
 
 #: Wammu/Main.py:235
 msgid "Regexp"
@@ -1396,12 +1399,11 @@ msgstr "Regulärer Ausdruck"
 
 #: Wammu/Main.py:235
 msgid "Wildcard"
-msgstr ""
+msgstr "Wildcard"
 
 #: Wammu/Main.py:236
-#, fuzzy
 msgid "Select search type"
-msgstr "Wählen sie die Art des Exports"
+msgstr "Wählen sie die Suchmethode"
 
 #: Wammu/Main.py:260
 #, python-format
@@ -1497,14 +1499,12 @@ msgid "Synchronises time in mobile with PC"
 msgstr "Synchronisiert die Handyzeit mit dem PC"
 
 #: Wammu/Main.py:284
-#, fuzzy
 msgid "Send &file"
-msgstr "Wählen sie ein Telefon aus"
+msgstr "Datei &übertragen"
 
 #: Wammu/Main.py:284
-#, fuzzy
 msgid "Sends file to phone"
-msgstr "Wählen sie ein Telefon aus"
+msgstr "Datei auf Handy übertragen"
 
 #: Wammu/Main.py:286
 msgid "&Phone"
@@ -1571,7 +1571,6 @@ msgid "&Contact"
 msgstr "&Kontakt"
 
 #: Wammu/Main.py:306
-#, fuzzy
 msgid "Creates new contact"
 msgstr "Erstellt einen neuen Kontakt"
 
@@ -1580,7 +1579,6 @@ msgid "&Event"
 msgstr "&Ereignis"
 
 #: Wammu/Main.py:307
-#, fuzzy
 msgid "Creates new calendar event"
 msgstr "Erstellt einen neuen Kalendereintrag"
 
@@ -1589,7 +1587,6 @@ msgid "&Todo"
 msgstr "&Aufgabe"
 
 #: Wammu/Main.py:308
-#, fuzzy
 msgid "Creates new todo"
 msgstr "Erstellt eine neue Aufgabe"
 
@@ -1598,7 +1595,6 @@ msgid "&Message"
 msgstr "&Nachricht"
 
 #: Wammu/Main.py:309
-#, fuzzy
 msgid "Creates new message"
 msgstr "Erstellt eine neue Nachricht"
 
@@ -1654,49 +1650,44 @@ msgid "&Backups"
 msgstr "&Sicherungen"
 
 #: Wammu/Main.py:324
-#, fuzzy
 msgid "&Website"
-msgstr "Wammu Version"
+msgstr "&Webseite"
 
 #: Wammu/Main.py:324
-#, fuzzy
 msgid "Wammu website"
-msgstr "Wammu Version"
+msgstr "Wammu Webseite"
 
 #: Wammu/Main.py:325
-#, fuzzy
 msgid "&Support"
-msgstr "&Importieren"
+msgstr "&Unterstützung"
 
 #: Wammu/Main.py:325
-#, fuzzy
 msgid "Wammu support website"
-msgstr "Wammu Version"
+msgstr "Wammu Unterstützungswebseite"
 
 #: Wammu/Main.py:326
 msgid "&Report bug"
 msgstr "Fehle&r melden"
 
 #: Wammu/Main.py:326
-#, fuzzy
 msgid "Report bug in Wammu"
-msgstr "Sicherung importieren"
+msgstr "Fehler in Wammu melden"
 
 #: Wammu/Main.py:328
 msgid "&Gammu Phone Database"
-msgstr ""
+msgstr "&Gammu Handydatenbank"
 
 #: Wammu/Main.py:328
 msgid "Database of user experiences with phones"
-msgstr ""
+msgstr "Datenbank der Benutzererfahrungen mit Handys"
 
 #: Wammu/Main.py:329
 msgid "&Talkback"
-msgstr ""
+msgstr "&Rückmeldung"
 
 #: Wammu/Main.py:329
 msgid "Report your experiences in Gammu Phone Database"
-msgstr ""
+msgstr "Berichten Sie Ihre Erfahrungen in die Gammu Handydatenbank"
 
 #: Wammu/Main.py:331
 msgid "&Donate"
@@ -1704,7 +1695,7 @@ msgstr "Spen&den"
 
 #: Wammu/Main.py:331
 msgid "Donate to Wammu author"
-msgstr ""
+msgstr "Spenden Sie an den Autor von Wammu"
 
 #: Wammu/Main.py:333
 msgid "&About"
@@ -1719,14 +1710,10 @@ msgid "&Help"
 msgstr "&Hilfe"
 
 #: Wammu/Main.py:424 Wammu/Main.py:431 Wammu/Main.py:437
-#, fuzzy
 msgid "Wammu could not import gammu module, program will be terminated."
 msgstr ""
-"Wammu konnte das Gammu-Modul nicht importieren. Programm wird geschlossen.\n"
-"\n"
-"Der Import erzeugte folgende Fehlermeldung:\n"
-"\n"
-"%s"
+"Wammu konnte das Gammu-Modul nicht importieren. Das Programm wird "
+"geschlossen."
 
 #: Wammu/Main.py:425
 #, python-format
@@ -1735,12 +1722,17 @@ msgid ""
 "Gammu than it is now using (it was compiled with version %(compile)s and now "
 "it is using version %(runtime)s)."
 msgstr ""
+"Der Import ist fehlgeschlagen, weil python-gammu in einer anderen Version "
+"kompiliert wurde als Gammu jetzt verwendet (es wurde in der Version %"
+"(compile)s kompiliert und verwendet jetzt die Version %(runtime)s)."
 
 #: Wammu/Main.py:426
 msgid ""
 "You can fix it by recompiling python-gammu against gammu library you are "
 "currently using."
 msgstr ""
+"Sie können dieses Problem beheben, indem Sie python-gammu gegen die Gammu "
+"Bibliothek die Sie gerade verwenden neu kompilieren."
 
 #: Wammu/Main.py:427 Wammu/Main.py:433 Wammu/Main.py:439
 msgid "Gammu module not working!"
@@ -1751,10 +1743,12 @@ msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
 msgstr ""
+"Das Gamu-Modul wurde nciht gefunden. Sie haben wahrscheinlich kein korrekt "
+"installiertes python-gammu für die vorhandene Python-Version."
 
 #: Wammu/Main.py:438
 msgid "The import failed with following error:"
-msgstr ""
+msgstr "Der Import schlug mit folgender Meldung fehl:"
 
 #: Wammu/Main.py:452
 msgid "Wammu configuration was not found and Gammu settings couldn't be read."
@@ -1763,9 +1757,8 @@ msgstr ""
 "konnten nicht gelesen werden."
 
 #: Wammu/Main.py:453
-#, fuzzy
 msgid "Do you want to configure phone connection now?"
-msgstr "Wie möchten Sie Ihre Handyverbindung konfigurieren?"
+msgstr "Möchten Sie Ihre Handyverbindung jetzt konfigurieren?"
 
 #: Wammu/Main.py:454
 msgid "Configuration not found"
@@ -1776,18 +1769,22 @@ msgid ""
 "You are using Wammu for more than a month. We would like to hear from you "
 "how your phone is supported. Do you want to participate in this survey?"
 msgstr ""
+"Sie verwenden Wammu seit mehr als einem Monat. Wir würden uns freuen, von "
+"Ihnen zu erfahren, wie Ihr Handy unerstützt wird. Möchten Sie sich an dieser "
+"Umfrage beteiligen?"
 
 #: Wammu/Main.py:472
 msgid "Press Cancel to never show this question again."
 msgstr ""
+"Wählen Sie \"Abbrechen\" um diese Frage nie mehr angezeigt zu bekommen."
 
 #: Wammu/Main.py:473
 msgid "Thanks for using Wammu"
-msgstr ""
+msgstr "Danke, dass Sie Wammu verwenden"
 
 #: Wammu/Main.py:498
 msgid "Migrated from older Wammu"
-msgstr ""
+msgstr "Von einer älteren Wammu-Version übertragen"
 
 #: Wammu/Main.py:557
 msgid "Connect"
@@ -1799,11 +1796,7 @@ msgstr "&Trennen"
 
 #: Wammu/Main.py:560 Wammu/Settings.py:38
 msgid "Settings"
-msgstr ""
-"EinstellungenHandy wurde gefunden.\n"
-"\n"
-"Hersteller: %(manufacturer)s\n"
-"Modell: %(model)s"
+msgstr "Einstellungen"
 
 #: Wammu/Main.py:562
 msgid "Restore"
@@ -1811,7 +1804,7 @@ msgstr "Wiederherstellen"
 
 #: Wammu/Main.py:563
 msgid "Minimize"
-msgstr ""
+msgstr "Minimieren"
 
 #: Wammu/Main.py:592 Wammu/Main.py:608 Wammu/Editor.py:215 Wammu/Editor.py:419
 msgid "Unknown"
@@ -1834,14 +1827,12 @@ msgid "fault"
 msgstr "Fehler"
 
 #: Wammu/Main.py:602
-#, fuzzy
 msgid "charging"
-msgstr "Groß"
+msgstr "Lädt auf"
 
 #: Wammu/Main.py:604
-#, fuzzy
 msgid "charged"
-msgstr "Groß"
+msgstr "Aufgeladen"
 
 #: Wammu/Main.py:612
 #, python-format
@@ -2086,17 +2077,17 @@ msgid "Backup imported"
 msgstr "Sicherung wurde importiert"
 
 #: Wammu/Main.py:1423
-#, fuzzy, python-format
+#, python-format
 msgid "%d phone contact entries"
-msgstr "%d Kontakteinträge im Telefonspeicher"
+msgstr "%d Kontakte im Telefonspeicher"
 
 #: Wammu/Main.py:1426
-#, fuzzy, python-format
+#, python-format
 msgid "%d SIM contact entries"
-msgstr "%d Kontakteinträge im SIM-Speicher"
+msgstr "%d Kontakte im SIM-Speicher"
 
 #: Wammu/Main.py:1429
-#, fuzzy, python-format
+#, python-format
 msgid "%d to do entries"
 msgstr "%d Aufgaben"
 
@@ -2235,23 +2226,22 @@ msgid "Setting time in phone..."
 msgstr "Handyuhr wird gesetzt..."
 
 #: Wammu/Main.py:1872
-#, fuzzy
 msgid "Send file to phone"
-msgstr "Wählen sie ein Telefon aus"
+msgstr "Datei auf das Handy übertragen"
 
 #: Wammu/Main.py:1893
-#, fuzzy
 msgid "Sending file to phone..."
-msgstr "Handyuhr wird gesetzt..."
+msgstr "Datei wird auf das Handy übertragen..."
 
 #: Wammu/Main.py:1904 Wammu/EditContactList.py:176
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
-msgstr "Wammu testet jetzt die Handyverbindung, bitte warten..."
+msgstr ""
+"Ausgewählte Datei \"%s\" wurde nicht gefunden. Es wurden keine Daten gelesen."
 
 #: Wammu/Main.py:1905 Wammu/EditContactList.py:177
 msgid "File not found!"
-msgstr "Handy nicht gefunden!"
+msgstr "Datei nicht gefunden!"
 
 #: Wammu/Main.py:1913
 msgid "One moment please, connecting to phone..."
@@ -2401,6 +2391,8 @@ msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
 msgstr ""
+"Anmeldung konnte nicht vorgenommen werden. Sie haben wahrscheinlich "
+"ungültige Anmeldedaten angegeben. Möchten Sie es noch einmal versuchen?"
 
 #: Wammu/SMSExport.py:206
 msgid "Login failed!"
@@ -2413,9 +2405,8 @@ msgid ""
 msgstr "Anzeige der eMail-Adresse:"
 
 #: Wammu/SMSExport.py:213
-#, fuzzy
 msgid "Save password?"
-msgstr "Passwort"
+msgstr "Passwort speichern?"
 
 #: Wammu/SMSExport.py:218
 msgid "Listing folders on IMAP server..."
@@ -2516,11 +2507,11 @@ msgstr "End"
 
 #: Wammu/Browser.py:122
 msgid "Alarm"
-msgstr ""
+msgstr "Alarm"
 
 #: Wammu/Browser.py:123
 msgid "Recurrence"
-msgstr ""
+msgstr "Wiederholung"
 
 #: Wammu/Browser.py:508
 msgid "Resend"
@@ -2726,23 +2717,23 @@ msgstr ""
 "dieses Log im Bugreport zu inkludieren. Das Log wurde in der Datei %s "
 "gespeichert."
 
-#: Wammu/Error.py:70
+#: Wammu/Error.py:74
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "Vor dem Einreichen, suchen sie bitte nach ähnlichen Bugs unter %s"
 
-#: Wammu/Error.py:77
+#: Wammu/Error.py:84
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr ""
 "Fehler beim Kodieren in Unicode. Um dieses Problem zu beheben, konsultieren "
 "sie Frage 1 der FAQ."
 
-#: Wammu/Error.py:93
+#: Wammu/Error.py:100
 msgid "Unhandled exception appeared."
 msgstr "Nicht verarbeitete Ausnahmebedingung aufgetreten."
 
-#: Wammu/Error.py:94
+#: Wammu/Error.py:101
 #, python-format
 msgid ""
 "If you want to help improving this program, please submit following "
@@ -2754,7 +2745,7 @@ msgstr ""
 "sie die folgende Info und Fehlerbeschreibung an %s. Bitte schreiben sie auf "
 "Englisch, sonst werde sie um eine Englischübersetzung später gebeten."
 
-#: Wammu/Error.py:111
+#: Wammu/Error.py:118
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
 "please report this together with description how this situation has "
@@ -2767,11 +2758,11 @@ msgstr ""
 "Bitte schreiben Sie auf Englisch, sonst werden Sie wahrscheinlich später um "
 "eine Übersetzung ins Englische gebeten."
 
-#: Wammu/Error.py:112
+#: Wammu/Error.py:119
 msgid "Unhandled exception"
 msgstr "Nicht verarbeitete Ausnahmebedingung"
 
-#: Wammu/Error.py:114
+#: Wammu/Error.py:121
 #, python-format
 msgid ""
 "Traceback:\n"
@@ -2792,63 +2783,63 @@ msgstr "Nein"
 
 #: Wammu/Utils.py:257
 msgid "enabled (tone)"
-msgstr ""
+msgstr "Aktiviert (mit Ton)"
 
 #: Wammu/Utils.py:259
 msgid "enabled (silent)"
-msgstr ""
+msgstr "Aktiviert (ohne Ton)"
 
 #: Wammu/Utils.py:265
 msgid "yearly"
-msgstr ""
+msgstr "Jährlich"
 
 #: Wammu/Utils.py:267
 msgid "monthly"
-msgstr ""
+msgstr "Monatlich"
 
 #: Wammu/Utils.py:270
 msgid "daily"
-msgstr ""
+msgstr "Täglich"
 
 #: Wammu/Utils.py:272
 msgid "biweekly"
-msgstr ""
+msgstr "Vierzehntägig"
 
 #: Wammu/Utils.py:275
 msgid "weekly on monday"
-msgstr ""
+msgstr "Wöchentlich Montags"
 
 #: Wammu/Utils.py:277
 msgid "weekly on tuesday"
-msgstr ""
+msgstr "Wöchentlich Dienstags"
 
 #: Wammu/Utils.py:279
 msgid "weekly on wednesday"
-msgstr ""
+msgstr "Wöchentlich Mittwochs"
 
 #: Wammu/Utils.py:281
 msgid "weekly on thursday"
-msgstr ""
+msgstr "Wöchentlich Donnerstags"
 
 #: Wammu/Utils.py:283
 msgid "weekly on friday"
-msgstr ""
+msgstr "Wöchentlich Freitags"
 
 #: Wammu/Utils.py:285
 msgid "weekly on saturday"
-msgstr ""
+msgstr "Wöchentlich Samstags"
 
 #: Wammu/Utils.py:287
 msgid "weekly on sunday"
-msgstr ""
+msgstr "Wöchentlich Sonntags"
 
 #: Wammu/Utils.py:294
 msgid "disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: Wammu/Utils.py:297
 msgid "nonrecurring"
-msgstr ""
+msgstr "Keine Wiederholung"
 
 #: Wammu/Utils.py:373
 msgid "Your phone doesn't support this function."
@@ -2909,15 +2900,19 @@ msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
+"Das Gerät für die Kommunikation mit dem Handy existiert nicht. Vielleicht "
+"haben Sie Ihr Handy nicht angeschlossen oder die Konfiguration ist "
+"fehlerhaft."
 
 #: Wammu/Utils.py:391
-#, fuzzy
 msgid "Can not access device for communication with phone."
-msgstr "Fehler während der Verbindung mit dem Telefon"
+msgstr "Kein Zugriff auf das Gerät für die Kommunikation mit dem Handy."
 
 #: Wammu/Utils.py:393
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
+"Vielleicht müssen Sie Mitglied einer Gruppe sein, um auf das Gerät zugreifen "
+"zu können."
 
 #: Wammu/Utils.py:395
 msgid "Description:"
@@ -2936,70 +2931,65 @@ msgid ""
 "Select which functionality works without problems on your phone (either in "
 "Wammu or in some other tool using Gammu library)."
 msgstr ""
+"Wählen Sie aus, welche Funktionen ohne Probleme mit Ihrem Handy "
+"funktionieren (entweder in Wammu oder in einem anderen Programm, welches die "
+"Gammu-Bibliothek verwendet)."
 
 #: Wammu/TalkbackFeaturesDialog.py:39
-#, fuzzy
 msgid "Phone information"
-msgstr "Telefon Info"
+msgstr "Handy Info"
 
 #: Wammu/TalkbackFeaturesDialog.py:40
-#, fuzzy
 msgid "Sending and saving SMS"
-msgstr "Kalendereinträge werden übertragen"
+msgstr "Übertragen und speichern von SMS"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
-msgstr ""
+msgstr "Multimedia-Nachrichten"
 
 #: Wammu/TalkbackFeaturesDialog.py:42
-#, fuzzy
 msgid "Basic phonebook functions"
-msgstr "%d Kontakteinträge im Telefonspeicher"
+msgstr "Einfache Adressbucheinträge"
 
 #: Wammu/TalkbackFeaturesDialog.py:43
-#, fuzzy
 msgid "Enhanced phonebook entries"
-msgstr "%d Kontakteinträge im Telefonspeicher"
+msgstr "Erweiterte Adressbucheinträge"
 
 #: Wammu/TalkbackFeaturesDialog.py:44
-#, fuzzy
 msgid "Calendar entries"
-msgstr "%d Kalendereinträge"
+msgstr "Kalendereinträge"
 
 #: Wammu/TalkbackFeaturesDialog.py:46
 msgid "Filesystem manipulation"
-msgstr ""
+msgstr "Manipulation des Dateisystems"
 
 #: Wammu/TalkbackFeaturesDialog.py:47
-#, fuzzy
 msgid "Reading and making calls"
-msgstr "Kalendereinträge werden übertragen"
+msgstr "Anrufe einlesen und führen"
 
 #: Wammu/TalkbackFeaturesDialog.py:48
-#, fuzzy
 msgid "Logos"
-msgstr "Benutzer"
+msgstr "Logos"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
-#, fuzzy
 msgid "Ringtones"
-msgstr "Übertrage Aufgaben"
+msgstr "Klingeltöne"
 
 #: Wammu/TalkbackFeaturesDialog.py:60
-#, fuzzy
 msgid "Select features"
-msgstr "Ordner auswählen"
+msgstr "Funktionen auswählen"
 
 #: Wammu/TalkbackFeaturesDialog.py:61
-#, fuzzy
 msgid "You can access name and phone number."
-msgstr "Die angegebene Telefonnummer ist falsch."
+msgstr "Sie können auf den Namen und die Rufnummer zugreifen."
 
 #: Wammu/TalkbackFeaturesDialog.py:62
 msgid ""
 "You have access to more phone numbers per entry or additional fields as "
 "email."
 msgstr ""
+"Sie haben Zugriff auf mehrere Rufnummern pro Eintrag oder weitergehende "
+"Details, wie eMail-Adressen."
 
 #: Wammu/Editor.py:232
 #, python-format
@@ -3017,7 +3007,7 @@ msgstr "Ort (0=auto):"
 
 #: Wammu/Editor.py:278
 msgid "Add one more field."
-msgstr ""
+msgstr "Ein weiteres Detail hinzufügen."
 
 #: Wammu/Editor.py:488
 msgid "contact"
@@ -3044,71 +3034,68 @@ msgid "Invalid phone number"
 msgstr "Falsche Telefonnummer"
 
 #: Wammu/EditContactList.py:43
-#, fuzzy
 msgid "Available contacts:"
-msgstr "Alle Kontakte"
+msgstr "Verfügbare Kontakte:"
 
 #: Wammu/EditContactList.py:47
-#, fuzzy
 msgid "Current recipients:"
-msgstr "Empfängerliste bearbeiten."
+msgstr "Aktuelle Empfänger:"
 
 #: Wammu/EditContactList.py:91
-#, fuzzy
 msgid "Contact list"
-msgstr "Adressbuch"
+msgstr "Liste der Empfänger"
 
 #: Wammu/EditContactList.py:95
-#, fuzzy
 msgid "Edit contacts list"
-msgstr "Empfängerliste bearbeiten."
+msgstr "Liste der Empfänger bearbeiten."
 
 #: Wammu/EditContactList.py:148 Wammu/EditContactList.py:163
-#, fuzzy
 msgid "Load contacts from file"
-msgstr "Übetrage Adressbuch vom %s"
+msgstr "Lade Empfänger aus der Datei"
 
 #: Wammu/EditContactList.py:158
-#, fuzzy, python-format
+#, python-format
 msgid "Selected file \"%s\" could not be written."
-msgstr "Wammu testet jetzt die Handyverbindung, bitte warten..."
+msgstr "In die ausgewählte Datei \"%s\" konnte nicht geschrieben werden."
 
 #: Wammu/EditContactList.py:159
-#, fuzzy
 msgid "File can not be created!"
-msgstr "Verbindungstest"
+msgstr "Datei kann nicht erstellt werden!"
 
 #: Wammu/Settings.py:84
 msgid "Please enter here path to gammu configuration file you want to use."
-msgstr "Der Handyverbindungstest ist noch aktiv, Sie können nicht fortfahren."
+msgstr ""
+"Bitte geben Sie hier den Pfad zur Gammu Konfigurationsdatei an, die Sie "
+"verwenden möchten."
 
 #: Wammu/Settings.py:87
 msgid "Gammurc path"
-msgstr "Test ist noch aktiv!"
+msgstr "Gamurc-Pfad"
 
 #: Wammu/Settings.py:91
 msgid "You can configure connection parameters on Connection tab."
 msgstr ""
-"Es wurde kein Handy gefunden, sind Sie sicher, dass Sie fortfahren wollen?"
+"Sie können die Verbindungsparameter im Verbindungsreiter konfigurieren."
 
 #: Wammu/Settings.py:97
 msgid "Automatically connect to phone on startup"
 msgstr "Beim Start automatisch mit dem Telefon verbinden"
 
 #: Wammu/Settings.py:98
-#, fuzzy
 msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
-msgstr "Beim Start automatisch mit dem Telefon verbinden"
+msgstr ""
+"Ob Sie möchten, dass beim Start automatisch ein Verbindung zum Handy "
+"hergestellt wird."
 
 #: Wammu/Settings.py:103
 msgid "Show debug log"
-msgstr "Debug Log anzeigen"
+msgstr "Fehlerbeseitigungs-Log anzeigen"
 
 #: Wammu/Settings.py:104
 msgid "Show debug information on error output."
-msgstr "Bei Fehlern Debug Informationen anzeigen."
+msgstr "Bei Fehlern Fehlerbeseitigungs-Informationen anzeigen."
 
 #: Wammu/Settings.py:109
 msgid "Synchronize time"
@@ -3136,16 +3123,16 @@ msgid ""
 "Whether to lock device in /var/lock. On some systems you might lack "
 "privileges to do so."
 msgstr ""
+"Ob das Gerät in /var/lock gesperrt werden soll. Auf manchen Systemen können "
+"Ihnen die notwendigen Rechte dafür fehlen."
 
 #: Wammu/Settings.py:165
-#, fuzzy
 msgid "Name for this configuration."
-msgstr "Erstellt einen neuen Kontakt"
+msgstr "Name dieser Konfiguration."
 
 #: Wammu/Settings.py:171
-#, fuzzy
 msgid "Device, where your phone is connected."
-msgstr "Port, an den das Handy angeschlossen ist"
+msgstr "Gerät, an den das Handy angeschlossen ist"
 
 #: Wammu/Settings.py:172
 msgid "Device"
@@ -3345,52 +3332,51 @@ msgstr "Sprachpakete"
 #: wammu-configure.py:46
 #, python-format
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
-msgstr ""
+msgstr "Wammu-Konfigurator - Wammu- und Gammu-Konfigurator Version %s"
 
 #: wammu-configure.py:54 wammu.py:50
 #, python-format
 msgid "Usage: %s [OPTION...]"
-msgstr ""
+msgstr "Auslastung: %s [OPTION...]"
 
 #: wammu-configure.py:56 wammu.py:52
-#, fuzzy
 msgid "Options:"
-msgstr "Beschreibung:"
+msgstr "Optionen:"
 
 #: wammu-configure.py:59 wammu.py:55
 msgid "show this help"
-msgstr ""
+msgstr "Zeige diese Hilfe an"
 
 #: wammu-configure.py:62 wammu.py:58
-#, fuzzy
 msgid "show program version"
-msgstr "python-gammu Version"
+msgstr "Zeige die Programmversion"
 
 #: wammu-configure.py:65 wammu.py:61
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
+"Erzwinge die Verwendung der Spracheinstellungen des aktuellen "
+"Verzeichnisses, statt derer des Systems"
 
 #: wammu-configure.py:78 wammu.py:74
 msgid "Command line parsing failed with error:"
-msgstr ""
+msgstr "Befehlszeilenabarbeitung schlug mit dieser Meldung fehl:"
 
 #: wammu-configure.py:84 wammu.py:80
 msgid "Extra unrecognized parameters passed to program"
-msgstr ""
+msgstr "Zusätzliche unbekannte Parameter wurden an das Programm weitergegeben"
 
 #: wammu-configure.py:90 wammu.py:86
 msgid "Using local built locales!"
-msgstr ""
+msgstr "Auf dem System erstellte Spracheinstellungen werden verwendet!"
 
 #: wammu-configure.py:115
-#, fuzzy
 msgid "Updating gammu configuration..."
-msgstr "Erstellt einen neuen Kontakt"
+msgstr "Gammu-Konfiguration wird aktualisiert..."
 
 #: wammu.py:43
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
-msgstr ""
+msgstr "Wammu - grafische Benutzeroberfläche von Gammu Version %s"
 
 #~ msgid "Create new configurationContact list"
 #~ msgstr "Neue Koniguration erstellen"
