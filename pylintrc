@@ -18,6 +18,7 @@ profile=no
 # path. You may set this option multiple times.
 ignore=CVS
 ignore={arch}
+ignore=.svn
 
 # Pickle collected data for later comparisons.
 persistent=yes
@@ -115,7 +116,7 @@ required-attributes=
 no-docstring-rgx=__.*__
 
 # Regular expression which should only match correct module names
-module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+module-rgx=(([a-z_][a-z0-9_-]*)|([A-Z][a-zA-Z0-9]+))$
 
 # Regular expression which should only match correct module level names
 const-rgx=(([A-Z_][A-Z1-9_]*)|(__.*__))$
@@ -164,7 +165,7 @@ bad-functions=map,filter,apply,input
 init-import=no
 
 # A regular expression matching names used for dummy variables (i.e. not used).
-dummy-variables-rgx=_|dummy|event|evt
+dummy-variables-rgx=_|dummy|event|evt|busy
 
 # List of additional names supposed to be defined in builtins. Remember that
 # you should avoid to define new builtins when possible.

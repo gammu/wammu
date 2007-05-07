@@ -33,13 +33,19 @@ import Wammu.Locales
 # Try to import iconv_codec to allow working on chinese windows
 try:
     import iconv_codec
-except:
+except ImportError:
     pass
 
 def version():
+    '''
+    Displays version information.
+    '''
     print _('Wammu - Windowed Gammu version %s') % Wammu.__version__
 
 def usage():
+    '''
+    Shows program usage.
+    '''
     version()
     print _('Usage: %s [OPTION...]' % os.path.basename(__file__))
     print
@@ -52,34 +58,42 @@ def usage():
             _('show program version'))
     print '%-20s ... %s' % (
             '-l/--local-locales',
-            _('force using of locales from current directory rather than system ones '))
+            _('force using of locales from current directory rather than system ones'))
     print
 
-Wammu.Locales.Init()
-try:
-    opts, args = getopt.getopt(sys.argv[1:], 'hvl', ['help', 'version', 'local-locales'])
-except getopt.GetoptError, val:
-    usage()
-    print _('Command line parsing failed with error:')
-    print val
-    sys.exit(2)
-
-if len(args) != 0:
-    usage()
-    print _('Extra unrecognized parameters passed to program')
-    sys.exit(3)
-
-for o, a in opts:
-    if o in ('-l', '--local-locales'):
-        Wammu.Locales.UseLocal()
-        print _('Using local built locales!')
-    if o in ('-h', '--help'):
+def parse_options():
+    '''
+    Processes program options.
+    '''
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 
+                'hvl', 
+                ['help', 'version', 'local-locales'])
+    except getopt.GetoptError, val:
         usage()
-        sys.exit()
-    if o in ('-v', '--version'):
-        version()
-        sys.exit()
+        print _('Command line parsing failed with error:')
+        print val
+        sys.exit(2)
 
-# need to be imported after locales are initialised
-import Wammu.App
-Wammu.App.Run()
+    if len(args) != 0:
+        usage()
+        print _('Extra unrecognized parameters passed to program')
+        sys.exit(3)
+
+    for opt, dummy in opts:
+        if opt in ('-l', '--local-locales'):
+            Wammu.Locales.UseLocal()
+            print _('Using local built locales!')
+        if opt in ('-h', '--help'):
+            usage()
+            sys.exit()
+        if opt in ('-v', '--version'):
+            version()
+            sys.exit()
+
+if __name__ == '__main__':
+    Wammu.Locales.Init()
+    parse_options()
+    # need to be imported after locales are initialised
+    import Wammu.App
+    Wammu.App.Run()

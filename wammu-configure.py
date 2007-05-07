@@ -28,7 +28,6 @@ import os
 import sys
 import getopt
 import wx
-import re
 import time
 import Wammu
 import Wammu.GammuSettings
@@ -37,13 +36,20 @@ import Wammu.Locales
 # Try to import iconv_codec to allow working on chinese windows
 try:
     import iconv_codec
-except:
+except ImportError:
     pass
 
 def version():
-    print _('Wammu Configurator - Wammu and Gammu configurator version %s') % Wammu.__version__
+    '''
+    Displays version information.
+    '''
+    print (_('Wammu Configurator - Wammu and Gammu configurator version %s') 
+            % Wammu.__version__)
 
 def usage():
+    '''
+    Shows program usage.
+    '''
     version()
     print _('Usage: %s [OPTION...]' % os.path.basename(__file__))
     print
@@ -56,53 +62,70 @@ def usage():
             _('show program version'))
     print '%-20s ... %s' % (
             '-l/--local-locales',
-            _('force using of locales from current directory rather than system ones '))
+            _('force using of locales from current directory rather than system ones'))
     print
 
-Wammu.Locales.Init()
-try:
-    opts, args = getopt.getopt(sys.argv[1:], 'hvl', ['help', 'version', 'local-locales'])
-except getopt.GetoptError, val:
-    usage()
-    print _('Command line parsing failed with error:')
-    print val
-    sys.exit(2)
-
-if len(args) != 0:
-    usage()
-    print _('Extra unrecognized parameters passed to program')
-    sys.exit(3)
-
-for o, a in opts:
-    if o in ('-l', '--local-locales'):
-        Wammu.Locales.UseLocal()
-        print _('Using local built locales!')
-    if o in ('-h', '--help'):
+def parse_options():
+    '''
+    Processes program options.
+    '''
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 
+                'hvl', 
+                ['help', 'version', 'local-locales'])
+    except getopt.GetoptError, val:
         usage()
+        print _('Command line parsing failed with error:')
+        print val
+        sys.exit(2)
+
+    if len(args) != 0:
+        usage()
+        print _('Extra unrecognized parameters passed to program')
+        sys.exit(3)
+
+    for opt, dummy in opts:
+        if opt in ('-l', '--local-locales'):
+            Wammu.Locales.UseLocal()
+            print _('Using local built locales!')
+        if opt in ('-h', '--help'):
+            usage()
+            sys.exit()
+        if opt in ('-v', '--version'):
+            version()
+            sys.exit()
+
+def do_wizard():
+    '''
+    Runs configuration wizard.
+    '''
+    app = Wammu.PhoneWizard.WizardApp()
+
+    wammu_cfg = Wammu.WammuSettings.WammuConfig()
+
+    config = Wammu.GammuSettings.GammuSettings(wammu_cfg)
+
+    position = config.SelectConfig(new = True)
+
+    if position is None:
         sys.exit()
-    if o in ('-v', '--version'):
-        version()
-        sys.exit()
 
-# need to be imported after locales are initialised
-import Wammu.PhoneWizard
-import Wammu.WammuSettings
-app = Wammu.PhoneWizard.WizardApp()
+    result = Wammu.PhoneWizard.RunConfigureWizard(None, position)
+    if result is not None:
+        busy = wx.BusyInfo(_('Updating gammu configuration...'))
+        time.sleep(0.1)
+        wx.Yield()
+        config.SetConfig(result['Position'], 
+                result['Device'], 
+                result['Connection'], 
+                result['Name'])
+        del busy
+    app.Destroy()
 
-wammu_cfg = Wammu.WammuSettings.WammuConfig()
-
-config = Wammu.GammuSettings.GammuSettings(wammu_cfg)
-
-position = config.SelectConfig(new = True)
-
-if position is None:
-    sys.exit()
-
-result = Wammu.PhoneWizard.RunConfigureWizard(None, position)
-if result is not None:
-    busy = wx.BusyInfo(_('Updating gammu configuration...'))
-    time.sleep(0.1)
-    wx.Yield()
-    config.SetConfig(result['Position'], result['Device'], result['Connection'], result['Name'])
-app.Destroy()
-
+if __name__ == '__main__':
+    Wammu.Locales.Init()
+    parse_options()
+    # need to be imported after locales are initialised
+    import Wammu.PhoneWizard
+    import Wammu.WammuSettings
+    do_wizard()
