@@ -39,7 +39,7 @@ DEFAULT_CONFIG = {
     '/Main/SplitRight': -200,
     '/Main/Width': 640,
     '/Main/Height': 480,
-    '/DEFAULT_CONFIG/SearchType': 0,
+    '/Defaults/SearchType': 0,
     '/Wammu/AutoConnect': 'no',
     '/Gammu/LockDevice': 'no',
     '/Debug/Show': 'no',
