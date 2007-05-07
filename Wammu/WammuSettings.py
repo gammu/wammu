@@ -30,9 +30,7 @@ import sys
 import os
 import wx
 import Wammu.GammuSettings
-if sys.platform == 'win32':
-    from win32com.shell import shellcon, shell
-    import win32api
+import Wammu.OSUtils
 
 DEFAULT_CONFIG = {
     '/Main/X': 0,
@@ -71,43 +69,14 @@ DEFAULT_CONFIG = {
     '/IMAP/Password': '',
     '/MesageExport/From': 'Wammu <wammu@wammu.sms>',
     '/Gammu/Section': 0,
+    '/User/Name': Wammu.OSUtils.GetUserFullName(),
+    '/Gammu/Gammurc': os.path.join(u'~', u'.gammurc'),
     }
-
-def GetUserFullName():
-    '''
-    Detects full user name from system information.
-    '''
-    if sys.platform == 'win32':
-        return win32api.GetUserNameEx(win32api.NameDisplay)
-    else:
-        import pwd
-
-        name = pwd.getpwuid(os.getuid())[4]
-        if ',' in name:
-            name = name[:name.index(',')]
-        return name
-
-DEFAULT_CONFIG['/User/Name'] = GetUserFullName()
-
-DEFAULT_CONFIG['/Gammu/Gammurc'] = os.path.join(u'~', u'.gammurc')
 
 
 EXPANDABLE_CONFIGS = [
     '/Gammu/Gammurc',
 ]
-
-def ExpandPath(orig):
-    '''
-    Expands user path. This is replaced on Windows, because python
-    implementation has problems with encodings.
-    '''
-    if sys.platform == 'win32':
-        if orig.startswith('~'):
-            userhome = shell.SHGetFolderPath(0, shellcon.CSIDL_APPDATA, 0, 0)
-            return orig.replace('~', userhome, 1)
-        return orig
-    else:
-        return os.path.expanduser(orig)
 
 class WammuConfig:
     '''
@@ -139,7 +108,7 @@ class WammuConfig:
             #print 'Warning: no default value for %s' % path
             result = self.cfg.Read(path, '')
         if expand and path in EXPANDABLE_CONFIGS:
-            result = ExpandPath(result)
+            result = Wammu.OSUtils.ExpandPath(result)
         return result
 
     def ReadInt(self, path):
