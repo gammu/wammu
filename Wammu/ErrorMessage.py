@@ -57,8 +57,9 @@ class ErrorMessage(wx.Dialog):
             message += exception
         if autolog is not None:
             message += '\n\n'
-            message += _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.'
-                    ) % autolog
+            message += (
+                    _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.') 
+                    % autolog)
         msg = wx.StaticText(self, -1, message)
         msg.Wrap(400)
         textsizer.Add(msg)
