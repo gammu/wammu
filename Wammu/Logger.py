@@ -31,11 +31,17 @@ import time
 import Wammu.Events
 
 class Logger(threading.Thread):
-    def __init__(self, win, file):
+    '''
+    Thread which reads defined files and posts events on change.
+    '''
+    def __init__(self, win, filename):
+        '''
+        Initializes reader on filename, events will be sent to win.
+        '''
         threading.Thread.__init__(self)
         self.win = win
-        self.fd = open(file, 'r')
-        self.filename = file
+        self.file_descriptor = open(filename, 'r')
+        self.filename = filename
         self.canceled = False
 
     def run(self):
@@ -43,10 +49,10 @@ class Logger(threading.Thread):
         This is basically tail -f reimplementation
         """
         while not self.canceled:
-            where = self.fd.tell()
-            txt = self.fd.readlines()
+            where = self.file_descriptor.tell()
+            txt = self.file_descriptor.readlines()
             if len(txt) == 0:
-                fd_results = os.fstat(self.fd.fileno())
+                fd_results = os.fstat(self.file_descriptor.fileno())
                 try:
                     st_results = os.stat(self.filename)
                 except OSError:
@@ -54,32 +60,60 @@ class Logger(threading.Thread):
 
                 if st_results[1] == fd_results[1] or sys.platform == 'win32':
                     time.sleep(1)
-                    self.fd.seek(where)
+                    self.file_descriptor.seek(where)
                 else:
-                    self.fd = open(self.filename, 'r')
+                    self.file_descriptor = open(self.filename, 'r')
             else:
                 evt = Wammu.Events.LogEvent(txt = ''.join(txt))
                 wx.PostEvent(self.win, evt)
-        self.fd.close()
+        self.file_descriptor.close()
 
 class LogFrame(wx.Frame):
+    '''
+    Window with debug log.
+    '''
+
     def __init__(self, parent, cfg):
+        '''
+        Creates window and initializes event handlers.
+        '''
         self.cfg = cfg
         if cfg.HasEntry('/Debug/X') and cfg.HasEntry('/Debug/Y'):
-            pos = wx.Point(cfg.ReadInt('/Debug/X'), cfg.ReadInt('/Debug/Y'))
+            pos = wx.Point(
+                    cfg.ReadInt('/Debug/X'), 
+                    cfg.ReadInt('/Debug/Y'))
         else:
             pos = wx.DefaultPosition
-        size = wx.Size(cfg.ReadInt('/Debug/Width'), cfg.ReadInt('/Debug/Height'))
-        wx.Frame.__init__(self, parent, -1, 'Wammu debug log', pos, size, wx.DEFAULT_FRAME_STYLE | wx.RESIZE_BORDER)
-        self.txt = wx.TextCtrl(self,-1, 'Here will appear debug messages from Gammu...\n',style = wx.TE_MULTILINE | wx.TE_READONLY)
+        size = wx.Size(
+                cfg.ReadInt('/Debug/Width'), 
+                cfg.ReadInt('/Debug/Height'))
+        wx.Frame.__init__(
+                self, 
+                parent, 
+                -1, 
+                _('Wammu debug log'), 
+                pos, 
+                size, 
+                wx.DEFAULT_FRAME_STYLE | wx.RESIZE_BORDER)
+        self.txt = wx.TextCtrl(
+                self,
+                -1, 
+                _('Here will appear debug messages from Gammu...\n'),
+                style = wx.TE_MULTILINE | wx.TE_READONLY)
         self.txt.SetFont(wx.Font(9, wx.MODERN, wx.NORMAL, wx.NORMAL))
         Wammu.Events.EVT_LOG(self, self.OnLog)
         wx.EVT_SIZE(self, self.OnSize)
         self.OnSize(None)
 
     def OnLog(self, evt):
+        '''
+        Event handler for text events from Logger.
+        '''
         self.txt.AppendText(evt.txt)
 
     def OnSize(self, evt):
-        w,h = self.GetClientSizeTuple()
-        self.txt.SetDimensions(0, 0, w, h)
+        '''
+        Resize handler to correctly resize text area.
+        '''
+        width, height = self.GetClientSizeTuple()
+        self.txt.SetDimensions(0, 0, width, height)
