@@ -30,18 +30,18 @@ import Wammu.ErrorMessage
 from Wammu.Locales import StrConv
 
 # set later in Wammu.App to have correct parent here
-handlerparent = None
+HANDLER_PARENT = None
 
-error_history = []
+ERROR_HISTORY = []
 
-def Handler(type, value, tback):
+def Handler(errtype, value, tback):
     """User friendly error handling """
 
     # prepare traceback text
     trace = traceback.extract_tb(tback)
     linetrace = traceback.format_list(trace)
     texttrace = ''.join(linetrace)
-    textexc = ''.join(traceback.format_exception_only(type, value))
+    textexc = ''.join(traceback.format_exception_only(errtype, value))
 
     # debug log information
     logtext = ''
@@ -53,28 +53,35 @@ def Handler(type, value, tback):
 
     # detection of same errors
     tracehash = md5.new('%s,%s' % (textexc, texttrace)).hexdigest()
-    if tracehash in error_history:
+    if tracehash in ERROR_HISTORY:
         print 'Same error already detected, not showing dialog!'
         print texttrace
         print 'Exception: %s' % textexc
         return
-    error_history.append(tracehash)
+    ERROR_HISTORY.append(tracehash)
 
     # traceback id (md5 sum of last topmost traceback item inside Wammu - file(function):code)
     try:
-        for tr in trace:
-            if tr[0].rfind('Wammu') > -1:
-                lasttrace = tr
-        traceidtext = '%s(%s):%s' % (lasttrace[0][lasttrace[0].rfind('Wammu'):], lasttrace[2], lasttrace[3])
+        for trace_line in trace:
+            if trace_line[0].rfind('Wammu') > -1:
+                lasttrace = trace_line
+        traceidtext = '%s(%s):%s' % (
+                lasttrace[0][lasttrace[0].rfind('Wammu'):], 
+                lasttrace[2], 
+                lasttrace[3])
         traceid = md5.new(traceidtext).hexdigest()
-        tracetext = '\n%s\n' % (_('Before submiting please try searching for simmilar bugs on %s') % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' % traceid))
+        tracetext = '\n%s\n' % (
+                _('Before submiting please try searching for simmilar bugs on %s') 
+                % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' 
+                    % traceid))
     except:
         traceid = 'N/A'
         tracetext = ''
 
     # unicode warning
-    if type == UnicodeEncodeError or type == UnicodeDecodeError:
-        unicodewarning =  '\n%s\n' % _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.')
+    if errtype == UnicodeEncodeError or errtype == UnicodeDecodeError:
+        unicodewarning =  ('\n%s\n' % 
+                _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.'))
     else:
         unicodewarning = ''
 
@@ -107,10 +114,12 @@ def Handler(type, value, tback):
 
     # display error
     try:
-        Wammu.ErrorMessage.ErrorMessage(handlerparent,
+        Wammu.ErrorMessage.ErrorMessage(HANDLER_PARENT,
             _('Unhandled exception appeared. If you want to help improving this program, please report this together with description how this situation has happened. Please report in english, otherwise you will be most likely told to translate you report to english later.'),
             _('Unhandled exception'),
             traceid = traceid, autolog = logname,
-            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % { 'traceback': StrConv(texttrace), 'exception' : StrConv(textexc) }).ShowModal()
+            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % { 
+                    'traceback': StrConv(texttrace), 
+                    'exception' : StrConv(textexc) }).ShowModal()
     except:
         print text

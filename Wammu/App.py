@@ -48,7 +48,7 @@ class WammuApp(wx.App):
         wx.InitAllImageHandlers()
 
         frame = Wammu.Main.WammuFrame(None, -1)
-        Wammu.Error.handlerparent = frame
+        Wammu.Error.HANDLER_PARENT = frame
 
         frame.Show(True)
         frame.PostInit()
