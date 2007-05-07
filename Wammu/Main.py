@@ -394,7 +394,7 @@ class WammuFrame(wx.Frame):
             fd, self.logfilename = tempfile.mkstemp('.log', 'wammu')
 
             # set filename to be used for error reports
-            Wammu.ErrorLog.debuglogfilename = self.logfilename
+            Wammu.ErrorLog.DEBUG_LOG_FILENAME = self.logfilename
 
             print 'Debug log created in %s, in case of crash please include it in bugreport!' % self.logfilename
 

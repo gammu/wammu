@@ -33,10 +33,10 @@ if Wammu.gammu_error == None:
     import gammu
 
 # set later in Wammu.Main to have correct debug filename
-debuglogfilename = None
+DEBUG_LOG_FILENAME = None
 
 # Template for system information
-system_template="""
+SYSTEM_TEMPLATE = """
 --------------- System information ----------------
 Platform     %s
 Python       %s
@@ -71,7 +71,7 @@ def GetSystemInfo():
         except ImportError:
             pass
 
-    result = system_template % (
+    result = SYSTEM_TEMPLATE % (
         sys.platform,
         pyver,
         wxver,
@@ -94,7 +94,7 @@ def SaveLog(outf = None, filename = None):
     """
     Saves debug log to filename or handle. If none specified
     """
-    if debuglogfilename is None:
+    if DEBUG_LOG_FILENAME is None:
         return None, None
     if outf is None:
         if filename is None:
@@ -104,7 +104,7 @@ def SaveLog(outf = None, filename = None):
             name = filename
             outf = open(filename, 'w+')
 
-    inf = open(debuglogfilename, 'r')
+    inf = open(DEBUG_LOG_FILENAME, 'r')
     outf.write(GetSystemInfo())
     outf.write(inf.read())
     inf.close()
