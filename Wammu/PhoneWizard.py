@@ -63,7 +63,10 @@ class TestPage(Wammu.Wizard.SimplePage):
     """
     def __init__(self, parent):
         Wammu.Wizard.SimplePage.__init__(self, parent, _('Connection test'))
-        self.detail = wx.StaticText(self, -1, _('Wammu is now testing phone connection, please wait...'))
+        self.detail = wx.StaticText(
+                self, 
+                -1, 
+                _('Wammu is now testing phone connection, please wait...'))
         self.detail.Wrap(400)
         self.sizer.Add(self.detail, 0, wx.ALL, 5)
         self.name = ''
@@ -76,7 +79,8 @@ class TestPage(Wammu.Wizard.SimplePage):
 
     def Activated(self, evt):
         if evt.GetDirection():
-            self.detail.SetLabel(_('Wammu is now testing phone connection, please wait...'))
+            self.detail.SetLabel(
+                    _('Wammu is now testing phone connection, please wait...'))
             device = self.parent.settings.GetPort()
             connection = self.parent.settings.GetGammuDriver()
             self.thread = Wammu.PhoneSearch.PhoneInfoThread(self, device, connection)
@@ -93,21 +97,24 @@ class TestPage(Wammu.Wizard.SimplePage):
             model = evt.data['Model'][0]
             self.name = '%s %s' % (manuf, model)
             self.parent.settings.SetName(self.name)
-            self.detail.SetLabel(_('Phone has been found.\n\nManufacturer: %(manufacturer)s\nModel: %(model)s') % { 'manufacturer' : manuf, 'model' : model})
+            self.detail.SetLabel(
+                    _('Phone has been found.') + 
+                    (_('Manufacturer: %(manufacturer)s\nModel: %(model)s') % 
+                    { 'manufacturer' : manuf, 'model' : model}))
             self.detail.Wrap(400)
 
     def Blocked(self, evt):
         if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
-                _('Phone connection test is still active, you can not continue.'),
-                _('Testing still active!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                    _('Phone connection test is still active, you can not continue.'),
+                    _('Testing still active!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
             return True
         if evt.GetDirection() and self.name == '':
             if wx.MessageDialog(self,
-                _('Phone has not been found, are you sure you want to continue?'),
-                _('Phone not found!'),
-                wx.YES_NO | wx.NO_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_YES:
+                    _('Phone has not been found, are you sure you want to continue?'),
+                    _('Phone not found!'),
+                    wx.YES_NO | wx.NO_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_YES:
                 return False
             return True
         return False
@@ -116,9 +123,9 @@ class TestPage(Wammu.Wizard.SimplePage):
         # FIXME: we should abort test here
         if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
-                _('Phone connection test is still active, you can not continue.'),
-                _('Testing still active!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                    _('Phone connection test is still active, you can not continue.'),
+                    _('Testing still active!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
             return False
         return True
 
@@ -142,15 +149,15 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
     def Blocked(self, evt):
         if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
-                _('Phone search is still active, you can not continue.'),
-                _('Searching still active!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                    _('Phone search is still active, you can not continue.'),
+                    _('Searching still active!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
             return True
         if evt.GetDirection() and len(self.results) == 0:
             wx.MessageDialog(self,
-                _('No phone has not been found, you can not continue.'),
-                _('No phone found!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                    _('No phone has not been found, you can not continue.'),
+                    _('No phone found!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
             return True
         return False
 
@@ -158,9 +165,9 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
         # FIXME: we should abort searching here
         if self.thread is not None and self.thread.isAlive():
             wx.MessageDialog(self,
-                _('Phone search is still active, you can not continue.'),
-                _('Searching still active!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                    _('Phone search is still active, you can not continue.'),
+                    _('Searching still active!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
             return False
         return True
 
@@ -169,10 +176,10 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             self.edit.Clear()
             self.edit.AppendText(_('Wammu is now searching for phone:') + '\n')
             self.thread = Wammu.PhoneSearch.AllSearchThread(
-                lock = 'no',
-                callback = self.SearchDone,
-                msgcallback = self.SearchMessage,
-                win = self)
+                    lock = 'no',
+                    callback = self.SearchDone,
+                    msgcallback = self.SearchMessage,
+                    win = self)
             self.thread.start()
             self.results = []
 
@@ -203,15 +210,16 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             return
         if len(self.results) > 1:
             # Allow user to select phone
-            # FIXME: This might be in wizard, but this selection should be rare...
+            # FIXME: Might be in wizard, but this should be rare...
             choices = []
-            for x in self.results:
-                choices.append(_('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+            for phone in self.results:
+                choices.append(
+                    _('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
                     {
-                        'model': x[2][0],
-                        'manufacturer': x[3],
-                        'port': x[0],
-                        'connection': x[1]
+                        'model': phone[2][0],
+                        'manufacturer': phone[3],
+                        'port': phone[0],
+                        'connection': phone[1]
                     })
             dlg = wx.SingleChoiceDialog(self, _('Select phone to use from bellow list'), _('Select phone'),
                                         choices)
@@ -229,13 +237,14 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             self.parent.settings.SetPort(config[0])
             self.parent.settings.SetGammuDriver(config[1])
             self.edit.AppendText(_('Following phone will be used:') + '\n')
-            self.edit.AppendText(_('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
-                    {
-                        'model': config[2][0],
-                        'manufacturer': config[3],
-                        'port': config[0],
-                        'connection': config[1]
-                    })
+            self.edit.AppendText(
+                _('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+                {
+                    'model': config[2][0],
+                    'manufacturer': config[3],
+                    'port': config[0],
+                    'connection': config[1]
+                })
         else:
             self.edit.AppendText(_('No phone selected!') + '\n')
 
@@ -283,12 +292,12 @@ class PhonePortPage(Wammu.Wizard.InputPage):
     Selects phone port.
     """
     def __init__(self, parent):
-        ports, help = parent.settings.GetDevices()
+        ports, helptext = parent.settings.GetDevices()
         Wammu.Wizard.InputPage.__init__(self, parent,
                 _('Phone port'),
                 _('Please enter port where phone is connected') + ':',
                 ports,
-                help)
+                helptext)
 
     def GetNext(self):
         self.parent.settings.SetPort(self.edit.GetValue())
@@ -434,10 +443,16 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                     _('You know what you are doing and know exact parameters you need for connecting to phone.'),
                 ],
                 [ pg0, pg1, pg2])
-        self.info = wx.StaticText(self, -1, _('If you have no idea how to configure your phone connection, you can look at Gammu Phone Database for other users experiences:'))
+        self.info = wx.StaticText(
+            self, 
+            -1, 
+            _('If you have no idea how to configure your phone connection, you can look at Gammu Phone Database for other users experiences:'))
         self.info.Wrap(400)
         self.sizer.Add(self.info, 0, wx.ALL, 5)
-        self.link = wx.lib.hyperlink.HyperLinkCtrl(self, -1, 'http://%scihar.com/gammu/phonedb' % Wammu.Utils.GetWebsiteLang())
+        self.link = wx.lib.hyperlink.HyperLinkCtrl(
+                self, 
+                -1, 
+                'http://%scihar.com/gammu/phonedb' % Wammu.Utils.GetWebsiteLang())
         self.sizer.Add(self.link, 0, wx.ALL, 5)
 
 class WelcomePage(Wammu.Wizard.SimplePage):
@@ -446,21 +461,28 @@ class WelcomePage(Wammu.Wizard.SimplePage):
     """
     def __init__(self, parent):
         Wammu.Wizard.SimplePage.__init__(self, parent,  _('Welcome'),
-                _('This wizard will help you with configuring phone connection in Wammu.'),
-                [
-                    '',
-                    _('Please make sure you have phone ready, powered on and one of connection methods is set up:'),
-                    '  - %s' % _('Cable is connected.'),
-                    '  - %s' % _('You have enabled IrDA and phone is in visible range.'),
-                    '  - %s' % _('You have paired Bluetooth with computer.'),
-                    '',
-                    _('As soon as your phone is ready, you can continue.'),
-                ])
+            _('This wizard will help you with configuring phone connection in Wammu.'),
+            [
+                '',
+                _('Please make sure you have phone ready, powered on and one of connection methods is set up:'),
+                '  - %s' % 
+                    _('Cable is connected.'),
+                '  - %s' % 
+                    _('You have enabled IrDA and phone is in visible range.'),
+                '  - %s' % 
+                    _('You have paired Bluetooth with computer.'),
+                '',
+                _('As soon as your phone is ready, you can continue.'),
+            ])
 
 class ConfigureWizard:
     def __init__(self, parent, position = 0):
         bmp = wx.Bitmap(Wammu.Paths.MiscPath('phonewizard'))
-        self.wiz = wx.wizard.Wizard(parent, -1, _('Wammu Phone Configuration Wizard'), bmp)
+        self.wiz = wx.wizard.Wizard(
+                parent, 
+                -1, 
+                _('Wammu Phone Configuration Wizard'), 
+                bmp)
         self.wiz.settings = Wammu.SettingsStorage.Settings()
         self.wiz.settings.SetPosition(position)
 
@@ -479,7 +501,11 @@ class ConfigureWizard:
 
         self.pg_manual1 = ManualPage(self.wiz)
 
-        self.pg_type = ConfigTypePage(self.wiz, self.pg_search1, self.pg_guide1, self.pg_manual1)
+        self.pg_type = ConfigTypePage(
+                self.wiz, 
+                self.pg_search1, 
+                self.pg_guide1, 
+                self.pg_manual1)
 
         self.pg_final = FinalPage(self.wiz)
         self.pg_test = TestPage(self.wiz)
@@ -522,7 +548,7 @@ class ConfigureWizard:
     def Run(self):
         return self.wiz.RunWizard(self.pg_title)
 
-    def Do(self):
+    def Execute(self):
         if self.Run():
             return self.wiz.settings.GetSettings()
         else:
@@ -533,7 +559,7 @@ def RunConfigureWizard(parent, position = 0):
     """
     Executes wizard for configuring phone
     """
-    return ConfigureWizard(parent, position).Do()
+    return ConfigureWizard(parent, position).Execute()
 
 class WizardApp(wx.App):
     def OnInit(self):
