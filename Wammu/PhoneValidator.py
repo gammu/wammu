@@ -2,7 +2,7 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 '''
 Wammu - Phone manager
-Phone number validator
+Phone number validator.
 '''
 __author__ = 'Michal Čihař'
 __email__ = 'michal@cihar.com'
@@ -26,20 +26,25 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import wx
 import re
 
-validchars = '0123456789+#*'
-matcher = re.compile('^\\+?[0-9*#]+$')
-matcherp = re.compile('^\\+?[Pp0-9*#]+$')
-matchsplit = re.compile('[\s;,]+')
+MATCHER_NORMAL = re.compile('^\\+?[0-9*#]+$')
+MATCHER_PAUSE = re.compile('^\\+?[Pp0-9*#]+$')
+MATCH_SPLIT = re.compile('[\s;,]+')
 
 def SplitNumbers(text):
-    list = matchsplit.split(text)
-    if list[0] == '':
-        del list[0]
-    if len(list) > 0 and list[len(list) - 1] == '':
-        del list[len(list) - 1]
-    return list
+    '''
+    Splits text to list of phone numbers.
+    '''
+    lst = MATCH_SPLIT.split(text)
+    if lst[0] == '':
+        del lst[0]
+    if len(lst) > 0 and lst[len(lst) - 1] == '':
+        del lst[len(lst) - 1]
+    return lst
 
 class PhoneValidator(wx.PyValidator):
+    '''
+    Validator for phone numbers.
+    '''
     def __init__(self, multi=False, pause=False, empty=False):
         wx.PyValidator.__init__(self)
         self.multi = multi
@@ -66,16 +71,16 @@ class PhoneValidator(wx.PyValidator):
                 result = self.empty
             elif not immediate or val != '+':
                 if self.pause:
-                    if matcherp.match(val) == None:
+                    if MATCHER_PAUSE.match(val) == None:
                         return False
                 else:
-                    if matcher.match(val) == None:
+                    if MATCHER_NORMAL.match(val) == None:
                         return False
         return True
 
     def Validate(self, win = None):
-        tc = self.GetWindow()
-        val = tc.GetValue()
+        textcontrol = self.GetWindow()
+        val = textcontrol.GetValue()
 
         result = self.CheckText(val)
 
@@ -84,7 +89,7 @@ class PhoneValidator(wx.PyValidator):
                 _('You did not specify valid phone number.'),
                 _('Invalid phone number'),
                 wx.OK | wx.ICON_WARNING).ShowModal()
-            tc.SetFocus()
+            textcontrol.SetFocus()
 
         return result
 
@@ -92,15 +97,21 @@ class PhoneValidator(wx.PyValidator):
         key = event.GetKeyCode()
 
         # control chars
-        if key < wx.WXK_SPACE or key == wx.WXK_DELETE or key > 255 or event.AltDown() or event.CmdDown() or event.ControlDown() or event.MetaDown():
+        if (key < wx.WXK_SPACE or 
+                key == wx.WXK_DELETE or 
+                key > 255 or 
+                event.AltDown() or 
+                event.CmdDown() or 
+                event.ControlDown() or 
+                event.MetaDown()):
             event.Skip()
             return
 
         try:
             char = chr(key)
-            tc = self.GetWindow()
-            pos = tc.GetInsertionPoint()
-            val = tc.GetValue()
+            textcontrol = self.GetWindow()
+            pos = textcontrol.GetInsertionPoint()
+            val = textcontrol.GetValue()
             newval = val[0:pos] + char + val[pos:len(val)]
             if self.CheckText(newval, immediate = True):
                 event.Skip()
