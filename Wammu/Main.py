@@ -821,7 +821,8 @@ class WammuFrame(wx.Frame):
         if self.tbicon is not None:
             self.tbicon.Destroy()
 
-        print 'Looks like normal program termination, deleting log file.'
+        if sys.platform != 'win32':
+            print 'Looks like normal program termination, deleting log file.'
         try:
             os.unlink(self.logfilename)
         except:
