@@ -1622,6 +1622,10 @@ class WammuFrame(wx.Frame):
             # nothing to delete
             return
 
+        if not lst[0]['Synced']:
+            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            return
+
         # check for confirmation
         if self.cfg.Read('/Wammu/ConfirmDelete') == 'yes':
             txt = _('Are you sure you want to delete %s?')
