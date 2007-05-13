@@ -28,13 +28,17 @@ import os
 if sys.platform == 'win32':
     from win32com.shell import shellcon, shell
     import win32api
+    import pywintypes
 
 def GetUserFullName():
     '''
     Detects full user name from system information.
     '''
     if sys.platform == 'win32':
-        return win32api.GetUserNameEx(win32api.NameDisplay)
+        try:
+            return win32api.GetUserNameEx(win32api.NameDisplay)
+        except pywintypes.error:
+            return ''
     else:
         import pwd
 
