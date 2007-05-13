@@ -52,7 +52,10 @@ except:
 if LOCALE_CHARSET in [None, 'ANSI_X3.4-1968']:
     LOCALE_CHARSET = FALLBACK_LOCALE_CHARSET
 
-CONSOLE_CHARSET = sys.stdout.encoding
+try:
+    CONSOLE_CHARSET = sys.stdout.encoding
+except AttributeError:
+    CONSOLE_CHARSET = 'utf-8'
 CONSOLE_ENCODER = codecs.getencoder(CONSOLE_CHARSET)
 
 def ConsoleStrConv(txt):
