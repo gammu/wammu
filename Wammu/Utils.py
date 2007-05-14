@@ -408,6 +408,5 @@ def GetWebsiteLang():
         if loc[:2].lower() == 'cs':
             return 'cz.'
     except TypeError:
-        pass
-    return ''
+        return ''
 
