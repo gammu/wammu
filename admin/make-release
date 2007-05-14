@@ -18,9 +18,14 @@ if [ "x$1" = "xbranch" ] ; then
 else
     svn export svn+ssh://mort/home/svn/$repo/trunk $repo-$version
 fi
+
 cd wammu-$version
+
 ./setup.py sdist --formats=gztar,bztar,zip
-./setup.py register
+
+if [ "x$1" = "xbranch" ] ; then
+    ./setup.py register
+fi
 
 mv dist/* ../
 
