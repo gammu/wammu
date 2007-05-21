@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-05-07 14:36+0200\n"
+"POT-Creation-Date: 2007-05-21 17:19+0200\n"
 "PO-Revision-Date: 2007-05-07 11:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -1133,7 +1133,7 @@ msgstr ""
 msgid "Entry created!"
 msgstr "Položka vytvořena!"
 
-#: Wammu/Locales.py:177
+#: Wammu/Locales.py:180
 msgid "Automatically switched to local locales."
 msgstr "Automaticky přepnuto na locales z aktuálního adresáře."
 
@@ -1157,7 +1157,7 @@ msgstr "Vyberte telefonní číslo"
 msgid "Phone searching log"
 msgstr "Průběh hledání telefonu"
 
-#: Wammu/PhoneSearch.py:47 Wammu/Main.py:565
+#: Wammu/PhoneSearch.py:47 Wammu/Main.py:566
 msgid "Close"
 msgstr "Zavřít"
 
@@ -1207,11 +1207,11 @@ msgstr "Dokončeno %s"
 msgid "All finished, found %d phones"
 msgstr "Vše ukončeno, nalezeno %d telefonů"
 
-#: Wammu/Thread.py:55 Wammu/Main.py:835
+#: Wammu/Thread.py:55 Wammu/Main.py:837
 msgid "Error while communicating with phone"
 msgstr "Chyba při komunikaci s telefonem"
 
-#: Wammu/Thread.py:56 Wammu/Main.py:836 Wammu/Main.py:1314 Wammu/Main.py:1553
+#: Wammu/Thread.py:56 Wammu/Main.py:838 Wammu/Main.py:1316 Wammu/Main.py:1555
 msgid "Error Occured"
 msgstr "Objevila se chyba"
 
@@ -1668,11 +1668,11 @@ msgstr "Informace o programu"
 msgid "&Help"
 msgstr "&Nápověda"
 
-#: Wammu/Main.py:424 Wammu/Main.py:431 Wammu/Main.py:437
+#: Wammu/Main.py:425 Wammu/Main.py:432 Wammu/Main.py:438
 msgid "Wammu could not import gammu module, program will be terminated."
 msgstr "Wammu nemohlo nahrát modul gammu, program bude ukončen."
 
-#: Wammu/Main.py:425
+#: Wammu/Main.py:426
 #, python-format
 msgid ""
 "The import failed because python-gammu is compiled with different version of "
@@ -1683,7 +1683,7 @@ msgstr ""
 "je právě používaná (bylo kompilováno s verzí %(compile)s a nyní je spuštěno "
 "s verzí %(runtime)s)."
 
-#: Wammu/Main.py:426
+#: Wammu/Main.py:427
 msgid ""
 "You can fix it by recompiling python-gammu against gammu library you are "
 "currently using."
@@ -1691,11 +1691,11 @@ msgstr ""
 "Tuto chybu můžete opravit překompilováním python-gammu proti knihovně gammu, "
 "kterou právě používáte."
 
-#: Wammu/Main.py:427 Wammu/Main.py:433 Wammu/Main.py:439
+#: Wammu/Main.py:428 Wammu/Main.py:434 Wammu/Main.py:440
 msgid "Gammu module not working!"
 msgstr "Modul gammu negunguje!"
 
-#: Wammu/Main.py:432
+#: Wammu/Main.py:433
 msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
@@ -1703,23 +1703,23 @@ msgstr ""
 "Modul Gammu nebyl nalezen, pravděpodobně nemáte nainstalováno python-gammu "
 "pro aktuální verzi pythonu."
 
-#: Wammu/Main.py:438
+#: Wammu/Main.py:439
 msgid "The import failed with following error:"
 msgstr "Import selhal s následující chybou:"
 
-#: Wammu/Main.py:452
+#: Wammu/Main.py:453
 msgid "Wammu configuration was not found and Gammu settings couldn't be read."
 msgstr "Nastavení Wammu nebylo nalezeno a nastavení Gammu nemohlo být načteno."
 
-#: Wammu/Main.py:453
+#: Wammu/Main.py:454
 msgid "Do you want to configure phone connection now?"
 msgstr "Chcete nyní nastavit připojení k vašemu telefonu?"
 
-#: Wammu/Main.py:454
+#: Wammu/Main.py:455
 msgid "Configuration not found"
 msgstr "Nastavení nenalezeno"
 
-#: Wammu/Main.py:471
+#: Wammu/Main.py:472
 msgid ""
 "You are using Wammu for more than a month. We would like to hear from you "
 "how your phone is supported. Do you want to participate in this survey?"
@@ -1727,67 +1727,67 @@ msgstr ""
 "Již používáte Wammu déle než měsíc. Rádi bychom od vás slyšeli, jak je váš "
 "telefon podporován. Chcete se zůčastnit tohoto průzkumu?"
 
-#: Wammu/Main.py:472
+#: Wammu/Main.py:473
 msgid "Press Cancel to never show this question again."
 msgstr "Stiskněte Zrušit, pokud tento dotaz nechcete znovu vidět."
 
-#: Wammu/Main.py:473
+#: Wammu/Main.py:474
 msgid "Thanks for using Wammu"
 msgstr "Děkuji za používání Wammu"
 
-#: Wammu/Main.py:498
+#: Wammu/Main.py:499
 msgid "Migrated from older Wammu"
 msgstr "Migrováno se starší verze Wammu"
 
-#: Wammu/Main.py:557
+#: Wammu/Main.py:558
 msgid "Connect"
 msgstr "Připojit"
 
-#: Wammu/Main.py:558
+#: Wammu/Main.py:559
 msgid "Disconnect"
 msgstr "Odpojit"
 
-#: Wammu/Main.py:560 Wammu/Settings.py:38
+#: Wammu/Main.py:561 Wammu/Settings.py:38
 msgid "Settings"
 msgstr "Nastavení"
 
-#: Wammu/Main.py:562
+#: Wammu/Main.py:563
 msgid "Restore"
 msgstr "Obnovit"
 
-#: Wammu/Main.py:563
+#: Wammu/Main.py:564
 msgid "Minimize"
 msgstr "Minimalizovat"
 
-#: Wammu/Main.py:592 Wammu/Main.py:608 Wammu/Editor.py:215 Wammu/Editor.py:419
+#: Wammu/Main.py:593 Wammu/Main.py:609 Wammu/Editor.py:215 Wammu/Editor.py:419
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: Wammu/Main.py:594
+#: Wammu/Main.py:595
 msgid "battery"
 msgstr "baterie"
 
-#: Wammu/Main.py:596
+#: Wammu/Main.py:597
 msgid "AC"
 msgstr "síť"
 
-#: Wammu/Main.py:598
+#: Wammu/Main.py:599
 msgid "no battery"
 msgstr "bez baterie"
 
-#: Wammu/Main.py:600
+#: Wammu/Main.py:601
 msgid "fault"
 msgstr "chyba"
 
-#: Wammu/Main.py:602
+#: Wammu/Main.py:603
 msgid "charging"
 msgstr "nabíjí se"
 
-#: Wammu/Main.py:604
+#: Wammu/Main.py:605
 msgid "charged"
 msgstr "nabitý"
 
-#: Wammu/Main.py:612
+#: Wammu/Main.py:613
 #, python-format
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
@@ -1796,15 +1796,15 @@ msgstr ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
 "Čas: %(time)s"
 
-#: Wammu/Main.py:693
+#: Wammu/Main.py:694
 msgid "Connected"
 msgstr "Připojeno"
 
-#: Wammu/Main.py:697
+#: Wammu/Main.py:698
 msgid "Disconnected"
 msgstr "Odpojeno"
 
-#: Wammu/Main.py:795
+#: Wammu/Main.py:796
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
@@ -1812,74 +1812,74 @@ msgstr ""
 "Byly změněny parametry ovlivňující připojení k telefonu, budou použity při "
 "příštím připojení k telefonu."
 
-#: Wammu/Main.py:796
+#: Wammu/Main.py:797
 msgid "Notice"
 msgstr "Poznámka"
 
-#: Wammu/Main.py:843
+#: Wammu/Main.py:845
 msgid "Operation in progress"
 msgstr "Operace probíhá"
 
-#: Wammu/Main.py:896 Wammu/Main.py:910 Wammu/Main.py:920 Wammu/Main.py:928
+#: Wammu/Main.py:898 Wammu/Main.py:912 Wammu/Main.py:922 Wammu/Main.py:930
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
 #: Wammu/Browser.py:100 Wammu/Browser.py:117
 msgid "Location"
 msgstr "Umístění"
 
-#: Wammu/Main.py:897 Wammu/Editor.py:488
+#: Wammu/Main.py:899 Wammu/Editor.py:488
 msgid "Memory type"
 msgstr "Typ paměti"
 
-#: Wammu/Main.py:902
+#: Wammu/Main.py:904
 #, python-format
 msgid "voice tag %x"
 msgstr "zvukové vytáčení %x"
 
-#: Wammu/Main.py:908 Wammu/Browser.py:54 Wammu/Browser.py:69
+#: Wammu/Main.py:910 Wammu/Browser.py:54 Wammu/Browser.py:69
 #: Wammu/Browser.py:85
 msgid "Number"
 msgstr "Číslo"
 
-#: Wammu/Main.py:909 Wammu/Browser.py:70 Wammu/Browser.py:86
+#: Wammu/Main.py:911 Wammu/Browser.py:70 Wammu/Browser.py:86
 #: Wammu/Browser.py:104
 msgid "Date"
 msgstr "Datum"
 
-#: Wammu/Main.py:911
+#: Wammu/Main.py:913
 msgid "Folder"
 msgstr "Složka"
 
-#: Wammu/Main.py:912 Wammu/Browser.py:52
+#: Wammu/Main.py:914 Wammu/Browser.py:52
 msgid "Memory"
 msgstr "Pamět"
 
-#: Wammu/Main.py:913 Wammu/Info.py:140
+#: Wammu/Main.py:915 Wammu/Info.py:140
 msgid "SMSC"
 msgstr "SMSC"
 
-#: Wammu/Main.py:914 Wammu/Browser.py:84
+#: Wammu/Main.py:916 Wammu/Browser.py:84
 msgid "State"
 msgstr "Stav"
 
-#: Wammu/Main.py:916 Wammu/Browser.py:40 Wammu/Browser.py:53
+#: Wammu/Main.py:918 Wammu/Browser.py:40 Wammu/Browser.py:53
 #: Wammu/Browser.py:68 Wammu/Settings.py:166
 msgid "Name"
 msgstr "Jméno"
 
-#: Wammu/Main.py:921 Wammu/Browser.py:102 Wammu/Editor.py:504
+#: Wammu/Main.py:923 Wammu/Browser.py:102 Wammu/Editor.py:504
 msgid "Priority"
 msgstr "Priorita"
 
-#: Wammu/Main.py:922 Wammu/Main.py:929 Wammu/Browser.py:67
+#: Wammu/Main.py:924 Wammu/Main.py:931 Wammu/Browser.py:67
 #: Wammu/Browser.py:118
 msgid "Type"
 msgstr "Typ"
 
-#: Wammu/Main.py:956
+#: Wammu/Main.py:958
 msgid "Writing message(s)..."
 msgstr "Zapisuji zprávy..."
 
-#: Wammu/Main.py:986
+#: Wammu/Main.py:988
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1889,15 +1889,15 @@ msgstr ""
 "Gammu, prosím kontaktujte autory s ladicím logem této operace. Abyste viděli "
 "novou zprávu ve Wammu, musíte zprávy znovu načíst z telefonu."
 
-#: Wammu/Main.py:986
+#: Wammu/Main.py:988
 msgid "Could not read saved message!"
 msgstr "Nelze přečíst uloženou zprávu!"
 
-#: Wammu/Main.py:1014
+#: Wammu/Main.py:1016
 msgid "Writing contact..."
 msgstr "Zapisuji kontakty..."
 
-#: Wammu/Main.py:1039 Wammu/Main.py:1093 Wammu/Main.py:1140
+#: Wammu/Main.py:1041 Wammu/Main.py:1095 Wammu/Main.py:1142
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
@@ -1905,103 +1905,103 @@ msgstr ""
 "Nepodařilo se načíst uložený záznam! Může být zobrazen odlišně než je uložen "
 "v telefonu dokud nenačtete všechny záznamy."
 
-#: Wammu/Main.py:1039 Wammu/Main.py:1093 Wammu/Main.py:1140
+#: Wammu/Main.py:1041 Wammu/Main.py:1095 Wammu/Main.py:1142
 msgid "Could not read saved entry!"
 msgstr "Nelze přečíst uloženou položku!"
 
-#: Wammu/Main.py:1068
+#: Wammu/Main.py:1070
 msgid "Writing calendar..."
 msgstr "Zapisuji kalendář..."
 
-#: Wammu/Main.py:1115
+#: Wammu/Main.py:1117
 msgid "Writing todo..."
 msgstr "Zapisuji úkoly..."
 
-#: Wammu/Main.py:1159 Wammu/Main.py:1209 Wammu/Main.py:1229
+#: Wammu/Main.py:1161 Wammu/Main.py:1211 Wammu/Main.py:1231 Wammu/Main.py:1626
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr "S těmito daty nelze pracovat, prosím načtěte je nejdříve z telefonu"
 
-#: Wammu/Main.py:1159 Wammu/Main.py:1209 Wammu/Main.py:1229
+#: Wammu/Main.py:1161 Wammu/Main.py:1211 Wammu/Main.py:1231 Wammu/Main.py:1626
 msgid "Data not up to date"
 msgstr "Dana nejsou aktuální"
 
-#: Wammu/Main.py:1255
+#: Wammu/Main.py:1257
 msgid "Gammu messages backup"
 msgstr "Záloha zpráv Gammu"
 
-#: Wammu/Main.py:1259
+#: Wammu/Main.py:1261
 msgid "All backup formats"
 msgstr "Všechny zálohovací formáty"
 
-#: Wammu/Main.py:1261
+#: Wammu/Main.py:1263
 msgid "Gammu backup [all data]"
 msgstr "Záloha Gammu [všechna data]"
 
-#: Wammu/Main.py:1265
+#: Wammu/Main.py:1267
 msgid "Nokia backup [contacts]"
 msgstr "Záloha Nokia [kontakty]"
 
-#: Wammu/Main.py:1268
+#: Wammu/Main.py:1270
 msgid "vCard [contacts]"
 msgstr "vCard [kontakty]"
 
-#: Wammu/Main.py:1271
+#: Wammu/Main.py:1273
 msgid "LDIF [concacts]"
 msgstr "LDIF [kontakty]"
 
-#: Wammu/Main.py:1274
+#: Wammu/Main.py:1276
 msgid "vCalendar [todo,calendar]"
 msgstr "vCaledar [úkoly,kalendář]"
 
-#: Wammu/Main.py:1277
+#: Wammu/Main.py:1279
 msgid "iCalendar [todo,calendar]"
 msgstr "iCaledar [úkoly,kalendář]"
 
-#: Wammu/Main.py:1280 Wammu/Main.py:1872 Wammu/SMSExport.py:34
+#: Wammu/Main.py:1282 Wammu/Main.py:1878 Wammu/SMSExport.py:34
 #: Wammu/EditContactList.py:92
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: Wammu/Main.py:1284
+#: Wammu/Main.py:1286
 msgid "Save data as..."
 msgstr "Uložit data jako..."
 
-#: Wammu/Main.py:1286
+#: Wammu/Main.py:1288
 msgid "Read data"
 msgstr "Přečíst data"
 
-#: Wammu/Main.py:1289
+#: Wammu/Main.py:1291
 msgid "Save backup as..."
 msgstr "Uložit zálohu jako..."
 
-#: Wammu/Main.py:1291
+#: Wammu/Main.py:1293
 msgid "Import backup"
 msgstr "Importovat zálohu"
 
-#: Wammu/Main.py:1313
+#: Wammu/Main.py:1315
 msgid "Error while reading backup"
 msgstr "Chyba při čtení zálohy"
 
-#: Wammu/Main.py:1337 Wammu/Main.py:1353
+#: Wammu/Main.py:1339 Wammu/Main.py:1355
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "Data byla načtena ze souboru \"%s\""
 
-#: Wammu/Main.py:1363 Wammu/Main.py:1644
+#: Wammu/Main.py:1365 Wammu/Main.py:1650
 #, python-format
 msgid "%d messages"
 msgstr "%d zpráv"
 
-#: Wammu/Main.py:1367 Wammu/Main.py:1436
+#: Wammu/Main.py:1369 Wammu/Main.py:1438
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "V souboru \"%s\" nebyla nalezena žádná importovatelná data"
 
-#: Wammu/Main.py:1368 Wammu/Main.py:1437
+#: Wammu/Main.py:1370 Wammu/Main.py:1439
 msgid "No data to import"
 msgstr "Žádná data k importování"
 
-#: Wammu/Main.py:1372 Wammu/Main.py:1451
+#: Wammu/Main.py:1374 Wammu/Main.py:1453
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
@@ -2009,195 +2009,195 @@ msgstr ""
 "Následující data byla nalezena v záloze, vyberte, která z nich chcete nahrát "
 "do telefonu."
 
-#: Wammu/Main.py:1372 Wammu/Main.py:1451
+#: Wammu/Main.py:1374 Wammu/Main.py:1453
 msgid "Select what to import"
 msgstr "Vyberte co importovat"
 
-#: Wammu/Main.py:1383 Wammu/Main.py:1462
+#: Wammu/Main.py:1385 Wammu/Main.py:1464
 msgid "Importing data..."
 msgstr "Importuji data..."
 
-#: Wammu/Main.py:1411 Wammu/Main.py:1511
+#: Wammu/Main.py:1413 Wammu/Main.py:1513
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "Záloha byla importována ze souboru \"%s\""
 
-#: Wammu/Main.py:1412 Wammu/Main.py:1512
+#: Wammu/Main.py:1414 Wammu/Main.py:1514
 msgid "Backup imported"
 msgstr "Záloha importována"
 
-#: Wammu/Main.py:1423
+#: Wammu/Main.py:1425
 #, python-format
 msgid "%d phone contact entries"
 msgstr "%d kontaktů do telefonu"
 
-#: Wammu/Main.py:1426
+#: Wammu/Main.py:1428
 #, python-format
 msgid "%d SIM contact entries"
 msgstr "%d kontaktů na SIM kartu"
 
-#: Wammu/Main.py:1429
+#: Wammu/Main.py:1431
 #, python-format
 msgid "%d to do entries"
 msgstr "%d úkolů"
 
-#: Wammu/Main.py:1432 Wammu/Main.py:1648
+#: Wammu/Main.py:1434 Wammu/Main.py:1654
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d událostí kalendáře"
 
-#: Wammu/Main.py:1443
+#: Wammu/Main.py:1445
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "Záloha byla uložena z telefonu %s"
 
-#: Wammu/Main.py:1445
+#: Wammu/Main.py:1447
 #, python-format
 msgid ", serial number %s"
 msgstr ", sériové číslo %s"
 
-#: Wammu/Main.py:1447
+#: Wammu/Main.py:1449
 #, python-format
 msgid "Backup was created by %s"
 msgstr "Zálohu vytvořil %s"
 
-#: Wammu/Main.py:1449
+#: Wammu/Main.py:1451
 #, python-format
 msgid "Backup saved on %s"
 msgstr "Záloha byla uložena %s"
 
-#: Wammu/Main.py:1546
+#: Wammu/Main.py:1548
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "Záloha byla uložena do souboru \"%s\""
 
-#: Wammu/Main.py:1548
+#: Wammu/Main.py:1550
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "Data byla uložena do souboru \"%s\""
 
-#: Wammu/Main.py:1552
+#: Wammu/Main.py:1554
 msgid "Error while saving backup"
 msgstr "Chyba při ukládání zálohy"
 
-#: Wammu/Main.py:1625
+#: Wammu/Main.py:1631
 #, python-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Opravdu chcete smazat %s?"
 
-#: Wammu/Main.py:1629
+#: Wammu/Main.py:1635
 #, python-format
 msgid "contact \"%s\""
 msgstr "kontakt \"%s\""
 
-#: Wammu/Main.py:1631
+#: Wammu/Main.py:1637
 #, python-format
 msgid "call \"%s\""
 msgstr "hovor \"%s\""
 
-#: Wammu/Main.py:1633
+#: Wammu/Main.py:1639
 #, python-format
 msgid "message from \"%s\""
 msgstr "zprávu od \"%s\""
 
-#: Wammu/Main.py:1635
+#: Wammu/Main.py:1641
 #, python-format
 msgid "todo \"%s\""
 msgstr "úkol \"%s\""
 
-#: Wammu/Main.py:1637
+#: Wammu/Main.py:1643
 #, python-format
 msgid "calendar entry \"%s\""
 msgstr "událost v kalendáři \"%s\""
 
-#: Wammu/Main.py:1640
+#: Wammu/Main.py:1646
 #, python-format
 msgid "%d contacts"
 msgstr "%d kontaktů"
 
-#: Wammu/Main.py:1642
+#: Wammu/Main.py:1648
 #, python-format
 msgid "%d calls"
 msgstr "%d hovorů"
 
-#: Wammu/Main.py:1646
+#: Wammu/Main.py:1652
 #, python-format
 msgid "%d todo"
 msgstr "%d úkolů"
 
-#: Wammu/Main.py:1651 Wammu/Settings.py:294
+#: Wammu/Main.py:1657 Wammu/Settings.py:294
 msgid "Confirm deleting"
 msgstr "Potvrzovat mazání"
 
-#: Wammu/Main.py:1659
+#: Wammu/Main.py:1665
 msgid "Deleting contact(s)..."
 msgstr "Vymazávám kontakty..."
 
-#: Wammu/Main.py:1669
+#: Wammu/Main.py:1675
 msgid "Deleting message(s)..."
 msgstr "Vymazávám zprávy..."
 
-#: Wammu/Main.py:1680
+#: Wammu/Main.py:1686
 msgid "Deleting todo(s)..."
 msgstr "Vymazávám úkoly..."
 
-#: Wammu/Main.py:1690
+#: Wammu/Main.py:1696
 msgid "Deleting calendar event(s)..."
 msgstr "Vymazávám události v kalendáři..."
 
-#: Wammu/Main.py:1762
+#: Wammu/Main.py:1768
 msgid "Reading phone information"
 msgstr "Načítám informace o telefonu"
 
-#: Wammu/Main.py:1787
+#: Wammu/Main.py:1793
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Načítám hovory typu %s"
 
-#: Wammu/Main.py:1815
+#: Wammu/Main.py:1821
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Načítám kontakty z %s"
 
-#: Wammu/Main.py:1823
+#: Wammu/Main.py:1829
 msgid "Reading messages"
 msgstr "Načítám zprávy"
 
-#: Wammu/Main.py:1833
+#: Wammu/Main.py:1839
 msgid "Reading todos"
 msgstr "Načítám úkoly"
 
-#: Wammu/Main.py:1843
+#: Wammu/Main.py:1849
 msgid "Reading calendar"
 msgstr "Načítám kalendář"
 
-#: Wammu/Main.py:1853
+#: Wammu/Main.py:1859
 msgid "Setting time in phone..."
 msgstr "Nastavuji čas v telefonu..."
 
-#: Wammu/Main.py:1872
+#: Wammu/Main.py:1878
 msgid "Send file to phone"
 msgstr "Odeslat soubor do telefenu"
 
-#: Wammu/Main.py:1893
+#: Wammu/Main.py:1899
 msgid "Sending file to phone..."
 msgstr "Posílám soubor do telefonu..."
 
-#: Wammu/Main.py:1904 Wammu/EditContactList.py:176
+#: Wammu/Main.py:1910 Wammu/EditContactList.py:176
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr ""
 "Vybraný soubor \"%s\" se nepodařilo otevřít, žádná data nebyla načtena."
 
-#: Wammu/Main.py:1905 Wammu/EditContactList.py:177
+#: Wammu/Main.py:1911 Wammu/EditContactList.py:177
 msgid "File not found!"
 msgstr "Soubor nebyl nalezen!"
 
-#: Wammu/Main.py:1913
+#: Wammu/Main.py:1919
 msgid "One moment please, connecting to phone..."
 msgstr "Chvilku strpení, připojuji se k telefonu..."
 
-#: Wammu/Main.py:1969
+#: Wammu/Main.py:1975
 msgid "One moment please, disconnecting from phone..."
 msgstr "Chvilku strpení, odpojuji se od telefonu..."
 
