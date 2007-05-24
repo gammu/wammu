@@ -25,8 +25,13 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 import threading
+import os
 import os.path
 import sys
+try:
+    import grp
+except ImportError:
+    pass
 import Wammu
 if Wammu.gammu_error == None:
     import gammu
@@ -70,7 +75,7 @@ class LogDialog(wx.Dialog):
 
 
 class AllSearchThread(threading.Thread):
-    def __init__(self, lock = 'no', level = 'nothing', msgcallback = None, callback = None, win = None):
+    def __init__(self, lock = 'no', level = 'nothing', msgcallback = None, callback = None, win = None, noticecallback = None):
         threading.Thread.__init__(self)
         self.lock = lock
         self.list = []
@@ -80,6 +85,7 @@ class AllSearchThread(threading.Thread):
         self.threads = []
         self.callback = callback
         self.msgcallback = msgcallback
+        self.noticecallback = noticecallback
 
     def run(self):
         try:
@@ -87,8 +93,23 @@ class AllSearchThread(threading.Thread):
                 if dev[1].find('%d') >= 0:
                     for i in range(*dev[2]):
                         curdev = dev[1] % i
-                        if curdev[0] == '/' and not os.path.exists(curdev):
-                            continue
+                        if curdev[0] == '/':
+                            if not os.path.exists(curdev):
+                                continue
+                            if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
+                                gid =  os.stat(curdev).st_gid
+                                try:
+                                    group = grp.getgrgid(gid)[0]
+                                except NameError:
+                                    group = str(gid)
+                                if self.msgcallback != None:
+                                    self.msgcallback(_('You don\'t have permissions for %s device!') % curdev)
+                                if self.noticecallback != None:
+                                    self.noticecallback(
+                                            _('Error opening device'), 
+                                            (_('You don\'t have permissions for %s device!') % curdev) + ' ' +
+                                            (_('Maybe you need to be member of %s group.') % group))
+
                         t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level, self.win)
                         t.setName('%s - %s' % (curdev, str(dev[0])))
                         if self.msgcallback != None:
@@ -159,6 +180,10 @@ class AllSearchThread(threading.Thread):
                 except ImportError:
                     if self.msgcallback != None:
                         self.msgcallback(_('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
+                    if self.noticecallback != None:
+                        self.noticecallback(
+                                _('No bluetooth searching'), 
+                                _('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
 
             i = 0
             while len(self.threads) > 0:

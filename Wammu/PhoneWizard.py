@@ -139,6 +139,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
                 _('Phone searching status') + ':')
         self.Bind(Wammu.Events.EVT_DONE, self.OnDone)
         self.Bind(Wammu.Events.EVT_TEXT, self.OnText)
+        self.Bind(Wammu.Events.EVT_SHOW_MESSAGE, self.OnShowMessage)
         self.results = []
         self.thread = None
 
@@ -179,9 +180,17 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
                     lock = 'no',
                     callback = self.SearchDone,
                     msgcallback = self.SearchMessage,
+                    noticecallback = self.SearchNotice,
                     win = self)
             self.thread.start()
             self.results = []
+
+    def SearchNotice(self, title, text):
+        evt = Wammu.Events.ShowMessageEvent(
+            message = text,
+            title = title,
+            type = wx.ICON_WARNING)
+        wx.PostEvent(self, evt)
 
     def SearchMessage(self, text):
         """
@@ -200,6 +209,12 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
 
     def OnText(self, evt):
         self.edit.AppendText(StrConv(evt.text))
+
+    def OnShowMessage(self, evt):
+        wx.MessageDialog(self.parent,
+            StrConv(evt.message),
+            StrConv(evt.title),
+            wx.OK | evt.type).ShowModal()
 
     def OnDone(self, evt):
         """
