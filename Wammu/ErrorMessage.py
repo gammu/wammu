@@ -26,7 +26,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import wx
 import os
 import Wammu
-import webbrowser
+import Wammu.Webbrowser
 import Wammu.Paths
 import Wammu.ErrorLog
 
@@ -105,10 +105,10 @@ class ErrorMessage(wx.Dialog):
         '''
         Opens search for simmilar problems in browser.
         '''
-        webbrowser.open(BUG_SEARCH_URL % self.traceid)
+        Wammu.Webbrowser.Open(BUG_SEARCH_URL % self.traceid)
 
     def OnReport(self, evt):
         '''
         Opens web browser with bug reporting page.
         '''
-        webbrowser.open(BUG_REPORT_URL)
+        Wammu.Webbrowser.Open(BUG_REPORT_URL)

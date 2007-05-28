@@ -32,7 +32,7 @@ import datetime
 import time
 import copy
 import tempfile
-import webbrowser
+import Wammu.Webbrowser
 import locale
 import Wammu
 import re
@@ -2013,20 +2013,20 @@ class WammuFrame(wx.Frame):
         Wammu.About.AboutBox(self).ShowModal()
 
     def Website(self, evt = None):
-        webbrowser.open("http://%swammu.eu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
+        Wammu.Webbrowser.Open("http://%swammu.eu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def Support(self, evt = None):
-        webbrowser.open("http://%swammu.eu/support?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
+        Wammu.Webbrowser.Open("http://%swammu.eu/support?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def ReportBug(self, evt = None):
-        webbrowser.open("http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1")
+        Wammu.Webbrowser.Open("http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1")
 
     def PhoneDB(self, evt = None):
-        webbrowser.open("http://%scihar.com/gammu/phonedb" % Wammu.Utils.GetWebsiteLang())
+        Wammu.Webbrowser.Open("http://%scihar.com/gammu/phonedb" % Wammu.Utils.GetWebsiteLang())
 
     def Talkback(self, evt = None):
         Wammu.TalkbackDialog.DoTalkback(self, self.cfg, 0)
 
     def Donate(self, evt = None):
-        webbrowser.open("http://%swammu.eu/donate?src=wammu" % Wammu.Utils.GetWebsiteLang())
+        Wammu.Webbrowser.Open("http://%swammu.eu/donate?src=wammu" % Wammu.Utils.GetWebsiteLang())
 

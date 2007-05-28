@@ -27,7 +27,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import httplib
 import urllib
-import webbrowser
+import Wammu.Webbrowser
 import re
 import wx
 import Wammu.TalkbackFeaturesDialog
@@ -241,7 +241,7 @@ def DoTalkback(parent, config, phoneid = 0):
                 _('Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\nDo you want to open it in browser now?') % url,
                 _('Entry created!'),
                 wx.YES_NO | wx.ICON_INFORMATION).ShowModal() == wx.ID_YES:
-                webbrowser.open(url)
+                Wammu.Webbrowser.Open(url)
             config.Write('/Wammu/TalkbackDone', 'yes')
             break
         fail_test = fail_matcher.match(data)
