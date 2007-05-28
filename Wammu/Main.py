@@ -829,6 +829,9 @@ class WammuFrame(wx.Frame):
             print 'Failed to unlink temporary log file, please delete it yourself'
             print 'Filename: %s' % self.logfilename
 
+        # Forcibily save configuration
+        self.cfg.Flush()
+
         # tell the window to kill itself
         self.Destroy()
 

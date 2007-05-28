@@ -90,6 +90,9 @@ class WammuConfig:
         self.gammu = None
         self.InitGammu()
 
+    def Flush(self):
+        self.cfg.Flush()
+
     def InitGammu(self, path = None):
         '''
         Initializes gammu configuration as sub part of this class.
