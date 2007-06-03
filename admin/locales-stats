@@ -1,0 +1,6 @@
+#!/bin/sh
+for x in locale/*/wammu.po  ; do 
+    lang=`echo $x | sed 's@locale/\(.*\)/wammu.po@\1@'`
+    echo -n "$lang: "
+    msgfmt --statistics -o - $x > /dev/null
+done
