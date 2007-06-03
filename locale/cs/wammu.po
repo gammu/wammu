@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-05-28 09:14+0200\n"
+"POT-Creation-Date: 2007-06-03 18:34+0200\n"
 "PO-Revision-Date: 2007-05-07 11:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -13,6 +13,791 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: Wammu/Error.py:51
+#, python-format
+msgid ""
+"Debug log was saved for phone communication, if this error appeared during "
+"communicating with phone, you are strongly encouraged to include it in "
+"bugreport. Debug log is saved in file %s."
+msgstr ""
+"Ladicí informace o komunikaci s telefonem byly uloženy. Pokud tato chyba "
+"nastala při komunikaci s telefonem připojte prosím tento log k hlášení "
+"chyby. Log je uložen v souboru %s."
+
+#: Wammu/Error.py:74
+#, python-format
+msgid "Before submiting please try searching for simmilar bugs on %s"
+msgstr "Před odesláním prosím zkuste vyhledat podobné chyby na %s"
+
+#: Wammu/Error.py:84
+msgid ""
+"Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
+msgstr ""
+"Chyba souvisí s unicode, přečtě si prosím otázku 1 ve FAQ jak tento problém "
+"řešit."
+
+#: Wammu/Error.py:100
+msgid "Unhandled exception appeared."
+msgstr "Vyskytla se nezachycená výjimka."
+
+#: Wammu/Error.py:101
+#, python-format
+msgid ""
+"If you want to help improving this program, please submit following "
+"infomation and description how did it happen to %s. Please report in "
+"english, otherwise you will be most likely told to translate you report to "
+"english later."
+msgstr ""
+"Pokud chcete pomoci vylepšit tento program, odešlete následující informace a "
+"popis jak k této situaci dočlo na %s. Pro hlášení prosím použijte "
+"angličtinu, jinak budete pravděpodobně později požádáni o přeložení."
+
+#: Wammu/Error.py:118
+msgid ""
+"Unhandled exception appeared. If you want to help improving this program, "
+"please report this together with description how this situation has "
+"happened. Please report in english, otherwise you will be most likely told "
+"to translate you report to english later."
+msgstr ""
+"Vyskytla se nezachycená výjimka. Pokud chcete pomoci vylepšit tento program, "
+"prosím nahlašte tuto chybu spolu s postupem, jak k ní došlo. Pro hlášení "
+"prosím použijte angličtinu, jinak budete pravděpodobně později požádáni o "
+"přeložení do ní."
+
+#: Wammu/Error.py:119
+msgid "Unhandled exception"
+msgstr "Nezachycená výjimka"
+
+#: Wammu/Error.py:121
+#, python-format
+msgid ""
+"Traceback:\n"
+"%(traceback)s\n"
+"Exception: %(exception)s"
+msgstr "Traceback:%(traceback)sVýjimka: %(exception)s"
+
+#: Wammu/PhoneWizard.py:44
+msgid "Configuration done"
+msgstr "Nastavení hotovo"
+
+#: Wammu/PhoneWizard.py:45
+msgid "Thank you for configuring phone connection."
+msgstr "Děkuji za nastavení připojení k telefonu."
+
+#: Wammu/PhoneWizard.py:47
+msgid "You can enter any name which you will use to identify your phone."
+msgstr ""
+"Můžete zde zadat libovolné jméno, které použijete pro identifikaci telefonu."
+
+#: Wammu/PhoneWizard.py:65
+msgid "Connection test"
+msgstr "Zkouška připojení"
+
+#: Wammu/PhoneWizard.py:69 Wammu/PhoneWizard.py:83
+msgid "Wammu is now testing phone connection, please wait..."
+msgstr "Wammu právě testuje připojení k telefonu, prosím čekejte..."
+
+#: Wammu/PhoneWizard.py:93 Wammu/PhoneWizard.py:116
+msgid "Phone not found!"
+msgstr "Telefon nebyl nalezen!"
+
+#: Wammu/PhoneWizard.py:101
+msgid "Phone has been found."
+msgstr "Byl nalezen telefon."
+
+#: Wammu/PhoneWizard.py:102
+#, python-format
+msgid ""
+"Manufacturer: %(manufacturer)s\n"
+"Model: %(model)s"
+msgstr ""
+"Výrobce: %(manufacturer)s\n"
+"Model: %(model)s"
+
+#: Wammu/PhoneWizard.py:109 Wammu/PhoneWizard.py:126
+msgid "Phone connection test is still active, you can not continue."
+msgstr "Probíhá test telefonu, nemůžete pokračovat."
+
+#: Wammu/PhoneWizard.py:110 Wammu/PhoneWizard.py:127
+msgid "Testing still active!"
+msgstr "Testování ještě probíhá!"
+
+#: Wammu/PhoneWizard.py:115
+msgid "Phone has not been found, are you sure you want to continue?"
+msgstr "Telefon nebyl nalezen, jste si jisti, že chcete pokračovat?"
+
+#: Wammu/PhoneWizard.py:138
+msgid "Phone search"
+msgstr "Hledání telefonu"
+
+#: Wammu/PhoneWizard.py:139
+msgid "Phone searching status"
+msgstr "Stav hledání telefonu"
+
+#: Wammu/PhoneWizard.py:153 Wammu/PhoneWizard.py:169
+msgid "Phone search is still active, you can not continue."
+msgstr "Hledání telefonu ještě neskončilo, nemůžete pokračovat."
+
+#: Wammu/PhoneWizard.py:154 Wammu/PhoneWizard.py:170
+msgid "Searching still active!"
+msgstr "Hledání ještě probíhá!"
+
+#: Wammu/PhoneWizard.py:159
+msgid "No phone has not been found, you can not continue."
+msgstr "Žádný telefon nebyl nazelezen, nemůžete pokračovat."
+
+#: Wammu/PhoneWizard.py:160
+msgid "No phone found!"
+msgstr "Žádný telefon nenalezen!"
+
+#: Wammu/PhoneWizard.py:178
+msgid "Wammu is now searching for phone:"
+msgstr "Wammu právě hledá telefon:"
+
+#: Wammu/PhoneWizard.py:224
+msgid "No phone has been found!"
+msgstr "Žádný telefon nenalezen!"
+
+#: Wammu/PhoneWizard.py:232 Wammu/PhoneWizard.py:256
+#, python-format
+msgid ""
+"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
+"(connection)s"
+msgstr ""
+"Model %(model)s (%(manufacturer)s) na portu %(port)s používající připojení %"
+"(connection)s"
+
+#: Wammu/PhoneWizard.py:239
+msgid "Select phone to use from bellow list"
+msgstr "Vyberte telefon, který chcete použít, ze seznamu"
+
+#: Wammu/PhoneWizard.py:239
+msgid "Select phone"
+msgstr "Vyberte telefon"
+
+#: Wammu/PhoneWizard.py:254
+msgid "Following phone will be used:"
+msgstr "Bude použit následující telefon:"
+
+#: Wammu/PhoneWizard.py:264
+msgid "No phone selected!"
+msgstr "Nebyl vybrán žádný telefon!"
+
+#: Wammu/PhoneWizard.py:273 Wammu/PhoneWizard.py:452
+msgid "Manual configuration"
+msgstr "Ruční nastavení"
+
+#: Wammu/PhoneWizard.py:275
+msgid "Port where phone is connected"
+msgstr "Zařízení na kterém je připojen telefon"
+
+#: Wammu/PhoneWizard.py:276 Wammu/PhoneWizard.py:367
+msgid "Connection type"
+msgstr "Typ připojení"
+
+#: Wammu/PhoneWizard.py:293 Wammu/PhoneWizard.py:325
+msgid "You need to select port which will be used."
+msgstr "Musíte zvolit port, který bude použit."
+
+#: Wammu/PhoneWizard.py:294 Wammu/PhoneWizard.py:326
+msgid "No port selected!"
+msgstr "Nebyl vybrán žádný port!"
+
+#: Wammu/PhoneWizard.py:299
+msgid "You need to select connection type which will be used."
+msgstr "Musíte zvolit typ připojení, který bude použit."
+
+#: Wammu/PhoneWizard.py:300
+msgid "No connection selected!"
+msgstr "Nebylo vybráno žádné připojení!"
+
+#: Wammu/PhoneWizard.py:312
+msgid "Phone port"
+msgstr "Port telefonu"
+
+#: Wammu/PhoneWizard.py:313
+msgid "Please enter port where phone is connected"
+msgstr "Zadejte port, na kterém je připojen telefon"
+
+#: Wammu/PhoneWizard.py:340 Wammu/PhoneWizard.py:344
+msgid "Driver to use"
+msgstr "Zvolte ovladač"
+
+#: Wammu/PhoneWizard.py:341
+msgid ""
+"Sorry no driver matches your configuration, please return back and try "
+"different settings or manual configuration."
+msgstr ""
+"Omlouváme se, ale žádný ovladač neodpovídá vaší konfiguraci. Prosím vraťte "
+"se zpět a zkuste to znovu s jinými nastaveními nebo ruční konfigurací."
+
+#: Wammu/PhoneWizard.py:345
+msgid "Please select which driver you want to use"
+msgstr "Prosím zvolte ovladač, který chcete použít"
+
+#: Wammu/PhoneWizard.py:368
+msgid "Please select connection type"
+msgstr "Prosím zvolte typ připojení"
+
+#: Wammu/PhoneWizard.py:388
+msgid "Phone type"
+msgstr "Typ telefonu"
+
+#: Wammu/PhoneWizard.py:389
+msgid "Please select phone type"
+msgstr "Prosím vyberte typ telefonu"
+
+#: Wammu/PhoneWizard.py:413
+msgid "Search all connections"
+msgstr "Prohledat všechna připojení"
+
+#: Wammu/PhoneWizard.py:414
+msgid ""
+"Wizard will search for all possible connections. It might take quite long "
+"time to search all possible connection types."
+msgstr ""
+"Průvodce prohledá všechny možné druhy připojení. Toto může trvat trochu déle."
+
+#: Wammu/PhoneWizard.py:417
+msgid "USB cable"
+msgstr "USB kabel"
+
+#: Wammu/PhoneWizard.py:418
+msgid ""
+"Many phones now come with USB cable, select this if you're using this "
+"connection type."
+msgstr ""
+"Mnoho telefonů je dnes dodáváno s USB kabelem, zvolte toto, pokud používáte "
+"tento způsob připojení."
+
+#: Wammu/PhoneWizard.py:421
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: Wammu/PhoneWizard.py:422
+msgid ""
+"Bluetooth connection is wireless and does not require direct visibility. "
+"Phone needs to be properly paired with computer before proceeding."
+msgstr ""
+"Bluetooth je bezdrátové připojení a nepožaduje přímou viditelnost. Telefon "
+"musí být spárován s počítačem než budete pokračovat."
+
+#: Wammu/PhoneWizard.py:425
+msgid "IrDA"
+msgstr "IrDA"
+
+#: Wammu/PhoneWizard.py:426
+msgid ""
+"IrDA wireless connection requires direct visibility, please make sure this "
+"is fullfilled and computer can see phone."
+msgstr ""
+"Bezdrátové připojení IrDA vyžaduje přímou viditelnost, prosím ujistěte se, "
+"že je splněna a počítač telefon vidí."
+
+#: Wammu/PhoneWizard.py:429
+msgid "Serial cable"
+msgstr "Sériový kabel"
+
+#: Wammu/PhoneWizard.py:430
+msgid ""
+"This is not often used connection, but was very popular for older phones."
+msgstr ""
+"Toto není často používané připojení, ale u starších telefonů se vyskutovalo "
+"často."
+
+#: Wammu/PhoneWizard.py:433 Wammu/Settings.py:152
+msgid "Phone connection"
+msgstr "Připojení telefonu"
+
+#: Wammu/PhoneWizard.py:434
+msgid "How is your phone connected?"
+msgstr "Jak je připojen váš telefon?"
+
+#: Wammu/PhoneWizard.py:447
+msgid "Configuration type"
+msgstr "Způsob nastavení"
+
+#: Wammu/PhoneWizard.py:448
+msgid "How do you want to configure your phone connection?"
+msgstr "Jak chcete nastavit připojení vašeho telefonu?"
+
+#: Wammu/PhoneWizard.py:450
+msgid "Automatically search for a phone"
+msgstr "Automaticky najít telefon"
+
+#: Wammu/PhoneWizard.py:451
+msgid "Guided configuration"
+msgstr "Vedené nastavení"
+
+#: Wammu/PhoneWizard.py:456
+msgid "Wizard will attempt to search phone on usual ports."
+msgstr "Průvodce se pokusí nalézt telefon na obvyklých portech."
+
+#: Wammu/PhoneWizard.py:457
+msgid ""
+"You will be guided through configuration by phone connection type and vendor."
+msgstr ""
+"Budete provedeni nastavením podle typu připojení telefonu a jeho výrobce."
+
+#: Wammu/PhoneWizard.py:458
+msgid ""
+"You know what you are doing and know exact parameters you need for "
+"connecting to phone."
+msgstr "Vite co děláte a znáte přesné parametry pro připojení telefonu."
+
+#: Wammu/PhoneWizard.py:464
+msgid ""
+"If you have no idea how to configure your phone connection, you can look at "
+"Gammu Phone Database for other users experiences:"
+msgstr ""
+"Pokud nevíte jak připojení k telefonu nastavit, můžete se podívat do "
+"dababáze telefonů Gammu, kde ostatní uživatelé zapsali své zkušenosti:"
+
+#: Wammu/PhoneWizard.py:478
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: Wammu/PhoneWizard.py:479
+msgid "This wizard will help you with configuring phone connection in Wammu."
+msgstr "Tento průvodce vám pomůže nastavit připojení telefonu ve Wammu."
+
+#: Wammu/PhoneWizard.py:482
+msgid ""
+"Please make sure you have phone ready, powered on and one of connection "
+"methods is set up:"
+msgstr ""
+"Prosím ujistěte se, že máte telefon připravený - je zapnutý a připojení, "
+"které chcete použít je připraveno:"
+
+#: Wammu/PhoneWizard.py:484
+msgid "Cable is connected."
+msgstr "Kabel je připojený."
+
+#: Wammu/PhoneWizard.py:486
+msgid "You have enabled IrDA and phone is in visible range."
+msgstr "Máte zapnuté IrDA a telefon je ve viditelném dosahu od počítače."
+
+#: Wammu/PhoneWizard.py:488
+msgid "You have paired Bluetooth with computer."
+msgstr "Máte spárovaný Bluetooth s počítačem."
+
+#: Wammu/PhoneWizard.py:490
+msgid "As soon as your phone is ready, you can continue."
+msgstr "V okamžiku, kdy je váš telefon připojen, můžete pokračovat."
+
+#: Wammu/PhoneWizard.py:499
+msgid "Wammu Phone Configuration Wizard"
+msgstr "Průvodce připojení telefonu Wammu"
+
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:190
+msgid "Manufacturer"
+msgstr "Výrobce"
+
+#: Wammu/Info.py:57
+msgid "Model (Gammu identification)"
+msgstr "Model (identifikace Gammu)"
+
+#: Wammu/Info.py:58
+msgid "Model (real)"
+msgstr "Model (skutečný)"
+
+#: Wammu/Info.py:71
+msgid "Firmware"
+msgstr "Firmware"
+
+#: Wammu/Info.py:73
+msgid "Firmware date"
+msgstr "Datum firmware"
+
+#: Wammu/Info.py:75
+msgid "Firmware (numeric)"
+msgstr "Firmware (číslo verze)"
+
+#: Wammu/Info.py:88
+msgid "Serial number (IMEI)"
+msgstr "Sériové číslo (IMEI)"
+
+#: Wammu/Info.py:101
+msgid "Original IMEI"
+msgstr "Původní IMEI"
+
+#: Wammu/Info.py:114
+msgid "Product code"
+msgstr "Kód produktu"
+
+#: Wammu/Info.py:127
+msgid "SIM IMSI"
+msgstr "SIM IMSI"
+
+#: Wammu/Info.py:140 Wammu/Main.py:918
+msgid "SMSC"
+msgstr "SMSC"
+
+#: Wammu/Info.py:153
+msgid "Hardware"
+msgstr "Hardware"
+
+#: Wammu/Info.py:166
+msgid "Manufacture month"
+msgstr "Měsíc výroby"
+
+#: Wammu/Info.py:179
+msgid "Language packs in phone"
+msgstr "Jazyky dostupné v telefonu"
+
+#: Wammu/TalkbackFeaturesDialog.py:37
+msgid ""
+"Select which functionality works without problems on your phone (either in "
+"Wammu or in some other tool using Gammu library)."
+msgstr ""
+"Zvolte které funkce fungují bez problémů s vaším telefonem (buď ve Wammu "
+"nebo v jiném nástroji, který používá knihovnu Gammu)."
+
+#: Wammu/TalkbackFeaturesDialog.py:39
+msgid "Phone information"
+msgstr "Informace o telefonu"
+
+#: Wammu/TalkbackFeaturesDialog.py:40
+msgid "Sending and saving SMS"
+msgstr "Posílání a ukládání SMS"
+
+#: Wammu/TalkbackFeaturesDialog.py:41
+msgid "Multimedia messaging"
+msgstr "Multimediální zprávy"
+
+#: Wammu/TalkbackFeaturesDialog.py:42
+msgid "Basic phonebook functions"
+msgstr "Základní funkce seznamu"
+
+#: Wammu/TalkbackFeaturesDialog.py:43
+msgid "Enhanced phonebook entries"
+msgstr "Rozšířené záznamy v seznamu"
+
+#: Wammu/TalkbackFeaturesDialog.py:44
+msgid "Calendar entries"
+msgstr "Kalendář"
+
+#: Wammu/TalkbackFeaturesDialog.py:45 Wammu/Main.py:125 Wammu/Main.py:299
+msgid "Todos"
+msgstr "Úkoly"
+
+#: Wammu/TalkbackFeaturesDialog.py:46
+msgid "Filesystem manipulation"
+msgstr "Práce se soubory"
+
+#: Wammu/TalkbackFeaturesDialog.py:47
+msgid "Reading and making calls"
+msgstr "Čtení a provádění hovorů"
+
+#: Wammu/TalkbackFeaturesDialog.py:48
+msgid "Logos"
+msgstr "Loga"
+
+#: Wammu/TalkbackFeaturesDialog.py:49
+msgid "Ringtones"
+msgstr "Melodie"
+
+#: Wammu/TalkbackFeaturesDialog.py:60
+msgid "Select features"
+msgstr "Vyberte funkce"
+
+#: Wammu/TalkbackFeaturesDialog.py:61
+msgid "You can access name and phone number."
+msgstr "Přístup ke jménu a telefonnímu číslu."
+
+#: Wammu/TalkbackFeaturesDialog.py:62
+msgid ""
+"You have access to more phone numbers per entry or additional fields as "
+"email."
+msgstr ""
+"Máte přístup k více číslům v záznamu nebo k dalším položkám, jako třeba "
+"emailu."
+
+#: Wammu/TalkbackDialog.py:48
+msgid ""
+"Please share your experiences with Wammu and Gammu which is backend library. "
+"When you fill in following form, other users can benefit from your "
+"experiences in Gammu Phone Database. Only information you see here will be "
+"submited."
+msgstr ""
+"Prosím sdělte svoje zkušenosti s Wammu a Gammu, což je knihovna, kterou "
+"Wammu používá. Po vyplnění následujícího formuláře, budou k dispozici "
+"ostatním uživatelů v databázi telefonů Gammu. Odeslány jsou jen informace, "
+"které zde vidíte."
+
+#: Wammu/TalkbackDialog.py:50
+msgid "Manufacturer:"
+msgstr "Výrobce:"
+
+#: Wammu/TalkbackDialog.py:52
+msgid "Phone model:"
+msgstr "Model telefonu:"
+
+#: Wammu/TalkbackDialog.py:54
+msgid "Connection type:"
+msgstr "Typ připojení:"
+
+#: Wammu/TalkbackDialog.py:56
+msgid "Model in gammu configuration:"
+msgstr "Model v nastavení gammu:"
+
+#: Wammu/TalkbackDialog.py:58
+msgid "Working features:"
+msgstr "Fungující funkce:"
+
+#: Wammu/TalkbackDialog.py:59
+msgid "Please select features..."
+msgstr "Prosím zvolte funkce..."
+
+#: Wammu/TalkbackDialog.py:60
+msgid "Gammu version:"
+msgstr "Verze Gammu:"
+
+#: Wammu/TalkbackDialog.py:62
+msgid "Note:"
+msgstr "Poznámka:"
+
+#: Wammu/TalkbackDialog.py:64
+msgid "Your name:"
+msgstr "Vaše jméno:"
+
+#: Wammu/TalkbackDialog.py:66
+msgid "Your email:"
+msgstr "Váš email:"
+
+#: Wammu/TalkbackDialog.py:68
+msgid "Email displaying:"
+msgstr "Zobrazení emailu:"
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Use [at] and [dot]"
+msgstr "Použít [at] a [dot]"
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Insert NOSPAM text at random position"
+msgstr "Vložit text NOSPAM na náhodnou pozici"
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Display it normally"
+msgstr "Zobrazit normálně"
+
+#: Wammu/TalkbackDialog.py:69
+msgid "Don't show email at all"
+msgstr "Vůbec email nezobrazovat"
+
+#: Wammu/TalkbackDialog.py:104
+msgid "Gammu Phone Database Talkback"
+msgstr "Reakce do databáze telefonů Gammu"
+
+#: Wammu/TalkbackDialog.py:105
+msgid "Select which features work correctly with your phone"
+msgstr "Zvolte funkce, které fungují s vaším telefonem správně"
+
+#: Wammu/TalkbackDialog.py:106
+msgid "This information is automatically included in report."
+msgstr "Tato informace je automaticky začleněna ve zprávě."
+
+#: Wammu/TalkbackDialog.py:107
+msgid "Describe some glitches of this phone or other experiences with Gammu."
+msgstr ""
+"Popište zde problémy s telefonem nebo jiné zkušenosti s provozem Gammu."
+
+#: Wammu/TalkbackDialog.py:108
+msgid ""
+"Please enter valid mail here, choose display options bellow. Your email "
+"won't be given or sold to anybody."
+msgstr ""
+"Prosím zadejte zde platný email a zvolte níže jak má být zobrazen. Tento "
+"emal nebude nikomu dán ani prodán."
+
+#: Wammu/TalkbackDialog.py:109
+msgid ""
+"If you don't want to display email clear text, please select one mangling "
+"option."
+msgstr ""
+"Pokud nechcete zobrazit email čitelně, prosím zvolte jednu z možností jak ho "
+"znečitelnit."
+
+#: Wammu/TalkbackDialog.py:181 Wammu/TalkbackDialog.py:190
+#: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:251
+#, python-format
+msgid ""
+"Entry in Gammu Phone Database was not created, following fields are "
+"invalid:\n"
+"%s"
+msgstr ""
+"Položka v databázi telefonů Gammu nebyla vytvořena, následující položky jsou "
+"chybné:\n"
+"%s"
+
+#: Wammu/TalkbackDialog.py:181
+msgid "Supported features"
+msgstr "Podporované funce"
+
+#: Wammu/TalkbackDialog.py:182 Wammu/TalkbackDialog.py:191
+#: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:233
+#: Wammu/TalkbackDialog.py:252
+msgid "Entry not created!"
+msgstr "Nepodařilo se vytvořit položku!"
+
+#: Wammu/TalkbackDialog.py:199
+msgid "Email displaying"
+msgstr "Zobrazení emailu"
+
+#: Wammu/TalkbackDialog.py:229
+#, python-format
+msgid ""
+"HTTP request failed with status %(code)d (%(text)s), please retry later or "
+"create entry manually."
+msgstr ""
+"HTTP požadavek selhal s chybou %(code)d (%(text)s), prosím zkuste to znovu "
+"později nebo vyplňte záznam na stránkách."
+
+#: Wammu/TalkbackDialog.py:241
+#, python-format
+msgid ""
+"Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
+"Do you want to open it in browser now?"
+msgstr ""
+"Položka v databázi telefonů Gammu byla vytvořena, můžete si ji prohlédnout "
+"na URL <%s>.\n"
+"Chcete ji nyní otevřít v prohlížeči?"
+
+#: Wammu/TalkbackDialog.py:242
+msgid "Entry created!"
+msgstr "Položka vytvořena!"
+
+#: Wammu/ErrorMessage.py:61
+#, python-format
+msgid ""
+"Debug log has been automatically saved to %s, you are strongly encouraged to "
+"include it in bugreport."
+msgstr ""
+"Ladicí log byl automaticky uložen do %s, prosím připojte ho ke hlášení chyby."
+
+#: Wammu/ErrorMessage.py:71
+msgid "Save debug log..."
+msgstr "Uložit ladicí hlášky..."
+
+#: Wammu/ErrorMessage.py:76
+msgid "Search for similar reports"
+msgstr "Hledat podobné chyby"
+
+#: Wammu/ErrorMessage.py:80
+msgid "Report bug"
+msgstr "Nahlásit chybu"
+
+#: Wammu/ErrorMessage.py:96
+msgid "Save debug log as..."
+msgstr "Uložit ladicí hlášky jako..."
+
+#: Wammu/PhoneSearch.py:44
+msgid "Phone searching log"
+msgstr "Průběh hledání telefonu"
+
+#: Wammu/PhoneSearch.py:52 Wammu/Main.py:566
+msgid "Close"
+msgstr "Zavřít"
+
+#: Wammu/PhoneSearch.py:106 Wammu/PhoneSearch.py:110
+#, fuzzy, python-format
+msgid "You don't have permissions for %s device!"
+msgstr "Nemusíte zde zadávat nic."
+
+#: Wammu/PhoneSearch.py:109
+msgid "Error opening device"
+msgstr ""
+
+#: Wammu/PhoneSearch.py:111
+#, fuzzy, python-format
+msgid "Maybe you need to be member of %s group."
+msgstr "Pro přístup k zařízení možná musíte být členem nějaké skupiny."
+
+#: Wammu/PhoneSearch.py:116
+#, python-format
+msgid "Starting %s"
+msgstr "Začínám %s"
+
+#: Wammu/PhoneSearch.py:133 Wammu/PhoneSearch.py:163
+#, python-format
+msgid "Scanning for bluetooth devices using %s"
+msgstr "Vyhledávám zařízení Bluetooth pomocí %s"
+
+#: Wammu/PhoneSearch.py:139 Wammu/PhoneSearch.py:169
+msgid "No bluetooth device found"
+msgstr "Žádná Bluetooth nebyla nalezena"
+
+#: Wammu/PhoneSearch.py:145 Wammu/PhoneSearch.py:175
+#, python-format
+msgid "Checking %s"
+msgstr "Zkoumám %s"
+
+#: Wammu/PhoneSearch.py:149 Wammu/PhoneSearch.py:179
+msgid "Bluetooth device scan completed"
+msgstr "Vyhledávání Bluetooth zařízení dokončeno"
+
+#: Wammu/PhoneSearch.py:152
+#, python-format
+msgid "Could not access Bluetooth subsystem (%s)"
+msgstr "Nelze pracovat s Bluetooth (%s)"
+
+#: Wammu/PhoneSearch.py:182 Wammu/PhoneSearch.py:186
+msgid ""
+"Neither GNOME Bluetooth nor PyBluez found, not possible to scan for "
+"bluetooth devices"
+msgstr ""
+"Rozšíření GNOME Bluetooth ani PyBluez nebyla nalezena, není možné hledat "
+"Bluetooth zařízení"
+
+#: Wammu/PhoneSearch.py:185
+#, fuzzy
+msgid "No bluetooth searching"
+msgstr "AT příkazy přes Bluetooth s vyledáváním RF"
+
+#: Wammu/PhoneSearch.py:194
+#, python-format
+msgid "Finished %s"
+msgstr "Dokončeno %s"
+
+#: Wammu/PhoneSearch.py:199
+#, python-format
+msgid "All finished, found %d phones"
+msgstr "Vše ukončeno, nalezeno %d telefonů"
+
+#: Wammu/Thread.py:55 Wammu/Main.py:840
+msgid "Error while communicating with phone"
+msgstr "Chyba při komunikaci s telefonem"
+
+#: Wammu/Thread.py:56 Wammu/Main.py:841 Wammu/Main.py:1319 Wammu/Main.py:1558
+msgid "Error Occured"
+msgstr "Objevila se chyba"
+
+#: Wammu/Thread.py:91
+msgid "Action canceled by user!"
+msgstr "Akce zrušena uživatelem!"
+
+#: Wammu/Thread.py:92
+msgid "Action canceled"
+msgstr "Akce zrušena"
+
+#: Wammu/MessageDisplay.py:107
+#, python-format
+msgid "Predefined animation number %d"
+msgstr "Předdefinovaná animace číslo %d"
+
+#: Wammu/MessageDisplay.py:119
+#, python-format
+msgid "Unknown predefined sound #%d"
+msgstr "Neznámý předdefinovaný zvuk #%d"
+
+#: Wammu/MessageDisplay.py:162
+msgid ""
+"Some parts of this message were not decoded correctly, probably due to "
+"missing support for it in Gammu."
+msgstr ""
+"Některé části zprávy nebyly správně dekódovány, pravděpodobně kvůli "
+"chybějící podpoře v Gammu."
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -63,6 +848,18 @@ msgstr ""
 "JAKÉKOLI ZÁRUKY; neposkytují se ani odvozené záruky PRODEJNOSTI anebo\n"
 "VHODNOSTI PRO URČITÝ ÚČEL.  Další podrobnosti hledejte v Obecné\n"
 "veřejné licenci GNU.\n"
+
+#: Wammu/App.py:68
+msgid "Failed to set exception handler."
+msgstr "Nepodařilo se nastavit obsluhu výjimek."
+
+#: Wammu/Ringtone.py:48
+msgid "Could not find timidity, melody can not be played"
+msgstr "Nelze najít timidity, melodie nebude přehrána"
+
+#: Wammu/Ringtone.py:49
+msgid "Timidity not found"
+msgstr "Timidity nenalezeno"
 
 #: Wammu/SettingsStorage.py:93
 msgid "I don't know"
@@ -446,8 +1243,8 @@ msgstr "Zvolte předdefinovanou animaci:"
 msgid "Select predefined sound:"
 msgstr "Zvolte předdefinovaný zvuk:"
 
-#: Wammu/Composer.py:312 Wammu/Main.py:235 Wammu/Browser.py:87
-#: Wammu/Browser.py:103 Wammu/Browser.py:121
+#: Wammu/Composer.py:312 Wammu/Browser.py:87 Wammu/Browser.py:103
+#: Wammu/Browser.py:121 Wammu/Main.py:235
 msgid "Text"
 msgstr "Text"
 
@@ -581,27 +1378,509 @@ msgstr "Zpráva je prázdná!"
 msgid "Message will fit into %d SMSes"
 msgstr "Zpráva se vejde do %d SMS"
 
-#: Wammu/App.py:68
-msgid "Failed to set exception handler."
-msgstr "Nepodařilo se nastavit obsluhu výjimek."
+#: Wammu/EditContactList.py:43
+msgid "Available contacts:"
+msgstr "Dostupné kontakty:"
 
-#: Wammu/MessageDisplay.py:107
+#: Wammu/EditContactList.py:47
+msgid "Current recipients:"
+msgstr "Seznam příjemců:"
+
+#: Wammu/EditContactList.py:91
+msgid "Contact list"
+msgstr "Kontakty"
+
+#: Wammu/EditContactList.py:92 Wammu/SMSExport.py:34 Wammu/Main.py:1285
+#: Wammu/Main.py:1881
+msgid "All files"
+msgstr "Všechny soubory"
+
+#: Wammu/EditContactList.py:95
+msgid "Edit contacts list"
+msgstr "Upravit seznam příjemců"
+
+#: Wammu/EditContactList.py:148 Wammu/EditContactList.py:163
+msgid "Load contacts from file"
+msgstr "Načíst kontakty ze souboru"
+
+#: Wammu/EditContactList.py:158
 #, python-format
-msgid "Predefined animation number %d"
-msgstr "Předdefinovaná animace číslo %d"
+msgid "Selected file \"%s\" could not be written."
+msgstr "Nepodařilo se zapsat do vybraného souboru \"%s\"."
 
-#: Wammu/MessageDisplay.py:119
+#: Wammu/EditContactList.py:159
+msgid "File can not be created!"
+msgstr "Soubor se nepodařilo vytvořit!"
+
+#: Wammu/EditContactList.py:176 Wammu/Main.py:1913
 #, python-format
-msgid "Unknown predefined sound #%d"
-msgstr "Neznámý předdefinovaný zvuk #%d"
-
-#: Wammu/MessageDisplay.py:162
-msgid ""
-"Some parts of this message were not decoded correctly, probably due to "
-"missing support for it in Gammu."
+msgid "Selected file \"%s\" was not found, no data read."
 msgstr ""
-"Některé části zprávy nebyly správně dekódovány, pravděpodobně kvůli "
-"chybějící podpoře v Gammu."
+"Vybraný soubor \"%s\" se nepodařilo otevřít, žádná data nebyla načtena."
+
+#: Wammu/EditContactList.py:177 Wammu/Main.py:1914
+msgid "File not found!"
+msgstr "Soubor nebyl nalezen!"
+
+#: Wammu/Settings.py:38 Wammu/Main.py:561
+msgid "Settings"
+msgstr "Nastavení"
+
+#: Wammu/Settings.py:84
+msgid "Please enter here path to gammu configuration file you want to use."
+msgstr "Prosím zadejte zde cestu k nastavením gammu, která chcete používat."
+
+#: Wammu/Settings.py:87
+msgid "Gammurc path"
+msgstr "Cesta ke gammurc"
+
+#: Wammu/Settings.py:91
+msgid "You can configure connection parameters on Connection tab."
+msgstr "Parametry připojení můžete změnit na záložce Připojení."
+
+#: Wammu/Settings.py:97
+msgid "Automatically connect to phone on startup"
+msgstr "Automaticky připojit při spuštění programu"
+
+#: Wammu/Settings.py:98
+msgid ""
+"Whether you want application automatically connect to phone when it is "
+"started."
+msgstr "Zda se má aplikace automaticky připojit k telefonu při spuštění."
+
+#: Wammu/Settings.py:103
+msgid "Show debug log"
+msgstr "Zobrazit ladicí hlášky"
+
+#: Wammu/Settings.py:104
+msgid "Show debug information on error output."
+msgstr "Zobrazit ladicí informace na chybový výstup."
+
+#: Wammu/Settings.py:109
+msgid "Synchronize time"
+msgstr "Synchronizovat čas"
+
+#: Wammu/Settings.py:110
+msgid "Synchronise time in phone with computer time while connecting."
+msgstr "Synchronizovat čas v telefonu s časem v počítači při připojování."
+
+#: Wammu/Settings.py:115
+msgid "Startup information"
+msgstr "Informace o spouštění"
+
+#: Wammu/Settings.py:116
+msgid "Display startup on phone (not supported by all models)."
+msgstr ""
+"Zobrazit na telefonu informace o spuštění komunikace (toto není podporováno "
+"všemi telefony)."
+
+#: Wammu/Settings.py:123
+msgid "Lock device"
+msgstr "Zamykat zařízení"
+
+#: Wammu/Settings.py:124
+msgid ""
+"Whether to lock device in /var/lock. On some systems you might lack "
+"privileges to do so."
+msgstr ""
+"Jesli má být zařízení zamknuto ve /var/lock. Na některých systémech pro to "
+"nemusíte mít opravnění."
+
+#: Wammu/Settings.py:165
+msgid "Name for this configuration."
+msgstr "Pojmenujte toto připojení."
+
+#: Wammu/Settings.py:166 Wammu/Browser.py:40 Wammu/Browser.py:53
+#: Wammu/Browser.py:68 Wammu/Main.py:921
+msgid "Name"
+msgstr "Jméno"
+
+#: Wammu/Settings.py:171
+msgid "Device, where your phone is connected."
+msgstr "Zařízení na kterém je připojen telefon."
+
+#: Wammu/Settings.py:172
+msgid "Device"
+msgstr "Zařízení"
+
+#: Wammu/Settings.py:177
+msgid ""
+"Connection which your phone understands, check Gammu documentation for "
+"connection details."
+msgstr ""
+"Připojení, kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
+"dostupné možnosti."
+
+#: Wammu/Settings.py:178 Wammu/Settings.py:356
+msgid "Connection"
+msgstr "Připojení"
+
+#: Wammu/Settings.py:183
+msgid ""
+"Phone model, you can usually keep here auto unless you have any problems."
+msgstr ""
+"Model telefonu obvykle můžete ponechat auto pokud s tím nemáte problémy."
+
+#: Wammu/Settings.py:186
+msgid "Model"
+msgstr "Model"
+
+#: Wammu/Settings.py:211
+msgid ""
+"Whether images in messages should be scaled when displayed. This is usually "
+"good idea as they are pretty small."
+msgstr ""
+"Jestli mají být zvětšeny obrázky ve zprávách. Obvykle to je vhodné, protože "
+"jsou vemli malé."
+
+#: Wammu/Settings.py:212
+msgid "Scale images"
+msgstr "Zvětšení obrázků"
+
+#: Wammu/Settings.py:216
+msgid "Attempt to reformat text"
+msgstr "Pokusit se přeformátovat text"
+
+#: Wammu/Settings.py:217
+msgid ""
+"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
+"interested in this choice."
+msgstr ""
+"Pokud občas dostáváte \"komprimované\" zprávy jakoJEtentoTEXT, měli byste "
+"tuto volbu zapnout."
+
+#: Wammu/Settings.py:243
+msgid "Create unicode message"
+msgstr "Vytvářet zprávu v unicode"
+
+#: Wammu/Settings.py:249
+msgid "Request delivery report by default"
+msgstr "Požadovat doručenku pro zprávu"
+
+#: Wammu/Settings.py:255
+msgid "Use 16bit Id"
+msgstr "Použít 16-bitové Id"
+
+#: Wammu/Settings.py:256
+msgid "Use 16 bit Id inside message. This is safe for most cases."
+msgstr "Použít 16-bitové Id uvnitř zprávy. Toto je obvykle nejlepší volba."
+
+#: Wammu/Settings.py:289
+msgid ""
+"How often refresh phone state in application status bar. Enter value in "
+"miliseconds, 0 to disable."
+msgstr ""
+"Jak často má být aktualizován stavu telefonu v milisekundách. Zadání 0 "
+"aktualizaci vypne."
+
+#: Wammu/Settings.py:290
+msgid "Refresh phone state"
+msgstr "Obnovit stav telefonu"
+
+#: Wammu/Settings.py:294 Wammu/Main.py:1660
+msgid "Confirm deleting"
+msgstr "Potvrzovat mazání"
+
+#: Wammu/Settings.py:295
+msgid "Whether to ask for confirmation when deleting entries."
+msgstr "Zda se má program požadovat potvrzení mazání položek."
+
+#: Wammu/Settings.py:300
+msgid "Task bar icon"
+msgstr "Ikona v systémové oblasti"
+
+#: Wammu/Settings.py:301
+msgid "Show icon in task bar."
+msgstr "Zobrazit ikonu v systémové oblasti."
+
+#: Wammu/Settings.py:319
+msgid "Default time to be used for newly created time fields."
+msgstr "Výchozí čas, který bude použitý pro nově vytvořené položky."
+
+#: Wammu/Settings.py:320
+msgid "Default time"
+msgstr "Výchozí čas"
+
+#: Wammu/Settings.py:326
+msgid ""
+"Default date to be used for newly created time fields. Enter amount of days "
+"from today (1 = tommorow)."
+msgstr ""
+"Výchozí datum požité pro nově vytvořené položky. Zadejte počet dní od dneška "
+"(1 = zítra)."
+
+#: Wammu/Settings.py:327
+msgid "Default time = now + x days"
+msgstr "Výchozí datum = dnes + x dní"
+
+#: Wammu/Settings.py:333
+msgid "How many entries will be shown in newly created item."
+msgstr "Kolik záznamů bude v nově vytvořené položce."
+
+#: Wammu/Settings.py:334
+msgid "Entries for new item"
+msgstr "Záznamy v nové položce"
+
+#: Wammu/Settings.py:341
+msgid "Prefix for non international phone numbers."
+msgstr "Prefix pro místní telefonní čísla."
+
+#: Wammu/Settings.py:342
+msgid "Number prefix"
+msgstr "Prefix čísel"
+
+#: Wammu/Settings.py:355
+msgid "Gammu"
+msgstr "Gammu"
+
+#: Wammu/Settings.py:357 Wammu/Main.py:118 Wammu/Main.py:297
+msgid "Messages"
+msgstr "Zprávy"
+
+#: Wammu/Settings.py:358
+msgid "Other"
+msgstr "Ostatní"
+
+#: Wammu/SMSExport.py:35
+msgid "Select mailbox file..."
+msgstr "Vyberte soubor mailboxu..."
+
+#: Wammu/SMSExport.py:42
+msgid "Saving messages to mailbox"
+msgstr "Ukládám zprávy do mailboxu"
+
+#: Wammu/SMSExport.py:48 Wammu/SMSExport.py:65 Wammu/SMSExport.py:109
+#: Wammu/SMSExport.py:124 Wammu/SMSExport.py:139 Wammu/SMSExport.py:229
+#: Wammu/SMSExport.py:259 Wammu/SMSExport.py:266 Wammu/SMSExport.py:283
+msgid "Export terminated"
+msgstr "Export přerušen"
+
+#: Wammu/SMSExport.py:61 Wammu/SMSExport.py:135
+#, python-format
+msgid "Creating of file %s failed, bailing out."
+msgstr "Vytváření souboru %s selhalo, končím."
+
+#: Wammu/SMSExport.py:62 Wammu/SMSExport.py:136
+msgid "Can not create file!"
+msgstr "Nepodařilo se vytvořit soubor!"
+
+#: Wammu/SMSExport.py:70 Wammu/SMSExport.py:145 Wammu/SMSExport.py:294
+#, python-format
+msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
+msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
+
+#: Wammu/SMSExport.py:70
+msgid "mailbox"
+msgstr "mailbox"
+
+#: Wammu/SMSExport.py:74
+msgid "Select maildir directory where to save files"
+msgstr "Zvolte složku maildiru ve které budou uloženy soubory"
+
+#: Wammu/SMSExport.py:85
+msgid ""
+"Selected folder does not contain new subfolder and thus probably is not "
+"valid maildir.\n"
+"\n"
+"Do you want to create new subfolder and export to it?"
+msgstr ""
+"Zvolená složka neobsahuje podsložku new a proto se pravděpodobně nejedná o "
+"maildir.\n"
+"\n"
+"Chcete podsložku new vytvořit a exportovat do ní?"
+
+#: Wammu/SMSExport.py:86
+msgid "Folder doesn't look like maildir!"
+msgstr "Složka nevypadá jako maildir!"
+
+#: Wammu/SMSExport.py:98
+msgid "Creating of folder failed, bailing out."
+msgstr "Vytváření složky selhalo, končím."
+
+#: Wammu/SMSExport.py:99
+msgid "Can not create folder!"
+msgstr "Nepodařilo se vytvořit složku!"
+
+#: Wammu/SMSExport.py:105
+msgid "Saving messages to maildir"
+msgstr "Ukládám zprávy do maildiru"
+
+#: Wammu/SMSExport.py:118
+#, python-format
+msgid ""
+"Output file already exists, this usually means that this message was already "
+"saved there.\n"
+"\n"
+"Do you wish to overwrite file %s?"
+msgstr ""
+"Výstupní soubor již existuje, což je obvykle způsobené předchozím exportem "
+"této zprávy.\n"
+"\n"
+"Přejete si přepsat soubor %s?"
+
+#: Wammu/SMSExport.py:119
+msgid "File already exists!"
+msgstr "Soubor již existuje!"
+
+#: Wammu/SMSExport.py:145
+msgid "maildir"
+msgstr "maildir"
+
+#: Wammu/SMSExport.py:151
+msgid "Do you wish to use SSL while uploading messages to IMAP server?"
+msgstr "Přejete si pro komunikaci s IMAP serverem použít SSL?"
+
+#: Wammu/SMSExport.py:152
+msgid "Use SSL?"
+msgstr "Použít SSL?"
+
+#: Wammu/SMSExport.py:158
+msgid "Please enter server name"
+msgstr "Prosím zadejte jméno serveru"
+
+#: Wammu/SMSExport.py:159
+msgid "Server name"
+msgstr "Jméno serveru"
+
+#: Wammu/SMSExport.py:168
+#, python-format
+msgid "Please enter login on server %s"
+msgstr "Prosím zadejte uživatelské jméno na server %s"
+
+#: Wammu/SMSExport.py:169
+msgid "Login"
+msgstr "Uživatelské jméno"
+
+#: Wammu/SMSExport.py:182
+#, python-format
+msgid "Please enter password for %(login)s@%(server)s"
+msgstr "Prosím zadejte heslo pro %(login)s@%(server)s"
+
+#: Wammu/SMSExport.py:183
+msgid "Password"
+msgstr "Heslo"
+
+#: Wammu/SMSExport.py:189
+msgid "Connecting to IMAP server..."
+msgstr "Připojuji se na IMAP server..."
+
+#: Wammu/SMSExport.py:205
+msgid ""
+"Can not login, you probably entered invalid login information. Do you want "
+"to retry?"
+msgstr ""
+"Nepodařilo se přihlásit, pravděpodobně jste zadali špatné přihlašovací "
+"informace. Chcete to zkusit znovu?"
+
+#: Wammu/SMSExport.py:206
+msgid "Login failed!"
+msgstr "Přihlášení selhalo!"
+
+#: Wammu/SMSExport.py:212
+msgid ""
+"Connection suceeded, do you want to remember password? This is a bit "
+"insecure."
+msgstr ""
+"Připojení se podařilo, přejete si uložit heslo? Toto není zrovna bezpečné."
+
+#: Wammu/SMSExport.py:213
+msgid "Save password?"
+msgstr "Uložit heslo?"
+
+#: Wammu/SMSExport.py:218
+msgid "Listing folders on IMAP server..."
+msgstr "Získávám seznam složek na IMAP serveru..."
+
+#: Wammu/SMSExport.py:226
+msgid "Can not list folders on server, bailing out."
+msgstr "Nepodařilo se získat seznam složek na serveru, končím."
+
+#: Wammu/SMSExport.py:227
+msgid "Listing failed!"
+msgstr "Vypisování selhalo!"
+
+#: Wammu/SMSExport.py:240
+#, python-format
+msgid "Please select folder on server %s where messages will be stored"
+msgstr "Prosím vyberte složku ve které budou zprávy na serveru %s uloženy"
+
+#: Wammu/SMSExport.py:241
+msgid "Select folder"
+msgstr "Vyberte složku"
+
+#: Wammu/SMSExport.py:248
+msgid "Selecting folder on IMAP server..."
+msgstr "Vybírám složku na IMAP serveru..."
+
+#: Wammu/SMSExport.py:256
+#, python-format
+msgid "Can not select folder %s on server, bailing out."
+msgstr "Nepodařilo se vybrat složku %s, končím."
+
+#: Wammu/SMSExport.py:257
+msgid "Selecting failed!"
+msgstr "Vybírání selhalo!"
+
+#: Wammu/SMSExport.py:262
+msgid "Saving messages to IMAP"
+msgstr "Ukládám zprávy na IMAP"
+
+#: Wammu/SMSExport.py:278
+#, python-format
+msgid "Can not save message to folder %s on server, bailing out."
+msgstr "Nepodařilo se zapsat zprávu do složky %s na serveru, končím."
+
+#: Wammu/SMSExport.py:279
+msgid "Saving failed!"
+msgstr "Ukládání selhalo!"
+
+#: Wammu/SMSExport.py:294
+msgid "IMAP server"
+msgstr "IMAP server"
+
+#: Wammu/SMSExport.py:298
+msgid "Where do you want to export emails created from your messages?"
+msgstr "Kam chcete uložit emaily vytvořené z vašich zpráv?"
+
+#: Wammu/SMSExport.py:298
+msgid "Select export type"
+msgstr "Vyberte typ exportu"
+
+#: Wammu/SMSExport.py:299
+msgid "Mailbox file"
+msgstr "Soubor mailboxu"
+
+#: Wammu/SMSExport.py:299
+msgid "Maildir folder"
+msgstr "Složka maildiru"
+
+#: Wammu/SMSExport.py:299
+msgid "IMAP account"
+msgstr "Účet IMAP"
+
+#: Wammu/Select.py:42
+msgid "Select contact from bellow list"
+msgstr "Zvolte kontakt ze seznamu"
+
+#: Wammu/Select.py:42
+msgid "Select contact"
+msgstr "Zvolte kontakt"
+
+#: Wammu/Select.py:71
+msgid "Select number for selected contact"
+msgstr "Zvolte telefonní číslo vybraného kontaku"
+
+#: Wammu/Select.py:71
+msgid "Select phone number"
+msgstr "Vyberte telefonní číslo"
+
+#: Wammu/PhoneValidator.py:89
+msgid "You did not specify valid phone number."
+msgstr "Nebylo zadáno správné telefonní číslo."
+
+#: Wammu/PhoneValidator.py:90
+msgid "Invalid phone number"
+msgstr "Chybné telefonní číslo"
 
 #: Wammu/Logger.py:94
 msgid "Wammu debug log"
@@ -610,6 +1889,149 @@ msgstr "Ladicí hlášky Wammu"
 #: Wammu/Logger.py:101
 msgid "Here will appear debug messages from Gammu...\n"
 msgstr "Zde budou zobrazeny ladicí hlášky od Gammu...\n"
+
+#: Wammu/Browser.py:41
+msgid "Value"
+msgstr "Hodnota"
+
+#: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:901
+#: Wammu/Main.py:915 Wammu/Main.py:925 Wammu/Main.py:933
+msgid "Location"
+msgstr "Umístění"
+
+#: Wammu/Browser.py:52 Wammu/Main.py:917
+msgid "Memory"
+msgstr "Pamět"
+
+#: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
+#: Wammu/Main.py:913
+msgid "Number"
+msgstr "Číslo"
+
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:927
+#: Wammu/Main.py:934
+msgid "Type"
+msgstr "Typ"
+
+#: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
+#: Wammu/Main.py:914
+msgid "Date"
+msgstr "Datum"
+
+#: Wammu/Browser.py:84 Wammu/Main.py:919
+msgid "State"
+msgstr "Stav"
+
+#: Wammu/Browser.py:101
+msgid "Completed"
+msgstr "Hotovo"
+
+#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:926
+msgid "Priority"
+msgstr "Priorita"
+
+#: Wammu/Browser.py:119
+msgid "Start"
+msgstr "Začátek"
+
+#: Wammu/Browser.py:120
+msgid "End"
+msgstr "Konec"
+
+#: Wammu/Browser.py:122
+msgid "Alarm"
+msgstr "Upozornění"
+
+#: Wammu/Browser.py:123
+msgid "Recurrence"
+msgstr "Opakování"
+
+#: Wammu/Browser.py:508
+msgid "Resend"
+msgstr "Přeposlat"
+
+#: Wammu/Browser.py:510
+msgid "Send"
+msgstr "Odeslat"
+
+#: Wammu/Browser.py:513
+msgid "Reply"
+msgstr "Odpovědět"
+
+#: Wammu/Browser.py:515 Wammu/Browser.py:520
+msgid "Call"
+msgstr "Zavolat"
+
+#: Wammu/Browser.py:526
+msgid "Duplicate"
+msgstr "Duplikovat"
+
+#: Wammu/Browser.py:529
+msgid "Delete current"
+msgstr "Smazat aktuální"
+
+#: Wammu/Browser.py:530
+msgid "Delete selected"
+msgstr "Smazat vybrané"
+
+#: Wammu/Browser.py:533
+msgid "Backup current"
+msgstr "Zálohovat aktuální"
+
+#: Wammu/Browser.py:534
+msgid "Backup selected"
+msgstr "Zálohovat vybrané"
+
+#: Wammu/Browser.py:535
+msgid "Backup all"
+msgstr "Zálohovat všechny"
+
+#: Wammu/Editor.py:211 Wammu/Editor.py:415 Wammu/Data.py:526
+msgid "None"
+msgstr "Žádné"
+
+#: Wammu/Editor.py:215 Wammu/Editor.py:419 Wammu/Main.py:593 Wammu/Main.py:609
+msgid "Unknown"
+msgstr "Neznámý"
+
+#: Wammu/Editor.py:232
+#, python-format
+msgid "Creating new %s"
+msgstr "Vytvářím nový %s"
+
+#: Wammu/Editor.py:235
+#, python-format
+msgid "Editing %(name)s %(location)s"
+msgstr "Upravuji %(name)s %(location)s"
+
+#: Wammu/Editor.py:253
+msgid "Location (0 = auto):"
+msgstr "Umístění (0 = automaticky):"
+
+#: Wammu/Editor.py:278
+msgid "Add one more field."
+msgstr "Přidat další položku."
+
+#: Wammu/Editor.py:488
+msgid "contact"
+msgstr "kontakt"
+
+#: Wammu/Editor.py:488 Wammu/Main.py:902
+msgid "Memory type"
+msgstr "Typ paměti"
+
+#: Wammu/Editor.py:496
+msgid "calendar event"
+msgstr "událost kalendáře"
+
+#: Wammu/Editor.py:496
+msgid "Event type"
+msgstr "Typ události"
+
+#: Wammu/Editor.py:504
+msgid "todo item"
+msgstr "úkol"
 
 #: Wammu/GammuSettings.py:142
 msgid "Create new configuration"
@@ -630,617 +2052,306 @@ msgstr "Zvolte sekci konfigurace kterou chcete upravit."
 msgid "Select configuration section"
 msgstr "Zvolte sekci konfigurace"
 
-#: Wammu/PhoneWizard.py:44
-msgid "Configuration done"
-msgstr "Nastavení hotovo"
-
-#: Wammu/PhoneWizard.py:45
-msgid "Thank you for configuring phone connection."
-msgstr "Děkuji za nastavení připojení k telefonu."
-
-#: Wammu/PhoneWizard.py:47
-msgid "You can enter any name which you will use to identify your phone."
-msgstr ""
-"Můžete zde zadat libovolné jméno, které použijete pro identifikaci telefonu."
-
-#: Wammu/PhoneWizard.py:65
-msgid "Connection test"
-msgstr "Zkouška připojení"
-
-#: Wammu/PhoneWizard.py:69 Wammu/PhoneWizard.py:83
-msgid "Wammu is now testing phone connection, please wait..."
-msgstr "Wammu právě testuje připojení k telefonu, prosím čekejte..."
-
-#: Wammu/PhoneWizard.py:93 Wammu/PhoneWizard.py:116
-msgid "Phone not found!"
-msgstr "Telefon nebyl nalezen!"
-
-#: Wammu/PhoneWizard.py:101
-msgid "Phone has been found."
-msgstr "Byl nalezen telefon."
-
-#: Wammu/PhoneWizard.py:102
-#, python-format
-msgid ""
-"Manufacturer: %(manufacturer)s\n"
-"Model: %(model)s"
-msgstr ""
-"Výrobce: %(manufacturer)s\n"
-"Model: %(model)s"
-
-#: Wammu/PhoneWizard.py:109 Wammu/PhoneWizard.py:126
-msgid "Phone connection test is still active, you can not continue."
-msgstr "Probíhá test telefonu, nemůžete pokračovat."
-
-#: Wammu/PhoneWizard.py:110 Wammu/PhoneWizard.py:127
-msgid "Testing still active!"
-msgstr "Testování ještě probíhá!"
-
-#: Wammu/PhoneWizard.py:115
-msgid "Phone has not been found, are you sure you want to continue?"
-msgstr "Telefon nebyl nalezen, jste si jisti, že chcete pokračovat?"
-
-#: Wammu/PhoneWizard.py:138
-msgid "Phone search"
-msgstr "Hledání telefonu"
-
-#: Wammu/PhoneWizard.py:139
-msgid "Phone searching status"
-msgstr "Stav hledání telefonu"
-
-#: Wammu/PhoneWizard.py:153 Wammu/PhoneWizard.py:169
-msgid "Phone search is still active, you can not continue."
-msgstr "Hledání telefonu ještě neskončilo, nemůžete pokračovat."
-
-#: Wammu/PhoneWizard.py:154 Wammu/PhoneWizard.py:170
-msgid "Searching still active!"
-msgstr "Hledání ještě probíhá!"
-
-#: Wammu/PhoneWizard.py:159
-msgid "No phone has not been found, you can not continue."
-msgstr "Žádný telefon nebyl nazelezen, nemůžete pokračovat."
-
-#: Wammu/PhoneWizard.py:160
-msgid "No phone found!"
-msgstr "Žádný telefon nenalezen!"
-
-#: Wammu/PhoneWizard.py:178
-msgid "Wammu is now searching for phone:"
-msgstr "Wammu právě hledá telefon:"
-
-#: Wammu/PhoneWizard.py:224
-msgid "No phone has been found!"
-msgstr "Žádný telefon nenalezen!"
-
-#: Wammu/PhoneWizard.py:232 Wammu/PhoneWizard.py:256
-#, python-format
-msgid ""
-"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
-"(connection)s"
-msgstr ""
-"Model %(model)s (%(manufacturer)s) na portu %(port)s používající připojení %"
-"(connection)s"
-
-#: Wammu/PhoneWizard.py:239
-msgid "Select phone to use from bellow list"
-msgstr "Vyberte telefon, který chcete použít, ze seznamu"
-
-#: Wammu/PhoneWizard.py:239
-msgid "Select phone"
-msgstr "Vyberte telefon"
-
-#: Wammu/PhoneWizard.py:254
-msgid "Following phone will be used:"
-msgstr "Bude použit následující telefon:"
-
-#: Wammu/PhoneWizard.py:264
-msgid "No phone selected!"
-msgstr "Nebyl vybrán žádný telefon!"
-
-#: Wammu/PhoneWizard.py:273 Wammu/PhoneWizard.py:452
-msgid "Manual configuration"
-msgstr "Ruční nastavení"
-
-#: Wammu/PhoneWizard.py:275
-msgid "Port where phone is connected"
-msgstr "Zařízení na kterém je připojen telefon"
-
-#: Wammu/PhoneWizard.py:276 Wammu/PhoneWizard.py:367
-msgid "Connection type"
-msgstr "Typ připojení"
-
-#: Wammu/PhoneWizard.py:293 Wammu/PhoneWizard.py:325
-msgid "You need to select port which will be used."
-msgstr "Musíte zvolit port, který bude použit."
-
-#: Wammu/PhoneWizard.py:294 Wammu/PhoneWizard.py:326
-msgid "No port selected!"
-msgstr "Nebyl vybrán žádný port!"
-
-#: Wammu/PhoneWizard.py:299
-msgid "You need to select connection type which will be used."
-msgstr "Musíte zvolit typ připojení, který bude použit."
-
-#: Wammu/PhoneWizard.py:300
-msgid "No connection selected!"
-msgstr "Nebylo vybráno žádné připojení!"
-
-#: Wammu/PhoneWizard.py:312
-msgid "Phone port"
-msgstr "Port telefonu"
-
-#: Wammu/PhoneWizard.py:313
-msgid "Please enter port where phone is connected"
-msgstr "Zadejte port, na kterém je připojen telefon"
-
-#: Wammu/PhoneWizard.py:340 Wammu/PhoneWizard.py:344
-msgid "Driver to use"
-msgstr "Zvolte ovladač"
-
-#: Wammu/PhoneWizard.py:341
-msgid ""
-"Sorry no driver matches your configuration, please return back and try "
-"different settings or manual configuration."
-msgstr ""
-"Omlouváme se, ale žádný ovladač neodpovídá vaší konfiguraci. Prosím vraťte "
-"se zpět a zkuste to znovu s jinými nastaveními nebo ruční konfigurací."
-
-#: Wammu/PhoneWizard.py:345
-msgid "Please select which driver you want to use"
-msgstr "Prosím zvolte ovladač, který chcete použít"
-
-#: Wammu/PhoneWizard.py:368
-msgid "Please select connection type"
-msgstr "Prosím zvolte typ připojení"
-
-#: Wammu/PhoneWizard.py:388
-msgid "Phone type"
-msgstr "Typ telefonu"
-
-#: Wammu/PhoneWizard.py:389
-msgid "Please select phone type"
-msgstr "Prosím vyberte typ telefonu"
-
-#: Wammu/PhoneWizard.py:413
-msgid "Search all connections"
-msgstr "Prohledat všechna připojení"
-
-#: Wammu/PhoneWizard.py:414
-msgid ""
-"Wizard will search for all possible connections. It might take quite long "
-"time to search all possible connection types."
-msgstr ""
-"Průvodce prohledá všechny možné druhy připojení. Toto může trvat trochu déle."
-
-#: Wammu/PhoneWizard.py:417
-msgid "USB cable"
-msgstr "USB kabel"
-
-#: Wammu/PhoneWizard.py:418
-msgid ""
-"Many phones now come with USB cable, select this if you're using this "
-"connection type."
-msgstr ""
-"Mnoho telefonů je dnes dodáváno s USB kabelem, zvolte toto, pokud používáte "
-"tento způsob připojení."
-
-#: Wammu/PhoneWizard.py:421
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: Wammu/PhoneWizard.py:422
-msgid ""
-"Bluetooth connection is wireless and does not require direct visibility. "
-"Phone needs to be properly paired with computer before proceeding."
-msgstr ""
-"Bluetooth je bezdrátové připojení a nepožaduje přímou viditelnost. Telefon "
-"musí být spárován s počítačem než budete pokračovat."
-
-#: Wammu/PhoneWizard.py:425
-msgid "IrDA"
-msgstr "IrDA"
-
-#: Wammu/PhoneWizard.py:426
-msgid ""
-"IrDA wireless connection requires direct visibility, please make sure this "
-"is fullfilled and computer can see phone."
-msgstr ""
-"Bezdrátové připojení IrDA vyžaduje přímou viditelnost, prosím ujistěte se, "
-"že je splněna a počítač telefon vidí."
-
-#: Wammu/PhoneWizard.py:429
-msgid "Serial cable"
-msgstr "Sériový kabel"
-
-#: Wammu/PhoneWizard.py:430
-msgid ""
-"This is not often used connection, but was very popular for older phones."
-msgstr ""
-"Toto není často používané připojení, ale u starších telefonů se vyskutovalo "
-"často."
-
-#: Wammu/PhoneWizard.py:433 Wammu/Settings.py:152
-msgid "Phone connection"
-msgstr "Připojení telefonu"
-
-#: Wammu/PhoneWizard.py:434
-msgid "How is your phone connected?"
-msgstr "Jak je připojen váš telefon?"
-
-#: Wammu/PhoneWizard.py:447
-msgid "Configuration type"
-msgstr "Způsob nastavení"
-
-#: Wammu/PhoneWizard.py:448
-msgid "How do you want to configure your phone connection?"
-msgstr "Jak chcete nastavit připojení vašeho telefonu?"
-
-#: Wammu/PhoneWizard.py:450
-msgid "Automatically search for a phone"
-msgstr "Automaticky najít telefon"
-
-#: Wammu/PhoneWizard.py:451
-msgid "Guided configuration"
-msgstr "Vedené nastavení"
-
-#: Wammu/PhoneWizard.py:456
-msgid "Wizard will attempt to search phone on usual ports."
-msgstr "Průvodce se pokusí nalézt telefon na obvyklých portech."
-
-#: Wammu/PhoneWizard.py:457
-msgid ""
-"You will be guided through configuration by phone connection type and vendor."
-msgstr ""
-"Budete provedeni nastavením podle typu připojení telefonu a jeho výrobce."
-
-#: Wammu/PhoneWizard.py:458
-msgid ""
-"You know what you are doing and know exact parameters you need for "
-"connecting to phone."
-msgstr "Vite co děláte a znáte přesné parametry pro připojení telefonu."
-
-#: Wammu/PhoneWizard.py:464
-msgid ""
-"If you have no idea how to configure your phone connection, you can look at "
-"Gammu Phone Database for other users experiences:"
-msgstr ""
-"Pokud nevíte jak připojení k telefonu nastavit, můžete se podívat do "
-"dababáze telefonů Gammu, kde ostatní uživatelé zapsali své zkušenosti:"
-
-#: Wammu/PhoneWizard.py:478
-msgid "Welcome"
-msgstr "Vítejte"
-
-#: Wammu/PhoneWizard.py:479
-msgid "This wizard will help you with configuring phone connection in Wammu."
-msgstr "Tento průvodce vám pomůže nastavit připojení telefonu ve Wammu."
-
-#: Wammu/PhoneWizard.py:482
-msgid ""
-"Please make sure you have phone ready, powered on and one of connection "
-"methods is set up:"
-msgstr ""
-"Prosím ujistěte se, že máte telefon připravený - je zapnutý a připojení, "
-"které chcete použít je připraveno:"
-
-#: Wammu/PhoneWizard.py:484
-msgid "Cable is connected."
-msgstr "Kabel je připojený."
-
-#: Wammu/PhoneWizard.py:486
-msgid "You have enabled IrDA and phone is in visible range."
-msgstr "Máte zapnuté IrDA a telefon je ve viditelném dosahu od počítače."
-
-#: Wammu/PhoneWizard.py:488
-msgid "You have paired Bluetooth with computer."
-msgstr "Máte spárovaný Bluetooth s počítačem."
-
-#: Wammu/PhoneWizard.py:490
-msgid "As soon as your phone is ready, you can continue."
-msgstr "V okamžiku, kdy je váš telefon připojen, můžete pokračovat."
-
-#: Wammu/PhoneWizard.py:499
-msgid "Wammu Phone Configuration Wizard"
-msgstr "Průvodce připojení telefonu Wammu"
-
-#: Wammu/Ringtone.py:48
-msgid "Could not find timidity, melody can not be played"
-msgstr "Nelze najít timidity, melodie nebude přehrána"
-
-#: Wammu/Ringtone.py:49
-msgid "Timidity not found"
-msgstr "Timidity nenalezeno"
-
-#: Wammu/ErrorMessage.py:61
-#, python-format
-msgid ""
-"Debug log has been automatically saved to %s, you are strongly encouraged to "
-"include it in bugreport."
-msgstr ""
-"Ladicí log byl automaticky uložen do %s, prosím připojte ho ke hlášení chyby."
-
-#: Wammu/ErrorMessage.py:71
-msgid "Save debug log..."
-msgstr "Uložit ladicí hlášky..."
-
-#: Wammu/ErrorMessage.py:76
-msgid "Search for similar reports"
-msgstr "Hledat podobné chyby"
-
-#: Wammu/ErrorMessage.py:80
-msgid "Report bug"
-msgstr "Nahlásit chybu"
-
-#: Wammu/ErrorMessage.py:96
-msgid "Save debug log as..."
-msgstr "Uložit ladicí hlášky jako..."
-
-#: Wammu/TalkbackDialog.py:48
-msgid ""
-"Please share your experiences with Wammu and Gammu which is backend library. "
-"When you fill in following form, other users can benefit from your "
-"experiences in Gammu Phone Database. Only information you see here will be "
-"submited."
-msgstr ""
-"Prosím sdělte svoje zkušenosti s Wammu a Gammu, což je knihovna, kterou "
-"Wammu používá. Po vyplnění následujícího formuláře, budou k dispozici "
-"ostatním uživatelů v databázi telefonů Gammu. Odeslány jsou jen informace, "
-"které zde vidíte."
-
-#: Wammu/TalkbackDialog.py:50
-msgid "Manufacturer:"
-msgstr "Výrobce:"
-
-#: Wammu/TalkbackDialog.py:52
-msgid "Phone model:"
-msgstr "Model telefonu:"
-
-#: Wammu/TalkbackDialog.py:54
-msgid "Connection type:"
-msgstr "Typ připojení:"
-
-#: Wammu/TalkbackDialog.py:56
-msgid "Model in gammu configuration:"
-msgstr "Model v nastavení gammu:"
-
-#: Wammu/TalkbackDialog.py:58
-msgid "Working features:"
-msgstr "Fungující funkce:"
-
-#: Wammu/TalkbackDialog.py:59
-msgid "Please select features..."
-msgstr "Prosím zvolte funkce..."
-
-#: Wammu/TalkbackDialog.py:60
-msgid "Gammu version:"
-msgstr "Verze Gammu:"
-
-#: Wammu/TalkbackDialog.py:62
-msgid "Note:"
-msgstr "Poznámka:"
-
-#: Wammu/TalkbackDialog.py:64
-msgid "Your name:"
-msgstr "Vaše jméno:"
-
-#: Wammu/TalkbackDialog.py:66
-msgid "Your email:"
-msgstr "Váš email:"
-
-#: Wammu/TalkbackDialog.py:68
-msgid "Email displaying:"
-msgstr "Zobrazení emailu:"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Use [at] and [dot]"
-msgstr "Použít [at] a [dot]"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Insert NOSPAM text at random position"
-msgstr "Vložit text NOSPAM na náhodnou pozici"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Display it normally"
-msgstr "Zobrazit normálně"
-
-#: Wammu/TalkbackDialog.py:69
-msgid "Don't show email at all"
-msgstr "Vůbec email nezobrazovat"
-
-#: Wammu/TalkbackDialog.py:104
-msgid "Gammu Phone Database Talkback"
-msgstr "Reakce do databáze telefonů Gammu"
-
-#: Wammu/TalkbackDialog.py:105
-msgid "Select which features work correctly with your phone"
-msgstr "Zvolte funkce, které fungují s vaším telefonem správně"
-
-#: Wammu/TalkbackDialog.py:106
-msgid "This information is automatically included in report."
-msgstr "Tato informace je automaticky začleněna ve zprávě."
-
-#: Wammu/TalkbackDialog.py:107
-msgid "Describe some glitches of this phone or other experiences with Gammu."
-msgstr ""
-"Popište zde problémy s telefonem nebo jiné zkušenosti s provozem Gammu."
-
-#: Wammu/TalkbackDialog.py:108
-msgid ""
-"Please enter valid mail here, choose display options bellow. Your email "
-"won't be given or sold to anybody."
-msgstr ""
-"Prosím zadejte zde platný email a zvolte níže jak má být zobrazen. Tento "
-"emal nebude nikomu dán ani prodán."
-
-#: Wammu/TalkbackDialog.py:109
-msgid ""
-"If you don't want to display email clear text, please select one mangling "
-"option."
-msgstr ""
-"Pokud nechcete zobrazit email čitelně, prosím zvolte jednu z možností jak ho "
-"znečitelnit."
-
-#: Wammu/TalkbackDialog.py:181 Wammu/TalkbackDialog.py:190
-#: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:251
-#, python-format
-msgid ""
-"Entry in Gammu Phone Database was not created, following fields are "
-"invalid:\n"
-"%s"
-msgstr ""
-"Položka v databázi telefonů Gammu nebyla vytvořena, následující položky jsou "
-"chybné:\n"
-"%s"
-
-#: Wammu/TalkbackDialog.py:181
-msgid "Supported features"
-msgstr "Podporované funce"
-
-#: Wammu/TalkbackDialog.py:182 Wammu/TalkbackDialog.py:191
-#: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:233
-#: Wammu/TalkbackDialog.py:252
-msgid "Entry not created!"
-msgstr "Nepodařilo se vytvořit položku!"
-
-#: Wammu/TalkbackDialog.py:190 Wammu/Info.py:44
-msgid "Manufacturer"
-msgstr "Výrobce"
-
-#: Wammu/TalkbackDialog.py:199
-msgid "Email displaying"
-msgstr "Zobrazení emailu"
-
-#: Wammu/TalkbackDialog.py:229
-#, python-format
-msgid ""
-"HTTP request failed with status %(code)d (%(text)s), please retry later or "
-"create entry manually."
-msgstr ""
-"HTTP požadavek selhal s chybou %(code)d (%(text)s), prosím zkuste to znovu "
-"později nebo vyplňte záznam na stránkách."
-
-#: Wammu/TalkbackDialog.py:241
-#, python-format
-msgid ""
-"Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
-"Do you want to open it in browser now?"
-msgstr ""
-"Položka v databázi telefonů Gammu byla vytvořena, můžete si ji prohlédnout "
-"na URL <%s>.\n"
-"Chcete ji nyní otevřít v prohlížeči?"
-
-#: Wammu/TalkbackDialog.py:242
-msgid "Entry created!"
-msgstr "Položka vytvořena!"
-
 #: Wammu/Locales.py:182
 msgid "Automatically switched to local locales."
 msgstr "Automaticky přepnuto na locales z aktuálního adresáře."
 
-#: Wammu/Select.py:42
-msgid "Select contact from bellow list"
-msgstr "Zvolte kontakt ze seznamu"
+#: Wammu/Data.py:33
+msgid "Chimes high"
+msgstr "Vysoké zvonky"
 
-#: Wammu/Select.py:42
-msgid "Select contact"
-msgstr "Zvolte kontakt"
+#: Wammu/Data.py:34
+msgid "Chimes low"
+msgstr "Nízké zvonky"
 
-#: Wammu/Select.py:71
-msgid "Select number for selected contact"
-msgstr "Zvolte telefonní číslo vybraného kontaku"
+#: Wammu/Data.py:35
+msgid "Ding"
+msgstr "Gong"
 
-#: Wammu/Select.py:71
-msgid "Select phone number"
-msgstr "Vyberte telefonní číslo"
+#: Wammu/Data.py:36
+msgid "TaDa"
+msgstr "TaDa"
 
-#: Wammu/PhoneSearch.py:44
-msgid "Phone searching log"
-msgstr "Průběh hledání telefonu"
+#: Wammu/Data.py:37
+msgid "Notify"
+msgstr "Upozornění"
 
-#: Wammu/PhoneSearch.py:52 Wammu/Main.py:566
-msgid "Close"
-msgstr "Zavřít"
+#: Wammu/Data.py:38
+msgid "Drum"
+msgstr "Buben"
 
-#: Wammu/PhoneSearch.py:106 Wammu/PhoneSearch.py:110
-#, fuzzy, python-format
-msgid "You don't have permissions for %s device!"
-msgstr "Nemusíte zde zadávat nic."
+#: Wammu/Data.py:39
+msgid "Claps"
+msgstr "Potlesk"
 
-#: Wammu/PhoneSearch.py:109
-msgid "Error opening device"
+#: Wammu/Data.py:40
+msgid "Fanfare"
+msgstr "Fanfára"
+
+#: Wammu/Data.py:41
+msgid "Chord high"
+msgstr "Vysoký akord"
+
+#: Wammu/Data.py:42
+msgid "Chord low"
+msgstr "Nízký akord"
+
+#: Wammu/Data.py:90
+msgid "I'm ironic, flirty"
+msgstr "Ironický"
+
+#: Wammu/Data.py:110
+msgid "I am glad"
+msgstr "Veselý"
+
+#: Wammu/Data.py:130
+msgid "I am skeptic"
+msgstr "Skeptický"
+
+#: Wammu/Data.py:150
+msgid "I am sad"
+msgstr "Smutný"
+
+#: Wammu/Data.py:170
+msgid "WOW"
+msgstr "Překvapený"
+
+#: Wammu/Data.py:190
+msgid "I am crying"
+msgstr "Plačící"
+
+#: Wammu/Data.py:210
+msgid "I am winking"
+msgstr "Žertující"
+
+#: Wammu/Data.py:230
+msgid "I am laughing"
+msgstr "Smějící se"
+
+#: Wammu/Data.py:250
+msgid "I am indifferent"
+msgstr "Lhostejný"
+
+#: Wammu/Data.py:270
+msgid "I am in love"
+msgstr "Zamilovaný"
+
+#: Wammu/Data.py:290
+msgid "I am confused"
+msgstr "Rozpačitý"
+
+#: Wammu/Data.py:310
+msgid "Tongue hanging out"
+msgstr "Machrující"
+
+#: Wammu/Data.py:330
+msgid "I am angry"
+msgstr "Rozčilený"
+
+#: Wammu/Data.py:350
+msgid "Wearing glases"
+msgstr "Veselý"
+
+#: Wammu/Data.py:370
+msgid "Devil"
+msgstr "Ďábelský"
+
+#: Wammu/Data.py:526
+msgid "Alignment"
+msgstr "Zarovnání"
+
+#: Wammu/Data.py:527
+msgid "Left"
+msgstr "Nalevo"
+
+#: Wammu/Data.py:528
+msgid "Right"
+msgstr "Napravo"
+
+#: Wammu/Data.py:529
+msgid "Center"
+msgstr "Na střed"
+
+#: Wammu/Data.py:531
+msgid "Text Size"
+msgstr "Velikost textu"
+
+#: Wammu/Data.py:531
+msgid "Normal"
+msgstr "Normální"
+
+#: Wammu/Data.py:532
+msgid "Large"
+msgstr "Velké"
+
+#: Wammu/Data.py:533
+msgid "Small"
+msgstr "Malé"
+
+#: Wammu/Data.py:535
+msgid "Bold"
+msgstr "Tučné"
+
+#: Wammu/Data.py:536
+msgid "Italic"
+msgstr "Kurzíva"
+
+#: Wammu/Data.py:537
+msgid "Underlined"
+msgstr "Podtržené"
+
+#: Wammu/Data.py:538
+msgid "Strikethrough"
+msgstr "Přeškrtnuté"
+
+#: Wammu/Utils.py:234
+msgid "Yes"
+msgstr "Ano"
+
+#: Wammu/Utils.py:236
+msgid "No"
+msgstr "Ne"
+
+#: Wammu/Utils.py:257
+msgid "enabled (tone)"
+msgstr "zapnuté (zvukové)"
+
+#: Wammu/Utils.py:259
+msgid "enabled (silent)"
+msgstr "zapnuté (tiché)"
+
+#: Wammu/Utils.py:265
+msgid "yearly"
+msgstr "ročně"
+
+#: Wammu/Utils.py:267
+msgid "monthly"
+msgstr "měsíčně"
+
+#: Wammu/Utils.py:270
+msgid "daily"
+msgstr "denně"
+
+#: Wammu/Utils.py:272
+msgid "biweekly"
+msgstr "ob týden"
+
+#: Wammu/Utils.py:275
+msgid "weekly on monday"
+msgstr "týdně v pondělí"
+
+#: Wammu/Utils.py:277
+msgid "weekly on tuesday"
+msgstr "týdně v úterý"
+
+#: Wammu/Utils.py:279
+msgid "weekly on wednesday"
+msgstr "týdně ve středu"
+
+#: Wammu/Utils.py:281
+msgid "weekly on thursday"
+msgstr "týdně ve čtvrtek"
+
+#: Wammu/Utils.py:283
+msgid "weekly on friday"
+msgstr "týdně v pátek"
+
+#: Wammu/Utils.py:285
+msgid "weekly on saturday"
+msgstr "týdně v sobotu"
+
+#: Wammu/Utils.py:287
+msgid "weekly on sunday"
+msgstr "týdně v neděli"
+
+#: Wammu/Utils.py:294
+msgid "disabled"
+msgstr "vypnutý"
+
+#: Wammu/Utils.py:297
+msgid "nonrecurring"
+msgstr "neopakující se"
+
+#: Wammu/Utils.py:373
+msgid "Your phone doesn't support this function."
+msgstr "Váš telefon tuto funkcionalitu nepoporuje."
+
+#: Wammu/Utils.py:375
+msgid ""
+"This function is not implemented for your phone. If you want help with "
+"implementation please contact authors."
 msgstr ""
+"Tato funkcionalita není pro váš telefon zatím podporována. Pokud chcete "
+"pomoci s její podporou, prosím kontaktujte autory."
 
-#: Wammu/PhoneSearch.py:111
-#, fuzzy, python-format
-msgid "Maybe you need to be member of %s group."
+#: Wammu/Utils.py:377
+msgid "Your phone asks for PIN."
+msgstr "Váš telefon vyžaduje zadat PIN."
+
+#: Wammu/Utils.py:379
+msgid "Memory is full, try deleting some entries."
+msgstr "Paměť je plná, zkuste vymazat některé položky."
+
+#: Wammu/Utils.py:381
+msgid "Communication canceled by phone, did you press cancel on phone?"
+msgstr ""
+"Komunikace byla přerušena telefonem, nezrušili jste operaci na telefonu?"
+
+#: Wammu/Utils.py:383
+msgid ""
+"Empty entry received. This usually should not happen and most likely is "
+"caused by bug in phone firmware or in Gammu/Wammu.\n"
+"\n"
+"If you miss some entry, please contact Gammu/Wammu authors."
+msgstr ""
+"Byla přečtena prázdná položka. Toto by se nemělo stát a pravděpodobně se "
+"jedná o chybu způsobenou firmwarem telefonu nebo Gammu/Wammu.\n"
+"\n"
+"Pokud nějaká položka nebyla načtena, prosím kontaktujte autory."
+
+#: Wammu/Utils.py:385
+msgid ""
+"Please close opened menu in phone and retry, data can not be accessed while "
+"you have opened them."
+msgstr ""
+"Prosím opusťte otevřená menu v telefonu a zkuste operaci znovu. Data nejsou "
+"přístupná pokud je máte otevřena v telefonu."
+
+#: Wammu/Utils.py:387
+msgid ""
+"Timeout while trying to communicate with phone. Maybe phone is not connected "
+"(for cable) or out of range (for bluetooth or IrDA)."
+msgstr ""
+"Při komunikaci vypršel časový limit. Možná telefon není připojen (pokud "
+"používáte kabel) nebo je mimo dosah (pro bluetooth a IrDA)."
+
+#: Wammu/Utils.py:389
+msgid ""
+"Device for communication with phone does not exist. Maybe you don't have "
+"phone plugged or your configuration is wrong."
+msgstr ""
+"Zařízení pro komunikaci s telefonem neexistuje. Možná není telefon "
+"připojený, nebo máte chybu v nastaveních."
+
+#: Wammu/Utils.py:391
+msgid "Can not access device for communication with phone."
+msgstr "Nepodařilo se otevřít zařízení pro komunikaci s telefonem."
+
+#: Wammu/Utils.py:393
+msgid "Maybe you need to be member of some group to have acces to device."
 msgstr "Pro přístup k zařízení možná musíte být členem nějaké skupiny."
 
-#: Wammu/PhoneSearch.py:116
-#, python-format
-msgid "Starting %s"
-msgstr "Začínám %s"
+#: Wammu/Utils.py:395
+msgid "Description:"
+msgstr "Popis:"
 
-#: Wammu/PhoneSearch.py:133 Wammu/PhoneSearch.py:163
-#, python-format
-msgid "Scanning for bluetooth devices using %s"
-msgstr "Vyhledávám zařízení Bluetooth pomocí %s"
+#: Wammu/Utils.py:395
+msgid "Function:"
+msgstr "Funkce:"
 
-#: Wammu/PhoneSearch.py:139 Wammu/PhoneSearch.py:169
-msgid "No bluetooth device found"
-msgstr "Žádná Bluetooth nebyla nalezena"
-
-#: Wammu/PhoneSearch.py:145 Wammu/PhoneSearch.py:175
-#, python-format
-msgid "Checking %s"
-msgstr "Zkoumám %s"
-
-#: Wammu/PhoneSearch.py:149 Wammu/PhoneSearch.py:179
-msgid "Bluetooth device scan completed"
-msgstr "Vyhledávání Bluetooth zařízení dokončeno"
-
-#: Wammu/PhoneSearch.py:152
-#, python-format
-msgid "Could not access Bluetooth subsystem (%s)"
-msgstr "Nelze pracovat s Bluetooth (%s)"
-
-#: Wammu/PhoneSearch.py:182 Wammu/PhoneSearch.py:186
-msgid ""
-"Neither GNOME Bluetooth nor PyBluez found, not possible to scan for "
-"bluetooth devices"
-msgstr ""
-"Rozšíření GNOME Bluetooth ani PyBluez nebyla nalezena, není možné hledat "
-"Bluetooth zařízení"
-
-#: Wammu/PhoneSearch.py:185
-#, fuzzy
-msgid "No bluetooth searching"
-msgstr "AT příkazy přes Bluetooth s vyledáváním RF"
-
-#: Wammu/PhoneSearch.py:194
-#, python-format
-msgid "Finished %s"
-msgstr "Dokončeno %s"
-
-#: Wammu/PhoneSearch.py:199
-#, python-format
-msgid "All finished, found %d phones"
-msgstr "Vše ukončeno, nalezeno %d telefonů"
-
-#: Wammu/Thread.py:55 Wammu/Main.py:840
-msgid "Error while communicating with phone"
-msgstr "Chyba při komunikaci s telefonem"
-
-#: Wammu/Thread.py:56 Wammu/Main.py:841 Wammu/Main.py:1319 Wammu/Main.py:1558
-msgid "Error Occured"
-msgstr "Objevila se chyba"
-
-#: Wammu/Thread.py:91
-msgid "Action canceled by user!"
-msgstr "Akce zrušena uživatelem!"
-
-#: Wammu/Thread.py:92
-msgid "Action canceled"
-msgstr "Akce zrušena"
+#: Wammu/Utils.py:395
+msgid "Error code:"
+msgstr "Číslo chyby:"
 
 #: Wammu/Main.py:99 Wammu/Main.py:115
 msgid "Phone"
@@ -1314,10 +2425,6 @@ msgstr "Kontakty na SIM kartě"
 msgid "Phone Contacts"
 msgstr "Kontakty v telefonu"
 
-#: Wammu/Main.py:118 Wammu/Main.py:297 Wammu/Settings.py:357
-msgid "Messages"
-msgstr "Zprávy"
-
 #: Wammu/Main.py:118
 msgid "All Messages"
 msgstr "Všechny zprávy"
@@ -1349,10 +2456,6 @@ msgstr "Neodeslané"
 #: Wammu/Main.py:122
 msgid "Unsent Messages"
 msgstr "Neodeslané zprávy"
-
-#: Wammu/Main.py:125 Wammu/Main.py:299 Wammu/TalkbackFeaturesDialog.py:45
-msgid "Todos"
-msgstr "Úkoly"
 
 #: Wammu/Main.py:125
 msgid "All Todo Items"
@@ -1766,10 +2869,6 @@ msgstr "Připojit"
 msgid "Disconnect"
 msgstr "Odpojit"
 
-#: Wammu/Main.py:561 Wammu/Settings.py:38
-msgid "Settings"
-msgstr "Nastavení"
-
 #: Wammu/Main.py:563
 msgid "Restore"
 msgstr "Obnovit"
@@ -1777,10 +2876,6 @@ msgstr "Obnovit"
 #: Wammu/Main.py:564
 msgid "Minimize"
 msgstr "Minimalizovat"
-
-#: Wammu/Main.py:593 Wammu/Main.py:609 Wammu/Editor.py:215 Wammu/Editor.py:419
-msgid "Unknown"
-msgstr "Neznámý"
 
 #: Wammu/Main.py:595
 msgid "battery"
@@ -1839,60 +2934,14 @@ msgstr "Poznámka"
 msgid "Operation in progress"
 msgstr "Operace probíhá"
 
-#: Wammu/Main.py:901 Wammu/Main.py:915 Wammu/Main.py:925 Wammu/Main.py:933
-#: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117
-msgid "Location"
-msgstr "Umístění"
-
-#: Wammu/Main.py:902 Wammu/Editor.py:488
-msgid "Memory type"
-msgstr "Typ paměti"
-
 #: Wammu/Main.py:907
 #, python-format
 msgid "voice tag %x"
 msgstr "zvukové vytáčení %x"
 
-#: Wammu/Main.py:913 Wammu/Browser.py:54 Wammu/Browser.py:69
-#: Wammu/Browser.py:85
-msgid "Number"
-msgstr "Číslo"
-
-#: Wammu/Main.py:914 Wammu/Browser.py:70 Wammu/Browser.py:86
-#: Wammu/Browser.py:104
-msgid "Date"
-msgstr "Datum"
-
 #: Wammu/Main.py:916
 msgid "Folder"
 msgstr "Složka"
-
-#: Wammu/Main.py:917 Wammu/Browser.py:52
-msgid "Memory"
-msgstr "Pamět"
-
-#: Wammu/Main.py:918 Wammu/Info.py:140
-msgid "SMSC"
-msgstr "SMSC"
-
-#: Wammu/Main.py:919 Wammu/Browser.py:84
-msgid "State"
-msgstr "Stav"
-
-#: Wammu/Main.py:921 Wammu/Browser.py:40 Wammu/Browser.py:53
-#: Wammu/Browser.py:68 Wammu/Settings.py:166
-msgid "Name"
-msgstr "Jméno"
-
-#: Wammu/Main.py:926 Wammu/Browser.py:102 Wammu/Editor.py:504
-msgid "Priority"
-msgstr "Priorita"
-
-#: Wammu/Main.py:927 Wammu/Main.py:934 Wammu/Browser.py:67
-#: Wammu/Browser.py:118
-msgid "Type"
-msgstr "Typ"
 
 #: Wammu/Main.py:961
 msgid "Writing message(s)..."
@@ -1975,11 +3024,6 @@ msgstr "vCaledar [úkoly,kalendář]"
 #: Wammu/Main.py:1282
 msgid "iCalendar [todo,calendar]"
 msgstr "iCaledar [úkoly,kalendář]"
-
-#: Wammu/Main.py:1285 Wammu/Main.py:1881 Wammu/SMSExport.py:34
-#: Wammu/EditContactList.py:92
-msgid "All files"
-msgstr "Všechny soubory"
 
 #: Wammu/Main.py:1289
 msgid "Save data as..."
@@ -2144,10 +3188,6 @@ msgstr "%d hovorů"
 msgid "%d todo"
 msgstr "%d úkolů"
 
-#: Wammu/Main.py:1660 Wammu/Settings.py:294
-msgid "Confirm deleting"
-msgstr "Potvrzovat mazání"
-
 #: Wammu/Main.py:1668
 msgid "Deleting contact(s)..."
 msgstr "Vymazávám kontakty..."
@@ -2202,16 +3242,6 @@ msgstr "Odeslat soubor do telefenu"
 msgid "Sending file to phone..."
 msgstr "Posílám soubor do telefonu..."
 
-#: Wammu/Main.py:1913 Wammu/EditContactList.py:176
-#, python-format
-msgid "Selected file \"%s\" was not found, no data read."
-msgstr ""
-"Vybraný soubor \"%s\" se nepodařilo otevřít, žádná data nebyla načtena."
-
-#: Wammu/Main.py:1914 Wammu/EditContactList.py:177
-msgid "File not found!"
-msgstr "Soubor nebyl nalezen!"
-
 #: Wammu/Main.py:1922
 msgid "One moment please, connecting to phone..."
 msgstr "Chvilku strpení, připojuji se k telefonu..."
@@ -2219,1036 +3249,6 @@ msgstr "Chvilku strpení, připojuji se k telefonu..."
 #: Wammu/Main.py:1978
 msgid "One moment please, disconnecting from phone..."
 msgstr "Chvilku strpení, odpojuji se od telefonu..."
-
-#: Wammu/SMSExport.py:35
-msgid "Select mailbox file..."
-msgstr "Vyberte soubor mailboxu..."
-
-#: Wammu/SMSExport.py:42
-msgid "Saving messages to mailbox"
-msgstr "Ukládám zprávy do mailboxu"
-
-#: Wammu/SMSExport.py:48 Wammu/SMSExport.py:65 Wammu/SMSExport.py:109
-#: Wammu/SMSExport.py:124 Wammu/SMSExport.py:139 Wammu/SMSExport.py:229
-#: Wammu/SMSExport.py:259 Wammu/SMSExport.py:266 Wammu/SMSExport.py:283
-msgid "Export terminated"
-msgstr "Export přerušen"
-
-#: Wammu/SMSExport.py:61 Wammu/SMSExport.py:135
-#, python-format
-msgid "Creating of file %s failed, bailing out."
-msgstr "Vytváření souboru %s selhalo, končím."
-
-#: Wammu/SMSExport.py:62 Wammu/SMSExport.py:136
-msgid "Can not create file!"
-msgstr "Nepodařilo se vytvořit soubor!"
-
-#: Wammu/SMSExport.py:70 Wammu/SMSExport.py:145 Wammu/SMSExport.py:294
-#, python-format
-msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
-
-#: Wammu/SMSExport.py:70
-msgid "mailbox"
-msgstr "mailbox"
-
-#: Wammu/SMSExport.py:74
-msgid "Select maildir directory where to save files"
-msgstr "Zvolte složku maildiru ve které budou uloženy soubory"
-
-#: Wammu/SMSExport.py:85
-msgid ""
-"Selected folder does not contain new subfolder and thus probably is not "
-"valid maildir.\n"
-"\n"
-"Do you want to create new subfolder and export to it?"
-msgstr ""
-"Zvolená složka neobsahuje podsložku new a proto se pravděpodobně nejedná o "
-"maildir.\n"
-"\n"
-"Chcete podsložku new vytvořit a exportovat do ní?"
-
-#: Wammu/SMSExport.py:86
-msgid "Folder doesn't look like maildir!"
-msgstr "Složka nevypadá jako maildir!"
-
-#: Wammu/SMSExport.py:98
-msgid "Creating of folder failed, bailing out."
-msgstr "Vytváření složky selhalo, končím."
-
-#: Wammu/SMSExport.py:99
-msgid "Can not create folder!"
-msgstr "Nepodařilo se vytvořit složku!"
-
-#: Wammu/SMSExport.py:105
-msgid "Saving messages to maildir"
-msgstr "Ukládám zprávy do maildiru"
-
-#: Wammu/SMSExport.py:118
-#, python-format
-msgid ""
-"Output file already exists, this usually means that this message was already "
-"saved there.\n"
-"\n"
-"Do you wish to overwrite file %s?"
-msgstr ""
-"Výstupní soubor již existuje, což je obvykle způsobené předchozím exportem "
-"této zprávy.\n"
-"\n"
-"Přejete si přepsat soubor %s?"
-
-#: Wammu/SMSExport.py:119
-msgid "File already exists!"
-msgstr "Soubor již existuje!"
-
-#: Wammu/SMSExport.py:145
-msgid "maildir"
-msgstr "maildir"
-
-#: Wammu/SMSExport.py:151
-msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr "Přejete si pro komunikaci s IMAP serverem použít SSL?"
-
-#: Wammu/SMSExport.py:152
-msgid "Use SSL?"
-msgstr "Použít SSL?"
-
-#: Wammu/SMSExport.py:158
-msgid "Please enter server name"
-msgstr "Prosím zadejte jméno serveru"
-
-#: Wammu/SMSExport.py:159
-msgid "Server name"
-msgstr "Jméno serveru"
-
-#: Wammu/SMSExport.py:168
-#, python-format
-msgid "Please enter login on server %s"
-msgstr "Prosím zadejte uživatelské jméno na server %s"
-
-#: Wammu/SMSExport.py:169
-msgid "Login"
-msgstr "Uživatelské jméno"
-
-#: Wammu/SMSExport.py:182
-#, python-format
-msgid "Please enter password for %(login)s@%(server)s"
-msgstr "Prosím zadejte heslo pro %(login)s@%(server)s"
-
-#: Wammu/SMSExport.py:183
-msgid "Password"
-msgstr "Heslo"
-
-#: Wammu/SMSExport.py:189
-msgid "Connecting to IMAP server..."
-msgstr "Připojuji se na IMAP server..."
-
-#: Wammu/SMSExport.py:205
-msgid ""
-"Can not login, you probably entered invalid login information. Do you want "
-"to retry?"
-msgstr ""
-"Nepodařilo se přihlásit, pravděpodobně jste zadali špatné přihlašovací "
-"informace. Chcete to zkusit znovu?"
-
-#: Wammu/SMSExport.py:206
-msgid "Login failed!"
-msgstr "Přihlášení selhalo!"
-
-#: Wammu/SMSExport.py:212
-msgid ""
-"Connection suceeded, do you want to remember password? This is a bit "
-"insecure."
-msgstr ""
-"Připojení se podařilo, přejete si uložit heslo? Toto není zrovna bezpečné."
-
-#: Wammu/SMSExport.py:213
-msgid "Save password?"
-msgstr "Uložit heslo?"
-
-#: Wammu/SMSExport.py:218
-msgid "Listing folders on IMAP server..."
-msgstr "Získávám seznam složek na IMAP serveru..."
-
-#: Wammu/SMSExport.py:226
-msgid "Can not list folders on server, bailing out."
-msgstr "Nepodařilo se získat seznam složek na serveru, končím."
-
-#: Wammu/SMSExport.py:227
-msgid "Listing failed!"
-msgstr "Vypisování selhalo!"
-
-#: Wammu/SMSExport.py:240
-#, python-format
-msgid "Please select folder on server %s where messages will be stored"
-msgstr "Prosím vyberte složku ve které budou zprávy na serveru %s uloženy"
-
-#: Wammu/SMSExport.py:241
-msgid "Select folder"
-msgstr "Vyberte složku"
-
-#: Wammu/SMSExport.py:248
-msgid "Selecting folder on IMAP server..."
-msgstr "Vybírám složku na IMAP serveru..."
-
-#: Wammu/SMSExport.py:256
-#, python-format
-msgid "Can not select folder %s on server, bailing out."
-msgstr "Nepodařilo se vybrat složku %s, končím."
-
-#: Wammu/SMSExport.py:257
-msgid "Selecting failed!"
-msgstr "Vybírání selhalo!"
-
-#: Wammu/SMSExport.py:262
-msgid "Saving messages to IMAP"
-msgstr "Ukládám zprávy na IMAP"
-
-#: Wammu/SMSExport.py:278
-#, python-format
-msgid "Can not save message to folder %s on server, bailing out."
-msgstr "Nepodařilo se zapsat zprávu do složky %s na serveru, končím."
-
-#: Wammu/SMSExport.py:279
-msgid "Saving failed!"
-msgstr "Ukládání selhalo!"
-
-#: Wammu/SMSExport.py:294
-msgid "IMAP server"
-msgstr "IMAP server"
-
-#: Wammu/SMSExport.py:298
-msgid "Where do you want to export emails created from your messages?"
-msgstr "Kam chcete uložit emaily vytvořené z vašich zpráv?"
-
-#: Wammu/SMSExport.py:298
-msgid "Select export type"
-msgstr "Vyberte typ exportu"
-
-#: Wammu/SMSExport.py:299
-msgid "Mailbox file"
-msgstr "Soubor mailboxu"
-
-#: Wammu/SMSExport.py:299
-msgid "Maildir folder"
-msgstr "Složka maildiru"
-
-#: Wammu/SMSExport.py:299
-msgid "IMAP account"
-msgstr "Účet IMAP"
-
-#: Wammu/Browser.py:41
-msgid "Value"
-msgstr "Hodnota"
-
-#: Wammu/Browser.py:101
-msgid "Completed"
-msgstr "Hotovo"
-
-#: Wammu/Browser.py:119
-msgid "Start"
-msgstr "Začátek"
-
-#: Wammu/Browser.py:120
-msgid "End"
-msgstr "Konec"
-
-#: Wammu/Browser.py:122
-msgid "Alarm"
-msgstr "Upozornění"
-
-#: Wammu/Browser.py:123
-msgid "Recurrence"
-msgstr "Opakování"
-
-#: Wammu/Browser.py:508
-msgid "Resend"
-msgstr "Přeposlat"
-
-#: Wammu/Browser.py:510
-msgid "Send"
-msgstr "Odeslat"
-
-#: Wammu/Browser.py:513
-msgid "Reply"
-msgstr "Odpovědět"
-
-#: Wammu/Browser.py:515 Wammu/Browser.py:520
-msgid "Call"
-msgstr "Zavolat"
-
-#: Wammu/Browser.py:526
-msgid "Duplicate"
-msgstr "Duplikovat"
-
-#: Wammu/Browser.py:529
-msgid "Delete current"
-msgstr "Smazat aktuální"
-
-#: Wammu/Browser.py:530
-msgid "Delete selected"
-msgstr "Smazat vybrané"
-
-#: Wammu/Browser.py:533
-msgid "Backup current"
-msgstr "Zálohovat aktuální"
-
-#: Wammu/Browser.py:534
-msgid "Backup selected"
-msgstr "Zálohovat vybrané"
-
-#: Wammu/Browser.py:535
-msgid "Backup all"
-msgstr "Zálohovat všechny"
-
-#: Wammu/Data.py:33
-msgid "Chimes high"
-msgstr "Vysoké zvonky"
-
-#: Wammu/Data.py:34
-msgid "Chimes low"
-msgstr "Nízké zvonky"
-
-#: Wammu/Data.py:35
-msgid "Ding"
-msgstr "Gong"
-
-#: Wammu/Data.py:36
-msgid "TaDa"
-msgstr "TaDa"
-
-#: Wammu/Data.py:37
-msgid "Notify"
-msgstr "Upozornění"
-
-#: Wammu/Data.py:38
-msgid "Drum"
-msgstr "Buben"
-
-#: Wammu/Data.py:39
-msgid "Claps"
-msgstr "Potlesk"
-
-#: Wammu/Data.py:40
-msgid "Fanfare"
-msgstr "Fanfára"
-
-#: Wammu/Data.py:41
-msgid "Chord high"
-msgstr "Vysoký akord"
-
-#: Wammu/Data.py:42
-msgid "Chord low"
-msgstr "Nízký akord"
-
-#: Wammu/Data.py:90
-msgid "I'm ironic, flirty"
-msgstr "Ironický"
-
-#: Wammu/Data.py:110
-msgid "I am glad"
-msgstr "Veselý"
-
-#: Wammu/Data.py:130
-msgid "I am skeptic"
-msgstr "Skeptický"
-
-#: Wammu/Data.py:150
-msgid "I am sad"
-msgstr "Smutný"
-
-#: Wammu/Data.py:170
-msgid "WOW"
-msgstr "Překvapený"
-
-#: Wammu/Data.py:190
-msgid "I am crying"
-msgstr "Plačící"
-
-#: Wammu/Data.py:210
-msgid "I am winking"
-msgstr "Žertující"
-
-#: Wammu/Data.py:230
-msgid "I am laughing"
-msgstr "Smějící se"
-
-#: Wammu/Data.py:250
-msgid "I am indifferent"
-msgstr "Lhostejný"
-
-#: Wammu/Data.py:270
-msgid "I am in love"
-msgstr "Zamilovaný"
-
-#: Wammu/Data.py:290
-msgid "I am confused"
-msgstr "Rozpačitý"
-
-#: Wammu/Data.py:310
-msgid "Tongue hanging out"
-msgstr "Machrující"
-
-#: Wammu/Data.py:330
-msgid "I am angry"
-msgstr "Rozčilený"
-
-#: Wammu/Data.py:350
-msgid "Wearing glases"
-msgstr "Veselý"
-
-#: Wammu/Data.py:370
-msgid "Devil"
-msgstr "Ďábelský"
-
-#: Wammu/Data.py:526
-msgid "Alignment"
-msgstr "Zarovnání"
-
-#: Wammu/Data.py:526 Wammu/Editor.py:211 Wammu/Editor.py:415
-msgid "None"
-msgstr "Žádné"
-
-#: Wammu/Data.py:527
-msgid "Left"
-msgstr "Nalevo"
-
-#: Wammu/Data.py:528
-msgid "Right"
-msgstr "Napravo"
-
-#: Wammu/Data.py:529
-msgid "Center"
-msgstr "Na střed"
-
-#: Wammu/Data.py:531
-msgid "Text Size"
-msgstr "Velikost textu"
-
-#: Wammu/Data.py:531
-msgid "Normal"
-msgstr "Normální"
-
-#: Wammu/Data.py:532
-msgid "Large"
-msgstr "Velké"
-
-#: Wammu/Data.py:533
-msgid "Small"
-msgstr "Malé"
-
-#: Wammu/Data.py:535
-msgid "Bold"
-msgstr "Tučné"
-
-#: Wammu/Data.py:536
-msgid "Italic"
-msgstr "Kurzíva"
-
-#: Wammu/Data.py:537
-msgid "Underlined"
-msgstr "Podtržené"
-
-#: Wammu/Data.py:538
-msgid "Strikethrough"
-msgstr "Přeškrtnuté"
-
-#: Wammu/Error.py:51
-#, python-format
-msgid ""
-"Debug log was saved for phone communication, if this error appeared during "
-"communicating with phone, you are strongly encouraged to include it in "
-"bugreport. Debug log is saved in file %s."
-msgstr ""
-"Ladicí informace o komunikaci s telefonem byly uloženy. Pokud tato chyba "
-"nastala při komunikaci s telefonem připojte prosím tento log k hlášení "
-"chyby. Log je uložen v souboru %s."
-
-#: Wammu/Error.py:74
-#, python-format
-msgid "Before submiting please try searching for simmilar bugs on %s"
-msgstr "Před odesláním prosím zkuste vyhledat podobné chyby na %s"
-
-#: Wammu/Error.py:84
-msgid ""
-"Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
-msgstr ""
-"Chyba souvisí s unicode, přečtě si prosím otázku 1 ve FAQ jak tento problém "
-"řešit."
-
-#: Wammu/Error.py:100
-msgid "Unhandled exception appeared."
-msgstr "Vyskytla se nezachycená výjimka."
-
-#: Wammu/Error.py:101
-#, python-format
-msgid ""
-"If you want to help improving this program, please submit following "
-"infomation and description how did it happen to %s. Please report in "
-"english, otherwise you will be most likely told to translate you report to "
-"english later."
-msgstr ""
-"Pokud chcete pomoci vylepšit tento program, odešlete následující informace a "
-"popis jak k této situaci dočlo na %s. Pro hlášení prosím použijte "
-"angličtinu, jinak budete pravděpodobně později požádáni o přeložení."
-
-#: Wammu/Error.py:118
-msgid ""
-"Unhandled exception appeared. If you want to help improving this program, "
-"please report this together with description how this situation has "
-"happened. Please report in english, otherwise you will be most likely told "
-"to translate you report to english later."
-msgstr ""
-"Vyskytla se nezachycená výjimka. Pokud chcete pomoci vylepšit tento program, "
-"prosím nahlašte tuto chybu spolu s postupem, jak k ní došlo. Pro hlášení "
-"prosím použijte angličtinu, jinak budete pravděpodobně později požádáni o "
-"přeložení do ní."
-
-#: Wammu/Error.py:119
-msgid "Unhandled exception"
-msgstr "Nezachycená výjimka"
-
-#: Wammu/Error.py:121
-#, python-format
-msgid ""
-"Traceback:\n"
-"%(traceback)s\n"
-"Exception: %(exception)s"
-msgstr "Traceback:%(traceback)sVýjimka: %(exception)s"
-
-#: Wammu/Utils.py:234
-msgid "Yes"
-msgstr "Ano"
-
-#: Wammu/Utils.py:236
-msgid "No"
-msgstr "Ne"
-
-#: Wammu/Utils.py:257
-msgid "enabled (tone)"
-msgstr "zapnuté (zvukové)"
-
-#: Wammu/Utils.py:259
-msgid "enabled (silent)"
-msgstr "zapnuté (tiché)"
-
-#: Wammu/Utils.py:265
-msgid "yearly"
-msgstr "ročně"
-
-#: Wammu/Utils.py:267
-msgid "monthly"
-msgstr "měsíčně"
-
-#: Wammu/Utils.py:270
-msgid "daily"
-msgstr "denně"
-
-#: Wammu/Utils.py:272
-msgid "biweekly"
-msgstr "ob týden"
-
-#: Wammu/Utils.py:275
-msgid "weekly on monday"
-msgstr "týdně v pondělí"
-
-#: Wammu/Utils.py:277
-msgid "weekly on tuesday"
-msgstr "týdně v úterý"
-
-#: Wammu/Utils.py:279
-msgid "weekly on wednesday"
-msgstr "týdně ve středu"
-
-#: Wammu/Utils.py:281
-msgid "weekly on thursday"
-msgstr "týdně ve čtvrtek"
-
-#: Wammu/Utils.py:283
-msgid "weekly on friday"
-msgstr "týdně v pátek"
-
-#: Wammu/Utils.py:285
-msgid "weekly on saturday"
-msgstr "týdně v sobotu"
-
-#: Wammu/Utils.py:287
-msgid "weekly on sunday"
-msgstr "týdně v neděli"
-
-#: Wammu/Utils.py:294
-msgid "disabled"
-msgstr "vypnutý"
-
-#: Wammu/Utils.py:297
-msgid "nonrecurring"
-msgstr "neopakující se"
-
-#: Wammu/Utils.py:373
-msgid "Your phone doesn't support this function."
-msgstr "Váš telefon tuto funkcionalitu nepoporuje."
-
-#: Wammu/Utils.py:375
-msgid ""
-"This function is not implemented for your phone. If you want help with "
-"implementation please contact authors."
-msgstr ""
-"Tato funkcionalita není pro váš telefon zatím podporována. Pokud chcete "
-"pomoci s její podporou, prosím kontaktujte autory."
-
-#: Wammu/Utils.py:377
-msgid "Your phone asks for PIN."
-msgstr "Váš telefon vyžaduje zadat PIN."
-
-#: Wammu/Utils.py:379
-msgid "Memory is full, try deleting some entries."
-msgstr "Paměť je plná, zkuste vymazat některé položky."
-
-#: Wammu/Utils.py:381
-msgid "Communication canceled by phone, did you press cancel on phone?"
-msgstr ""
-"Komunikace byla přerušena telefonem, nezrušili jste operaci na telefonu?"
-
-#: Wammu/Utils.py:383
-msgid ""
-"Empty entry received. This usually should not happen and most likely is "
-"caused by bug in phone firmware or in Gammu/Wammu.\n"
-"\n"
-"If you miss some entry, please contact Gammu/Wammu authors."
-msgstr ""
-"Byla přečtena prázdná položka. Toto by se nemělo stát a pravděpodobně se "
-"jedná o chybu způsobenou firmwarem telefonu nebo Gammu/Wammu.\n"
-"\n"
-"Pokud nějaká položka nebyla načtena, prosím kontaktujte autory."
-
-#: Wammu/Utils.py:385
-msgid ""
-"Please close opened menu in phone and retry, data can not be accessed while "
-"you have opened them."
-msgstr ""
-"Prosím opusťte otevřená menu v telefonu a zkuste operaci znovu. Data nejsou "
-"přístupná pokud je máte otevřena v telefonu."
-
-#: Wammu/Utils.py:387
-msgid ""
-"Timeout while trying to communicate with phone. Maybe phone is not connected "
-"(for cable) or out of range (for bluetooth or IrDA)."
-msgstr ""
-"Při komunikaci vypršel časový limit. Možná telefon není připojen (pokud "
-"používáte kabel) nebo je mimo dosah (pro bluetooth a IrDA)."
-
-#: Wammu/Utils.py:389
-msgid ""
-"Device for communication with phone does not exist. Maybe you don't have "
-"phone plugged or your configuration is wrong."
-msgstr ""
-"Zařízení pro komunikaci s telefonem neexistuje. Možná není telefon "
-"připojený, nebo máte chybu v nastaveních."
-
-#: Wammu/Utils.py:391
-msgid "Can not access device for communication with phone."
-msgstr "Nepodařilo se otevřít zařízení pro komunikaci s telefonem."
-
-#: Wammu/Utils.py:393
-msgid "Maybe you need to be member of some group to have acces to device."
-msgstr "Pro přístup k zařízení možná musíte být členem nějaké skupiny."
-
-#: Wammu/Utils.py:395
-msgid "Description:"
-msgstr "Popis:"
-
-#: Wammu/Utils.py:395
-msgid "Function:"
-msgstr "Funkce:"
-
-#: Wammu/Utils.py:395
-msgid "Error code:"
-msgstr "Číslo chyby:"
-
-#: Wammu/TalkbackFeaturesDialog.py:37
-msgid ""
-"Select which functionality works without problems on your phone (either in "
-"Wammu or in some other tool using Gammu library)."
-msgstr ""
-"Zvolte které funkce fungují bez problémů s vaším telefonem (buď ve Wammu "
-"nebo v jiném nástroji, který používá knihovnu Gammu)."
-
-#: Wammu/TalkbackFeaturesDialog.py:39
-msgid "Phone information"
-msgstr "Informace o telefonu"
-
-#: Wammu/TalkbackFeaturesDialog.py:40
-msgid "Sending and saving SMS"
-msgstr "Posílání a ukládání SMS"
-
-#: Wammu/TalkbackFeaturesDialog.py:41
-msgid "Multimedia messaging"
-msgstr "Multimediální zprávy"
-
-#: Wammu/TalkbackFeaturesDialog.py:42
-msgid "Basic phonebook functions"
-msgstr "Základní funkce seznamu"
-
-#: Wammu/TalkbackFeaturesDialog.py:43
-msgid "Enhanced phonebook entries"
-msgstr "Rozšířené záznamy v seznamu"
-
-#: Wammu/TalkbackFeaturesDialog.py:44
-msgid "Calendar entries"
-msgstr "Kalendář"
-
-#: Wammu/TalkbackFeaturesDialog.py:46
-msgid "Filesystem manipulation"
-msgstr "Práce se soubory"
-
-#: Wammu/TalkbackFeaturesDialog.py:47
-msgid "Reading and making calls"
-msgstr "Čtení a provádění hovorů"
-
-#: Wammu/TalkbackFeaturesDialog.py:48
-msgid "Logos"
-msgstr "Loga"
-
-#: Wammu/TalkbackFeaturesDialog.py:49
-msgid "Ringtones"
-msgstr "Melodie"
-
-#: Wammu/TalkbackFeaturesDialog.py:60
-msgid "Select features"
-msgstr "Vyberte funkce"
-
-#: Wammu/TalkbackFeaturesDialog.py:61
-msgid "You can access name and phone number."
-msgstr "Přístup ke jménu a telefonnímu číslu."
-
-#: Wammu/TalkbackFeaturesDialog.py:62
-msgid ""
-"You have access to more phone numbers per entry or additional fields as "
-"email."
-msgstr ""
-"Máte přístup k více číslům v záznamu nebo k dalším položkám, jako třeba "
-"emailu."
-
-#: Wammu/Editor.py:232
-#, python-format
-msgid "Creating new %s"
-msgstr "Vytvářím nový %s"
-
-#: Wammu/Editor.py:235
-#, python-format
-msgid "Editing %(name)s %(location)s"
-msgstr "Upravuji %(name)s %(location)s"
-
-#: Wammu/Editor.py:253
-msgid "Location (0 = auto):"
-msgstr "Umístění (0 = automaticky):"
-
-#: Wammu/Editor.py:278
-msgid "Add one more field."
-msgstr "Přidat další položku."
-
-#: Wammu/Editor.py:488
-msgid "contact"
-msgstr "kontakt"
-
-#: Wammu/Editor.py:496
-msgid "calendar event"
-msgstr "událost kalendáře"
-
-#: Wammu/Editor.py:496
-msgid "Event type"
-msgstr "Typ události"
-
-#: Wammu/Editor.py:504
-msgid "todo item"
-msgstr "úkol"
-
-#: Wammu/PhoneValidator.py:89
-msgid "You did not specify valid phone number."
-msgstr "Nebylo zadáno správné telefonní číslo."
-
-#: Wammu/PhoneValidator.py:90
-msgid "Invalid phone number"
-msgstr "Chybné telefonní číslo"
-
-#: Wammu/EditContactList.py:43
-msgid "Available contacts:"
-msgstr "Dostupné kontakty:"
-
-#: Wammu/EditContactList.py:47
-msgid "Current recipients:"
-msgstr "Seznam příjemců:"
-
-#: Wammu/EditContactList.py:91
-msgid "Contact list"
-msgstr "Kontakty"
-
-#: Wammu/EditContactList.py:95
-msgid "Edit contacts list"
-msgstr "Upravit seznam příjemců"
-
-#: Wammu/EditContactList.py:148 Wammu/EditContactList.py:163
-msgid "Load contacts from file"
-msgstr "Načíst kontakty ze souboru"
-
-#: Wammu/EditContactList.py:158
-#, python-format
-msgid "Selected file \"%s\" could not be written."
-msgstr "Nepodařilo se zapsat do vybraného souboru \"%s\"."
-
-#: Wammu/EditContactList.py:159
-msgid "File can not be created!"
-msgstr "Soubor se nepodařilo vytvořit!"
-
-#: Wammu/Settings.py:84
-msgid "Please enter here path to gammu configuration file you want to use."
-msgstr "Prosím zadejte zde cestu k nastavením gammu, která chcete používat."
-
-#: Wammu/Settings.py:87
-msgid "Gammurc path"
-msgstr "Cesta ke gammurc"
-
-#: Wammu/Settings.py:91
-msgid "You can configure connection parameters on Connection tab."
-msgstr "Parametry připojení můžete změnit na záložce Připojení."
-
-#: Wammu/Settings.py:97
-msgid "Automatically connect to phone on startup"
-msgstr "Automaticky připojit při spuštění programu"
-
-#: Wammu/Settings.py:98
-msgid ""
-"Whether you want application automatically connect to phone when it is "
-"started."
-msgstr "Zda se má aplikace automaticky připojit k telefonu při spuštění."
-
-#: Wammu/Settings.py:103
-msgid "Show debug log"
-msgstr "Zobrazit ladicí hlášky"
-
-#: Wammu/Settings.py:104
-msgid "Show debug information on error output."
-msgstr "Zobrazit ladicí informace na chybový výstup."
-
-#: Wammu/Settings.py:109
-msgid "Synchronize time"
-msgstr "Synchronizovat čas"
-
-#: Wammu/Settings.py:110
-msgid "Synchronise time in phone with computer time while connecting."
-msgstr "Synchronizovat čas v telefonu s časem v počítači při připojování."
-
-#: Wammu/Settings.py:115
-msgid "Startup information"
-msgstr "Informace o spouštění"
-
-#: Wammu/Settings.py:116
-msgid "Display startup on phone (not supported by all models)."
-msgstr ""
-"Zobrazit na telefonu informace o spuštění komunikace (toto není podporováno "
-"všemi telefony)."
-
-#: Wammu/Settings.py:123
-msgid "Lock device"
-msgstr "Zamykat zařízení"
-
-#: Wammu/Settings.py:124
-msgid ""
-"Whether to lock device in /var/lock. On some systems you might lack "
-"privileges to do so."
-msgstr ""
-"Jesli má být zařízení zamknuto ve /var/lock. Na některých systémech pro to "
-"nemusíte mít opravnění."
-
-#: Wammu/Settings.py:165
-msgid "Name for this configuration."
-msgstr "Pojmenujte toto připojení."
-
-#: Wammu/Settings.py:171
-msgid "Device, where your phone is connected."
-msgstr "Zařízení na kterém je připojen telefon."
-
-#: Wammu/Settings.py:172
-msgid "Device"
-msgstr "Zařízení"
-
-#: Wammu/Settings.py:177
-msgid ""
-"Connection which your phone understands, check Gammu documentation for "
-"connection details."
-msgstr ""
-"Připojení, kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
-"dostupné možnosti."
-
-#: Wammu/Settings.py:178 Wammu/Settings.py:356
-msgid "Connection"
-msgstr "Připojení"
-
-#: Wammu/Settings.py:183
-msgid ""
-"Phone model, you can usually keep here auto unless you have any problems."
-msgstr ""
-"Model telefonu obvykle můžete ponechat auto pokud s tím nemáte problémy."
-
-#: Wammu/Settings.py:186
-msgid "Model"
-msgstr "Model"
-
-#: Wammu/Settings.py:211
-msgid ""
-"Whether images in messages should be scaled when displayed. This is usually "
-"good idea as they are pretty small."
-msgstr ""
-"Jestli mají být zvětšeny obrázky ve zprávách. Obvykle to je vhodné, protože "
-"jsou vemli malé."
-
-#: Wammu/Settings.py:212
-msgid "Scale images"
-msgstr "Zvětšení obrázků"
-
-#: Wammu/Settings.py:216
-msgid "Attempt to reformat text"
-msgstr "Pokusit se přeformátovat text"
-
-#: Wammu/Settings.py:217
-msgid ""
-"If you get sometimes \"compressed\" messages likeTHIStext, you should be "
-"interested in this choice."
-msgstr ""
-"Pokud občas dostáváte \"komprimované\" zprávy jakoJEtentoTEXT, měli byste "
-"tuto volbu zapnout."
-
-#: Wammu/Settings.py:243
-msgid "Create unicode message"
-msgstr "Vytvářet zprávu v unicode"
-
-#: Wammu/Settings.py:249
-msgid "Request delivery report by default"
-msgstr "Požadovat doručenku pro zprávu"
-
-#: Wammu/Settings.py:255
-msgid "Use 16bit Id"
-msgstr "Použít 16-bitové Id"
-
-#: Wammu/Settings.py:256
-msgid "Use 16 bit Id inside message. This is safe for most cases."
-msgstr "Použít 16-bitové Id uvnitř zprávy. Toto je obvykle nejlepší volba."
-
-#: Wammu/Settings.py:289
-msgid ""
-"How often refresh phone state in application status bar. Enter value in "
-"miliseconds, 0 to disable."
-msgstr ""
-"Jak často má být aktualizován stavu telefonu v milisekundách. Zadání 0 "
-"aktualizaci vypne."
-
-#: Wammu/Settings.py:290
-msgid "Refresh phone state"
-msgstr "Obnovit stav telefonu"
-
-#: Wammu/Settings.py:295
-msgid "Whether to ask for confirmation when deleting entries."
-msgstr "Zda se má program požadovat potvrzení mazání položek."
-
-#: Wammu/Settings.py:300
-msgid "Task bar icon"
-msgstr "Ikona v systémové oblasti"
-
-#: Wammu/Settings.py:301
-msgid "Show icon in task bar."
-msgstr "Zobrazit ikonu v systémové oblasti."
-
-#: Wammu/Settings.py:319
-msgid "Default time to be used for newly created time fields."
-msgstr "Výchozí čas, který bude použitý pro nově vytvořené položky."
-
-#: Wammu/Settings.py:320
-msgid "Default time"
-msgstr "Výchozí čas"
-
-#: Wammu/Settings.py:326
-msgid ""
-"Default date to be used for newly created time fields. Enter amount of days "
-"from today (1 = tommorow)."
-msgstr ""
-"Výchozí datum požité pro nově vytvořené položky. Zadejte počet dní od dneška "
-"(1 = zítra)."
-
-#: Wammu/Settings.py:327
-msgid "Default time = now + x days"
-msgstr "Výchozí datum = dnes + x dní"
-
-#: Wammu/Settings.py:333
-msgid "How many entries will be shown in newly created item."
-msgstr "Kolik záznamů bude v nově vytvořené položce."
-
-#: Wammu/Settings.py:334
-msgid "Entries for new item"
-msgstr "Záznamy v nové položce"
-
-#: Wammu/Settings.py:341
-msgid "Prefix for non international phone numbers."
-msgstr "Prefix pro místní telefonní čísla."
-
-#: Wammu/Settings.py:342
-msgid "Number prefix"
-msgstr "Prefix čísel"
-
-#: Wammu/Settings.py:355
-msgid "Gammu"
-msgstr "Gammu"
-
-#: Wammu/Settings.py:358
-msgid "Other"
-msgstr "Ostatní"
-
-#: Wammu/Info.py:57
-msgid "Model (Gammu identification)"
-msgstr "Model (identifikace Gammu)"
-
-#: Wammu/Info.py:58
-msgid "Model (real)"
-msgstr "Model (skutečný)"
-
-#: Wammu/Info.py:71
-msgid "Firmware"
-msgstr "Firmware"
-
-#: Wammu/Info.py:73
-msgid "Firmware date"
-msgstr "Datum firmware"
-
-#: Wammu/Info.py:75
-msgid "Firmware (numeric)"
-msgstr "Firmware (číslo verze)"
-
-#: Wammu/Info.py:88
-msgid "Serial number (IMEI)"
-msgstr "Sériové číslo (IMEI)"
-
-#: Wammu/Info.py:101
-msgid "Original IMEI"
-msgstr "Původní IMEI"
-
-#: Wammu/Info.py:114
-msgid "Product code"
-msgstr "Kód produktu"
-
-#: Wammu/Info.py:127
-msgid "SIM IMSI"
-msgstr "SIM IMSI"
-
-#: Wammu/Info.py:153
-msgid "Hardware"
-msgstr "Hardware"
-
-#: Wammu/Info.py:166
-msgid "Manufacture month"
-msgstr "Měsíc výroby"
-
-#: Wammu/Info.py:179
-msgid "Language packs in phone"
-msgstr "Jazyky dostupné v telefonu"
 
 #: wammu-configure.py:46
 #, python-format
