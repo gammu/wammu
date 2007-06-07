@@ -8,7 +8,7 @@ xgettext \
     --add-comments=l10n \
     --add-location \
     --copyright-holder="Michal Čihař" \
-    `find Wammu/ -name '*.py'` wammu-configure.py wammu.py
+    `find Wammu/ -name '*.py' | sort` wammu-configure.py wammu.py
 
 ver=`python -c 'import Wammu; print Wammu.__version__'`
 sed -i '
