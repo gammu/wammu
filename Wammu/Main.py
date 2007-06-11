@@ -664,11 +664,7 @@ class WammuFrame(wx.Frame):
                 self.logger = Wammu.Logger.Logger(self.logwin, self.logfilename)
                 self.logger.start()
             else:
-                if hasattr(self, 'logger'):
-                    self.logger.canceled = True
-                    del self.logger
-                    self.logwin.Close()
-                    del self.logwin
+                self.CloseLogWindow()
 
     def SaveWinSize(self, win, key):
         x,y = win.GetPositionTuple()
@@ -679,14 +675,20 @@ class WammuFrame(wx.Frame):
         self.cfg.WriteInt('/%s/Width' % key, w)
         self.cfg.WriteInt('/%s/Height' % key, h)
 
+    def CloseLogWindow(self):
+        if hasattr(self, 'logwin'):
+            self.SaveWinSize(self.logwin, 'Debug')
+        if hasattr(self, 'logger'):
+            self.logger.canceled = True
+            del self.logger
+        if hasattr(self, 'logwin'):
+            self.logwin.Destroy()
+            del self.logwin
 
-    def LogClose(self, evt):
-        self.logger.canceled = True
-        self.SaveWinSize(self.logwin, 'Debug')
+
+    def LogClose(self, evt = None):
         self.cfg.Write('/Debug/Show', 'no')
-        self.logwin.Destroy()
-        del self.logger
-        del self.logwin
+        self.CloseLogWindow()
 
     def TogglePhoneMenus(self, enable):
         self.connected = enable
@@ -804,7 +806,7 @@ class WammuFrame(wx.Frame):
     def CloseWindow(self, event):
         self.SaveWinSize(self, 'Main')
         if hasattr(self, 'logwin'):
-            self.SaveWinSize(self.logwin, 'Debug')
+            self.CloseLogWindow()
         self.cfg.WriteInt('/Main/Split', self.splitter.GetSashPosition())
         self.cfg.WriteInt('/Main/SplitRight', self.rightsplitter.GetSashPosition())
         self.cfg.WriteInt('/Defaults/SearchType', self.searchchoice.GetCurrentSelection())
