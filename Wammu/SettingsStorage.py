@@ -141,7 +141,19 @@ class Settings:
         return (names, connections, helps)
 
     def GetPortType(self):
-        if self.gammudriver in ['mbus', 'fbus', 'dlr3', 'at', 'at19200', 'at38400', 'at115200', 'obex', 'phonetblue', 'fbusblue']:
+        if self.gammudriver in [
+                'mbus', 
+                'fbus', 
+                'dlr3', 
+                'at', 
+                'at19200', 
+                'at38400', 
+                'at115200', 
+                'obex', 
+                'phonetblue', 
+                'fbusblue', 
+                'fbus-nodtr', 
+                'dku5-nodtr']:
             if self.connection == 'serial':
                 return 'serial'
             elif self.connection == 'bluetooth':
@@ -151,11 +163,27 @@ class Settings:
             elif self.connection == 'usb':
                 return 'usbserial'
             return 'serial'
-        if self.gammudriver in ['blueat', 'bluerfat', 'blueobex', 'bluerfobex', 'bluerfgnapbus', 'bluerffbus', 'bluephonet', 'bluerfphonet']:
+        if self.gammudriver in [
+                'blueat', 
+                'bluerfat', 
+                'blueobex', 
+                'bluerfobex', 
+                'bluerfgnapbus', 
+                'bluerffbus', 
+                'bluephonet', 
+                'bluerfphonet']:
             return 'bluetooth'
-        if self.gammudriver in ['dku2', 'dku5', 'dku2at']:
+        if self.gammudriver in [
+                'dku2', 
+                'dku5', 
+                'dku2at']:
             return 'dku'
-        if self.gammudriver in ['irdaat', 'irdaobex', 'irdagnapbus', 'fbusirda', 'irdaphonet']:
+        if self.gammudriver in [
+                'irdaat', 
+                'irdaobex', 
+                'irdagnapbus', 
+                'fbusirda', 
+                'irdaphonet']:
             return 'irda'
         if self.gammudriver is None:
             return None
@@ -341,7 +369,7 @@ class Settings:
 
                 names.append('dku5')
                 connections.append(_('DKU5 cable'))
-                helps.append(_('Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100.'))
+                helps.append(_('Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like Nokia 5100.'))
 
                 names.append('dku2')
                 connections.append(_('DKU2 cable'))
@@ -350,6 +378,14 @@ class Settings:
                 names.append('dlr3')
                 connections.append(_('DLR3-3P/CA-42 cable'))
                 helps.append(_('Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia 7110/6210/6310.'))
+
+                names.append('fbus-nodtr')
+                connections.append(_('FBUS proprietary protocol using ARK cable'))
+                helps.append(_('ARK cable for phones not supporting AT commands like Nokia 6020.'))
+
+                names.append('dku5-nodtr')
+                connections.append(_('DKU5 phone with ARK cable'))
+                helps.append(_('ARK cable for phones with USB chip like Nokia 5100.'))
 
             elif self.connection == 'bluetooth':
                 names.append('fbusblue')
