@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-06-07 14:27+0200\n"
+"POT-Creation-Date: 2007-06-11 12:19+0200\n"
 "PO-Revision-Date: 2007-06-07 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -2415,31 +2415,31 @@ msgstr ""
 "Před použitím tohoto připojení musíte do telefonu nainstalovat Gnapplet. Ten "
 "naleznete ve zdrojových kódech Gammu."
 
-#: Wammu/SettingsStorage.py:208 Wammu/SettingsStorage.py:240
+#: Wammu/SettingsStorage.py:236 Wammu/SettingsStorage.py:268
 msgid "Enter device name of serial port."
 msgstr "Zadejte jméno zařízení sériového portu."
 
-#: Wammu/SettingsStorage.py:210 Wammu/SettingsStorage.py:242
+#: Wammu/SettingsStorage.py:238 Wammu/SettingsStorage.py:270
 msgid "Enter device name of emulated serial port."
 msgstr "Zadejte jméno zařízení emulovaného sériového portu."
 
-#: Wammu/SettingsStorage.py:212 Wammu/SettingsStorage.py:244
+#: Wammu/SettingsStorage.py:240 Wammu/SettingsStorage.py:272
 msgid "Enter Bluetooth address of your phone."
 msgstr "Zadejte Bluetooth adresu vašeho telefonu."
 
-#: Wammu/SettingsStorage.py:214 Wammu/SettingsStorage.py:248
+#: Wammu/SettingsStorage.py:242 Wammu/SettingsStorage.py:276
 msgid "You don't have to enter anything for this settings."
 msgstr "Nemusíte zde zadávat nic."
 
-#: Wammu/SettingsStorage.py:246
+#: Wammu/SettingsStorage.py:274
 msgid "Enter device name of USB port."
 msgstr "Zadejte jméno zařízení USB portu."
 
-#: Wammu/SettingsStorage.py:266
+#: Wammu/SettingsStorage.py:294
 msgid "Generic AT over serial line or it's emulation"
 msgstr "Obecné AT přes sériovou linku nebo její emulaci"
 
-#: Wammu/SettingsStorage.py:267 Wammu/SettingsStorage.py:297
+#: Wammu/SettingsStorage.py:295 Wammu/SettingsStorage.py:325
 msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
@@ -2447,22 +2447,22 @@ msgstr ""
 "Zvolte tuto možnost, pokud máte skutečný sériový port, nebo je emulován "
 "ovladačem (např. virtuálné COM port, /dev/rfcomm, /dev/ircomm, atd.)."
 
-#: Wammu/SettingsStorage.py:272
+#: Wammu/SettingsStorage.py:300
 #, python-format
 msgid "Generic AT at %d bps"
 msgstr "Obecné AT, rychlost %d bps"
 
-#: Wammu/SettingsStorage.py:273
+#: Wammu/SettingsStorage.py:301
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
 msgstr "Zvolte toto, pokud váš telefon vyžaduje rychlost %d bps."
 
-#: Wammu/SettingsStorage.py:277
+#: Wammu/SettingsStorage.py:305
 msgid "AT over Bluetooth"
 msgstr "AT příkazy přes Bluetooth"
 
-#: Wammu/SettingsStorage.py:278 Wammu/SettingsStorage.py:302
-#: Wammu/SettingsStorage.py:317
+#: Wammu/SettingsStorage.py:306 Wammu/SettingsStorage.py:330
+#: Wammu/SettingsStorage.py:345
 msgid ""
 "Select this if your phone is connected over Bluetooth and you want to use "
 "native Bluetooth connection."
@@ -2470,11 +2470,11 @@ msgstr ""
 "Zvolte tuto možnost, pokud je váš telefon připojen přes Bluetooth a chcete "
 "použít nativní připojení."
 
-#: Wammu/SettingsStorage.py:281
+#: Wammu/SettingsStorage.py:309
 msgid "AT over Bluetooth with RF searching"
 msgstr "AT příkazy přes Bluetooth s vyledáváním RF"
 
-#: Wammu/SettingsStorage.py:282 Wammu/SettingsStorage.py:306
+#: Wammu/SettingsStorage.py:310 Wammu/SettingsStorage.py:334
 msgid ""
 "Use for Bluetooth stack and 6210 / DCT4 Nokia models, which don't inform "
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
@@ -2483,12 +2483,12 @@ msgstr ""
 "Použijte pro Bluetooth a telefony Nokia řady 6210 / DCT4, které neinformují "
 "správně o službách (6310, 6310i s firmware straším než 5.50, 8910,..)"
 
-#: Wammu/SettingsStorage.py:286
+#: Wammu/SettingsStorage.py:314
 msgid "AT over IrDA"
 msgstr "AT příkazy přes IrDA"
 
-#: Wammu/SettingsStorage.py:287 Wammu/SettingsStorage.py:311
-#: Wammu/SettingsStorage.py:322
+#: Wammu/SettingsStorage.py:315 Wammu/SettingsStorage.py:339
+#: Wammu/SettingsStorage.py:350
 msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
@@ -2496,51 +2496,51 @@ msgstr ""
 "Zvolte tuto možnost, pokud je telefon připojen přes IrDA a chcete použít "
 "nativní IrDA připojení."
 
-#: Wammu/SettingsStorage.py:291
+#: Wammu/SettingsStorage.py:319
 msgid "AT over DKU2"
 msgstr "AT příkazy přes DKU2"
 
-#: Wammu/SettingsStorage.py:292
+#: Wammu/SettingsStorage.py:320
 msgid "Select this if your phone is connected using DKU2 cable."
 msgstr "Zvolte tuto možnost, pokud je telefon připojen kabelem DKU2."
 
-#: Wammu/SettingsStorage.py:296
+#: Wammu/SettingsStorage.py:324
 msgid "Generic OBEX over serial line or it's emulation"
 msgstr "Obecný OBEX přes sériovou linku nebo její emulaci"
 
-#: Wammu/SettingsStorage.py:301
+#: Wammu/SettingsStorage.py:329
 msgid "OBEX over Bluetooth"
 msgstr "OBEX přes Bluetooth"
 
-#: Wammu/SettingsStorage.py:305
+#: Wammu/SettingsStorage.py:333
 msgid "OBEX over Bluetooth with RF searching"
 msgstr "OBEX přes Bluetooth s vyhledáváním RF"
 
-#: Wammu/SettingsStorage.py:310
+#: Wammu/SettingsStorage.py:338
 msgid "OBEX over IrDA"
 msgstr "OBEX přes IrDA"
 
-#: Wammu/SettingsStorage.py:316
+#: Wammu/SettingsStorage.py:344
 msgid "Gnapplet over Bluetooth"
 msgstr "Gnapplet přes Bluetooth"
 
-#: Wammu/SettingsStorage.py:321
+#: Wammu/SettingsStorage.py:349
 msgid "Gnapplet over IrDA"
 msgstr "Gnapplet přes IrDA"
 
-#: Wammu/SettingsStorage.py:327
+#: Wammu/SettingsStorage.py:355
 msgid "MBUS proprietary protocol"
 msgstr "Proprietární protokol MBUS"
 
-#: Wammu/SettingsStorage.py:328
+#: Wammu/SettingsStorage.py:356
 msgid "Protocol used in older Nokia phones."
 msgstr "Protokol používaný ve starších telefonech Nokia."
 
-#: Wammu/SettingsStorage.py:333
+#: Wammu/SettingsStorage.py:361
 msgid "FBUS proprietary protocol"
 msgstr "Proprietární protokol FBUS"
 
-#: Wammu/SettingsStorage.py:334
+#: Wammu/SettingsStorage.py:362
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
@@ -2548,11 +2548,11 @@ msgstr ""
 "Protokol používaný v telefonech Nokia. Prosím zkuste nejprve vybrat "
 "konkrétnější volbu."
 
-#: Wammu/SettingsStorage.py:339
+#: Wammu/SettingsStorage.py:367
 msgid "PL2303 cable"
 msgstr "PL2303 kabel"
 
-#: Wammu/SettingsStorage.py:340
+#: Wammu/SettingsStorage.py:368
 msgid ""
 "New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia "
 "5100."
@@ -2560,31 +2560,33 @@ msgstr ""
 "Nový protokol Nokie po USB kabel PL2303 USB, pro telefony s USB čipem jako "
 "je např. 5100."
 
-#: Wammu/SettingsStorage.py:343
+#: Wammu/SettingsStorage.py:371
 msgid "DKU5 cable"
 msgstr "DKU5 kabel"
 
-#: Wammu/SettingsStorage.py:344
+#: Wammu/SettingsStorage.py:372
+#, fuzzy
 msgid ""
-"Nokia Connectivity Adapter Cable DKU-5, for phones USB chip like Nokia 5100."
+"Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like Nokia "
+"5100."
 msgstr ""
 "Propojovací kabel Nokia DKU-5, pro telefony s USB čipem jako Nokia 5100."
 
-#: Wammu/SettingsStorage.py:347
+#: Wammu/SettingsStorage.py:375
 msgid "DKU2 cable"
 msgstr "DKU2 kabel"
 
-#: Wammu/SettingsStorage.py:348
+#: Wammu/SettingsStorage.py:376
 msgid ""
 "Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230."
 msgstr ""
 "Propojovací kabel Nokia DKU-2, pro telefony bez USB čipu jako Nokia 6230."
 
-#: Wammu/SettingsStorage.py:351
+#: Wammu/SettingsStorage.py:379
 msgid "DLR3-3P/CA-42 cable"
 msgstr "DLR3-3P/CA-42 kabel"
 
-#: Wammu/SettingsStorage.py:352
+#: Wammu/SettingsStorage.py:380
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
 "7110/6210/6310."
@@ -2592,42 +2594,62 @@ msgstr ""
 "Propojovací kabel Nokia DLR-3P s rozhraním RS-232, obvykle pro telefony jako "
 "Nokia 7110/6210/6310."
 
-#: Wammu/SettingsStorage.py:356
+#: Wammu/SettingsStorage.py:383
+#, fuzzy
+msgid "FBUS proprietary protocol using ARK cable"
+msgstr "Proprietární protokol FBUS"
+
+#: Wammu/SettingsStorage.py:384
+msgid "ARK cable for phones not supporting AT commands like Nokia 6020."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:387
+msgid "DKU5 phone with ARK cable"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:388
+#, fuzzy
+msgid "ARK cable for phones with USB chip like Nokia 5100."
+msgstr ""
+"Nový protokol Nokie po USB kabel PL2303 USB, pro telefony s USB čipem jako "
+"je např. 5100."
+
+#: Wammu/SettingsStorage.py:392
 msgid "FBUS over Bluetooth (emulated serial port)"
 msgstr "FBUS přes Bluetooth (emulovaný sériový port)"
 
-#: Wammu/SettingsStorage.py:357 Wammu/SettingsStorage.py:371
+#: Wammu/SettingsStorage.py:393 Wammu/SettingsStorage.py:407
 msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
 msgstr ""
 "Protokol Nokie používaný pro připojení Bluetooth s telefony Nokia 6210."
 
-#: Wammu/SettingsStorage.py:359 Wammu/SettingsStorage.py:366
+#: Wammu/SettingsStorage.py:395 Wammu/SettingsStorage.py:402
 msgid "Using emulated serial port."
 msgstr "Prostřednictvím emulovaného sériového portu."
 
-#: Wammu/SettingsStorage.py:363
+#: Wammu/SettingsStorage.py:399
 msgid "Phonet over Bluetooth (emulated serial port)"
 msgstr "Phonet přes Bluetooth (emulovaný sériový port)"
 
-#: Wammu/SettingsStorage.py:364 Wammu/SettingsStorage.py:375
+#: Wammu/SettingsStorage.py:400 Wammu/SettingsStorage.py:411
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
 msgstr ""
 "Protokol Nokie používaný pro připojení Bluetooth s ostatními telefony Nokia "
 "řady DCT4."
 
-#: Wammu/SettingsStorage.py:370
+#: Wammu/SettingsStorage.py:406
 msgid "FBUS over Bluetooth"
 msgstr "FBUS přes Bluetooth"
 
-#: Wammu/SettingsStorage.py:374
+#: Wammu/SettingsStorage.py:410
 msgid "Phonet over Bluetooth"
 msgstr "Phonet přes Bluetooth"
 
-#: Wammu/SettingsStorage.py:378
+#: Wammu/SettingsStorage.py:414
 msgid "Phonet over Bluetooth with RF searching"
 msgstr "Phonet přes Bluetooth s RF vyhledáváním"
 
-#: Wammu/SettingsStorage.py:379
+#: Wammu/SettingsStorage.py:415
 msgid ""
 "Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don't "
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
@@ -2637,21 +2659,21 @@ msgstr ""
 "které neinformují správně o službách (6310, 6310i s firmware straším než "
 "5.50, 8910,..)."
 
-#: Wammu/SettingsStorage.py:383
+#: Wammu/SettingsStorage.py:419
 msgid "FBUS over IrDA"
 msgstr "FBUS přes IrDA"
 
-#: Wammu/SettingsStorage.py:384
+#: Wammu/SettingsStorage.py:420
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
 msgstr ""
 "Protokol Nokie používaný pro infračervené připojení s telefony Nokia "
 "6110/6130/6150."
 
-#: Wammu/SettingsStorage.py:387
+#: Wammu/SettingsStorage.py:423
 msgid "Phonet over IrDA"
 msgstr "Phonet přes IrDA"
 
-#: Wammu/SettingsStorage.py:388
+#: Wammu/SettingsStorage.py:424
 msgid "Nokia protocol for infrared with other Nokia models."
 msgstr ""
 "Protokol Nokie používaný pro infračervené připojení s ostatními telefony "
