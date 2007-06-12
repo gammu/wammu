@@ -84,7 +84,7 @@ class TalkbackDialog(wx.Dialog):
         self.phoneid = phoneid
         self.features = []
         self.gammu_version_label.SetLabel(gammu.Version()[0])
-        self.note_text_ctrl.SetValue('Report created using Wammu %s\n' % Wammu.__version__)
+        self.note_text_ctrl.SetValue('Report has been created using Wammu %s.\n' % Wammu.__version__)
         # Read phone name and manufacturer
         manufacturer = self.wammu_cfg.Read('/Phone-%d/Manufacturer' % phoneid)
         self.manufacturer_choice.SetStringSelection(manufacturer)
