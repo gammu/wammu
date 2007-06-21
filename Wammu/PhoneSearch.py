@@ -160,7 +160,7 @@ class AllSearchThread(threading.Thread):
                         ctl = btctl.Controller()
                     # read devices list
                     if self.msgcallback != None:
-                        self.msgcallback(_('Scanning for bluetooth devices using %s') % 'GNOME Bluetooth')
+                        self.msgcallback(_('Scanning for bluetooth devices using %s') % 'GNOME Bluetooth (btctl)')
 
                     devs = ctl.discover_devices()
 
@@ -179,11 +179,11 @@ class AllSearchThread(threading.Thread):
                         self.msgcallback(_('Bluetooth device scan completed'))
                 except ImportError:
                     if self.msgcallback != None:
-                        self.msgcallback(_('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
+                        self.msgcallback(_('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
                     if self.noticecallback != None:
                         self.noticecallback(
                                 _('No bluetooth searching'), 
-                                _('Neither GNOME Bluetooth nor PyBluez found, not possible to scan for bluetooth devices'))
+                                _('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
 
             i = 0
             while len(self.threads) > 0:
