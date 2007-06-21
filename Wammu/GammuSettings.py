@@ -145,8 +145,8 @@ class GammuSettings:
 
         choices = []
         for config in lst:
-            # l10n: %s is name of current configuration or 'Create new
-            # configuration', %d is position of this config in .gammurc
+            # l10n: %(name)s is name of current configuration or 'Create new
+            # configuration', %(position) d is position of this config in .gammurc
             choices.append(_('%(name)s (position %(position)d)') % 
                     {'name': config['Name'], 'position': config['Id']})
         return lst, choices
