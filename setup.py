@@ -41,8 +41,9 @@ import re
 # Optional support for py2exe
 try:
     import py2exe
+    HAVE_PY2EXE = True
 except:
-    pass
+    HAVE_PY2EXE = False
 
 # used for passing state for skiping dependency check
 skip_dependencies = False
@@ -316,6 +317,17 @@ if sys.version_info >= (2, 5):
     py2exepackages.append('email')
     py2exepackages.append('email.mime')
 
+addparams = {}
+
+if HAVE_PY2EXE:
+    addparams['windows'] = [
+        {
+            'script': 'wammu.py',
+            'icon_resources': [(1, 'icon/wammu.ico')],
+        },
+        ],
+    addparams['zipfile'] = "shared.lib"
+
 distutils.core.setup(name="Wammu",
     version = Wammu.__version__,
     description = "Wammu Mobile Phone Manager",
@@ -383,11 +395,5 @@ distutils.core.setup(name="Wammu",
             'optimize': 2,
             'packages': py2exepackages,
         }},
-    windows = [
-        {
-            'script': 'wammu.py',
-            'icon_resources': [(1, 'icon/wammu.ico')],
-        },
-        ],
-    zipfile = "shared.lib"
+    **addparams
     )
