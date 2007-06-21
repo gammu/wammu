@@ -316,9 +316,9 @@ if sys.version_info >= (2, 5):
     py2exepackages.append('email')
     py2exepackages.append('email.mime')
 
-distutils.core.setup(name="wammu",
+distutils.core.setup(name="Wammu",
     version = Wammu.__version__,
-    description = "Wammu",
+    description = "Wammu Mobile Phone Manager",
     long_description = "Phone manager built on top of python-gammu. Supports many phones.",
     author = "Michal Čihař",
     author_email = "michal@cihar.com",
