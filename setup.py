@@ -374,7 +374,7 @@ distutils.core.setup(name="Wammu",
         'Natural Language :: Swedish',
     ],
     packages = ['Wammu', 'Wammu.wxcomp'],
-    scripts = ['wammu.py'],
+    scripts = ['wammu.py', 'wammu-configure.py'],
     data_files = [
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
