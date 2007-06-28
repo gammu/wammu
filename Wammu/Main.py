@@ -219,8 +219,8 @@ class WammuFrame(wx.Frame):
         self.rightwin.sizer = wx.BoxSizer(wx.VERTICAL)
 
         # title text
-        self.label = wx.StaticText(self.rightwin, -1, 'Wammu')
-        self.rightwin.sizer.Add(self.label, 0, wx.LEFT|wx.ALL|wx.EXPAND)
+        self.righttitle = wx.StaticText(self.rightwin, -1, 'Wammu')
+        self.rightwin.sizer.Add(self.righttitle, 0, wx.LEFT|wx.ALL|wx.EXPAND)
 
         # line
         self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0 , wx.EXPAND)
@@ -739,7 +739,7 @@ class WammuFrame(wx.Frame):
 
     def ChangeView(self, k1, k2):
         self.ChangeBrowser(k1, k2)
-        self.label.SetLabel(displaydata[k1][k2][2])
+        self.righttitle.SetLabel(displaydata[k1][k2][2])
 
     def ChangeBrowser(self, k1, k2):
         self.type = [k1, k2]
