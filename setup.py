@@ -172,7 +172,7 @@ class build_wammu(distutils.command.build.build, object):
         """
         For each locale/*.po, build .mo file in target locale directory.
         """
-        for (_src, _dst) in list_message_files(self.distribution.get_name()):
+        for (_src, _dst) in list_message_files():
             _build_dst = os.path.join('build', _dst)
             destdir = os.path.dirname(_build_dst)
             if not os.path.exists(destdir):
@@ -304,7 +304,7 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         Install also .mo files.
         """
         # add .mo files to data files
-        for (_src, _dst) in list_message_files(self.distribution.get_name()):
+        for (_src, _dst) in list_message_files():
             _build_dst = os.path.join('build', _dst)
             item = [os.path.dirname(_dst), [_build_dst]]
             self.data_files.append(item)
