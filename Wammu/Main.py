@@ -324,6 +324,7 @@ class WammuFrame(wx.Frame):
         menuhelp.Append(1001, _('&Website'), _('Wammu website'))
         menuhelp.Append(1002, _('&Support'), _('Wammu support website'))
         menuhelp.Append(1003, _('&Report bug'), _('Report bug in Wammu'))
+        menuhelp.Append(1004, _('&Save debug log'), _('Save a copy of debug log, please include this in bug report.'))
         menuhelp.AppendSeparator()
         menuhelp.Append(1010, _('&Gammu Phone Database'), _('Database of user experiences with phones'))
         menuhelp.Append(1011, _('&Talkback'), _('Report your experiences in Gammu Phone Database'))
@@ -374,6 +375,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 1001, self.Website)
         wx.EVT_MENU(self, 1002, self.Support)
         wx.EVT_MENU(self, 1003, self.ReportBug)
+        wx.EVT_MENU(self, 1004, self.SaveLog)
         wx.EVT_MENU(self, 1010, self.PhoneDB)
         wx.EVT_MENU(self, 1011, self.Talkback)
         wx.EVT_MENU(self, 1020, self.Donate)
@@ -2031,4 +2033,17 @@ class WammuFrame(wx.Frame):
 
     def Donate(self, evt = None):
         Wammu.Webbrowser.Open("http://%swammu.eu/donate?src=wammu" % Wammu.Utils.GetWebsiteLang())
+
+    def SaveLog(self, evt = None):
+        '''
+        Saves debug log to file.
+        '''
+        dlg = wx.FileDialog(self,
+                _('Save debug log as...'),
+                os.getcwd(),
+                'wammu.log',
+                '',
+                wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
+        if dlg.ShowModal() == wx.ID_OK:
+            Wammu.ErrorLog.SaveLog(filename = dlg.GetPath())
 

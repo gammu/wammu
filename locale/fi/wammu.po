@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-07-16 14:16+0200\n"
+"POT-Creation-Date: 2007-07-16 18:07+0200\n"
 "PO-Revision-Date: 2007-04-24 08:35+0200\n"
 "Last-Translator: aku ankkuli <aku.ankkuli@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -72,7 +72,7 @@ msgid "Failed to set exception handler."
 msgstr "Virhe asettaessa exception handleria."
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:923 Wammu/Settings.py:166
+#: Wammu/Main.py:925 Wammu/Settings.py:166
 msgid "Name"
 msgstr "Nimi"
 
@@ -81,31 +81,31 @@ msgid "Value"
 msgstr "Arvo"
 
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:903
-#: Wammu/Main.py:917 Wammu/Main.py:927 Wammu/Main.py:935
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:905
+#: Wammu/Main.py:919 Wammu/Main.py:929 Wammu/Main.py:937
 msgid "Location"
 msgstr "Sijainti"
 
-#: Wammu/Browser.py:52 Wammu/Main.py:919
+#: Wammu/Browser.py:52 Wammu/Main.py:921
 msgid "Memory"
 msgstr "Muisti"
 
 #: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
-#: Wammu/Main.py:915
+#: Wammu/Main.py:917
 msgid "Number"
 msgstr "Numero"
 
-#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:929
-#: Wammu/Main.py:936
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:931
+#: Wammu/Main.py:938
 msgid "Type"
 msgstr "Tyyppi"
 
 #: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
-#: Wammu/Main.py:916
+#: Wammu/Main.py:918
 msgid "Date"
 msgstr "Päiväys"
 
-#: Wammu/Browser.py:84 Wammu/Main.py:921
+#: Wammu/Browser.py:84 Wammu/Main.py:923
 msgid "State"
 msgstr "Tila"
 
@@ -118,7 +118,7 @@ msgstr "Teksti"
 msgid "Completed"
 msgstr "Valmis"
 
-#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:928
+#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:930
 msgid "Priority"
 msgstr "Tärkeys"
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Contact list"
 msgstr "Yhteystiedot"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1287 Wammu/Main.py:1883
+#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1885
 #: Wammu/SMSExport.py:34
 msgid "All files"
 msgstr "Kaikki tiedostot"
@@ -533,16 +533,16 @@ msgstr ""
 msgid "File can not be created!"
 msgstr "Kansiota ei voi luoda!"
 
-#: Wammu/EditContactList.py:176 Wammu/Main.py:1915
+#: Wammu/EditContactList.py:176 Wammu/Main.py:1917
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr ""
 
-#: Wammu/EditContactList.py:177 Wammu/Main.py:1916
+#: Wammu/EditContactList.py:177 Wammu/Main.py:1918
 msgid "File not found!"
 msgstr "Kansiota ei löydy!"
 
-#: Wammu/Editor.py:215 Wammu/Editor.py:419 Wammu/Main.py:593 Wammu/Main.py:609
+#: Wammu/Editor.py:215 Wammu/Editor.py:419 Wammu/Main.py:595 Wammu/Main.py:611
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -568,7 +568,7 @@ msgstr ""
 msgid "contact"
 msgstr "yhteystieto"
 
-#: Wammu/Editor.py:488 Wammu/Main.py:904
+#: Wammu/Editor.py:488 Wammu/Main.py:906
 msgid "Memory type"
 msgstr "Muistityyppi"
 
@@ -606,7 +606,7 @@ msgstr "Etsi puhelin"
 msgid "Report bug"
 msgstr "Tuo varmuuskopio"
 
-#: Wammu/ErrorMessage.py:96
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2042
 #, fuzzy
 msgid "Save debug log as..."
 msgstr "Tallenna varmuuskopio nimellä..."
@@ -735,7 +735,7 @@ msgstr "Tuotekoodi"
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:140 Wammu/Main.py:920
+#: Wammu/Info.py:140 Wammu/Main.py:922
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -1178,44 +1178,53 @@ msgstr "Tuo varmuuskopio"
 msgid "Report bug in Wammu"
 msgstr "Tuo varmuuskopio"
 
-#: Wammu/Main.py:328
+#: Wammu/Main.py:327
+#, fuzzy
+msgid "&Save debug log"
+msgstr "Näytä debuggaus loki"
+
+#: Wammu/Main.py:327
+msgid "Save a copy of debug log, please include this in bug report."
+msgstr ""
+
+#: Wammu/Main.py:329
 msgid "&Gammu Phone Database"
 msgstr ""
 
-#: Wammu/Main.py:328
+#: Wammu/Main.py:329
 msgid "Database of user experiences with phones"
 msgstr ""
 
-#: Wammu/Main.py:329
+#: Wammu/Main.py:330
 msgid "&Talkback"
 msgstr ""
 
-#: Wammu/Main.py:329
+#: Wammu/Main.py:330
 msgid "Report your experiences in Gammu Phone Database"
 msgstr ""
 
-#: Wammu/Main.py:331
+#: Wammu/Main.py:332
 #, fuzzy
 msgid "&Donate"
 msgstr "Päiväys"
 
-#: Wammu/Main.py:331
+#: Wammu/Main.py:332
 msgid "Donate to Wammu author"
 msgstr ""
 
-#: Wammu/Main.py:333
+#: Wammu/Main.py:334
 msgid "&About"
 msgstr "&Tietoja"
 
-#: Wammu/Main.py:333
+#: Wammu/Main.py:334
 msgid "Information about program"
 msgstr "Tietoa ohjelmasta"
 
-#: Wammu/Main.py:335
+#: Wammu/Main.py:336
 msgid "&Help"
 msgstr "&Ohje"
 
-#: Wammu/Main.py:425 Wammu/Main.py:432 Wammu/Main.py:438
+#: Wammu/Main.py:427 Wammu/Main.py:434 Wammu/Main.py:440
 #, fuzzy
 msgid "Wammu could not import gammu module, program will be terminated."
 msgstr ""
@@ -1225,7 +1234,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: Wammu/Main.py:426
+#: Wammu/Main.py:428
 #, python-format
 msgid ""
 "The import failed because python-gammu is compiled with different version of "
@@ -1233,106 +1242,106 @@ msgid ""
 "it is using version %(runtime)s)."
 msgstr ""
 
-#: Wammu/Main.py:427
+#: Wammu/Main.py:429
 msgid ""
 "You can fix it by recompiling python-gammu against gammu library you are "
 "currently using."
 msgstr ""
 
-#: Wammu/Main.py:428 Wammu/Main.py:434 Wammu/Main.py:440
+#: Wammu/Main.py:430 Wammu/Main.py:436 Wammu/Main.py:442
 msgid "Gammu module not working!"
 msgstr "Gammu moduuli ei toimi!"
 
-#: Wammu/Main.py:433
+#: Wammu/Main.py:435
 msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
 msgstr ""
 
-#: Wammu/Main.py:439
+#: Wammu/Main.py:441
 msgid "The import failed with following error:"
 msgstr ""
 
-#: Wammu/Main.py:453
+#: Wammu/Main.py:455
 msgid "Wammu configuration was not found and Gammu settings couldn't be read."
 msgstr "Wammun asetuksia ei löydetty ja Gammun asetuksia ei voi lukea."
 
-#: Wammu/Main.py:454
+#: Wammu/Main.py:456
 msgid "Do you want to configure phone connection now?"
 msgstr ""
 
-#: Wammu/Main.py:455
+#: Wammu/Main.py:457
 msgid "Configuration not found"
 msgstr "Asetuksia ei löytynyt"
 
-#: Wammu/Main.py:472
+#: Wammu/Main.py:474
 msgid ""
 "You are using Wammu for more than a month. We would like to hear from you "
 "how your phone is supported. Do you want to participate in this survey?"
 msgstr ""
 
-#: Wammu/Main.py:473
+#: Wammu/Main.py:475
 msgid "Press Cancel to never show this question again."
 msgstr ""
 
-#: Wammu/Main.py:474
+#: Wammu/Main.py:476
 msgid "Thanks for using Wammu"
 msgstr "Kiitos kun käytät Wammua"
 
-#: Wammu/Main.py:499
+#: Wammu/Main.py:501
 msgid "Migrated from older Wammu"
 msgstr ""
 
-#: Wammu/Main.py:558
+#: Wammu/Main.py:560
 msgid "Connect"
 msgstr "Yhdistä"
 
-#: Wammu/Main.py:559
+#: Wammu/Main.py:561
 msgid "Disconnect"
 msgstr "Katkaise yhteys"
 
-#: Wammu/Main.py:561 Wammu/Settings.py:38
+#: Wammu/Main.py:563 Wammu/Settings.py:38
 msgid "Settings"
 msgstr "Asetukset"
 
-#: Wammu/Main.py:563
+#: Wammu/Main.py:565
 #, fuzzy
 msgid "Restore"
 msgstr "&Hae"
 
-#: Wammu/Main.py:564
+#: Wammu/Main.py:566
 msgid "Minimize"
 msgstr "Pienennä"
 
-#: Wammu/Main.py:566 Wammu/PhoneSearch.py:52
+#: Wammu/Main.py:568 Wammu/PhoneSearch.py:52
 msgid "Close"
 msgstr "Sulje"
 
-#: Wammu/Main.py:595
+#: Wammu/Main.py:597
 msgid "battery"
 msgstr "akku"
 
-#: Wammu/Main.py:597
+#: Wammu/Main.py:599
 msgid "AC"
 msgstr "AC"
 
-#: Wammu/Main.py:599
+#: Wammu/Main.py:601
 msgid "no battery"
 msgstr "ei akkua"
 
-#: Wammu/Main.py:601
+#: Wammu/Main.py:603
 msgid "fault"
 msgstr "virhe"
 
-#: Wammu/Main.py:603
+#: Wammu/Main.py:605
 msgid "charging"
 msgstr "ladataan"
 
-#: Wammu/Main.py:605
+#: Wammu/Main.py:607
 msgid "charged"
 msgstr "ladattu"
 
-#: Wammu/Main.py:613
+#: Wammu/Main.py:615
 #, python-format
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
@@ -1341,15 +1350,15 @@ msgstr ""
 "Akku: %(battery_percent)d %% (%(power_source)s), Signaali: %(signal_percent)"
 "d %%, Aika: %(time)s"
 
-#: Wammu/Main.py:696
+#: Wammu/Main.py:698
 msgid "Connected"
 msgstr "Yhdistetty"
 
-#: Wammu/Main.py:700
+#: Wammu/Main.py:702
 msgid "Disconnected"
 msgstr "Yhteys katkaistu"
 
-#: Wammu/Main.py:798
+#: Wammu/Main.py:800
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
@@ -1357,36 +1366,36 @@ msgstr ""
 "Vaihtamasi parametrit vaikuttavat puhelin yhteyteen, niitä käytetään kun "
 "seuraavan kerran yhdistät puhelimen."
 
-#: Wammu/Main.py:799
+#: Wammu/Main.py:801
 msgid "Notice"
 msgstr "Huomautus"
 
-#: Wammu/Main.py:842 Wammu/Thread.py:55
+#: Wammu/Main.py:844 Wammu/Thread.py:55
 msgid "Error while communicating with phone"
 msgstr "Virhe ottaessa yhteyttä puhelimeen"
 
-#: Wammu/Main.py:843 Wammu/Main.py:1321 Wammu/Main.py:1560 Wammu/Thread.py:56
+#: Wammu/Main.py:845 Wammu/Main.py:1323 Wammu/Main.py:1562 Wammu/Thread.py:56
 msgid "Error Occured"
 msgstr "Virhe"
 
-#: Wammu/Main.py:850
+#: Wammu/Main.py:852
 msgid "Operation in progress"
 msgstr "Toiminto käynnissä"
 
-#: Wammu/Main.py:909
+#: Wammu/Main.py:911
 #, python-format
 msgid "voice tag %x"
 msgstr "äänikomento %x"
 
-#: Wammu/Main.py:918
+#: Wammu/Main.py:920
 msgid "Folder"
 msgstr "Hakemisto"
 
-#: Wammu/Main.py:963
+#: Wammu/Main.py:965
 msgid "Writing message(s)..."
 msgstr "Kirjoitetaan viesti(t)..."
 
-#: Wammu/Main.py:993
+#: Wammu/Main.py:995
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1396,15 +1405,15 @@ msgstr ""
 "bugi, ole hyvä ja ota yhteyttä ohjelman luojaan. Liitä mukaan debuggausloki. "
 "Nähdäksesi viestit Wammussa pitää sinun uudelleen lukea kaikki viestit."
 
-#: Wammu/Main.py:993
+#: Wammu/Main.py:995
 msgid "Could not read saved message!"
 msgstr "Tallennettua viestiä ei pysty avaamaan!"
 
-#: Wammu/Main.py:1021
+#: Wammu/Main.py:1023
 msgid "Writing contact..."
 msgstr "Kirjoitetaan yhteystietoja..."
 
-#: Wammu/Main.py:1046 Wammu/Main.py:1100 Wammu/Main.py:1147
+#: Wammu/Main.py:1048 Wammu/Main.py:1102 Wammu/Main.py:1149
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
@@ -1412,98 +1421,98 @@ msgstr ""
 "Ei ollut mahdollista lukea tallennettua tietoa! Ehkä se on erillainen kuin "
 "puhelimeen tallennettu kunnes uudelleen luet kaikki tiedot."
 
-#: Wammu/Main.py:1046 Wammu/Main.py:1100 Wammu/Main.py:1147
+#: Wammu/Main.py:1048 Wammu/Main.py:1102 Wammu/Main.py:1149
 msgid "Could not read saved entry!"
 msgstr "Ei voitu lukea talletettua tietoa!"
 
-#: Wammu/Main.py:1075
+#: Wammu/Main.py:1077
 msgid "Writing calendar..."
 msgstr "Kirjoitetaan kalenteria..."
 
-#: Wammu/Main.py:1122
+#: Wammu/Main.py:1124
 msgid "Writing todo..."
 msgstr "Kirjoitetaan tehtävä..."
 
-#: Wammu/Main.py:1166 Wammu/Main.py:1216 Wammu/Main.py:1236 Wammu/Main.py:1631
+#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1633
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr "Et voi käsitellä tätä tietoa, hae se ensin puhelimesta"
 
-#: Wammu/Main.py:1166 Wammu/Main.py:1216 Wammu/Main.py:1236 Wammu/Main.py:1631
+#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1633
 msgid "Data not up to date"
 msgstr "Tieto ei ajantasainen"
 
-#: Wammu/Main.py:1262
+#: Wammu/Main.py:1264
 msgid "Gammu messages backup"
 msgstr "Gammu viestien varmuuskopio"
 
-#: Wammu/Main.py:1266
+#: Wammu/Main.py:1268
 msgid "All backup formats"
 msgstr "Kaikki varmuuskopio muodot"
 
-#: Wammu/Main.py:1268
+#: Wammu/Main.py:1270
 msgid "Gammu backup [all data]"
 msgstr "Gammu varmuuskopio [kaikki tieto]"
 
-#: Wammu/Main.py:1272
+#: Wammu/Main.py:1274
 msgid "Nokia backup [contacts]"
 msgstr "Nokia varmuuskopio [yhteystiedot]"
 
-#: Wammu/Main.py:1275
+#: Wammu/Main.py:1277
 msgid "vCard [contacts]"
 msgstr "vCard [yhteystiedot]"
 
-#: Wammu/Main.py:1278
+#: Wammu/Main.py:1280
 msgid "LDIF [concacts]"
 msgstr "LDIF [yhteystiedot]"
 
-#: Wammu/Main.py:1281
+#: Wammu/Main.py:1283
 msgid "vCalendar [todo,calendar]"
 msgstr "vKalenteri [tehtävä,kalenteri]"
 
-#: Wammu/Main.py:1284
+#: Wammu/Main.py:1286
 msgid "iCalendar [todo,calendar]"
 msgstr "iKalenteri [tehtävä,kalenteri]"
 
-#: Wammu/Main.py:1291
+#: Wammu/Main.py:1293
 msgid "Save data as..."
 msgstr "Talleta tieto nimellä..."
 
-#: Wammu/Main.py:1293
+#: Wammu/Main.py:1295
 msgid "Read data"
 msgstr "Lue tietoja"
 
-#: Wammu/Main.py:1296
+#: Wammu/Main.py:1298
 msgid "Save backup as..."
 msgstr "Tallenna varmuuskopio nimellä..."
 
-#: Wammu/Main.py:1298
+#: Wammu/Main.py:1300
 msgid "Import backup"
 msgstr "Tuo varmuuskopio"
 
-#: Wammu/Main.py:1320
+#: Wammu/Main.py:1322
 msgid "Error while reading backup"
 msgstr "Virhe luettaessa varmuuskopioita"
 
-#: Wammu/Main.py:1344 Wammu/Main.py:1360
+#: Wammu/Main.py:1346 Wammu/Main.py:1362
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "Tieto luettu tiedostosta \"%s\""
 
-#: Wammu/Main.py:1370 Wammu/Main.py:1655
+#: Wammu/Main.py:1372 Wammu/Main.py:1657
 #, python-format
 msgid "%d messages"
 msgstr "%d viestit"
 
-#: Wammu/Main.py:1374 Wammu/Main.py:1443
+#: Wammu/Main.py:1376 Wammu/Main.py:1445
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "Tuotavaa tietoa ei löytynyt tiedostosta \"%s\""
 
-#: Wammu/Main.py:1375 Wammu/Main.py:1444
+#: Wammu/Main.py:1377 Wammu/Main.py:1446
 msgid "No data to import"
 msgstr "Ei tietoa tuotavaksi"
 
-#: Wammu/Main.py:1379 Wammu/Main.py:1458
+#: Wammu/Main.py:1381 Wammu/Main.py:1460
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
@@ -1511,185 +1520,185 @@ msgstr ""
 "Varmuuskopioista löytyi seuraavat tiedot, valitse ne, jotka haluat lisätä "
 "puhelimeen."
 
-#: Wammu/Main.py:1379 Wammu/Main.py:1458
+#: Wammu/Main.py:1381 Wammu/Main.py:1460
 msgid "Select what to import"
 msgstr "Valitse mitä tuodaan"
 
-#: Wammu/Main.py:1390 Wammu/Main.py:1469
+#: Wammu/Main.py:1392 Wammu/Main.py:1471
 msgid "Importing data..."
 msgstr "Tuodaan tietoa..."
 
-#: Wammu/Main.py:1418 Wammu/Main.py:1518
+#: Wammu/Main.py:1420 Wammu/Main.py:1520
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "Varmuuskopio tuotu tiedostosta \"%s\""
 
-#: Wammu/Main.py:1419 Wammu/Main.py:1519
+#: Wammu/Main.py:1421 Wammu/Main.py:1521
 msgid "Backup imported"
 msgstr "Varmuuskopio tuotu"
 
-#: Wammu/Main.py:1430
+#: Wammu/Main.py:1432
 #, python-format
 msgid "%d phone contact entries"
 msgstr "%d puhelimen yhteystiedot"
 
-#: Wammu/Main.py:1433
+#: Wammu/Main.py:1435
 #, python-format
 msgid "%d SIM contact entries"
 msgstr "%d SIM yhteystiedot"
 
-#: Wammu/Main.py:1436
+#: Wammu/Main.py:1438
 #, python-format
 msgid "%d to do entries"
 msgstr "%d Tehtävä merkinnät"
 
-#: Wammu/Main.py:1439 Wammu/Main.py:1659
+#: Wammu/Main.py:1441 Wammu/Main.py:1661
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d Kalenteri merkinnät"
 
-#: Wammu/Main.py:1450
+#: Wammu/Main.py:1452
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "Vamuuskopio tallennettu puhelimesta %s"
 
-#: Wammu/Main.py:1452
+#: Wammu/Main.py:1454
 #, python-format
 msgid ", serial number %s"
 msgstr ", sarjanumero %s"
 
-#: Wammu/Main.py:1454
+#: Wammu/Main.py:1456
 #, python-format
 msgid "Backup was created by %s"
 msgstr "%s loi varmuuskopion"
 
-#: Wammu/Main.py:1456
+#: Wammu/Main.py:1458
 #, python-format
 msgid "Backup saved on %s"
 msgstr "Varmuuskopio tallennettu %s :sta"
 
-#: Wammu/Main.py:1553
+#: Wammu/Main.py:1555
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "Varmuuskopio tallennettu tiedostoon \"%s\""
 
-#: Wammu/Main.py:1555
+#: Wammu/Main.py:1557
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "Tieto tallennettu tiedostoon \"%s\""
 
-#: Wammu/Main.py:1559
+#: Wammu/Main.py:1561
 msgid "Error while saving backup"
 msgstr "Virhe tallennettaessa varmuuskopiota"
 
-#: Wammu/Main.py:1636
+#: Wammu/Main.py:1638
 #, python-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Haluatko varmasti poistaa %s?"
 
-#: Wammu/Main.py:1640
+#: Wammu/Main.py:1642
 #, python-format
 msgid "contact \"%s\""
 msgstr "yhteystieto \"%s\""
 
-#: Wammu/Main.py:1642
+#: Wammu/Main.py:1644
 #, python-format
 msgid "call \"%s\""
 msgstr "soita \"%s\""
 
-#: Wammu/Main.py:1644
+#: Wammu/Main.py:1646
 #, python-format
 msgid "message from \"%s\""
 msgstr "viesti \"%s\""
 
-#: Wammu/Main.py:1646
+#: Wammu/Main.py:1648
 #, python-format
 msgid "todo \"%s\""
 msgstr "tehtävä \"%s\""
 
-#: Wammu/Main.py:1648
+#: Wammu/Main.py:1650
 #, python-format
 msgid "calendar entry \"%s\""
 msgstr "kalenterimerkintä \"%s\""
 
-#: Wammu/Main.py:1651
+#: Wammu/Main.py:1653
 #, python-format
 msgid "%d contacts"
 msgstr "%d yhteystiedot"
 
-#: Wammu/Main.py:1653
+#: Wammu/Main.py:1655
 #, python-format
 msgid "%d calls"
 msgstr "%d puhelut"
 
-#: Wammu/Main.py:1657
+#: Wammu/Main.py:1659
 #, python-format
 msgid "%d todo"
 msgstr "%d tehtävä"
 
-#: Wammu/Main.py:1662 Wammu/Settings.py:294
+#: Wammu/Main.py:1664 Wammu/Settings.py:294
 msgid "Confirm deleting"
 msgstr "Vahvista poisto"
 
-#: Wammu/Main.py:1670
+#: Wammu/Main.py:1672
 msgid "Deleting contact(s)..."
 msgstr "Poistetaan yhteystieto(ja)"
 
-#: Wammu/Main.py:1680
+#: Wammu/Main.py:1682
 msgid "Deleting message(s)..."
 msgstr "Tuhoa viesti(t)..."
 
-#: Wammu/Main.py:1691
+#: Wammu/Main.py:1693
 msgid "Deleting todo(s)..."
 msgstr "Poistetaan tehtävä(iä)"
 
-#: Wammu/Main.py:1701
+#: Wammu/Main.py:1703
 msgid "Deleting calendar event(s)..."
 msgstr "Poistetaan kalenterimerkintää(töjä)"
 
-#: Wammu/Main.py:1773
+#: Wammu/Main.py:1775
 msgid "Reading phone information"
 msgstr "Luetaan puhelimen tietoja"
 
-#: Wammu/Main.py:1798
+#: Wammu/Main.py:1800
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Luetaan %s tyyppisiä puheluita"
 
-#: Wammu/Main.py:1826
+#: Wammu/Main.py:1828
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Luetaan yhteystietoja %s :tä"
 
-#: Wammu/Main.py:1834
+#: Wammu/Main.py:1836
 msgid "Reading messages"
 msgstr "Luetaan viestejä"
 
-#: Wammu/Main.py:1844
+#: Wammu/Main.py:1846
 msgid "Reading todos"
 msgstr "Luetaan tehtäviä"
 
-#: Wammu/Main.py:1854
+#: Wammu/Main.py:1856
 msgid "Reading calendar"
 msgstr "Luetaan kalenteria"
 
-#: Wammu/Main.py:1864
+#: Wammu/Main.py:1866
 msgid "Setting time in phone..."
 msgstr "Asettaa puhelimen aikaa..."
 
-#: Wammu/Main.py:1883
+#: Wammu/Main.py:1885
 msgid "Send file to phone"
 msgstr "Lähetä tiedosto puhelimeen"
 
-#: Wammu/Main.py:1904
+#: Wammu/Main.py:1906
 msgid "Sending file to phone..."
 msgstr "Lähetetään tiedostoa puhelimeen..."
 
-#: Wammu/Main.py:1924
+#: Wammu/Main.py:1926
 msgid "One moment please, connecting to phone..."
 msgstr "Hetkinen, yhdistetään puhelimeen..."
 
-#: Wammu/Main.py:1980
+#: Wammu/Main.py:1982
 msgid "One moment please, disconnecting from phone..."
 msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen..."
 
