@@ -324,7 +324,7 @@ class Settings(wx.Dialog):
         v = config.ReadInt('/Wammu/DefaultDateOffset')
         self.editdate = wx.SpinCtrl(self.notebook_other, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000000, max = 10000000, initial = v, size = (150, -1))
         self.editdate.SetToolTipString(_('Default date to be used for newly created time fields. Enter amount of days from today (1 = tommorow).'))
-        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default time = now + x days')), pos = (r, 1))
+        self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default date = now + x days')), pos = (r, 1))
         self.sizer_other.Add(self.editdate, pos = (r, 2))
         r += 1
 
