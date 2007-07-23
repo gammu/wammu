@@ -1563,6 +1563,13 @@ class WammuFrame(wx.Frame):
                 errortype = 'gammu',
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
+        except MemoryError, val:
+            info = val[0]
+            evt = Wammu.Events.ShowMessageEvent(
+                    message = _('Error while saving backup, probably some limit inside of Gammu exceeded.\n%s') % str(info),
+                    title = _('Error Occured'),
+                    type = wx.ICON_ERROR)
+            wx.PostEvent(self, evt)
 
     def DoBackup(self, data, type):
         filename = self.SelectBackupFile(type, data = data)
