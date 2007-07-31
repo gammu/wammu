@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-07-20 10:50+0200\n"
+"POT-Creation-Date: 2007-07-31 10:53+0200\n"
 "PO-Revision-Date: 2007-05-23 16:19+0200\n"
 "Last-Translator: Yves Agostini <agostini@univ-metz.fr>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -514,7 +514,7 @@ msgstr "Courants :"
 msgid "Contact list"
 msgstr "Liste de contacts"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1885
+#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1892
 #: Wammu/SMSExport.py:34
 msgid "All files"
 msgstr "Tous les fichiers"
@@ -536,12 +536,12 @@ msgstr "Enregistrement du fichier \"%s\" impossible."
 msgid "File can not be created!"
 msgstr "Impossible de créer le fichier !"
 
-#: Wammu/EditContactList.py:176 Wammu/Main.py:1917
+#: Wammu/EditContactList.py:176 Wammu/Main.py:1924
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr "Fichier \"%s\" non trouvé, aucune donnée lue."
 
-#: Wammu/EditContactList.py:177 Wammu/Main.py:1918
+#: Wammu/EditContactList.py:177 Wammu/Main.py:1925
 msgid "File not found!"
 msgstr "Fichier non trouvé"
 
@@ -608,7 +608,7 @@ msgstr "Recherche de rapports similaires"
 msgid "Report bug"
 msgstr "Rapport de bogue"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2042
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2049
 msgid "Save debug log as..."
 msgstr "Enregistrement du journal de débogage sous ..."
 
@@ -1460,7 +1460,8 @@ msgstr "Remarque"
 msgid "Error while communicating with phone"
 msgstr "Erreur de communication avec le téléphone"
 
-#: Wammu/Main.py:845 Wammu/Main.py:1323 Wammu/Main.py:1562 Wammu/Thread.py:56
+#: Wammu/Main.py:845 Wammu/Main.py:1323 Wammu/Main.py:1562 Wammu/Main.py:1570
+#: Wammu/Thread.py:56
 msgid "Error Occured"
 msgstr "Erreur "
 
@@ -1520,13 +1521,13 @@ msgstr "Écrit les calendrier..."
 msgid "Writing todo..."
 msgstr "Écrit le tâche à faire..."
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1633
+#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1640
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr ""
 "Vous ne pouvez pas travailler sur ces données, veuillez d'abord les "
 "récupérer du téléphone"
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1633
+#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1640
 msgid "Data not up to date"
 msgstr "Données non à jour"
 
@@ -1587,7 +1588,7 @@ msgstr "Erreur de lecture de la copie de sauvegarde"
 msgid "Data has been read from file \"%s\""
 msgstr "Les données ont été lues à partir du fichier \"%s\""
 
-#: Wammu/Main.py:1372 Wammu/Main.py:1657
+#: Wammu/Main.py:1372 Wammu/Main.py:1664
 #, python-format
 msgid "%d messages"
 msgstr "%d messages"
@@ -1641,7 +1642,7 @@ msgstr "%d contacts sur la carte SIM"
 msgid "%d to do entries"
 msgstr "%d tâches à faire"
 
-#: Wammu/Main.py:1441 Wammu/Main.py:1661
+#: Wammu/Main.py:1441 Wammu/Main.py:1668
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d entrées dans le calendrier"
@@ -1680,114 +1681,121 @@ msgstr "Les données ont été enregistrées dans le fichier \"%s\""
 msgid "Error while saving backup"
 msgstr "Erreur pendant la sauvegarde"
 
-#: Wammu/Main.py:1638
+#: Wammu/Main.py:1569
+#, python-format
+msgid ""
+"Error while saving backup, probably some limit inside of Gammu exceeded.\n"
+"%s"
+msgstr ""
+
+#: Wammu/Main.py:1645
 #, python-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Êtes-vous sûr de vouloir supprimer %s ?"
 
-#: Wammu/Main.py:1642
+#: Wammu/Main.py:1649
 #, python-format
 msgid "contact \"%s\""
 msgstr "contact \"%s\""
 
-#: Wammu/Main.py:1644
+#: Wammu/Main.py:1651
 #, python-format
 msgid "call \"%s\""
 msgstr "appel \"%s\""
 
-#: Wammu/Main.py:1646
+#: Wammu/Main.py:1653
 #, python-format
 msgid "message from \"%s\""
 msgstr "message de la part de '\"%s\""
 
-#: Wammu/Main.py:1648
+#: Wammu/Main.py:1655
 #, python-format
 msgid "todo \"%s\""
 msgstr "tâche à faire \"%s\""
 
-#: Wammu/Main.py:1650
+#: Wammu/Main.py:1657
 #, python-format
 msgid "calendar entry \"%s\""
 msgstr "entrée de calendrier \"%s\""
 
-#: Wammu/Main.py:1653
+#: Wammu/Main.py:1660
 #, python-format
 msgid "%d contacts"
 msgstr "%d contacts"
 
-#: Wammu/Main.py:1655
+#: Wammu/Main.py:1662
 #, python-format
 msgid "%d calls"
 msgstr "%d appels"
 
-#: Wammu/Main.py:1659
+#: Wammu/Main.py:1666
 #, python-format
 msgid "%d todo"
 msgstr "%d tâche à faire"
 
-#: Wammu/Main.py:1664 Wammu/Settings.py:294
+#: Wammu/Main.py:1671 Wammu/Settings.py:294
 msgid "Confirm deleting"
 msgstr "Comfirmer la suppression"
 
-#: Wammu/Main.py:1672
+#: Wammu/Main.py:1679
 msgid "Deleting contact(s)..."
 msgstr "Supprime le(s) contact(s)..."
 
-#: Wammu/Main.py:1682
+#: Wammu/Main.py:1689
 msgid "Deleting message(s)..."
 msgstr "Supprime le(s) message(s)..."
 
-#: Wammu/Main.py:1693
+#: Wammu/Main.py:1700
 msgid "Deleting todo(s)..."
 msgstr "Supprime le(s) tâche(s) à faire"
 
-#: Wammu/Main.py:1703
+#: Wammu/Main.py:1710
 msgid "Deleting calendar event(s)..."
 msgstr "Supprime le(s) événement(s) de calendrier..."
 
-#: Wammu/Main.py:1775
+#: Wammu/Main.py:1782
 msgid "Reading phone information"
 msgstr "Lecture de l'information du téléphone"
 
-#: Wammu/Main.py:1800
+#: Wammu/Main.py:1807
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Lecture des appels de type %s"
 
-#: Wammu/Main.py:1828
+#: Wammu/Main.py:1835
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Lecture des contacts de %s"
 
-#: Wammu/Main.py:1836
+#: Wammu/Main.py:1843
 msgid "Reading messages"
 msgstr "Lecture des messages"
 
-#: Wammu/Main.py:1846
+#: Wammu/Main.py:1853
 msgid "Reading todos"
 msgstr "Lecture des tâches à faire"
 
-#: Wammu/Main.py:1856
+#: Wammu/Main.py:1863
 msgid "Reading calendar"
 msgstr "Lecture du calendrier"
 
-#: Wammu/Main.py:1866
+#: Wammu/Main.py:1873
 msgid "Setting time in phone..."
 msgstr "Réglage de l'heure dans le téléphone..."
 
-#: Wammu/Main.py:1885
+#: Wammu/Main.py:1892
 msgid "Send file to phone"
 msgstr "Envoyer fichier au téléphone"
 
-#: Wammu/Main.py:1906
+#: Wammu/Main.py:1913
 msgid "Sending file to phone..."
 msgstr "Envoie de fichier au téléphone ..."
 
-#: Wammu/Main.py:1926
+#: Wammu/Main.py:1933
 msgid "One moment please, connecting to phone..."
 msgstr "Un moment svp, connexion au téléphone..."
 
-#: Wammu/Main.py:1982
+#: Wammu/Main.py:1989
 msgid "One moment please, disconnecting from phone..."
 msgstr "Un moment svp, déconnexion du téléphone..."
 

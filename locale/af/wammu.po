@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.18\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-07-20 10:50+0200\n"
+"POT-Creation-Date: 2007-07-31 10:53+0200\n"
 "PO-Revision-Date: 2007-01-06 09:49+0100\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: African <af@li.org>\n"
@@ -498,7 +498,7 @@ msgstr ""
 msgid "Contact list"
 msgstr "Kontakte"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1885
+#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1892
 #: Wammu/SMSExport.py:34
 msgid "All files"
 msgstr "Alle lêers"
@@ -523,12 +523,12 @@ msgstr ""
 msgid "File can not be created!"
 msgstr "Kan nie gids skep nie!"
 
-#: Wammu/EditContactList.py:176 Wammu/Main.py:1917
+#: Wammu/EditContactList.py:176 Wammu/Main.py:1924
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr ""
 
-#: Wammu/EditContactList.py:177 Wammu/Main.py:1918
+#: Wammu/EditContactList.py:177 Wammu/Main.py:1925
 #, fuzzy
 msgid "File not found!"
 msgstr "Foon nie gevind nie!"
@@ -594,7 +594,7 @@ msgstr "Soek vir soortgelyke verslae"
 msgid "Report bug"
 msgstr "Raporteer fout"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2042
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2049
 msgid "Save debug log as..."
 msgstr ""
 
@@ -1419,7 +1419,8 @@ msgstr "Kennisgewing"
 msgid "Error while communicating with phone"
 msgstr "Fout tydens kommunikasie met foon"
 
-#: Wammu/Main.py:845 Wammu/Main.py:1323 Wammu/Main.py:1562 Wammu/Thread.py:56
+#: Wammu/Main.py:845 Wammu/Main.py:1323 Wammu/Main.py:1562 Wammu/Main.py:1570
+#: Wammu/Thread.py:56
 msgid "Error Occured"
 msgstr "Fout het voorgekom"
 
@@ -1473,11 +1474,11 @@ msgstr "Skryf nou kalender..."
 msgid "Writing todo..."
 msgstr "Skryf nou doending..."
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1633
+#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1640
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr "U kan nie aan hierdie data werk nie. Kry dit asb. eers van die foon."
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1633
+#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1640
 msgid "Data not up to date"
 msgstr "Data nie op datum nie"
 
@@ -1538,7 +1539,7 @@ msgstr "Fout tydens lees van rugsteun"
 msgid "Data has been read from file \"%s\""
 msgstr "Data is gelees vanaf lêer \"%s\""
 
-#: Wammu/Main.py:1372 Wammu/Main.py:1657
+#: Wammu/Main.py:1372 Wammu/Main.py:1664
 #, python-format
 msgid "%d messages"
 msgstr "%d boodskappe"
@@ -1592,7 +1593,7 @@ msgstr "%d SIM-kontakinskrywings"
 msgid "%d to do entries"
 msgstr "%d doeninskrywings"
 
-#: Wammu/Main.py:1441 Wammu/Main.py:1661
+#: Wammu/Main.py:1441 Wammu/Main.py:1668
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d kalenderinskrywings"
@@ -1631,116 +1632,123 @@ msgstr "Data is gestoor na die lêer \"%s\""
 msgid "Error while saving backup"
 msgstr "Fout tydens stoor van rugsteun"
 
-#: Wammu/Main.py:1638
+#: Wammu/Main.py:1569
+#, python-format
+msgid ""
+"Error while saving backup, probably some limit inside of Gammu exceeded.\n"
+"%s"
+msgstr ""
+
+#: Wammu/Main.py:1645
 #, python-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Is u seker u wil %s uitvee?"
 
-#: Wammu/Main.py:1642
+#: Wammu/Main.py:1649
 #, python-format
 msgid "contact \"%s\""
 msgstr ""
 
-#: Wammu/Main.py:1644
+#: Wammu/Main.py:1651
 #, python-format
 msgid "call \"%s\""
 msgstr ""
 
-#: Wammu/Main.py:1646
+#: Wammu/Main.py:1653
 #, python-format
 msgid "message from \"%s\""
 msgstr "boodskap vanaf \"%s\""
 
-#: Wammu/Main.py:1648
+#: Wammu/Main.py:1655
 #, python-format
 msgid "todo \"%s\""
 msgstr ""
 
-#: Wammu/Main.py:1650
+#: Wammu/Main.py:1657
 #, python-format
 msgid "calendar entry \"%s\""
 msgstr "kalenderinskrywing \"%s\""
 
-#: Wammu/Main.py:1653
+#: Wammu/Main.py:1660
 #, python-format
 msgid "%d contacts"
 msgstr "%d kontakte"
 
-#: Wammu/Main.py:1655
+#: Wammu/Main.py:1662
 #, python-format
 msgid "%d calls"
 msgstr "%d oproepe"
 
-#: Wammu/Main.py:1659
+#: Wammu/Main.py:1666
 #, python-format
 msgid "%d todo"
 msgstr "%d te doen"
 
-#: Wammu/Main.py:1664 Wammu/Settings.py:294
+#: Wammu/Main.py:1671 Wammu/Settings.py:294
 msgid "Confirm deleting"
 msgstr "Bevestig skrapping"
 
-#: Wammu/Main.py:1672
+#: Wammu/Main.py:1679
 msgid "Deleting contact(s)..."
 msgstr "Skrap nou kontak(te)..."
 
-#: Wammu/Main.py:1682
+#: Wammu/Main.py:1689
 msgid "Deleting message(s)..."
 msgstr "Skrap nou boodkap(pe)..."
 
-#: Wammu/Main.py:1693
+#: Wammu/Main.py:1700
 msgid "Deleting todo(s)..."
 msgstr "Skrap nou doenitem(s)..."
 
-#: Wammu/Main.py:1703
+#: Wammu/Main.py:1710
 msgid "Deleting calendar event(s)..."
 msgstr "Skrap nou kalenderinskrywing(s)..."
 
-#: Wammu/Main.py:1775
+#: Wammu/Main.py:1782
 msgid "Reading phone information"
 msgstr "Lees nou fooninligting"
 
-#: Wammu/Main.py:1800
+#: Wammu/Main.py:1807
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Lees nou oproepe van tipe %s"
 
-#: Wammu/Main.py:1828
+#: Wammu/Main.py:1835
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Lees nou kontakte vanaf %s"
 
-#: Wammu/Main.py:1836
+#: Wammu/Main.py:1843
 msgid "Reading messages"
 msgstr "Lees nou boodskappe"
 
-#: Wammu/Main.py:1846
+#: Wammu/Main.py:1853
 msgid "Reading todos"
 msgstr "Lees nou doendinge"
 
-#: Wammu/Main.py:1856
+#: Wammu/Main.py:1863
 msgid "Reading calendar"
 msgstr "Lees nou kalender"
 
-#: Wammu/Main.py:1866
+#: Wammu/Main.py:1873
 msgid "Setting time in phone..."
 msgstr "Stel nou foon se tyd..."
 
-#: Wammu/Main.py:1885
+#: Wammu/Main.py:1892
 #, fuzzy
 msgid "Send file to phone"
 msgstr "Kies foon"
 
-#: Wammu/Main.py:1906
+#: Wammu/Main.py:1913
 #, fuzzy
 msgid "Sending file to phone..."
 msgstr "Stel nou foon se tyd..."
 
-#: Wammu/Main.py:1926
+#: Wammu/Main.py:1933
 msgid "One moment please, connecting to phone..."
 msgstr "Net 'n oomblik, verbind nou aan foon..."
 
-#: Wammu/Main.py:1982
+#: Wammu/Main.py:1989
 msgid "One moment please, disconnecting from phone..."
 msgstr "Net 'n oomblik, ontkoppel vanaf foon..."
 
