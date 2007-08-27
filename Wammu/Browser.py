@@ -503,7 +503,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         menu = wx.Menu()
 
         # add some items
-        if self.type == 'message':
+        if self.popup_index != -1 and self.type == 'message':
             if self.values[evt.m_itemIndex]['State'] == 'Sent':
                 menu.Append(self.popup_id_send,       _('Resend'))
             if self.values[evt.m_itemIndex]['State'] == 'UnSent':
@@ -515,22 +515,24 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 menu.Append(self.popup_id_call,       _('Call'))
             menu.AppendSeparator()
 
-        if self.type in ['contact', 'call']:
+        if self.popup_index != -1 and self.type in ['contact', 'call']:
             menu.Append(self.popup_id_message,    _('Send message'))
             menu.Append(self.popup_id_call,       _('Call'))
             menu.AppendSeparator()
 
-        if not self.type in ['call', 'message']:
+        if self.popup_index != -1 and not self.type in ['call', 'message']:
             menu.Append(self.popup_id_edit,       _('Edit'))
-        if not self.type in ['call']:
+        if self.popup_index != -1 and not self.type in ['call']:
             menu.Append(self.popup_id_duplicate,  _('Duplicate'))
             menu.AppendSeparator()
 
-        menu.Append(self.popup_id_delete,     _('Delete current'))
+        if self.popup_index != -1:
+            menu.Append(self.popup_id_delete,     _('Delete current'))
         menu.Append(self.popup_id_delete_selection,  _('Delete selected'))
 
         menu.AppendSeparator()
-        menu.Append(self.popup_id_backup_one,  _('Backup current'))
+        if self.popup_index != -1:
+            menu.Append(self.popup_id_backup_one,  _('Backup current'))
         menu.Append(self.popup_id_backup_selection,  _('Backup selected'))
         menu.Append(self.popup_id_backup_all,  _('Backup all'))
 
