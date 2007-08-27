@@ -82,7 +82,7 @@ class ErrorMessage(wx.Dialog):
         self.Bind(wx.EVT_BUTTON, self.OnReport, self.reportbutton)
 
         buttonsizer.Realize()
-        sizer.Add(buttonsizer, flag=wx.ALL, border=10)
+        sizer.Add(buttonsizer, flag = wx.ALIGN_RIGHT | wx.ALL, border = 10)
 
         sizer.Fit(self)
         self.SetAutoLayout(True)
