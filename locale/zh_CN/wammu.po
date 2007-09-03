@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Wammu 0.21\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2007-07-31 10:53+0200\n"
-"PO-Revision-Date: 2007-07-15 14:31+0200\n"
+"PO-Revision-Date: 2007-08-30 10:14+0200\n"
 "Last-Translator: MA Gang <magang@gmail.com>\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -609,7 +609,7 @@ msgstr ""
 "此调试日志附在错误报告中。调试日志保存在文件%s。"
 
 #: Wammu/Error.py:74
-#, fuzzy, python-format
+#, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "在提交前请尝试查找关于%s的相似错误。"
 
@@ -666,7 +666,7 @@ msgstr ""
 
 #: Wammu/GammuSettings.py:164
 msgid "Select which configration you want to modify."
-msgstr ""
+msgstr "选择你要修改的配置文件"
 
 #: Wammu/GammuSettings.py:165
 msgid "Select configuration section"
@@ -690,15 +690,15 @@ msgstr "固件"
 
 #: Wammu/Info.py:73
 msgid "Firmware date"
-msgstr ""
+msgstr "固件日期"
 
 #: Wammu/Info.py:75
 msgid "Firmware (numeric)"
-msgstr ""
+msgstr "固件(数字)"
 
 #: Wammu/Info.py:88
 msgid "Serial number (IMEI)"
-msgstr ""
+msgstr "串号(IMEI)"
 
 #: Wammu/Info.py:101
 msgid "Original IMEI"
@@ -718,7 +718,7 @@ msgstr ""
 
 #: Wammu/Info.py:153
 msgid "Hardware"
-msgstr ""
+msgstr "硬件"
 
 #: Wammu/Info.py:166
 msgid "Manufacture month"
@@ -742,11 +742,11 @@ msgstr ""
 
 #: Wammu/Main.py:99 Wammu/Main.py:115
 msgid "Phone"
-msgstr ""
+msgstr "手机"
 
 #: Wammu/Main.py:99
 msgid "Phone Information"
-msgstr ""
+msgstr "手机信息"
 
 #: Wammu/Main.py:100
 msgid "Wammu version"
@@ -894,72 +894,65 @@ msgstr "欢迎来到Wammu %s"
 
 #: Wammu/Main.py:266
 msgid "&Write data"
-msgstr "(&W)保存数据"
+msgstr "保存数据(&W)"
 
+#  msgid "Writes data (except messages) to file"
 #: Wammu/Main.py:266
-#, fuzzy
-#| msgid "Writes data (except messages) to file"
 msgid "Write data (except messages) to file."
 msgstr "保存数据（不包括短消息）到文件"
 
 #: Wammu/Main.py:267
 msgid "W&rite message"
-msgstr "(&r)保存短消息"
+msgstr "保存短消息(&r)"
 
+#  msgid "Writes messages to file"
 #: Wammu/Main.py:267
-#, fuzzy
-#| msgid "Writes messages to file"
 msgid "Write messages to file."
 msgstr "保存短消息到文件"
 
 #: Wammu/Main.py:268
 msgid "&Read data"
-msgstr "(&R)读入数据"
+msgstr "读入数据(&R)"
 
+#  msgid ""
+#  "Reads data (except messages) from file (does not import to the phone)"
 #: Wammu/Main.py:268
-#, fuzzy
-#| msgid ""
-#| "Reads data (except messages) from file (does not import to the phone)"
 msgid "Read data (except messages) from file (does not import to the phone)."
 msgstr "从文件读入数据（包括短消息。数据不会导入手机。）"
 
 #: Wammu/Main.py:269
 msgid "R&ead messages"
-msgstr "(&e)读入短消息"
+msgstr "读入短消息(&e)"
 
+#  msgid "Reads messages from file (does not import to the phone)"
 #: Wammu/Main.py:269
-#, fuzzy
-#| msgid "Reads messages from file (does not import to the phone)"
 msgid "Read messages from file (does not import to the phone)."
 msgstr "从文件读入短消息（不会导入到手机）"
 
+#  msgid "Phone search"
 #: Wammu/Main.py:271
-#, fuzzy
-#| msgid "Phone search"
 msgid "&Phone wizard"
-msgstr "搜索手机"
+msgstr "搜索手机(&P)"
 
 #: Wammu/Main.py:271
 msgid "Search for phone or configure it using guided wizard."
-msgstr ""
+msgstr "使用向导搜索或配置手机"
 
 #: Wammu/Main.py:272
 msgid "Se&ttings"
-msgstr "(&t)设置"
+msgstr "设置(&t)"
 
+#  msgid "Change Wammu settings"
 #: Wammu/Main.py:272
-#, fuzzy
-#| msgid "Change Wammu settings"
 msgid "Change Wammu settings."
 msgstr "改变Wammu设置"
 
 #: Wammu/Main.py:274
 msgid "E&xit"
-msgstr "(&x)退出"
+msgstr "退出(&x)"
 
+#  msgid "Exit Wammu"
 #: Wammu/Main.py:274
-#, fuzzy
-#| msgid "Exit Wammu"
 msgid "Terminate Wammu."
 msgstr "退出Wammu"
 
@@ -969,308 +962,281 @@ msgstr "(&W)ammu"
 
 #: Wammu/Main.py:279
 msgid "&Connect"
-msgstr "(&C)连接"
+msgstr "连接(&C)"
 
+#  msgid "Connect the device"
 #: Wammu/Main.py:279
-#, fuzzy
-#| msgid "Connect the device"
 msgid "Connect the device."
 msgstr "连接手机设备"
 
 #: Wammu/Main.py:280
 msgid "&Disconnect"
-msgstr "(&D)断开连接"
+msgstr "断开连接(&D)"
 
+#  msgid "Disconnect the device"
 #: Wammu/Main.py:280
-#, fuzzy
-#| msgid "Disconnect the device"
 msgid "Disconnect the device."
 msgstr "断开手机设备"
 
 #: Wammu/Main.py:282
 msgid "&Synchronise time"
-msgstr "(&S)同步时间"
+msgstr "同步时间(&S)"
 
+#  msgid "Synchronises time in mobile with PC"
 #: Wammu/Main.py:282
-#, fuzzy
-#| msgid "Synchronises time in mobile with PC"
 msgid "Synchronise time in mobile with PC."
 msgstr "同电脑的时间去校准手机上的时间"
 
 #: Wammu/Main.py:284
 msgid "Send &file"
-msgstr "(&f)发送文件"
+msgstr "发送文件(&f)"
 
+#  msgid "Send file to phone"
 #: Wammu/Main.py:284
-#, fuzzy
-#| msgid "Send file to phone"
 msgid "Send file to phone."
 msgstr "发送文件到手机"
 
 #: Wammu/Main.py:286
 msgid "&Phone"
-msgstr "(&P)手机"
+msgstr "手机(&P)"
 
 #: Wammu/Main.py:289
 msgid "&Info"
-msgstr "(&I)信息"
+msgstr "信息(&I)"
 
+#  msgid "Get phone information"
 #: Wammu/Main.py:289
-#, fuzzy
-#| msgid "Get phone information"
 msgid "Retrieve phone information."
 msgstr "获取手机信息"
 
 #: Wammu/Main.py:291
 msgid "Contacts (&SIM)"
-msgstr "(&S)联系人(SIM卡)"
+msgstr "联系人(&SIM卡)"
 
+#  msgid "Contacts from SIM"
 #: Wammu/Main.py:291
-#, fuzzy
-#| msgid "Contacts from SIM"
 msgid "Retrieve contacts from SIM."
 msgstr "SIM卡内存储的联系人"
 
 #: Wammu/Main.py:292
 msgid "Contacts (&phone)"
-msgstr "(&p)联系人(手机内)"
+msgstr "联系人(手机内)(&p)"
 
+#  msgid "Contacts from phone memory"
 #: Wammu/Main.py:292
-#, fuzzy
-#| msgid "Contacts from phone memory"
 msgid "Retrieve contacts from phone memory"
 msgstr "手机上存储的联系人"
 
 #: Wammu/Main.py:293
 msgid "&Contacts (All)"
-msgstr "(&C)联系人(所有)"
+msgstr "联系人(所有)(&C)"
 
+#  msgid "Contacts from phone and SIM memory"
 #: Wammu/Main.py:293
-#, fuzzy
-#| msgid "Contacts from phone and SIM memory"
 msgid "Retrieve contacts from phone and SIM memory"
 msgstr "手机和SIM存储的联系人"
 
 #: Wammu/Main.py:295
 msgid "C&alls"
-msgstr "(&a)通话记录"
+msgstr "通话记录(&a)"
 
 #: Wammu/Main.py:295
 msgid "Retrieve call history."
-msgstr ""
+msgstr "获取通话记录"
 
 #: Wammu/Main.py:297
 msgid "&Messages"
-msgstr "(&M)短消息"
+msgstr "短消息(&M)"
 
+#  msgid "Reading messages"
 #: Wammu/Main.py:297
-#, fuzzy
-#| msgid "Reading messages"
 msgid "Retrieve messages."
-msgstr "正在读取消息"
+msgstr "读取消息"
 
 #: Wammu/Main.py:299
 msgid "&Todos"
-msgstr "(&T)任务"
+msgstr "任务(&T)"
 
+#  msgid "&Retrieve"
 #: Wammu/Main.py:299
-#, fuzzy
-#| msgid "&Retrieve"
 msgid "Retrieve todos."
-msgstr "(&R)获取"
+msgstr "获取任务项"
 
 #: Wammu/Main.py:301
 msgid "Calenda&r"
-msgstr "(&r)日程表"
+msgstr "日程表(&r)"
 
+#  msgid "Creates new calendar event"
 #: Wammu/Main.py:301
-#, fuzzy
-#| msgid "Creates new calendar event"
 msgid "Retrieve calendar events."
-msgstr "创建新的日程表事件"
+msgstr "获取日程表事件"
 
 #: Wammu/Main.py:303
 msgid "&Retrieve"
-msgstr "(&R)获取"
+msgstr "获取(&R)"
 
 #: Wammu/Main.py:306
 msgid "&Contact"
-msgstr "(&C)联系人"
+msgstr "联系人(&C)"
 
+#  msgid "Creates new contact"
 #: Wammu/Main.py:306
-#, fuzzy
-#| msgid "Creates new contact"
 msgid "Create new contact."
 msgstr "创建新联系人"
 
 #: Wammu/Main.py:307
 msgid "&Event"
-msgstr "(&E)事件"
+msgstr "事件(&E)"
 
+#  msgid "Creates new calendar event"
 #: Wammu/Main.py:307
-#, fuzzy
-#| msgid "Creates new calendar event"
 msgid "Create new calendar event."
 msgstr "创建新的日程表事件"
 
 #: Wammu/Main.py:308
 msgid "&Todo"
-msgstr "(&T)任务"
+msgstr "任务(&T)"
 
+#  msgid "Creates new todo"
 #: Wammu/Main.py:308
-#, fuzzy
-#| msgid "Creates new todo"
 msgid "Create new todo."
 msgstr "创建新任务"
 
 #: Wammu/Main.py:309
 msgid "&Message"
-msgstr "(&M)短消息"
+msgstr "短消息(&M)"
 
+#  msgid "Creates new message"
 #: Wammu/Main.py:309
-#, fuzzy
-#| msgid "Creates new message"
 msgid "Create new message."
 msgstr "创建新的短消息"
 
 #: Wammu/Main.py:311
 msgid "&Create"
-msgstr "(&C)创建"
+msgstr "创建(&C)"
 
 #: Wammu/Main.py:314
 msgid "&Save"
-msgstr "(&S)保存"
+msgstr "保存(&S)"
 
+#  msgid "Saves currently retrieved data (except messages) to backup"
 #: Wammu/Main.py:314
-#, fuzzy
-#| msgid "Saves currently retrieved data (except messages) to backup"
 msgid "Save currently retrieved data (except messages) to backup."
 msgstr "保存当前已获取的数据（不包括短消息）到备份文件"
 
 #: Wammu/Main.py:315
 msgid "S&ave messages"
-msgstr "(&a)保存短消息"
+msgstr "保存短消息(&a)"
 
+#  msgid "Saves currently retrieved messages to backup"
 #: Wammu/Main.py:315
-#, fuzzy
-#| msgid "Saves currently retrieved messages to backup"
 msgid "Save currently retrieved messages to backup."
 msgstr "保存当前已获取的短消息到备份文件"
 
 #: Wammu/Main.py:316
 msgid "&Import"
-msgstr "(&I)导入"
+msgstr "导入(&I)"
 
+#  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:316
-#, fuzzy
-#| msgid "Imports data from backup to phone"
 msgid "Import data from backup to phone."
 msgstr "从备份文件导入数据到手机"
 
 #: Wammu/Main.py:317
 msgid "I&mport messages"
-msgstr "(&m)导入短消息"
+msgstr "导入短消息(&m)"
 
+#  msgid "Imports messages from backup to phone"
 #: Wammu/Main.py:317
-#, fuzzy
-#| msgid "Imports messages from backup to phone"
 msgid "Import messages from backup to phone."
 msgstr "从备份文件导入短消息到手机"
 
 #: Wammu/Main.py:319
 msgid "Export messages to &emails"
-msgstr "(&e)导出短消息到电子邮件"
+msgstr "导出短消息到电子邮件(&e)"
 
+#  msgid "Export messages to &emails"
 #: Wammu/Main.py:319
-#, fuzzy
-#| msgid "Export messages to &emails"
 msgid "Export messages to emails in storage you choose."
-msgstr "(&e)导出短消息到电子邮件"
+msgstr "导出短消息到你选择的电子邮件格式"
 
 #: Wammu/Main.py:321
 msgid "&Backups"
-msgstr "(&B)备份"
+msgstr "备份(&B)"
 
 #: Wammu/Main.py:324
 msgid "&Website"
-msgstr "(&W)网站"
+msgstr "网站(&W)"
 
+#  msgid "Wammu website"
 #: Wammu/Main.py:324
-#, fuzzy
-#| msgid "Wammu website"
 msgid "Visit Wammu website."
-msgstr "Wammu网站"
+msgstr "访问Wammu网站"
 
 #: Wammu/Main.py:325
 msgid "&Support"
-msgstr "(&S)支持"
+msgstr "支持(&S)"
 
+#  msgid "Wammu support website"
 #: Wammu/Main.py:325
-#, fuzzy
-#| msgid "Wammu support website"
 msgid "Visit Wammu support website."
-msgstr "Wammu的技术支持网站"
+msgstr "访问Wammu的技术支持网站"
 
 #: Wammu/Main.py:326
 msgid "&Report bug"
-msgstr "(&R)报告错误"
+msgstr "报告错误(&R)"
 
 #: Wammu/Main.py:326
 msgid "Report bug in Wammu, please include saved debug log if possible."
-msgstr ""
+msgstr "报告Wammu的错误，如果可以请附上已保存的除错日志。"
 
 #: Wammu/Main.py:327
-#, fuzzy
 msgid "&Save debug log"
-msgstr "保存调试日志..."
+msgstr "保存调试日志(&S)"
 
 #: Wammu/Main.py:327
 msgid "Save a copy of debug log, please include this in bug report."
-msgstr ""
+msgstr "保存一份调试日志，请把它附到错误报告里。"
 
 #: Wammu/Main.py:329
 msgid "&Gammu Phone Database"
-msgstr "(&G)Gammu手机数据库"
+msgstr "Gammu手机数据库(&G)"
 
+#  msgid "Database of user experiences with phones"
 #: Wammu/Main.py:329
-#, fuzzy
-#| msgid "Database of user experiences with phones"
 msgid "Visit database of user experiences with phones."
-msgstr "记录各种手机的用户体验的数据库"
+msgstr "访问记录着各种手机的用户体验的数据库"
 
 #: Wammu/Main.py:330
 msgid "&Talkback"
-msgstr "(&T)反馈"
+msgstr "反馈(&T)"
 
+#  msgid "Report your experiences in Gammu Phone Database"
 #: Wammu/Main.py:330
-#, fuzzy
-#| msgid "Report your experiences in Gammu Phone Database"
 msgid "Report your experiences into Gammu Phone Database."
 msgstr "报告你手机在Wammu软件中的使用情况到Gammu手机数据库"
 
 #: Wammu/Main.py:332
 msgid "&Donate"
-msgstr "(&D)捐赠"
+msgstr "捐赠(&D)"
 
+#  msgid "Donate to Wammu author"
 #: Wammu/Main.py:332
-#, fuzzy
-#| msgid "Donate to Wammu author"
 msgid "Donate to Wammu project."
 msgstr "向Wammu作者捐赠"
 
 #: Wammu/Main.py:334
 msgid "&About"
-msgstr "(&A)关于"
+msgstr "关于(&A)"
 
+#  msgid "Information about program"
 #: Wammu/Main.py:334
-#, fuzzy
-#| msgid "Information about program"
 msgid "Information about program."
 msgstr "关于此程序的一些信息"
 
 #: Wammu/Main.py:336
 msgid "&Help"
-msgstr "(&H)帮助"
+msgstr "帮助(&H)"
 
 #: Wammu/Main.py:427 Wammu/Main.py:434 Wammu/Main.py:440
 msgid "Wammu could not import gammu module, program will be terminated."
@@ -1427,7 +1393,7 @@ msgstr "操作进行中"
 #: Wammu/Main.py:911
 #, python-format
 msgid "voice tag %x"
-msgstr ""
+msgstr "声控标签%x"
 
 #: Wammu/Main.py:920
 msgid "Folder"
@@ -1472,7 +1438,7 @@ msgstr "正在保存日程表..."
 
 #: Wammu/Main.py:1124
 msgid "Writing todo..."
-msgstr ""
+msgstr "正在写入任务..."
 
 #: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1640
 msgid "You can not work on this data, please retrieve it first from phone"
@@ -1714,7 +1680,7 @@ msgstr ""
 #: Wammu/Main.py:1835
 #, python-format
 msgid "Reading contacts from %s"
-msgstr ""
+msgstr "正在从%s读取联系人"
 
 #: Wammu/Main.py:1843
 msgid "Reading messages"
@@ -1803,7 +1769,7 @@ msgstr ""
 
 #: Wammu/PhoneSearch.py:149 Wammu/PhoneSearch.py:179
 msgid "Bluetooth device scan completed"
-msgstr ""
+msgstr "蓝牙设备扫描完毕"
 
 #: Wammu/PhoneSearch.py:152
 #, python-format
@@ -2169,69 +2135,69 @@ msgstr "Gammurc的位置"
 
 #: Wammu/Settings.py:91
 msgid "You can configure connection parameters on Connection tab."
-msgstr ""
+msgstr "你可以在连接标签页里配置连接参数"
 
 #: Wammu/Settings.py:97
 msgid "Automatically connect to phone on startup"
-msgstr ""
+msgstr "启动时自动连接到手机"
 
 #: Wammu/Settings.py:98
 msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
-msgstr ""
+msgstr "是否同意程序在启动的时候自动连接到手机"
 
 #: Wammu/Settings.py:103
 msgid "Show debug log"
-msgstr ""
+msgstr "查看调试日志"
 
 #: Wammu/Settings.py:104
 msgid "Show debug information on error output."
-msgstr ""
+msgstr "查看错误输出的调试信息"
 
 #: Wammu/Settings.py:109
 msgid "Synchronize time"
-msgstr ""
+msgstr "同步时间"
 
 #: Wammu/Settings.py:110
 msgid "Synchronise time in phone with computer time while connecting."
-msgstr ""
+msgstr "连接手机时同步手机和电脑的时间"
 
 #: Wammu/Settings.py:115
 msgid "Startup information"
-msgstr ""
+msgstr "启动信息"
 
 #: Wammu/Settings.py:116
 msgid "Display startup on phone (not supported by all models)."
-msgstr ""
+msgstr "在手机上显示启动信息(部分手机支持)"
 
 #: Wammu/Settings.py:123
 msgid "Lock device"
-msgstr ""
+msgstr "锁定设备"
 
 #: Wammu/Settings.py:124
 msgid ""
 "Whether to lock device in /var/lock. On some systems you might lack "
 "privileges to do so."
-msgstr ""
+msgstr "是否用/var/lock锁定设备。有些系统上你可能因缺少权限不能完成锁定操作。"
 
 #: Wammu/Settings.py:165
 msgid "Name for this configuration."
-msgstr ""
+msgstr "此配置的名称"
 
 #: Wammu/Settings.py:171
 msgid "Device, where your phone is connected."
-msgstr ""
+msgstr "设备,即你手机连接到位置"
 
 #: Wammu/Settings.py:172
 msgid "Device"
-msgstr ""
+msgstr "设备"
 
 #: Wammu/Settings.py:177
 msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
-msgstr ""
+msgstr "你手机接受的连接类型,请参考Gammu文档以得到详情"
 
 #: Wammu/Settings.py:178 Wammu/Settings.py:356
 msgid "Connection"
@@ -2254,25 +2220,25 @@ msgstr "是否将消息中的图片进行放大。如果图片很小的时候最
 
 #: Wammu/Settings.py:212
 msgid "Scale images"
-msgstr ""
+msgstr "放大图片"
 
 #: Wammu/Settings.py:216
 msgid "Attempt to reformat text"
-msgstr ""
+msgstr "尝试重新编排文本格式"
 
 #: Wammu/Settings.py:217
 msgid ""
 "If you get sometimes \"compressed\" messages likeTHIStext, you should be "
 "interested in this choice."
-msgstr ""
+msgstr "如果你收到的信息的文字挤压到一起，可以选择这个选项。"
 
 #: Wammu/Settings.py:243
 msgid "Create unicode message"
-msgstr ""
+msgstr "创建unicode消息"
 
 #: Wammu/Settings.py:249
 msgid "Request delivery report by default"
-msgstr ""
+msgstr "默认索要发送报告"
 
 #: Wammu/Settings.py:255
 msgid "Use 16bit Id"
@@ -2320,7 +2286,7 @@ msgstr "默认日期用于新创建条目的时间栏。输入推后的天数（
 
 #: Wammu/Settings.py:327
 msgid "Default date = now + x days"
-msgstr ""
+msgstr "默认日期=当前日期+退后的天数"
 
 #: Wammu/Settings.py:333
 msgid "How many entries will be shown in newly created item."
@@ -2340,143 +2306,145 @@ msgstr ""
 
 #: Wammu/Settings.py:355
 msgid "Gammu"
-msgstr ""
+msgstr "Gammu"
 
 #: Wammu/Settings.py:358
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: Wammu/SettingsStorage.py:93
 msgid "I don't know"
-msgstr ""
+msgstr "我不知道"
 
 #: Wammu/SettingsStorage.py:94
 msgid ""
 "Select this option only if really necessary. You will be provided with too "
 "much options in next step."
-msgstr ""
+msgstr "如果真的需要就选择这个选项，不过接下来你要面对很多选项。"
 
 #: Wammu/SettingsStorage.py:97
 msgid "Nokia phone"
-msgstr ""
+msgstr "诺基亚Nokia手机"
 
 #: Wammu/SettingsStorage.py:98
 msgid "If your phone runs Symbian, please select directly it."
-msgstr ""
+msgstr "如果你的手机是Symbian的，请直接选择它。"
 
 #: Wammu/SettingsStorage.py:101
 msgid "Symbian based phone"
-msgstr ""
+msgstr "Symbian系统手机"
 
 #: Wammu/SettingsStorage.py:102
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
-msgstr ""
+msgstr "如果你的手机使用Symbian操作系统，那就不必考虑生产商，直接继续。"
 
 #: Wammu/SettingsStorage.py:105
 msgid "None of the above"
-msgstr ""
+msgstr "以上都不是"
 
 #: Wammu/SettingsStorage.py:106
 msgid ""
 "Select this option if nothing above matches, good choice for other "
 "manufacturers like Alcatel, BenQ, LG, Samsung, Sharp, Sony Ericsson..."
 msgstr ""
+"如果以上都不匹配你的手机，就选择这个选项，特别对于Alcatel阿尔卡特, BenQ明基, LG, Samsung三星, Sharp夏普, Sony "
+"Ericsson索尼爱立信用户..."
 
 #: Wammu/SettingsStorage.py:116
 msgid "AT based"
-msgstr ""
+msgstr "基于AT命令集的"
 
 #: Wammu/SettingsStorage.py:118
 msgid ""
 "This provides minimal access to phone features. It is recommended to use "
 "other connection type."
-msgstr ""
+msgstr "这个提供最少的手机功能支持，建议使用其他连接类型。"
 
 #: Wammu/SettingsStorage.py:120
 msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
-msgstr ""
+msgstr "对于Nokia和Symbian手机以外的大多数手机而言，这是一个好选择，它提供了大多数手机功能的支持。"
 
 #: Wammu/SettingsStorage.py:124
 msgid "Nokia FBUS"
-msgstr ""
+msgstr "Nokia FBUS"
 
 #: Wammu/SettingsStorage.py:125
 msgid "Nokia proprietary protocol."
-msgstr ""
+msgstr "Nokia专有协议"
 
 #: Wammu/SettingsStorage.py:129
 msgid "Nokia MBUS"
-msgstr ""
+msgstr "Nokia MBUS"
 
 #: Wammu/SettingsStorage.py:130
 msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
-msgstr ""
+msgstr "老版本的Nokia专有协议，尽可能使用FBUS"
 
 #: Wammu/SettingsStorage.py:133
 msgid "OBEX based"
-msgstr ""
+msgstr "基于OBEX的"
 
 #: Wammu/SettingsStorage.py:134
 msgid ""
 "Standard access to filesystem and sometimes also to phone data. Good choice "
 "for recent phones."
-msgstr ""
+msgstr "对手机的文件系统提供标准访问，有时候也支持手机数据。适合新上市的手机选择。"
 
 #: Wammu/SettingsStorage.py:138
 msgid "Symbian using Gnapplet"
-msgstr ""
+msgstr "使用Gnapplet的Symbian"
 
 #: Wammu/SettingsStorage.py:139
 msgid ""
 "You have to install Gnapplet into phone before using this connection. You "
 "can find it in Gammu sources."
-msgstr ""
+msgstr "使用这种连接前必须安装Gnapplet。你可以在Gammu源里找到它。"
 
 #: Wammu/SettingsStorage.py:236 Wammu/SettingsStorage.py:268
 msgid "Enter device name of serial port."
-msgstr ""
+msgstr "输入串口的设备名"
 
 #: Wammu/SettingsStorage.py:238 Wammu/SettingsStorage.py:270
 msgid "Enter device name of emulated serial port."
-msgstr ""
+msgstr "输入模拟串口的设备名"
 
 #: Wammu/SettingsStorage.py:240 Wammu/SettingsStorage.py:272
 msgid "Enter Bluetooth address of your phone."
-msgstr ""
+msgstr "输入手机的蓝牙地址"
 
 #: Wammu/SettingsStorage.py:242 Wammu/SettingsStorage.py:276
 msgid "You don't have to enter anything for this settings."
-msgstr ""
+msgstr "这个设置不能为空！"
 
 #: Wammu/SettingsStorage.py:274
 msgid "Enter device name of USB port."
-msgstr ""
+msgstr "输入USB端口的设备名"
 
 #: Wammu/SettingsStorage.py:294
 msgid "Generic AT over serial line or it's emulation"
-msgstr ""
+msgstr "串口上的通用AT命令集，或模拟串口上的"
 
 #: Wammu/SettingsStorage.py:295 Wammu/SettingsStorage.py:325
 msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
-msgstr ""
+msgstr "选择这个如果你有物理串口或手机驱动提供的模拟串口，比如虚拟COM端口，像/dev/rfcomm, /dev/ircomm等等"
 
 #: Wammu/SettingsStorage.py:300
 #, python-format
 msgid "Generic AT at %d bps"
-msgstr ""
+msgstr "%d bps的通用AT命令集"
 
 #: Wammu/SettingsStorage.py:301
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
-msgstr ""
+msgstr "选择这个，如果你的手机要求%d bps的速率"
 
 #: Wammu/SettingsStorage.py:305
 msgid "AT over Bluetooth"
-msgstr ""
+msgstr "蓝牙上的AT命令集"
 
 #: Wammu/SettingsStorage.py:306 Wammu/SettingsStorage.py:330
 #: Wammu/SettingsStorage.py:345
