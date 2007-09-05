@@ -27,12 +27,11 @@ import os
 import os.path
 import sys
 
-datapath = os.path.join(sys.exec_prefix, 'share', 'Wammu')
-if not os.path.exists(os.path.join(datapath, 'images')):
-    if not os.path.exists('images'):
+DATAPATH = os.path.join(os.path.dirname(__file__), '..')
+if not os.path.exists(os.path.join(DATAPATH, 'images')):
+    DATAPATH = os.path.join(sys.exec_prefix, 'share', 'Wammu')
+    if not os.path.exists(os.path.join(DATAPATH, 'images')):
         print 'Could not find images, you will not see them, check your installation!'
-    else:
-        datapath = os.getcwd()
 
 def AppIconPath(*args):
     if sys.platform == 'win32':
@@ -52,4 +51,4 @@ def MiscPath(*args):
     return ImagePath('misc', *args)
 
 def ImagePath(*args):
-    return os.path.join(datapath, 'images', *args) + os.extsep + 'png'
+    return os.path.join(DATAPATH, 'images', *args) + os.extsep + 'png'
