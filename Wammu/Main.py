@@ -1272,21 +1272,22 @@ class WammuFrame(wx.Frame):
 
             if type in ['contact', 'all']:
                 wildcard += _('Nokia backup [contacts]') + ' (*.lmb)|*.lmb|'
-                exts += ['lmb']
+                exts.append('lmb')
             if type in ['contact', 'all']:
                 wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
-                exts += ['vcf']
+                exts.append('vcf')
             if type in ['contact', 'all']:
                 wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
-                exts += ['ldif']
+                exts.append('ldif')
             if type in ['todo', 'calendar', 'all']:
                 wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
-                exts += ['vcs']
+                exts.append('vcs')
             if type in ['todo', 'calendar', 'all']:
                 wildcard += _('iCalendar [todo,calendar]') + ' (*.ics)|*.ics|'
-                exts += ['ics']
+                exts.append('ics')
 
         wildcard += _('All files') + ' (*.*)|*.*'
+        exts.append(None)
 
         if data:
             if save:
@@ -1302,7 +1303,10 @@ class WammuFrame(wx.Frame):
             path = dlg.GetPath()
             if save:
                 ext = exts[dlg.GetFilterIndex()]
-                if os.path.splitext(path)[1] == '':
+                # Add automatic extension if we know one and file does not
+                # have any
+                if (os.path.splitext(path)[1] == '' and
+                        ext is not None):
                     path += '.' + ext
             return path
         return None
