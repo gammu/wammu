@@ -1969,7 +1969,7 @@ class WammuFrame(wx.Frame):
                 pass
             try:
                 m = self.sm.GetModel()
-                if m[0] == '':
+                if m[0] == '' or m[0] == 'unknown':
                     self.Model = m[1]
                 else:
                     self.Model = m[0]
