@@ -328,7 +328,7 @@ if HAVE_PY2EXE:
         ],
     addparams['zipfile'] = "shared.lib"
 
-distutils.core.setup(name="Wammu",
+distutils.core.setup(name="wammu",
     version = Wammu.__version__,
     description = "Wammu Mobile Phone Manager",
     long_description = "Phone manager built on top of python-gammu. Supports many phones.",
