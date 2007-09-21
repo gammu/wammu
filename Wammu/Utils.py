@@ -132,6 +132,9 @@ def NormalizeNumber(number):
     # If we stripped whole number, return original
     if len(resnumber) == 0:
         return number
+    # Handle 00 prefix same as +
+    if resnumber[0:2] == '00':
+        resnumber = '+' + resnumber[2:]
     # Add international prefix
     if resnumber[0] != '+':
         resnumber = NumberPrefix + resnumber
