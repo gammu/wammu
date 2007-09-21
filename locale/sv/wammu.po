@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-09-10 13:31+0900\n"
+"POT-Creation-Date: 2007-09-21 13:51+0900\n"
 "PO-Revision-Date: 2007-07-30 16:17+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -73,7 +73,7 @@ msgid "Failed to set exception handler."
 msgstr "Misslyckades med att ställa in undantagshanterare."
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:925 Wammu/Settings.py:166
+#: Wammu/Main.py:931 Wammu/Settings.py:166
 msgid "Name"
 msgstr "Namn"
 
@@ -82,31 +82,31 @@ msgid "Value"
 msgstr "Värde"
 
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:905
-#: Wammu/Main.py:919 Wammu/Main.py:929 Wammu/Main.py:937
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:911
+#: Wammu/Main.py:925 Wammu/Main.py:935 Wammu/Main.py:943
 msgid "Location"
 msgstr "Plats"
 
-#: Wammu/Browser.py:52 Wammu/Main.py:921
+#: Wammu/Browser.py:52 Wammu/Main.py:927
 msgid "Memory"
 msgstr "Minne"
 
 #: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
-#: Wammu/Main.py:917
+#: Wammu/Main.py:923
 msgid "Number"
 msgstr "Nummer"
 
-#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:931
-#: Wammu/Main.py:938
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:937
+#: Wammu/Main.py:944
 msgid "Type"
 msgstr "Typ"
 
 #: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
-#: Wammu/Main.py:918
+#: Wammu/Main.py:924
 msgid "Date"
 msgstr "Datum"
 
-#: Wammu/Browser.py:84 Wammu/Main.py:923
+#: Wammu/Browser.py:84 Wammu/Main.py:929
 msgid "State"
 msgstr "Tillstånd"
 
@@ -119,7 +119,7 @@ msgstr "Text"
 msgid "Completed"
 msgstr "Färdig"
 
-#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:930
+#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:936
 msgid "Priority"
 msgstr "Prioritet"
 
@@ -513,7 +513,7 @@ msgstr "Aktuella mottagare:"
 msgid "Contact list"
 msgstr "Kontaktlista"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1896
+#: Wammu/EditContactList.py:92 Wammu/Main.py:1295 Wammu/Main.py:1902
 #: Wammu/SMSExport.py:34
 msgid "All files"
 msgstr "Alla filer"
@@ -535,16 +535,17 @@ msgstr "Valda filen \"%s\" kunde inte skrivas."
 msgid "File can not be created!"
 msgstr "Filen kan inte skapas!"
 
-#: Wammu/EditContactList.py:176 Wammu/Main.py:1928
+#: Wammu/EditContactList.py:176 Wammu/Main.py:1934
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr "Valda filen \"%s\" hittades inte, inget data inläst."
 
-#: Wammu/EditContactList.py:177 Wammu/Main.py:1929
+#: Wammu/EditContactList.py:177 Wammu/Main.py:1935
 msgid "File not found!"
 msgstr "Filen hittades inte!"
 
 #: Wammu/Editor.py:215 Wammu/Editor.py:419 Wammu/Main.py:595 Wammu/Main.py:611
+#: Wammu/Main.py:617
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -570,7 +571,7 @@ msgstr "Lägg till ett fält till."
 msgid "contact"
 msgstr "kontakt"
 
-#: Wammu/Editor.py:488 Wammu/Main.py:906
+#: Wammu/Editor.py:488 Wammu/Main.py:912
 msgid "Memory type"
 msgstr "Minnestyp"
 
@@ -607,7 +608,7 @@ msgstr "Sök efter liknande rapporter"
 msgid "Report bug"
 msgstr "Rapportera fel"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2053
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2059
 msgid "Save debug log as..."
 msgstr "Spara felsökningslogg som..."
 
@@ -735,7 +736,7 @@ msgstr "Produktkod"
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:140 Wammu/Main.py:922
+#: Wammu/Info.py:140 Wammu/Main.py:928
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -1419,24 +1420,32 @@ msgstr "laddar"
 msgid "charged"
 msgstr "laddad"
 
-#: Wammu/Main.py:615
+#: Wammu/Main.py:619
 #, python-format
+msgid "%d %%"
+msgstr ""
+
+#: Wammu/Main.py:621
+#, fuzzy, python-format
+#| msgid ""
+#| "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %"
+#| "%, Time: %(time)s"
 msgid ""
-"Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
-"Time: %(time)s"
+"Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
+"%(time)s"
 msgstr ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
 "Tid: %(time)s"
 
-#: Wammu/Main.py:698
+#: Wammu/Main.py:704
 msgid "Connected"
 msgstr "Ansluten"
 
-#: Wammu/Main.py:702
+#: Wammu/Main.py:708
 msgid "Disconnected"
 msgstr "Frånkopplad"
 
-#: Wammu/Main.py:800
+#: Wammu/Main.py:806
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
@@ -1444,37 +1453,37 @@ msgstr ""
 "Du ändrade parametrar som påverkar telefonanslutningen, de kommer att "
 "användas nästa gång du ansluter telefonen."
 
-#: Wammu/Main.py:801
+#: Wammu/Main.py:807
 msgid "Notice"
 msgstr "Notering"
 
-#: Wammu/Main.py:844 Wammu/Thread.py:55
+#: Wammu/Main.py:850 Wammu/Thread.py:55
 msgid "Error while communicating with phone"
 msgstr "Fel vid kommunikation med telefonen"
 
-#: Wammu/Main.py:845 Wammu/Main.py:1327 Wammu/Main.py:1566 Wammu/Main.py:1574
+#: Wammu/Main.py:851 Wammu/Main.py:1333 Wammu/Main.py:1572 Wammu/Main.py:1580
 #: Wammu/Thread.py:56
 msgid "Error Occured"
 msgstr "Fel inträffade"
 
-#: Wammu/Main.py:852
+#: Wammu/Main.py:858
 msgid "Operation in progress"
 msgstr "Operation pågår"
 
-#: Wammu/Main.py:911
+#: Wammu/Main.py:917
 #, python-format
 msgid "voice tag %x"
 msgstr "rösttagg %x"
 
-#: Wammu/Main.py:920
+#: Wammu/Main.py:926
 msgid "Folder"
 msgstr "Mapp"
 
-#: Wammu/Main.py:965
+#: Wammu/Main.py:971
 msgid "Writing message(s)..."
 msgstr "Skriver meddelande(n)..."
 
-#: Wammu/Main.py:995
+#: Wammu/Main.py:1001
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1484,15 +1493,15 @@ msgstr ""
 "Gammu, kontakta upphovsmannen och skicka in felsökningsloggen. För att se "
 "meddelandet i Wammu behöver du läsa om alla meddelanden."
 
-#: Wammu/Main.py:995
+#: Wammu/Main.py:1001
 msgid "Could not read saved message!"
 msgstr "Kunde inte läsa sparat meddelande!"
 
-#: Wammu/Main.py:1023
+#: Wammu/Main.py:1029
 msgid "Writing contact..."
 msgstr "Skriver kontakt..."
 
-#: Wammu/Main.py:1048 Wammu/Main.py:1102 Wammu/Main.py:1149
+#: Wammu/Main.py:1054 Wammu/Main.py:1108 Wammu/Main.py:1155
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
@@ -1500,98 +1509,98 @@ msgstr ""
 "Det var inte möjligt att läsa sparad post! Den kan skilja sig mot den som "
 "sparats i telefonen innan du läst om alla poster."
 
-#: Wammu/Main.py:1048 Wammu/Main.py:1102 Wammu/Main.py:1149
+#: Wammu/Main.py:1054 Wammu/Main.py:1108 Wammu/Main.py:1155
 msgid "Could not read saved entry!"
 msgstr "Kunde inte läsa sparad post!"
 
-#: Wammu/Main.py:1077
+#: Wammu/Main.py:1083
 msgid "Writing calendar..."
 msgstr "Skriver kalender..."
 
-#: Wammu/Main.py:1124
+#: Wammu/Main.py:1130
 msgid "Writing todo..."
 msgstr "Skriver AttGöra..."
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1644
+#: Wammu/Main.py:1174 Wammu/Main.py:1224 Wammu/Main.py:1244 Wammu/Main.py:1650
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr "Du kan inte arbeta på denna data, hämta den först från telefonen"
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1644
+#: Wammu/Main.py:1174 Wammu/Main.py:1224 Wammu/Main.py:1244 Wammu/Main.py:1650
 msgid "Data not up to date"
 msgstr "Data är inte uppdaterat"
 
-#: Wammu/Main.py:1264
+#: Wammu/Main.py:1270
 msgid "Gammu messages backup"
 msgstr "Säkerhetkopiering av Gammu-meddelanden"
 
-#: Wammu/Main.py:1268
+#: Wammu/Main.py:1274
 msgid "All backup formats"
 msgstr "Alla säkerhetskopior"
 
-#: Wammu/Main.py:1270
+#: Wammu/Main.py:1276
 msgid "Gammu backup [all data]"
 msgstr "Gammu-kopia [allt data]"
 
-#: Wammu/Main.py:1274
+#: Wammu/Main.py:1280
 msgid "Nokia backup [contacts]"
 msgstr "Nokia-kopia [kontakter]"
 
-#: Wammu/Main.py:1277
+#: Wammu/Main.py:1283
 msgid "vCard [contacts]"
 msgstr "vCard [kontakter]"
 
-#: Wammu/Main.py:1280
+#: Wammu/Main.py:1286
 msgid "LDIF [concacts]"
 msgstr "LDIF [kontakter]"
 
-#: Wammu/Main.py:1283
+#: Wammu/Main.py:1289
 msgid "vCalendar [todo,calendar]"
 msgstr "vCalendar [AttGöra,kalender]"
 
-#: Wammu/Main.py:1286
+#: Wammu/Main.py:1292
 msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [AttGöra,kalender]"
 
-#: Wammu/Main.py:1294
+#: Wammu/Main.py:1300
 msgid "Save data as..."
 msgstr "Spara data som..."
 
-#: Wammu/Main.py:1296
+#: Wammu/Main.py:1302
 msgid "Read data"
 msgstr "Läs data"
 
-#: Wammu/Main.py:1299
+#: Wammu/Main.py:1305
 msgid "Save backup as..."
 msgstr "Spara säkerhetskopia som..."
 
-#: Wammu/Main.py:1301
+#: Wammu/Main.py:1307
 msgid "Import backup"
 msgstr "Importera säkerhetskopia"
 
-#: Wammu/Main.py:1326
+#: Wammu/Main.py:1332
 msgid "Error while reading backup"
 msgstr "Fel vid läsning av säkerhetskopia"
 
-#: Wammu/Main.py:1350 Wammu/Main.py:1366
+#: Wammu/Main.py:1356 Wammu/Main.py:1372
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "Data har lästs från filen \"%s\""
 
-#: Wammu/Main.py:1376 Wammu/Main.py:1668
+#: Wammu/Main.py:1382 Wammu/Main.py:1674
 #, python-format
 msgid "%d messages"
 msgstr "%d meddelanden"
 
-#: Wammu/Main.py:1380 Wammu/Main.py:1449
+#: Wammu/Main.py:1386 Wammu/Main.py:1455
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "Ingen importerbar data hittades i filen \"%s\""
 
-#: Wammu/Main.py:1381 Wammu/Main.py:1450
+#: Wammu/Main.py:1387 Wammu/Main.py:1456
 msgid "No data to import"
 msgstr "Ingen data att importera"
 
-#: Wammu/Main.py:1385 Wammu/Main.py:1464
+#: Wammu/Main.py:1391 Wammu/Main.py:1470
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
@@ -1599,192 +1608,192 @@ msgstr ""
 "Följande data hittades i säkerhetskopian, välj vilka av dessa som du vill "
 "lägga till i telefonen."
 
-#: Wammu/Main.py:1385 Wammu/Main.py:1464
+#: Wammu/Main.py:1391 Wammu/Main.py:1470
 msgid "Select what to import"
 msgstr "Välj vad som ska importeras"
 
-#: Wammu/Main.py:1396 Wammu/Main.py:1475
+#: Wammu/Main.py:1402 Wammu/Main.py:1481
 msgid "Importing data..."
 msgstr "Importerar data..."
 
-#: Wammu/Main.py:1424 Wammu/Main.py:1524
+#: Wammu/Main.py:1430 Wammu/Main.py:1530
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "Säkerhetskopia har importerats från filen \"%s\""
 
-#: Wammu/Main.py:1425 Wammu/Main.py:1525
+#: Wammu/Main.py:1431 Wammu/Main.py:1531
 msgid "Backup imported"
 msgstr "Säkerhetskopia importerad"
 
-#: Wammu/Main.py:1436
+#: Wammu/Main.py:1442
 #, python-format
 msgid "%d phone contact entries"
 msgstr "%d telefonkontaktposter"
 
-#: Wammu/Main.py:1439
+#: Wammu/Main.py:1445
 #, python-format
 msgid "%d SIM contact entries"
 msgstr "%d SIM-kontaktposter"
 
-#: Wammu/Main.py:1442
+#: Wammu/Main.py:1448
 #, python-format
 msgid "%d to do entries"
 msgstr "%d AttGöra-poster"
 
-#: Wammu/Main.py:1445 Wammu/Main.py:1672
+#: Wammu/Main.py:1451 Wammu/Main.py:1678
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d kalenderposter"
 
-#: Wammu/Main.py:1456
+#: Wammu/Main.py:1462
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "Säkerhetskopia sparad från telefonen %s"
 
-#: Wammu/Main.py:1458
+#: Wammu/Main.py:1464
 #, python-format
 msgid ", serial number %s"
 msgstr ", serienummer %s"
 
-#: Wammu/Main.py:1460
+#: Wammu/Main.py:1466
 #, python-format
 msgid "Backup was created by %s"
 msgstr "Säkerhetskopia skapades av %s"
 
-#: Wammu/Main.py:1462
+#: Wammu/Main.py:1468
 #, python-format
 msgid "Backup saved on %s"
 msgstr "Säkerhetskopia sparad %s"
 
-#: Wammu/Main.py:1559
+#: Wammu/Main.py:1565
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "Säkerhetskopia har sparats till filen \"%s\""
 
-#: Wammu/Main.py:1561
+#: Wammu/Main.py:1567
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "Data har sparats till filen \"%s\""
 
-#: Wammu/Main.py:1565
+#: Wammu/Main.py:1571
 msgid "Error while saving backup"
 msgstr "Fel vid skrivning av säkerhetskopia"
 
-#: Wammu/Main.py:1573
+#: Wammu/Main.py:1579
 #, python-format
 msgid ""
 "Error while saving backup, probably some limit inside of Gammu exceeded.\n"
 "%s"
 msgstr ""
 
-#: Wammu/Main.py:1649
+#: Wammu/Main.py:1655
 #, python-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Är du säker på att du vill ta bort %s?"
 
-#: Wammu/Main.py:1653
+#: Wammu/Main.py:1659
 #, python-format
 msgid "contact \"%s\""
 msgstr "kontakt \"%s\""
 
-#: Wammu/Main.py:1655
+#: Wammu/Main.py:1661
 #, python-format
 msgid "call \"%s\""
 msgstr "samtal \"%s\""
 
-#: Wammu/Main.py:1657
+#: Wammu/Main.py:1663
 #, python-format
 msgid "message from \"%s\""
 msgstr "meddelande från \"%s\""
 
-#: Wammu/Main.py:1659
+#: Wammu/Main.py:1665
 #, python-format
 msgid "todo \"%s\""
 msgstr "AttGöra \"%s\""
 
-#: Wammu/Main.py:1661
+#: Wammu/Main.py:1667
 #, python-format
 msgid "calendar entry \"%s\""
 msgstr "kalenderpost \"%s\""
 
-#: Wammu/Main.py:1664
+#: Wammu/Main.py:1670
 #, python-format
 msgid "%d contacts"
 msgstr "%d kontakter"
 
-#: Wammu/Main.py:1666
+#: Wammu/Main.py:1672
 #, python-format
 msgid "%d calls"
 msgstr "%d samtal"
 
-#: Wammu/Main.py:1670
+#: Wammu/Main.py:1676
 #, python-format
 msgid "%d todo"
 msgstr "%d AttGöra"
 
-#: Wammu/Main.py:1675 Wammu/Settings.py:294
+#: Wammu/Main.py:1681 Wammu/Settings.py:294
 msgid "Confirm deleting"
 msgstr "Bekräfta borttagning"
 
-#: Wammu/Main.py:1683
+#: Wammu/Main.py:1689
 msgid "Deleting contact(s)..."
 msgstr "Tar bort kontakt(er)..."
 
-#: Wammu/Main.py:1693
+#: Wammu/Main.py:1699
 msgid "Deleting message(s)..."
 msgstr "Tar bort meddelande(n)..."
 
-#: Wammu/Main.py:1704
+#: Wammu/Main.py:1710
 msgid "Deleting todo(s)..."
 msgstr "Tar bort AttGöra..."
 
-#: Wammu/Main.py:1714
+#: Wammu/Main.py:1720
 msgid "Deleting calendar event(s)..."
 msgstr "Tar bort kalenderhändelse(r)..."
 
-#: Wammu/Main.py:1786
+#: Wammu/Main.py:1792
 msgid "Reading phone information"
 msgstr "Läser telefoninformation"
 
-#: Wammu/Main.py:1811
+#: Wammu/Main.py:1817
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Läser samtal av typen %s"
 
-#: Wammu/Main.py:1839
+#: Wammu/Main.py:1845
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Läser kontakter från %s"
 
-#: Wammu/Main.py:1847
+#: Wammu/Main.py:1853
 msgid "Reading messages"
 msgstr "Läser meddelanden"
 
-#: Wammu/Main.py:1857
+#: Wammu/Main.py:1863
 msgid "Reading todos"
 msgstr "Läser AttGöra"
 
-#: Wammu/Main.py:1867
+#: Wammu/Main.py:1873
 msgid "Reading calendar"
 msgstr "Läser kalender"
 
-#: Wammu/Main.py:1877
+#: Wammu/Main.py:1883
 msgid "Setting time in phone..."
 msgstr "Ställer in tiden i telefonen..."
 
-#: Wammu/Main.py:1896
+#: Wammu/Main.py:1902
 msgid "Send file to phone"
 msgstr "Skicka fil till telefon"
 
-#: Wammu/Main.py:1917
+#: Wammu/Main.py:1923
 msgid "Sending file to phone..."
 msgstr "Skickar fil till telefon..."
 
-#: Wammu/Main.py:1937
+#: Wammu/Main.py:1943
 msgid "One moment please, connecting to phone..."
 msgstr "Vänta, ansluter till telefon..."
 
-#: Wammu/Main.py:1993
+#: Wammu/Main.py:1999
 msgid "One moment please, disconnecting from phone..."
 msgstr "Vänta, kopplar från telefon..."
 

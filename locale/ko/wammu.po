@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-09-10 13:31+0900\n"
+"POT-Creation-Date: 2007-09-21 13:51+0900\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -69,7 +69,7 @@ msgid "Failed to set exception handler."
 msgstr "예외 처리 지정 실패함"
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:925 Wammu/Settings.py:166
+#: Wammu/Main.py:931 Wammu/Settings.py:166
 msgid "Name"
 msgstr "이름"
 
@@ -78,31 +78,31 @@ msgid "Value"
 msgstr "값"
 
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:905
-#: Wammu/Main.py:919 Wammu/Main.py:929 Wammu/Main.py:937
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:911
+#: Wammu/Main.py:925 Wammu/Main.py:935 Wammu/Main.py:943
 msgid "Location"
 msgstr "위치"
 
-#: Wammu/Browser.py:52 Wammu/Main.py:921
+#: Wammu/Browser.py:52 Wammu/Main.py:927
 msgid "Memory"
 msgstr "메모리"
 
 #: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
-#: Wammu/Main.py:917
+#: Wammu/Main.py:923
 msgid "Number"
 msgstr "번호"
 
-#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:931
-#: Wammu/Main.py:938
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:937
+#: Wammu/Main.py:944
 msgid "Type"
 msgstr "종류"
 
 #: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
-#: Wammu/Main.py:918
+#: Wammu/Main.py:924
 msgid "Date"
 msgstr "날짜"
 
-#: Wammu/Browser.py:84 Wammu/Main.py:923
+#: Wammu/Browser.py:84 Wammu/Main.py:929
 msgid "State"
 msgstr "상태"
 
@@ -115,7 +115,7 @@ msgstr "텍스트"
 msgid "Completed"
 msgstr "완료됨"
 
-#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:930
+#: Wammu/Browser.py:102 Wammu/Editor.py:504 Wammu/Main.py:936
 msgid "Priority"
 msgstr "순위"
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Contact list"
 msgstr "연락처"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1289 Wammu/Main.py:1896
+#: Wammu/EditContactList.py:92 Wammu/Main.py:1295 Wammu/Main.py:1902
 #: Wammu/SMSExport.py:34
 msgid "All files"
 msgstr "모든 파일"
@@ -531,17 +531,18 @@ msgstr ""
 msgid "File can not be created!"
 msgstr "폴더를 만들 수 없습니다!"
 
-#: Wammu/EditContactList.py:176 Wammu/Main.py:1928
+#: Wammu/EditContactList.py:176 Wammu/Main.py:1934
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr ""
 
-#: Wammu/EditContactList.py:177 Wammu/Main.py:1929
+#: Wammu/EditContactList.py:177 Wammu/Main.py:1935
 #, fuzzy
 msgid "File not found!"
 msgstr "전화기 찾지 못함"
 
 #: Wammu/Editor.py:215 Wammu/Editor.py:419 Wammu/Main.py:595 Wammu/Main.py:611
+#: Wammu/Main.py:617
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -567,7 +568,7 @@ msgstr ""
 msgid "contact"
 msgstr "연락처"
 
-#: Wammu/Editor.py:488 Wammu/Main.py:906
+#: Wammu/Editor.py:488 Wammu/Main.py:912
 msgid "Memory type"
 msgstr "메모리 종류"
 
@@ -605,7 +606,7 @@ msgstr "전화기 찾기"
 msgid "Report bug"
 msgstr "백업 가져오기"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2053
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2059
 #, fuzzy
 msgid "Save debug log as..."
 msgstr "다른 이름으로 백업 저장..."
@@ -735,7 +736,7 @@ msgstr "제품 코드"
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:140 Wammu/Main.py:922
+#: Wammu/Info.py:140 Wammu/Main.py:928
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -1410,22 +1411,27 @@ msgstr ""
 msgid "charged"
 msgstr "크게"
 
-#: Wammu/Main.py:615
+#: Wammu/Main.py:619
 #, python-format
-msgid ""
-"Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, "
-"Time: %(time)s"
+msgid "%d %%"
 msgstr ""
 
-#: Wammu/Main.py:698
+#: Wammu/Main.py:621
+#, python-format
+msgid ""
+"Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
+"%(time)s"
+msgstr ""
+
+#: Wammu/Main.py:704
 msgid "Connected"
 msgstr "접속됨"
 
-#: Wammu/Main.py:702
+#: Wammu/Main.py:708
 msgid "Disconnected"
 msgstr "접속 귾어짐"
 
-#: Wammu/Main.py:800
+#: Wammu/Main.py:806
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
@@ -1433,37 +1439,37 @@ msgstr ""
 "전화 연결에 영향을 주는 파라미터를 변경 하였습니다, 다음 번 전화 연결시에 사"
 "용이 됩니다."
 
-#: Wammu/Main.py:801
+#: Wammu/Main.py:807
 msgid "Notice"
 msgstr "통보"
 
-#: Wammu/Main.py:844 Wammu/Thread.py:55
+#: Wammu/Main.py:850 Wammu/Thread.py:55
 msgid "Error while communicating with phone"
 msgstr "전화 통신 중 오류"
 
-#: Wammu/Main.py:845 Wammu/Main.py:1327 Wammu/Main.py:1566 Wammu/Main.py:1574
+#: Wammu/Main.py:851 Wammu/Main.py:1333 Wammu/Main.py:1572 Wammu/Main.py:1580
 #: Wammu/Thread.py:56
 msgid "Error Occured"
 msgstr "오류 발생됨"
 
-#: Wammu/Main.py:852
+#: Wammu/Main.py:858
 msgid "Operation in progress"
 msgstr "작동이 진행 중"
 
-#: Wammu/Main.py:911
+#: Wammu/Main.py:917
 #, python-format
 msgid "voice tag %x"
 msgstr "보이스 태그 %x"
 
-#: Wammu/Main.py:920
+#: Wammu/Main.py:926
 msgid "Folder"
 msgstr "폴더"
 
-#: Wammu/Main.py:965
+#: Wammu/Main.py:971
 msgid "Writing message(s)..."
 msgstr "메세지 쓰는 중..."
 
-#: Wammu/Main.py:995
+#: Wammu/Main.py:1001
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1473,113 +1479,113 @@ msgstr ""
 "이 동작의 디버그 기록을 가지고 저작자에게 연락 하십시오. Wammu의 메세지를 보"
 "기 위해서는 모든 메세지를 다시 읽어야 합니다."
 
-#: Wammu/Main.py:995
+#: Wammu/Main.py:1001
 msgid "Could not read saved message!"
 msgstr "저장된 메세지를 읽을 수 없습니다!"
 
-#: Wammu/Main.py:1023
+#: Wammu/Main.py:1029
 msgid "Writing contact..."
 msgstr "연락처 쓰는 중..."
 
-#: Wammu/Main.py:1048 Wammu/Main.py:1102 Wammu/Main.py:1149
+#: Wammu/Main.py:1054 Wammu/Main.py:1108 Wammu/Main.py:1155
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
 msgstr ""
 
-#: Wammu/Main.py:1048 Wammu/Main.py:1102 Wammu/Main.py:1149
+#: Wammu/Main.py:1054 Wammu/Main.py:1108 Wammu/Main.py:1155
 #, fuzzy
 msgid "Could not read saved entry!"
 msgstr "저장된 메세지를 읽을 수 없습니다!"
 
-#: Wammu/Main.py:1077
+#: Wammu/Main.py:1083
 msgid "Writing calendar..."
 msgstr "달력 쓰는 중..."
 
-#: Wammu/Main.py:1124
+#: Wammu/Main.py:1130
 msgid "Writing todo..."
 msgstr "해야할 것 쓰는 중..."
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1644
+#: Wammu/Main.py:1174 Wammu/Main.py:1224 Wammu/Main.py:1244 Wammu/Main.py:1650
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr "이 자료를 사용할 수 없습니다, 먼저 전화기에서 그것을 읽어 오십시오."
 
-#: Wammu/Main.py:1168 Wammu/Main.py:1218 Wammu/Main.py:1238 Wammu/Main.py:1644
+#: Wammu/Main.py:1174 Wammu/Main.py:1224 Wammu/Main.py:1244 Wammu/Main.py:1650
 msgid "Data not up to date"
 msgstr "자료가 최신이 아닙니다"
 
-#: Wammu/Main.py:1264
+#: Wammu/Main.py:1270
 msgid "Gammu messages backup"
 msgstr "Gammu 메세지 백업"
 
-#: Wammu/Main.py:1268
+#: Wammu/Main.py:1274
 msgid "All backup formats"
 msgstr "모든 백업 형태"
 
-#: Wammu/Main.py:1270
+#: Wammu/Main.py:1276
 msgid "Gammu backup [all data]"
 msgstr "Gammu 백업 [모든 자료]"
 
-#: Wammu/Main.py:1274
+#: Wammu/Main.py:1280
 msgid "Nokia backup [contacts]"
 msgstr "노키아 백업 [연락처]"
 
-#: Wammu/Main.py:1277
+#: Wammu/Main.py:1283
 msgid "vCard [contacts]"
 msgstr "vCard [연락처]"
 
-#: Wammu/Main.py:1280
+#: Wammu/Main.py:1286
 msgid "LDIF [concacts]"
 msgstr "LDIF[연결]"
 
-#: Wammu/Main.py:1283
+#: Wammu/Main.py:1289
 msgid "vCalendar [todo,calendar]"
 msgstr "vCalendar [해야할 것, 달력]"
 
-#: Wammu/Main.py:1286
+#: Wammu/Main.py:1292
 msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [해야할 것, 달력]"
 
-#: Wammu/Main.py:1294
+#: Wammu/Main.py:1300
 msgid "Save data as..."
 msgstr "다른 이름으로 자료 저장..."
 
-#: Wammu/Main.py:1296
+#: Wammu/Main.py:1302
 msgid "Read data"
 msgstr "자료 읽기"
 
-#: Wammu/Main.py:1299
+#: Wammu/Main.py:1305
 msgid "Save backup as..."
 msgstr "다른 이름으로 백업 저장..."
 
-#: Wammu/Main.py:1301
+#: Wammu/Main.py:1307
 msgid "Import backup"
 msgstr "백업 가져오기"
 
-#: Wammu/Main.py:1326
+#: Wammu/Main.py:1332
 msgid "Error while reading backup"
 msgstr "백업 읽기 중 오류"
 
-#: Wammu/Main.py:1350 Wammu/Main.py:1366
+#: Wammu/Main.py:1356 Wammu/Main.py:1372
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "파일 \"%s\" 에서 자료를 읽었습니다"
 
-#: Wammu/Main.py:1376 Wammu/Main.py:1668
+#: Wammu/Main.py:1382 Wammu/Main.py:1674
 #, python-format
 msgid "%d messages"
 msgstr "%d 메세지"
 
-#: Wammu/Main.py:1380 Wammu/Main.py:1449
+#: Wammu/Main.py:1386 Wammu/Main.py:1455
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "파일 \"%s\" 에는 가져올 자료가 없습니다"
 
-#: Wammu/Main.py:1381 Wammu/Main.py:1450
+#: Wammu/Main.py:1387 Wammu/Main.py:1456
 msgid "No data to import"
 msgstr "가져올 자료 없음"
 
-#: Wammu/Main.py:1385 Wammu/Main.py:1464
+#: Wammu/Main.py:1391 Wammu/Main.py:1470
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
@@ -1587,194 +1593,194 @@ msgstr ""
 "다음 자료를 백업에서 찾았습니다, 어느 것을 전화기에 추가하고자 하는지 선택 하"
 "십시오."
 
-#: Wammu/Main.py:1385 Wammu/Main.py:1464
+#: Wammu/Main.py:1391 Wammu/Main.py:1470
 msgid "Select what to import"
 msgstr "가져올 것을 선택"
 
-#: Wammu/Main.py:1396 Wammu/Main.py:1475
+#: Wammu/Main.py:1402 Wammu/Main.py:1481
 msgid "Importing data..."
 msgstr "자료 가져오는 중..."
 
-#: Wammu/Main.py:1424 Wammu/Main.py:1524
+#: Wammu/Main.py:1430 Wammu/Main.py:1530
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "파일 \"%s\" 에서 백업을 가져 왔습니다"
 
-#: Wammu/Main.py:1425 Wammu/Main.py:1525
+#: Wammu/Main.py:1431 Wammu/Main.py:1531
 msgid "Backup imported"
 msgstr "가져온 백업"
 
-#: Wammu/Main.py:1436
+#: Wammu/Main.py:1442
 #, fuzzy, python-format
 msgid "%d phone contact entries"
 msgstr "%d 전화 연락처 항목"
 
-#: Wammu/Main.py:1439
+#: Wammu/Main.py:1445
 #, fuzzy, python-format
 msgid "%d SIM contact entries"
 msgstr "%d SIM 연락처 항목"
 
-#: Wammu/Main.py:1442
+#: Wammu/Main.py:1448
 #, fuzzy, python-format
 msgid "%d to do entries"
 msgstr "%d 해야할 것 항목"
 
-#: Wammu/Main.py:1445 Wammu/Main.py:1672
+#: Wammu/Main.py:1451 Wammu/Main.py:1678
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d 달력 항목"
 
-#: Wammu/Main.py:1456
+#: Wammu/Main.py:1462
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "전화기 %s 로 부터 백업이 저장 되었습니다"
 
-#: Wammu/Main.py:1458
+#: Wammu/Main.py:1464
 #, python-format
 msgid ", serial number %s"
 msgstr ", 일련 번호 %s"
 
-#: Wammu/Main.py:1460
+#: Wammu/Main.py:1466
 #, python-format
 msgid "Backup was created by %s"
 msgstr "%s 에 의해 백업이 만들어졌습니다"
 
-#: Wammu/Main.py:1462
+#: Wammu/Main.py:1468
 #, python-format
 msgid "Backup saved on %s"
 msgstr "%s 에 백업이 저장 되었습니다"
 
-#: Wammu/Main.py:1559
+#: Wammu/Main.py:1565
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "파일 \"%s\" 로 백업이 저장 되었습니다"
 
-#: Wammu/Main.py:1561
+#: Wammu/Main.py:1567
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "파일 \"%s\" 로 자료가 저장 되었습니다"
 
-#: Wammu/Main.py:1565
+#: Wammu/Main.py:1571
 msgid "Error while saving backup"
 msgstr "백업 저장 중 오류"
 
-#: Wammu/Main.py:1573
+#: Wammu/Main.py:1579
 #, python-format
 msgid ""
 "Error while saving backup, probably some limit inside of Gammu exceeded.\n"
 "%s"
 msgstr ""
 
-#: Wammu/Main.py:1649
+#: Wammu/Main.py:1655
 #, python-format
 msgid "Are you sure you want to delete %s?"
 msgstr "%s (을)를 삭제하는 것을 원하는 것이 확실 합니까?"
 
-#: Wammu/Main.py:1653
+#: Wammu/Main.py:1659
 #, python-format
 msgid "contact \"%s\""
 msgstr "연락처 \"%s\""
 
-#: Wammu/Main.py:1655
+#: Wammu/Main.py:1661
 #, python-format
 msgid "call \"%s\""
 msgstr "통화 \"%s\""
 
-#: Wammu/Main.py:1657
+#: Wammu/Main.py:1663
 #, python-format
 msgid "message from \"%s\""
 msgstr "\"%s\" 로 부터 메세지"
 
-#: Wammu/Main.py:1659
+#: Wammu/Main.py:1665
 #, python-format
 msgid "todo \"%s\""
 msgstr "해야할 것 \"%s\""
 
-#: Wammu/Main.py:1661
+#: Wammu/Main.py:1667
 #, python-format
 msgid "calendar entry \"%s\""
 msgstr "달력 항목 \"%s\""
 
-#: Wammu/Main.py:1664
+#: Wammu/Main.py:1670
 #, python-format
 msgid "%d contacts"
 msgstr "%d 연락처"
 
-#: Wammu/Main.py:1666
+#: Wammu/Main.py:1672
 #, python-format
 msgid "%d calls"
 msgstr "%d 통화"
 
-#: Wammu/Main.py:1670
+#: Wammu/Main.py:1676
 #, python-format
 msgid "%d todo"
 msgstr "%d 해야할 것"
 
-#: Wammu/Main.py:1675 Wammu/Settings.py:294
+#: Wammu/Main.py:1681 Wammu/Settings.py:294
 msgid "Confirm deleting"
 msgstr "확인 삭제"
 
-#: Wammu/Main.py:1683
+#: Wammu/Main.py:1689
 msgid "Deleting contact(s)..."
 msgstr "연락처 삭제 중..."
 
-#: Wammu/Main.py:1693
+#: Wammu/Main.py:1699
 msgid "Deleting message(s)..."
 msgstr "메세지 삭제 중..."
 
-#: Wammu/Main.py:1704
+#: Wammu/Main.py:1710
 msgid "Deleting todo(s)..."
 msgstr "해야할 것 삭제 중..."
 
-#: Wammu/Main.py:1714
+#: Wammu/Main.py:1720
 msgid "Deleting calendar event(s)..."
 msgstr "달력 행사 삭제 중..."
 
-#: Wammu/Main.py:1786
+#: Wammu/Main.py:1792
 msgid "Reading phone information"
 msgstr "전화기 정보 읽음"
 
-#: Wammu/Main.py:1811
+#: Wammu/Main.py:1817
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "통화 종류 %s 읽음"
 
-#: Wammu/Main.py:1839
+#: Wammu/Main.py:1845
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "%s 에서 연락처 읽음"
 
-#: Wammu/Main.py:1847
+#: Wammu/Main.py:1853
 msgid "Reading messages"
 msgstr "메세지 읽음"
 
-#: Wammu/Main.py:1857
+#: Wammu/Main.py:1863
 msgid "Reading todos"
 msgstr "해야할 것 읽음"
 
-#: Wammu/Main.py:1867
+#: Wammu/Main.py:1873
 msgid "Reading calendar"
 msgstr "달력 읽음"
 
-#: Wammu/Main.py:1877
+#: Wammu/Main.py:1883
 msgid "Setting time in phone..."
 msgstr "전화기에 시간 설정..."
 
-#: Wammu/Main.py:1896
+#: Wammu/Main.py:1902
 #, fuzzy
 msgid "Send file to phone"
 msgstr "전화기 선택"
 
-#: Wammu/Main.py:1917
+#: Wammu/Main.py:1923
 #, fuzzy
 msgid "Sending file to phone..."
 msgstr "전화기에 시간 설정..."
 
-#: Wammu/Main.py:1937
+#: Wammu/Main.py:1943
 msgid "One moment please, connecting to phone..."
 msgstr "잠시만, 전화기로 접속 중..."
 
-#: Wammu/Main.py:1993
+#: Wammu/Main.py:1999
 msgid "One moment please, disconnecting from phone..."
 msgstr "잠시만, 전화 연결 끊는 중..."
 
