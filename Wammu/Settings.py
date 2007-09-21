@@ -497,5 +497,5 @@ class Settings(wx.Dialog):
         self.config.Write('Wammu/DefaultTime', self.edittime.GetValue())
         self.config.WriteInt('/Wammu/DefaultDateOffset', self.editdate.GetValue())
         self.config.WriteInt('/Wammu/DefaultEntries', self.editentries.GetValue())
-        self.config.Write('/Wammu/NumberPrefix', self.editprefix.GetValue())
+        self.config.Write('/Wammu/PhonePrefix', self.editprefix.GetValue())
         self.EndModal(wx.ID_OK)
