@@ -126,6 +126,12 @@ NumberPrefix = ''
 NumberStrip = re.compile('^([#*]\d+[#*])?(\\+?.*)$')
 
 def NormalizeNumber(number):
+    '''
+    Attempts to create international number from anything it receives.
+    It does strip any network prefixes and attempts to properly add
+    international prefix. However this is a bit tricky, as there are
+    many ways which can break this.
+    '''
     # Strip magic prefixes (like no CLIR)
     nbmatch = NumberStrip.match(number)
     resnumber = nbmatch.group(2)
