@@ -612,11 +612,16 @@ class WammuFrame(wx.Frame):
                 else:
                     time = StrConv(d.strftime('%c'))
 
-                self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %%, Time: %(time)s') %
+                # Detect unknown signal quality
+                signal = str(s['SignalPercent'])
+                if signal == '-1':
+                    signal = _('Unknown')
+
+                self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)s %%, Time: %(time)s') %
                     {
                         'battery_percent':b['BatteryPercent'],
                         'power_source':power,
-                        'signal_percent':s['SignalPercent'],
+                        'signal_percent':signal,
                         'time': time
                     }, 1)
             except gammu.GSMError:
