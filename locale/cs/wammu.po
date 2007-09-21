@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-09-21 13:51+0900\n"
+"POT-Creation-Date: 2007-09-21 16:55+0900\n"
 "PO-Revision-Date: 2007-09-21 13:53+0900\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -1347,15 +1347,12 @@ msgstr "%d %%"
 
 #: Wammu/Main.py:621
 #, python-format
-#| msgid ""
-#| "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %"
-#| "%, Time: %(time)s"
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
 msgstr ""
-"Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, "
-"Čas: %(time)s"
+"Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Čas: %"
+"(time)s"
 
 #: Wammu/Main.py:704
 msgid "Connected"
@@ -3158,79 +3155,79 @@ msgstr "Akce zrušena uživatelem!"
 msgid "Action canceled"
 msgstr "Akce zrušena"
 
-#: Wammu/Utils.py:234
+#: Wammu/Utils.py:247
 msgid "Yes"
 msgstr "Ano"
 
-#: Wammu/Utils.py:236
+#: Wammu/Utils.py:249
 msgid "No"
 msgstr "Ne"
 
-#: Wammu/Utils.py:257
+#: Wammu/Utils.py:270
 msgid "enabled (tone)"
 msgstr "zapnuté (zvukové)"
 
-#: Wammu/Utils.py:259
+#: Wammu/Utils.py:272
 msgid "enabled (silent)"
 msgstr "zapnuté (tiché)"
 
-#: Wammu/Utils.py:265
+#: Wammu/Utils.py:278
 msgid "yearly"
 msgstr "ročně"
 
-#: Wammu/Utils.py:267
+#: Wammu/Utils.py:280
 msgid "monthly"
 msgstr "měsíčně"
 
-#: Wammu/Utils.py:270
+#: Wammu/Utils.py:283
 msgid "daily"
 msgstr "denně"
 
-#: Wammu/Utils.py:272
+#: Wammu/Utils.py:285
 msgid "biweekly"
 msgstr "ob týden"
 
-#: Wammu/Utils.py:275
+#: Wammu/Utils.py:288
 msgid "weekly on monday"
 msgstr "týdně v pondělí"
 
-#: Wammu/Utils.py:277
+#: Wammu/Utils.py:290
 msgid "weekly on tuesday"
 msgstr "týdně v úterý"
 
-#: Wammu/Utils.py:279
+#: Wammu/Utils.py:292
 msgid "weekly on wednesday"
 msgstr "týdně ve středu"
 
-#: Wammu/Utils.py:281
+#: Wammu/Utils.py:294
 msgid "weekly on thursday"
 msgstr "týdně ve čtvrtek"
 
-#: Wammu/Utils.py:283
+#: Wammu/Utils.py:296
 msgid "weekly on friday"
 msgstr "týdně v pátek"
 
-#: Wammu/Utils.py:285
+#: Wammu/Utils.py:298
 msgid "weekly on saturday"
 msgstr "týdně v sobotu"
 
-#: Wammu/Utils.py:287
+#: Wammu/Utils.py:300
 msgid "weekly on sunday"
 msgstr "týdně v neděli"
 
-#: Wammu/Utils.py:294
+#: Wammu/Utils.py:307
 msgid "disabled"
 msgstr "vypnutý"
 
-#: Wammu/Utils.py:297
+#: Wammu/Utils.py:310
 msgid "nonrecurring"
 msgstr "neopakující se"
 
-#: Wammu/Utils.py:373
+#: Wammu/Utils.py:386
 msgid "Your phone doesn't support this function."
 msgstr "Váš telefon tuto funkcionalitu nepoporuje."
 
-#: Wammu/Utils.py:375
+#: Wammu/Utils.py:388
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
@@ -3238,20 +3235,20 @@ msgstr ""
 "Tato funkcionalita není pro váš telefon zatím podporována. Pokud chcete "
 "pomoci s její podporou, prosím kontaktujte autory."
 
-#: Wammu/Utils.py:377
+#: Wammu/Utils.py:390
 msgid "Your phone asks for PIN."
 msgstr "Váš telefon vyžaduje zadat PIN."
 
-#: Wammu/Utils.py:379
+#: Wammu/Utils.py:392
 msgid "Memory is full, try deleting some entries."
 msgstr "Paměť je plná, zkuste vymazat některé položky."
 
-#: Wammu/Utils.py:381
+#: Wammu/Utils.py:394
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr ""
 "Komunikace byla přerušena telefonem, nezrušili jste operaci na telefonu?"
 
-#: Wammu/Utils.py:383
+#: Wammu/Utils.py:396
 msgid ""
 "Empty entry received. This usually should not happen and most likely is "
 "caused by bug in phone firmware or in Gammu/Wammu.\n"
@@ -3263,7 +3260,7 @@ msgstr ""
 "\n"
 "Pokud nějaká položka nebyla načtena, prosím kontaktujte autory."
 
-#: Wammu/Utils.py:385
+#: Wammu/Utils.py:398
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
@@ -3271,7 +3268,7 @@ msgstr ""
 "Prosím opusťte otevřená menu v telefonu a zkuste operaci znovu. Data nejsou "
 "přístupná pokud je máte otevřena v telefonu."
 
-#: Wammu/Utils.py:387
+#: Wammu/Utils.py:400
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
@@ -3279,7 +3276,7 @@ msgstr ""
 "Při komunikaci vypršel časový limit. Možná telefon není připojen (pokud "
 "používáte kabel) nebo je mimo dosah (pro bluetooth a IrDA)."
 
-#: Wammu/Utils.py:389
+#: Wammu/Utils.py:402
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
@@ -3287,23 +3284,23 @@ msgstr ""
 "Zařízení pro komunikaci s telefonem neexistuje. Možná není telefon "
 "připojený, nebo máte chybu v nastaveních."
 
-#: Wammu/Utils.py:391
+#: Wammu/Utils.py:404
 msgid "Can not access device for communication with phone."
 msgstr "Nepodařilo se otevřít zařízení pro komunikaci s telefonem."
 
-#: Wammu/Utils.py:393
+#: Wammu/Utils.py:406
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr "Pro přístup k zařízení možná musíte být členem nějaké skupiny."
 
-#: Wammu/Utils.py:395
+#: Wammu/Utils.py:408
 msgid "Description:"
 msgstr "Popis:"
 
-#: Wammu/Utils.py:395
+#: Wammu/Utils.py:408
 msgid "Function:"
 msgstr "Funkce:"
 
-#: Wammu/Utils.py:395
+#: Wammu/Utils.py:408
 msgid "Error code:"
 msgstr "Číslo chyby:"
 
