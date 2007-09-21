@@ -136,7 +136,7 @@ def NormalizeNumber(number):
     if resnumber[0:2] == '00':
         resnumber = '+' + resnumber[2:]
     # Detect numbers with international prefix and without +
-    # This can be natinal number in some countries (eg. US)
+    # This can be national number in some countries (eg. US)
     if NumberPrefix[0] == '+' and resnumber[:len(NumberPrefix) - 1] == NumberPrefix[1:]:
         resnumber = '+' + resnumber
     # Add international prefix
