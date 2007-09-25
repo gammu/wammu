@@ -19,7 +19,7 @@ else
     svn export svn+ssh://mort/home/svn/$repo/trunk $repo-$version
 fi
 
-cd wammu-$version
+cd $repo-$version
 
 ./setup.py sdist --formats=gztar,bztar,zip
 
