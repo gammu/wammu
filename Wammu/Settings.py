@@ -42,6 +42,7 @@ class Settings(wx.Dialog):
         self.notebook_gammu = wx.Panel(self.notebook, -1)
         self.notebook_connection = wx.Panel(self.notebook, -1)
         self.notebook_messages = wx.Panel(self.notebook, -1)
+        self.notebook_view = wx.Panel(self.notebook, -1)
         self.notebook_other = wx.Panel(self.notebook, -1)
 
         # main layout
@@ -170,13 +171,13 @@ class Settings(wx.Dialog):
         self.editdev = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Devices, size = (150, -1))
         self.editdev.SetToolTipString(_('Device, where your phone is connected.'))
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Device')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
-        self.sizer_connection.Add(self.editdev, pos = (r, 2), flag = wx.ALIGN_RIGHT)
+        self.sizer_connection.Add(self.editdev, pos = (r, 2), flag = wx.ALIGN_RIGHT | wx.EXPAND)
         r += 1
 
         self.editconn = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Connections, size = (150, -1))
         self.editconn.SetToolTipString(_('Connection which your phone understands, check Gammu documentation for connection details.'))
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Connection')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
-        self.sizer_connection.Add(self.editconn, pos = (r, 2), flag = wx.ALIGN_RIGHT)
+        self.sizer_connection.Add(self.editconn, pos = (r, 2), flag = wx.ALIGN_RIGHT | wx.EXPAND)
         r += 1
 
         self.editmodel = wx.ComboBox(self.notebook_connection, -1, '', choices = Wammu.Data.Models, size = (150, -1))
@@ -184,7 +185,7 @@ class Settings(wx.Dialog):
         if self.editmodel.GetValue() == '':
             self.editmodel.SetValue('auto')
         self.sizer_connection.Add(wx.StaticText(self.notebook_connection, -1, _('Model')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
-        self.sizer_connection.Add(self.editmodel, pos = (r, 2), flag = wx.ALIGN_RIGHT)
+        self.sizer_connection.Add(self.editmodel, pos = (r, 2), flag = wx.ALIGN_RIGHT | wx.EXPAND)
         r += 1
 
         # Initialise above fields
@@ -276,6 +277,54 @@ class Settings(wx.Dialog):
         self.sizer_messages.Fit(self.notebook_messages)
         self.sizer_messages.SetSizeHints(self.notebook_messages)
 
+        # view tab
+        self.sizer_view = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer_view.AddGrowableCol(1)
+
+        self.sizer_view.AddSpacer(1, 1, pos = (0, 0))
+        r = 1
+
+        v = config.Read('/Wammu/NameFormat')
+        self.editnameformat = wx.Choice(self.notebook_view, choices = [
+            _('Automatic'),
+            _('Automatic starting with first name'),
+            _('Automatic starting with last name'),
+            _('Custom, use format string bellow')
+            ], size = (250, -1))
+        if v == 'auto':
+            self.editnameformat.SetSelection(0)
+        elif v == 'auto-first-last':
+            self.editnameformat.SetSelection(1)
+        elif v == 'auto-last-first':
+            self.editnameformat.SetSelection(2)
+        elif v == 'custom':
+            self.editnameformat.SetSelection(3)
+        self.sizer_view.Add(wx.StaticText(self.notebook_view, -1, _('Name display format')), pos = (r, 1))
+        self.sizer_view.Add(self.editnameformat, pos = (r, 2), flag = wx.EXPAND)
+        self.Bind(wx.EVT_CHOICE, self.OnNameFormatChange, self.editnameformat)
+        r += 1
+
+        v = config.Read('/Wammu/NameFormatString')
+        self.editnamestring = wx.ComboBox(self.notebook_view, -1, v, choices = [
+            v,
+            '%(FirstName)s %(LastName)s (%(Company)s)',
+            '%(LastName)s, %(FirstName)s (%(Company)s)',
+            '%(LastName)s, %(FirstName)s (%(NickName)s)',
+            ])
+        self.editnamestring.SetToolTipString(_('Format string for name displaying. You can use %(value)s format marks. Currently available values are: Name, FirstName, LastName, NickName, FormalName, Company.'))
+        self.sizer_view.Add(wx.StaticText(self.notebook_view, -1, _('Name format string')), pos = (r, 1), flag = wx.ALIGN_CENTER_VERTICAL)
+        self.sizer_view.Add(self.editnamestring, pos = (r, 2), flag = wx.ALIGN_RIGHT | wx.EXPAND)
+        r += 1
+
+        self.sizer_view.AddSpacer(1, 1, pos = (r, 3))
+
+        # size view tab
+        self.notebook_view.SetAutoLayout(True)
+        self.notebook_view.SetSizer(self.sizer_view)
+        self.sizer_view.Fit(self.notebook_view)
+        self.sizer_view.SetSizeHints(self.notebook_view)
+
         # other tab
         self.sizer_other = wx.lib.rcsizer.RowColSizer()
 
@@ -355,6 +404,7 @@ class Settings(wx.Dialog):
         self.notebook.AddPage(self.notebook_gammu, _('Gammu'))
         self.notebook.AddPage(self.notebook_connection, _('Connection'))
         self.notebook.AddPage(self.notebook_messages, _('Messages'))
+        self.notebook.AddPage(self.notebook_view, _('View'))
         self.notebook.AddPage(self.notebook_other, _('Other'))
 
         # size main layout
@@ -368,9 +418,21 @@ class Settings(wx.Dialog):
         if sz.y < 150:
             self.SetSize((400, 400))
 
+        # Intialise fields
+        self.OnNameFormatChange()
+
         # event handlers
         self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)
         self.Bind(wx.EVT_BUTTON, self.AddPhone, id = wx.ID_ADD)
+
+    def OnNameFormatChange(self, evt = None):
+        selection = self.editnameformat.GetSelection()
+        if selection < 0:
+            selection = 0
+        if selection == 3:
+            self.editnamestring.Enable(True)
+        else:
+            self.editnamestring.Enable(False)
 
     def OnConnectionChange(self, evt = None):
         selection = self.editsection.GetSelection()
@@ -498,4 +560,17 @@ class Settings(wx.Dialog):
         self.config.WriteInt('/Wammu/DefaultDateOffset', self.editdate.GetValue())
         self.config.WriteInt('/Wammu/DefaultEntries', self.editentries.GetValue())
         self.config.Write('/Wammu/PhonePrefix', self.editprefix.GetValue())
+        self.config.Write('/Wammu/NameFormat', self.editnamestring.GetValue())
+        ind = self.editnameformat.GetSelection()
+        if ind == 0:
+            val = 'auto'
+        elif ind == 1:
+            val = 'auto-first-last'
+        elif ind == 2:
+            val = 'auto-last-first'
+        elif ind == 3:
+            val = 'custom'
+        else:
+            raise Exception('Invalid NameFormatString id: %d' % ind)
+        self.config.Write('/Wammu/NameFormat', val)
         self.EndModal(wx.ID_OK)

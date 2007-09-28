@@ -188,10 +188,12 @@ def GetTypeString(type, value, values, linkphone = True):
     else:
         return StrConv(value)
 
-def ParseMemoryEntry(entry):
+def ParseMemoryEntry(entry, config = None):
     first = ''
     last = ''
     name = ''
+    nickname = ''
+    formalname = ''
     company = ''
     number = ''
     number_result = ''
@@ -204,6 +206,10 @@ def ParseMemoryEntry(entry):
             first = i['Value']
         if i['Type'] == 'Text_LastName':
             last = i['Value']
+        if i['Type'] == 'Text_NickName':
+            nickname = i['Value']
+        if i['Type'] == 'Text_FormalName':
+            formalname = i['Value']
         if i['Type'] == 'Date':
             date = i['Value']
         if i['Type'] == 'Text_Company':
@@ -212,25 +218,56 @@ def ParseMemoryEntry(entry):
             number_result = i['Value']
         elif i['Type'][:7] == 'Number_':
             number =  i['Value']
-    if name != '':
-        name_result = name
-    elif first != '':
-        if last != '':
-            name_result = last + ', ' + first
-        else:
-            name_result = first
-    elif last != '':
-        name_result = last
-    elif company != '':
-        name_result = company
+
+    if config is None:
+        format = 'auto'
     else:
-        name_result = ''
+        format = config.Read('/Wammu/NameFormat')
+
+    if format == 'custom':
+        name_result = config.Read('/Wammu/NameFormatString') % {
+                'Name' : name,
+                'FirstName' : first,
+                'LastName' : last,
+                'NickName' : nickname,
+                'FormalName' : formalname,
+                'Company' : company,
+                }
+    else:
+        if name != '':
+            name_result = name
+        elif first != '':
+            if last != '':
+                if format == 'auto-first-last':
+                    name_result = '%s %s' % (first, last)
+                else:
+                    name_result = '%s, %s' % (last, first)
+            else:
+                name_result = first
+        elif last != '':
+            name_result = last
+        elif nickname != '':
+            name_result = nickname
+        elif formalname != '':
+            name_result = formalname
+        else:
+            name_result = ''
+
+        if name_result == '':
+            if company != '':
+                name_result = company
+        else:
+            if company != '':
+                name_result = '%s (%s)' % (name_result, company)
+
     if number_result == '':
         number_result = number
+
     entry['Number'] = number_result
     entry['Name'] = name_result
     entry['Synced'] = False
     entry['Date'] = date
+
     return entry
 
 def ParseTodo(entry):

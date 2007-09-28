@@ -56,7 +56,7 @@ class GetMemory(Wammu.Reader.Reader):
         return self.sm.GetMemory(Location = location, Type = self.type)
 
     def Parse(self, value):
-        Wammu.Utils.ParseMemoryEntry(value)
+        Wammu.Utils.ParseMemoryEntry(value, self.win.cfg)
 
     def Send(self, data):
         self.SendData([self.datatype, self.type], data)

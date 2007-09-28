@@ -63,6 +63,8 @@ DEFAULT_CONFIG = {
     '/Wammu/DefaultEntries': 3,
     '/Wammu/FirstRun': -1,
     '/Wammu/TalkbackDone': 'no',
+    '/Wammu/NameFormat': 'auto',
+    '/Wammu/NameFormatString': '%(FirstName)s %(LastName)s (%(Company)s)',
     '/IMAP/Server': '',
     '/IMAP/Login': '',
     '/IMAP/Password': '',

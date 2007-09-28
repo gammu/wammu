@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-09-21 16:55+0900\n"
+"POT-Creation-Date: 2007-09-28 14:57+0900\n"
 "PO-Revision-Date: 2007-04-24 08:35+0200\n"
 "Last-Translator: aku ankkuli <aku.ankkuli@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -72,7 +72,7 @@ msgid "Failed to set exception handler."
 msgstr "Virhe asettaessa exception handleria."
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:931 Wammu/Settings.py:166
+#: Wammu/Main.py:931 Wammu/Settings.py:167
 msgid "Name"
 msgstr "Nimi"
 
@@ -194,11 +194,11 @@ msgstr "Viestin esikatselu"
 msgid "Text style"
 msgstr "Tekstin tyyli"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:237
+#: Wammu/Composer.py:167 Wammu/Settings.py:238
 msgid "Concatenated"
 msgstr "Yhteenliitetty"
 
-#: Wammu/Composer.py:168 Wammu/Settings.py:238
+#: Wammu/Composer.py:168 Wammu/Settings.py:239
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
 
@@ -265,7 +265,7 @@ msgstr "Vastaanottajien numerot:"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: Wammu/Composer.py:385 Wammu/Settings.py:244
+#: Wammu/Composer.py:385 Wammu/Settings.py:245
 msgid ""
 "Unicode messages can contain national and other special characters, check "
 "this if you use non latin-1 characters. Your messages will require more "
@@ -279,7 +279,7 @@ msgstr ""
 msgid "Delivery report"
 msgstr "Välitystieto"
 
-#: Wammu/Composer.py:396 Wammu/Settings.py:250
+#: Wammu/Composer.py:396 Wammu/Settings.py:251
 msgid "Check to request delivery report for message."
 msgstr "Merkitse pyytääksesi välitystietoja viestistä."
 
@@ -838,7 +838,7 @@ msgstr "SIM yhteystiedot"
 msgid "Phone Contacts"
 msgstr "Puhelimen yhteystiedot"
 
-#: Wammu/Main.py:118 Wammu/Settings.py:357
+#: Wammu/Main.py:118 Wammu/Settings.py:406
 msgid "Messages"
 msgstr "Viestit"
 
@@ -1723,7 +1723,7 @@ msgstr "%d puhelut"
 msgid "%d todo"
 msgstr "%d tehtävä"
 
-#: Wammu/Main.py:1681 Wammu/Settings.py:294
+#: Wammu/Main.py:1681 Wammu/Settings.py:343
 msgid "Confirm deleting"
 msgstr "Vahvista poisto"
 
@@ -2108,7 +2108,7 @@ msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:433 Wammu/Settings.py:152
+#: Wammu/PhoneWizard.py:433 Wammu/Settings.py:153
 #, fuzzy
 msgid "Phone connection"
 msgstr "Yhteys"
@@ -2214,57 +2214,57 @@ msgstr "Valitse numero valitulle yhteystiedolle"
 msgid "Select phone number"
 msgstr "Valitse puhelinnumero"
 
-#: Wammu/Settings.py:84
+#: Wammu/Settings.py:85
 msgid "Please enter here path to gammu configuration file you want to use."
 msgstr ""
 
-#: Wammu/Settings.py:87
+#: Wammu/Settings.py:88
 msgid "Gammurc path"
 msgstr ""
 
-#: Wammu/Settings.py:91
+#: Wammu/Settings.py:92
 msgid "You can configure connection parameters on Connection tab."
 msgstr ""
 
-#: Wammu/Settings.py:97
+#: Wammu/Settings.py:98
 msgid "Automatically connect to phone on startup"
 msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
 
-#: Wammu/Settings.py:98
+#: Wammu/Settings.py:99
 msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
 msgstr "Haluatko ohjelman ottavan yhteyden puhelimeen käynnistyessään."
 
-#: Wammu/Settings.py:103
+#: Wammu/Settings.py:104
 msgid "Show debug log"
 msgstr "Näytä debuggaus loki"
 
-#: Wammu/Settings.py:104
+#: Wammu/Settings.py:105
 msgid "Show debug information on error output."
 msgstr "Näytä debuggaus tiedot virheilmoituksessa."
 
-#: Wammu/Settings.py:109
+#: Wammu/Settings.py:110
 msgid "Synchronize time"
 msgstr "Tahdista aika"
 
-#: Wammu/Settings.py:110
+#: Wammu/Settings.py:111
 msgid "Synchronise time in phone with computer time while connecting."
 msgstr "Tahdista puhelimen aika tietokoneen aikaan yhdistämisen aikana."
 
-#: Wammu/Settings.py:115
+#: Wammu/Settings.py:116
 msgid "Startup information"
 msgstr "Käynnistystietoja"
 
-#: Wammu/Settings.py:116
+#: Wammu/Settings.py:117
 msgid "Display startup on phone (not supported by all models)."
 msgstr "Näytä käynnistys puhelimessa (ei tuettu kaikissa malleissa)"
 
-#: Wammu/Settings.py:123
+#: Wammu/Settings.py:124
 msgid "Lock device"
 msgstr "Lukitse laite"
 
-#: Wammu/Settings.py:124
+#: Wammu/Settings.py:125
 msgid ""
 "Whether to lock device in /var/lock. On some systems you might lack "
 "privileges to do so."
@@ -2272,20 +2272,20 @@ msgstr ""
 "Lukitaanko laite tiedostoon /var/lock. Joissakin järjestelmissä oikeutesi ei "
 "ehkä riitä tämän tekemiseen."
 
-#: Wammu/Settings.py:165
+#: Wammu/Settings.py:166
 #, fuzzy
 msgid "Name for this configuration."
 msgstr "Luo uusi yhteystieto"
 
-#: Wammu/Settings.py:171
+#: Wammu/Settings.py:172
 msgid "Device, where your phone is connected."
 msgstr "Laite, johon puhelimesi on kytketty."
 
-#: Wammu/Settings.py:172
+#: Wammu/Settings.py:173
 msgid "Device"
 msgstr "Laite"
 
-#: Wammu/Settings.py:177
+#: Wammu/Settings.py:178
 msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
@@ -2293,20 +2293,20 @@ msgstr ""
 "Yhteys, jonka puhelimesi ymmärtää, tarkista yksityiskohdat Gammu-"
 "dokumentaatiosta."
 
-#: Wammu/Settings.py:178 Wammu/Settings.py:356
+#: Wammu/Settings.py:179 Wammu/Settings.py:405
 msgid "Connection"
 msgstr "Yhteys"
 
-#: Wammu/Settings.py:183
+#: Wammu/Settings.py:184
 msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr "Puhelin malli, voit yleensä pitää tämän auto:na jos ei ole ongelmia."
 
-#: Wammu/Settings.py:186
+#: Wammu/Settings.py:187
 msgid "Model"
 msgstr "Malli"
 
-#: Wammu/Settings.py:211
+#: Wammu/Settings.py:212
 msgid ""
 "Whether images in messages should be scaled when displayed. This is usually "
 "good idea as they are pretty small."
@@ -2314,15 +2314,15 @@ msgstr ""
 "Pitäisikö viesteissä olevia kuvia skaalata näytettäessä. Tämä on yleensä "
 "hyvä idea, koska ne ovat hyvin pieniä."
 
-#: Wammu/Settings.py:212
+#: Wammu/Settings.py:213
 msgid "Scale images"
 msgstr "Skaalaa kuvia"
 
-#: Wammu/Settings.py:216
+#: Wammu/Settings.py:217
 msgid "Attempt to reformat text"
 msgstr "Yritetään uudelleenmuotoilla teksti"
 
-#: Wammu/Settings.py:217
+#: Wammu/Settings.py:218
 msgid ""
 "If you get sometimes \"compressed\" messages likeTHIStext, you should be "
 "interested in this choice."
@@ -2330,23 +2330,57 @@ msgstr ""
 "Jos saat toisinaan TÄMÄNkaltaisia \"tiivistettyjä\" viestejä, sinun pitäisi "
 "olla kiinnostunut tästä valinnasta."
 
-#: Wammu/Settings.py:243
+#: Wammu/Settings.py:244
 msgid "Create unicode message"
 msgstr "Luo unicode-viesti"
 
-#: Wammu/Settings.py:249
+#: Wammu/Settings.py:250
 msgid "Request delivery report by default"
 msgstr "Pyydä välitystiedot oletuksena"
 
-#: Wammu/Settings.py:255
+#: Wammu/Settings.py:256
 msgid "Use 16bit Id"
 msgstr "Käytä 16 bittistä Id:tä"
 
-#: Wammu/Settings.py:256
+#: Wammu/Settings.py:257
 msgid "Use 16 bit Id inside message. This is safe for most cases."
 msgstr "Käytä 16 bittistä Id:tä viestissä. Tämä on useimmiten turvallisinta."
 
-#: Wammu/Settings.py:289
+#: Wammu/Settings.py:290
+msgid "Automatic"
+msgstr ""
+
+#: Wammu/Settings.py:291
+#, fuzzy
+#| msgid "Automatically search for a phone"
+msgid "Automatic starting with first name"
+msgstr "Yhdistä puhelin automaattisesti käynnistettäessä"
+
+#: Wammu/Settings.py:292
+msgid "Automatic starting with last name"
+msgstr ""
+
+#: Wammu/Settings.py:293
+msgid "Custom, use format string bellow"
+msgstr ""
+
+#: Wammu/Settings.py:303
+msgid "Name display format"
+msgstr ""
+
+#: Wammu/Settings.py:315
+#, python-format
+msgid ""
+"Format string for name displaying. You can use %(value)s format marks. "
+"Currently available values are: Name, FirstName, LastName, NickName, "
+"FormalName, Company."
+msgstr ""
+
+#: Wammu/Settings.py:316
+msgid "Name format string"
+msgstr ""
+
+#: Wammu/Settings.py:338
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
@@ -2354,31 +2388,31 @@ msgstr ""
 "Kuinka usein puhelimen tila päivitetään ohjelman statusbarissa. Anna arvo "
 "millisekunneissa, 0 ottaa pois käytöstä."
 
-#: Wammu/Settings.py:290
+#: Wammu/Settings.py:339
 msgid "Refresh phone state"
 msgstr "Päivitä puhelimen tila"
 
-#: Wammu/Settings.py:295
+#: Wammu/Settings.py:344
 msgid "Whether to ask for confirmation when deleting entries."
 msgstr "Haluatko kuittauksen kun poistetaan merkintöjä?"
 
-#: Wammu/Settings.py:300
+#: Wammu/Settings.py:349
 msgid "Task bar icon"
 msgstr ""
 
-#: Wammu/Settings.py:301
+#: Wammu/Settings.py:350
 msgid "Show icon in task bar."
 msgstr ""
 
-#: Wammu/Settings.py:319
+#: Wammu/Settings.py:368
 msgid "Default time to be used for newly created time fields."
 msgstr "Oletusaika, jota tullaan käyttämään uusissa aikavyöhykkeissä."
 
-#: Wammu/Settings.py:320
+#: Wammu/Settings.py:369
 msgid "Default time"
 msgstr "Oletusaika"
 
-#: Wammu/Settings.py:326
+#: Wammu/Settings.py:375
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
@@ -2386,32 +2420,36 @@ msgstr ""
 "Oletuspäiväys, jota käytetään äskettäin luodulle aikakentille. Syötä päivien "
 "määrä alkaen tästä päivästä (1=eilen)"
 
-#: Wammu/Settings.py:327
+#: Wammu/Settings.py:376
 #, fuzzy
 msgid "Default date = now + x days"
 msgstr "Oletusaika = nyt + x päivää"
 
-#: Wammu/Settings.py:333
+#: Wammu/Settings.py:382
 msgid "How many entries will be shown in newly created item."
 msgstr "Kuinka monta syötettä näytetään uusissa tiedoissa?"
 
-#: Wammu/Settings.py:334
+#: Wammu/Settings.py:383
 msgid "Entries for new item"
 msgstr "Uuden tiedon syötteet."
 
-#: Wammu/Settings.py:341
+#: Wammu/Settings.py:390
 msgid "Prefix for non international phone numbers."
 msgstr "Etuliite ei kansainvälisiin puhelinnumeroihin."
 
-#: Wammu/Settings.py:342
+#: Wammu/Settings.py:391
 msgid "Number prefix"
 msgstr "Numeron etuliite"
 
-#: Wammu/Settings.py:355
+#: Wammu/Settings.py:404
 msgid "Gammu"
 msgstr "Gammu"
 
-#: Wammu/Settings.py:358
+#: Wammu/Settings.py:407
+msgid "View"
+msgstr ""
+
+#: Wammu/Settings.py:408
 msgid "Other"
 msgstr "Muu"
 
@@ -3170,79 +3208,79 @@ msgstr "Käyttäjä peruuttanut toiminnon!"
 msgid "Action canceled"
 msgstr "Toiminto peruutettu"
 
-#: Wammu/Utils.py:247
+#: Wammu/Utils.py:284
 msgid "Yes"
 msgstr "Kyllä"
 
-#: Wammu/Utils.py:249
+#: Wammu/Utils.py:286
 msgid "No"
 msgstr "Ei"
 
-#: Wammu/Utils.py:270
+#: Wammu/Utils.py:307
 msgid "enabled (tone)"
 msgstr ""
 
-#: Wammu/Utils.py:272
+#: Wammu/Utils.py:309
 msgid "enabled (silent)"
 msgstr ""
 
-#: Wammu/Utils.py:278
+#: Wammu/Utils.py:315
 msgid "yearly"
 msgstr ""
 
-#: Wammu/Utils.py:280
+#: Wammu/Utils.py:317
 msgid "monthly"
 msgstr "kuukausittain"
 
-#: Wammu/Utils.py:283
+#: Wammu/Utils.py:320
 msgid "daily"
 msgstr "päivittäin"
 
-#: Wammu/Utils.py:285
+#: Wammu/Utils.py:322
 msgid "biweekly"
 msgstr ""
 
-#: Wammu/Utils.py:288
+#: Wammu/Utils.py:325
 msgid "weekly on monday"
 msgstr "viikottain maanantaisin"
 
-#: Wammu/Utils.py:290
+#: Wammu/Utils.py:327
 msgid "weekly on tuesday"
 msgstr "viikottain tiistaisin"
 
-#: Wammu/Utils.py:292
+#: Wammu/Utils.py:329
 msgid "weekly on wednesday"
 msgstr "viikottain keskiviikkoisin"
 
-#: Wammu/Utils.py:294
+#: Wammu/Utils.py:331
 msgid "weekly on thursday"
 msgstr "viikottain torstaisin"
 
-#: Wammu/Utils.py:296
+#: Wammu/Utils.py:333
 msgid "weekly on friday"
 msgstr "viikottain perjantaisin"
 
-#: Wammu/Utils.py:298
+#: Wammu/Utils.py:335
 msgid "weekly on saturday"
 msgstr "viikottain lauantaisin"
 
-#: Wammu/Utils.py:300
+#: Wammu/Utils.py:337
 msgid "weekly on sunday"
 msgstr "viikottain sunnuntaisin"
 
-#: Wammu/Utils.py:307
+#: Wammu/Utils.py:344
 msgid "disabled"
 msgstr ""
 
-#: Wammu/Utils.py:310
+#: Wammu/Utils.py:347
 msgid "nonrecurring"
 msgstr ""
 
-#: Wammu/Utils.py:386
+#: Wammu/Utils.py:423
 msgid "Your phone doesn't support this function."
 msgstr "Puhelimesi ei tue tätä toimintoa."
 
-#: Wammu/Utils.py:388
+#: Wammu/Utils.py:425
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
@@ -3250,19 +3288,19 @@ msgstr ""
 "Tämä toiminne ei ole puhelintasi varten. Jos haluat apua välineen kanssa, "
 "ole hyvä ja ota yhteyttä ohjelman tekijään."
 
-#: Wammu/Utils.py:390
+#: Wammu/Utils.py:427
 msgid "Your phone asks for PIN."
 msgstr "Puhelimesi kysyy PIN-koodia."
 
-#: Wammu/Utils.py:392
+#: Wammu/Utils.py:429
 msgid "Memory is full, try deleting some entries."
 msgstr "Muisti on täynnä, poista jokin merkintä."
 
-#: Wammu/Utils.py:394
+#: Wammu/Utils.py:431
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr "Yhteys peruutettu puhelimesta, painoitko puhelimesta peruuta-nappia?"
 
-#: Wammu/Utils.py:396
+#: Wammu/Utils.py:433
 msgid ""
 "Empty entry received. This usually should not happen and most likely is "
 "caused by bug in phone firmware or in Gammu/Wammu.\n"
@@ -3275,7 +3313,7 @@ msgstr ""
 "\n"
 "Jos kaipaat jotain tietoa, ota yhteyttä Gammun/Wammun luojiin."
 
-#: Wammu/Utils.py:398
+#: Wammu/Utils.py:435
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
@@ -3283,7 +3321,7 @@ msgstr ""
 "Ole hyvä ja sulje avattu valikko puhelimessa, tietoon ei päästä käsiksi, "
 "niiden ollessa auki."
 
-#: Wammu/Utils.py:400
+#: Wammu/Utils.py:437
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
@@ -3291,30 +3329,30 @@ msgstr ""
 "Aikakatkaisu yritettäessä kommunikoida puhelimen kanssa. Ehkä puhelin ei ole "
 "kytketty (johdolla) taikka on yhteyden ulottumattomissa (bluetooth tai IrDA)."
 
-#: Wammu/Utils.py:402
+#: Wammu/Utils.py:439
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
 
-#: Wammu/Utils.py:404
+#: Wammu/Utils.py:441
 #, fuzzy
 msgid "Can not access device for communication with phone."
 msgstr "Virhe ottaessa yhteyttä puhelimeen"
 
-#: Wammu/Utils.py:406
+#: Wammu/Utils.py:443
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
 
-#: Wammu/Utils.py:408
+#: Wammu/Utils.py:445
 msgid "Description:"
 msgstr "Kuvaus:"
 
-#: Wammu/Utils.py:408
+#: Wammu/Utils.py:445
 msgid "Function:"
 msgstr "Toiminto:"
 
-#: Wammu/Utils.py:408
+#: Wammu/Utils.py:445
 msgid "Error code:"
 msgstr "Virhekoodi:"
 
