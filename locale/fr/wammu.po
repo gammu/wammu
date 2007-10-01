@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-09-28 14:57+0900\n"
+"POT-Creation-Date: 2007-10-01 14:11+0900\n"
 "PO-Revision-Date: 2007-05-23 16:19+0200\n"
 "Last-Translator: Yves Agostini <agostini@univ-metz.fr>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -842,7 +842,7 @@ msgstr "Contacts SIM"
 msgid "Phone Contacts"
 msgstr "Contacts téléphone"
 
-#: Wammu/Main.py:118 Wammu/Settings.py:406
+#: Wammu/Main.py:118 Wammu/Settings.py:408
 msgid "Messages"
 msgstr "Messages"
 
@@ -1742,7 +1742,7 @@ msgstr "%d appels"
 msgid "%d todo"
 msgstr "%d tâche à faire"
 
-#: Wammu/Main.py:1681 Wammu/Settings.py:343
+#: Wammu/Main.py:1681 Wammu/Settings.py:345
 msgid "Confirm deleting"
 msgstr "Comfirmer la suppression"
 
@@ -2333,7 +2333,7 @@ msgstr ""
 "Connexion que votre téléphone comprend, vérifier la documentation de Gammu "
 "pour les détails du connexion."
 
-#: Wammu/Settings.py:179 Wammu/Settings.py:405
+#: Wammu/Settings.py:179 Wammu/Settings.py:407
 msgid "Connection"
 msgstr "Connexion"
 
@@ -2413,19 +2413,19 @@ msgstr ""
 msgid "Name display format"
 msgstr ""
 
-#: Wammu/Settings.py:315
+#. l10n: The %s will be replaced by list of currently supported tags, %%(value)s should be kept intact (you can translate word value).
+#: Wammu/Settings.py:316
 #, python-format
 msgid ""
-"Format string for name displaying. You can use %(value)s format marks. "
-"Currently available values are: Name, FirstName, LastName, NickName, "
-"FormalName, Company."
+"Format string for name displaying. You can use %%(value)s format marks. "
+"Currently available values are: %s."
 msgstr ""
 
-#: Wammu/Settings.py:316
+#: Wammu/Settings.py:318
 msgid "Name format string"
 msgstr ""
 
-#: Wammu/Settings.py:338
+#: Wammu/Settings.py:340
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
@@ -2433,34 +2433,34 @@ msgstr ""
 "À quelle fréquence rafraîchir l'état du téléphone dans la barre de statut de "
 "l'application. Écrivez la valeur en millisecondes, 0 pour désactiver."
 
-#: Wammu/Settings.py:339
+#: Wammu/Settings.py:341
 msgid "Refresh phone state"
 msgstr "Rafraîchir l'état du téléphone"
 
-#: Wammu/Settings.py:344
+#: Wammu/Settings.py:346
 msgid "Whether to ask for confirmation when deleting entries."
 msgstr ""
 "Indique s'il faut demander une confirmation lors de la suppression d'entrées."
 
-#: Wammu/Settings.py:349
+#: Wammu/Settings.py:351
 msgid "Task bar icon"
 msgstr "Icônes de la barre de tâches"
 
-#: Wammu/Settings.py:350
+#: Wammu/Settings.py:352
 msgid "Show icon in task bar."
 msgstr "Afficher les icônes dans la barre de tâches."
 
-#: Wammu/Settings.py:368
+#: Wammu/Settings.py:370
 msgid "Default time to be used for newly created time fields."
 msgstr ""
 "Heure par défaut à employer pour les champs de type horodatage nouvellement "
 "créés."
 
-#: Wammu/Settings.py:369
+#: Wammu/Settings.py:371
 msgid "Default time"
 msgstr "Heure par défaut"
 
-#: Wammu/Settings.py:375
+#: Wammu/Settings.py:377
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
@@ -2468,36 +2468,36 @@ msgstr ""
 "Date par défaut à employer pour les champs de type horadatage nouvellement "
 "créés. Écrivez le nombre de jours à partir d'aujourd'hui (1 = demain)."
 
-#: Wammu/Settings.py:376
+#: Wammu/Settings.py:378
 #, fuzzy
 msgid "Default date = now + x days"
 msgstr "Temps par défaut = maintenant + x jours"
 
-#: Wammu/Settings.py:382
+#: Wammu/Settings.py:384
 msgid "How many entries will be shown in newly created item."
 msgstr "Combien d'entrées seront montrées dans l'article nouvellement créé."
 
-#: Wammu/Settings.py:383
+#: Wammu/Settings.py:385
 msgid "Entries for new item"
 msgstr "Entrées pour le nouvel article"
 
-#: Wammu/Settings.py:390
+#: Wammu/Settings.py:392
 msgid "Prefix for non international phone numbers."
 msgstr "Préfixe hors numéros internationnaux. "
 
-#: Wammu/Settings.py:391
+#: Wammu/Settings.py:393
 msgid "Number prefix"
 msgstr "Préfixe"
 
-#: Wammu/Settings.py:404
+#: Wammu/Settings.py:406
 msgid "Gammu"
 msgstr "Gammu"
 
-#: Wammu/Settings.py:407
+#: Wammu/Settings.py:409
 msgid "View"
 msgstr ""
 
-#: Wammu/Settings.py:408
+#: Wammu/Settings.py:410
 msgid "Other"
 msgstr "Divers"
 

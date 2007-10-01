@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-09-28 14:59+0900\n"
+"POT-Creation-Date: 2007-10-01 14:11+0900\n"
 "PO-Revision-Date: 2007-09-28 14:59+0900\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -826,7 +826,7 @@ msgstr "Kontakty na SIM kartě"
 msgid "Phone Contacts"
 msgstr "Kontakty v telefonu"
 
-#: Wammu/Main.py:118 Wammu/Settings.py:406
+#: Wammu/Main.py:118 Wammu/Settings.py:408
 msgid "Messages"
 msgstr "Zprávy"
 
@@ -1650,7 +1650,7 @@ msgstr "%d hovorů"
 msgid "%d todo"
 msgstr "%d úkolů"
 
-#: Wammu/Main.py:1681 Wammu/Settings.py:343
+#: Wammu/Main.py:1681 Wammu/Settings.py:345
 msgid "Confirm deleting"
 msgstr "Potvrzovat mazání"
 
@@ -2227,7 +2227,7 @@ msgstr ""
 "Připojení, kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
 "dostupné možnosti."
 
-#: Wammu/Settings.py:179 Wammu/Settings.py:405
+#: Wammu/Settings.py:179 Wammu/Settings.py:407
 msgid "Connection"
 msgstr "Připojení"
 
@@ -2301,22 +2301,21 @@ msgstr "Vlastní, požít formátovací řetězec níže"
 msgid "Name display format"
 msgstr "Formát zobrazení jména"
 
-#: Wammu/Settings.py:315
+#. l10n: The %s will be replaced by list of currently supported tags, %%(value)s should be kept intact (you can translate word value).
+#: Wammu/Settings.py:316
 #, python-format
 msgid ""
-"Format string for name displaying. You can use %(value)s format marks. "
-"Currently available values are: Name, FirstName, LastName, NickName, "
-"FormalName, Company."
+"Format string for name displaying. You can use %%(value)s format marks. "
+"Currently available values are: %s."
 msgstr ""
 "Formátovací řetězec pro zobrazení jména. Můžete zde použít formátovací "
-"značky %(hodnota)s.V současné době jsou dostupné tyto hodnoty: Name, "
-"FirstName, LastName, NickName, FormalName, Company."
+"značky %%(hodnota)s.V současné době jsou dostupné tyto hodnoty: %s."
 
-#: Wammu/Settings.py:316
+#: Wammu/Settings.py:318
 msgid "Name format string"
 msgstr "Formátovancí řetězec pro jméno"
 
-#: Wammu/Settings.py:338
+#: Wammu/Settings.py:340
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
@@ -2324,31 +2323,31 @@ msgstr ""
 "Jak často má být aktualizován stavu telefonu v milisekundách. Zadání 0 "
 "aktualizaci vypne."
 
-#: Wammu/Settings.py:339
+#: Wammu/Settings.py:341
 msgid "Refresh phone state"
 msgstr "Obnovit stav telefonu"
 
-#: Wammu/Settings.py:344
+#: Wammu/Settings.py:346
 msgid "Whether to ask for confirmation when deleting entries."
 msgstr "Zda se má program požadovat potvrzení mazání položek."
 
-#: Wammu/Settings.py:349
+#: Wammu/Settings.py:351
 msgid "Task bar icon"
 msgstr "Ikona v systémové oblasti"
 
-#: Wammu/Settings.py:350
+#: Wammu/Settings.py:352
 msgid "Show icon in task bar."
 msgstr "Zobrazit ikonu v systémové oblasti."
 
-#: Wammu/Settings.py:368
+#: Wammu/Settings.py:370
 msgid "Default time to be used for newly created time fields."
 msgstr "Výchozí čas, který bude použitý pro nově vytvořené položky."
 
-#: Wammu/Settings.py:369
+#: Wammu/Settings.py:371
 msgid "Default time"
 msgstr "Výchozí čas"
 
-#: Wammu/Settings.py:375
+#: Wammu/Settings.py:377
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
@@ -2356,35 +2355,35 @@ msgstr ""
 "Výchozí datum požité pro nově vytvořené položky. Zadejte počet dní od dneška "
 "(1 = zítra)."
 
-#: Wammu/Settings.py:376
+#: Wammu/Settings.py:378
 msgid "Default date = now + x days"
 msgstr "Výchozí datum = dnes + x dní"
 
-#: Wammu/Settings.py:382
+#: Wammu/Settings.py:384
 msgid "How many entries will be shown in newly created item."
 msgstr "Kolik záznamů bude v nově vytvořené položce."
 
-#: Wammu/Settings.py:383
+#: Wammu/Settings.py:385
 msgid "Entries for new item"
 msgstr "Záznamy v nové položce"
 
-#: Wammu/Settings.py:390
+#: Wammu/Settings.py:392
 msgid "Prefix for non international phone numbers."
 msgstr "Prefix pro místní telefonní čísla."
 
-#: Wammu/Settings.py:391
+#: Wammu/Settings.py:393
 msgid "Number prefix"
 msgstr "Prefix čísel"
 
-#: Wammu/Settings.py:404
+#: Wammu/Settings.py:406
 msgid "Gammu"
 msgstr "Gammu"
 
-#: Wammu/Settings.py:407
+#: Wammu/Settings.py:409
 msgid "View"
 msgstr "Zobrazení"
 
-#: Wammu/Settings.py:408
+#: Wammu/Settings.py:410
 msgid "Other"
 msgstr "Ostatní"
 
