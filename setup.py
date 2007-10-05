@@ -381,7 +381,12 @@ distutils.core.setup(name="wammu",
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
         (os.path.join('share','applications'), ['wammu.desktop']),
-        (os.path.join('share','pixmaps'), ['icon/wammu.png', 'icon/wammu.xpm', 'icon/wammu.ico']),
+        (os.path.join('share','pixmaps'), [
+            'icon/wammu.png', 
+            'icon/wammu.xpm', 
+            'icon/wammu.ico',
+            'icon/wammu.svg',
+            ]),
         (os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1'])
         ],
     # Override certain command classes with our own ones
