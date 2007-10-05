@@ -1926,6 +1926,11 @@ class WammuFrame(wx.Frame):
                 try:
                     while (not file_f['Finished']):
                         file_f = self.sm.SendFilePart(file_f)
+                except gammu.ERR_PERMISSION:
+                    wx.MessageDialog(self,
+                        _('Transfer has been rejected by phone.'),
+                        _('Transfer rejected!'),
+                        wx.OK | wx.ICON_ERROR).ShowModal()
                 except gammu.GSMError, val:
                     del busy
                     self.ShowError(val[0])
