@@ -201,9 +201,11 @@ def DoTalkback(parent, config, phoneid = 0):
                 wx.OK | wx.ICON_ERROR).ShowModal()
             continue
 
+        # Remember user information for next run
         config.Write('/User/Name', dlg.name_text_ctrl.GetValue())
         config.Write('/User/Email', dlg.email_text_ctrl.GetValue())
 
+        # Prepare data to post
         params_dict = {
             'irobot': 'wammu',
             'manufacturer': man_id,
@@ -225,11 +227,16 @@ def DoTalkback(parent, config, phoneid = 0):
             if type(params_dict[x]) == unicode:
                 params_dict[x] = params_dict[x].encode('utf-8')
 
+        # Encode request and prepare headers
         params = urllib.urlencode(params_dict)
         headers = {'Content-type': 'application/x-www-form-urlencoded',
                     'Accept': 'text/plain'}
+
+        # Perform request
         conn = httplib.HTTPConnection('cihar.com')
         conn.request('POST', '/gammu/phonedb/new.php', params, headers)
+
+        # Check request response
         response = conn.getresponse()
         if response.status != 200:
             wx.MessageDialog(parent,
@@ -239,6 +246,9 @@ def DoTalkback(parent, config, phoneid = 0):
                     },
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
+            continue
+
+        # Verify acquired data
         data = response.read()
         conn.close()
         ok_test = ok_matcher.match(data)
