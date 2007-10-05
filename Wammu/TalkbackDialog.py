@@ -218,6 +218,13 @@ def DoTalkback(parent, config, phoneid = 0):
         }
         for x in dlg.features:
             params_dict['fts[%s]' % x] = 1
+
+        # Convert unicode to raw utf-8 strigns so that they can be properly
+        # handled by urllib and later by website
+        for x in params_dict.keys():
+            if type(params_dict[x]) == unicode:
+                params_dict[x] = params_dict[x].encode('utf-8')
+
         params = urllib.urlencode(params_dict)
         headers = {'Content-type': 'application/x-www-form-urlencoded',
                     'Accept': 'text/plain'}
