@@ -62,6 +62,7 @@ DEFAULT_CONFIG = {
     '/Wammu/DefaultDateOffset': 1,
     '/Wammu/DefaultEntries': 3,
     '/Wammu/FirstRun': -1,
+    '/Wammu/RunCounter': 0,
     '/Wammu/TalkbackDone': 'no',
     '/Wammu/NameFormat': 'auto',
     '/Wammu/NameFormatString': '%(FirstName)s %(LastName)s (%(Company)s)',

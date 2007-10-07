@@ -71,6 +71,9 @@ import Wammu.WammuSettings
 import Wammu.SMSExport
 from Wammu.Locales import StrConv
 
+TALKBACK_COUNT = 30
+TALKBACK_DAYS = 30
+
 def SortDataKeys(a, b):
     if a == 'info':
         return -1
@@ -464,12 +467,17 @@ class WammuFrame(wx.Frame):
 
     def TalkbackCheck(self):
         '''
-        Do ask for talkback after month of usage.
+        Do ask for talkback after month of usage and at least 30 executions.
         '''
-        if self.cfg.ReadFloat('/Wammu/FirstRun') == -1:
-            self.cfg.WriteFloat('/Wammu/FirstRun', time.time())
+        firstrun = self.cfg.ReadFloat('/Wammu/FirstRun')
+        if firstrun == -1:
+            firstrun = time.time()
+            self.cfg.WriteFloat('/Wammu/FirstRun', firstrun)
+        runs = self.cfg.ReadInt('/Wammu/RunCounter')
+        self.cfg.WriteInt('/Wammu/RunCounter', runs + 1)
         if self.cfg.Read('/Wammu/TalkbackDone') == 'no':
-            if self.cfg.ReadFloat('/Wammu/FirstRun') + (3600 * 24 * 30) < time.time():
+            if (firstrun + (3600 * 24 * TALKBACK_DAYS) < time.time()
+                and runs > TALKBACK_COUNT):
                 dlg = wx.MessageDialog(self,
                     _('You are using Wammu for more than a month. We would like to hear from you how your phone is supported. Do you want to participate in this survey?') +
                     '\n\n' + _('Press Cancel to never show this question again.'),
