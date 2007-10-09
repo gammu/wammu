@@ -106,7 +106,7 @@ class AllSearchThread(threading.Thread):
                                     self.msgcallback(_('You don\'t have permissions for %s device!') % curdev)
                                 if self.noticecallback != None:
                                     self.noticecallback(
-                                            _('Error opening device'), 
+                                            _('Error opening device'),
                                             (_('You don\'t have permissions for %s device!') % curdev) + ' ' +
                                             (_('Maybe you need to be member of %s group.') % group))
 
@@ -172,7 +172,7 @@ class AllSearchThread(threading.Thread):
                             t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
                             t.setName('%s (%s) - %s' % (dev['bdaddr'], ctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
                             if self.msgcallback != None:
-                                self.msgcallback(_('Checking %s') %  t.getName())
+                                self.msgcallback(_('Checking %s') %  StrConv(t.getName()))
                             self.threads.append(t)
                             t.start()
                     if self.msgcallback != None:
@@ -182,7 +182,7 @@ class AllSearchThread(threading.Thread):
                         self.msgcallback(_('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
                     if self.noticecallback != None:
                         self.noticecallback(
-                                _('No bluetooth searching'), 
+                                _('No bluetooth searching'),
                                 _('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
 
             i = 0
@@ -191,7 +191,7 @@ class AllSearchThread(threading.Thread):
                     i += 1
                 else:
                     if self.msgcallback != None:
-                        self.msgcallback(_('Finished %s') % self.threads[i].getName())
+                        self.msgcallback(_('Finished %s') % StrConv(self.threads[i].getName()))
                     del self.threads[i]
                 if i >= len(self.threads):
                     i = 0
