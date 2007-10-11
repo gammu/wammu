@@ -998,10 +998,10 @@ class WammuFrame(wx.Frame):
                         if v['Save']:
                             (msg['Location'], msg['Folder']) = self.sm.AddSMS(msg)
                             if v['Send']:
-                                # When sending of saved messages is not supported, send it directly:
+                                # When sending of saved message fails, send it directly:
                                 try:
                                     msg['MessageReference'] = self.sm.SendSavedSMS(0, msg['Location'])
-                                except gammu.ERR_NOTSUPPORTED:
+                                except gammu.GSMError:
                                     msg['MessageReference'] = self.sm.SendSMS(msg)
                             try:
                                 result['SMS'].append(self.sm.GetSMS(0, msg['Location'])[0])
