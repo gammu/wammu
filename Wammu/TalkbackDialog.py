@@ -74,6 +74,8 @@ class TalkbackDialog(wx.Dialog):
 
         self.Bind(wx.EVT_BUTTON, self.OnFeatures, self.features_button)
         # end wxGlade
+        self.ns_string = '<%s>' % _('Not supported')
+        self.connection_combo_box.Append(self.ns_string)
         for x in Wammu.Data.Connections:
             self.connection_combo_box.Append(x)
         for x in Wammu.Data.Models:
@@ -176,7 +178,16 @@ def DoTalkback(parent, config, phoneid = 0):
     fail_matcher = re.compile('Invalid values: (.*)')
 
     while dlg.ShowModal() == wx.ID_OK:
-        if len(dlg.features) == 0:
+        connection = dlg.connection_combo_box.GetValue()
+        if connection == dlg.ns_string:
+            connection = 'NULL'
+        if len(dlg.features) == 0 and connection != 'NULL':
+            wx.MessageDialog(parent,
+                _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Supported features'),
+                _('Entry not created!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            continue
+        elif len(dlg.features) != 0 and connection == 'NULL':
             wx.MessageDialog(parent,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Supported features'),
                 _('Entry not created!'),
@@ -211,7 +222,7 @@ def DoTalkback(parent, config, phoneid = 0):
             'manufacturer': man_id,
             'name': dlg.model_text_ctrl.GetValue(),
             'model': dlg.model_combo_box.GetValue(),
-            'connection': dlg.connection_combo_box.GetValue(),
+            'connection': connection,
             'note': dlg.note_text_ctrl.GetValue(),
             'author_name': dlg.name_text_ctrl.GetValue(),
             'author_email': dlg.email_text_ctrl.GetValue(),
