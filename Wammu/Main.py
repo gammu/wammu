@@ -2064,6 +2064,9 @@ class WammuFrame(wx.Frame):
         '''
 
         if type == 'Call':
+            if data['Status'] != 'IncomingCall':
+                # We care only about incoming calls
+                return
             if data['Number'] == '':
                 msg = _('Your phone has just received incoming call')
             else:
