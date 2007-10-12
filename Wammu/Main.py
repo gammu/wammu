@@ -561,14 +561,11 @@ class WammuFrame(wx.Frame):
         '''
         self.dbus_notify = None
         self.last_dbus_id = 0
-        print '1'
         if HAVE_DBUS:
-            print '2'
             bus = dbus.SessionBus() #mainloop = self.appparent.MainLoop)
             interface = 'org.freedesktop.Notifications'
             path = '/org/freedesktop/Notifications'
-            if bus and Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
-                print '4'
+            if Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
                 obj = bus.get_object(interface, path)
                 self.dbus_notify = dbus.Interface(obj, interface)
                 self.dbus_notify.connect_to_signal('ActionInvoked', self.DBUSActionCallback)
