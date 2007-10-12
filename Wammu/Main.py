@@ -2051,26 +2051,28 @@ class WammuFrame(wx.Frame):
         else:
             print 'Unknown DBUS event: %s' % action
 
+    def DBUSNotify(self, title, message, actions):
+        '''
+        Performs D-Bus notification if available.
+        '''
+        if self.dbus_notify is not None:
+            self.last_dbus_id = self.dbus_notify.Notify(
+                    'Wammu', self.last_dbus_id, 'wammu',
+                    title, message, actions, {}, -1)
+
+
     def IncomingEvent(self, sm, type, data):
         '''
         Called on incoming event from phone.
         '''
 
-        if self.dbus_notify is not None:
-            if type == 'Call':
-                if data['Number'] == '':
-                    msg = _('Your phone has just received incoming call')
-                else:
-                    msg = _('Your phone has just received incoming call from %s') % data['Number']
-                self.last_dbus_id = self.dbus_notify.Notify(
-                        'Wammu',
-                        self.last_dbus_id,
-                        'wammu', # This is somehow encoded icon...
-                        _('Incoming call'),
-                        msg,
-                        ['reject-call', _('Reject'), 'accept-call', _('Accept')],
-                        {},
-                        -1)
+        if type == 'Call':
+            if data['Number'] == '':
+                msg = _('Your phone has just received incoming call')
+            else:
+                msg = _('Your phone has just received incoming call from %s') % data['Number']
+            self.DBUSNotify(_('Incoming call'), msg,
+                    ['reject-call', _('Reject'), 'accept-call', _('Accept')])
 
     def PhoneDisconnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
