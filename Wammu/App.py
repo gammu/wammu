@@ -51,7 +51,7 @@ class WammuApp(wx.App):
         Wammu.Error.HANDLER_PARENT = frame
 
         frame.Show(True)
-        frame.PostInit()
+        frame.PostInit(self)
         self.SetTopWindow(frame)
 
         # Return a success flag

@@ -37,6 +37,14 @@ import locale
 import Wammu
 import re
 
+# We can use dbus for some fancy stuff
+try:
+    import dbus
+    import dbus.glib
+    HAVE_DBUS = True
+except ImportError:
+    HAVE_DBUS = False
+
 try:
     import gammu
 except SystemError, err:
@@ -509,7 +517,7 @@ class WammuFrame(wx.Frame):
                 self.cfg.gammu.SetConfig(index, device, connection, _('Migrated from older Wammu'), model)
                 self.cfg.WriteInt('/Gammu/Section', index)
 
-    def PostInit(self):
+    def PostInit(self, appparent):
         '''
         Do things which need window opened to behave correctly.
 
@@ -521,6 +529,7 @@ class WammuFrame(wx.Frame):
         - Setup internal information.
         '''
         self.ActivateView('info', '  ')
+        self.appparent = appparent
 
         if Wammu.gammu_error != None:
             self.HandleGammuError()
@@ -543,6 +552,26 @@ class WammuFrame(wx.Frame):
         self.SetupStatusRefresh()
 
         self.SetupTrayIcon()
+
+        self.InitDBUS()
+
+    def InitDBUS(self):
+        '''
+        Initializes DBUS handlers if available.
+        '''
+        self.dbus_notify = None
+        self.last_dbus_id = 0
+        print '1'
+        if HAVE_DBUS:
+            print '2'
+            bus = dbus.SessionBus() #mainloop = self.appparent.MainLoop)
+            interface = 'org.freedesktop.Notifications'
+            path = '/org/freedesktop/Notifications'
+            if bus and Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
+                print '4'
+                obj = bus.get_object(interface, path)
+                self.dbus_notify = dbus.Interface(obj, interface)
+                self.dbus_notify.connect_to_signal('ActionInvoked', self.DBUSActionCallback)
 
     def SetupTrayIcon(self):
         if self.cfg.Read('/Wammu/TaskBarIcon') != 'yes':
@@ -1975,6 +2004,8 @@ class WammuFrame(wx.Frame):
         self.sm.SetConfig(0, cfg)
         try:
             self.sm.Init()
+            self.sm.SetIncomingCallback(self.IncomingEvent)
+            self.sm.SetIncomingCall(True)
             self.TogglePhoneMenus(True)
             self.SetupNumberPrefix()
             try:
@@ -2007,6 +2038,38 @@ class WammuFrame(wx.Frame):
                 self.sm.Terminate()
             except gammu.GSMError, val:
                 pass
+
+    def DBUSActionCallback(self, id, action):
+        '''
+        Called when user does something on notification.
+        '''
+        if action == 'accept-call':
+            self.sm.AnswerCall(0, True)
+        elif action == 'reject-call':
+            self.sm.CancelCall(0, True)
+        else:
+            print 'Unknown DBUS event: %s' % action
+
+    def IncomingEvent(self, sm, type, data):
+        '''
+        Called on incoming event from phone.
+        '''
+
+        if self.dbus_notify is not None:
+            if type == 'Call':
+                if data['Number'] == '':
+                    msg = _('Your phone has just received incoming call')
+                else:
+                    msg = _('Your phone has just received incoming call from %s') % data['Number']
+                self.last_dbus_id = self.dbus_notify.Notify(
+                        'Wammu',
+                        self.last_dbus_id,
+                        'wammu', # This is somehow encoded icon...
+                        _('Incoming call'),
+                        msg,
+                        ['reject-call', _('Reject'), 'accept-call', _('Accept')],
+                        {},
+                        -1)
 
     def PhoneDisconnect(self, event = None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))

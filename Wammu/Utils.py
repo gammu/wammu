@@ -461,3 +461,14 @@ def GetWebsiteLang():
     except TypeError:
         return ''
 
+def DBUSServiceAvailable(bus, interface, try_start_service=False):
+    try:
+        import dbus
+    except ImportError:
+        return False
+    if try_start_service:
+        bus.start_service_by_name(interface)
+    obj = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
+    dbus_iface = dbus.Interface(obj, 'org.freedesktop.DBus')
+    avail = dbus_iface.ListNames()
+    return interface in avail
