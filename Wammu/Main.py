@@ -2043,6 +2043,7 @@ class WammuFrame(wx.Frame):
         '''
         Called when user does something on notification.
         '''
+        self.dbus_notify.CloseNotification(self.last_dbus_id)
         if action == 'accept-call':
             self.sm.AnswerCall(0, True)
         elif action == 'reject-call':
