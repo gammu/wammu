@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2007-10-11 10:34+0900\n"
-"PO-Revision-Date: 2007-05-23 16:19+0200\n"
-"Last-Translator: Yves Agostini <agostini@univ-metz.fr>\n"
+"PO-Revision-Date: 2007-10-11 19:30+0200\n"
+"Last-Translator: Steph <orkerone@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.0.2\n"
 "X-Rosetta-Export-Date: 2006-12-18 12:08+0000\n"
-"X-Generator: Pootle 0.11\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -26,16 +26,17 @@ msgstr "À propos de Wammu"
 msgid "Running on Python %s"
 msgstr "Fonctionne sous Python %s"
 
+# Mieux adapté que "Emploie"
 #: Wammu/About.py:96
 #, python-format
 msgid "Using wxPython %s"
-msgstr "Emploie wxPython %s"
+msgstr "Utilise wxPython %s"
 
 #: Wammu/About.py:97
 #, python-format
 msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
 msgstr ""
-"Emploie python-gammu %(python_gammu_version)s et Gammu %(gammu_version)s"
+"Utilise python-gammu %(python_gammu_version)s et Gammu %(gammu_version)s"
 
 #: Wammu/About.py:102
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
@@ -49,11 +50,9 @@ msgid ""
 "published by the Free Software Foundation.\n"
 msgstr ""
 "\n"
-"Ce programme est un programme gratuit ; vous pouvez le redistribuer et/ou le "
-"modifier\n"
+"Ce programme est gratuit ; vous pouvez le redistribuer et/ou le modifier\n"
 "en respectant les termes de la version 2 de la License Générale Publique GNU "
-"telle\n"
-"que publiée par la Free Software Foundation.\n"
+"publiée par la Free Software Foundation.\n"
 
 #: Wammu/About.py:109
 msgid ""
@@ -263,7 +262,7 @@ msgstr "Éditer la liste."
 
 #: Wammu/Composer.py:374
 msgid "Recipient's numbers:"
-msgstr "Numéros de destinataire :"
+msgstr "Numéros du destinataire :"
 
 #: Wammu/Composer.py:384
 msgid "Unicode"
@@ -275,9 +274,10 @@ msgid ""
 "this if you use non latin-1 characters. Your messages will require more "
 "space, so you can write less characters into single message."
 msgstr ""
-"Les messages unicodes peuvent contenir des caractères spéciaux, cochez si "
-"vous voulez utilisez des caractères non latin-1. Vos messages seront plus "
-"volumineux, vous devrez mettre moins de caractères dans les messages simples."
+"Les messages Unicode peuvent contenir des caractères internationaux et "
+"spéciaux, à cocher si vous utilisez des caractères différents de latin-1. "
+"Vos messages demanderont plus d'espace, donc diminuent le nombre de "
+"caractères par message."
 
 #: Wammu/Composer.py:395
 msgid "Delivery report"
@@ -285,7 +285,7 @@ msgstr "Compte-rendu de livraison"
 
 #: Wammu/Composer.py:396 Wammu/Settings.py:251
 msgid "Check to request delivery report for message."
-msgstr "Cochez pour demander le compte-rendu de livraison pour le message."
+msgstr "Cochez pour un accusé de récéption du message."
 
 #: Wammu/Composer.py:400 Wammu/Main.py:124
 msgid "Sent"
@@ -426,9 +426,10 @@ msgstr "Je ris"
 msgid "I am indifferent"
 msgstr "Je suis indifférent"
 
+# nuance ;)
 #: Wammu/Data.py:270
 msgid "I am in love"
-msgstr "J'aime"
+msgstr "Je suis amoureux"
 
 #: Wammu/Data.py:290
 msgid "I am confused"
@@ -927,9 +928,9 @@ msgstr "Bienvenue dans Wammu %s"
 msgid "&Write data"
 msgstr "&Écrire les données"
 
+#| msgid "Writes data (except messages) to file"
 #: Wammu/Main.py:269
 #, fuzzy
-#| msgid "Writes data (except messages) to file"
 msgid "Write data (except messages) to file."
 msgstr "Écrire des données (excepté des messages) au fichier"
 
@@ -937,9 +938,9 @@ msgstr "Écrire des données (excepté des messages) au fichier"
 msgid "W&rite message"
 msgstr "Écrire un &message"
 
+#| msgid "Writes messages to file"
 #: Wammu/Main.py:270
 #, fuzzy
-#| msgid "Writes messages to file"
 msgid "Write messages to file."
 msgstr "Écrire des messages au fichier"
 
@@ -947,10 +948,10 @@ msgstr "Écrire des messages au fichier"
 msgid "&Read data"
 msgstr "Lire les &données"
 
-#: Wammu/Main.py:271
-#, fuzzy
 #| msgid ""
 #| "Reads data (except messages) from file (does not import to the phone)"
+#: Wammu/Main.py:271
+#, fuzzy
 msgid "Read data (except messages) from file (does not import to the phone)."
 msgstr ""
 "Lire les données (hors messages) depuis un fichier (elles ne seront pas "
@@ -960,17 +961,17 @@ msgstr ""
 msgid "R&ead messages"
 msgstr "Lire les &messages"
 
+#| msgid "Reads messages from file (does not import to the phone)"
 #: Wammu/Main.py:272
 #, fuzzy
-#| msgid "Reads messages from file (does not import to the phone)"
 msgid "Read messages from file (does not import to the phone)."
 msgstr ""
 "Lire les messages depuis un fichier (ils ne seront pas importés vers le "
 "téléphone)"
 
+#| msgid "Phone search"
 #: Wammu/Main.py:274
 #, fuzzy
-#| msgid "Phone search"
 msgid "&Phone wizard"
 msgstr "Recherche de téléphone"
 
@@ -982,9 +983,9 @@ msgstr ""
 msgid "Se&ttings"
 msgstr "&Configuration"
 
+#| msgid "Change Wammu settings"
 #: Wammu/Main.py:275
 #, fuzzy
-#| msgid "Change Wammu settings"
 msgid "Change Wammu settings."
 msgstr "Changer la configuration de Wammu"
 
@@ -992,9 +993,9 @@ msgstr "Changer la configuration de Wammu"
 msgid "E&xit"
 msgstr "&Quitter"
 
+#| msgid "Exit Wammu"
 #: Wammu/Main.py:277
 #, fuzzy
-#| msgid "Exit Wammu"
 msgid "Terminate Wammu."
 msgstr "Quitter Wammu"
 
@@ -1006,9 +1007,9 @@ msgstr "&Wammu"
 msgid "&Connect"
 msgstr "Se &connecter"
 
+#| msgid "Connect the device"
 #: Wammu/Main.py:282
 #, fuzzy
-#| msgid "Connect the device"
 msgid "Connect the device."
 msgstr "Brancher le périphérique"
 
@@ -1016,9 +1017,9 @@ msgstr "Brancher le périphérique"
 msgid "&Disconnect"
 msgstr "Se &déconnecter"
 
+#| msgid "Disconnect the device"
 #: Wammu/Main.py:283
 #, fuzzy
-#| msgid "Disconnect the device"
 msgid "Disconnect the device."
 msgstr "Débrancher le périphérique"
 
@@ -1026,9 +1027,9 @@ msgstr "Débrancher le périphérique"
 msgid "&Synchronise time"
 msgstr "&Synchroniser la date et l'heure"
 
+#| msgid "Synchronises time in mobile with PC"
 #: Wammu/Main.py:285
 #, fuzzy
-#| msgid "Synchronises time in mobile with PC"
 msgid "Synchronise time in mobile with PC."
 msgstr "Synchronise la date et l'heure du téléphone mobile avec celles du PC"
 
@@ -1036,9 +1037,9 @@ msgstr "Synchronise la date et l'heure du téléphone mobile avec celles du PC"
 msgid "Send &file"
 msgstr "Transmettre &fichier"
 
+#| msgid "Send file to phone"
 #: Wammu/Main.py:287
 #, fuzzy
-#| msgid "Send file to phone"
 msgid "Send file to phone."
 msgstr "Envoyer fichier au téléphone"
 
@@ -1050,9 +1051,9 @@ msgstr "&Téléphone"
 msgid "&Info"
 msgstr "&Information"
 
+#| msgid "Get phone information"
 #: Wammu/Main.py:292
 #, fuzzy
-#| msgid "Get phone information"
 msgid "Retrieve phone information."
 msgstr "Obtenir l'information du téléphone"
 
@@ -1060,9 +1061,9 @@ msgstr "Obtenir l'information du téléphone"
 msgid "Contacts (&SIM)"
 msgstr "Contacts (carte &SIM)"
 
+#| msgid "Contacts from SIM"
 #: Wammu/Main.py:294
 #, fuzzy
-#| msgid "Contacts from SIM"
 msgid "Retrieve contacts from SIM."
 msgstr "Contacts depuis la carte SIM"
 
@@ -1070,9 +1071,9 @@ msgstr "Contacts depuis la carte SIM"
 msgid "Contacts (&phone)"
 msgstr "Contacts (télé&phone)"
 
+#| msgid "Contacts from phone memory"
 #: Wammu/Main.py:295
 #, fuzzy
-#| msgid "Contacts from phone memory"
 msgid "Retrieve contacts from phone memory"
 msgstr "Contacts depuis la mémoire du téléphone"
 
@@ -1080,9 +1081,9 @@ msgstr "Contacts depuis la mémoire du téléphone"
 msgid "&Contacts (All)"
 msgstr "&Contacts (Tous)"
 
+#| msgid "Contacts from phone and SIM memory"
 #: Wammu/Main.py:296
 #, fuzzy
-#| msgid "Contacts from phone and SIM memory"
 msgid "Retrieve contacts from phone and SIM memory"
 msgstr "Contacts depuis la mémoire du téléphone et de la carte SIM"
 
@@ -1098,9 +1099,9 @@ msgstr ""
 msgid "&Messages"
 msgstr "&Messages"
 
+#| msgid "Reading messages"
 #: Wammu/Main.py:300
 #, fuzzy
-#| msgid "Reading messages"
 msgid "Retrieve messages."
 msgstr "Lecture des messages"
 
@@ -1108,9 +1109,9 @@ msgstr "Lecture des messages"
 msgid "&Todos"
 msgstr "À &faire"
 
+#| msgid "&Retrieve"
 #: Wammu/Main.py:302
 #, fuzzy
-#| msgid "&Retrieve"
 msgid "Retrieve todos."
 msgstr "&Récupérer"
 
@@ -1118,9 +1119,9 @@ msgstr "&Récupérer"
 msgid "Calenda&r"
 msgstr "Calendrie&r"
 
+#| msgid "Creates new calendar event"
 #: Wammu/Main.py:304
 #, fuzzy
-#| msgid "Creates new calendar event"
 msgid "Retrieve calendar events."
 msgstr "Ajouter un nouvel événement au calendrier"
 
@@ -1132,9 +1133,9 @@ msgstr "&Récupérer"
 msgid "&Contact"
 msgstr "&Contact"
 
+#| msgid "Creates new contact"
 #: Wammu/Main.py:309
 #, fuzzy
-#| msgid "Creates new contact"
 msgid "Create new contact."
 msgstr "Crée nouveau contact"
 
@@ -1142,9 +1143,9 @@ msgstr "Crée nouveau contact"
 msgid "&Event"
 msgstr "É&vénement"
 
+#| msgid "Creates new calendar event"
 #: Wammu/Main.py:310
 #, fuzzy
-#| msgid "Creates new calendar event"
 msgid "Create new calendar event."
 msgstr "Ajouter un nouvel événement au calendrier"
 
@@ -1152,9 +1153,9 @@ msgstr "Ajouter un nouvel événement au calendrier"
 msgid "&Todo"
 msgstr "À &faire"
 
+#| msgid "Creates new todo"
 #: Wammu/Main.py:311
 #, fuzzy
-#| msgid "Creates new todo"
 msgid "Create new todo."
 msgstr "Crée une nouvelle tâche à faire"
 
@@ -1162,9 +1163,9 @@ msgstr "Crée une nouvelle tâche à faire"
 msgid "&Message"
 msgstr "&Message"
 
+#| msgid "Creates new message"
 #: Wammu/Main.py:312
 #, fuzzy
-#| msgid "Creates new message"
 msgid "Create new message."
 msgstr "Nouveau message créé"
 
@@ -1176,9 +1177,9 @@ msgstr "&Créer"
 msgid "&Save"
 msgstr "&Enregistrer"
 
+#| msgid "Saves currently retrieved data (except messages) to backup"
 #: Wammu/Main.py:317
 #, fuzzy
-#| msgid "Saves currently retrieved data (except messages) to backup"
 msgid "Save currently retrieved data (except messages) to backup."
 msgstr "Sauvegarder les données actuelles (hors messages)"
 
@@ -1186,9 +1187,9 @@ msgstr "Sauvegarder les données actuelles (hors messages)"
 msgid "S&ave messages"
 msgstr "Enregistrer les &messages"
 
+#| msgid "Saves currently retrieved messages to backup"
 #: Wammu/Main.py:318
 #, fuzzy
-#| msgid "Saves currently retrieved messages to backup"
 msgid "Save currently retrieved messages to backup."
 msgstr "Sauvegarder les messages courants"
 
@@ -1196,9 +1197,9 @@ msgstr "Sauvegarder les messages courants"
 msgid "&Import"
 msgstr "&Importer"
 
+#| msgid "Imports data from backup to phone"
 #: Wammu/Main.py:319
 #, fuzzy
-#| msgid "Imports data from backup to phone"
 msgid "Import data from backup to phone."
 msgstr "Importer les données sauvegardées vers le téléphone"
 
@@ -1206,9 +1207,9 @@ msgstr "Importer les données sauvegardées vers le téléphone"
 msgid "I&mport messages"
 msgstr "&Importer les messages"
 
+#| msgid "Imports messages from backup to phone"
 #: Wammu/Main.py:320
 #, fuzzy
-#| msgid "Imports messages from backup to phone"
 msgid "Import messages from backup to phone."
 msgstr "Import des messages sauvegardés vers le téléphone"
 
@@ -1216,9 +1217,9 @@ msgstr "Import des messages sauvegardés vers le téléphone"
 msgid "Export messages to &emails"
 msgstr "Exporter les messages vers des &emails"
 
+#| msgid "Export messages to &emails"
 #: Wammu/Main.py:322
 #, fuzzy
-#| msgid "Export messages to &emails"
 msgid "Export messages to emails in storage you choose."
 msgstr "Exporter les messages vers des &emails"
 
@@ -1230,9 +1231,9 @@ msgstr "&Sauvegardes"
 msgid "&Website"
 msgstr "&Site web"
 
+#| msgid "Wammu website"
 #: Wammu/Main.py:327
 #, fuzzy
-#| msgid "Wammu website"
 msgid "Visit Wammu website."
 msgstr "Site web de Wammu"
 
@@ -1240,9 +1241,9 @@ msgstr "Site web de Wammu"
 msgid "&Support"
 msgstr "&Assistance"
 
+#| msgid "Wammu support website"
 #: Wammu/Main.py:328
 #, fuzzy
-#| msgid "Wammu support website"
 msgid "Visit Wammu support website."
 msgstr "Site web Wammu"
 
@@ -1267,9 +1268,9 @@ msgstr ""
 msgid "&Gammu Phone Database"
 msgstr "Base de connaissances &Gammu"
 
+#| msgid "Database of user experiences with phones"
 #: Wammu/Main.py:332
 #, fuzzy
-#| msgid "Database of user experiences with phones"
 msgid "Visit database of user experiences with phones."
 msgstr "Base de données des téléphones"
 
@@ -1277,9 +1278,9 @@ msgstr "Base de données des téléphones"
 msgid "&Talkback"
 msgstr "&Retour d'expériences"
 
+#| msgid "Report your experiences in Gammu Phone Database"
 #: Wammu/Main.py:333
 #, fuzzy
-#| msgid "Report your experiences in Gammu Phone Database"
 msgid "Report your experiences into Gammu Phone Database."
 msgstr "Ajoutez vos expériences dans la base de données de Gammu"
 
@@ -1287,9 +1288,9 @@ msgstr "Ajoutez vos expériences dans la base de données de Gammu"
 msgid "&Donate"
 msgstr "&Dons"
 
+#| msgid "Donate to Wammu author"
 #: Wammu/Main.py:335
 #, fuzzy
-#| msgid "Donate to Wammu author"
 msgid "Donate to Wammu project."
 msgstr "Dons pour l'auteur de Wammu"
 
@@ -1297,9 +1298,9 @@ msgstr "Dons pour l'auteur de Wammu"
 msgid "&About"
 msgstr "&À propos"
 
+#| msgid "Information about program"
 #: Wammu/Main.py:337
 #, fuzzy
-#| msgid "Information about program"
 msgid "Information about program."
 msgstr "Informations sur le programme"
 
@@ -1433,11 +1434,11 @@ msgstr "chargé"
 msgid "%d %%"
 msgstr ""
 
-#: Wammu/Main.py:629
-#, fuzzy, python-format
 #| msgid ""
 #| "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %"
 #| "%, Time: %(time)s"
+#: Wammu/Main.py:629
+#, fuzzy, python-format
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
@@ -1798,7 +1799,7 @@ msgstr "Envoyer fichier au téléphone"
 
 #: Wammu/Main.py:1931
 msgid "Sending file to phone..."
-msgstr "Envoie de fichier au téléphone ..."
+msgstr "Envoie du fichier au téléphone ..."
 
 #: Wammu/Main.py:1939
 msgid "Transfer has been rejected by phone."
@@ -1808,13 +1809,14 @@ msgstr ""
 msgid "Transfer rejected!"
 msgstr ""
 
+# nettement plus professionel que "un moment svp [...]"
 #: Wammu/Main.py:1956
 msgid "One moment please, connecting to phone..."
-msgstr "Un moment svp, connexion au téléphone..."
+msgstr "Connection au téléphone, veuillez patientez..."
 
 #: Wammu/Main.py:2012
 msgid "One moment please, disconnecting from phone..."
-msgstr "Un moment svp, déconnexion du téléphone..."
+msgstr "Déconnexion du téléphone, veuillez patientez..."
 
 #: Wammu/MessageDisplay.py:107
 #, python-format
@@ -2403,9 +2405,9 @@ msgstr ""
 msgid "Automatic"
 msgstr ""
 
+#| msgid "Automatically search for a phone"
 #: Wammu/Settings.py:291
 #, fuzzy
-#| msgid "Automatically search for a phone"
 msgid "Automatic starting with first name"
 msgstr "Recherche automatique de téléphone"
 
@@ -3005,9 +3007,7 @@ msgstr "Échec de l'authentification !"
 msgid ""
 "Connection suceeded, do you want to remember password? This is a bit "
 "insecure."
-msgstr ""
-"Connexion réussie, voulez-vous enregistrez le mot de passe ? Ce n'est pas "
-"très sûr et pas très recommandé."
+msgstr "Connexion réussie, voulez vous sauvez le mot de passe ? Peu sécurisé."
 
 #: Wammu/SMSExport.py:213
 msgid "Save password?"
@@ -3159,9 +3159,9 @@ msgstr "Affichage normal"
 msgid "Don't show email at all"
 msgstr "Ne pas afficher de mail"
 
+#| msgid "Not supported id: %s"
 #: Wammu/TalkbackDialog.py:77
 #, fuzzy
-#| msgid "Not supported id: %s"
 msgid "Not supported"
 msgstr "Id non pris en charge : %s"
 
@@ -3398,7 +3398,7 @@ msgid ""
 "implementation please contact authors."
 msgstr ""
 "Cette fonctionnalité n'est pas disponible pour votre téléphone. Si vous "
-"voulez nous aider à l'implémenter, contactez les auteurs."
+"voulez aider à l'implémenter, contactez les auteurs."
 
 #: Wammu/Utils.py:427
 msgid "Your phone asks for PIN."
@@ -3406,13 +3406,13 @@ msgstr "Votre téléphone demande un code PIN."
 
 #: Wammu/Utils.py:429
 msgid "Memory is full, try deleting some entries."
-msgstr "Capacités mémoire dépassée, essayez de supprimer des entrées."
+msgstr "Mémoire pleine, essayez de supprimer des entrées."
 
 #: Wammu/Utils.py:431
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr ""
-"Communication annulé par le téléphone, avez vous appuyé sur annuler sur le "
-"téléphone ?"
+"Communication annulée par le téléphone, avez vous annulé depuis le téléphone "
+"?"
 
 #: Wammu/Utils.py:433
 msgid ""
@@ -3421,8 +3421,8 @@ msgid ""
 "\n"
 "If you miss some entry, please contact Gammu/Wammu authors."
 msgstr ""
-"Entrée vide reçue. Cela ne devrait pas arriver en temps normal et est tres "
-"probablement du à un bug dans le firmware du téléphone ou dans Gammu/Wammu.\n"
+"Entrée vide reçue.Cela ne doit normalement pas arriver, il peut y avoir un "
+"bug dans le firmware du téléphone ou dans Gammu\\Wammu.\n"
 "\n"
 "Si certaines entrées ont été perdues, merci de contacter les auteurs de "
 "Gammu/wammu."
@@ -3432,8 +3432,8 @@ msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
 msgstr ""
-"Fermez le menu actif sur votre téléphone, les données ne sont pas "
-"accessibles tant que ce menu est ouvert."
+"Merci de fermer les menus ouverts dans votre téléphone, ce qui empêche la "
+"récupération des données."
 
 #: Wammu/Utils.py:437
 msgid ""
@@ -3441,8 +3441,8 @@ msgid ""
 "(for cable) or out of range (for bluetooth or IrDA)."
 msgstr ""
 "Délai d'attente dépassé pendant la communication avec le téléphone. Le "
-"téléphone est peut-être déconnecté ou hors de porté (pour les liaison s "
-"bluetooth ou infrarouge)."
+"téléphone est peut-être déconnecté ou hors de porté (liaisons Bluetooth et "
+"infrarouges)."
 
 #: Wammu/Utils.py:439
 msgid ""
@@ -3491,16 +3491,16 @@ msgstr "Options :"
 
 #: wammu-configure.py:59 wammu.py:55
 msgid "show this help"
-msgstr "afficher cette aide"
+msgstr "Afficher cette aide"
 
 #: wammu-configure.py:62 wammu.py:58
 msgid "show program version"
-msgstr "afficher la version du programme"
+msgstr "Afficher la version du programme"
 
 #: wammu-configure.py:65 wammu.py:61
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
-"utilisation forcée de la langue du dossier courant plutôt que de la langue "
+"Utilisation forcée de la langue du dossier courant plutôt que de la langue "
 "système"
 
 #: wammu-configure.py:78 wammu.py:74
