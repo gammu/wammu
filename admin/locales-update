@@ -1,4 +1,5 @@
 #!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
 LOCS=`ls locale/*/wammu.po | sed 's@.*/\(.*\)/[^/]*@\1@'`
 xgettext \
     -d wammu \
@@ -19,5 +20,11 @@ sed -i '
     ' locale/wammu.pot
 
 for loc in $LOCS ; do
+    sed -i '
+        s/SOME DESCRIPTIVE TITLE/Wammu translation/;
+        s/PACKAGE/Wammu/;
+        s/VERSION/'$ver'/;
+        s/Project-Id-Version: Wammu [0-9.]*/Project-Id-Version: Wammu '$ver'/;
+        ' locale/$loc/wammu.po
     msgmerge --previous -U locale/$loc/wammu.po locale/wammu.pot
 done
