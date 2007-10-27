@@ -415,7 +415,7 @@ class WammuFrame(wx.Frame):
             self.logfilefd = os.fdopen(fd, 'w+')
             # use temporary file for logs
             gammu.SetDebugFile(self.logfilefd)
-            gammu.SetDebugLevel('textall')
+            gammu.SetDebugLevel('textalldate')
 
         # initialize variables
         self.showdebug = ''
@@ -1991,7 +1991,7 @@ class WammuFrame(wx.Frame):
             'SyncTime': self.cfg.Read('/Gammu/SyncTime'),
             'Connection': config['Connection'],
             'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
-            'DebugLevel': 'textall', # Set on other place
+            'DebugLevel': 'textalldate', # Set on other place
             'Device': config['Device'],
             'Localize': None,  # Set automatically by python-gammu
             'Model': config['Model'],
