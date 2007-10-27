@@ -410,7 +410,7 @@ class WammuFrame(wx.Frame):
             Wammu.ErrorLog.DEBUG_LOG_FILENAME = self.logfilename
 
             if sys.platform != 'win32':
-                print 'Debug log created in %s, in case of crash please include it in bugreport!' % self.logfilename
+                print _('Debug log created in temporary file <%s>. In case of crash please include it in bugreport!') % self.logfilename
 
             self.logfilefd = os.fdopen(fd, 'w+')
             # use temporary file for logs
