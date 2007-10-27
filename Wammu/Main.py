@@ -1686,30 +1686,45 @@ class WammuFrame(wx.Frame):
 
         # check for confirmation
         if self.cfg.Read('/Wammu/ConfirmDelete') == 'yes':
-            txt = _('Are you sure you want to delete %s?')
-            if len(lst) == 1:
+            count = len(lst)
+            if count == 1:
                 v = lst[0]
                 if self.type[0] == 'contact':
-                    txt = txt % (_('contact "%s"') % v['Name'])
+                    txt = _('Are you sure you want to delete contact "%s"?') % v['Name']
                 elif self.type[0] == 'call':
-                    txt = txt % (_('call "%s"') % v['Name'])
+                    txt = _('Are you sure you want to delete call from "%s"?') % v['Name']
                 elif self.type[0] == 'message':
-                    txt = txt % (_('message from "%s"') % v['Number'])
+                    txt = _('Are you sure you want to delete message from "%s"?') % v['Number']
                 elif self.type[0] == 'todo':
-                    txt = txt % (_('todo "%s"') % v['Text'])
+                    txt = _('Are you sure you want to delete todo entry "%s"?') % v['Text']
                 elif self.type[0] == 'calendar':
-                    txt = txt % (_('calendar entry "%s"') % v['Text'])
+                    txt = _('Are you sure you want to delete calendar entry "%s"?') % v['Text']
             else:
                 if self.type[0] == 'contact':
-                    txt = txt % (_('%d contacts') % len(lst))
+                    txt = Wammu.Locales.ngettext(
+                            'Are you sure you want to delete %d contact?',
+                            'Are you sure you want to delete %d contacts?',
+                            count) % count
                 elif self.type[0] == 'call':
-                    txt = txt % (_('%d calls') % len(lst))
+                    txt = Wammu.Locales.ngettext(
+                            'Are you sure you want to delete %d call?',
+                            'Are you sure you want to delete %d calls?',
+                            count) % count
                 elif self.type[0] == 'message':
-                    txt = txt % (_('%d messages') % len(lst))
+                    txt = Wammu.Locales.ngettext(
+                            'Are you sure you want to delete %d message?',
+                            'Are you sure you want to delete %d messages?',
+                            count) % count
                 elif self.type[0] == 'todo':
-                    txt = txt % (_('%d todo') % len(lst))
+                    txt = Wammu.Locales.ngettext(
+                            'Are you sure you want to delete %d todo entry?',
+                            'Are you sure you want to delete %d todo entries?',
+                            count) % count
                 elif self.type[0] == 'calendar':
-                    txt = txt % (_('%d calendar entries') % len(lst))
+                    txt = Wammu.Locales.ngettext(
+                            'Are you sure you want to delete %d calendar entry?',
+                            'Are you sure you want to delete %d calendar entries?',
+                            count) % count
             dlg = wx.MessageDialog(self,
                 txt,
                 _('Confirm deleting'),
