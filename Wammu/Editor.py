@@ -227,13 +227,13 @@ class GenericEditor(wx.Dialog):
     """
     Generic editor customised further by it's descendants
     """
-    def __init__(self, parent, cfg, values, entry, internalname, name, location, type, typedefault, typename, typevalues, itemtypes ):
+    def __init__(self, parent, cfg, values, entry, internalname, name, location, type, typename, typevalues, itemtypes ):
         if entry == {}:
             title = _('Creating new %s') % name
-            wasempty = True
+            self.wasempty = True
         else:
             title = _('Editing %(name)s %(location)s') % {'name':name, 'location':location}
-            wasempty = False
+            self.wasempty = False
 
         wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.rows = 0
@@ -246,9 +246,9 @@ class GenericEditor(wx.Dialog):
         self.sizer = wx.GridBagSizer(5, 5)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableCol(5)
-        if wasempty:
+        if self.wasempty:
             entry['Location'] = 0
-            entry[type] = typedefault
+            entry[type] = self.cfg.Read('/Defaults/Type-%s-%s' % (internalname, type))
 
         self.sizer.Add(wx.StaticText(self, -1, _('Location (0 = auto):')), (0, 0), (1, 4))
         # there used to be sys.maxint on following line, but it's too large on amd64 (or there is bug in wxPython)
@@ -267,7 +267,7 @@ class GenericEditor(wx.Dialog):
         self.types = {}
         self.fulltypes = {}
         x = 0
-        if wasempty:
+        if self.wasempty:
             for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries')):
                 self.AddEdit(x)
         else:
@@ -477,6 +477,12 @@ class GenericEditor(wx.Dialog):
         self.entry['Entries'] = v
         self.entry[self.type] = self.typeedit.GetValue()
         self.entry['Location'] = self.locationedit.GetValue()
+
+        # Remember default type
+        if self.wasempty:
+            self.cfg.Write('/Defaults/Type-%s-%s' % (self.internalname, self.type),
+                    self.entry[self.type])
+
         self.EndModal(wx.ID_OK)
 
 class ContactEditor(GenericEditor):
@@ -485,7 +491,7 @@ class ContactEditor(GenericEditor):
             location = ''
         else:
             location = '%s:%d' % (entry['MemoryType'], entry['Location'])
-        GenericEditor.__init__(self, parent, cfg, values, entry, 'contact',  _('contact'), location, 'MemoryType', 'SM', _('Memory type'), Wammu.Data.ContactMemoryTypes, Wammu.Data.MemoryValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'contact',  _('contact'), location, 'MemoryType', _('Memory type'), Wammu.Data.ContactMemoryTypes, Wammu.Data.MemoryValueTypes)
 
 class CalendarEditor(GenericEditor):
     def __init__(self, parent, cfg, values, entry):
@@ -493,7 +499,7 @@ class CalendarEditor(GenericEditor):
             location = ''
         else:
             location = '%d' % entry['Location']
-        GenericEditor.__init__(self, parent, cfg, values, entry, 'calendar',  _('calendar event'), location, 'Type', 'MEETING', _('Event type'), Wammu.Data.CalendarTypes, Wammu.Data.CalendarValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'calendar',  _('calendar event'), location, 'Type', _('Event type'), Wammu.Data.CalendarTypes, Wammu.Data.CalendarValueTypes)
 
 class TodoEditor(GenericEditor):
     def __init__(self, parent, cfg, values, entry):
@@ -501,7 +507,7 @@ class TodoEditor(GenericEditor):
             location = ''
         else:
             location = '%d' % entry['Location']
-        GenericEditor.__init__(self, parent, cfg, values, entry, 'todo',  _('todo item'), location, 'Priority', 'Medium', _('Priority'), Wammu.Data.TodoPriorities, Wammu.Data.TodoValueTypes)
+        GenericEditor.__init__(self, parent, cfg, values, entry, 'todo',  _('todo item'), location, 'Priority', _('Priority'), Wammu.Data.TodoPriorities, Wammu.Data.TodoValueTypes)
 
     def Okay(self, evt):
         self.entry['Type'] = 'MEMO'
