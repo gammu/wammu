@@ -277,7 +277,6 @@ class GenericEditor(wx.Dialog):
         else:
             for i in range(len(entry['Entries'])):
                 self.AddEdit(i, entry['Entries'][i])
-                print repr(entry['Entries'][i])
 
         self.more = wx.Button(self, wx.ID_ADD)
         self.more.SetToolTipString(_('Add one more field.'))
