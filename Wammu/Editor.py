@@ -467,11 +467,8 @@ class GenericEditor(wx.Dialog):
         self.AddButtons()
 
     def Okay(self, evt):
-        # FIXME: why it needed to call validators directly?
-        for row in self.edits.keys():
-            for input in self.edits[row]:
-                if hasattr(input, 'Validate') and not input.Validate():
-                    return
+        if not self.Validate():
+            return
 
         v = []
         for row in range(self.rows):
