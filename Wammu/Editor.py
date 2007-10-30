@@ -269,10 +269,15 @@ class GenericEditor(wx.Dialog):
         x = 0
         if self.wasempty:
             for x in range(self.cfg.ReadInt('/Wammu/DefaultEntries')):
-                self.AddEdit(x)
+                entrytype = self.cfg.Read('/Defaults/Entry-%s-%d' % (self.internalname, x))
+                if entrytype != '':
+                    self.AddEdit(x, {'Type': entrytype, 'Value': '', 'VoiceTag': 0, 'AddError': 0})
+                else:
+                    self.AddEdit(x)
         else:
             for i in range(len(entry['Entries'])):
                 self.AddEdit(i, entry['Entries'][i])
+                print repr(entry['Entries'][i])
 
         self.more = wx.Button(self, wx.ID_ADD)
         self.more.SetToolTipString(_('Add one more field.'))
