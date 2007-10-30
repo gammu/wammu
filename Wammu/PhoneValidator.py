@@ -50,7 +50,8 @@ class PhoneValidator(wx.PyValidator):
         self.multi = multi
         self.pause = pause
         self.empty = empty
-        wx.EVT_CHAR(self, self.OnChar)
+        self.Bind(wx.EVT_CHAR, self.OnChar)
+        self.Bind(wx.EVT_TEXT, self.OnText)
 
     def Clone(self):
         return PhoneValidator(self.multi, self.pause, self.empty)
@@ -93,16 +94,25 @@ class PhoneValidator(wx.PyValidator):
 
         return result
 
+    def OnText(self, event):
+        '''
+        Tries to be friendly to user and silently removes spaces
+        which occur on pasting from some other programs.
+        '''
+        textcontrol = self.GetWindow()
+        val = textcontrol.GetValue()
+        textcontrol.SetValue(val.replace(' ', ''))
+
     def OnChar(self, event):
         key = event.GetKeyCode()
 
         # control chars
-        if (key < wx.WXK_SPACE or 
-                key == wx.WXK_DELETE or 
-                key > 255 or 
-                event.AltDown() or 
-                event.CmdDown() or 
-                event.ControlDown() or 
+        if (key < wx.WXK_SPACE or
+                key == wx.WXK_DELETE or
+                key > 255 or
+                event.AltDown() or
+                event.CmdDown() or
+                event.ControlDown() or
                 event.MetaDown()):
             event.Skip()
             return
