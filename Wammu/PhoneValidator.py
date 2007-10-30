@@ -63,6 +63,9 @@ class PhoneValidator(wx.PyValidator):
         return True
 
     def CheckText(self, text, immediate = False):
+        '''
+        Verifies whether enterd text is correct.
+        '''
         if self.multi:
             values = SplitNumbers(text)
         else:
@@ -70,14 +73,13 @@ class PhoneValidator(wx.PyValidator):
         for val in values:
             if val == '':
                 result = self.empty
-            elif not immediate or val != '+':
-                if self.pause:
-                    if MATCHER_PAUSE.match(val) == None:
-                        return False
-                else:
-                    if MATCHER_NORMAL.match(val) == None:
-                        return False
-        return True
+            elif immediate and val == '+':
+                return True
+            elif self.pause and MATCHER_PAUSE.match(val) != None:
+                return True
+            elif not self.pause and MATCHER_NORMAL.match(val) == None:
+                return True
+        return False
 
     def Validate(self, win = None):
         textcontrol = self.GetWindow()
@@ -101,7 +103,18 @@ class PhoneValidator(wx.PyValidator):
         '''
         textcontrol = self.GetWindow()
         val = textcontrol.GetValue()
-        textcontrol.SetValue(val.replace(' ', ''))
+        out = ''
+        if self.pause:
+            matchstring = '0123456789*#pP'
+        else:
+            matchstring = '0123456789*#'
+        for i in range(len(val)):
+            ch = val[i]
+            if ch in matchstring:
+                out += ch
+            elif i == 0 and ch == '+':
+                out += ch
+        textcontrol.SetValue(out)
 
     def OnChar(self, event):
         key = event.GetKeyCode()
