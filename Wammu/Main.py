@@ -315,7 +315,7 @@ class WammuFrame(wx.Frame):
 
         menu4 = wx.Menu()
         menu4.Append(401, _('&Contact'), _('Create new contact.'))
-        menu4.Append(402, _('&Event'), _('Create new calendar event.'))
+        menu4.Append(402, _('Calendar &event'), _('Create new calendar event.'))
         menu4.Append(403, _('&Todo'), _('Create new todo.'))
         menu4.Append(404, _('&Message'), _('Create new message.'))
         # Add menu to the menu bar
