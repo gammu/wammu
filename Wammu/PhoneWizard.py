@@ -64,8 +64,8 @@ class TestPage(Wammu.Wizard.SimplePage):
     def __init__(self, parent):
         Wammu.Wizard.SimplePage.__init__(self, parent, _('Connection test'))
         self.detail = wx.StaticText(
-                self, 
-                -1, 
+                self,
+                -1,
                 _('Wammu is now testing phone connection, please wait...'))
         self.detail.Wrap(400)
         self.sizer.Add(self.detail, 0, wx.ALL, 5)
@@ -98,8 +98,8 @@ class TestPage(Wammu.Wizard.SimplePage):
             self.name = '%s %s' % (manuf, model)
             self.parent.settings.SetName(self.name)
             self.detail.SetLabel(
-                    _('Phone has been found.') + 
-                    (_('Manufacturer: %(manufacturer)s\nModel: %(model)s') % 
+                    _('Phone has been found.') +
+                    (_('Manufacturer: %(manufacturer)s\nModel: %(model)s') %
                     { 'manufacturer' : manuf, 'model' : model}))
             self.detail.Wrap(400)
 
@@ -342,8 +342,10 @@ class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
         else:
             Wammu.Wizard.ChoicePage.__init__(self, parent,
                     _('Driver to use'),
-                    _('Please select which driver you want to use'),
-                    connections, helps)
+                    _('Driver to use'),
+                    connections, helps,
+                    extratext = _('Please select which driver you want to use. Follow the help text shown bellow to select the best one.')
+                    )
 
     def GetNext(self):
         """
@@ -365,8 +367,11 @@ class PhoneDriverPage(Wammu.Wizard.ChoicePage):
 
         Wammu.Wizard.ChoicePage.__init__(self, parent,
                 _('Connection type'),
-                _('Please select connection type'),
-                connections, helps)
+                _('Connection type'),
+                connections, helps,
+                extratext = _('Please select connection type, default choice should be best in most cases.')
+                )
+
 
     def GetNext(self):
         """
@@ -386,8 +391,10 @@ class PhoneManufacturerPage(Wammu.Wizard.ChoicePage):
 
         Wammu.Wizard.ChoicePage.__init__(self, parent,
                 _('Phone type'),
-                _('Please select phone type'),
-                connections, helps)
+                _('Phone type'),
+                connections, helps,
+                extratext = _('Please select phone manufacturer or type. Try to be as specific as possible.'),
+                )
 
     def GetNext(self):
         """
@@ -430,9 +437,11 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
         helps.append(_('This is not often used connection, but was very popular for older phones.'))
 
         Wammu.Wizard.ChoicePage.__init__(self, parent,
-                _('Phone connection'),
-                _('How is your phone connected?'),
-                connections, helps)
+                _('Connection type'),
+                _('Connection type'),
+                connections, helps,
+                extratext = _('How is your phone connected?'),
+                )
 
     def GetNext(self):
         self.parent.settings.SetConnection(self.names[self.GetType()])
@@ -444,29 +453,31 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
     """
     def __init__(self, parent, pg0, pg1, pg2):
         Wammu.Wizard.ChoicePage.__init__(self, parent,
-                _('Configuration type'),
-                _('How do you want to configure your phone connection?'),
+                _('Configuration style'),
+                _('Configuration style'),
                 [
-                    _('Automatically search for a phone'),
                     _('Guided configuration'),
+                    _('Automatically search for a phone'),
                     _('Manual configuration'),
                 ],
 
                 [
-                    _('Wizard will attempt to search phone on usual ports.'),
                     _('You will be guided through configuration by phone connection type and vendor.'),
+                    _('Wizard will attempt to search phone on usual ports.'),
                     _('You know what you are doing and know exact parameters you need for connecting to phone.'),
                 ],
-                [ pg0, pg1, pg2])
+                [ pg0, pg1, pg2],
+                extratext = _('How do you want to configure your phone connection?'),
+                )
         self.info = wx.StaticText(
-            self, 
-            -1, 
+            self,
+            -1,
             _('If you have no idea how to configure your phone connection, you can look at Gammu Phone Database for other users experiences:'))
         self.info.Wrap(400)
         self.sizer.Add(self.info, 0, wx.ALL, 5)
         self.link = wx.lib.hyperlink.HyperLinkCtrl(
-                self, 
-                -1, 
+                self,
+                -1,
                 'http://%scihar.com/gammu/phonedb' % Wammu.Utils.GetWebsiteLang())
         self.sizer.Add(self.link, 0, wx.ALL, 5)
 
@@ -480,11 +491,11 @@ class WelcomePage(Wammu.Wizard.SimplePage):
             [
                 '',
                 _('Please make sure you have phone ready, powered on and one of connection methods is set up:'),
-                '  - %s' % 
+                '  - %s' %
                     _('Cable is connected.'),
-                '  - %s' % 
+                '  - %s' %
                     _('You have enabled IrDA and phone is in visible range.'),
-                '  - %s' % 
+                '  - %s' %
                     _('You have paired Bluetooth with computer.'),
                 '',
                 _('As soon as your phone is ready, you can continue.'),
@@ -494,9 +505,9 @@ class ConfigureWizard:
     def __init__(self, parent, position = 0):
         bmp = wx.Bitmap(Wammu.Paths.MiscPath('phonewizard'))
         self.wiz = wx.wizard.Wizard(
-                parent, 
-                -1, 
-                _('Wammu Phone Configuration Wizard'), 
+                parent,
+                -1,
+                _('Wammu Phone Configuration Wizard'),
                 bmp)
         self.wiz.settings = Wammu.SettingsStorage.Settings()
         self.wiz.settings.SetPosition(position)
@@ -517,9 +528,9 @@ class ConfigureWizard:
         self.pg_manual1 = ManualPage(self.wiz)
 
         self.pg_type = ConfigTypePage(
-                self.wiz, 
-                self.pg_search1, 
-                self.pg_guide1, 
+                self.wiz,
+                self.pg_guide1,
+                self.pg_search1,
                 self.pg_manual1)
 
         self.pg_final = FinalPage(self.wiz)

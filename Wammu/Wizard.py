@@ -90,8 +90,8 @@ class ChoicePage(SimplePage):
     Page offering choice of several values and allowing to automatically
     select next page according to choice.
     """
-    def __init__(self, parent, title, text, choices, helps, nexts = None, nonetext =''):
-        Wammu.Wizard.SimplePage.__init__(self, parent, title)
+    def __init__(self, parent, title, text, choices, helps, nexts = None, nonetext ='', extratext = None):
+        Wammu.Wizard.SimplePage.__init__(self, parent, title, extratext)
         self.type_rb = wx.RadioBox(self, -1, text,
                 size = (400, -1),
                 majorDimension = 1,

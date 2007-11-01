@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-11-01 13:01+0900\n"
+"POT-Creation-Date: 2007-11-01 14:38+0900\n"
 "PO-Revision-Date: 2007-10-11 19:30+0200\n"
 "Last-Translator: Steph <orkerone@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -2080,7 +2080,7 @@ msgstr "Le téléphone suivant sera utilisé:"
 msgid "No phone selected!"
 msgstr "Aucun téléphone sélectionné !"
 
-#: Wammu/PhoneWizard.py:273 Wammu/PhoneWizard.py:452
+#: Wammu/PhoneWizard.py:273 Wammu/PhoneWizard.py:461
 msgid "Manual configuration"
 msgstr "Configuration manuelle"
 
@@ -2088,7 +2088,8 @@ msgstr "Configuration manuelle"
 msgid "Port where phone is connected"
 msgstr "Port de connexion"
 
-#: Wammu/PhoneWizard.py:276 Wammu/PhoneWizard.py:367
+#: Wammu/PhoneWizard.py:276 Wammu/PhoneWizard.py:369 Wammu/PhoneWizard.py:370
+#: Wammu/PhoneWizard.py:440 Wammu/PhoneWizard.py:441
 msgid "Connection type"
 msgstr "Type de connexion"
 
@@ -2116,7 +2117,7 @@ msgstr "Port"
 msgid "Please enter port where phone is connected"
 msgstr "Entrez le port de connexion"
 
-#: Wammu/PhoneWizard.py:340 Wammu/PhoneWizard.py:344
+#: Wammu/PhoneWizard.py:340 Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:345
 msgid "Driver to use"
 msgstr "Driver à utiliser"
 
@@ -2128,27 +2129,31 @@ msgstr ""
 "Désolé aucun driver ne correspond à votre configuration, recommencez en "
 "essayant d'autres paramètres ou une configuration manuelle."
 
-#: Wammu/PhoneWizard.py:345
-msgid "Please select which driver you want to use"
-msgstr "Sélectionnez le driver à utiliser"
+#: Wammu/PhoneWizard.py:347
+msgid ""
+"Please select which driver you want to use. Follow the help text shown "
+"bellow to select the best one."
+msgstr ""
 
-#: Wammu/PhoneWizard.py:368
-msgid "Please select connection type"
-msgstr "Sélectionnez le type de connexion"
+#: Wammu/PhoneWizard.py:372
+msgid ""
+"Please select connection type, default choice should be best in most cases."
+msgstr ""
 
-#: Wammu/PhoneWizard.py:388
+#: Wammu/PhoneWizard.py:393 Wammu/PhoneWizard.py:394
 msgid "Phone type"
 msgstr "Type de téléphone"
 
-#: Wammu/PhoneWizard.py:389
-msgid "Please select phone type"
-msgstr "Sélectionnez le type de téléphone"
+#: Wammu/PhoneWizard.py:396
+msgid ""
+"Please select phone manufacturer or type. Try to be as specific as possible."
+msgstr ""
 
-#: Wammu/PhoneWizard.py:413
+#: Wammu/PhoneWizard.py:420
 msgid "Search all connections"
 msgstr "Recherche de connexions"
 
-#: Wammu/PhoneWizard.py:414
+#: Wammu/PhoneWizard.py:421
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
 "time to search all possible connection types."
@@ -2156,11 +2161,11 @@ msgstr ""
 "L'assistant va chercher tous les types de connexions possibles. Cela peut "
 "prendre du temps."
 
-#: Wammu/PhoneWizard.py:417
+#: Wammu/PhoneWizard.py:424
 msgid "USB cable"
 msgstr "Câble USB"
 
-#: Wammu/PhoneWizard.py:418
+#: Wammu/PhoneWizard.py:425
 msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
@@ -2168,11 +2173,11 @@ msgstr ""
 "Actuellement la plupart des téléphones fournissent un câble USB, "
 "sélectionnez si vous utilisez ce type de connexion."
 
-#: Wammu/PhoneWizard.py:421
+#: Wammu/PhoneWizard.py:428
 msgid "Bluetooth"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:422
+#: Wammu/PhoneWizard.py:429
 msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
@@ -2181,11 +2186,11 @@ msgstr ""
 "téléphone et l'ordinateur doivent être réciproquement identifiés avant de "
 "continuer."
 
-#: Wammu/PhoneWizard.py:425
+#: Wammu/PhoneWizard.py:432
 msgid "IrDA"
 msgstr "InfraRouge"
 
-#: Wammu/PhoneWizard.py:426
+#: Wammu/PhoneWizard.py:433
 msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
@@ -2193,51 +2198,45 @@ msgstr ""
 "Les connexions InfraRouge sont sans fil mais les diodes du téléphone et de "
 "l'ordinateur doivent se voir. Vérifiez la connexion avant de continuer. "
 
-#: Wammu/PhoneWizard.py:429
+#: Wammu/PhoneWizard.py:436
 msgid "Serial cable"
 msgstr "Câble série"
 
-#: Wammu/PhoneWizard.py:430
+#: Wammu/PhoneWizard.py:437
 msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr "Ce type de connexion était courant pour les anciens téléphones."
 
-#: Wammu/PhoneWizard.py:433 Wammu/Settings.py:153
-msgid "Phone connection"
-msgstr "Connexion au téléphone"
-
-#: Wammu/PhoneWizard.py:434
+#: Wammu/PhoneWizard.py:443
 msgid "How is your phone connected?"
 msgstr "Comment votre téléphone est connecté ?"
 
-#: Wammu/PhoneWizard.py:447
-msgid "Configuration type"
+#: Wammu/PhoneWizard.py:456 Wammu/PhoneWizard.py:457
+#, fuzzy
+#| msgid "Configuration type"
+msgid "Configuration style"
 msgstr "Type de configuration"
 
-#: Wammu/PhoneWizard.py:448
-msgid "How do you want to configure your phone connection?"
-msgstr "Comment voulez-vous configurer votre connexion ?"
-
-#: Wammu/PhoneWizard.py:450
-msgid "Automatically search for a phone"
-msgstr "Recherche automatique de téléphone"
-
-#: Wammu/PhoneWizard.py:451
+#: Wammu/PhoneWizard.py:459
 msgid "Guided configuration"
 msgstr "Configuration assistée"
 
-#: Wammu/PhoneWizard.py:456
-msgid "Wizard will attempt to search phone on usual ports."
-msgstr "L'assistant va chercher un téléphone sur les ports habituels."
+#: Wammu/PhoneWizard.py:460
+msgid "Automatically search for a phone"
+msgstr "Recherche automatique de téléphone"
 
-#: Wammu/PhoneWizard.py:457
+#: Wammu/PhoneWizard.py:465
 msgid ""
 "You will be guided through configuration by phone connection type and vendor."
 msgstr ""
 "Vous serrez aidé dans cette phase de configuration en choisissant votre type "
 "de connexion et la marque de votre téléphone."
 
-#: Wammu/PhoneWizard.py:458
+#: Wammu/PhoneWizard.py:466
+msgid "Wizard will attempt to search phone on usual ports."
+msgstr "L'assistant va chercher un téléphone sur les ports habituels."
+
+#: Wammu/PhoneWizard.py:467
 msgid ""
 "You know what you are doing and know exact parameters you need for "
 "connecting to phone."
@@ -2245,7 +2244,11 @@ msgstr ""
 "Vous devez savoir ce que vous faites et connaître exactement les paramètres "
 "nécessaires à la connexion."
 
-#: Wammu/PhoneWizard.py:464
+#: Wammu/PhoneWizard.py:470
+msgid "How do you want to configure your phone connection?"
+msgstr "Comment voulez-vous configurer votre connexion ?"
+
+#: Wammu/PhoneWizard.py:475
 msgid ""
 "If you have no idea how to configure your phone connection, you can look at "
 "Gammu Phone Database for other users experiences:"
@@ -2254,17 +2257,17 @@ msgstr ""
 "chercher dans la base de connaissance de Gammu les retours d'expériences "
 "d'autres utilisateurs :"
 
-#: Wammu/PhoneWizard.py:478
+#: Wammu/PhoneWizard.py:489
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: Wammu/PhoneWizard.py:479
+#: Wammu/PhoneWizard.py:490
 msgid "This wizard will help you with configuring phone connection in Wammu."
 msgstr ""
 "Cet assistant vous aidera à configurer la connexion entre Wammu et votre "
 "téléphone."
 
-#: Wammu/PhoneWizard.py:482
+#: Wammu/PhoneWizard.py:493
 msgid ""
 "Please make sure you have phone ready, powered on and one of connection "
 "methods is set up:"
@@ -2272,23 +2275,23 @@ msgstr ""
 "Vérifiez que votre téléphone est prêt, allumé et qu'une méthode de connexion "
 "est disponible :"
 
-#: Wammu/PhoneWizard.py:484
+#: Wammu/PhoneWizard.py:495
 msgid "Cable is connected."
 msgstr "Câble connecté."
 
-#: Wammu/PhoneWizard.py:486
+#: Wammu/PhoneWizard.py:497
 msgid "You have enabled IrDA and phone is in visible range."
 msgstr "Vous utilisez la liaison Infrarouge, le téléphone est visible. "
 
-#: Wammu/PhoneWizard.py:488
+#: Wammu/PhoneWizard.py:499
 msgid "You have paired Bluetooth with computer."
 msgstr "Vous êtes connecté en Bluetooth avec l'ordinateur."
 
-#: Wammu/PhoneWizard.py:490
+#: Wammu/PhoneWizard.py:501
 msgid "As soon as your phone is ready, you can continue."
 msgstr "Dès que votre téléphone est prêt vous pouvez continuer."
 
-#: Wammu/PhoneWizard.py:499
+#: Wammu/PhoneWizard.py:510
 msgid "Wammu Phone Configuration Wizard"
 msgstr "Assistant de configuration"
 
@@ -2380,6 +2383,10 @@ msgid ""
 msgstr ""
 "Indique s'il faut verrouiller le périphérique dans /var/lock. Sur quelques "
 "systèmes vous pourriez ne pas disposer des privilèges pour faire ainsi."
+
+#: Wammu/Settings.py:153
+msgid "Phone connection"
+msgstr "Connexion au téléphone"
 
 #: Wammu/Settings.py:166
 msgid "Name for this configuration."
@@ -2582,77 +2589,94 @@ msgstr ""
 "l'étape suivante vous demandera de compléter de nombreuses autres options."
 
 #: Wammu/SettingsStorage.py:97
-msgid "Nokia phone"
-msgstr "Téléphone Nokia"
-
-#: Wammu/SettingsStorage.py:98
-msgid "If your phone runs Symbian, please select directly it."
-msgstr "Si votre téléphone utilise Symbian, cochez le directement ici."
-
-#: Wammu/SettingsStorage.py:101
 msgid "Symbian based phone"
 msgstr "Téléphone Symbian"
 
-#: Wammu/SettingsStorage.py:102
+#: Wammu/SettingsStorage.py:98
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
 msgstr ""
 
+#: Wammu/SettingsStorage.py:101
+#, fuzzy
+#| msgid "Select phone"
+msgid "Alcatel phone"
+msgstr "Choisissez le téléphone"
+
+#: Wammu/SettingsStorage.py:102
+msgid "Alcatel phone not running Symbian."
+msgstr ""
+
 #: Wammu/SettingsStorage.py:105
+#, fuzzy
+#| msgid "Select phone"
+msgid "BenQ/Siemens phone"
+msgstr "Choisissez le téléphone"
+
+#: Wammu/SettingsStorage.py:106
+msgid "BenQ or Siemens phone not running Symbian."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:109
+msgid "Nokia phone"
+msgstr "Téléphone Nokia"
+
+#: Wammu/SettingsStorage.py:110
+msgid "Nokia phone not running Symbian."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:113
+#, fuzzy
+#| msgid "&Search phone"
+msgid "Samsung phone"
+msgstr "Chercher un &téléphone"
+
+#: Wammu/SettingsStorage.py:114
+msgid "Samsung phone not running Symbian."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:117
+#, fuzzy
+#| msgid "&Search phone"
+msgid "Sharp phone"
+msgstr "Chercher un &téléphone"
+
+#: Wammu/SettingsStorage.py:118
+msgid "Sharp phone not running Symbian."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:121
+msgid "Sony Ericsson phone"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:122
+msgid "Sony Ericsson phone not running Symbian."
+msgstr ""
+
+#: Wammu/SettingsStorage.py:125
 msgid "None of the above"
 msgstr "Aucune des précedentes"
 
-#: Wammu/SettingsStorage.py:106
-msgid ""
-"Select this option if nothing above matches, good choice for other "
-"manufacturers like Alcatel, BenQ, LG, Samsung, Sharp, Sony Ericsson..."
+#: Wammu/SettingsStorage.py:126
+msgid "Select this option if nothing above matches."
 msgstr ""
-"Choisissez cette option si les choix précédents ne conviennent pas, "
-"recommandé pour d'autres fabricants que Alcatel, BenQ, LG, Samsung, Sharp, "
-"Sony Ericsson..."
 
-#: Wammu/SettingsStorage.py:116
-msgid "AT based"
-msgstr "utilise les commandes AT"
-
-#: Wammu/SettingsStorage.py:118
-msgid ""
-"This provides minimal access to phone features. It is recommended to use "
-"other connection type."
+#: Wammu/SettingsStorage.py:132
+msgid "OBEX and IrMC protocols"
 msgstr ""
-"Ceci fournit un accès minimal aux fonctionnalités de votre téléphone. Il est "
-"recommandé d'utiliser un autre type de connexion."
-
-#: Wammu/SettingsStorage.py:120
-msgid ""
-"Good choice for most phones except Nokia and Symbian based. Provides access "
-"to most phone features."
-msgstr ""
-"Bon choix pour la plupart des téléphones sauf Nokia et ceux basés sur "
-"Symbian. Accès à la plupart des fonctionnalités."
-
-#: Wammu/SettingsStorage.py:124
-msgid "Nokia FBUS"
-msgstr "Nokia FBUS"
-
-#: Wammu/SettingsStorage.py:125
-msgid "Nokia proprietary protocol."
-msgstr "Protocole propriétaire Nokia"
-
-#: Wammu/SettingsStorage.py:129
-msgid "Nokia MBUS"
-msgstr "Nokia MBUS"
-
-#: Wammu/SettingsStorage.py:130
-msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
-msgstr ""
-"Protocole propriétaire Nokia. Pour les anciennes versions utilisez si "
-"possible FBUS."
-
-#: Wammu/SettingsStorage.py:133
-msgid "OBEX based"
-msgstr "OBEX disponible"
 
 #: Wammu/SettingsStorage.py:134
+#, fuzzy
+#| msgid ""
+#| "Standard access to filesystem and sometimes also to phone data. Good "
+#| "choice for recent phones."
+msgid ""
+"Standard access to filesystem. Not a good choice for Nokia if you want to "
+"access data."
+msgstr ""
+"Accès standard au système de fichier et généralement aux données. Bon choix "
+"pour les téléphones récents."
+
+#: Wammu/SettingsStorage.py:136
 msgid ""
 "Standard access to filesystem and sometimes also to phone data. Good choice "
 "for recent phones."
@@ -2660,11 +2684,11 @@ msgstr ""
 "Accès standard au système de fichier et généralement aux données. Bon choix "
 "pour les téléphones récents."
 
-#: Wammu/SettingsStorage.py:138
+#: Wammu/SettingsStorage.py:140
 msgid "Symbian using Gnapplet"
 msgstr "Symbian avec Gnapplet"
 
-#: Wammu/SettingsStorage.py:139
+#: Wammu/SettingsStorage.py:141
 msgid ""
 "You have to install Gnapplet into phone before using this connection. You "
 "can find it in Gammu sources."
@@ -2672,31 +2696,77 @@ msgstr ""
 "Vous devez installer Gnapplet sur votre téléphone. Vous le trouverez dans "
 "les sources de Gammu."
 
-#: Wammu/SettingsStorage.py:236 Wammu/SettingsStorage.py:268
+#: Wammu/SettingsStorage.py:145
+#, fuzzy
+#| msgid "Nokia proprietary protocol."
+msgid "Nokia proprietary protocol"
+msgstr "Protocole propriétaire Nokia"
+
+#: Wammu/SettingsStorage.py:146
+#, fuzzy
+#| msgid "Nokia proprietary protocol."
+msgid "Nokia proprietary protocol FBUS."
+msgstr "Protocole propriétaire Nokia"
+
+#: Wammu/SettingsStorage.py:149
+#, fuzzy
+#| msgid "Nokia proprietary protocol."
+msgid "Nokia proprietary service protocol"
+msgstr "Protocole propriétaire Nokia"
+
+#: Wammu/SettingsStorage.py:150
+#, fuzzy
+#| msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
+msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
+msgstr ""
+"Protocole propriétaire Nokia. Pour les anciennes versions utilisez si "
+"possible FBUS."
+
+#: Wammu/SettingsStorage.py:154
+msgid "AT based"
+msgstr "utilise les commandes AT"
+
+#: Wammu/SettingsStorage.py:156
+msgid ""
+"This provides minimal access to phone features. It is recommended to use "
+"other connection type."
+msgstr ""
+"Ceci fournit un accès minimal aux fonctionnalités de votre téléphone. Il est "
+"recommandé d'utiliser un autre type de connexion."
+
+#: Wammu/SettingsStorage.py:158
+msgid ""
+"Good choice for most phones except Nokia and Symbian based. Provides access "
+"to most phone features."
+msgstr ""
+"Bon choix pour la plupart des téléphones sauf Nokia et ceux basés sur "
+"Symbian. Accès à la plupart des fonctionnalités."
+
+#: Wammu/SettingsStorage.py:277 Wammu/SettingsStorage.py:309
 msgid "Enter device name of serial port."
 msgstr "Entrez le nom du port série."
 
-#: Wammu/SettingsStorage.py:238 Wammu/SettingsStorage.py:270
+#: Wammu/SettingsStorage.py:279 Wammu/SettingsStorage.py:311
 msgid "Enter device name of emulated serial port."
 msgstr "Entrez le nom du port série émulé."
 
-#: Wammu/SettingsStorage.py:240 Wammu/SettingsStorage.py:272
+#: Wammu/SettingsStorage.py:281 Wammu/SettingsStorage.py:313
 msgid "Enter Bluetooth address of your phone."
 msgstr "Entrez l'adresse Bluetooth de votre téléphone."
 
-#: Wammu/SettingsStorage.py:242 Wammu/SettingsStorage.py:276
+#: Wammu/SettingsStorage.py:283 Wammu/SettingsStorage.py:317
 msgid "You don't have to enter anything for this settings."
 msgstr "Pas d'entrée complémentaire pour ce choix."
 
-#: Wammu/SettingsStorage.py:274
+#: Wammu/SettingsStorage.py:315
 msgid "Enter device name of USB port."
 msgstr "Entrez le nom du port USB."
 
-#: Wammu/SettingsStorage.py:294
+#: Wammu/SettingsStorage.py:335
 msgid "Generic AT over serial line or it's emulation"
 msgstr "Commande AT générique sur ligne série ou son émulation."
 
-#: Wammu/SettingsStorage.py:295 Wammu/SettingsStorage.py:325
+#: Wammu/SettingsStorage.py:336 Wammu/SettingsStorage.py:366
 msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
@@ -2704,22 +2774,22 @@ msgstr ""
 "Sélectionnez si vous avez une liaison série réelle ou virtuelle (port COM "
 "virtuel, /dev/rfcomm, /dev/ircomm, etc... )."
 
-#: Wammu/SettingsStorage.py:300
+#: Wammu/SettingsStorage.py:341
 #, python-format
 msgid "Generic AT at %d bps"
 msgstr "Commandes AT génériques à %d 0/s"
 
-#: Wammu/SettingsStorage.py:301
+#: Wammu/SettingsStorage.py:342
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
 msgstr "Cochez ici si votre téléphone exige des transferts à %d 0/s."
 
-#: Wammu/SettingsStorage.py:305
+#: Wammu/SettingsStorage.py:346
 msgid "AT over Bluetooth"
 msgstr "Commandes AT sur Bluetooth"
 
-#: Wammu/SettingsStorage.py:306 Wammu/SettingsStorage.py:330
-#: Wammu/SettingsStorage.py:345
+#: Wammu/SettingsStorage.py:347 Wammu/SettingsStorage.py:371
+#: Wammu/SettingsStorage.py:386
 msgid ""
 "Select this if your phone is connected over Bluetooth and you want to use "
 "native Bluetooth connection."
@@ -2727,11 +2797,11 @@ msgstr ""
 "Sélectionnez si votre téléphone est connecté par Bluetooth et que vous "
 "voulez utiliser une connexion Bluetooth native."
 
-#: Wammu/SettingsStorage.py:309
+#: Wammu/SettingsStorage.py:350
 msgid "AT over Bluetooth with RF searching"
 msgstr "Commandes AT sur Bluetooth avec recherche RF"
 
-#: Wammu/SettingsStorage.py:310 Wammu/SettingsStorage.py:334
+#: Wammu/SettingsStorage.py:351 Wammu/SettingsStorage.py:375
 msgid ""
 "Use for Bluetooth stack and 6210 / DCT4 Nokia models, which don't inform "
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
@@ -2741,62 +2811,62 @@ msgstr ""
 "informations sur les services Bluetooth ne sont pas exacts (6310, 6310i avec "
 "firmware inférieur à 5.50, 8910, ...)"
 
-#: Wammu/SettingsStorage.py:314
+#: Wammu/SettingsStorage.py:355
 msgid "AT over IrDA"
 msgstr "Commandes AT sur InfraRouge"
 
-#: Wammu/SettingsStorage.py:315 Wammu/SettingsStorage.py:339
-#: Wammu/SettingsStorage.py:350
+#: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
+#: Wammu/SettingsStorage.py:391
 msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
 msgstr "Sélectionnez si votre téléphone est connecté par InfraRouge."
 
-#: Wammu/SettingsStorage.py:319
+#: Wammu/SettingsStorage.py:360
 msgid "AT over DKU2"
 msgstr "AT sur DKU2"
 
-#: Wammu/SettingsStorage.py:320
+#: Wammu/SettingsStorage.py:361
 msgid "Select this if your phone is connected using DKU2 cable."
 msgstr "Sélectionnez si votre téléphone est connecté avec un câble DKU2."
 
-#: Wammu/SettingsStorage.py:324
+#: Wammu/SettingsStorage.py:365
 msgid "Generic OBEX over serial line or it's emulation"
 msgstr "OBEX générique sur ligne série ou son émulation"
 
-#: Wammu/SettingsStorage.py:329
+#: Wammu/SettingsStorage.py:370
 msgid "OBEX over Bluetooth"
 msgstr "OBEX sur Bluetooth"
 
-#: Wammu/SettingsStorage.py:333
+#: Wammu/SettingsStorage.py:374
 msgid "OBEX over Bluetooth with RF searching"
 msgstr "OBEX sur Bluetooth avec recherche RF"
 
-#: Wammu/SettingsStorage.py:338
+#: Wammu/SettingsStorage.py:379
 msgid "OBEX over IrDA"
 msgstr "OBEX sur InfraRouge"
 
-#: Wammu/SettingsStorage.py:344
+#: Wammu/SettingsStorage.py:385
 msgid "Gnapplet over Bluetooth"
 msgstr "Gnapplet sur Bluetooth"
 
-#: Wammu/SettingsStorage.py:349
+#: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over IrDA"
 msgstr "Gnapplet sur InfraRouge"
 
-#: Wammu/SettingsStorage.py:355
+#: Wammu/SettingsStorage.py:396
 msgid "MBUS proprietary protocol"
 msgstr "Protocole propriétaire MBUS"
 
-#: Wammu/SettingsStorage.py:356
+#: Wammu/SettingsStorage.py:397
 msgid "Protocol used in older Nokia phones."
 msgstr "Protocole des anciens Nokia."
 
-#: Wammu/SettingsStorage.py:361
+#: Wammu/SettingsStorage.py:402
 msgid "FBUS proprietary protocol"
 msgstr "Protocole propriétaire FBUS"
 
-#: Wammu/SettingsStorage.py:362
+#: Wammu/SettingsStorage.py:403
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
@@ -2804,106 +2874,121 @@ msgstr ""
 "Protocole des téléphones Nokia. Sélectionnez auparavant les options plus "
 "spécifiques. "
 
-#: Wammu/SettingsStorage.py:367
-msgid "PL2303 cable"
-msgstr "Câble PL2303"
-
-#: Wammu/SettingsStorage.py:368
-msgid ""
-"New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia "
-"5100."
-msgstr ""
-"Nouveau protocole Nokia pour les câbles PL2303, pour les téléphones avec "
-"puces USB comme le Nokia 5100."
-
-#: Wammu/SettingsStorage.py:371
+#: Wammu/SettingsStorage.py:408
 msgid "DKU5 cable"
 msgstr "Câble DKU5"
 
-#: Wammu/SettingsStorage.py:372
+#: Wammu/SettingsStorage.py:409
 #, fuzzy
 msgid ""
-"Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like Nokia "
-"5100."
+"Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
+"phones with USB chip like Nokia 5100."
 msgstr ""
 "Protocole Nokia pour les câbles DKU-5, pour les téléphones avec puces USB "
 "comme le Nokia 5100."
 
-#: Wammu/SettingsStorage.py:375
-msgid "DKU2 cable"
-msgstr "Câble DKU2"
+#: Wammu/SettingsStorage.py:412
+msgid "PL2303 cable"
+msgstr "Câble PL2303"
 
-#: Wammu/SettingsStorage.py:376
-msgid ""
-"Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230."
-msgstr ""
-"Protocole Nokia pour les câbles DKU-2, pour les téléphones sans puce USB "
-"comme le Nokia 6230."
-
-#: Wammu/SettingsStorage.py:379
-msgid "DLR3-3P/CA-42 cable"
-msgstr "Câble DLR3-3P/CA-42"
-
-#: Wammu/SettingsStorage.py:380
-msgid ""
-"Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
-"7110/6210/6310."
-msgstr ""
-"Câble Nokia RS-232 DLR-3P, habituellement pour les Nokia 7110/6210/6310."
-
-#: Wammu/SettingsStorage.py:383
+#: Wammu/SettingsStorage.py:413
 #, fuzzy
-msgid "FBUS proprietary protocol using ARK cable"
-msgstr "Protocole propriétaire FBUS"
-
-#: Wammu/SettingsStorage.py:384
-msgid "ARK cable for phones not supporting AT commands like Nokia 6020."
-msgstr ""
-
-#: Wammu/SettingsStorage.py:387
-msgid "DKU5 phone with ARK cable"
-msgstr ""
-
-#: Wammu/SettingsStorage.py:388
-#, fuzzy
-msgid "ARK cable for phones with USB chip like Nokia 5100."
+#| msgid ""
+#| "New Nokia protocol for PL2303 USB cable, for phones with USB chip like "
+#| "Nokia 5100."
+msgid ""
+"New Nokia protocol for PL2303 USB cable (usually third party cables), for "
+"phones with USB chip like Nokia 5100."
 msgstr ""
 "Nouveau protocole Nokia pour les câbles PL2303, pour les téléphones avec "
 "puces USB comme le Nokia 5100."
 
-#: Wammu/SettingsStorage.py:392
-msgid "FBUS over Bluetooth (emulated serial port)"
-msgstr "FBUS sur Bluetooth (émulation de port série)"
+#: Wammu/SettingsStorage.py:416
+msgid "DKU2 cable"
+msgstr "Câble DKU2"
 
-#: Wammu/SettingsStorage.py:393 Wammu/SettingsStorage.py:407
-msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
-msgstr "Protocole Nokia pour la pile Bluetooth du Nokia 6210."
+#: Wammu/SettingsStorage.py:417
+#, fuzzy
+#| msgid ""
+#| "Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia "
+#| "6230."
+msgid ""
+"Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
+"without USB chip like Nokia 6230."
+msgstr ""
+"Protocole Nokia pour les câbles DKU-2, pour les téléphones sans puce USB "
+"comme le Nokia 6230."
 
-#: Wammu/SettingsStorage.py:395 Wammu/SettingsStorage.py:402
-msgid "Using emulated serial port."
-msgstr "Émulation de port série."
+#: Wammu/SettingsStorage.py:420
+msgid "DLR3-3P/CA-42 cable"
+msgstr "Câble DLR3-3P/CA-42"
 
-#: Wammu/SettingsStorage.py:399
-msgid "Phonet over Bluetooth (emulated serial port)"
-msgstr "Phonet sur Bluetooth (émulation de port série)"
+#: Wammu/SettingsStorage.py:421
+#, fuzzy
+#| msgid ""
+#| "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
+#| "7110/6210/6310."
+msgid ""
+"Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
+"with phones like Nokia 7110/6210/6310."
+msgstr ""
+"Câble Nokia RS-232 DLR-3P, habituellement pour les Nokia 7110/6210/6310."
 
-#: Wammu/SettingsStorage.py:400 Wammu/SettingsStorage.py:411
-msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
-msgstr "Protocole Nokia pour la pile Bluetooth des modèles Nokia DCT4."
+#: Wammu/SettingsStorage.py:424
+#, fuzzy
+msgid "FBUS proprietary protocol using ARK cable"
+msgstr "Protocole propriétaire FBUS"
 
-#: Wammu/SettingsStorage.py:406
-msgid "FBUS over Bluetooth"
-msgstr "FBUS sur Bluetooth"
+#: Wammu/SettingsStorage.py:425
+msgid ""
+"ARK cable (third party cable) for phones not supporting AT commands like "
+"Nokia 6020."
+msgstr ""
 
-#: Wammu/SettingsStorage.py:410
+#: Wammu/SettingsStorage.py:428
+msgid "DKU5 phone with ARK cable"
+msgstr ""
+
+#: Wammu/SettingsStorage.py:429
+#, fuzzy
+msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
+msgstr ""
+"Nouveau protocole Nokia pour les câbles PL2303, pour les téléphones avec "
+"puces USB comme le Nokia 5100."
+
+#: Wammu/SettingsStorage.py:433
 msgid "Phonet over Bluetooth"
 msgstr "Phonet sur Bluetooth"
 
-#: Wammu/SettingsStorage.py:414
+#: Wammu/SettingsStorage.py:434 Wammu/SettingsStorage.py:445
+msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
+msgstr "Protocole Nokia pour la pile Bluetooth des modèles Nokia DCT4."
+
+#: Wammu/SettingsStorage.py:437
+msgid "FBUS over Bluetooth (emulated serial port)"
+msgstr "FBUS sur Bluetooth (émulation de port série)"
+
+#: Wammu/SettingsStorage.py:438 Wammu/SettingsStorage.py:452
+msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
+msgstr "Protocole Nokia pour la pile Bluetooth du Nokia 6210."
+
+#: Wammu/SettingsStorage.py:440 Wammu/SettingsStorage.py:447
+msgid "Using emulated serial port."
+msgstr "Émulation de port série."
+
+#: Wammu/SettingsStorage.py:444
+msgid "Phonet over Bluetooth (emulated serial port)"
+msgstr "Phonet sur Bluetooth (émulation de port série)"
+
+#: Wammu/SettingsStorage.py:451
+msgid "FBUS over Bluetooth"
+msgstr "FBUS sur Bluetooth"
+
+#: Wammu/SettingsStorage.py:455
 msgid "Phonet over Bluetooth with RF searching"
 msgstr "Phonet sur Bluetooth avec recherche RF"
 
-#: Wammu/SettingsStorage.py:415
+#: Wammu/SettingsStorage.py:456
 msgid ""
 "Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don't "
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
@@ -2913,21 +2998,21 @@ msgstr ""
 "sur les services Bluetooth ne sont pas exacts (6310, 6310i avec firmware "
 "inférieur à 5.50, 8910, ...)"
 
-#: Wammu/SettingsStorage.py:419
-msgid "FBUS over IrDA"
-msgstr "FBUS sur InfraRouge"
-
-#: Wammu/SettingsStorage.py:420
-msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
-msgstr "Protocole infrarouge Nokia pour les modèles 6110/6130/6150."
-
-#: Wammu/SettingsStorage.py:423
+#: Wammu/SettingsStorage.py:460
 msgid "Phonet over IrDA"
 msgstr "Phonet sur InfraRouge"
 
-#: Wammu/SettingsStorage.py:424
+#: Wammu/SettingsStorage.py:461
 msgid "Nokia protocol for infrared with other Nokia models."
 msgstr "Protocole infrarouge Nokia pour tous les autre modèles."
+
+#: Wammu/SettingsStorage.py:464
+msgid "FBUS over IrDA"
+msgstr "FBUS sur InfraRouge"
+
+#: Wammu/SettingsStorage.py:465
+msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
+msgstr "Protocole infrarouge Nokia pour les modèles 6110/6130/6150."
 
 #: Wammu/SMSExport.py:35
 msgid "Select mailbox file..."
@@ -3582,6 +3667,35 @@ msgstr "Mise à jour de la configuration de gammu ..."
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - Windowed Gammu version %s"
 
+#~ msgid "OBEX based"
+#~ msgstr "OBEX disponible"
+
+#~ msgid "Please select which driver you want to use"
+#~ msgstr "Sélectionnez le driver à utiliser"
+
+#~ msgid "Please select connection type"
+#~ msgstr "Sélectionnez le type de connexion"
+
+#~ msgid "Please select phone type"
+#~ msgstr "Sélectionnez le type de téléphone"
+
+#~ msgid "If your phone runs Symbian, please select directly it."
+#~ msgstr "Si votre téléphone utilise Symbian, cochez le directement ici."
+
+#~ msgid ""
+#~ "Select this option if nothing above matches, good choice for other "
+#~ "manufacturers like Alcatel, BenQ, LG, Samsung, Sharp, Sony Ericsson..."
+#~ msgstr ""
+#~ "Choisissez cette option si les choix précédents ne conviennent pas, "
+#~ "recommandé pour d'autres fabricants que Alcatel, BenQ, LG, Samsung, "
+#~ "Sharp, Sony Ericsson..."
+
+#~ msgid "Nokia FBUS"
+#~ msgstr "Nokia FBUS"
+
+#~ msgid "Nokia MBUS"
+#~ msgstr "Nokia MBUS"
+
 #~ msgid "&Event"
 #~ msgstr "É&vénement"
 
@@ -3608,9 +3722,6 @@ msgstr "Wammu - Windowed Gammu version %s"
 
 #~ msgid "%d todo"
 #~ msgstr "%d tâche à faire"
-
-#~ msgid "&Search phone"
-#~ msgstr "Chercher un &téléphone"
 
 #~ msgid "Search for phone"
 #~ msgstr "Recherche de téléphone"

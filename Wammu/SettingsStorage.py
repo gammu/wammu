@@ -93,25 +93,63 @@ class Settings:
         connections.append(_('I don\'t know'))
         helps.append(_('Select this option only if really necessary. You will be provided with too much options in next step.'))
 
-        names.append('nokia')
-        connections.append(_('Nokia phone'))
-        helps.append(_('If your phone runs Symbian, please select directly it.'))
-
         names.append('symbian')
         connections.append(_('Symbian based phone'))
         helps.append(_('Go on if your phone uses Symbian OS (regardless of manufacturer).'))
 
         names.append('nota')
+        connections.append(_('Alcatel phone'))
+        helps.append(_('Alcatel phone not running Symbian.'))
+
+        names.append('nota')
+        connections.append(_('BenQ/Siemens phone'))
+        helps.append(_('BenQ or Siemens phone not running Symbian.'))
+
+        names.append('nokia')
+        connections.append(_('Nokia phone'))
+        helps.append(_('Nokia phone not running Symbian.'))
+
+        names.append('nota')
+        connections.append(_('Samsung phone'))
+        helps.append(_('Samsung phone not running Symbian.'))
+
+        names.append('nota')
+        connections.append(_('Sharp phone'))
+        helps.append(_('Sharp phone not running Symbian.'))
+
+        names.append('nota')
+        connections.append(_('Sony Ericsson phone'))
+        helps.append(_('Sony Ericsson phone not running Symbian.'))
+
+        names.append('nota')
         connections.append(_('None of the above'))
-        helps.append(_('Select this option if nothing above matches, good choice for other manufacturers like Alcatel, BenQ, LG, Samsung, Sharp, Sony Ericsson...'))
+        helps.append(_('Select this option if nothing above matches.'))
 
         return (names, connections, helps)
 
-    def GetDrivers(self):
-        names = []
-        connections = []
-        helps = []
+    def AddOBEX(self, names, connections, helps):
+        names.append('obex')
+        connections.append(_('OBEX and IrMC protocols'))
+        if self.manufacturer in ['symbian', 'nokia']:
+            helps.append(_('Standard access to filesystem. Not a good choice for Nokia if you want to access data.'))
+        else:
+            helps.append(_('Standard access to filesystem and sometimes also to phone data. Good choice for recent phones.'))
 
+    def AddSymbian(self, names, connections, helps):
+        names.append('symbian')
+        connections.append(_('Symbian using Gnapplet'))
+        helps.append(_('You have to install Gnapplet into phone before using this connection. You can find it in Gammu sources.'))
+
+    def AddNokia(self, names, connections, helps):
+        names.append('fbus')
+        connections.append(_('Nokia proprietary protocol'))
+        helps.append(_('Nokia proprietary protocol FBUS.'))
+        if self.connection == 'serial':
+            names.append('mbus')
+            connections.append(_('Nokia proprietary service protocol'))
+            helps.append(_('Nokia proprietary protocol MBUS. Older version, use FBUS if possible.'))
+
+    def AddAT(self, names, connections, helps):
         names.append('at')
         connections.append(_('AT based'))
         if self.manufacturer in ['symbian', 'nokia']:
@@ -119,40 +157,43 @@ class Settings:
         else:
             helps.append(_('Good choice for most phones except Nokia and Symbian based. Provides access to most phone features.'))
 
-        if self.manufacturer in ['nokia', 'any']:
-            names.append('fbus')
-            connections.append(_('Nokia FBUS'))
-            helps.append(_('Nokia proprietary protocol.'))
+    def GetDrivers(self):
+        names = []
+        connections = []
+        helps = []
 
-            if self.connection == 'serial':
-                names.append('mbus')
-                connections.append(_('Nokia MBUS'))
-                helps.append(_('Nokia proprietary protocol. Older version, use FBUS if possible.'))
-
-        names.append('obex')
-        connections.append(_('OBEX based'))
-        helps.append(_('Standard access to filesystem and sometimes also to phone data. Good choice for recent phones.'))
-
-        if self.manufacturer in ['symbian', 'any']:
-            names.append('symbian')
-            connections.append(_('Symbian using Gnapplet'))
-            helps.append(_('You have to install Gnapplet into phone before using this connection. You can find it in Gammu sources.'))
+        if self.manufacturer == 'nokia':
+            self.AddNokia(names, connections, helps)
+            self.AddAT(names, connections, helps)
+            self.AddOBEX(names, connections, helps)
+        elif self.manufacturer == 'symbian':
+            self.AddSymbian(names, connections, helps)
+            self.AddAT(names, connections, helps)
+            self.AddOBEX(names, connections, helps)
+        elif self.manufacturer == 'nota':
+            self.AddAT(names, connections, helps)
+            self.AddOBEX(names, connections, helps)
+        elif self.manufacturer == 'any':
+            self.AddAT(names, connections, helps)
+            self.AddOBEX(names, connections, helps)
+            self.AddNokia(names, connections, helps)
+            self.AddSymbian(names, connections, helps)
 
         return (names, connections, helps)
 
     def GetPortType(self):
         if self.gammudriver in [
-                'mbus', 
-                'fbus', 
-                'dlr3', 
-                'at', 
-                'at19200', 
-                'at38400', 
-                'at115200', 
-                'obex', 
-                'phonetblue', 
-                'fbusblue', 
-                'fbus-nodtr', 
+                'mbus',
+                'fbus',
+                'dlr3',
+                'at',
+                'at19200',
+                'at38400',
+                'at115200',
+                'obex',
+                'phonetblue',
+                'fbusblue',
+                'fbus-nodtr',
                 'dku5-nodtr']:
             if self.connection == 'serial':
                 return 'serial'
@@ -164,25 +205,25 @@ class Settings:
                 return 'usbserial'
             return 'serial'
         if self.gammudriver in [
-                'blueat', 
-                'bluerfat', 
-                'blueobex', 
-                'bluerfobex', 
-                'bluerfgnapbus', 
-                'bluerffbus', 
-                'bluephonet', 
+                'blueat',
+                'bluerfat',
+                'blueobex',
+                'bluerfobex',
+                'bluerfgnapbus',
+                'bluerffbus',
+                'bluephonet',
                 'bluerfphonet']:
             return 'bluetooth'
         if self.gammudriver in [
-                'dku2', 
-                'dku5', 
+                'dku2',
+                'dku5',
                 'dku2at']:
             return 'dku'
         if self.gammudriver in [
-                'irdaat', 
-                'irdaobex', 
-                'irdagnapbus', 
-                'fbusirda', 
+                'irdaat',
+                'irdaobex',
+                'irdagnapbus',
+                'fbusirda',
                 'irdaphonet']:
             return 'irda'
         if self.gammudriver is None:
@@ -363,31 +404,35 @@ class Settings:
 
             # Serial should not be here, but we do not trust people they really have serial :-)
             if self.connection in ['serial', 'usb']:
-                names.append('fbuspl2303')
-                connections.append(_('PL2303 cable'))
-                helps.append(_('New Nokia protocol for PL2303 USB cable, for phones with USB chip like Nokia 5100.'))
-
                 names.append('dku5')
                 connections.append(_('DKU5 cable'))
-                helps.append(_('Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like Nokia 5100.'))
+                helps.append(_('Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for phones with USB chip like Nokia 5100.'))
+
+                names.append('fbuspl2303')
+                connections.append(_('PL2303 cable'))
+                helps.append(_('New Nokia protocol for PL2303 USB cable (usually third party cables), for phones with USB chip like Nokia 5100.'))
 
                 names.append('dku2')
                 connections.append(_('DKU2 cable'))
-                helps.append(_('Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia 6230.'))
+                helps.append(_('Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones without USB chip like Nokia 6230.'))
 
                 names.append('dlr3')
                 connections.append(_('DLR3-3P/CA-42 cable'))
-                helps.append(_('Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia 7110/6210/6310.'))
+                helps.append(_('Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually with phones like Nokia 7110/6210/6310.'))
 
                 names.append('fbus-nodtr')
                 connections.append(_('FBUS proprietary protocol using ARK cable'))
-                helps.append(_('ARK cable for phones not supporting AT commands like Nokia 6020.'))
+                helps.append(_('ARK cable (third party cable) for phones not supporting AT commands like Nokia 6020.'))
 
                 names.append('dku5-nodtr')
                 connections.append(_('DKU5 phone with ARK cable'))
-                helps.append(_('ARK cable for phones with USB chip like Nokia 5100.'))
+                helps.append(_('ARK cable (third party cable) for phones with USB chip like Nokia 5100.'))
 
             elif self.connection == 'bluetooth':
+                names.append('bluephonet')
+                connections.append(_('Phonet over Bluetooth'))
+                helps.append(_('Nokia protocol for Bluetooth stack with other DCT4 Nokia models.'))
+
                 names.append('fbusblue')
                 connections.append(_('FBUS over Bluetooth (emulated serial port)'))
                 helps.append(_('Nokia protocol for Bluetooth stack with Nokia 6210.') +
@@ -406,21 +451,17 @@ class Settings:
                 connections.append(_('FBUS over Bluetooth'))
                 helps.append(_('Nokia protocol for Bluetooth stack with Nokia 6210.'))
 
-                names.append('bluephonet')
-                connections.append(_('Phonet over Bluetooth'))
-                helps.append(_('Nokia protocol for Bluetooth stack with other DCT4 Nokia models.'))
-
                 names.append('bluerfphonet')
                 connections.append(_('Phonet over Bluetooth with RF searching'))
                 helps.append(_('Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don\'t inform about services correctly (6310, 6310i with firmware lower than 5.50, 8910,..).'))
 
             elif self.connection == 'irda':
-                names.append('fbusirda')
-                connections.append(_('FBUS over IrDA'))
-                helps.append(_('Nokia protocol for infrared with Nokia 6110/6130/6150.'))
-
                 names.append('irdaphonet')
                 connections.append(_('Phonet over IrDA'))
                 helps.append(_('Nokia protocol for infrared with other Nokia models.'))
+
+                names.append('fbusirda')
+                connections.append(_('FBUS over IrDA'))
+                helps.append(_('Nokia protocol for infrared with Nokia 6110/6130/6150.'))
 
         return (names, connections, helps)
