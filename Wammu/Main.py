@@ -668,7 +668,7 @@ class WammuFrame(wx.Frame):
             if self.connected:
                 self.prefix = None
                 try:
-                    on = Wammu.Utils.ParseMemoryEntry(self.sm.GetMemory(Location = 1, Type = 'ON'))['Number']
+                    on = Wammu.Utils.ParseMemoryEntry(self.sm.GetMemory(Location = 1, Type = 'ON'), self.cfg)['Number']
                     self.prefix = Wammu.Utils.GrabNumberPrefix(on, Wammu.Data.InternationalPrefixes)
                 except gammu.GSMError:
                     pass
@@ -1086,7 +1086,7 @@ class WammuFrame(wx.Frame):
                     v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                 except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
                     wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
-                Wammu.Utils.ParseMemoryEntry(v)
+                Wammu.Utils.ParseMemoryEntry(v, self.cfg)
                 v['Synced'] = True
                 # append new value to list
                 self.values['contact'][v['MemoryType']].append(v)
@@ -1377,9 +1377,9 @@ class WammuFrame(wx.Frame):
             return
 
         if len(backup['PhonePhonebook']) > 0:
-            self.values['contact']['ME'] = map(Wammu.Utils.ParseMemoryEntry, backup['PhonePhonebook'])
+            self.values['contact']['ME'] = map(Wammu.Utils.ParseMemoryEntry, backup['PhonePhonebook'], [self.cfg] * len(backup['PhonePhonebook']))
         if len(backup['SIMPhonebook']) > 0:
-            self.values['contact']['SM'] = map(Wammu.Utils.ParseMemoryEntry, backup['SIMPhonebook'])
+            self.values['contact']['SM'] = map(Wammu.Utils.ParseMemoryEntry, backup['SIMPhonebook'], [self.cfg] * len(backup['SIMPhonebook']))
         if len(backup['ToDo']) > 0:
             self.values['todo']['  '] = map(Wammu.Utils.ParseTodo, backup['ToDo'])
         if len(backup['Calendar']) > 0:
@@ -1522,7 +1522,7 @@ class WammuFrame(wx.Frame):
                         v['Location'] = self.sm.AddMemory(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetMemory(v['MemoryType'], v['Location'])
-                        Wammu.Utils.ParseMemoryEntry(v)
+                        Wammu.Utils.ParseMemoryEntry(v, self.cfg)
                         v['Synced'] = True
                         # append new value to list
                         self.values['contact'][v['MemoryType']].append(v)
@@ -1532,7 +1532,7 @@ class WammuFrame(wx.Frame):
                         v['Location'] = self.sm.AddMemory(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetMemory(v['MemoryType'], v['Location'])
-                        Wammu.Utils.ParseMemoryEntry(v)
+                        Wammu.Utils.ParseMemoryEntry(v, self.cfg)
                         v['Synced'] = True
                         # append new value to list
                         self.values['contact'][v['MemoryType']].append(v)
