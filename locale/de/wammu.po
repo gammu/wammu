@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2007-11-01 14:38+0900\n"
-"PO-Revision-Date: 2007-10-17 13:44+0200\n"
+"PO-Revision-Date: 2007-11-05 10:55+0100\n"
 "Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1063,22 +1063,20 @@ msgid "Contacts (&phone)"
 msgstr "Adressbuch (&Handyspeicher)"
 
 #  msgid "Contacts from phone memory"
+#  msgid "Retrieve contacts from phone memory"
 #: Wammu/Main.py:303
-#, fuzzy
-#| msgid "Retrieve contacts from phone memory"
 msgid "Retrieve contacts from phone memory."
-msgstr "Adressbuch aus dem Telefonspeicher empfangen"
+msgstr "Adressbuch aus dem Telefonspeicher empfangen."
 
 #: Wammu/Main.py:304
 msgid "&Contacts (All)"
 msgstr "&Adressbuch (Alles)"
 
 #  msgid "Contacts from phone and SIM memory"
+#  msgid "Retrieve contacts from phone and SIM memory"
 #: Wammu/Main.py:304
-#, fuzzy
-#| msgid "Retrieve contacts from phone and SIM memory"
 msgid "Retrieve contacts from phone and SIM memory."
-msgstr "Addressbuch aus dem Telefonspeicher und von der SIM Karte empfangen"
+msgstr "Addressbuch aus dem Telefonspeicher und von der SIM Karte empfangen."
 
 #: Wammu/Main.py:306
 msgid "C&alls"
@@ -1289,17 +1287,17 @@ msgstr "Info über das Programm."
 msgid "&Help"
 msgstr "&Hilfe"
 
+#  msgid ""
+#  "Debug log has been automatically saved to %s, you are strongly encouraged "
+#  "to include it in bugreport."
 #: Wammu/Main.py:413
-#, fuzzy, python-format
-#| msgid ""
-#| "Debug log has been automatically saved to %s, you are strongly encouraged "
-#| "to include it in bugreport."
+#, python-format
 msgid ""
 "Debug log created in temporary file <%s>. In case of crash please include it "
 "in bugreport!"
 msgstr ""
-"Das Fehlersuch-Log wurde automatisch nach %s gespeichert, es ist dringend "
-"angeraten, es dem Fehlerbericht beizufügen."
+"Das Fehlersuch-Log wurde in der temporären Datei <%s> gespeichert. Im Falle "
+"eines Absturzes bitte dem Fehlerbericht beifügen!"
 
 #: Wammu/Main.py:438 Wammu/Main.py:445 Wammu/Main.py:451
 msgid "Wammu could not import gammu module, program will be terminated."
@@ -1695,75 +1693,76 @@ msgstr ""
 "innerhalb von Gammu überschritten.\n"
 "%s"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1693
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete contact \"%s\"?"
-msgstr "Sind sie sicher dass sie %s löschen möchten?"
+msgstr "Sind sie sicher, dass sie den Kontakt \"%s\" löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1695
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete call from \"%s\"?"
-msgstr "Sind sie sicher dass sie %s löschen möchten?"
+msgstr "Sind sie sicher, dass sie den Anruf von \"%s\" löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1697
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete message from \"%s\"?"
-msgstr "Sind sie sicher dass sie %s löschen möchten?"
+msgstr "Sind sie sicher, dass sie die Nachricht von \"%s\" löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1699
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
-msgstr "Sind sie sicher dass sie %s löschen möchten?"
+msgstr ""
+"Sind sie sicher, dass sie den \"Zu erledigen\"-Eintrag \"%s\" löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1701
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
-msgstr "Sind sie sicher dass sie %s löschen möchten?"
+msgstr "Sind sie sicher, dass sie den Kalendereintrag \"%s\" löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1705
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
-msgstr[0] "Sind sie sicher dass sie %s löschen möchten?"
-msgstr[1] "Sind sie sicher dass sie %s löschen möchten?"
+msgstr[0] "Sind sie sicher, dass sie %d Kontakt löschen möchten?"
+msgstr[1] "Sind sie sicher, dass sie %d Kontakte löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1710
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
-msgstr[0] "Sind sie sicher dass sie %s löschen möchten?"
-msgstr[1] "Sind sie sicher dass sie %s löschen möchten?"
+msgstr[0] "Sind sie sicher, dass sie %d Anruf löschen möchten?"
+msgstr[1] "Sind sie sicher, dass sie %d Anrufe löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1715
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
-msgstr[0] "Sind sie sicher dass sie %s löschen möchten?"
-msgstr[1] "Sind sie sicher dass sie %s löschen möchten?"
+msgstr[0] "Sind sie sicher, dass sie %d Nachricht löschen möchten?"
+msgstr[1] "Sind sie sicher, dass sie %d Nachrichten löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1720
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] "Sind sie sicher dass sie %s löschen möchten?"
-msgstr[1] "Sind sie sicher dass sie %s löschen möchten?"
+msgstr[0] "Sind sie sicher, dass sie %d \"Zu-erledigen\"-Eintrag löschen möchten?"
+msgstr[1] "Sind sie sicher, dass sie %d \"Zu-erledigen\"-Einträge löschen möchten?"
 
+#  msgid "Are you sure you want to delete %s?"
 #: Wammu/Main.py:1725
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
+#, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "Sind sie sicher dass sie %s löschen möchten?"
-msgstr[1] "Sind sie sicher dass sie %s löschen möchten?"
+msgstr[0] "Sind sie sicher, dass sie %d Kalender-Eintrag löschen möchten?"
+msgstr[1] "Sind sie sicher, dass sie %d Kalender-Einträge löschen möchten?"
 
 #: Wammu/Main.py:1730 Wammu/Settings.py:345
 msgid "Confirm deleting"
@@ -2118,11 +2117,15 @@ msgid ""
 "Please select which driver you want to use. Follow the help text shown "
 "bellow to select the best one."
 msgstr ""
+"Bitte wählen Sie aus, welchen Treiber Sie nutzen möchten. Befolgen Sie den "
+"untenstehenden Hilfetext, um den am besten geeigneten zu wählen."
 
 #: Wammu/PhoneWizard.py:372
 msgid ""
 "Please select connection type, default choice should be best in most cases."
 msgstr ""
+"Bitte wählen Sie den Verbindungstyp, die Standardauswahl sollte in den "
+"meisten Fällen die beste sein."
 
 #: Wammu/PhoneWizard.py:393 Wammu/PhoneWizard.py:394
 msgid "Phone type"
@@ -2132,6 +2135,8 @@ msgstr "Handytyp"
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
+"Bitte wählen Sie den Handyhersteller oder -typ. Versuchen Sie dabei so genau "
+"wie möglich zu sein."
 
 #: Wammu/PhoneWizard.py:420
 msgid "Search all connections"
@@ -2198,11 +2203,10 @@ msgstr ""
 msgid "How is your phone connected?"
 msgstr "Wie ist Ihr Handy verbunden?"
 
+#  msgid "Configuration type"
 #: Wammu/PhoneWizard.py:456 Wammu/PhoneWizard.py:457
-#, fuzzy
-#| msgid "Configuration type"
 msgid "Configuration style"
-msgstr "Konfigurationstyp"
+msgstr "Konfigurationsstil"
 
 #: Wammu/PhoneWizard.py:459
 msgid "Guided configuration"
@@ -2595,25 +2599,23 @@ msgstr ""
 "Machen Sie weiter, wenn Ihr Handy Symbian OS verwendet (unabhängig vom "
 "Hersteller)."
 
+#  msgid "Select phone"
 #: Wammu/SettingsStorage.py:101
-#, fuzzy
-#| msgid "Select phone"
 msgid "Alcatel phone"
-msgstr "Wählen sie ein Telefon aus"
+msgstr "Alcatel Handy"
 
 #: Wammu/SettingsStorage.py:102
 msgid "Alcatel phone not running Symbian."
-msgstr ""
+msgstr "Das Alcatel Handy verwendet kein Symbian."
 
+#  msgid "Select phone"
 #: Wammu/SettingsStorage.py:105
-#, fuzzy
-#| msgid "Select phone"
 msgid "BenQ/Siemens phone"
-msgstr "Wählen sie ein Telefon aus"
+msgstr "BenQ/Siemens Handy"
 
 #: Wammu/SettingsStorage.py:106
 msgid "BenQ or Siemens phone not running Symbian."
-msgstr ""
+msgstr "Das BenQ oder Siemens Handy verwendet kein Symbian."
 
 #: Wammu/SettingsStorage.py:109
 msgid "Nokia phone"
@@ -2621,35 +2623,33 @@ msgstr "Nokia Handy"
 
 #: Wammu/SettingsStorage.py:110
 msgid "Nokia phone not running Symbian."
-msgstr ""
+msgstr "Das Nokia Handy verwendet kein Symbian."
 
+#  msgid "&Search phone"
 #: Wammu/SettingsStorage.py:113
-#, fuzzy
-#| msgid "&Search phone"
 msgid "Samsung phone"
-msgstr "&Handy Suchen"
+msgstr "Samsung Handy"
 
 #: Wammu/SettingsStorage.py:114
 msgid "Samsung phone not running Symbian."
-msgstr ""
+msgstr "Das Samsung Handy verwendet kein Symbian."
 
+#  msgid "&Search phone"
 #: Wammu/SettingsStorage.py:117
-#, fuzzy
-#| msgid "&Search phone"
 msgid "Sharp phone"
-msgstr "&Handy Suchen"
+msgstr "Sharp Handy"
 
 #: Wammu/SettingsStorage.py:118
 msgid "Sharp phone not running Symbian."
-msgstr ""
+msgstr "Das Sharp Handy verwendet kein Symbian."
 
 #: Wammu/SettingsStorage.py:121
 msgid "Sony Ericsson phone"
-msgstr ""
+msgstr "Sony Ericsson Handy"
 
 #: Wammu/SettingsStorage.py:122
 msgid "Sony Ericsson phone not running Symbian."
-msgstr ""
+msgstr "Das Sony Ericsson Handy verwendet kein Symbian."
 
 #: Wammu/SettingsStorage.py:125
 msgid "None of the above"
@@ -2657,23 +2657,22 @@ msgstr "Keines der oben aufgeführten"
 
 #: Wammu/SettingsStorage.py:126
 msgid "Select this option if nothing above matches."
-msgstr ""
+msgstr "Wählen Sie diese Option, falls keine der oben genannten zutrifft."
 
 #: Wammu/SettingsStorage.py:132
 msgid "OBEX and IrMC protocols"
-msgstr ""
+msgstr "OBEX- und IrMC-Protkolle"
 
+#  msgid ""
+#  "Standard access to filesystem and sometimes also to phone data. Good "
+#  "choice for recent phones."
 #: Wammu/SettingsStorage.py:134
-#, fuzzy
-#| msgid ""
-#| "Standard access to filesystem and sometimes also to phone data. Good "
-#| "choice for recent phones."
 msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
 msgstr ""
-"Standardzugriff auf das Dateisystem und manchmal auch auf die Handydaten. "
-"Gute Wahl für jüngere Handys."
+"Standardzugriff auf das Dateisystem. Keine gute Wahl für Nokia Handys, falls "
+"Sie auf Daten zugreifen wollen."
 
 #: Wammu/SettingsStorage.py:136
 msgid ""
@@ -2695,30 +2694,27 @@ msgstr ""
 "Sie müssen Gnapplet auf dem Handy installieren, bevor Sie diese Verbindung "
 "nutzen können. Sie finden es in den Gammu Sources."
 
+#  msgid "Nokia proprietary protocol."
 #: Wammu/SettingsStorage.py:145
-#, fuzzy
-#| msgid "Nokia proprietary protocol."
 msgid "Nokia proprietary protocol"
 msgstr "Proprietäres Nokia-Protokoll"
 
+#  msgid "Nokia proprietary protocol."
 #: Wammu/SettingsStorage.py:146
-#, fuzzy
-#| msgid "Nokia proprietary protocol."
 msgid "Nokia proprietary protocol FBUS."
-msgstr "Proprietäres Nokia-Protokoll"
+msgstr "Proprietäres Nokia-Protokoll FBUS"
 
+#  msgid "Nokia proprietary protocol."
 #: Wammu/SettingsStorage.py:149
-#, fuzzy
-#| msgid "Nokia proprietary protocol."
 msgid "Nokia proprietary service protocol"
-msgstr "Proprietäres Nokia-Protokoll"
+msgstr "Proprietäres Nokia-Service-Protokoll"
 
+#  msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
 #: Wammu/SettingsStorage.py:150
-#, fuzzy
-#| msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
 msgstr ""
-"Proprietäres Nokia-Protokoll. Ältere Version, sofern möglich FBUS verwenden."
+"Proprietäres Nokia-Protokoll MBUS. Ältere Version, sofern möglich FBUS "
+"verwenden."
 
 #: Wammu/SettingsStorage.py:154
 msgid "AT based"
@@ -2883,85 +2879,84 @@ msgstr ""
 msgid "DKU5 cable"
 msgstr "DKU5 Kabel"
 
+#  msgid ""
+#  "Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like "
+#  "Nokia 5100."
 #: Wammu/SettingsStorage.py:409
-#, fuzzy
-#| msgid ""
-#| "Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like "
-#| "Nokia 5100."
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
-"Nokia Verbindungskabel DKU-5 für Handys mit USB-Chip, wie das Nokia 5100."
+"Nokia Verbindungskabel DKU-5 (Originalkabel oder kompatibel) für Handys mit "
+"USB-Chip, wie das Nokia 5100."
 
 #: Wammu/SettingsStorage.py:412
 msgid "PL2303 cable"
 msgstr "PL2303 Kabel"
 
+#  msgid ""
+#  "New Nokia protocol for PL2303 USB cable, for phones with USB chip like "
+#  "Nokia 5100."
 #: Wammu/SettingsStorage.py:413
-#, fuzzy
-#| msgid ""
-#| "New Nokia protocol for PL2303 USB cable, for phones with USB chip like "
-#| "Nokia 5100."
 msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
-"Neues Nokia Protokoll für PL2303 USB-Kabel, für Handys mit USB-Chip wie dem "
-"Nokia 5100."
+"Neues Nokia Protokoll für PL2303 USB-Kabel (üblicherweise "
+"Drittanbieterkabel), für Handys mit USB-Chip wie dem Nokia 5100."
 
 #: Wammu/SettingsStorage.py:416
 msgid "DKU2 cable"
 msgstr "DKU2 Kabel"
 
+#  msgid ""
+#  "Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia "
+#  "6230."
 #: Wammu/SettingsStorage.py:417
-#, fuzzy
-#| msgid ""
-#| "Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia "
-#| "6230."
 msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
-msgstr "Nokia Datenkabel DKU-2, für Handys ohne USB-Chip wie dem Nokia 6230."
+msgstr ""
+"Nokia Datenkabel DKU-2 (Originalkabel oder kompatibel), für Handys ohne USB-"
+"Chip wie dem Nokia 6230."
 
 #: Wammu/SettingsStorage.py:420
 msgid "DLR3-3P/CA-42 cable"
 msgstr "DLR3-3P/CA-42 Kabel"
 
+#  msgid ""
+#  "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
+#  "7110/6210/6310."
 #: Wammu/SettingsStorage.py:421
-#, fuzzy
-#| msgid ""
-#| "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
-#| "7110/6210/6310."
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
 "with phones like Nokia 7110/6210/6310."
 msgstr ""
-"Nokia RS-232 Verbindungskabel, üblicherweise mit Handys wie Nokia "
-"7110/6210/6310."
+"Nokia RS-232 Verbindungskabel (Originalkabel oder kompatibel), üblicherweise "
+"mit Handys wie Nokia 7110/6210/6310."
 
 #: Wammu/SettingsStorage.py:424
 msgid "FBUS proprietary protocol using ARK cable"
 msgstr "FBUS proprietäres Protokoll ARK-Kabel verwendend"
 
+#  msgid "ARK cable for phones not supporting AT commands like Nokia 6020."
 #: Wammu/SettingsStorage.py:425
-#, fuzzy
-#| msgid "ARK cable for phones not supporting AT commands like Nokia 6020."
 msgid ""
 "ARK cable (third party cable) for phones not supporting AT commands like "
 "Nokia 6020."
 msgstr ""
-"ARK-Kabel für Handys, die AT-Befehle nicht unterstützen, wie das Nokia 6020."
+"ARK-Kabel (Drittanbieterkabel) für Handys, die AT-Befehle nicht "
+"unterstützen, wie das Nokia 6020."
 
 #: Wammu/SettingsStorage.py:428
 msgid "DKU5 phone with ARK cable"
 msgstr "DKU5-Handy mit ARK-Kabel"
 
+#  msgid "ARK cable for phones with USB chip like Nokia 5100."
 #: Wammu/SettingsStorage.py:429
-#, fuzzy
-#| msgid "ARK cable for phones with USB chip like Nokia 5100."
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
-msgstr "ARK-Kabel für Handys mit USB-Chip, wie das Nokia 5100."
+msgstr ""
+"ARK-Kabel (Drittanbieterkabel) für Handys mit USB-Chip, wie das Nokia 5100."
 
 #: Wammu/SettingsStorage.py:433
 msgid "Phonet over Bluetooth"
