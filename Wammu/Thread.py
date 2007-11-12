@@ -52,7 +52,9 @@ class Thread(threading.Thread):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info),
+            message = Wammu.Utils.FormatError(
+                _('Error while communicating with phone'),
+                info),
             title = _('Error Occured'),
             type = wx.ICON_ERROR,
             errortype = 'gammu',
@@ -77,9 +79,9 @@ class Thread(threading.Thread):
             cancel = self.Cancel)
         wx.PostEvent(self.win, evt)
 
-    def SendData(self, type, data, last = True):
+    def SendData(self, datatype, data, last = True):
         evt = Wammu.Events.DataEvent(
-            type = type,
+            type = datatype,
             data = data,
             last = last)
         wx.PostEvent(self.win, evt)
