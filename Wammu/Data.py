@@ -473,8 +473,8 @@ if sys.platform == 'win32':
         'com6:',
         ]
     AllDevices = [
-        (Conn_IrDA_Win, '', None),
-        (Conn_Cable, 'com%d:', (1,6)),
+        (Conn_IrDA_Win, '', None, ['irda']),
+        (Conn_Cable, 'com%d:', (1,6), ['irda', 'usb', 'serial', 'bluetooth']),
         ]
 # FIXME: support more platforms?
 else:
@@ -490,12 +490,12 @@ else:
         '/dev/usb/tts/0',
         ]
     AllDevices = [
-        (Conn_Cable, '/dev/ttyS%d', (0, 3)),
-        (Conn_Cable, '/dev/ttyUSB%d', (0, 3)),
-        (Conn_Cable, '/dev/ttyACM%d', (0, 3)),
-        (Conn_BlueRF, '/dev/rfrcomm%d', (0, 1)),
-        (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1)),
-        (Conn_Cable, '/dev/usb/tts/%d', (0, 3)),
+        (Conn_Cable, '/dev/ttyS%d', (0, 3), ['serial', 'usb']),
+        (Conn_Cable, '/dev/ttyUSB%d', (0, 3), ['serial', 'usb']),
+        (Conn_Cable, '/dev/ttyACM%d', (0, 3), ['serial', 'usb']),
+        (Conn_BlueRF, '/dev/rfrcomm%d', (0, 1), ['bluetooth']),
+        (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1), ['irda']),
+        (Conn_Cable, '/dev/usb/tts/%d', (0, 3), ['serial', 'usb']),
         ]
 
 ContactMemoryTypes = ['ME', 'SM']

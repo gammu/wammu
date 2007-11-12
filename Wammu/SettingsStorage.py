@@ -60,6 +60,9 @@ class Settings:
     def GetPort(self):
         return self.port
 
+    def GetConnection(self):
+        return self.connection
+
     def SetPosition(self, pos):
         self.position = pos
 

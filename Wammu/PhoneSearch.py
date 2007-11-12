@@ -58,7 +58,8 @@ class AllSearchThread(threading.Thread):
             msgcallback = None,
             callback = None,
             win = None,
-            noticecallback = None):
+            noticecallback = None,
+            limit = None):
         threading.Thread.__init__(self)
         self.lock = lock
         self.list = []
@@ -69,6 +70,7 @@ class AllSearchThread(threading.Thread):
         self.callback = callback
         self.msgcallback = msgcallback
         self.noticecallback = noticecallback
+        self.limit = limit
 
     def search_bt_device(self, address, name):
         '''
@@ -135,6 +137,8 @@ class AllSearchThread(threading.Thread):
         Initiates searching of devices defined in Wammu.Data.AllDevices.
         '''
         for dev in Wammu.Data.AllDevices:
+            if not (self.limit == 'all' or self.limit in dev[3]):
+                continue
             if dev[1].find('%d') >= 0:
                 for i in range(*dev[2]):
                     curdev = dev[1] % i
@@ -146,6 +150,8 @@ class AllSearchThread(threading.Thread):
         '''
         Initiates searching for Bluetooth devices.
         '''
+        if not self.limit in ['all', 'bluetooth']:
+            return
         if BLUETOOTH == 'bluez':
             # read devices list
             if self.msgcallback != None:

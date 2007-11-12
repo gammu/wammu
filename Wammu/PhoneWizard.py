@@ -181,6 +181,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
                     callback = self.SearchDone,
                     msgcallback = self.SearchMessage,
                     noticecallback = self.SearchNotice,
+                    limit = self.parent.settings.GetConnection(),
                     win = self)
             self.thread.start()
             self.results = []
