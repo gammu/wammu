@@ -87,6 +87,26 @@ class AllSearchThread(threading.Thread):
         self.msgcallback = msgcallback
         self.noticecallback = noticecallback
 
+    def search_bt_device(self, address, name):
+        connections = Wammu.Data.Conn_Bluetooth_All
+        vendorguess = _('Could not guess vendor')
+        # Use better connection list for some known manufacturers
+        for vendor in Wammu.Data.MAC_Prefixes.keys():
+            if address[:8].upper() in Wammu.Data.MAC_Prefixes[vendor]:
+                connections = Wammu.Data.Conn_Bluetooth[vendor]
+                vendorguess = _('Guessed as %s') % vendor
+
+        t = SearchThread(address, connections, self.list, self.listlock, self.lock, self.level)
+        t.setName('%s (%s) - %s - %s' % (
+            address,
+            name,
+            vendorguess,
+            connections))
+        if self.msgcallback != None:
+            self.msgcallback(_('Checking %s') %  StrConv(t.getName()))
+        self.threads.append(t)
+        t.start()
+
     def run(self):
         try:
             for dev in Wammu.Data.AllDevices:
@@ -139,12 +159,7 @@ class AllSearchThread(threading.Thread):
                         self.msgcallback(_('No bluetooth device found'))
 
                     for bdaddr in nearby_devices:
-                        t = SearchThread(bdaddr, Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
-                        t.setName('%s (%s) - %s' % (bdaddr, bluetooth.lookup_name(bdaddr), Wammu.Data.Conn_Bluetooth))
-                        if self.msgcallback != None:
-                            self.msgcallback(_('Checking %s') %  StrConv(t.getName()))
-                        self.threads.append(t)
-                        t.start()
+                        self.search_bt_device(bdaddr, bluetooth.lookup_name(bdaddr))
                     if self.msgcallback != None:
                         self.msgcallback(_('Bluetooth device scan completed'))
                 except bluetooth.BluetoothError, txt:
@@ -169,12 +184,7 @@ class AllSearchThread(threading.Thread):
                             self.msgcallback(_('No bluetooth device found'))
                     else:
                         for dev in devs:
-                            t = SearchThread(dev['bdaddr'], Wammu.Data.Conn_Bluetooth, self.list, self.listlock, self.lock, self.level)
-                            t.setName('%s (%s) - %s' % (dev['bdaddr'], ctl.get_device_preferred_name(dev['bdaddr']), Wammu.Data.Conn_Bluetooth))
-                            if self.msgcallback != None:
-                                self.msgcallback(_('Checking %s') %  StrConv(t.getName()))
-                            self.threads.append(t)
-                            t.start()
+                            self.search_bt_device(dev['bdaddr'], ctl.get_device_preferred_name(dev['bdaddr']))
                     if self.msgcallback != None:
                         self.msgcallback(_('Bluetooth device scan completed'))
                 except ImportError:
