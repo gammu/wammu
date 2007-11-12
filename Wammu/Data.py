@@ -490,7 +490,7 @@ else:
         '/dev/usb/tts/0',
         ]
     AllDevices = [
-        (Conn_Cable, '/dev/ttyS%d', (0, 3), ['serial', 'usb']),
+        (Conn_Cable, '/dev/ttyS%d', (0, 3), ['serial']),
         (Conn_Cable, '/dev/ttyUSB%d', (0, 3), ['serial', 'usb']),
         (Conn_Cable, '/dev/ttyACM%d', (0, 3), ['serial', 'usb']),
         (Conn_BlueRF, '/dev/rfrcomm%d', (0, 1), ['bluetooth']),
