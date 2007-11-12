@@ -88,6 +88,9 @@ class AllSearchThread(threading.Thread):
         self.noticecallback = noticecallback
 
     def search_bt_device(self, address, name):
+        '''
+        Searches single bluetooth device.
+        '''
         connections = Wammu.Data.Conn_Bluetooth_All
         vendorguess = _('Could not guess vendor')
         # Use better connection list for some known manufacturers
@@ -107,36 +110,52 @@ class AllSearchThread(threading.Thread):
         self.threads.append(t)
         t.start()
 
+    def check_device(self, curdev):
+        '''
+        Checks whether it makes sense to perform searching on this device and
+        possibly warns user about misconfigurations.
+        '''
+        if not os.path.exists(curdev):
+            return false
+        if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
+            gid =  os.stat(curdev).st_gid
+            try:
+                group = grp.getgrgid(gid)[0]
+            except NameError:
+                group = str(gid)
+            if self.msgcallback != None:
+                self.msgcallback(_('You don\'t have permissions for %s device!') % curdev)
+            if self.noticecallback != None:
+                self.noticecallback(
+                        _('Error opening device'),
+                        (_('You don\'t have permissions for %s device!') % curdev) + ' ' +
+                        (_('Maybe you need to be member of %s group.') % group))
+        return true
+
+    def search_device(self, curdev, dev):
+        '''
+        Performs search on one real device.
+        '''
+        if len(curdev) > 0 and curdev[0] == '/':
+            if not self.check_device(curdev):
+                return
+
+        t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level, self.win)
+        t.setName('%s - %s' % (curdev, str(dev[0])))
+        if self.msgcallback != None:
+            self.msgcallback(_('Starting %s') %  StrConv(t.getName()))
+        self.threads.append(t)
+        t.start()
+
     def run(self):
         try:
             for dev in Wammu.Data.AllDevices:
                 if dev[1].find('%d') >= 0:
                     for i in range(*dev[2]):
                         curdev = dev[1] % i
-                        if curdev[0] == '/':
-                            if not os.path.exists(curdev):
-                                continue
-                            if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
-                                gid =  os.stat(curdev).st_gid
-                                try:
-                                    group = grp.getgrgid(gid)[0]
-                                except NameError:
-                                    group = str(gid)
-                                if self.msgcallback != None:
-                                    self.msgcallback(_('You don\'t have permissions for %s device!') % curdev)
-                                if self.noticecallback != None:
-                                    self.noticecallback(
-                                            _('Error opening device'),
-                                            (_('You don\'t have permissions for %s device!') % curdev) + ' ' +
-                                            (_('Maybe you need to be member of %s group.') % group))
-
-                        t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level, self.win)
-                        t.setName('%s - %s' % (curdev, str(dev[0])))
-                        if self.msgcallback != None:
-                            self.msgcallback(_('Starting %s') %  t.getName())
-                        self.threads.append(t)
-                        t.start()
+                        self.search_device(curdev, dev)
                 else:
+                    self.search_device(dev[1], dev)
                     # need to handle devices without name here
                     if len(dev[1]) > 0 and dev[1][0] == '/' and not os.path.exists(dev[1]):
                         continue
