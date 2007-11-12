@@ -226,35 +226,51 @@ class SearchThread(threading.Thread):
         self.list = lst
         self.listlock = listlock
 
-    def run(self):
+    def try_connection(self, connection):
+        '''
+        Performs test on single connection.
+        '''
+        gsm = gammu.StateMachine()
+        gsm.SetConfig(0,
+                {'StartInfo': 'no',
+                 'UseGlobalDebugFile': 1,
+                 'DebugFile': '',
+                 'SyncTime': 'no',
+                 'Connection': connection,
+                 'LockDevice': self.lock,
+                 'DebugLevel': self.level,
+                 'Device': self.device,
+                 'Localize': None,
+                 'Model': ''})
         try:
-            sm = gammu.StateMachine()
+            if self.level == 'textall':
+                print 'Trying at %s using %s' % (self.device, connection)
+            gsm.Init()
+            self.listlock.acquire()
+            self.list.append((
+                self.device,
+                connection,
+                gsm.GetModel(),
+                gsm.GetManufacturer()
+                ))
+            self.listlock.release()
+            if self.level != 'nothing':
+                print '!!Found model %s at %s using %s' % (
+                        gsm.GetModel(),
+                        self.device,
+                        connection)
+            return
+        except gammu.GSMError:
+            if self.level == 'textall':
+                print 'Failed at %s using %s' % (self.device, connection)
+
+    def run(self):
+        '''
+        Tests all listed connections.
+        '''
+        try:
             for conn in self.connections:
-                sm.SetConfig(0,
-                        {'StartInfo': 'no',
-                         'UseGlobalDebugFile': 1,
-                         'DebugFile': '',
-                         'SyncTime': 'no',
-                         'Connection': conn,
-                         'LockDevice': self.lock,
-                         'DebugLevel': self.level,
-                         'Device': self.device,
-                         'Localize': None,
-                         'Model': ''})
-                try:
-                    if self.level == 'textall':
-                        print 'Trying at %s using %s' % (self.device, conn)
-                    sm.Init()
-                    self.listlock.acquire()
-                    self.list.append((self.device, conn, sm.GetModel(), sm.GetManufacturer()))
-                    self.listlock.release()
-                    if self.level != 'nothing':
-                        print '!!Found model %s at %s using %s' % (sm.GetModel(), self.device, conn)
-                    return
-                except gammu.GSMError:
-                    if self.level == 'textall':
-                        print 'Failed at %s using %s' % (self.device, conn)
-                    pass
+                self.try_connection(conn)
         except:
             evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
             wx.PostEvent(self.win, evt)
