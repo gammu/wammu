@@ -30,8 +30,9 @@ import os.path
 import sys
 try:
     import grp
+    HAVE_GRP = True
 except ImportError:
-    pass
+    HAVE_GRP = False
 import Wammu
 if Wammu.gammu_error == None:
     import gammu
@@ -129,9 +130,9 @@ class AllSearchThread(threading.Thread):
             return false
         if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
             gid =  os.stat(curdev).st_gid
-            try:
+            if HAVE_GRP:
                 group = grp.getgrgid(gid)[0]
-            except NameError:
+            else:
                 group = str(gid)
             if self.msgcallback != None:
                 self.msgcallback(_('You don\'t have permissions for %s device!') % curdev)
