@@ -52,6 +52,10 @@ except ImportError:
         BLUETOOTH = None
 
 class AllSearchThread(threading.Thread):
+    '''
+    Root thread for phone searching. It spawns other threads for testing each
+    device.
+    '''
     def __init__(self,
             lock = 'no',
             level = 'nothing',
@@ -72,6 +76,27 @@ class AllSearchThread(threading.Thread):
         self.noticecallback = noticecallback
         self.limit = limit
 
+    def create_search_thread(self, device, connections, name):
+        '''
+        Creates single thread for searching phone on device using listed
+        connections. Name is just text which will be shown to user.
+        '''
+        newthread = SearchThread(
+                device,
+                connections,
+                self.list,
+                self.listlock,
+                self.lock,
+                self.level)
+        newthread.setName(name)
+        if self.msgcallback != None:
+            self.msgcallback(
+                    _('Checking %s') %
+                    StrConv(name)
+                    )
+        self.threads.append(newthread)
+        newthread.start()
+
     def search_bt_device(self, address, name):
         '''
         Searches single bluetooth device.
@@ -84,16 +109,14 @@ class AllSearchThread(threading.Thread):
                 connections = Wammu.Data.Conn_Bluetooth[vendor]
                 vendorguess = _('Guessed as %s') % vendor
 
-        t = SearchThread(address, connections, self.list, self.listlock, self.lock, self.level)
-        t.setName('%s (%s) - %s - %s' % (
-            address,
-            name,
-            vendorguess,
-            connections))
-        if self.msgcallback != None:
-            self.msgcallback(_('Checking %s') %  StrConv(t.getName()))
-        self.threads.append(t)
-        t.start()
+        self.create_search_thread(
+                address,
+                connections,
+                '%s (%s) - %s - %s' % (
+                    address,
+                    name,
+                    vendorguess,
+                    str(connections)))
 
     def check_device(self, curdev):
         '''
@@ -109,12 +132,17 @@ class AllSearchThread(threading.Thread):
             else:
                 group = str(gid)
             if self.msgcallback != None:
-                self.msgcallback(_('You don\'t have permissions for %s device!') % curdev)
+                self.msgcallback(
+                        _('You don\'t have permissions for %s device!') %
+                        curdev)
             if self.noticecallback != None:
                 self.noticecallback(
                         _('Error opening device'),
-                        (_('You don\'t have permissions for %s device!') % curdev) + ' ' +
-                        (_('Maybe you need to be member of %s group.') % group))
+                        (_('You don\'t have permissions for %s device!') %
+                            curdev) +
+                        ' ' +
+                        (_('Maybe you need to be member of %s group.') %
+                            group))
         return True
 
     def search_device(self, curdev, dev):
@@ -125,12 +153,10 @@ class AllSearchThread(threading.Thread):
             if not self.check_device(curdev):
                 return
 
-        t = SearchThread(curdev, dev[0], self.list, self.listlock, self.lock, self.level, self.win)
-        t.setName('%s - %s' % (curdev, str(dev[0])))
-        if self.msgcallback != None:
-            self.msgcallback(_('Starting %s') %  StrConv(t.getName()))
-        self.threads.append(t)
-        t.start()
+        self.create_search_thread(
+                curdev,
+                dev[0],
+                '%s - %s' % (curdev, str(dev[0])))
 
     def listed_device_search(self):
         '''
@@ -146,6 +172,61 @@ class AllSearchThread(threading.Thread):
             else:
                 self.search_device(dev[1], dev)
 
+    def bluetooth_device_search_bluez(self):
+        '''
+        Initiates searching for Bluetooth devices using PyBluez stack.
+        '''
+        # read devices list
+        if self.msgcallback != None:
+            self.msgcallback(_('Scanning for bluetooth devices using %s') %
+                    'PyBluez')
+
+        try:
+            nearby_devices = bluetooth.discover_devices()
+
+            if len(nearby_devices) == 0 and self.msgcallback != None:
+                self.msgcallback(_('No bluetooth device found'))
+
+            for bdaddr in nearby_devices:
+                self.search_bt_device(
+                        bdaddr,
+                        bluetooth.lookup_name(bdaddr))
+            if self.msgcallback != None:
+                self.msgcallback(_('Bluetooth device scan completed'))
+        except bluetooth.BluetoothError, txt:
+            if self.msgcallback != None:
+                self.msgcallback(
+                        _('Could not access Bluetooth subsystem (%s)') %
+                        StrConv(txt))
+
+    def bluetooth_device_search_btctl(self):
+        '''
+        Initiates searching for Bluetooth devices using btctl stack.
+        '''
+        # read devices list
+        if self.msgcallback != None:
+            self.msgcallback(_('Scanning for bluetooth devices using %s') %
+                    'GNOME Bluetooth (btctl)')
+
+        # create controller object
+        try:
+            ctl = btctl.Controller('')
+        except TypeError:
+            ctl = btctl.Controller()
+
+        devs = ctl.discover_devices()
+
+        if devs == None or len(devs) == 0:
+            if self.msgcallback != None:
+                self.msgcallback(_('No bluetooth device found'))
+        else:
+            for dev in devs:
+                self.search_bt_device(
+                        dev['bdaddr'],
+                        ctl.get_device_preferred_name(dev['bdaddr']))
+        if self.msgcallback != None:
+            self.msgcallback(_('Bluetooth device scan completed'))
+
     def bluetooth_device_search(self):
         '''
         Initiates searching for Bluetooth devices.
@@ -153,43 +234,9 @@ class AllSearchThread(threading.Thread):
         if not self.limit in ['all', 'bluetooth']:
             return
         if BLUETOOTH == 'bluez':
-            # read devices list
-            if self.msgcallback != None:
-                self.msgcallback(_('Scanning for bluetooth devices using %s') % 'PyBluez')
-
-            try:
-                nearby_devices = bluetooth.discover_devices()
-
-                if len(nearby_devices) == 0 and self.msgcallback != None:
-                    self.msgcallback(_('No bluetooth device found'))
-
-                for bdaddr in nearby_devices:
-                    self.search_bt_device(bdaddr, bluetooth.lookup_name(bdaddr))
-                if self.msgcallback != None:
-                    self.msgcallback(_('Bluetooth device scan completed'))
-            except bluetooth.BluetoothError, txt:
-                if self.msgcallback != None:
-                    self.msgcallback(_('Could not access Bluetooth subsystem (%s)') % StrConv(txt))
+            self.bluetooth_device_search_bluez()
         elif BLUETOOTH == 'btctl':
-            # create controller object
-            try:
-                ctl = btctl.Controller('')
-            except TypeError:
-                ctl = btctl.Controller()
-            # read devices list
-            if self.msgcallback != None:
-                self.msgcallback(_('Scanning for bluetooth devices using %s') % 'GNOME Bluetooth (btctl)')
-
-            devs = ctl.discover_devices()
-
-            if devs == None or len(devs) == 0:
-                if self.msgcallback != None:
-                    self.msgcallback(_('No bluetooth device found'))
-            else:
-                for dev in devs:
-                    self.search_bt_device(dev['bdaddr'], ctl.get_device_preferred_name(dev['bdaddr']))
-            if self.msgcallback != None:
-                self.msgcallback(_('Bluetooth device scan completed'))
+            self.bluetooth_device_search_btctl()
         else:
             if self.msgcallback != None:
                 self.msgcallback(_('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
@@ -209,12 +256,14 @@ class AllSearchThread(threading.Thread):
                     i += 1
                 else:
                     if self.msgcallback != None:
-                        self.msgcallback(_('Finished %s') % StrConv(self.threads[i].getName()))
+                        self.msgcallback(_('Finished %s') %
+                                StrConv(self.threads[i].getName()))
                     del self.threads[i]
                 if i >= len(self.threads):
                     i = 0
             if self.msgcallback != None:
-                self.msgcallback(_('All finished, found %d phones') % len(self.list))
+                self.msgcallback(_('All finished, found %d phones') %
+                        len(self.list))
             if self.callback != None:
                 self.callback(self.list)
         except:
@@ -222,7 +271,14 @@ class AllSearchThread(threading.Thread):
             wx.PostEvent(self.win, evt)
 
 class SearchThread(threading.Thread):
-    def __init__(self, device, connections, lst, listlock, lock = 'no', level = 'nothing', win = None):
+    def __init__(self,
+            device,
+            connections,
+            lst,
+            listlock,
+            lock = 'no',
+            level = 'nothing',
+            win = None):
         threading.Thread.__init__(self)
         self.device = device
         self.connections = connections
@@ -302,9 +358,13 @@ class PhoneInfoThread(threading.Thread):
                      'DebugLevel': 'nothing',
                      'Device': self.device,
                      'Localize': None,
-                     'Model': ''})
+                     'Model': '',
+                     })
             sm.Init()
-            self.result = {'Model': sm.GetModel(), 'Manufacturer': sm.GetManufacturer()}
+            self.result = {
+                    'Model': sm.GetModel(),
+                    'Manufacturer': sm.GetManufacturer(),
+                    }
             evt = Wammu.Events.DataEvent(data = self.result)
             wx.PostEvent(self.win, evt)
         except gammu.GSMError:
