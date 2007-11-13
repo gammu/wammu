@@ -43,6 +43,7 @@ from Wammu.Locales import StrConv
 
 try:
     import bluetooth
+    import Wammu.BluezDiscovery
     BLUETOOTH = 'bluez'
 except ImportError:
     try:
@@ -182,15 +183,11 @@ class AllSearchThread(threading.Thread):
                     'PyBluez')
 
         try:
-            nearby_devices = bluetooth.discover_devices()
-
-            if len(nearby_devices) == 0 and self.msgcallback != None:
+            discovery = Wammu.BluezDiscovery.Discovery(self)
+            discovery.find_devices()
+            discovery.process_inquiry()
+            if len(discovery.names_found) == 0 and self.msgcallback != None:
                 self.msgcallback(_('No bluetooth device found'))
-
-            for bdaddr in nearby_devices:
-                self.search_bt_device(
-                        bdaddr,
-                        bluetooth.lookup_name(bdaddr))
             if self.msgcallback != None:
                 self.msgcallback(_('Bluetooth device scan completed'))
         except bluetooth.BluetoothError, txt:
