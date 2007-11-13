@@ -1063,23 +1063,27 @@ class WammuFrame(wx.Frame):
                 busy = wx.BusyInfo(_('Writing contact...'))
                 time.sleep(0.1)
                 wx.Yield()
-                # was entry moved => delete it
+                # was entry moved => delete it from internal list
                 if not shoulddelete:
-                    # delete from internal list
                     for idx in range(len(self.values['contact'][backup['MemoryType']])):
                         if self.values['contact'][backup['MemoryType']][idx] == v:
                             del self.values['contact'][backup['MemoryType']][idx]
                             break
 
-                    if v['MemoryType'] != backup['MemoryType'] or  v['Location'] != backup['Location']:
-                        # delete from phone
-                        self.sm.DeleteMemory(backup['MemoryType'], backup['Location'])
-
                 # have we specified location? => add or set
                 if v['Location'] == 0:
                     v['Location'] = self.sm.AddMemory(v)
                 else:
-                    v['Location'] = self.sm.SetMemory(v)
+                    try:
+                        v['Location'] = self.sm.SetMemory(v)
+                    except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+                        v['Location'] = self.sm.AddMemory(v)
+
+                # was entry moved => delete it from phone
+                if not shoulddelete:
+                    if v['MemoryType'] != backup['MemoryType'] or  v['Location'] != backup['Location']:
+                        # delete from phone
+                        self.sm.DeleteMemory(backup['MemoryType'], backup['Location'])
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 try:
@@ -1117,7 +1121,7 @@ class WammuFrame(wx.Frame):
                 busy = wx.BusyInfo(_('Writing calendar...'))
                 time.sleep(0.1)
                 wx.Yield()
-                # was entry moved => delete it
+                # was entry moved => delete it from internal list
                 if not shoulddelete:
                     # delete from internal list
                     for idx in range(len(self.values['calendar']['  '])):
@@ -1125,15 +1129,20 @@ class WammuFrame(wx.Frame):
                             del self.values['calendar']['  '][idx]
                             break
 
-                    if v['Location'] != backup['Location']:
-                        # delete from phone
-                        self.sm.DeleteCalendar(backup['Location'])
-
                 # have we specified location? => add or set
                 if v['Location'] == 0:
                     v['Location'] = self.sm.AddCalendar(v)
                 else:
-                    v['Location'] = self.sm.SetCalendar(v)
+                    try:
+                        v['Location'] = self.sm.SetCalendar(v)
+                    except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+                        v['Location'] = self.sm.AddCalendar(v)
+
+                # was entry moved => delete it from phone
+                if not shoulddelete:
+                    if v['Location'] != backup['Location']:
+                        # delete from phone
+                        self.sm.DeleteCalendar(backup['Location'])
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 try:
@@ -1164,23 +1173,27 @@ class WammuFrame(wx.Frame):
                 busy = wx.BusyInfo(_('Writing todo...'))
                 time.sleep(0.1)
                 wx.Yield()
-                # was entry moved => delete it
+                # was entry moved => delete it from internal list
                 if not shoulddelete:
-                    # delete from internal list
                     for idx in range(len(self.values['todo']['  '])):
                         if self.values['todo']['  '][idx] == v:
                             del self.values['todo']['  '][idx]
                             break
 
-                    if v['Location'] != backup['Location']:
-                        # delete from phone
-                        self.sm.DeleteToDo(backup['Location'])
-
                 # have we specified location? => add or set
                 if v['Location'] == 0:
                     v['Location'] = self.sm.AddToDo(v)
                 else:
-                    v['Location'] = self.sm.SetToDo(v)
+                    try:
+                        v['Location'] = self.sm.SetToDo(v)
+                    except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+                        v['Location'] = self.sm.AddToDo(v)
+
+                # was entry moved => delete it from phone
+                if not shoulddelete:
+                    if v['Location'] != backup['Location']:
+                        # delete from phone
+                        self.sm.DeleteToDo(backup['Location'])
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 try:
