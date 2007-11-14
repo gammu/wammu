@@ -29,10 +29,67 @@ if Wammu.gammu_error == None:
     import gammu
 
 class Reader(Wammu.Thread.Thread):
+    '''
+    Generic thread for reading information from phone.
+    '''
     def FallBackStatus(self):
+        '''
+        Returns fall back status if real can not be obtained.
+        '''
         return 200
 
+    def GetNextStart(self):
+        '''
+        Initiates get next sequence.
+
+        Should be implemented in subclases.
+        '''
+        raise Exception('Not implemented!')
+
+    def GetNext(self, location):
+        '''
+        Gets next entry.
+
+        Should be implemented in subclases.
+        '''
+        raise Exception('Not implemented!')
+
+    def Get(self, location):
+        '''
+        Gets entry.
+
+        Should be implemented in subclases.
+        '''
+        raise Exception('Not implemented!')
+
+    def GetStatus(self):
+        '''
+        Gets status of entries.
+
+        Should be implemented in subclases.
+        '''
+        raise Exception('Not implemented!')
+
+    def Parse(self):
+        '''
+        Parses entry.
+
+        Should be implemented in subclases.
+        '''
+        raise Exception('Not implemented!')
+
+    def Send(self):
+        '''
+        Sends entries to parent.
+
+        Should be implemented in subclases.
+        '''
+        raise Exception('Not implemented!')
+
     def Run(self):
+        '''
+        Main reader function, executed in thread.
+        '''
         self.ShowProgress(0)
 
         guess = False
@@ -63,6 +120,11 @@ class Reader(Wammu.Thread.Thread):
                         except TypeError:
                             loc = value[0]['Location']
                         value = self.GetNext(loc)
+                except gammu.ERR_CORRUPTED:
+                    self.ShowMessage(
+                            _('Ignoring corrupted'),
+                            _('While reading, entry on location %d seems to be corrupted, ignoring it!') % loc)
+                    continue
                 except gammu.ERR_EMPTY:
                     break
 
@@ -106,6 +168,11 @@ class Reader(Wammu.Thread.Thread):
                     if empty >= 70 and remain < 10:
                         self.ShowError(val[0])
                         remain = 0
+                except gammu.ERR_CORRUPTED:
+                    self.ShowMessage(
+                            _('Ignoring corrupted'),
+                            _('While reading, entry on location %d seems to be corrupted, ignoring it!') % location)
+                    continue
                 except gammu.GSMError, val:
                     self.ShowError(val[0], True)
                     return

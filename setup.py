@@ -49,7 +49,7 @@ except:
 skip_dependencies = False
 
 # some defines
-PYTHONGAMMU_REQUIRED = (0, 20)
+PYTHONGAMMU_REQUIRED = (0, 24)
 WXPYTHON_REQUIRED = (2, 6, 2, 0)
 
 # check if Python is called on the first line with this expression
@@ -382,8 +382,8 @@ distutils.core.setup(name="wammu",
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
         (os.path.join('share','applications'), ['wammu.desktop']),
         (os.path.join('share','pixmaps'), [
-            'icon/wammu.png', 
-            'icon/wammu.xpm', 
+            'icon/wammu.png',
+            'icon/wammu.xpm',
             'icon/wammu.ico',
             'icon/wammu.svg',
             ]),
