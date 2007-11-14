@@ -51,7 +51,6 @@ class PhoneValidator(wx.PyValidator):
         self.pause = pause
         self.empty = empty
         self.Bind(wx.EVT_CHAR, self.OnChar)
-        self.Bind(wx.EVT_TEXT, self.OnText)
 
     def Clone(self):
         return PhoneValidator(self.multi, self.pause, self.empty)
@@ -73,13 +72,13 @@ class PhoneValidator(wx.PyValidator):
         for val in values:
             if val == '':
                 result = self.empty
-            elif immediate and val == '+':
-                return True
-            elif self.pause and MATCHER_PAUSE.match(val) != None:
-                return True
+            elif self.pause and MATCHER_PAUSE.match(val) == None:
+                return False
             elif not self.pause and MATCHER_NORMAL.match(val) == None:
-                return True
-        return False
+                return False
+            elif immediate and val == '+':
+                continue
+        return True
 
     def Validate(self, win = None):
         textcontrol = self.GetWindow()
@@ -95,26 +94,6 @@ class PhoneValidator(wx.PyValidator):
             textcontrol.SetFocus()
 
         return result
-
-    def OnText(self, event):
-        '''
-        Tries to be friendly to user and silently removes spaces
-        which occur on pasting from some other programs.
-        '''
-        textcontrol = self.GetWindow()
-        val = textcontrol.GetValue()
-        out = ''
-        if self.pause:
-            matchstring = '0123456789*#pP'
-        else:
-            matchstring = '0123456789*#'
-        for i in range(len(val)):
-            ch = val[i]
-            if ch in matchstring:
-                out += ch
-            elif i == 0 and ch == '+':
-                out += ch
-        textcontrol.SetValue(out)
 
     def OnChar(self, event):
         key = event.GetKeyCode()
