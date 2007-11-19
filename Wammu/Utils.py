@@ -467,7 +467,10 @@ def DBUSServiceAvailable(bus, interface, try_start_service=False):
     except ImportError:
         return False
     if try_start_service:
-        bus.start_service_by_name(interface)
+        try:
+            bus.start_service_by_name(interface)
+        except DBusException:
+            print 'Failed to start DBus service %s' % interface
     obj = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
     dbus_iface = dbus.Interface(obj, 'org.freedesktop.DBus')
     avail = dbus_iface.ListNames()
