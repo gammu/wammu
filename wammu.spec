@@ -1,6 +1,7 @@
 %define name wammu
 %define version 0.25
-%define release 1
+%define rel 1
+%define extension   bz2
 
 %define python_gammu_req 0.24
 
@@ -14,10 +15,10 @@
 Summary:        Mobile phone manager
 Name:           %{name}
 Version:        %{version}
-Release:        %{release}
-Source0:        %{name}-%{version}.tar.bz2
+Release:        %{rel}
+Source0:        %{name}-%{version}.tar.%{extension}
 License:        GPL
-%if %_vendor == "suse"
+%if 0%{?suse_version}
 Group:          Hardware/Mobile
 %else
 Group:          Applications/Communications
@@ -46,19 +47,8 @@ supports - many Nokias, Siemens, Alcatel, ... Written using wxGTK.
 CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
 
 %install
-python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES --prefix=%{_prefix}
 sed -i '/man1/ D' INSTALLED_FILES
-%if %_vendor == "redhat"
-	# Dirty hack: on Fedora, the .pyo files don't get written to
-	# INSTALLED_FILES, so put them there manually (this should also be
-	# safe on systems where this works correctly, as we remove
-	# duplicates).
-	grep '\.pyc$' INSTALLED_FILES | sed 's/\.pyc/.pyo/g' >> INSTALLED_FILES.tmp
-	cat INSTALLED_FILES >> INSTALLED_FILES.tmp
-	sort -u INSTALLED_FILES.tmp > INSTALLED_FILES
-	rm -f INSTALLED_FILES.tmp
-	# End dirty hack
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
