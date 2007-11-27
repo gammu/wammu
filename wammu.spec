@@ -35,6 +35,7 @@ Requires:       python >= %py_minver, python < %py_maxver
 
 Url:        http://wammu.eu/
 Buildroot:  %{_tmppath}/%name-%version-root
+BuildArch: noarch
 
 %description
 Mobile phone manager using Gammu as it's backend. It works with any phone Gammu
