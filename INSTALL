@@ -6,19 +6,19 @@ python setup.py build
 su
 python setup.py install
 
-You need python-gammu and wxPython [0] (Unicode enabled build) installed to
+You need python-gammu and wxPython [1] (Unicode enabled build) installed to
 run and install this program. If you want support for scanning bluetooth
-devices, you need PyBluez [1]. For incoming events notifications, you
-need dbus-pyhon [2].
+devices, you need PyBluez [2]. For incoming events notifications, you
+need dbus-pyhon [3].
 
-For Windows you also have to install Pywin32 [3].
+For Windows you also have to install Pywin32 [4].
 
 If you want to obey dependency checking at build time for any reason,
 you can use --skip-deps option.
 
-[0]: http://wxpython.org/
-[1]: http://org.csail.mit.edu/pybluez/
-[2]: https://sourceforge.net/projects/pywin32/
+[1]: http://wxpython.org/
+[2]: http://org.csail.mit.edu/pybluez/
 [3]: http://www.freedesktop.org/wiki/Software/DBusBindings
+[4]: https://sourceforge.net/projects/pywin32/
 
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
