@@ -325,8 +325,8 @@ if HAVE_PY2EXE:
             'script': 'wammu.py',
             'icon_resources': [(1, 'icon/wammu.ico')],
         },
-        ],
-    addparams['zipfile'] = "shared.lib"
+        ]
+    addparams['zipfile'] = 'shared.lib'
 
 distutils.core.setup(name="wammu",
     version = Wammu.__version__,
@@ -400,6 +400,7 @@ distutils.core.setup(name="wammu",
     # py2exe options
     options = {'py2exe': {
             'optimize': 2,
+            'bundle_files': 1,
             'packages': py2exepackages,
         }},
     **addparams
