@@ -77,7 +77,7 @@ import Wammu.ErrorMessage
 import Wammu.TalkbackDialog
 import Wammu.WammuSettings
 import Wammu.SMSExport
-from Wammu.Locales import StrConv
+from Wammu.Locales import StrConv, ConsoleStrConv
 
 TALKBACK_COUNT = 30
 TALKBACK_DAYS = 30
