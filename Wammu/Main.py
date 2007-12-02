@@ -868,12 +868,18 @@ class WammuFrame(wx.Frame):
             self.tbicon.Destroy()
 
         if sys.platform != 'win32':
-            print 'Looks like normal program termination, deleting log file.'
+            print ConsoleStrConv(
+                _('Looks like normal program termination, deleting log file.')
+                )
         try:
             os.unlink(self.logfilename)
         except:
-            print 'Failed to unlink temporary log file, please delete it yourself'
-            print 'Filename: %s' % self.logfilename
+            print ConsoleStrConv(
+                _('Failed to unlink temporary log file, please delete it yourself')
+                )
+            print ConsoleStrConv(
+                _('Filename: %s') % self.logfilename
+                )
 
         # Forcibily save configuration
         self.cfg.Flush()
