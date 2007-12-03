@@ -875,7 +875,7 @@ class WammuFrame(wx.Frame):
             os.unlink(self.logfilename)
         except:
             print ConsoleStrConv(
-                _('Failed to unlink temporary log file, please delete it yourself')
+                _('Failed to unlink temporary log file, please delete it yourself.')
                 )
             print ConsoleStrConv(
                 _('Filename: %s') % self.logfilename

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-12-03 13:32+0900\n"
-"PO-Revision-Date: 2007-11-13 09:36+0900\n"
+"POT-Creation-Date: 2007-12-03 13:39+0900\n"
+"PO-Revision-Date: 2007-12-03 13:39+0900\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1388,17 +1388,17 @@ msgstr "Poznámka"
 
 #: Wammu/Main.py:872
 msgid "Looks like normal program termination, deleting log file."
-msgstr ""
+msgstr "Program se ukončil bez chyby, odstraňuji ladicí soubor."
 
 #: Wammu/Main.py:878
-msgid "Failed to unlink temporary log file, please delete it yourself"
+msgid "Failed to unlink temporary log file, please delete it yourself."
 msgstr ""
+"Nepodařilo se odstranit dočasný ladicí soubor, prosím odstraňte ho sami."
 
 #: Wammu/Main.py:881
-#, fuzzy, python-format
-#| msgid "Finished %s"
+#, python-format
 msgid "Filename: %s"
-msgstr "Dokončeno %s"
+msgstr "Jméno souboru: %s"
 
 #: Wammu/Main.py:892 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
@@ -2217,12 +2217,12 @@ msgstr "Průvodce připojení telefonu Wammu"
 
 #: Wammu/Reader.py:125 Wammu/Reader.py:173
 msgid "Ignoring corrupted"
-msgstr ""
+msgstr "Porušený záznam přeskočen"
 
 #: Wammu/Reader.py:126 Wammu/Reader.py:174
 #, python-format
 msgid "While reading, entry on location %d seems to be corrupted, ignoring it!"
-msgstr ""
+msgstr "Položka na pozici %d vypadá jako porušená, při čtení byla přeskočena!"
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
