@@ -1338,7 +1338,7 @@ class WammuFrame(wx.Frame):
                 wildcard += _('vCard [contacts]') + ' (*.vcf)|*.vcf|'
                 exts.append('vcf')
             if type in ['contact', 'all']:
-                wildcard += _('LDIF [concacts]') + ' (*.ldif)|*.ldif|'
+                wildcard += _('LDIF [contacts]') + ' (*.ldif)|*.ldif|'
                 exts.append('ldif')
             if type in ['todo', 'calendar', 'all']:
                 wildcard += _('vCalendar [todo,calendar]') + ' (*.vcs)|*.vcs|'
