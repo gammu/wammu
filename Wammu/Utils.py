@@ -469,7 +469,7 @@ def DBUSServiceAvailable(bus, interface, try_start_service=False):
     if try_start_service:
         try:
             bus.start_service_by_name(interface)
-        except DBusException:
+        except dbus.exceptions.DBusException:
             print 'Failed to start DBus service %s' % interface
     obj = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
     dbus_iface = dbus.Interface(obj, 'org.freedesktop.DBus')
