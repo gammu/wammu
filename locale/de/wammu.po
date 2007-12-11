@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2007-12-03 13:39+0900\n"
-"PO-Revision-Date: 2007-11-22 14:09+0100\n"
+"PO-Revision-Date: 2007-12-10 14:57+0100\n"
 "Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1460,17 +1460,18 @@ msgstr "Anmerkung"
 
 #: Wammu/Main.py:872
 msgid "Looks like normal program termination, deleting log file."
-msgstr ""
+msgstr "Anscheinend normales Programmende, Log-Datei wird gelöscht."
 
 #: Wammu/Main.py:878
 msgid "Failed to unlink temporary log file, please delete it yourself."
 msgstr ""
+"Temporäre Log-Datei konnte nicht entfernt werden, bitte manuell löschen."
 
+#  msgid "Finished %s"
 #: Wammu/Main.py:881
-#, fuzzy, python-format
-#| msgid "Finished %s"
+#, python-format
 msgid "Filename: %s"
-msgstr "%s beendet"
+msgstr "Dateiname: %s"
 
 #: Wammu/Main.py:892 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
@@ -2309,12 +2310,14 @@ msgstr "Wammu Handy-Konfigurationsassistent"
 
 #: Wammu/Reader.py:125 Wammu/Reader.py:173
 msgid "Ignoring corrupted"
-msgstr ""
+msgstr "Beschädigte werden ignoriert"
 
 #: Wammu/Reader.py:126 Wammu/Reader.py:174
 #, python-format
 msgid "While reading, entry on location %d seems to be corrupted, ignoring it!"
 msgstr ""
+"Während des Einlesens scheint der der Eintrag bei %d beschädigt zu sein und "
+"wird ignoriert."
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
