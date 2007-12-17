@@ -90,7 +90,10 @@ class TestPage(Wammu.Wizard.SimplePage):
     def OnSearchEnd(self, evt):
         self.thread = None
         if evt.data is None:
-            self.detail.SetLabel(_('Phone not found!'))
+            self.detail.SetLabel('%s\n%s' % (
+                    evt.error[0],
+                    evt.error[1]
+                    ))
             self.detail.Wrap(400)
         else:
             manuf = evt.data['Manufacturer']

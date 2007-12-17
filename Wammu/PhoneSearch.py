@@ -25,14 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 import threading
-import os
-import os.path
 import sys
-try:
-    import grp
-    HAVE_GRP = True
-except ImportError:
-    HAVE_GRP = False
 import Wammu
 if Wammu.gammu_error == None:
     import gammu
@@ -40,6 +33,7 @@ import Wammu.Data
 import Wammu.Events
 import wx.lib.layoutf
 from Wammu.Locales import StrConv
+import Wammu.Utils
 
 try:
     import bluetooth
@@ -124,27 +118,17 @@ class AllSearchThread(threading.Thread):
         Checks whether it makes sense to perform searching on this device and
         possibly warns user about misconfigurations.
         '''
-        if not os.path.exists(curdev):
+        res = Wammu.Utils.CheckDeviceNode(curdev)
+
+        if res[0] == 0:
+            return True
+        if res[0] == -1:
             return False
-        if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
-            gid =  os.stat(curdev).st_gid
-            if HAVE_GRP:
-                group = grp.getgrgid(gid)[0]
-            else:
-                group = str(gid)
-            if self.msgcallback != None:
-                self.msgcallback(
-                        _('You don\'t have permissions for %s device!') %
-                        curdev)
-            if self.noticecallback != None:
-                self.noticecallback(
-                        _('Error opening device'),
-                        (_('You don\'t have permissions for %s device!') %
-                            curdev) +
-                        ' ' +
-                        (_('Maybe you need to be member of %s group.') %
-                            group))
-        return True
+        if res[1] != '' and self.msgcallback != None:
+            self.msgcallback(res[1])
+        if res[2] != '' and self.noticecallback != None:
+            self.noticecallback(res[2], res[3])
+        return False
 
     def search_device(self, curdev, dev):
         '''
@@ -343,6 +327,13 @@ class PhoneInfoThread(threading.Thread):
         self.win = win
 
     def run(self):
+        res = Wammu.Utils.CheckDeviceNode(self.device)
+        if res[0] != 0:
+            evt = Wammu.Events.DataEvent(
+                    data = None,
+                    error = (res[2], res[3]))
+            wx.PostEvent(self.win, evt)
+            return
         try:
             sm = gammu.StateMachine()
             sm.SetConfig(0,
@@ -364,6 +355,11 @@ class PhoneInfoThread(threading.Thread):
                     }
             evt = Wammu.Events.DataEvent(data = self.result)
             wx.PostEvent(self.win, evt)
-        except gammu.GSMError:
-            evt = Wammu.Events.DataEvent(data = None)
+        except gammu.GSMError, val:
+            info = val[0]
+            evt = Wammu.Events.DataEvent(
+                data = None,
+                error = (_('Failed to connect to phone'),
+                    Wammu.Utils.FormatError('', info)
+                    ))
             wx.PostEvent(self.win, evt)

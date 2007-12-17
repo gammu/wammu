@@ -29,6 +29,12 @@ import sys
 import re
 import wx
 import string
+import os
+try:
+    import grp
+    HAVE_GRP = True
+except ImportError:
+    HAVE_GRP = False
 import Wammu.Locales
 from Wammu.Locales import StrConv
 
@@ -475,3 +481,36 @@ def DBUSServiceAvailable(bus, interface, try_start_service=False):
     dbus_iface = dbus.Interface(obj, 'org.freedesktop.DBus')
     avail = dbus_iface.ListNames()
     return interface in avail
+
+
+def CheckDeviceNode(curdev):
+    '''
+    Checks whether it makes sense to perform searching on this device and
+    possibly warns user about misconfigurations.
+
+    Returns tuple of 4 members:
+    - error code (0 = ok, -1 = device does not exits, -2 = no permissions)
+    - log text
+    - error dialog title
+    - error dialog text
+    '''
+    if not os.path.exists(curdev):
+        return (-1,
+                _('Device %s does not exist!') % curdev,
+                _('Error opening device'),
+                _('Device %s does not exist!') % curdev
+                )
+    if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
+        gid =  os.stat(curdev).st_gid
+        if HAVE_GRP:
+            group = grp.getgrgid(gid)[0]
+        else:
+            group = str(gid)
+        return (-2,
+                _('You don\'t have permissions for %s device!') % curdev,
+                _('Error opening device'),
+                (_('You don\'t have permissions for %s device!') % curdev) +
+                ' ' +
+                (_('Maybe you need to be member of %s group.') % group)
+                )
+    return (0, '', '', '')
