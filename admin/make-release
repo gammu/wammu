@@ -29,4 +29,9 @@ fi
 
 mv dist/* ../
 
+wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
+mv dist/* ../
+
 echo "Release is in $tmp directory"
+ls -lh $tmp
