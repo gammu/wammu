@@ -36,7 +36,18 @@ __version__ = "1.1"
 
 MESSAGES = {}
 
+def _(text):
+    return text
 
+# Just a hack to translate desktop file
+# l10n: Name of program shown in desktop file
+DESKTOP_NAME = _('Wammu')
+# l10n: Generic name of program shown in desktop file
+DESKTOP_GENERIC_NAME = _('Mobile Phone Manager')
+# l10n: Comment about program shown in desktop file
+DESKTOP_COMMENT = _('Application for mobile phones - frontend for Gammu')
+
+DESKTOP_TRANSLATIONS = { }
 
 def usage(code, msg=''):
     print >> sys.stderr, __doc__
@@ -49,10 +60,18 @@ def usage(code, msg=''):
 def add(id, str, fuzzy):
     "Add a non-fuzzy translation to the dictionary."
     global MESSAGES
+    global DESKTOP_NAME
+    global DESKTOP_GENERIC_NAME
+    global DESKTOP_COMMENT
+    global DESKTOP_TRANSLATIONS
     if not fuzzy and str and not str.startswith('\0'):
         MESSAGES[id] = str
-
-
+        if id == DESKTOP_NAME:
+            DESKTOP_TRANSLATIONS['Name'] = str
+        elif id == DESKTOP_GENERIC_NAME:
+            DESKTOP_TRANSLATIONS['GenericName'] = str
+        elif id == DESKTOP_COMMENT:
+            DESKTOP_TRANSLATIONS['Comment'] = str
 
 def generate():
     "Return the generated output."
@@ -101,7 +120,9 @@ def make(filename, outfile):
     ID = 1
     STR = 2
     global MESSAGES
+    global DESKTOP_TRANSLATIONS
     MESSAGES = {}
+    DESKTOP_TRANSLATIONS = {}
 
     # Compute .mo name from .po name and arguments
     if filename.endswith('.po'):

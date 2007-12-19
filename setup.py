@@ -146,7 +146,7 @@ def list_message_files(package = 'wammu', suffix = '.po'):
     for _file in _files:
         # basename (without extension) is a locale name
         _locale = os.path.basename(os.path.dirname(_file))
-        _list.append((_file, os.path.join(
+        _list.append((_locale, _file, os.path.join(
             'share', 'locale', _locale, 'LC_MESSAGES', '%s.mo' % package)))
     return _list
 
@@ -171,16 +171,42 @@ class build_wammu(distutils.command.build.build, object):
     def build_message_files (self):
         """
         For each locale/*.po, build .mo file in target locale directory.
+
+        As a side effect we build wammu.desktop file with updated
+        translations here.
         """
-        for (_src, _dst) in list_message_files():
+        desktop_translations = {}
+        for (_locale, _src, _dst) in list_message_files():
             _build_dst = os.path.join('build', _dst)
             destdir = os.path.dirname(_build_dst)
             if not os.path.exists(destdir):
                 self.mkpath(destdir)
-            if not os.path.exists(_build_dst) or \
-              (os.path.getmtime(_build_dst) < os.path.getmtime(_src)):
-                distutils.log.info('compiling %s -> %s' % (_src, _build_dst))
-                msgfmt.make(_src, _build_dst)
+            distutils.log.info('compiling %s -> %s' % (_src, _build_dst))
+            msgfmt.make(_src, _build_dst)
+            desktop_translations[_locale] = msgfmt.DESKTOP_TRANSLATIONS
+
+        desktop = os.path.join('build', 'wammu.desktop')
+        in_desktop = file('wammu.desktop.in', 'r')
+        out_desktop = file(desktop, 'w')
+        for line in in_desktop:
+            if line.startswith('_Name'):
+                out_desktop.write('Name=%s\n' % msgfmt.DESKTOP_NAME)
+                for loc in desktop_translations.keys():
+                    if desktop_translations[loc].has_key('Name'):
+                        out_desktop.write('Name[%s]=%s\n' % (loc, desktop_translations[loc]['Name']))
+            elif line.startswith('_GenericName'):
+                out_desktop.write('GenericName=%s\n' % msgfmt.DESKTOP_GENERIC_NAME)
+                for loc in desktop_translations.keys():
+                    if desktop_translations[loc].has_key('GenericName'):
+                        out_desktop.write('GenericName[%s]=%s\n' % (loc, desktop_translations[loc]['GenericName']))
+            elif line.startswith('_Comment'):
+                out_desktop.write('Comment=%s\n' % msgfmt.DESKTOP_COMMENT)
+                for loc in desktop_translations.keys():
+                    if desktop_translations[loc].has_key('Comment'):
+                        out_desktop.write('Comment[%s]=%s\n' % (loc, desktop_translations[loc]['Comment']))
+            else:
+                out_desktop.write(line)
+
 
     def check_requirements(self):
         if os.getenv('SKIPGAMMUCHECK') == 'yes':
@@ -304,10 +330,11 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         Install also .mo files.
         """
         # add .mo files to data files
-        for (_src, _dst) in list_message_files():
+        for (_locale, _src, _dst) in list_message_files():
             _build_dst = os.path.join('build', _dst)
             item = [os.path.dirname(_dst), [_build_dst]]
             self.data_files.append(item)
+
         # install data files
         super(install_data_wammu, self).run()
 
@@ -396,7 +423,7 @@ distutils.core.setup(name="wammu",
     data_files = [
         (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
         (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
-        (os.path.join('share','applications'), ['wammu.desktop']),
+        (os.path.join('share','applications'), ['build/wammu.desktop']),
         (os.path.join('share','pixmaps'), [
             'icon/wammu.png',
             'icon/wammu.xpm',
