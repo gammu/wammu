@@ -38,32 +38,15 @@ does not seem to work in Wine now:
 
 wine c:\\python25\\python setup.py build --skip-deps py2exe
 
-
 To start Wammu in local directory using wine just start:
 
 wine c:\\python25\\python wammu.py
 
-If it complains (end of traceback):
-  File "C:\Python25\lib\random.py", line 108, in seed
-    a = long(_hexlify(_urandom(16)), 16)
-WindowsError: [Error -2146893801] Windows Error 0x80090017
+You can also use InnoSetup[6] to build installer for Wammu:
 
-It's because of wine problem. Then use the following patch:
-
---- wammu.py.orig	2007-05-07 11:22:24.000000000 +0300
-+++ wammu.py	2007-11-23 05:40:22.654590589 +0200
-@@ -30,6 +30,9 @@
- import Wammu
- import Wammu.Locales
- 
-+def ni(i): raise NotImplementedError
-+os.urandom = ni
-+
- # Try to import iconv_codec to allow working on chinese windows
- try:
-     import iconv_codec
-
+wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 
 [5]: http://www.py2exe.org/
+[6]: http://www.jrsoftware.org/isinfo.php
 
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
