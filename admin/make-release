@@ -29,9 +29,18 @@ fi
 
 mv dist/* ../
 
+# Build Windows Python installer
 wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
 
 mv dist/* ../
+
+rm -rf dist
+
+# Build pyexe module
+wine c:\\python25\\python setup.py build --skip-deps py2exe
+# py2exe does not catch these for some reason
+cp ~/.wine/drive_c/windows/system32/python25.dll dist/
+cp ~/.wine/drive_c/Python25/Lib/site-packages/wx-2.8-msw-unicode/wx/*.dll dist/
 
 echo "Release is in $tmp directory"
 ls -lh $tmp
