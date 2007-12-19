@@ -25,63 +25,23 @@ you can use --skip-deps option.
 Cross compilation for Windows on Linux
 ======================================
 
-First we'll need wxWidgets and wxPython. You can install both using
-packages provided on their home pages. If you want to build, read next
-part.
+You need Wine with installed all dependencies (see above section where
+to get them).
 
-wxWidgets was built with that command line (adapted from BUILD.txt in
-WX_2_8_BRANCH):
+Building installer for wammu for Python is easy:
 
-CXX=i586-mingw32msvc-g++ CC=i586-mingw32msvc-gcc ./configure --with-msw \
---host=i586-mingw32msvc --target=i586-mingw32msvc --prefix=/opt/wx/2.8 \
---enable-unicode --enable-optimise --enable-debug_flag --enable-shared --disable-rpath \
---with-expat=builtin --with-regex=builtin
+wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
 
-To build windows python extentions, I prefered to use windows python
-running with wine making python.exe/wine invoke linux's i386-mingw32-*
-toolchain. This let distutils believe it can use the Cygwin/MinGW32
-compiler (-mno-cygwin) without patching.
+However this way user needs to also install all dependencies, what is
+really not comfortable. This should be solved using py2exe[5], but it
+does not seem to work in Wine now:
 
-So, install wine and install python on wine:
-msiexec /i python-2.5.1.msi
+wine c:\\python25\\python setup.py build --skip-deps py2exe
 
-At the top of your wxPython source tree, copy MakeFakeWin.sh and
-launch it with the first part of your mingw crosscompiler name without
-'-gcc'. For example, if your mingw crosscompiler is called i586-mingw32msvc-gcc:
-./MakeFakeWin.sh i586-mingw32msvc
 
-Now gcc.exe, g++.exe, dllwrap.exe, dlltool.exe and wx-config.exe
-have been created in CWD. These are links to a real windows executable
-(wine_linux_launcher.exe) that call the locally created
-wine_linux_launcher.sh script, with executable name + all invocation
-arguments as parameters, and wait for result files for both return value
-and stdout be created and finally pass result back to calling app, i.e.
-python.exe, in the windows way... To summary, it let distutils do
-os.popen and os.spawn as expected.
-For the time being please replace in generated wine_linux_launcher.sh line
-i586-mingw32msvc-$bzname $res > ${exename}_stdout
-with line
-i586-mingw32msvc-$bzname $res -lstdc++ > ${exename}_stdout
+To start Wammu in local directory using wine just start:
 
-wine 'c:\Python25\python.exe' setup.py COMPILER=mingw32 CORE_ONLY=1 WX_CONFIG="wx-config" build
-wine 'c:\Python25\python.exe' setup.py COMPILER=mingw32 CORE_ONLY=1 WX_CONFIG="wx-config" install -f
-
-If wine complains about COMSPEC environment variable use
-export COMSPEC=cmd.
-
-Install PyWin32:
-wine pywin32-210.win32-py2.5.exe
-
-At the top of your wammu source tree, copy MakeFakeWin.sh and
-launch it with the first part of your mingw crosscompiler name without
-'-gcc'. For example, if your mingw crosscompiler is called i586-mingw32msvc-gcc:
-./MakeFakeWin.sh i586-mingw32msvc
-
-wine c:\\python25\\python setup.py build -c mingw32
-
-TODO - create a package using py2exe.
-
-Now you can run wine c:\\python25\\python wammu.py
+wine c:\\python25\\python wammu.py
 
 If it complains (end of traceback):
   File "C:\Python25\lib\random.py", line 108, in seed
@@ -103,5 +63,7 @@ It's because of wine problem. Then use the following patch:
  try:
      import iconv_codec
 
+
+[5]: http://www.py2exe.org/
 
 # vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
