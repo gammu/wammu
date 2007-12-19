@@ -242,6 +242,8 @@ class Settings:
             return []
         except bluetooth.BluetoothError:
             return []
+        except IOError:
+            return []
 
     def CheckDev(self, dev):
         if sys.platform == 'win32':
