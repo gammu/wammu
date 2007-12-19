@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-12-11 10:18+0900\n"
+"POT-Creation-Date: 2007-12-19 10:22+0900\n"
 "PO-Revision-Date: 2007-12-10 22:00+0100\n"
 "Last-Translator: Ivan Potapov <elsewhere@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1759,71 +1759,63 @@ msgid ""
 "missing support for it in Gammu."
 msgstr ""
 
-#: Wammu/PhoneSearch.py:95
+#: Wammu/PhoneSearch.py:89
 #, python-format
 msgid "Checking %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:106
+#: Wammu/PhoneSearch.py:100
 msgid "Could not guess vendor"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:111
+#: Wammu/PhoneSearch.py:105
 #, python-format
 msgid "Guessed as %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:137 Wammu/PhoneSearch.py:142
-#, python-format
-msgid "You don't have permissions for %s device!"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:141
-msgid "Error opening device"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:145
-#, python-format
-msgid "Maybe you need to be member of %s group."
-msgstr ""
-
-#: Wammu/PhoneSearch.py:182 Wammu/PhoneSearch.py:205
+#: Wammu/PhoneSearch.py:166 Wammu/PhoneSearch.py:189
 #, python-format
 msgid "Scanning for bluetooth devices using %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:190 Wammu/PhoneSearch.py:218
+#: Wammu/PhoneSearch.py:174 Wammu/PhoneSearch.py:202
 msgid "No bluetooth device found"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:192 Wammu/PhoneSearch.py:225
+#: Wammu/PhoneSearch.py:176 Wammu/PhoneSearch.py:209
 msgid "Bluetooth device scan completed"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:196
+#: Wammu/PhoneSearch.py:180
 #, python-format
 msgid "Could not access Bluetooth subsystem (%s)"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:239 Wammu/PhoneSearch.py:243
+#: Wammu/PhoneSearch.py:223 Wammu/PhoneSearch.py:227
 msgid ""
 "Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for "
 "bluetooth devices"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:242
+#: Wammu/PhoneSearch.py:226
 msgid "No bluetooth searching"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:256
+#: Wammu/PhoneSearch.py:240
 #, python-format
 msgid "Finished %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:262
+#: Wammu/PhoneSearch.py:246
 #, python-format
 msgid "All finished, found %d phones"
 msgstr ""
+
+#: Wammu/PhoneSearch.py:362
+#, fuzzy
+#| msgid "Failed to set exception handler."
+msgid "Failed to connect to phone"
+msgstr "Не удалось установить обработчик исключения."
 
 #: Wammu/PhoneValidator.py:91
 msgid "You did not specify valid phone number."
@@ -1853,66 +1845,66 @@ msgstr ""
 msgid "Wammu is now testing phone connection, please wait..."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:93 Wammu/PhoneWizard.py:116
-msgid "Phone not found!"
-msgstr ""
-
-#: Wammu/PhoneWizard.py:101
+#: Wammu/PhoneWizard.py:104
 msgid "Phone has been found."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:102
+#: Wammu/PhoneWizard.py:105
 #, python-format
 msgid ""
 "Manufacturer: %(manufacturer)s\n"
 "Model: %(model)s"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:109 Wammu/PhoneWizard.py:126
+#: Wammu/PhoneWizard.py:112 Wammu/PhoneWizard.py:129
 msgid "Phone connection test is still active, you can not continue."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:110 Wammu/PhoneWizard.py:127
+#: Wammu/PhoneWizard.py:113 Wammu/PhoneWizard.py:130
 msgid "Testing still active!"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:115
+#: Wammu/PhoneWizard.py:118
 msgid "Phone has not been found, are you sure you want to continue?"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:138
+#: Wammu/PhoneWizard.py:119
+msgid "Phone not found!"
+msgstr ""
+
+#: Wammu/PhoneWizard.py:141
 msgid "Phone search"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:139
+#: Wammu/PhoneWizard.py:142
 msgid "Phone searching status"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:153 Wammu/PhoneWizard.py:169
+#: Wammu/PhoneWizard.py:156 Wammu/PhoneWizard.py:172
 msgid "Phone search is still active, you can not continue."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:154 Wammu/PhoneWizard.py:170
+#: Wammu/PhoneWizard.py:157 Wammu/PhoneWizard.py:173
 msgid "Searching still active!"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:159
+#: Wammu/PhoneWizard.py:162
 msgid "No phone has not been found, you can not continue."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:160
+#: Wammu/PhoneWizard.py:163
 msgid "No phone found!"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:178
+#: Wammu/PhoneWizard.py:181
 msgid "Wammu is now searching for phone:"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:225
+#: Wammu/PhoneWizard.py:228
 msgid "No phone has been found!"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:233 Wammu/PhoneWizard.py:257
+#: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
 #, fuzzy, python-format
 msgid ""
 "Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
@@ -1921,72 +1913,72 @@ msgstr ""
 "Модель %(model)s (%(manufacturer)s) на порту %(port)s с использованием "
 "соединения %(connection)s"
 
-#: Wammu/PhoneWizard.py:240
+#: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from bellow list"
 msgstr "Выберите телефон из числа приведённых ниже"
 
-#: Wammu/PhoneWizard.py:240
+#: Wammu/PhoneWizard.py:243
 msgid "Select phone"
 msgstr "Выберите телефон"
 
-#: Wammu/PhoneWizard.py:255
+#: Wammu/PhoneWizard.py:258
 msgid "Following phone will be used:"
 msgstr "Будет использован следующий телефон:"
 
-#: Wammu/PhoneWizard.py:265
+#: Wammu/PhoneWizard.py:268
 msgid "No phone selected!"
 msgstr "Телефон не выбран!"
 
-#: Wammu/PhoneWizard.py:274 Wammu/PhoneWizard.py:462
+#: Wammu/PhoneWizard.py:277 Wammu/PhoneWizard.py:465
 msgid "Manual configuration"
 msgstr "Настройка вручную"
 
-#: Wammu/PhoneWizard.py:276
+#: Wammu/PhoneWizard.py:279
 msgid "Port where phone is connected"
 msgstr "Порт, к которому подключён телефон"
 
-#: Wammu/PhoneWizard.py:277 Wammu/PhoneWizard.py:370 Wammu/PhoneWizard.py:371
-#: Wammu/PhoneWizard.py:441 Wammu/PhoneWizard.py:442
+#: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
+#: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
 msgid "Connection type"
 msgstr "Тип соединения"
 
-#: Wammu/PhoneWizard.py:294 Wammu/PhoneWizard.py:326
+#: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
 msgid "You need to select port which will be used."
 msgstr "Вам нужно выбрать порт, который будет использоваться в дальнейшем."
 
-#: Wammu/PhoneWizard.py:295 Wammu/PhoneWizard.py:327
+#: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
 msgid "No port selected!"
 msgstr "Не выбран порт!"
 
-#: Wammu/PhoneWizard.py:300
+#: Wammu/PhoneWizard.py:303
 msgid "You need to select connection type which will be used."
 msgstr ""
 "Вам нужно выбрать тип соединения, которое будет использовано в дальнейшем."
 
-#: Wammu/PhoneWizard.py:301
+#: Wammu/PhoneWizard.py:304
 msgid "No connection selected!"
 msgstr "Не выбрано соединение!"
 
-#: Wammu/PhoneWizard.py:313
+#: Wammu/PhoneWizard.py:316
 msgid "Phone port"
 msgstr "Порт телефона"
 
-#: Wammu/PhoneWizard.py:314
+#: Wammu/PhoneWizard.py:317
 msgid "Please enter port where phone is connected"
 msgstr "Пожалуйста, укажите порт, к которому подключён телефон"
 
-#: Wammu/PhoneWizard.py:341 Wammu/PhoneWizard.py:345 Wammu/PhoneWizard.py:346
+#: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
 #, fuzzy
 msgid "Driver to use"
 msgstr "Подходящий драйвер"
 
-#: Wammu/PhoneWizard.py:342
+#: Wammu/PhoneWizard.py:345
 msgid ""
 "Sorry no driver matches your configuration, please return back and try "
 "different settings or manual configuration."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:348
+#: Wammu/PhoneWizard.py:351
 msgid ""
 "Please select which driver you want to use. Follow the help text shown "
 "bellow to select the best one."
@@ -1994,29 +1986,29 @@ msgstr ""
 "Пожалуйста, выберите, какой драйвер вы хотите использовать. Посмотрите "
 "текстовые подсказки внизу, чтобы выбрать наилучший."
 
-#: Wammu/PhoneWizard.py:373
+#: Wammu/PhoneWizard.py:376
 msgid ""
 "Please select connection type, default choice should be best in most cases."
 msgstr ""
 "Пожалуйста, выберите тип соединения, выбор по умолчанию в большинстве "
 "случаев будет лучшим."
 
-#: Wammu/PhoneWizard.py:394 Wammu/PhoneWizard.py:395
+#: Wammu/PhoneWizard.py:397 Wammu/PhoneWizard.py:398
 msgid "Phone type"
 msgstr "Тип телефона"
 
-#: Wammu/PhoneWizard.py:397
+#: Wammu/PhoneWizard.py:400
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
 "Пожалуйста, выберите производителя или тип телефона. Постарайтесь определить "
 "его как можно точнее."
 
-#: Wammu/PhoneWizard.py:421
+#: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
 msgstr "Искать все соединения"
 
-#: Wammu/PhoneWizard.py:422
+#: Wammu/PhoneWizard.py:425
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
 "time to search all possible connection types."
@@ -2024,11 +2016,11 @@ msgstr ""
 "Мастер попробует найти все возможные соединения. Возможно, понадобится "
 "продолжительное время, чтобы найти все типы."
 
-#: Wammu/PhoneWizard.py:425
+#: Wammu/PhoneWizard.py:428
 msgid "USB cable"
 msgstr "Кабель USB"
 
-#: Wammu/PhoneWizard.py:426
+#: Wammu/PhoneWizard.py:429
 msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
@@ -2036,11 +2028,11 @@ msgstr ""
 "Многие телефоны сейчас поставляются с кабелями USB, выберите этот пункт, "
 "если Ваш телефон из их числа."
 
-#: Wammu/PhoneWizard.py:429
+#: Wammu/PhoneWizard.py:432
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: Wammu/PhoneWizard.py:430
+#: Wammu/PhoneWizard.py:433
 msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
@@ -2049,11 +2041,11 @@ msgstr ""
 "находились в прямой видимости. Прежде, чем продолжить, убедитесь, что "
 "телефон и компьютер правильно сопряжены."
 
-#: Wammu/PhoneWizard.py:433
+#: Wammu/PhoneWizard.py:436
 msgid "IrDA"
 msgstr "IrDA"
 
-#: Wammu/PhoneWizard.py:434
+#: Wammu/PhoneWizard.py:437
 msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
@@ -2062,45 +2054,45 @@ msgstr ""
 "находились в прямой видимости. Убедитесь, что это требование выполнено, и "
 "компьютер \"видит\" телефон."
 
-#: Wammu/PhoneWizard.py:437
+#: Wammu/PhoneWizard.py:440
 #, fuzzy
 msgid "Serial cable"
 msgstr "Последовательное соединение"
 
-#: Wammu/PhoneWizard.py:438
+#: Wammu/PhoneWizard.py:441
 msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr ""
 "Это соединение сегодня используется не часто, но оно было очень популярно "
 "раньше."
 
-#: Wammu/PhoneWizard.py:444
+#: Wammu/PhoneWizard.py:447
 msgid "How is your phone connected?"
 msgstr "Как подключён Ваш телефон?"
 
-#: Wammu/PhoneWizard.py:457 Wammu/PhoneWizard.py:458
+#: Wammu/PhoneWizard.py:460 Wammu/PhoneWizard.py:461
 msgid "Configuration style"
 msgstr "Стиль настройки"
 
-#: Wammu/PhoneWizard.py:460
+#: Wammu/PhoneWizard.py:463
 #, fuzzy
 msgid "Guided configuration"
 msgstr "Пошаговая настройка"
 
-#: Wammu/PhoneWizard.py:461
+#: Wammu/PhoneWizard.py:464
 msgid "Automatically search for a phone"
 msgstr "Автоматический поиск телефона"
 
-#: Wammu/PhoneWizard.py:466
+#: Wammu/PhoneWizard.py:469
 msgid ""
 "You will be guided through configuration by phone connection type and vendor."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:467
+#: Wammu/PhoneWizard.py:470
 msgid "Wizard will attempt to search phone on usual ports."
 msgstr "Мастер попытается найти телефон на распространённых портах."
 
-#: Wammu/PhoneWizard.py:468
+#: Wammu/PhoneWizard.py:471
 msgid ""
 "You know what you are doing and know exact parameters you need for "
 "connecting to phone."
@@ -2108,11 +2100,11 @@ msgstr ""
 "Вы знаете, что делаете, и знаете точные параметры, необходимые для "
 "подключения к телефону."
 
-#: Wammu/PhoneWizard.py:471
+#: Wammu/PhoneWizard.py:474
 msgid "How do you want to configure your phone connection?"
 msgstr "Как Вы хотите настроить подключение Вашего телефона?"
 
-#: Wammu/PhoneWizard.py:476
+#: Wammu/PhoneWizard.py:479
 msgid ""
 "If you have no idea how to configure your phone connection, you can look at "
 "Gammu Phone Database for other users experiences:"
@@ -2121,15 +2113,15 @@ msgstr ""
 "обратиться к базе данных Gammu Phone Database, чтобы узнать, как это делали "
 "другие пользователи:"
 
-#: Wammu/PhoneWizard.py:490
+#: Wammu/PhoneWizard.py:493
 msgid "Welcome"
 msgstr "Добро пожаловать!"
 
-#: Wammu/PhoneWizard.py:491
+#: Wammu/PhoneWizard.py:494
 msgid "This wizard will help you with configuring phone connection in Wammu."
 msgstr "Этот мастер поможет Вам настроить соединения с телефоном в Wammu."
 
-#: Wammu/PhoneWizard.py:494
+#: Wammu/PhoneWizard.py:497
 msgid ""
 "Please make sure you have phone ready, powered on and one of connection "
 "methods is set up:"
@@ -2137,24 +2129,24 @@ msgstr ""
 "Пожалуйста, убедитесь в том, что Ваш телефон готов к работе, заряжен и "
 "соединён с компьютером одним из следующих способов:"
 
-#: Wammu/PhoneWizard.py:496
+#: Wammu/PhoneWizard.py:499
 msgid "Cable is connected."
 msgstr "Подключён через кабель."
 
-#: Wammu/PhoneWizard.py:498
+#: Wammu/PhoneWizard.py:501
 msgid "You have enabled IrDA and phone is in visible range."
 msgstr ""
 "Инфракрасный порт (IrDA) включён, и телефон находится в зоне видимости."
 
-#: Wammu/PhoneWizard.py:500
+#: Wammu/PhoneWizard.py:503
 msgid "You have paired Bluetooth with computer."
 msgstr "Сопряжён с компьютером через Bluetooth."
 
-#: Wammu/PhoneWizard.py:502
+#: Wammu/PhoneWizard.py:505
 msgid "As soon as your phone is ready, you can continue."
 msgstr "Как только Ваш телефон будет готов, можете продолжить."
 
-#: Wammu/PhoneWizard.py:511
+#: Wammu/PhoneWizard.py:514
 msgid "Wammu Phone Configuration Wizard"
 msgstr "Мастер настройки телефона Wammu"
 
@@ -3266,79 +3258,79 @@ msgstr "Действие отменено пользователем!"
 msgid "Action canceled"
 msgstr "Действие отменено"
 
-#: Wammu/Utils.py:284
+#: Wammu/Utils.py:290
 msgid "Yes"
 msgstr "Да"
 
-#: Wammu/Utils.py:286
+#: Wammu/Utils.py:292
 msgid "No"
 msgstr "Нет"
 
-#: Wammu/Utils.py:307
+#: Wammu/Utils.py:313
 msgid "enabled (tone)"
 msgstr "включено (звук)"
 
-#: Wammu/Utils.py:309
+#: Wammu/Utils.py:315
 msgid "enabled (silent)"
 msgstr "включено (тишина)"
 
-#: Wammu/Utils.py:315
+#: Wammu/Utils.py:321
 msgid "yearly"
 msgstr "ежегодно"
 
-#: Wammu/Utils.py:317
+#: Wammu/Utils.py:323
 msgid "monthly"
 msgstr "ежемесячно"
 
-#: Wammu/Utils.py:320
+#: Wammu/Utils.py:326
 msgid "daily"
 msgstr "ежедневно"
 
-#: Wammu/Utils.py:322
+#: Wammu/Utils.py:328
 msgid "biweekly"
 msgstr "дважды в неделю"
 
-#: Wammu/Utils.py:325
+#: Wammu/Utils.py:331
 msgid "weekly on monday"
 msgstr "еженедельно по понедельникам"
 
-#: Wammu/Utils.py:327
+#: Wammu/Utils.py:333
 msgid "weekly on tuesday"
 msgstr "еженедельно по вторникам"
 
-#: Wammu/Utils.py:329
+#: Wammu/Utils.py:335
 msgid "weekly on wednesday"
 msgstr "еженедельно по средам"
 
-#: Wammu/Utils.py:331
+#: Wammu/Utils.py:337
 msgid "weekly on thursday"
 msgstr "еженедельно по четвергам"
 
-#: Wammu/Utils.py:333
+#: Wammu/Utils.py:339
 msgid "weekly on friday"
 msgstr "еженедельно по пятницам"
 
-#: Wammu/Utils.py:335
+#: Wammu/Utils.py:341
 msgid "weekly on saturday"
 msgstr "еженедельно по субботам"
 
-#: Wammu/Utils.py:337
+#: Wammu/Utils.py:343
 msgid "weekly on sunday"
 msgstr "еженедельно по воскресеньям"
 
-#: Wammu/Utils.py:344
+#: Wammu/Utils.py:350
 msgid "disabled"
 msgstr "отключено"
 
-#: Wammu/Utils.py:347
+#: Wammu/Utils.py:353
 msgid "nonrecurring"
 msgstr "нерегулярно"
 
-#: Wammu/Utils.py:423
+#: Wammu/Utils.py:429
 msgid "Your phone doesn't support this function."
 msgstr "Ваш телефон не поддерживает данную функцию."
 
-#: Wammu/Utils.py:425
+#: Wammu/Utils.py:431
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
@@ -3346,19 +3338,19 @@ msgstr ""
 "Эта функция не добавлена в ваш телефон. Если Вы хотите помочь с её "
 "добавлением, пожалуйста, обратитесь к авторам."
 
-#: Wammu/Utils.py:427
+#: Wammu/Utils.py:433
 msgid "Your phone asks for PIN."
 msgstr "Ваш телефон требует PIN-код."
 
-#: Wammu/Utils.py:429
+#: Wammu/Utils.py:435
 msgid "Memory is full, try deleting some entries."
 msgstr "Память заполнена, попробуйте удалить несколько записей."
 
-#: Wammu/Utils.py:431
+#: Wammu/Utils.py:437
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr "Соединение разорвано телефоном, Вы нажали \"Отмена\" на телефоне?"
 
-#: Wammu/Utils.py:433
+#: Wammu/Utils.py:439
 msgid ""
 "Empty entry received. This usually should not happen and most likely is "
 "caused by bug in phone firmware or in Gammu/Wammu.\n"
@@ -3371,7 +3363,7 @@ msgstr ""
 "Если вы потеряли какую-либо запись, пожалуйста, обратитесь к авторам Gammu/"
 "Wammu."
 
-#: Wammu/Utils.py:435
+#: Wammu/Utils.py:441
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
@@ -3379,7 +3371,7 @@ msgstr ""
 "Пожалуйста, закройте меню телефона и попробуйте ещё раз, доступ к данным не "
 "может быть осуществлён, пока вы держите меню открытым."
 
-#: Wammu/Utils.py:437
+#: Wammu/Utils.py:443
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
@@ -3388,7 +3380,7 @@ msgstr ""
 "не подключён (кабелем) или находится вне зоны доступа (для bluetooth или "
 "IrDA)."
 
-#: Wammu/Utils.py:439
+#: Wammu/Utils.py:445
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
@@ -3396,27 +3388,46 @@ msgstr ""
 "Устройство для соединения с телефоном не существует. Возможно, Ваш телефон "
 "не подключён к компьютеру, или конфигурация неверна."
 
-#: Wammu/Utils.py:441
+#: Wammu/Utils.py:447
 msgid "Can not access device for communication with phone."
 msgstr "Невозможно получить доступ к устройству для соединения с телефоном."
 
-#: Wammu/Utils.py:443
+#: Wammu/Utils.py:449
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
 "Возможно, Вам нужно быть членом определённой группы, чтобы иметь доступ к "
 "устройству."
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid "Description:"
 msgstr "Описание:"
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid "Function:"
 msgstr "Функция: "
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid "Error code:"
 msgstr "Код ошибки:"
+
+#: Wammu/Utils.py:499 Wammu/Utils.py:501
+#, python-format
+msgid "Device %s does not exist!"
+msgstr ""
+
+#: Wammu/Utils.py:500 Wammu/Utils.py:511
+msgid "Error opening device"
+msgstr ""
+
+#: Wammu/Utils.py:510 Wammu/Utils.py:512
+#, python-format
+msgid "You don't have permissions for %s device!"
+msgstr ""
+
+#: Wammu/Utils.py:514
+#, python-format
+msgid "Maybe you need to be member of %s group."
+msgstr ""
 
 #: wammu-configure.py:46
 #, python-format

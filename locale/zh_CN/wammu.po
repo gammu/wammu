@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Wammu 0.25\n"
+"Project-Id-Version: Wammu 0.26\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2007-12-03 13:39+0900\n"
+"POT-Creation-Date: 2007-12-19 10:22+0900\n"
 "PO-Revision-Date: 2007-08-30 10:14+0200\n"
 "Last-Translator: MA Gang <magang@gmail.com>\n"
 "Language-Team: none\n"
@@ -1817,73 +1817,65 @@ msgid ""
 "missing support for it in Gammu."
 msgstr ""
 
-#: Wammu/PhoneSearch.py:95
+#: Wammu/PhoneSearch.py:89
 #, python-format
 msgid "Checking %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:106
+#: Wammu/PhoneSearch.py:100
 #, fuzzy
 #| msgid "Could not read saved entry!"
 msgid "Could not guess vendor"
 msgstr "不能读取已保存的记录！"
 
-#: Wammu/PhoneSearch.py:111
+#: Wammu/PhoneSearch.py:105
 #, python-format
 msgid "Guessed as %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:137 Wammu/PhoneSearch.py:142
-#, python-format
-msgid "You don't have permissions for %s device!"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:141
-msgid "Error opening device"
-msgstr ""
-
-#: Wammu/PhoneSearch.py:145
-#, python-format
-msgid "Maybe you need to be member of %s group."
-msgstr ""
-
-#: Wammu/PhoneSearch.py:182 Wammu/PhoneSearch.py:205
+#: Wammu/PhoneSearch.py:166 Wammu/PhoneSearch.py:189
 #, python-format
 msgid "Scanning for bluetooth devices using %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:190 Wammu/PhoneSearch.py:218
+#: Wammu/PhoneSearch.py:174 Wammu/PhoneSearch.py:202
 msgid "No bluetooth device found"
 msgstr "未找到蓝牙设备"
 
-#: Wammu/PhoneSearch.py:192 Wammu/PhoneSearch.py:225
+#: Wammu/PhoneSearch.py:176 Wammu/PhoneSearch.py:209
 msgid "Bluetooth device scan completed"
 msgstr "蓝牙设备扫描完毕"
 
-#: Wammu/PhoneSearch.py:196
+#: Wammu/PhoneSearch.py:180
 #, python-format
 msgid "Could not access Bluetooth subsystem (%s)"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:239 Wammu/PhoneSearch.py:243
+#: Wammu/PhoneSearch.py:223 Wammu/PhoneSearch.py:227
 msgid ""
 "Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for "
 "bluetooth devices"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:242
+#: Wammu/PhoneSearch.py:226
 msgid "No bluetooth searching"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:256
+#: Wammu/PhoneSearch.py:240
 #, python-format
 msgid "Finished %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:262
+#: Wammu/PhoneSearch.py:246
 #, python-format
 msgid "All finished, found %d phones"
 msgstr ""
+
+#: Wammu/PhoneSearch.py:362
+#, fuzzy
+#| msgid "Failed to set exception handler."
+msgid "Failed to connect to phone"
+msgstr "建立异常处理例程失败."
 
 #: Wammu/PhoneValidator.py:91
 msgid "You did not specify valid phone number."
@@ -1913,15 +1905,11 @@ msgstr "连接测试"
 msgid "Wammu is now testing phone connection, please wait..."
 msgstr "Wammu正在测试手机连接，请等待······"
 
-#: Wammu/PhoneWizard.py:93 Wammu/PhoneWizard.py:116
-msgid "Phone not found!"
-msgstr "未找到手机！"
-
-#: Wammu/PhoneWizard.py:101
+#: Wammu/PhoneWizard.py:104
 msgid "Phone has been found."
 msgstr "没有搜索到手机。"
 
-#: Wammu/PhoneWizard.py:102
+#: Wammu/PhoneWizard.py:105
 #, python-format
 msgid ""
 "Manufacturer: %(manufacturer)s\n"
@@ -1930,228 +1918,232 @@ msgstr ""
 "制造商: %(manufacturer)s\n"
 "型号: %(model)s"
 
-#: Wammu/PhoneWizard.py:109 Wammu/PhoneWizard.py:126
+#: Wammu/PhoneWizard.py:112 Wammu/PhoneWizard.py:129
 msgid "Phone connection test is still active, you can not continue."
 msgstr "手机连接测试仍在进行中，请等待。"
 
-#: Wammu/PhoneWizard.py:110 Wammu/PhoneWizard.py:127
+#: Wammu/PhoneWizard.py:113 Wammu/PhoneWizard.py:130
 msgid "Testing still active!"
 msgstr "测试仍在进行中！"
 
-#: Wammu/PhoneWizard.py:115
+#: Wammu/PhoneWizard.py:118
 msgid "Phone has not been found, are you sure you want to continue?"
 msgstr "未找到手机，你要继续吗？"
 
-#: Wammu/PhoneWizard.py:138
+#: Wammu/PhoneWizard.py:119
+msgid "Phone not found!"
+msgstr "未找到手机！"
+
+#: Wammu/PhoneWizard.py:141
 msgid "Phone search"
 msgstr "搜索手机"
 
-#: Wammu/PhoneWizard.py:139
+#: Wammu/PhoneWizard.py:142
 msgid "Phone searching status"
 msgstr "搜索手机状态"
 
-#: Wammu/PhoneWizard.py:153 Wammu/PhoneWizard.py:169
+#: Wammu/PhoneWizard.py:156 Wammu/PhoneWizard.py:172
 msgid "Phone search is still active, you can not continue."
 msgstr "仍在搜索手机，请等待。"
 
-#: Wammu/PhoneWizard.py:154 Wammu/PhoneWizard.py:170
+#: Wammu/PhoneWizard.py:157 Wammu/PhoneWizard.py:173
 msgid "Searching still active!"
 msgstr "仍在搜索！"
 
-#: Wammu/PhoneWizard.py:159
+#: Wammu/PhoneWizard.py:162
 msgid "No phone has not been found, you can not continue."
 msgstr "没有找到手机，无法继续。"
 
-#: Wammu/PhoneWizard.py:160
+#: Wammu/PhoneWizard.py:163
 msgid "No phone found!"
 msgstr "没有找到手机！"
 
-#: Wammu/PhoneWizard.py:178
+#: Wammu/PhoneWizard.py:181
 msgid "Wammu is now searching for phone:"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:225
+#: Wammu/PhoneWizard.py:228
 msgid "No phone has been found!"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:233 Wammu/PhoneWizard.py:257
+#: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
 #, python-format
 msgid ""
 "Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
 "(connection)s"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:240
+#: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from bellow list"
 msgstr ""
 
-#: Wammu/PhoneWizard.py:240
+#: Wammu/PhoneWizard.py:243
 msgid "Select phone"
 msgstr "选择手机"
 
-#: Wammu/PhoneWizard.py:255
+#: Wammu/PhoneWizard.py:258
 msgid "Following phone will be used:"
 msgstr "将使用的手机："
 
-#: Wammu/PhoneWizard.py:265
+#: Wammu/PhoneWizard.py:268
 msgid "No phone selected!"
 msgstr "没有选择手机！"
 
-#: Wammu/PhoneWizard.py:274 Wammu/PhoneWizard.py:462
+#: Wammu/PhoneWizard.py:277 Wammu/PhoneWizard.py:465
 msgid "Manual configuration"
 msgstr "手动配置"
 
-#: Wammu/PhoneWizard.py:276
+#: Wammu/PhoneWizard.py:279
 msgid "Port where phone is connected"
 msgstr "手机使用的端口"
 
-#: Wammu/PhoneWizard.py:277 Wammu/PhoneWizard.py:370 Wammu/PhoneWizard.py:371
-#: Wammu/PhoneWizard.py:441 Wammu/PhoneWizard.py:442
+#: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
+#: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
 msgid "Connection type"
 msgstr "连接类型"
 
-#: Wammu/PhoneWizard.py:294 Wammu/PhoneWizard.py:326
+#: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
 msgid "You need to select port which will be used."
 msgstr "你需要选择使用的端口。"
 
-#: Wammu/PhoneWizard.py:295 Wammu/PhoneWizard.py:327
+#: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
 msgid "No port selected!"
 msgstr "没有端口被选择！"
 
-#: Wammu/PhoneWizard.py:300
+#: Wammu/PhoneWizard.py:303
 msgid "You need to select connection type which will be used."
 msgstr "你需要选择要使用的连接类型。"
 
-#: Wammu/PhoneWizard.py:301
+#: Wammu/PhoneWizard.py:304
 msgid "No connection selected!"
 msgstr "没有选择连接！"
 
-#: Wammu/PhoneWizard.py:313
+#: Wammu/PhoneWizard.py:316
 msgid "Phone port"
 msgstr "手机端口"
 
-#: Wammu/PhoneWizard.py:314
+#: Wammu/PhoneWizard.py:317
 msgid "Please enter port where phone is connected"
 msgstr "请输入手机连接到的端口"
 
-#: Wammu/PhoneWizard.py:341 Wammu/PhoneWizard.py:345 Wammu/PhoneWizard.py:346
+#: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
 msgid "Driver to use"
 msgstr "要使用的驱动程序"
 
-#: Wammu/PhoneWizard.py:342
+#: Wammu/PhoneWizard.py:345
 msgid ""
 "Sorry no driver matches your configuration, please return back and try "
 "different settings or manual configuration."
 msgstr "抱歉，没有驱动与你的配置相符，请后退尝试不同的配置或者进行手动配置。"
 
-#: Wammu/PhoneWizard.py:348
+#: Wammu/PhoneWizard.py:351
 msgid ""
 "Please select which driver you want to use. Follow the help text shown "
 "bellow to select the best one."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:373
+#: Wammu/PhoneWizard.py:376
 msgid ""
 "Please select connection type, default choice should be best in most cases."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:394 Wammu/PhoneWizard.py:395
+#: Wammu/PhoneWizard.py:397 Wammu/PhoneWizard.py:398
 msgid "Phone type"
 msgstr "手机类型"
 
-#: Wammu/PhoneWizard.py:397
+#: Wammu/PhoneWizard.py:400
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
 
-#: Wammu/PhoneWizard.py:421
+#: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
 msgstr "查找所有的连接"
 
-#: Wammu/PhoneWizard.py:422
+#: Wammu/PhoneWizard.py:425
 msgid ""
 "Wizard will search for all possible connections. It might take quite long "
 "time to search all possible connection types."
 msgstr "向导将会搜索所有可能的连接。这个操作需要较长的时间。"
 
-#: Wammu/PhoneWizard.py:425
+#: Wammu/PhoneWizard.py:428
 msgid "USB cable"
 msgstr "USB数据线"
 
-#: Wammu/PhoneWizard.py:426
+#: Wammu/PhoneWizard.py:429
 msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
 msgstr "现在许多手机支持USB数据线，如果你使用这种连接就选择此项。"
 
-#: Wammu/PhoneWizard.py:429
+#: Wammu/PhoneWizard.py:432
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#: Wammu/PhoneWizard.py:430
+#: Wammu/PhoneWizard.py:433
 msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
 msgstr "蓝牙连接是无线的，并可以绕开障碍物。在继续配置前，手机需要和电脑配对。"
 
-#: Wammu/PhoneWizard.py:433
+#: Wammu/PhoneWizard.py:436
 msgid "IrDA"
 msgstr "红外线"
 
-#: Wammu/PhoneWizard.py:434
+#: Wammu/PhoneWizard.py:437
 msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
 msgstr ""
 "红外线要求连接的两端没有障碍物阻挡，请确保手机和电脑的红外线端口彼此相见。"
 
-#: Wammu/PhoneWizard.py:437
+#: Wammu/PhoneWizard.py:440
 msgid "Serial cable"
 msgstr "串行数据线"
 
-#: Wammu/PhoneWizard.py:438
+#: Wammu/PhoneWizard.py:441
 msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr "这种连接方式不常见，但老式手机经常用到。"
 
-#: Wammu/PhoneWizard.py:444
+#: Wammu/PhoneWizard.py:447
 msgid "How is your phone connected?"
 msgstr "你的手机如何连接到电脑的？"
 
-#: Wammu/PhoneWizard.py:457 Wammu/PhoneWizard.py:458
+#: Wammu/PhoneWizard.py:460 Wammu/PhoneWizard.py:461
 #, fuzzy
 #| msgid "Configuration type"
 msgid "Configuration style"
 msgstr "配置方式"
 
-#: Wammu/PhoneWizard.py:460
+#: Wammu/PhoneWizard.py:463
 msgid "Guided configuration"
 msgstr "在程序指导下配置"
 
-#: Wammu/PhoneWizard.py:461
+#: Wammu/PhoneWizard.py:464
 msgid "Automatically search for a phone"
 msgstr "自动搜索手机"
 
-#: Wammu/PhoneWizard.py:466
+#: Wammu/PhoneWizard.py:469
 msgid ""
 "You will be guided through configuration by phone connection type and vendor."
 msgstr "程序会询问你手机连接的类型和制造商，以此进行配置。"
 
-#: Wammu/PhoneWizard.py:467
+#: Wammu/PhoneWizard.py:470
 msgid "Wizard will attempt to search phone on usual ports."
 msgstr "本向导将尝试搜索连接到常用端口上的手机。"
 
-#: Wammu/PhoneWizard.py:468
+#: Wammu/PhoneWizard.py:471
 msgid ""
 "You know what you are doing and know exact parameters you need for "
 "connecting to phone."
 msgstr "你知道你在做什么并且清楚配置手机所需要的准确参数。"
 
-#: Wammu/PhoneWizard.py:471
+#: Wammu/PhoneWizard.py:474
 msgid "How do you want to configure your phone connection?"
 msgstr "你想如何配置你手机的连接？"
 
-#: Wammu/PhoneWizard.py:476
+#: Wammu/PhoneWizard.py:479
 msgid ""
 "If you have no idea how to configure your phone connection, you can look at "
 "Gammu Phone Database for other users experiences:"
@@ -2159,37 +2151,37 @@ msgstr ""
 "如果你不知道如何配置你手机的连接，你可以到GAmmu手机数据库了解其他用户是如何配"
 "置的。"
 
-#: Wammu/PhoneWizard.py:490
+#: Wammu/PhoneWizard.py:493
 msgid "Welcome"
 msgstr "欢迎"
 
-#: Wammu/PhoneWizard.py:491
+#: Wammu/PhoneWizard.py:494
 msgid "This wizard will help you with configuring phone connection in Wammu."
 msgstr "本向导将帮助你配置手机连接以便使用Wammu。"
 
-#: Wammu/PhoneWizard.py:494
+#: Wammu/PhoneWizard.py:497
 msgid ""
 "Please make sure you have phone ready, powered on and one of connection "
 "methods is set up:"
 msgstr "请准备好你的手机，打开手机电源并建立下列任一种连接方法："
 
-#: Wammu/PhoneWizard.py:496
+#: Wammu/PhoneWizard.py:499
 msgid "Cable is connected."
 msgstr "手机通过数据线连接到电脑。"
 
-#: Wammu/PhoneWizard.py:498
+#: Wammu/PhoneWizard.py:501
 msgid "You have enabled IrDA and phone is in visible range."
 msgstr "已经开启红外线并把手机对准电脑。"
 
-#: Wammu/PhoneWizard.py:500
+#: Wammu/PhoneWizard.py:503
 msgid "You have paired Bluetooth with computer."
 msgstr "手机已和电脑进行蓝牙配对。"
 
-#: Wammu/PhoneWizard.py:502
+#: Wammu/PhoneWizard.py:505
 msgid "As soon as your phone is ready, you can continue."
 msgstr "如果你的手机准备好了，请继续。"
 
-#: Wammu/PhoneWizard.py:511
+#: Wammu/PhoneWizard.py:514
 msgid "Wammu Phone Configuration Wizard"
 msgstr "Wammu手机配置向导"
 
@@ -3284,97 +3276,97 @@ msgstr ""
 msgid "Action canceled"
 msgstr ""
 
-#: Wammu/Utils.py:284
+#: Wammu/Utils.py:290
 msgid "Yes"
 msgstr "是"
 
-#: Wammu/Utils.py:286
+#: Wammu/Utils.py:292
 msgid "No"
 msgstr "否"
 
-#: Wammu/Utils.py:307
+#: Wammu/Utils.py:313
 msgid "enabled (tone)"
 msgstr ""
 
-#: Wammu/Utils.py:309
+#: Wammu/Utils.py:315
 msgid "enabled (silent)"
 msgstr ""
 
-#: Wammu/Utils.py:315
+#: Wammu/Utils.py:321
 msgid "yearly"
 msgstr "每年"
 
-#: Wammu/Utils.py:317
+#: Wammu/Utils.py:323
 msgid "monthly"
 msgstr "每月"
 
-#: Wammu/Utils.py:320
+#: Wammu/Utils.py:326
 msgid "daily"
 msgstr "每天"
 
-#: Wammu/Utils.py:322
+#: Wammu/Utils.py:328
 msgid "biweekly"
 msgstr "每两周"
 
-#: Wammu/Utils.py:325
+#: Wammu/Utils.py:331
 msgid "weekly on monday"
 msgstr "每周一"
 
-#: Wammu/Utils.py:327
+#: Wammu/Utils.py:333
 msgid "weekly on tuesday"
 msgstr "每周二"
 
-#: Wammu/Utils.py:329
+#: Wammu/Utils.py:335
 msgid "weekly on wednesday"
 msgstr "每周三"
 
-#: Wammu/Utils.py:331
+#: Wammu/Utils.py:337
 msgid "weekly on thursday"
 msgstr "每周四"
 
-#: Wammu/Utils.py:333
+#: Wammu/Utils.py:339
 msgid "weekly on friday"
 msgstr "每周五"
 
-#: Wammu/Utils.py:335
+#: Wammu/Utils.py:341
 msgid "weekly on saturday"
 msgstr "每周六"
 
-#: Wammu/Utils.py:337
+#: Wammu/Utils.py:343
 msgid "weekly on sunday"
 msgstr "每周日"
 
-#: Wammu/Utils.py:344
+#: Wammu/Utils.py:350
 msgid "disabled"
 msgstr ""
 
-#: Wammu/Utils.py:347
+#: Wammu/Utils.py:353
 msgid "nonrecurring"
 msgstr ""
 
-#: Wammu/Utils.py:423
+#: Wammu/Utils.py:429
 msgid "Your phone doesn't support this function."
 msgstr "你的手机不支持这个功能."
 
-#: Wammu/Utils.py:425
+#: Wammu/Utils.py:431
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
 msgstr "这个功能不支持你的手机，如果你想提供帮助，请联系作者。"
 
-#: Wammu/Utils.py:427
+#: Wammu/Utils.py:433
 msgid "Your phone asks for PIN."
 msgstr "手机要求你提供PIN."
 
-#: Wammu/Utils.py:429
+#: Wammu/Utils.py:435
 msgid "Memory is full, try deleting some entries."
 msgstr "内存满,请尝试删除一些条目."
 
-#: Wammu/Utils.py:431
+#: Wammu/Utils.py:437
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr "通讯被手机端取消,你是否触按了手机上的取消键?"
 
-#: Wammu/Utils.py:433
+#: Wammu/Utils.py:439
 msgid ""
 "Empty entry received. This usually should not happen and most likely is "
 "caused by bug in phone firmware or in Gammu/Wammu.\n"
@@ -3385,44 +3377,63 @@ msgstr ""
 "\n"
 "如果你丢失了一些条目,请联系Gammu/Wammu的作者."
 
-#: Wammu/Utils.py:435
+#: Wammu/Utils.py:441
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
 msgstr "请关闭手机上打开的菜单并重试，数据无法被获取如果你已经在手机上打开了."
 
-#: Wammu/Utils.py:437
+#: Wammu/Utils.py:443
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
 msgstr ""
 "与手机通讯超时。可能你的手机未连接（数据线）或者超出距离（蓝牙或红外）。"
 
-#: Wammu/Utils.py:439
+#: Wammu/Utils.py:445
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
 
-#: Wammu/Utils.py:441
+#: Wammu/Utils.py:447
 msgid "Can not access device for communication with phone."
 msgstr ""
 
-#: Wammu/Utils.py:443
+#: Wammu/Utils.py:449
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid "Description:"
 msgstr "描述："
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid "Function:"
 msgstr "函数："
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid "Error code:"
 msgstr "错误码："
+
+#: Wammu/Utils.py:499 Wammu/Utils.py:501
+#, python-format
+msgid "Device %s does not exist!"
+msgstr ""
+
+#: Wammu/Utils.py:500 Wammu/Utils.py:511
+msgid "Error opening device"
+msgstr ""
+
+#: Wammu/Utils.py:510 Wammu/Utils.py:512
+#, python-format
+msgid "You don't have permissions for %s device!"
+msgstr ""
+
+#: Wammu/Utils.py:514
+#, python-format
+msgid "Maybe you need to be member of %s group."
+msgstr ""
 
 #: wammu-configure.py:46
 #, python-format

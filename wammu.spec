@@ -1,5 +1,5 @@
 %define name wammu
-%define version 0.25
+%define version 0.26
 %define rel 1
 %define extension   bz2
 
