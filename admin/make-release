@@ -42,5 +42,9 @@ wine c:\\python25\\python setup.py build --skip-deps py2exe
 cp ~/.wine/drive_c/windows/system32/python25.dll dist/
 cp ~/.wine/drive_c/Python25/Lib/site-packages/wx-2.8-msw-unicode/wx/*.dll dist/
 
+# Build installer
+wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+mv Output/$repo-$version-setup.exe ../
+
 echo "Release is in $tmp directory"
 ls -lh $tmp
