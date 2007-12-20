@@ -349,11 +349,8 @@ try:
     # if this doesn't work, try import modulefinder
     import py2exe.mf as modulefinder
     import win32com
-    import win32file
     for p in win32com.__path__[1:]:
         modulefinder.AddPackagePath("win32com", p)
-    for p in win32file.__path__[1:]:
-        modulefinder.AddPackagePath("win32file", p)
     for extra in ["win32com.shell"]: #,"win32com.mapi"
         __import__(extra)
         m = sys.modules[extra]
