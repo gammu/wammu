@@ -497,9 +497,9 @@ def CheckDeviceNode(curdev):
     if sys.platform == 'win32':
         try:
             import win32file
-            if dev[:3] == 'COM':
+            if curdev[:3] == 'COM':
                 try:
-                    win32file.QueryDosDevice(dev)
+                    win32file.QueryDosDevice(curdev)
                     return (0, '', '', '')
                 except:
                     return (-1,
