@@ -27,6 +27,7 @@ import sys
 import os
 import Wammu.Paths
 import Wammu.Data
+import Wammu.Utils
 
 COM_PORTS = 16
 UNX_DEVICES = 4
@@ -246,21 +247,11 @@ class Settings:
             return []
 
     def CheckDev(self, dev):
-        if sys.platform == 'win32':
-            try:
-                import win32file
-                if dev[:3] == 'COM':
-                    try:
-                        win32file.QueryDosDevice(dev)
-                        return True
-                    except:
-                        pass
-            except ImportError:
-                return True
+        res = Wammu.Utils.CheckDeviceNode(dev)
+        if res[0] == 0:
+            return True
         else:
-            if dev[0] == '/' and os.path.exists(dev):
-                return True
-        return False
+            return False
 
     def AddDevs(self, lst, format, limit):
         for x in range(limit):

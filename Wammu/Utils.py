@@ -494,6 +494,21 @@ def CheckDeviceNode(curdev):
     - error dialog title
     - error dialog text
     '''
+    if sys.platform == 'win32':
+        try:
+            import win32file
+            if dev[:3] == 'COM':
+                try:
+                    win32file.QueryDosDevice(dev)
+                    return (0, '', '', '')
+                except:
+                    return (-1,
+                            _('Device %s does not exist!') % curdev,
+                            _('Error opening device'),
+                            _('Device %s does not exist!') % curdev
+                            )
+        except ImportError:
+            return (0, '', '', '')
     if not os.path.exists(curdev):
         return (-1,
                 _('Device %s does not exist!') % curdev,
