@@ -564,13 +564,17 @@ class WammuFrame(wx.Frame):
         self.dbus_notify = None
         self.last_dbus_id = 0
         if HAVE_DBUS:
-            bus = dbus.SessionBus() #mainloop = self.appparent.MainLoop)
-            interface = 'org.freedesktop.Notifications'
-            path = '/org/freedesktop/Notifications'
-            if Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
-                obj = bus.get_object(interface, path)
-                self.dbus_notify = dbus.Interface(obj, interface)
-                self.dbus_notify.connect_to_signal('ActionInvoked', self.DBUSActionCallback)
+            try:
+                bus = dbus.SessionBus() #mainloop = self.appparent.MainLoop)
+                interface = 'org.freedesktop.Notifications'
+                path = '/org/freedesktop/Notifications'
+                if Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
+                    obj = bus.get_object(interface, path)
+                    self.dbus_notify = dbus.Interface(obj, interface)
+                    self.dbus_notify.connect_to_signal('ActionInvoked', self.DBUSActionCallback)
+            except dbus.DBusException:
+                self.dbus_notify = None
+                self.last_dbus_id = 0
 
     def SetupTrayIcon(self):
         if self.cfg.Read('/Wammu/TaskBarIcon') != 'yes':
