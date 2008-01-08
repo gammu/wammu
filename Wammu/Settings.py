@@ -44,6 +44,7 @@ class Settings(wx.Dialog):
         self.notebook_messages = wx.Panel(self.notebook, -1)
         self.notebook_view = wx.Panel(self.notebook, -1)
         self.notebook_other = wx.Panel(self.notebook, -1)
+        self.notebook_hacks = wx.Panel(self.notebook, -1)
 
         # main layout
         self.sizer = wx.lib.rcsizer.RowColSizer()
@@ -402,12 +403,43 @@ class Settings(wx.Dialog):
         self.sizer_other.Fit(self.notebook_other)
         self.sizer_other.SetSizeHints(self.notebook_other)
 
+        # hacks tab
+        self.sizer_hacks = wx.lib.rcsizer.RowColSizer()
+
+        self.sizer_hacks.AddGrowableCol(1)
+
+        self.sizer_hacks.AddSpacer(1, 1, pos = (0, 0))
+        r = 1
+
+        v = config.ReadInt('/Hacks/MaxEmptyGuess')
+        self.editmaxemptyguess = wx.SpinCtrl(self.notebook_hacks, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
+        self.editmaxemptyguess.SetToolTipString(_('When Wammu encounters continuous this count of empty entries when reading items from phone where total count was guessed, it assumes that rest is empty.'))
+        self.sizer_hacks.Add(wx.StaticText(self.notebook_hacks, -1, _('Maximal empty entries if total is guessed')), pos = (r, 1))
+        self.sizer_hacks.Add(self.editmaxemptyguess, pos = (r, 2))
+        r += 1
+
+        v = config.ReadInt('/Hacks/MaxEmptyKnown')
+        self.editmaxemptyknown = wx.SpinCtrl(self.notebook_hacks, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
+        self.editmaxemptyknown.SetToolTipString(_('When Wammu encounters continuous this count of empty entries when reading items from phone which have known total count, it assumes that rest is empty.'))
+        self.sizer_hacks.Add(wx.StaticText(self.notebook_hacks, -1, _('Maximal empty entries if total is known')), pos = (r, 1))
+        self.sizer_hacks.Add(self.editmaxemptyknown, pos = (r, 2))
+        r += 1
+
+        self.sizer_hacks.AddSpacer(1, 1, pos = (r, 3))
+
+        # size hacks tab
+        self.notebook_hacks.SetAutoLayout(True)
+        self.notebook_hacks.SetSizer(self.sizer_hacks)
+        self.sizer_hacks.Fit(self.notebook_hacks)
+        self.sizer_hacks.SetSizeHints(self.notebook_hacks)
+
         # add pages to notebook
         self.notebook.AddPage(self.notebook_gammu, _('Gammu'))
         self.notebook.AddPage(self.notebook_connection, _('Connection'))
         self.notebook.AddPage(self.notebook_messages, _('Messages'))
         self.notebook.AddPage(self.notebook_view, _('View'))
         self.notebook.AddPage(self.notebook_other, _('Other'))
+        self.notebook.AddPage(self.notebook_hacks, _('Hacks'))
 
         # size main layout
         self.SetAutoLayout(True)
@@ -584,4 +616,7 @@ class Settings(wx.Dialog):
         else:
             raise Exception('Invalid NameFormatString id: %d' % ind)
         self.config.Write('/Wammu/NameFormat', val)
+
+        self.config.WriteInt('/Hacks/MaxEmptyGuess', self.editmaxemptyguess.GetValue())
+        self.config.WriteInt('/Hacks/MaxEmptyKnown', self.editmaxemptyknown.GetValue())
         self.EndModal(wx.ID_OK)

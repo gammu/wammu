@@ -82,6 +82,8 @@ DEFAULT_CONFIG = {
     '/Gammu/Section': 0,
     '/User/Name': Wammu.OSUtils.GetUserFullName(),
     '/Gammu/Gammurc': os.path.join(u'~', u'.gammurc'),
+    '/Hacks/MaxEmptyGuess': 50,
+    '/Hacks/MaxEmptyKnown': 100,
     }
 
 

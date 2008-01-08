@@ -162,10 +162,10 @@ class Reader(Wammu.Thread.Thread):
                 except gammu.ERR_EMPTY, val:
                     empty = empty + 1
                     # If we didn't know count and saw many empty entries, stop right now
-                    if empty >= 50 and guess:
+                    if empty >= Wammu.configuration.ReadInt('/Hacks/MaxEmptyGuess') and guess:
                         break
                     # If we didn't read anything for long time, we bail out (workaround bad count reported by phone)
-                    if empty >= 70 and remain < 10:
+                    if empty >= Wammu.configuration.ReadInt('/Hacks/MaxEmptyKnown') and remain < 10:
                         self.ShowError(val[0])
                         remain = 0
                 except gammu.ERR_CORRUPTED:
