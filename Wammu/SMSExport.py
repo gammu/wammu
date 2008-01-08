@@ -31,13 +31,21 @@ import Wammu.IMAP
 
 def SMSToMailbox(parent, messages, contacts):
     count = len(messages)
-    wildcard = _('All files') + ' (*.*)|*.*;*'
+    wildcard = _('Mailboxes') + ' (*.mbox)|*.mbox|' + _('All files') + ' (*.*)|*.*;*'
+    exts = ['mbox']
+    exts.append(None)
     dlg = wx.FileDialog(parent, _('Select mailbox file...'), os.getcwd(), "", wildcard, wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
 
     if dlg.ShowModal() != wx.ID_OK:
         return
 
     path = dlg.GetPath()
+    ext = exts[dlg.GetFilterIndex()]
+    # Add automatic extension if we know one and file does not
+    # have any
+    if (os.path.splitext(path)[1] == '' and
+            ext is not None):
+        path += '.' + ext
 
     parent.ShowProgress(_('Saving messages to mailbox'))
     try:
