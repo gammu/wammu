@@ -223,6 +223,10 @@ class WammuFrame(wx.Frame):
 
         wx.EVT_TREE_SEL_CHANGED(self, self.tree.GetId(), self.OnTreeSel)
 
+        # common border sizes (Gnome HIG)
+        self.separatorHalf = 3
+        self.separatorNormal = 6
+        self.separatorTwice = 12
 
         # right frame
         self.rightsplitter = wx.SplitterWindow(self.splitter, -1)
@@ -231,7 +235,7 @@ class WammuFrame(wx.Frame):
 
         # title text
         self.righttitle = wx.StaticText(self.rightwin, -1, 'Wammu')
-        self.rightwin.sizer.Add(self.righttitle, 0, wx.LEFT|wx.ALL|wx.EXPAND)
+        self.rightwin.sizer.Add(self.righttitle, 0, wx.LEFT|wx.ALL|wx.EXPAND, self.separatorNormal)
 
         # line
         self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0 , wx.EXPAND)
@@ -239,18 +243,18 @@ class WammuFrame(wx.Frame):
         # search input
         self.searchpanel = wx.Panel(self.rightwin, -1)
         self.searchpanel.sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.searchpanel.sizer.Add(wx.StaticText(self.searchpanel, -1, _('Search:')), 0, wx.LEFT | wx.CENTER)
+        self.searchpanel.sizer.Add(wx.StaticText(self.searchpanel, -1, _('Search: ')), 0, wx.LEFT | wx.CENTER)
         self.searchinput = wx.TextCtrl(self.searchpanel, -1)
         self.searchinput.SetToolTipString(_('Enter text to search for, please note that search type is selected next to this field. Matching is done over all fields.'))
         self.searchpanel.sizer.Add(self.searchinput, 1, wx.CENTER | wx.ALIGN_CENTER_VERTICAL)
         self.searchchoice = wx.Choice(self.searchpanel, choices = [_('Text'), _('Regexp'), _('Wildcard')])
         self.searchchoice.SetToolTipString(_('Select search type'))
         self.searchchoice.SetSelection(self.cfg.ReadInt('/Defaults/SearchType'))
-        self.searchpanel.sizer.Add(self.searchchoice, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
+        self.searchpanel.sizer.Add(self.searchchoice, 0, wx.LEFT | wx.CENTER | wx.EXPAND, self.separatorNormal)
         self.searchclear = wx.Button(self.searchpanel, wx.ID_CLEAR)
-        self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND)
+        self.searchpanel.sizer.Add(self.searchclear, 0, wx.LEFT | wx.CENTER | wx.EXPAND, self.separatorNormal)
         self.searchpanel.SetSizer(self.searchpanel.sizer)
-        self.rightwin.sizer.Add(self.searchpanel, 0, wx.LEFT | wx.ALL | wx.EXPAND)
+        self.rightwin.sizer.Add(self.searchpanel, 0, wx.LEFT | wx.ALL | wx.EXPAND, self.separatorNormal)
 
         self.Bind(wx.EVT_CHOICE, self.OnSearch, self.searchchoice)
         self.Bind(wx.EVT_TEXT, self.OnSearch, self.searchinput)
