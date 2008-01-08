@@ -92,7 +92,6 @@ def DateToString(date):
     '''
     return email.Utils.formatdate(time.mktime(date.timetuple()), True)
 
-
 def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     '''
     Converts SMS to formated mail. It will contain all images and sounds from
@@ -213,9 +212,9 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
 
     if mailbox:
         if sms['DateTime'] is None:
-            timestamp = email.Utils.formatdate(None, True)
+            timestamp = time.asctime(time.localtime(None))
         else:
-            timestamp = DateToString(sms['DateTime'])
+            timestamp = time.asctime(sms['DateTime'].timetuple())
         prepend = ('From wammu@wammu.sms %s\n' % timestamp) + prepend
 
     return filename, prepend + msg.as_string()
