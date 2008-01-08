@@ -36,6 +36,14 @@ try:
 except ImportError:
     pass
 
+# Disable warning about missing files
+# This can be caused by attempt to import Python modules, which don't
+# have all DLLs satisfied.
+if sys.platform.startswith('win'):
+    import win32api
+    import win32con
+    win32api.SetErrorMode(win32con.SEM_NOOPENFILEERRORBOX)
+
 def version():
     '''
     Displays version information.
@@ -66,8 +74,8 @@ def parse_options():
     Processes program options.
     '''
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 
-                'hvl', 
+        opts, args = getopt.getopt(sys.argv[1:],
+                'hvl',
                 ['help', 'version', 'local-locales'])
     except getopt.GetoptError, val:
         usage()
