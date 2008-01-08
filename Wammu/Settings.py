@@ -486,15 +486,24 @@ class Settings(wx.Dialog):
 
     def Okay(self, evt):
         lst, choices = self.config.gammu.GetConfigList()
-        current = lst[self.editsection.GetSelection()]
-        self.config.gammu = self.gammu_config
-        self.config.gammu.SetConfig(current['Id'],
-            self.editdev.GetValue(),
-            self.editconn.GetValue(),
-            self.editname.GetValue(),
-            self.editmodel.GetValue())
-        self.config.Write('/Gammu/Gammurc', self.editcfgpath.GetValue())
-        self.config.WriteInt('/Gammu/Section', current['Id'])
+
+        # Check whether we have some configuration
+        if len(lst) == 0:
+            wx.MessageDialog(self,
+                _('You don\'t have any phone connection configured. Wammu will not be able to conect to your phone!'),
+                _('No phone configured!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+        else:
+            current = lst[self.editsection.GetSelection()]
+            self.config.gammu = self.gammu_config
+            self.config.gammu.SetConfig(current['Id'],
+                self.editdev.GetValue(),
+                self.editconn.GetValue(),
+                self.editname.GetValue(),
+                self.editmodel.GetValue())
+            self.config.Write('/Gammu/Gammurc', self.editcfgpath.GetValue())
+            self.config.WriteInt('/Gammu/Section', current['Id'])
+
         if self.editsync.GetValue():
             value = 'yes'
         else:
