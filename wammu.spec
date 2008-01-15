@@ -27,11 +27,8 @@ Packager:       Michal Cihar <michal@cihar.com>
 Vendor:         Michal Cihar <michal@cihar.com>
 Prefix:         %{_prefix}
 
-# /usr/bin/pycrust is here for make vendor independant dependancy on wxPython.
-# If you know better way, please let me know.
-Requires:       /usr/bin/pycrust, python-gammu >= %{python_gammu_req}
+Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}, python >= %py_minver, python < %py_maxver
 BuildRequires:  python, python-devel
-Requires:       python >= %py_minver, python < %py_maxver
 
 Url:        http://wammu.eu/
 Buildroot:  %{_tmppath}/%name-%version-root
