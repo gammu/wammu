@@ -53,5 +53,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
-%doc README AUTHORS FAQ COPYING NEWS
+%doc README AUTHORS FAQ COPYING ChangeLog
 %doc %{_mandir}/man1/*
