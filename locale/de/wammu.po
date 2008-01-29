@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-01-08 17:32+0900\n"
-"PO-Revision-Date: 2007-12-20 16:12+0100\n"
-"Last-Translator: Jochen Kemnade <jochenkemnade@web.de>\n"
+"PO-Revision-Date: 2008-01-22 20:03+0100\n"
+"Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -897,11 +897,10 @@ msgstr "Kalender"
 msgid "All Calendar Events"
 msgstr "Alle Kalender-Einträge"
 
+#  msgid "Search:"
 #: Wammu/Main.py:246
-#, fuzzy
-#| msgid "Search:"
 msgid "Search: "
-msgstr "Suchen"
+msgstr "Suchen:"
 
 #: Wammu/Main.py:248
 msgid ""
@@ -2587,20 +2586,26 @@ msgid ""
 "items from phone where total count was guessed, it assumes that rest is "
 "empty."
 msgstr ""
+"Wenn Wammu wiederholt diese Anzahl leerer Einträge feststellt, während "
+"Elemente vom Handy eingelesen werden, wo ein Eintrag erwartet wird, wird es "
+"unterstellen, dass der Rest leer ist."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
-msgstr ""
+msgstr "Maximale Anzahl leerer Einträge wenn Eintrag erwartet wird"
 
 #: Wammu/Settings.py:423
 msgid ""
 "When Wammu encounters continuous this count of empty entries when reading "
 "items from phone which have known total count, it assumes that rest is empty."
 msgstr ""
+"Wenn Wammu wiederholt diese Anzahl leerer Einträge feststellt, während "
+"Elemente vom Handy eingelesen werden, welche einen bekannten Wert haben, "
+"wird es unterstellen, dass der Rest leer ist."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
-msgstr ""
+msgstr "Maximale Anzahl leerer Einträge wenn der Wert bekannt ist"
 
 #: Wammu/Settings.py:437
 msgid "Gammu"
@@ -2614,29 +2619,26 @@ msgstr "Ansicht"
 msgid "Other"
 msgstr "Andere"
 
+#  msgid "&Backups"
 #: Wammu/Settings.py:442
-#, fuzzy
-#| msgid "&Backups"
 msgid "Hacks"
-msgstr "&Sicherungen"
+msgstr "Hacks"
 
+#  msgid ""
+#  "You changed parameters affecting phone connection, they will be used next "
+#  "time you connect to phone."
 #: Wammu/Settings.py:525
-#, fuzzy
-#| msgid ""
-#| "You changed parameters affecting phone connection, they will be used next "
-#| "time you connect to phone."
 msgid ""
 "You don't have any phone connection configured. Wammu will not be able to "
 "conect to your phone!"
 msgstr ""
-"Sie haben Änderungen vorgenommen die sich erst bei einer Neuverbindung "
-"auswirken werden."
+"Sie haben keine Handyverbindung eingerichtet. Wammu wird nicht in der Lage "
+"sein, eine Verbindung mit dem Handy herzustellen!"
 
+#  msgid "No phone found!"
 #: Wammu/Settings.py:526
-#, fuzzy
-#| msgid "No phone found!"
 msgid "No phone configured!"
-msgstr "Kein Handy gefunden!"
+msgstr "Kein Handy eingerichtet!"
 
 #: Wammu/SettingsStorage.py:97
 msgid "I don't know"
@@ -3079,11 +3081,10 @@ msgstr "FBUS über IrDA"
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
 msgstr "Nokia-Protokoll für Infrarot mit Nokia 6110/6130/6150."
 
+#  msgid "Mailbox file"
 #: Wammu/SMSExport.py:34
-#, fuzzy
-#| msgid "Mailbox file"
 msgid "Mailboxes"
-msgstr "Mailbox-Datei"
+msgstr "Postfächer"
 
 #: Wammu/SMSExport.py:37
 msgid "Select mailbox file..."
