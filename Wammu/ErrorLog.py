@@ -65,11 +65,7 @@ def GetSystemInfo():
         import bluetooth
         bluez = 'PyBluez'
     except ImportError:
-        try:
-            import btctl
-            bluez = 'btctl'
-        except ImportError:
-            pass
+        pass
 
     result = SYSTEM_TEMPLATE % (
         sys.platform,

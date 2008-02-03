@@ -40,11 +40,7 @@ try:
     import Wammu.BluezDiscovery
     BLUETOOTH = 'bluez'
 except ImportError:
-    try:
-        import btctl
-        BLUETOOTH = 'btctl'
-    except ImportError:
-        BLUETOOTH = None
+    BLUETOOTH = None
 
 class AllSearchThread(threading.Thread):
     '''
@@ -180,34 +176,6 @@ class AllSearchThread(threading.Thread):
                         _('Could not access Bluetooth subsystem (%s)') %
                         StrConv(txt))
 
-    def bluetooth_device_search_btctl(self):
-        '''
-        Initiates searching for Bluetooth devices using btctl stack.
-        '''
-        # read devices list
-        if self.msgcallback != None:
-            self.msgcallback(_('Scanning for bluetooth devices using %s') %
-                    'GNOME Bluetooth (btctl)')
-
-        # create controller object
-        try:
-            ctl = btctl.Controller('')
-        except TypeError:
-            ctl = btctl.Controller()
-
-        devs = ctl.discover_devices()
-
-        if devs == None or len(devs) == 0:
-            if self.msgcallback != None:
-                self.msgcallback(_('No bluetooth device found'))
-        else:
-            for dev in devs:
-                self.search_bt_device(
-                        dev['bdaddr'],
-                        ctl.get_device_preferred_name(dev['bdaddr']))
-        if self.msgcallback != None:
-            self.msgcallback(_('Bluetooth device scan completed'))
-
     def bluetooth_device_search(self):
         '''
         Initiates searching for Bluetooth devices.
@@ -216,15 +184,13 @@ class AllSearchThread(threading.Thread):
             return
         if BLUETOOTH == 'bluez':
             self.bluetooth_device_search_bluez()
-        elif BLUETOOTH == 'btctl':
-            self.bluetooth_device_search_btctl()
         else:
             if self.msgcallback != None:
-                self.msgcallback(_('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
+                self.msgcallback(_('PyBluez not found, it is not possible to scan for bluetooth devices.'))
             if self.noticecallback != None:
                 self.noticecallback(
                         _('No bluetooth searching'),
-                        _('Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for bluetooth devices'))
+                        _('PyBluez not found, it is not possible to scan for bluetooth devices.'))
 
     def run(self):
         try:
