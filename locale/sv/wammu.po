@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-01-08 17:32+0900\n"
+"POT-Creation-Date: 2008-02-12 10:57+0900\n"
 "PO-Revision-Date: 2007-10-18 13:38+0200\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -1870,63 +1870,65 @@ msgstr ""
 "Vissa delar av det här meddelandet avkodades inte korrekt, antagligen på "
 "grund av saknat stöd för det i Gammu."
 
-#: Wammu/PhoneSearch.py:89
+#: Wammu/PhoneSearch.py:85
 #, python-format
 msgid "Checking %s"
 msgstr "Kontrollerar %s"
 
-#: Wammu/PhoneSearch.py:100
+#: Wammu/PhoneSearch.py:96
 #, fuzzy
 #| msgid "Could not read saved entry!"
 msgid "Could not guess vendor"
 msgstr "Kunde inte läsa sparad post!"
 
-#: Wammu/PhoneSearch.py:105
+#: Wammu/PhoneSearch.py:101
 #, python-format
 msgid "Guessed as %s"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:166 Wammu/PhoneSearch.py:189
+#: Wammu/PhoneSearch.py:162
 #, python-format
 msgid "Scanning for bluetooth devices using %s"
 msgstr "Söker efter blåtandsenheter med %s"
 
-#: Wammu/PhoneSearch.py:174 Wammu/PhoneSearch.py:202
+#: Wammu/PhoneSearch.py:170
 msgid "No bluetooth device found"
 msgstr "Ingen blåtandsenhet hittades"
 
-#: Wammu/PhoneSearch.py:176 Wammu/PhoneSearch.py:209
+#: Wammu/PhoneSearch.py:172
 msgid "Bluetooth device scan completed"
 msgstr "Sökning efter blåtandsenheter färdig"
 
-#: Wammu/PhoneSearch.py:180
+#: Wammu/PhoneSearch.py:176
 #, python-format
 msgid "Could not access Bluetooth subsystem (%s)"
 msgstr "Kunde inte komma åt undersystem för Blåtand (%s)"
 
-#: Wammu/PhoneSearch.py:223 Wammu/PhoneSearch.py:227
-msgid ""
-"Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan for "
-"bluetooth devices"
+#: Wammu/PhoneSearch.py:189 Wammu/PhoneSearch.py:193
+#, fuzzy
+#| msgid ""
+#| "Neither GNOME Bluetooth (btctl) nor PyBluez found, not possible to scan "
+#| "for bluetooth devices"
+msgid "PyBluez not found, it is not possible to scan for bluetooth devices."
 msgstr ""
 "Varken GNOME Bluetooth (btctl) eller PyBluez hittades, därför är det inte "
 "möjligt att söka efter blåtandsenheter"
 
-#: Wammu/PhoneSearch.py:226
+#: Wammu/PhoneSearch.py:192
 msgid "No bluetooth searching"
 msgstr "Ingen blåtandssökning "
 
-#: Wammu/PhoneSearch.py:240
+#: Wammu/PhoneSearch.py:206
 #, python-format
 msgid "Finished %s"
 msgstr "Färdig %s"
 
-#: Wammu/PhoneSearch.py:246
+#: Wammu/PhoneSearch.py:212
 #, python-format
 msgid "All finished, found %d phones"
 msgstr "Alla färdiga, hittade %d telefoner"
 
-#: Wammu/PhoneSearch.py:362
+#: Wammu/PhoneSearch.py:328
 #, fuzzy
 #| msgid "Failed to set exception handler."
 msgid "Failed to connect to phone"
