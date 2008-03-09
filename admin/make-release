@@ -3,9 +3,12 @@
 
 # Usage: make-release [branch]
 
-version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
+set -e
 
 repo=wammu
+
+version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
+
 
 tmp=`mktemp -dt $repo-build-XXXXXX`
 
