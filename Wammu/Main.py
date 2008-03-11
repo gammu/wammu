@@ -660,6 +660,7 @@ class WammuFrame(wx.Frame):
                 if s['SignalPercent'] == -1:
                     signal = _('Unknown')
                 else:
+                    # l10n: Formatting of signal percentage, usually you can keep this as it is.
                     signal = _('%d %%') % s['SignalPercent']
 
                 self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: %(time)s') %
