@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-02-12 10:57+0900\n"
-"PO-Revision-Date: 2007-12-10 22:00+0100\n"
-"Last-Translator: Ivan Potapov <elsewhere@yandex.ru>\n"
+"PO-Revision-Date: 2008-03-10 04:30+0100\n"
+"Last-Translator: Nik S Denin <wolf.step@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,7 +201,7 @@ msgstr "Объединять слова"
 #: Wammu/Composer.py:168 Wammu/Settings.py:240
 msgid "Create concatenated message, what allows to send longer messages."
 msgstr ""
-"Конкатенированные сообщения, позволят отправить более длинные сообщения"
+"Конкатенированное сообщение, позволяет отправлять более длинные сообщения"
 
 #: Wammu/Composer.py:176
 msgid "Style"
@@ -211,60 +211,61 @@ msgstr "Стиль"
 #, python-format
 msgid "%d char"
 msgid_plural "%d chars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "символов"
+msgstr[1] "символ"
+msgstr[2] "символов"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
-msgstr ""
+msgstr "Выберите предопределённую анимацию"
 
 #: Wammu/Composer.py:297
 msgid "Select predefined sound:"
-msgstr ""
+msgstr "Выберите предопределённый сигнал"
 
 #: Wammu/Composer.py:313
 msgid "Predefined animation"
-msgstr ""
+msgstr "Предопределённая анимация"
 
 #: Wammu/Composer.py:314
 msgid "Predefined sound"
-msgstr ""
+msgstr "Предопределённый сигнал"
 
 #: Wammu/Composer.py:319
 msgid "Composing SMS"
-msgstr ""
+msgstr "Создание SMS"
 
 #: Wammu/Composer.py:349
 msgid "When checked, message is sent to recipient."
-msgstr ""
+msgstr "Если отмечено, значит, сообщение отправлено получателю."
 
 #: Wammu/Composer.py:352
 msgid "Save into folder"
-msgstr ""
+msgstr "Сохранить в папку"
 
 #: Wammu/Composer.py:353
 msgid "When checked, message is saved to phone."
-msgstr ""
+msgstr "Если отмечено, значит, сообщение сохранено в телефоне."
 
 #: Wammu/Composer.py:368
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
-msgstr ""
+msgstr "Добавить номер получателя из контактов."
 
 #: Wammu/Composer.py:372
 msgid "Edit recipients list."
-msgstr ""
+msgstr "Редактировать список получателей."
 
 #: Wammu/Composer.py:374
 msgid "Recipient's numbers:"
-msgstr ""
+msgstr "Номера получателей:"
 
 #: Wammu/Composer.py:384
 msgid "Unicode"
-msgstr ""
+msgstr "Unicode"
 
 #: Wammu/Composer.py:385 Wammu/Settings.py:246
 msgid ""
@@ -272,41 +273,49 @@ msgid ""
 "this if you use non latin-1 characters. Your messages will require more "
 "space, so you can write less characters into single message."
 msgstr ""
+"Сообщения в формате Unicode могут содержать национальные и другие "
+"специальные символы; отметьте здесь, если Вы используете не латинские "
+"символы. Ваше сообщение будет в два раза короче, чем написанное латинскими "
+"буквами."
 
 #: Wammu/Composer.py:395
 msgid "Delivery report"
-msgstr ""
+msgstr "Отчёт о доставке"
 
 #: Wammu/Composer.py:396 Wammu/Settings.py:252
 msgid "Check to request delivery report for message."
-msgstr ""
+msgstr "Отметьте, чтобы получить отчёт о доставке."
 
 #: Wammu/Composer.py:400 Wammu/Main.py:132
 msgid "Sent"
-msgstr ""
+msgstr "Отправлено"
 
 #: Wammu/Composer.py:401
 msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr ""
+"Отметьте, чтобы сохранить сообщение в \"Отправленных\" (действует только при "
+"сохранении сообщения)."
 
 #: Wammu/Composer.py:404
 msgid "Flash"
-msgstr ""
+msgstr "Флеш-сообщение"
 
 #: Wammu/Composer.py:405
 msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
 msgstr ""
+"Отправить флеш-сообщение - оно будет только отображено, но не сохранено в "
+"телефоне."
 
 #: Wammu/Composer.py:412
 msgid "Parts of current message"
-msgstr ""
+msgstr "Части текущего сообщения"
 
 #: Wammu/Composer.py:413
 msgid "Available message parts"
-msgstr ""
+msgstr "Доступные части сообщения"
 
 #: Wammu/Composer.py:442 Wammu/Composer.py:531
 msgid "Create new message by adding part to left list..."
@@ -314,30 +323,30 @@ msgstr ""
 
 #: Wammu/Composer.py:447
 msgid "Preview"
-msgstr ""
+msgstr "Предпросмотр"
 
 #: Wammu/Composer.py:517
 #, python-format
 msgid "Not supported id: %s"
-msgstr ""
+msgstr "Неподдерживаемый ID: %s"
 
 #: Wammu/Composer.py:558
 #, python-format
 msgid "No editor available for type %s"
-msgstr ""
+msgstr "Редактор для типа %s недоступен"
 
 #: Wammu/Composer.py:639
 msgid "Nothing to preview, message is empty."
-msgstr ""
+msgstr "Сообщение пустое."
 
 #: Wammu/Composer.py:640
 msgid "Message empty!"
-msgstr ""
+msgstr "Сообщение пустое!"
 
 #: Wammu/Composer.py:650
 #, python-format
 msgid "Message will fit into %d SMSes"
-msgstr ""
+msgstr "Сообщение займёт %d SMS-сообщений"
 
 #: Wammu/Data.py:33
 msgid "Chimes high"
@@ -1030,9 +1039,9 @@ msgstr ""
 msgid "&Messages"
 msgstr ""
 
+#| msgid "Send message"
 #: Wammu/Main.py:312
 #, fuzzy
-#| msgid "Send message"
 msgid "Retrieve messages."
 msgstr "Отправить сообщение"
 
@@ -1084,9 +1093,9 @@ msgstr ""
 msgid "&Message"
 msgstr ""
 
+#| msgid "Send message"
 #: Wammu/Main.py:324
 #, fuzzy
-#| msgid "Send message"
 msgid "Create new message."
 msgstr "Отправить сообщение"
 
@@ -1809,9 +1818,9 @@ msgstr ""
 msgid "All finished, found %d phones"
 msgstr ""
 
+#| msgid "Failed to set exception handler."
 #: Wammu/PhoneSearch.py:328
 #, fuzzy
-#| msgid "Failed to set exception handler."
 msgid "Failed to connect to phone"
 msgstr "Не удалось установить обработчик исключения."
 
@@ -2462,9 +2471,9 @@ msgid ""
 "conect to your phone!"
 msgstr ""
 
+#| msgid "No phone selected!"
 #: Wammu/Settings.py:526
 #, fuzzy
-#| msgid "No phone selected!"
 msgid "No phone configured!"
 msgstr "Телефон не выбран!"
 
@@ -2838,9 +2847,9 @@ msgstr ""
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
 msgstr ""
 
+#| msgid "Mailbox file"
 #: Wammu/SMSExport.py:34
 #, fuzzy
-#| msgid "Mailbox file"
 msgid "Mailboxes"
 msgstr "Файл почтового ящика"
 
@@ -3518,10 +3527,10 @@ msgstr "Обновляем конфигурацию gammu..."
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu — оконная версия Gammu версии %s"
 
+#| msgid "Gammu"
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
 #, fuzzy
-#| msgid "Gammu"
 msgid "Wammu"
 msgstr "Gammu"
 
