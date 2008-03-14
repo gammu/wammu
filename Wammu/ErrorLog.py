@@ -58,7 +58,10 @@ def GetSystemInfo():
     try:
         (gammuver, pgammuver) = gammu.Version()
     except:
-        (gammuver, pgammuver) = ('Unknown', 'Unknown')
+        try:
+            (gammuver, pgammuver, ignore) = gammu.Version()
+        except:
+            (gammuver, pgammuver) = ('Unknown', 'Unknown')
     (loc, charset) = locale.getdefaultlocale()
     bluez = 'None'
     try:
