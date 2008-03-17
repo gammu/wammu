@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-03-11 10:17+0100\n"
-"PO-Revision-Date: 2008-03-10 04:30+0100\n"
+"PO-Revision-Date: 2008-03-12 18:24+0100\n"
 "Last-Translator: Nik S Denin <wolf.step@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -176,15 +176,15 @@ msgstr "Удалить выделенное"
 
 #: Wammu/Browser.py:535
 msgid "Backup current"
-msgstr "Зарезервировать текущее"
+msgstr "Создать резервную копию текущего сообщения"
 
 #: Wammu/Browser.py:536
 msgid "Backup selected"
-msgstr "Зарезервировать выделенное"
+msgstr "Создать резервную копию выделенного сообщения"
 
 #: Wammu/Browser.py:537
 msgid "Backup all"
-msgstr "Зарезервировать все"
+msgstr "Создать резервную копию всех сообщений"
 
 #: Wammu/Composer.py:56
 msgid "Message preview"
@@ -273,7 +273,7 @@ msgid ""
 "this if you use non latin-1 characters. Your messages will require more "
 "space, so you can write less characters into single message."
 msgstr ""
-"Сообщения в формате Unicode могут содержать национальные и другие "
+"Сообщения в кодировке Unicode могут содержать национальные и другие "
 "специальные символы; отметьте здесь, если Вы используете не латинские "
 "символы. Ваше сообщение будет в два раза короче, чем написанное латинскими "
 "буквами."
@@ -474,7 +474,7 @@ msgstr ""
 
 #: Wammu/Data.py:559
 msgid "Normal"
-msgstr ""
+msgstr "Обычный"
 
 #: Wammu/Data.py:560
 msgid "Large"
@@ -1039,9 +1039,9 @@ msgstr ""
 msgid "&Messages"
 msgstr ""
 
+#| msgid "Send message"
 #: Wammu/Main.py:312
 #, fuzzy
-#| msgid "Send message"
 msgid "Retrieve messages."
 msgstr "Отправить сообщение"
 
@@ -1093,9 +1093,9 @@ msgstr ""
 msgid "&Message"
 msgstr ""
 
+#| msgid "Send message"
 #: Wammu/Main.py:324
 #, fuzzy
-#| msgid "Send message"
 msgid "Create new message."
 msgstr "Отправить сообщение"
 
@@ -1819,9 +1819,9 @@ msgstr ""
 msgid "All finished, found %d phones"
 msgstr ""
 
+#| msgid "Failed to set exception handler."
 #: Wammu/PhoneSearch.py:328
 #, fuzzy
-#| msgid "Failed to set exception handler."
 msgid "Failed to connect to phone"
 msgstr "Не удалось установить обработчик исключения."
 
@@ -2472,9 +2472,9 @@ msgid ""
 "conect to your phone!"
 msgstr ""
 
+#| msgid "No phone selected!"
 #: Wammu/Settings.py:526
 #, fuzzy
-#| msgid "No phone selected!"
 msgid "No phone configured!"
 msgstr "Телефон не выбран!"
 
@@ -2848,9 +2848,9 @@ msgstr ""
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
 msgstr ""
 
+#| msgid "Mailbox file"
 #: Wammu/SMSExport.py:34
 #, fuzzy
-#| msgid "Mailbox file"
 msgid "Mailboxes"
 msgstr "Файл почтового ящика"
 
@@ -3528,10 +3528,10 @@ msgstr "Обновляем конфигурацию gammu..."
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu — оконная версия Gammu версии %s"
 
+#| msgid "Gammu"
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
 #, fuzzy
-#| msgid "Gammu"
 msgid "Wammu"
 msgstr "Gammu"
 
