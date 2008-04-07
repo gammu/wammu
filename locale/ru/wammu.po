@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.0.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -211,9 +212,9 @@ msgstr "Стиль"
 #, python-format
 msgid "%d char"
 msgid_plural "%d chars"
-msgstr[0] "символов"
-msgstr[1] "символ"
-msgstr[2] "символов"
+msgstr[0] "%d символов"
+msgstr[1] "%d символ"
+msgstr[2] "%d символов"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
