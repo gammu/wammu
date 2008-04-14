@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 0.10.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -33,7 +34,7 @@ msgstr "wxPython %s verzió"
 #: Wammu/About.py:97
 #, python-format
 msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
-msgstr "python-gammu %s verziót és Gammu %s verziót használ"
+msgstr "python-gammu %(python_gammu_version)s verziót és Gammu %(gammu_version)s verziót használ"
 
 #: Wammu/About.py:102
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
@@ -237,7 +238,7 @@ msgstr "Stílus"
 msgid "%d char"
 msgid_plural "%d chars"
 msgstr[0] "%d karakter"
-msgstr[1] "%s karakter"
+msgstr[1] "%d karakter"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
@@ -360,7 +361,7 @@ msgstr "Az üzenet üres."
 #: Wammu/Composer.py:650
 #, python-format
 msgid "Message will fit into %d SMSes"
-msgstr "Az üzenet %s RÜSZÜ-ben küldhető el."
+msgstr "Az üzenet %d RÜSZÜ-ben küldhető el."
 
 #: Wammu/Data.py:33
 msgid "Chimes high"
@@ -1570,7 +1571,7 @@ msgstr "%d tennivaló bejegyzés"
 #: Wammu/Main.py:1515
 #, python-format
 msgid "%d calendar entries"
-msgstr "%D naptárbejegyzés"
+msgstr "%d naptárbejegyzés"
 
 #: Wammu/Main.py:1526
 #, python-format
@@ -1644,36 +1645,36 @@ msgstr "Valóban törölni kívánja a(z) \"%s\" naptárbejegyzést?"
 #, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
-msgstr[0] "Valóban törölni kívánja \"%s\" naptárbejegyzést?"
-msgstr[1] "Valóban törölni kívánja \"%s\" naptárbejegyzést?"
+msgstr[0] "Valóban törölni kívánja \"%d\" naptárbejegyzést?"
+msgstr[1] "Valóban törölni kívánja \"%d\" naptárbejegyzést?"
 
 #: Wammu/Main.py:1740
 #, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
-msgstr[0] "Valóban törölni kívánja \"%s\" hívást?"
-msgstr[1] "Valóban törölni kívánja \"%s\" hívást?"
+msgstr[0] "Valóban törölni kívánja \"%d\" hívást?"
+msgstr[1] "Valóban törölni kívánja \"%d\" hívást?"
 
 #: Wammu/Main.py:1745
 #, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
-msgstr[0] "Valóban törölni kívánja \"%s\" üzenetet?"
-msgstr[1] "Valóban törölni kívánja \"%s\" üzenetet?"
+msgstr[0] "Valóban törölni kívánja \"%d\" üzenetet?"
+msgstr[1] "Valóban törölni kívánja \"%d\" üzenetet?"
 
 #: Wammu/Main.py:1750
 #, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] "Valóban törölni kívánja \"%s\" tennivalót?"
-msgstr[1] "Valóban törölni kívánja \"%s\" tennivalót?"
+msgstr[0] "Valóban törölni kívánja \"%d\" tennivalót?"
+msgstr[1] "Valóban törölni kívánja \"%d\" tennivalót?"
 
 #: Wammu/Main.py:1755
 #, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "Valóban törölni kívánja \"%s\" naptárbejegyzést?"
-msgstr[1] "Valóban törölni kívánja \"%s\" naptárbejegyzést?"
+msgstr[0] "Valóban törölni kívánja \"%d\" naptárbejegyzést?"
+msgstr[1] "Valóban törölni kívánja \"%d\" naptárbejegyzést?"
 
 #: Wammu/Main.py:1760
 #: Wammu/Settings.py:346
@@ -1706,9 +1707,9 @@ msgid "Reading calls of type %s"
 msgstr ""
 
 #: Wammu/Main.py:1924
-#, python-format
+#, fuzzy, python-format
 msgid "Reading contacts from %s"
-msgstr "Névjegyek olvasása a "
+msgstr "Névjegyek olvasása a %s"
 
 #: Wammu/Main.py:1932
 msgid "Reading messages"
@@ -2570,7 +2571,7 @@ msgstr "Általános AT (modem) sorosvonalon, %d bps sebességgel"
 #: Wammu/SettingsStorage.py:338
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
-msgstr "Válassza ki ezt a lehetőséget, ha telefonja %s bps adatátviteli sebességet igényel."
+msgstr "Válassza ki ezt a lehetőséget, ha telefonja %d bps adatátviteli sebességet igényel."
 
 #: Wammu/SettingsStorage.py:342
 msgid "AT over Bluetooth"
