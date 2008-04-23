@@ -2047,7 +2047,10 @@ class WammuFrame(wx.Frame):
         try:
             self.sm.Init()
             self.sm.SetIncomingCallback(self.IncomingEvent)
-            self.sm.SetIncomingCall(True)
+            try:
+                self.sm.SetIncomingCall(True)
+            except gammu.GSMError:
+                pass
             self.TogglePhoneMenus(True)
             self.SetupNumberPrefix()
             try:
