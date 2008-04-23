@@ -2028,6 +2028,12 @@ class WammuFrame(wx.Frame):
         wx.Yield()
         section = self.cfg.ReadInt('/Gammu/Section')
         config = self.cfg.gammu.GetConfig(section)
+        if config['Connection'] == '' or config['Device'] == '':
+            wx.MessageDialog(self,
+                _('Phone connection is not properly configured, can not connect to phone.'),
+                _('Connection not configured!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo'),
             'UseGlobalDebugFile': 1,
