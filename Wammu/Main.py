@@ -475,7 +475,7 @@ class WammuFrame(wx.Frame):
                 wx.YES_NO | wx.YES_DEFAULT | wx.ICON_WARNING)
             if dlg.ShowModal() == wx.ID_YES:
                 self.SearchPhone()
-        else:
+        elif not self.cfg.HasEntry('/Gammu/Section'):
             # behave as Gammu
             self.cfg.WriteInt('/Gammu/Section', 0)
 
@@ -543,8 +543,7 @@ class WammuFrame(wx.Frame):
         if not self.cfg.HasEntry('/Gammu/Section') and self.cfg.HasEntry('/Gammu/Connection'):
             self.MigrateConfiguration()
 
-        if not self.cfg.HasEntry('/Gammu/Section'):
-            self.InitConfiguration()
+        self.InitConfiguration()
 
         self.DoDebug(self.cfg.Read('/Debug/Show'))
 

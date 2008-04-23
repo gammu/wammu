@@ -40,7 +40,7 @@ class GammuSettings:
         else:
             self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
         self.config = wx.FileConfig(
-                localFilename = self.filename, 
+                localFilename = self.filename,
                 style = wx.CONFIG_USE_LOCAL_FILE
                 )
         self.list = []
@@ -82,13 +82,13 @@ class GammuSettings:
         model = self.config.Read('/%s/model' % path)
         name = self.config.Read('/%s/name' % path)
         return {
-            'Name': name, 
-            'Device': device, 
-            'Connection': connection, 
+            'Name': name,
+            'Device': device,
+            'Connection': connection,
             'Model': model
             }
 
-    def SetConfig(self, position, device, connection, 
+    def SetConfig(self, position, device, connection,
             name = None, model = None):
         '''
         Set configuration at defined position.
@@ -137,8 +137,8 @@ class GammuSettings:
         lst = []
         if new:
             lst.append({
-                'Id': self.FirstFree(), 
-                'Path': None, 
+                'Id': self.FirstFree(),
+                'Path': None,
                 'Name': _('Create new configuration')
                 })
         lst += self.list
@@ -147,7 +147,7 @@ class GammuSettings:
         for config in lst:
             # l10n: %(name)s is name of current configuration or 'Create new
             # configuration', %(position) d is position of this config in .gammurc
-            choices.append(_('%(name)s (position %(position)d)') % 
+            choices.append(_('%(name)s (position %(position)d)') %
                     {'name': config['Name'], 'position': config['Id']})
         return lst, choices
 
