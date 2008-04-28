@@ -24,13 +24,14 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import codecs
+
 def modified_base64(s):
     s_utf7 = s.encode('utf-7')
     return s_utf7[1:-1].replace('/', ',')
 
 def modified_unbase64(s):
     s_utf7 = '+' + s.replace(',', '/') + '-'
-    return unicode(s_utf7, 'utf-7')
+    return s_utf7.decode('utf-7')
 
 def encoder(s):
     r = []
@@ -70,7 +71,7 @@ def decoder(s):
             r.append(c)
     if decode:
         r.append(modified_unbase64(''.join(decode[1:])))
-    return (u''.join(r), len(s))
+    return (''.join(r), len(s))
 
 class StreamReader(codecs.StreamReader):
     def decode(self, s, errors='strict'):
