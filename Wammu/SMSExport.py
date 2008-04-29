@@ -240,7 +240,11 @@ def SMSToIMAP(parent, messages, contacts):
     folders = []
     for item in list:
         vals = item.split('"')
-        folders.append(unicode(vals[-2], 'imap4-utf-7'))
+        try:
+            folders.append(unicode(vals[-2], 'imap4-utf-7'))
+        except UnicodeDecodeError:
+            # Ignore folders which can not be properly converted
+            pass
 
     folders.sort()
 
