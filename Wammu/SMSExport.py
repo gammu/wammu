@@ -28,6 +28,10 @@ import imaplib
 import wx
 import Wammu.MailWriter
 import Wammu.IMAP
+import re
+
+MAILBOX_RE = re.compile(r'\((?P<flags>(\s*\\\w*)*)\)\s+(?P<delim>[^ ]*)\s+(?P<name>.*)')
+POSSIBLY_QUOTED_RE = re.compile(r'"?([^"]*)"?')
 
 def SMSToMailbox(parent, messages, contacts):
     count = len(messages)
@@ -152,6 +156,20 @@ def SMSToMaildir(parent, messages, contacts):
 
     parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('maildir')})
 
+def ParseIMAPFolder(item):
+    '''
+    Parses folder reply from IMAP.
+    '''
+    match = MAILBOX_RE.match(item)
+
+    if not match:
+        return (None, None)
+
+    delim = POSSIBLY_QUOTED_RE.match(match.group('delim')).group(1)
+    path = POSSIBLY_QUOTED_RE.match(match.group('name')).group(1)
+    flags = match.group('flags')
+    return (path, flags)
+
 def SMSToIMAP(parent, messages, contacts):
     count = len(messages)
     ssl = False
@@ -239,11 +257,16 @@ def SMSToIMAP(parent, messages, contacts):
 
     folders = []
     for item in list:
-        if item.find('\\Noselect') != -1:
+        path, flags = ParseIMAPFolder(item)
+
+        if path is None:
             continue
-        vals = item.split('"')
+
+        if flags.find('\\Noselect') != -1:
+            continue
+
         try:
-            folders.append(unicode(vals[-2], 'imap4-utf-7'))
+            folders.append(unicode(path, 'imap4-utf-7'))
         except UnicodeDecodeError:
             # Ignore folders which can not be properly converted
             pass
