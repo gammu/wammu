@@ -239,6 +239,8 @@ def SMSToIMAP(parent, messages, contacts):
 
     folders = []
     for item in list:
+        if item.find('\\Noselect') != -1:
+            continue
         vals = item.split('"')
         try:
             folders.append(unicode(vals[-2], 'imap4-utf-7'))
