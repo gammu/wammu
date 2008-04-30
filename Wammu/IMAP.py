@@ -71,7 +71,7 @@ def decoder(s):
             r.append(c)
     if decode:
         r.append(modified_unbase64(''.join(decode[1:])))
-    return (''.join(r), len(s))
+    return (u''.join(r), len(s))
 
 class StreamReader(codecs.StreamReader):
     def decode(self, s, errors='strict'):
