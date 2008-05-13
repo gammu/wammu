@@ -26,8 +26,8 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import wx
 import re
 
-MATCHER_NORMAL = re.compile('^\\+?[0-9*#]+$')
-MATCHER_PAUSE = re.compile('^\\+?[Pp0-9*#]+$')
+MATCHER_NORMAL = re.compile('^[0-9*#+]+$')
+MATCHER_PAUSE = re.compile('^[Pp0-9*#+]+$')
 MATCH_SPLIT = re.compile('[\s;,]+')
 
 def SplitNumbers(text):
