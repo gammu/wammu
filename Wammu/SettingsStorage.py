@@ -109,6 +109,10 @@ class Settings:
         connections.append(_('BenQ/Siemens phone'))
         helps.append(_('BenQ or Siemens phone not running Symbian.'))
 
+        names.append('nota')
+        connections.append(_('Motorola phone'))
+        helps.append(_('Motorola phone not running Symbian.'))
+
         names.append('nokia')
         connections.append(_('Nokia phone'))
         helps.append(_('Nokia phone not running Symbian.'))
