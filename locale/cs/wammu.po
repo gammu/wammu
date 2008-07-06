@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-05-05 11:16+0200\n"
-"PO-Revision-Date: 2008-03-27 16:07+0100\n"
+"PO-Revision-Date: 2008-06-11 11:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -522,7 +522,7 @@ msgstr "Načíst kontakty ze souboru"
 #: Wammu/EditContactList.py:158
 #, python-format
 msgid "Selected file \"%s\" could not be written."
-msgstr "Nepodařilo se zapsat do vybraného souboru \"%s\"."
+msgstr "Do zvoleného souboru \"%s\" se nepodařilo zapsat."
 
 #: Wammu/EditContactList.py:159
 msgid "File can not be created!"
@@ -1778,17 +1778,15 @@ msgstr "Přenos odmítnut!"
 msgid "One moment please, connecting to phone..."
 msgstr "Chvilku strpení, připojuji se k telefonu..."
 
+#  msgid "Phone connection test is still active, you can not continue."
 #: Wammu/Main.py:2033
-#, fuzzy
-#| msgid "Phone connection test is still active, you can not continue."
 msgid "Phone connection is not properly configured, can not connect to phone."
-msgstr "Probíhá test telefonu, nemůžete pokračovat."
+msgstr "Připojení telefonu není správně nakonfigurováno, nelze se připojit."
 
+#  msgid "No phone configured!"
 #: Wammu/Main.py:2034
-#, fuzzy
-#| msgid "No phone configured!"
 msgid "Connection not configured!"
-msgstr "Není nastaven žádný telefon!"
+msgstr "Není nastaveno připojení!"
 
 #: Wammu/Main.py:2124
 msgid "Your phone has just received incoming call"
