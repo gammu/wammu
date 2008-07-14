@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Wammu 0.28\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-07-06 23:57+0200\n"
-"PO-Revision-Date: 2008-07-04 13:40+0200\n"
+"PO-Revision-Date: 2008-07-14 14:30+0200\n"
 "Last-Translator: alx <schumifer21@yahoo.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Χρησιμοποιεί wxPython %s"
 #: Wammu/About.py:97
 #, python-format
 msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
-msgstr ""
+msgstr "Χρήση python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
 
 #: Wammu/About.py:102
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
@@ -67,7 +67,7 @@ msgstr ""
 
 #: Wammu/App.py:68
 msgid "Failed to set exception handler."
-msgstr ""
+msgstr "Αποτυχία θέσης χειριστή εξαίρεσης."
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
 #: Wammu/Main.py:981 Wammu/Settings.py:168
@@ -193,7 +193,6 @@ msgid "Text style"
 msgstr "Στυλ κειμένου"
 
 #: Wammu/Composer.py:167 Wammu/Settings.py:239
-#, fuzzy
 msgid "Concatenated"
 msgstr "Συνδεδεμένα"
 
@@ -211,8 +210,8 @@ msgstr "Στυλ"
 #, python-format
 msgid "%d char"
 msgid_plural "%d chars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d char"
+msgstr[1] "%d char"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
@@ -305,6 +304,8 @@ msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
 msgstr ""
+"Αποστολή φλας μηνύματος - απλά θα εμφανιστεί στην οθόνη, αλλά δε θα "
+"αποθηκευτούν στο τηλέφωνο."
 
 #: Wammu/Composer.py:412
 msgid "Parts of current message"
@@ -2357,7 +2358,7 @@ msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
 msgstr ""
-"Σύνδεση που το κινητό σας αντιλαμβάνεταιμ ελέγξτε την τεκμηρίωση του Gammu "
+"Σύνδεση που το κινητό σας αντιλαμβάνεται, ελέγξτε την τεκμηρίωση του Gammu "
 "για λεπτομέρειες σύνδεσης."
 
 #: Wammu/Settings.py:180 Wammu/Settings.py:438
@@ -2431,11 +2432,11 @@ msgstr "Αυτόματη εκκίνηση με το επώνυμο"
 
 #: Wammu/Settings.py:294
 msgid "Custom, use format string bellow"
-msgstr ""
+msgstr "Τροποποιημένο, χρησιμοποιήστε το κάτωθι format string"
 
 #: Wammu/Settings.py:304
 msgid "Name display format"
-msgstr ""
+msgstr "Διαμόρφωση προβολής ονόματος"
 
 #. l10n: The %s will be replaced by list of currently supported tags, %%(value)s should be kept intact (you can translate word value).
 #: Wammu/Settings.py:317
@@ -2444,66 +2445,72 @@ msgid ""
 "Format string for name displaying. You can use %%(value)s format marks. "
 "Currently available values are: %s."
 msgstr ""
+"Αυτό είναι το format string για το προβαλλόμενο όνομα. Μπορείτε να "
+"χρησιμοποιήσετε %%(τιμή)s .  Προσωρινά διαθέσιμες τιμές είναι: %s."
 
 #: Wammu/Settings.py:319
 msgid "Name format string"
-msgstr ""
+msgstr "Format string ονόματος"
 
 #: Wammu/Settings.py:341
 msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
 msgstr ""
+"Πόσο συχνά να ανανεώνεται η κατάσταση του τηλεφώνου στη γραμμή κατάστασης. "
+"Θέσατε την τιμή σε χιλιοστά του δευτερολέπτου, θέσατε 0 για απενεργοποίηση."
 
 #: Wammu/Settings.py:342
 msgid "Refresh phone state"
-msgstr ""
+msgstr "Ανανέωση κατάστασης τηλεφώνου"
 
 #: Wammu/Settings.py:347
 msgid "Whether to ask for confirmation when deleting entries."
-msgstr ""
+msgstr "Αν θέλετε να ζητείται επιβεβαίωση όταν σβήνετε εγγραφές."
 
 #: Wammu/Settings.py:352
 msgid "Task bar icon"
-msgstr ""
+msgstr "Εικονίδιο της γραμμής εργαλείων"
 
 #: Wammu/Settings.py:353
 msgid "Show icon in task bar."
-msgstr ""
+msgstr "Εμφάνιση εικονιδίου στη γραμμή εργαλείων"
 
 #: Wammu/Settings.py:371
 msgid "Default time to be used for newly created time fields."
-msgstr ""
+msgstr "Προεπιλεγμένη ώρα προς χρήση στα νεοδημιουργούμενα πεδία ώρας."
 
 #: Wammu/Settings.py:372
 msgid "Default time"
-msgstr ""
+msgstr "Προεπιλεγμένη ώρα"
 
 #: Wammu/Settings.py:378
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
 msgstr ""
+"Προεπιλεγμένη ώρα προς χρήση στα νεοδημιουργούμενα πεδία ώρας. Εισάγετε ποσό "
+"ημερών από σήμερα (1 = αύριο)."
 
 #: Wammu/Settings.py:379
 msgid "Default date = now + x days"
-msgstr ""
+msgstr "Προεπιλεγμένη μέρα = σήμερα + Χ ημέρες"
 
 #: Wammu/Settings.py:385
 msgid "How many entries will be shown in newly created item."
-msgstr ""
+msgstr "Πόσες εγγραφές θα φαίνονται σε νεοδημιουργούμενα αντικείμενα."
 
 #: Wammu/Settings.py:386
 msgid "Entries for new item"
-msgstr ""
+msgstr "Εγγραφές για νέο αντικείμενο"
 
 #: Wammu/Settings.py:393
 msgid "Prefix for non international phone numbers."
-msgstr ""
+msgstr "Πρόθεμα για μη διεθνή τηλέφωνα."
 
 #: Wammu/Settings.py:394
 msgid "Number prefix"
-msgstr ""
+msgstr "Πρόθεμα τηλεφώνου"
 
 #: Wammu/Settings.py:416
 msgid ""
@@ -2511,230 +2518,257 @@ msgid ""
 "items from phone where total count was guessed, it assumes that rest is "
 "empty."
 msgstr ""
+"Όταν το wammu συναντά συνεχόμενα τόσες άδειες εγγραφές διαβάζοντας "
+"αντικείμενα από τηλέφωνο όπου χρειάστηκε να υποθέσει το συνολικό αριθμό "
+"αντικειμένων, θεωρεί ότι οι υπόλοιπες είναι άδειες."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
-msgstr ""
+msgstr "Μέγιστος αριθμός εγγραφών ,εάν ο συνολικός αριθμός υπετέθη"
 
 #: Wammu/Settings.py:423
 msgid ""
 "When Wammu encounters continuous this count of empty entries when reading "
 "items from phone which have known total count, it assumes that rest is empty."
 msgstr ""
+"Όταν το wammu συναντά συνεχόμενα τόσες άδειες εγγραφές διαβάζοντας "
+"αντικείμενα από τηλέφωνο με γνωστό συνολικό αριθμό αντικειμένων, θεωρεί ότι "
+"οι υπόλοιπες είναι άδειες."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
-msgstr ""
+msgstr "Μέγιστος αριθμών κενών εγγραφών, αν ο συνολικός είναι γνωστός"
 
 #: Wammu/Settings.py:437
 msgid "Gammu"
-msgstr ""
+msgstr "Gammu"
 
 #: Wammu/Settings.py:440
 msgid "View"
-msgstr ""
+msgstr "Προβολή"
 
 #: Wammu/Settings.py:441
 msgid "Other"
-msgstr ""
+msgstr "Άλλο"
 
 #: Wammu/Settings.py:442
 msgid "Hacks"
-msgstr ""
+msgstr "Hacks"
 
 #: Wammu/Settings.py:525
 msgid ""
 "You don't have any phone connection configured. Wammu will not be able to "
 "conect to your phone!"
 msgstr ""
+"Δεν έχετε ρυθμίσει καμιά τηλεφωνική σύνδεση. Το Wammu δε θα μπορεί να "
+"συνδεθεί με το τηλέφωνό σας!"
 
 #: Wammu/Settings.py:526
 msgid "No phone configured!"
-msgstr ""
+msgstr "Κανένα ρυθμισμένο τηλέφωνο!"
 
 #: Wammu/SettingsStorage.py:97
 msgid "I don't know"
-msgstr ""
+msgstr "Άγνωστο"
 
 #: Wammu/SettingsStorage.py:98
 msgid ""
 "Select this option only if really necessary. You will be provided with too "
 "much options in next step."
 msgstr ""
+"Επιλέξτε μόνο αν είναι πραγματικά απαραίτητο. Θα σας δοθούν πάρα πολλές "
+"επιλογές στο επόμενο βήμα."
 
 #: Wammu/SettingsStorage.py:101
 msgid "Symbian based phone"
-msgstr ""
+msgstr "Symbian κινητό"
 
 #: Wammu/SettingsStorage.py:102
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
 msgstr ""
+"Συνεχίστε αν το τηλέφωνό σας χρησιμοποιεί Symbian λειτουργικό (άσχετα από "
+"κατασκευαστή)."
 
 #: Wammu/SettingsStorage.py:105
 msgid "Alcatel phone"
-msgstr ""
+msgstr "Τηλέφωνο Alcatel"
 
 #: Wammu/SettingsStorage.py:106
 msgid "Alcatel phone not running Symbian."
-msgstr ""
+msgstr "Alcatel τηλέφωνο, δεν τρέχει Symbian λειτουργικό."
 
 #: Wammu/SettingsStorage.py:109
 msgid "BenQ/Siemens phone"
-msgstr ""
+msgstr "BenQ/Siemens τηλέφωνο"
 
 #: Wammu/SettingsStorage.py:110
 msgid "BenQ or Siemens phone not running Symbian."
-msgstr ""
+msgstr "BenQ or Siemens τηλέφωνο που δεν τρέχει Symbian τηλέφωνο."
 
 #: Wammu/SettingsStorage.py:113
 msgid "Motorola phone"
-msgstr ""
+msgstr "Motorola τηλέφωνο"
 
 #: Wammu/SettingsStorage.py:114
 msgid "Motorola phone not running Symbian."
-msgstr ""
+msgstr "Motorola τηλέφωνο, δε χρησιμοποιεί Symbian λειτουργικό."
 
 #: Wammu/SettingsStorage.py:117
 msgid "Nokia phone"
-msgstr ""
+msgstr "Nokia τηλέφωνο"
 
 #: Wammu/SettingsStorage.py:118
 msgid "Nokia phone not running Symbian."
-msgstr ""
+msgstr "Nokia τηλέφωνο, δεν τρέχει Symbian λειτουργικό."
 
 #: Wammu/SettingsStorage.py:121
 msgid "Samsung phone"
-msgstr ""
+msgstr "Samsung τηλέφωνο"
 
 #: Wammu/SettingsStorage.py:122
 msgid "Samsung phone not running Symbian."
-msgstr ""
+msgstr "Samsung τηλέφωνο, δεν τρέχει Symbian λειτουργικό."
 
 #: Wammu/SettingsStorage.py:125
 msgid "Sharp phone"
-msgstr ""
+msgstr "Sharp τηλέφωνο"
 
 #: Wammu/SettingsStorage.py:126
 msgid "Sharp phone not running Symbian."
-msgstr ""
+msgstr "Sharp τηλέφωνο, δεν τρέχει Symbian λειτουργικό."
 
 #: Wammu/SettingsStorage.py:129
 msgid "Sony Ericsson phone"
-msgstr ""
+msgstr "Sony Ericsson τηλέφωνο"
 
 #: Wammu/SettingsStorage.py:130
 msgid "Sony Ericsson phone not running Symbian."
-msgstr ""
+msgstr "Sony Ericsson τηλέφωνο, δεν τρέχει Symbian λειτουργικο."
 
 #: Wammu/SettingsStorage.py:133
 msgid "None of the above"
-msgstr ""
+msgstr "Τίποτα από τα παραπάνω"
 
 #: Wammu/SettingsStorage.py:134
 msgid "Select this option if nothing above matches."
-msgstr ""
+msgstr "Επιλέξτε αυτο αν τίποτα από τα παραπάνω δεν ταιριάζει."
 
 #: Wammu/SettingsStorage.py:140
 msgid "OBEX and IrMC protocols"
-msgstr ""
+msgstr "Πρωτόκολλα OBEX and IrMC "
 
 #: Wammu/SettingsStorage.py:142
 msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
 msgstr ""
+"Τυπική πρόσβαση στο σύστημα αρχείων. Όχι καλή επιλογή για Nokia αν θέλετε να "
+"έχετε πρόσβαση σε δεδομένα."
 
 #: Wammu/SettingsStorage.py:144
 msgid ""
 "Standard access to filesystem and sometimes also to phone data. Good choice "
 "for recent phones."
 msgstr ""
+"Τυπική πρόσβαση στο σύστημα αρχείων και κάποιες φορές στα δεδομένα του "
+"τηλεφώνου. Καλή επιλογή για πρόσφατα κινητά."
 
 #: Wammu/SettingsStorage.py:148
 msgid "Symbian using Gnapplet"
-msgstr ""
+msgstr "Λειτουργικό Symbian, χρηση Gnapplet"
 
 #: Wammu/SettingsStorage.py:149
 msgid ""
 "You have to install Gnapplet into phone before using this connection. You "
 "can find it in Gammu sources."
 msgstr ""
+"Πρέπει να εγκαταστήσετε το Gnapplet στο τηλέφωνο πριν χρησιμοποιήσετε αυτή "
+"τη σύνδεση. Μπορείτε να το βρείτε στις πηγές του Gammu."
 
 #: Wammu/SettingsStorage.py:153
 msgid "Nokia proprietary protocol"
-msgstr ""
+msgstr "Κλειστό πρωτόκολλο Nokia"
 
 #: Wammu/SettingsStorage.py:154
 msgid "Nokia proprietary protocol FBUS."
-msgstr ""
+msgstr "Κλειστό πρωτόκολλο Nokia FBUS."
 
 #: Wammu/SettingsStorage.py:157
 msgid "Nokia proprietary service protocol"
-msgstr ""
+msgstr "Κλειστό πρωτόκολλο υπηρεσίας"
 
 #: Wammu/SettingsStorage.py:158
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
 msgstr ""
+"Κλειστό πρωτόκολλο Nokia MBUS. Παλαιότερη έκδοση, χρησιμοποιήστε FBUS εάν "
+"δυνατόν."
 
 #: Wammu/SettingsStorage.py:162
 msgid "AT based"
-msgstr ""
+msgstr "Βασισμένο στο ΑΤ"
 
 #: Wammu/SettingsStorage.py:164
 msgid ""
 "This provides minimal access to phone features. It is recommended to use "
 "other connection type."
 msgstr ""
+"Αυτό παρέχει ελάχιστη πρόσβαση στα χαρακτηριστικά του τηλεφώνου. Συνίσταται "
+"να χρησιμοποιήσετε άλλο τύπο σύνδεσης."
 
 #: Wammu/SettingsStorage.py:166
 msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
 msgstr ""
+"Καλή επιλογή για τα περισσότερα τηλέφωνα εκτός από τα Nokia και όσα "
+"βασίζονται σε Symbian λειτουργικό. Παρέχει πρόσβαση στα περισσότερα "
+"χαρακτηριστικά του τηλεφώνου."
 
 #: Wammu/SettingsStorage.py:277 Wammu/SettingsStorage.py:309
 msgid "Enter device name of serial port."
-msgstr ""
+msgstr "Εισάγετε όνομα συσκευής της σειριακής θύρας."
 
 #: Wammu/SettingsStorage.py:279 Wammu/SettingsStorage.py:311
 msgid "Enter device name of emulated serial port."
-msgstr ""
+msgstr "Εισάγετε όνομα συσκευής της προσωμοιούμενης σειριακής θύρας."
 
 #: Wammu/SettingsStorage.py:281 Wammu/SettingsStorage.py:313
 msgid "Enter Bluetooth address of your phone."
-msgstr ""
+msgstr "Εισάγετε τη διεύθυνση bluetooth του κινητού σας."
 
 #: Wammu/SettingsStorage.py:283 Wammu/SettingsStorage.py:317
 msgid "You don't have to enter anything for this settings."
-msgstr ""
+msgstr "Δε χρειάζεται να εισάγετε τίποτα για αυτές τις ρυθμίσεις."
 
 #: Wammu/SettingsStorage.py:315
 msgid "Enter device name of USB port."
-msgstr ""
+msgstr "Εισάγετε το όνομα συσκευής της usb θύρας."
 
 #: Wammu/SettingsStorage.py:335
 msgid "Generic AT over serial line or it's emulation"
-msgstr ""
+msgstr "Γενικό ΑΤ πάνω σε σειραική γραμμή ή την προσομοίωσή της"
 
 #: Wammu/SettingsStorage.py:336 Wammu/SettingsStorage.py:366
 msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
 msgstr ""
+"Επιλέξτε αυτό αν έχετε πραγματική σειριακή θύρα ή αν προσομοιώνεται από τον "
+"οδηγό του τηλεφώνου (π.χ. virtual COM port, /dev/rfcomm, /dev/ircomm, κ.α.)"
 
 #: Wammu/SettingsStorage.py:341
 #, python-format
 msgid "Generic AT at %d bps"
-msgstr ""
+msgstr "Generic AT at %d bps"
 
 #: Wammu/SettingsStorage.py:342
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
-msgstr ""
+msgstr "Επιλέξτε αν το τηλέφωνό σας απαιτεί ταχύτητα μεταφοράς %d bps."
 
 #: Wammu/SettingsStorage.py:346
 msgid "AT over Bluetooth"
-msgstr ""
+msgstr "AT over Bluetooth"
 
 #: Wammu/SettingsStorage.py:347 Wammu/SettingsStorage.py:371
 #: Wammu/SettingsStorage.py:386
@@ -2742,10 +2776,12 @@ msgid ""
 "Select this if your phone is connected over Bluetooth and you want to use "
 "native Bluetooth connection."
 msgstr ""
+"Επιλέξτε αυτό αν το τηλέφωνό σας είανι συνδεδεμένο με bluetooth και θέλετε "
+"να χρησιμοποιήστε φυσική bluetooth σύνδεση."
 
 #: Wammu/SettingsStorage.py:350
 msgid "AT over Bluetooth with RF searching"
-msgstr ""
+msgstr "AT over Bluetooth with RF searching"
 
 #: Wammu/SettingsStorage.py:351 Wammu/SettingsStorage.py:375
 msgid ""
@@ -2753,10 +2789,13 @@ msgid ""
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
 "5.50, 8910,..)"
 msgstr ""
+"Χρησιμοποιήστε για Bluetooth stack 6210 / DCT4 Nokia μοντέλα, τα οποία δεν "
+"ενημερώνουν σχετικά με τις bluetooth υπηρεσίες σωστά (6310, 6310i with "
+"firmware lower than 5.50, 8910,..)"
 
 #: Wammu/SettingsStorage.py:355
 msgid "AT over IrDA"
-msgstr ""
+msgstr "AT over IrDA"
 
 #: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
 #: Wammu/SettingsStorage.py:391
@@ -2764,146 +2803,164 @@ msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
 msgstr ""
+"Επιλέξτε αυτό αν το τηλέφωνό σας είναι συνδεδεμένο με υπέρυθρες και αν "
+"θέλετε να χρησιμοποιήσετε φυσική IrDA σύνδεση."
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over DKU2"
-msgstr ""
+msgstr "AT over DKU2"
 
 #: Wammu/SettingsStorage.py:361
 msgid "Select this if your phone is connected using DKU2 cable."
 msgstr ""
+"Επιλέξτε αυτό αν το τηλέφωνό σας είναι συνδεδεμένο χρησιμοποιώντας το DKU2 "
+"καλώδιο."
 
 #: Wammu/SettingsStorage.py:365
 msgid "Generic OBEX over serial line or it's emulation"
-msgstr ""
+msgstr "Generic OBEX over serial line or it's emulation"
 
 #: Wammu/SettingsStorage.py:370
 msgid "OBEX over Bluetooth"
-msgstr ""
+msgstr "OBEX over Bluetooth"
 
 #: Wammu/SettingsStorage.py:374
 msgid "OBEX over Bluetooth with RF searching"
-msgstr ""
+msgstr "OBEX over Bluetooth with RF searching"
 
 #: Wammu/SettingsStorage.py:379
 msgid "OBEX over IrDA"
-msgstr ""
+msgstr "OBEX over IrDA"
 
 #: Wammu/SettingsStorage.py:385
 msgid "Gnapplet over Bluetooth"
-msgstr ""
+msgstr "Gnapplet over Bluetooth"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over IrDA"
-msgstr ""
+msgstr "Gnapplet over IrDA"
 
 #: Wammu/SettingsStorage.py:396
 msgid "MBUS proprietary protocol"
-msgstr ""
+msgstr "MBUS κλειστό πρωτόκολλο"
 
 #: Wammu/SettingsStorage.py:397
 msgid "Protocol used in older Nokia phones."
-msgstr ""
+msgstr "Πρωτόκολλο που χρησιμοποιείται σε παλαιότερα Nokia τηλέφωνα."
 
 #: Wammu/SettingsStorage.py:402
 msgid "FBUS proprietary protocol"
-msgstr ""
+msgstr "FBUS κλειστό πρωτόκολλο"
 
 #: Wammu/SettingsStorage.py:403
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
 msgstr ""
+"Πρωτόκολλο που χρησιμοποιείται σε Nokia thléfvna.Παρακαλώ προσπαθείστε να "
+"επιλέξετε πιο συγκεκριμένες επιλογές πρώτα."
 
 #: Wammu/SettingsStorage.py:408
 msgid "DKU5 cable"
-msgstr ""
+msgstr "DKU5 καλώδιο"
 
 #: Wammu/SettingsStorage.py:409
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"Καλώδιο σύνδεσης DKU-5 (αυθεντικό καλώδιο ή συμβατό), για τηλέφωνα με USB "
+"τσιπάκι σαν το Nokia 5100."
 
 #: Wammu/SettingsStorage.py:412
 msgid "PL2303 cable"
-msgstr ""
+msgstr "PL2303 καλώδιο"
 
 #: Wammu/SettingsStorage.py:413
 msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"Νέο πρωτόκολλο Nokia για PL2303 USB καλώδιο (συνηθέστερα καλώδια τρίτων "
+"κατασκευαστών) ,για τηλέφωνα με usb τσιπ σαν το Nokia 5100."
 
 #: Wammu/SettingsStorage.py:416
 msgid "DKU2 cable"
-msgstr ""
+msgstr "DKU2 καλώδιο"
 
 #: Wammu/SettingsStorage.py:417
 msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
 msgstr ""
+"Καλώδιο σύνδεσης Nokia DKU-2 (αυθεντικό καλώδιο ή συμβατό), για τηλέφωνα "
+"χωρίς συμβατό USB chip σαν το Nokia 6230."
 
 #: Wammu/SettingsStorage.py:420
 msgid "DLR3-3P/CA-42 cable"
-msgstr ""
+msgstr "DLR3-3P/CA-42 καλώδιο"
 
 #: Wammu/SettingsStorage.py:421
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
 "with phones like Nokia 7110/6210/6310."
 msgstr ""
+"Nokia RS-232 Καλώδιο DLR-3P (αυθεντικό καλώδιο ή συμβατό), συνήθως με "
+"τηλέφωνα Nokia 7110/6210/6310."
 
 #: Wammu/SettingsStorage.py:424
 msgid "FBUS proprietary protocol using ARK cable"
-msgstr ""
+msgstr "FBUS κλειστό πρωτόκολλο χρησιμοποιώντας ARK καλώδιο"
 
 #: Wammu/SettingsStorage.py:425
 msgid ""
 "ARK cable (third party cable) for phones not supporting AT commands like "
 "Nokia 6020."
 msgstr ""
+"ARK καλώδιο (καλώδιο τρίτου κατασκευαστή) για τηλέφωνα που δεν υποστηρίζουν "
+"εντολές AT όπως το Nokia 6020."
 
 #: Wammu/SettingsStorage.py:428
 msgid "DKU5 phone with ARK cable"
-msgstr ""
+msgstr "DKU5 τηλέφωνο με ARK καλώδιο"
 
 #: Wammu/SettingsStorage.py:429
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
 msgstr ""
+"ARK τηλέφωνο (τρίτου κατασκευαστή καλωδιο) για τηλέφωνα με USB chip όπως το "
+"Nokia 5100."
 
 #: Wammu/SettingsStorage.py:433
 msgid "Phonet over Bluetooth"
-msgstr ""
+msgstr "Phonet over Bluetooth"
 
 #: Wammu/SettingsStorage.py:434 Wammu/SettingsStorage.py:445
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
-msgstr ""
+msgstr "Nokia πρωτόκολλο για το  Bluetooth stack με άλλα DCT4 Nokia κινητά."
 
 #: Wammu/SettingsStorage.py:437
 msgid "FBUS over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "FBUS over Bluetooth (προσομοιωμένη σειριακή θύρα)"
 
 #: Wammu/SettingsStorage.py:438 Wammu/SettingsStorage.py:452
 msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
-msgstr ""
+msgstr "Nokia πρωτόκολλο για το Bluetooth stack με το κινητό Nokia 6210."
 
 #: Wammu/SettingsStorage.py:440 Wammu/SettingsStorage.py:447
 msgid "Using emulated serial port."
-msgstr ""
+msgstr "Χρήση προσομοιωμένης σειριακής θύρας."
 
 #: Wammu/SettingsStorage.py:444
 msgid "Phonet over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "Phonet over Bluetooth (προσομοιωμένη σειρακή θύρα)"
 
 #: Wammu/SettingsStorage.py:451
 msgid "FBUS over Bluetooth"
-msgstr ""
+msgstr "FBUS over Bluetooth"
 
 #: Wammu/SettingsStorage.py:455
 msgid "Phonet over Bluetooth with RF searching"
-msgstr ""
+msgstr "Phonet over Bluetooth με RF αναζήτηση"
 
 #: Wammu/SettingsStorage.py:456
 msgid ""
@@ -2911,62 +2968,65 @@ msgid ""
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
 "8910,..)."
 msgstr ""
+"Nokia πρωτόκολλο για το Bluetooth stack με DCT4 Nokia κινητά, που δεν "
+"ενημέερώνουν σωστά για τις υπηρεσίες τους (6310, 6310i με έκδοση λογισμικού "
+"πριν την 5.50, 8910,..)."
 
 #: Wammu/SettingsStorage.py:460
 msgid "Phonet over IrDA"
-msgstr ""
+msgstr "Phonet over IrDA"
 
 #: Wammu/SettingsStorage.py:461
 msgid "Nokia protocol for infrared with other Nokia models."
-msgstr ""
+msgstr "Nokia πρωτόκολλο για τις υπέρυθρες με άλλα Nokia κινητά."
 
 #: Wammu/SettingsStorage.py:464
 msgid "FBUS over IrDA"
-msgstr ""
+msgstr "FBUS over IrDA"
 
 #: Wammu/SettingsStorage.py:465
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
-msgstr ""
+msgstr "Nokia πρωτόκολλο για υπέρυθρες με τα κινητά Nokia 6110/6130/6150."
 
 #: Wammu/SMSExport.py:38
 msgid "Mailboxes"
-msgstr ""
+msgstr "Λογαριασμοί mail"
 
 #: Wammu/SMSExport.py:41
 msgid "Select mailbox file..."
-msgstr ""
+msgstr "Επιλέξτε αρχείο λογαριασμού mail..."
 
 #: Wammu/SMSExport.py:54
 msgid "Saving messages to mailbox"
-msgstr ""
+msgstr "Αποθήκευση μηνυμάτων στο λογαριασμό email"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
 #: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:255
 #: Wammu/SMSExport.py:296 Wammu/SMSExport.py:303 Wammu/SMSExport.py:320
 msgid "Export terminated"
-msgstr ""
+msgstr "Η εξαγωγή τερματίστηκε"
 
 #: Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #, python-format
 msgid "Creating of file %s failed, bailing out."
-msgstr ""
+msgstr "Δημιουργία του αρχείου %s απέτυχε, έξοδος."
 
 #: Wammu/SMSExport.py:74 Wammu/SMSExport.py:148
 msgid "Can not create file!"
-msgstr ""
+msgstr "Αδυναμία δημιουργίας αρχείου!"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:331
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr ""
+msgstr "%(count)d μηνύματα εξήχθησαν σε \"%(path)s\" (%(type)s)"
 
 #: Wammu/SMSExport.py:82
 msgid "mailbox"
-msgstr ""
+msgstr "Λογαριασμός mail"
 
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
-msgstr ""
+msgstr "Επιλογή φακέλου προς αποθήκευση αρχείων mail"
 
 #: Wammu/SMSExport.py:97
 msgid ""
@@ -2975,22 +3035,26 @@ msgid ""
 "\n"
 "Do you want to create new subfolder and export to it?"
 msgstr ""
+"Ο επιλεγμένος φάκελος δεν περιλαμβάνει νέο υποφάκελο οπότε μάλλον δεν είναι "
+"έγκυρος φάκελος mail. \n"
+"\n"
+"Θέλετε να δημιουργήσετε νέο υποφάκελο και να εξάγετε σε αυτόν;"
 
 #: Wammu/SMSExport.py:98
 msgid "Folder doesn't look like maildir!"
-msgstr ""
+msgstr "Ο φάκελος δεν φαίνεται σαν φάκελος mail!"
 
 #: Wammu/SMSExport.py:110
 msgid "Creating of folder failed, bailing out."
-msgstr ""
+msgstr "Η δημιουργία του φακέλου απέτυχε, έξοδος."
 
 #: Wammu/SMSExport.py:111
 msgid "Can not create folder!"
-msgstr ""
+msgstr "Αδυναμία δημιουργίας φακέλου!"
 
 #: Wammu/SMSExport.py:117
 msgid "Saving messages to maildir"
-msgstr ""
+msgstr "Αποθήκευση μηνυμάτων στο φάκελο mail"
 
 #: Wammu/SMSExport.py:130
 #, python-format
@@ -3000,143 +3064,155 @@ msgid ""
 "\n"
 "Do you wish to overwrite file %s?"
 msgstr ""
+"Το αρχείο εξόδου υπάρχει ήδη, αυτό συνήθως σημαίνει ότι αυτό το μήνυμα ήταν "
+"ήδη αποθηκευμένο εκεί.\n"
+"\n"
+"Θέλετε να αντικατασταθεί;"
 
 #: Wammu/SMSExport.py:131
 msgid "File already exists!"
-msgstr ""
+msgstr "Το αρχείο υπάρχει ήδη!"
 
 #: Wammu/SMSExport.py:157
 msgid "maildir"
-msgstr ""
+msgstr "Φάκελος mail"
 
 #: Wammu/SMSExport.py:177
 msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 msgstr ""
+"Θέλετε να χρησιμοποιήσετε SSL κατά το ανέβασμα μηνυμάτων στον IMAP "
+"διακομιστή;"
 
 #: Wammu/SMSExport.py:178
 msgid "Use SSL?"
-msgstr ""
+msgstr "Χρήση SSL;"
 
 #: Wammu/SMSExport.py:184
 msgid "Please enter server name"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε όνομα διακομιστή"
 
 #: Wammu/SMSExport.py:185
 msgid "Server name"
-msgstr ""
+msgstr "Όνομα διακομιστή"
 
 #: Wammu/SMSExport.py:194
 #, python-format
 msgid "Please enter login on server %s"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε τα στοιχεία σύνδεσης στο διακομιστή %s"
 
 #: Wammu/SMSExport.py:195
 msgid "Login"
-msgstr ""
+msgstr "Σύνδεση"
 
 #: Wammu/SMSExport.py:208
 #, python-format
 msgid "Please enter password for %(login)s@%(server)s"
-msgstr ""
+msgstr "Παρακαλώ εισάγετε τον κωδικό για %(login)s@%(server)s"
 
 #: Wammu/SMSExport.py:209
 msgid "Password"
-msgstr ""
+msgstr "Κωδικός"
 
 #: Wammu/SMSExport.py:215
 msgid "Connecting to IMAP server..."
-msgstr ""
+msgstr "Σύνδεση στον IMAP διακομιστή"
 
 #: Wammu/SMSExport.py:231
 msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
 msgstr ""
+"Αδυναμία σύνδεσης ,πιθανά εισαγάγατε άκυρες πληροφορίες εισόδου. Θέλετε να "
+"ξαναδοκιμάσετε;"
 
 #: Wammu/SMSExport.py:232
 msgid "Login failed!"
-msgstr ""
+msgstr "Αποτυχία σύνδεσης!"
 
 #: Wammu/SMSExport.py:238
 msgid ""
 "Connection suceeded, do you want to remember password? This is a bit "
 "insecure."
 msgstr ""
+"Επιτυχία σύνδεσης, θέλετε να αποθηκευτεί το συνθηματικό; Αυτό είναι λίγο "
+"επισφαλές."
 
 #: Wammu/SMSExport.py:239
 msgid "Save password?"
-msgstr ""
+msgstr "Αποθήκευση κωδικού;"
 
 #: Wammu/SMSExport.py:244
 msgid "Listing folders on IMAP server..."
-msgstr ""
+msgstr "Δημιουργία λίστας φακέλων στον IMAP διακομιστή..."
 
 #: Wammu/SMSExport.py:252
 msgid "Can not list folders on server, bailing out."
-msgstr ""
+msgstr "Δεν μπορεί να δημιουργηθεί η λίστα των φακέλων στο διακομιστή, έξοδος."
 
 #: Wammu/SMSExport.py:253
 msgid "Listing failed!"
-msgstr ""
+msgstr "Η δημιουργία λίστας απέτυχε!"
 
 #: Wammu/SMSExport.py:277
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr ""
+"Παρακαλώ ελέξτε το φάκελο στο διακομιστή %s όπου τα μηνύματα θα αποθηκευτούν"
 
 #: Wammu/SMSExport.py:278
 msgid "Select folder"
-msgstr ""
+msgstr "Επιλογή φακέλου"
 
 #: Wammu/SMSExport.py:285
 msgid "Selecting folder on IMAP server..."
-msgstr ""
+msgstr "Επιλογή φακέλου στο διακομιστή IMAP..."
 
 #: Wammu/SMSExport.py:293
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
-msgstr ""
+msgstr "Αδυναμία επιλογής φακέλου %s στο διακομιστή, έξοδος."
 
 #: Wammu/SMSExport.py:294
 msgid "Selecting failed!"
-msgstr ""
+msgstr "Επιλογή απέτυχε!"
 
 #: Wammu/SMSExport.py:299
 msgid "Saving messages to IMAP"
-msgstr ""
+msgstr "Αποθήκευση μηνυμάτων στον IMAP"
 
 #: Wammu/SMSExport.py:315
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
-msgstr ""
+msgstr "Αδυναμία αποθήκευσης μηνύματος στο φάκελο %s του διακομιστή, έξοδος."
 
 #: Wammu/SMSExport.py:316
 msgid "Saving failed!"
-msgstr ""
+msgstr "Αποθήκευση απέτυχε!"
 
 #: Wammu/SMSExport.py:331
 msgid "IMAP server"
-msgstr ""
+msgstr "Διακομιστής απέτυχε"
 
 #: Wammu/SMSExport.py:335
 msgid "Where do you want to export emails created from your messages?"
 msgstr ""
+"Πού θέλετε να εξαγάγετε τα email που δημιουργήθηκαν από τα μηνύματά σας;"
 
 #: Wammu/SMSExport.py:335
 msgid "Select export type"
-msgstr ""
+msgstr "Επιλογή τύπου εξαγωγής"
 
 #: Wammu/SMSExport.py:336
 msgid "Mailbox file"
-msgstr ""
+msgstr "Αρχείο φακέλου mail"
 
 #: Wammu/SMSExport.py:336
 msgid "Maildir folder"
-msgstr ""
+msgstr "Φάκελος mail"
 
 #: Wammu/SMSExport.py:336
 msgid "IMAP account"
-msgstr ""
+msgstr "Λογαριασμός IMAP"
 
 #: Wammu/TalkbackDialog.py:48
 msgid ""
@@ -3145,98 +3221,108 @@ msgid ""
 "experiences in Gammu Phone Database. Only information you see here will be "
 "submited."
 msgstr ""
+"Παρακαλώ μοιραστείτε τις εμπειρίες σας με το Wammu και το Gammu που είναι η "
+"βασική βιβλιοθήκη. Όταν συμπληρώνετε την ακόλουθη φόρμα, άλλοι χρήστες "
+"μπορούν να επωφεληθούν από τις εμπειρίες σας στην Βάση δεδομένων Τηλεφώνων "
+"του Gammu. Μόνο πληροφορίες που βλέπετε εδώ θα υποβληθούν."
 
 #: Wammu/TalkbackDialog.py:50
 msgid "Manufacturer:"
-msgstr ""
+msgstr "Κατασκευαστής:"
 
 #: Wammu/TalkbackDialog.py:52
 msgid "Phone model:"
-msgstr ""
+msgstr "Τύπος τηλεφώνου:"
 
 #: Wammu/TalkbackDialog.py:54
 msgid "Connection type:"
-msgstr ""
+msgstr "Τύπος σύνδεσης"
 
 #: Wammu/TalkbackDialog.py:56
 msgid "Model in gammu configuration:"
-msgstr ""
+msgstr "Μοντέλο στις ρυθμίσεις του gammu:"
 
 #: Wammu/TalkbackDialog.py:58
 msgid "Working features:"
-msgstr ""
+msgstr "Λειτουργούντα χαρακτηριστικά"
 
 #: Wammu/TalkbackDialog.py:59
 msgid "Please select features..."
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε χαρακτηριστικά..."
 
 #: Wammu/TalkbackDialog.py:60
 msgid "Gammu version:"
-msgstr ""
+msgstr "Έκδοση Gammu:"
 
 #: Wammu/TalkbackDialog.py:62
 msgid "Note:"
-msgstr ""
+msgstr "Σημείωση:"
 
 #: Wammu/TalkbackDialog.py:64
 msgid "Your name:"
-msgstr ""
+msgstr "Το όνομά σας:"
 
 #: Wammu/TalkbackDialog.py:66
 msgid "Your email:"
-msgstr ""
+msgstr "Το email σας:"
 
 #: Wammu/TalkbackDialog.py:68
 msgid "Email displaying:"
-msgstr ""
+msgstr "Εμφάνιση email:"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Use [at] and [dot]"
-msgstr ""
+msgstr "Χρησιμοποιήστε [at] and [dot]"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Insert NOSPAM text at random position"
-msgstr ""
+msgstr "Εισαγωγή κειμένου NOSPAM σε τυχαία θέση"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Display it normally"
-msgstr ""
+msgstr "Κανονική εμφάνιση"
 
 #: Wammu/TalkbackDialog.py:69
 msgid "Don't show email at all"
-msgstr ""
+msgstr "Καθόλου εμφάνιση email"
 
 #: Wammu/TalkbackDialog.py:77
 msgid "Not supported"
-msgstr ""
+msgstr "Μη υποστηριζόμενο"
 
 #: Wammu/TalkbackDialog.py:106
 msgid "Gammu Phone Database Talkback"
-msgstr ""
+msgstr "Gammu Phone Database Talkback"
 
 #: Wammu/TalkbackDialog.py:107
 msgid "Select which features work correctly with your phone"
-msgstr ""
+msgstr "Επιλέξτε ποια χαρακτηριστικά λειτουργούν σωστά με το τηλέφωνό σας"
 
 #: Wammu/TalkbackDialog.py:108
 msgid "This information is automatically included in report."
-msgstr ""
+msgstr "Αυτή η πληροφορία περιλαμβάνεται αυτόματα στην αναφορά."
 
 #: Wammu/TalkbackDialog.py:109
 msgid "Describe some glitches of this phone or other experiences with Gammu."
 msgstr ""
+"Περιγράψτε κάποια προβλήματα αυτού του κινητού ή άλλες εμπειρίες σας με το "
+"Gammu."
 
 #: Wammu/TalkbackDialog.py:110
 msgid ""
 "Please enter valid mail here, choose display options bellow. Your email "
 "won't be given or sold to anybody."
 msgstr ""
+"Παρακαλώ εισάγετε έγκυρη ηλεκτρονική διεύθυνση εδώ, διαλέξτε επιλογές "
+"εμφάνισης απο κάτω. Το email σας δε θα δοθεί ή πωληθεί σε κανέναν."
 
 #: Wammu/TalkbackDialog.py:111
 msgid ""
 "If you don't want to display email clear text, please select one mangling "
 "option."
 msgstr ""
+"If you don't want to display email clear text, please select one mangling "
+"option."
 
 #: Wammu/TalkbackDialog.py:186 Wammu/TalkbackDialog.py:192
 #: Wammu/TalkbackDialog.py:201 Wammu/TalkbackDialog.py:210
@@ -3247,20 +3333,23 @@ msgid ""
 "invalid:\n"
 "%s"
 msgstr ""
+"Η εγγραφή στη βάση δεδομένων τηλεφώνων του Gammu δε δημιουργήθηκε, τα "
+"ακόλουθα πεδία είναι άκυρα:\n"
+"%s"
 
 #: Wammu/TalkbackDialog.py:186 Wammu/TalkbackDialog.py:192
 msgid "Supported features"
-msgstr ""
+msgstr "Υποστηριζόμενα χαρακτηριστικά"
 
 #: Wammu/TalkbackDialog.py:187 Wammu/TalkbackDialog.py:193
 #: Wammu/TalkbackDialog.py:202 Wammu/TalkbackDialog.py:211
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:280
 msgid "Entry not created!"
-msgstr ""
+msgstr "Δε δημιουργήθηκε η εγγραφή!"
 
 #: Wammu/TalkbackDialog.py:210
 msgid "Email displaying"
-msgstr ""
+msgstr "Εμφάνιση email"
 
 #: Wammu/TalkbackDialog.py:254
 #, python-format
@@ -3268,6 +3357,8 @@ msgid ""
 "HTTP request failed with status %(code)d (%(text)s), please retry later or "
 "create entry manually."
 msgstr ""
+"Η αίτηση HTTP απέτυχε με κατάσταση %(code)d (%(text)s), παρακαλώ "
+"ξαναπροσπαθήστε αργότερα ή δημιουργείστε την εγγραφή χειροκίνητα."
 
 #: Wammu/TalkbackDialog.py:269
 #, python-format
@@ -3275,168 +3366,178 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
+"Η εγγραφή στη βάση δεδομένων τηλεφώνων του Gammu έχει δημιουργηθεί, μπορείτε "
+"να τη δείτε στο <%s> URL.\n"
+"Θέλετε να την ανοίξετε σε φυλλομετρητή τώρα;"
 
 #: Wammu/TalkbackDialog.py:270
 msgid "Entry created!"
-msgstr ""
+msgstr "Η εγγραφή δημιουργήθηκε!"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""
 "Select which functionality works without problems on your phone (either in "
 "Wammu or in some other tool using Gammu library)."
 msgstr ""
+"Επιλέξτε ποια λειτουργικότητα ισχύει χωρίς προβλήματα στο τηλέφωνό σας (είτε "
+"στο Wammu ή σε κάποιο άλλο εργαλείο που χρησιμοποιεί τη βιβλιοθήκη Gammu)."
 
 #: Wammu/TalkbackFeaturesDialog.py:39
 msgid "Phone information"
-msgstr ""
+msgstr "Πληροφορίες τηλεφώνου"
 
 #: Wammu/TalkbackFeaturesDialog.py:40
 msgid "Sending and saving SMS"
-msgstr ""
+msgstr "Αποστολή και αποθήκευση SMS"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
-msgstr ""
+msgstr "Μηνύματα πολυμέσων"
 
 #: Wammu/TalkbackFeaturesDialog.py:42
 msgid "Basic phonebook functions"
-msgstr ""
+msgstr "Βασικές λειτουργίες τηλεφωνικού καταλόγου"
 
 #: Wammu/TalkbackFeaturesDialog.py:43
 msgid "Enhanced phonebook entries"
-msgstr ""
+msgstr "Βελτιωμένες λειτουργίες τηλεφωνικού καταλόγου"
 
 #: Wammu/TalkbackFeaturesDialog.py:44
 msgid "Calendar entries"
-msgstr ""
+msgstr "Εγγραφές ημερολογίου"
 
 #: Wammu/TalkbackFeaturesDialog.py:46
 msgid "Filesystem manipulation"
-msgstr ""
+msgstr "Χειραγώγησης συστήματος αρχείων"
 
 #: Wammu/TalkbackFeaturesDialog.py:47
 msgid "Reading and making calls"
-msgstr ""
+msgstr "Ανάγνωση και πραγματοποίηση κλήσεων"
 
 #: Wammu/TalkbackFeaturesDialog.py:48
 msgid "Logos"
-msgstr ""
+msgstr "Λογότυπα"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
 msgid "Ringtones"
-msgstr ""
+msgstr "Ήχοι κλήσης"
 
 #: Wammu/TalkbackFeaturesDialog.py:60
 msgid "Select features"
-msgstr ""
+msgstr "Επιλογή χαρακτηριστικών"
 
 #: Wammu/TalkbackFeaturesDialog.py:61
 msgid "You can access name and phone number."
-msgstr ""
+msgstr "Μπορείτε να έχετε πρόσβαση σε όνομα και αριθμό τηλεφώνου."
 
 #: Wammu/TalkbackFeaturesDialog.py:62
 msgid ""
 "You have access to more phone numbers per entry or additional fields as "
 "email."
 msgstr ""
+"Έχετε πρόσβαση σε περισσότερους τηλεφωνικούς αριθμούς ανά εγγραφή ή "
+"περισσότερα πεδία σαν email"
 
 #: Wammu/Thread.py:93
 msgid "Action canceled by user!"
-msgstr ""
+msgstr "Η πράξη ακυρώθηκε από το χρήστη!"
 
 #: Wammu/Thread.py:94
 msgid "Action canceled"
-msgstr ""
+msgstr "Η πράξη ακυρώθηκε"
 
 #: Wammu/Utils.py:290
 msgid "Yes"
-msgstr ""
+msgstr "Ναι"
 
 #: Wammu/Utils.py:292
 msgid "No"
-msgstr ""
+msgstr "Όχι"
 
 #: Wammu/Utils.py:313
 msgid "enabled (tone)"
-msgstr ""
+msgstr "ενεργό (τόνος)"
 
 #: Wammu/Utils.py:315
 msgid "enabled (silent)"
-msgstr ""
+msgstr "ενεργό (σιωπηλό)"
 
 #: Wammu/Utils.py:321
 msgid "yearly"
-msgstr ""
+msgstr "ετήσια"
 
 #: Wammu/Utils.py:323
 msgid "monthly"
-msgstr ""
+msgstr "μηνιαία"
 
 #: Wammu/Utils.py:326
 msgid "daily"
-msgstr ""
+msgstr "ημερήσια"
 
 #: Wammu/Utils.py:328
 msgid "biweekly"
-msgstr ""
+msgstr "ανά δεκαπενθήμερο"
 
 #: Wammu/Utils.py:331
 msgid "weekly on monday"
-msgstr ""
+msgstr "Κάθε Δευτέρα"
 
 #: Wammu/Utils.py:333
 msgid "weekly on tuesday"
-msgstr ""
+msgstr "Κάθε Τρίτη"
 
 #: Wammu/Utils.py:335
 msgid "weekly on wednesday"
-msgstr ""
+msgstr "Κάθε Τετάρτη"
 
 #: Wammu/Utils.py:337
 msgid "weekly on thursday"
-msgstr ""
+msgstr "Κάθε Πέμπτη"
 
 #: Wammu/Utils.py:339
 msgid "weekly on friday"
-msgstr ""
+msgstr "Κάθε Παρασκευή"
 
 #: Wammu/Utils.py:341
 msgid "weekly on saturday"
-msgstr ""
+msgstr "Κάθε Σάββατο"
 
 #: Wammu/Utils.py:343
 msgid "weekly on sunday"
-msgstr ""
+msgstr "Κάθε Κυριακή"
 
 #: Wammu/Utils.py:350
 msgid "disabled"
-msgstr ""
+msgstr "ανενεργό"
 
 #: Wammu/Utils.py:353
 msgid "nonrecurring"
-msgstr ""
+msgstr "Μη επαναλαμβανόμενο"
 
 #: Wammu/Utils.py:429
 msgid "Your phone doesn't support this function."
-msgstr ""
+msgstr "Το τηλέφωνό σας δεν υποστηρίζει αυτήν τη λειτουργία."
 
 #: Wammu/Utils.py:431
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
 msgstr ""
+"Αυτή η λειτουργία δεν είναι ακόμη εφαρμοσμένη στο τηλέφωνό σας. Εάν θέλετε "
+"βοήθεια με την εφαρμογή παρακαλώ επικοινωνήστε με τους συγγραφείς."
 
 #: Wammu/Utils.py:433
 msgid "Your phone asks for PIN."
-msgstr ""
+msgstr "Το τηλέφωνό σας ζητά το PIN."
 
 #: Wammu/Utils.py:435
 msgid "Memory is full, try deleting some entries."
-msgstr ""
+msgstr "Η μνήμη είναι πλήρης, δοκιμάστε να σβήσετε μερικές εγγραφές."
 
 #: Wammu/Utils.py:437
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr ""
+"Η επικοινωνία ακυρώθηκε από το κινητό, μήπως πατήσατε ακύρωση στο κινητό;"
 
 #: Wammu/Utils.py:439
 msgid ""
@@ -3445,122 +3546,137 @@ msgid ""
 "\n"
 "If you miss some entry, please contact Gammu/Wammu authors."
 msgstr ""
+"Ελήφθη άδεια επαφή. Αυτό συνήθως δε θα έπρεπε να συμβεί και πολύ πιθανά "
+"προκλήθηκε από σφάλμα στο λογισμικό του κινητού ή του Gammu/Wammu.\n"
+"\n"
+"Αν σας λείπουν εγγραφές, παρακαλώ επικοινωνήστε με τους συγγραφείς του "
+"Gammu/Wammu."
 
 #: Wammu/Utils.py:441
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
 msgstr ""
+"Παρακαλώ κλείστε το ανοικτό μενού στο κινητό και ξαναπροσπαθήστε, τα "
+"δεδομένα δεν είναι προσβάσιμα όσο τα έχετε ανοικτά."
 
 #: Wammu/Utils.py:443
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
 msgstr ""
+"Τέλος χρόνου κατά την προσπάθεια επικοινωνίας με το τηλέφωνο. Ίσως το "
+"τηλέφωνο δεν είναι δυνδεδεμένο (καλώδιο) ή εκτός ακτίνας (bluetooth, IrDA)."
 
 #: Wammu/Utils.py:445
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
+"Δεν υπάρχει συσκευή για επικοινωνία με το τηλέφωνο. Ίσως δεν έχετε συνδέσει "
+"το καλώδιο στο κινητό σας ή οι ρυθμισεις σας είναι λάθος."
 
 #: Wammu/Utils.py:447
 msgid "Can not access device for communication with phone."
-msgstr ""
+msgstr "Αδυναμία πρόσβασης στη συσκεύη επικοινωνίας με το τηλέφωνο."
 
 #: Wammu/Utils.py:449
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
+"Ίσως χρειάζεστε να είστε μέλος κάποιας ομάδας για να έχετε πρόσβαση στη "
+"συσκεύη."
 
 #: Wammu/Utils.py:451
 msgid "Description:"
-msgstr ""
+msgstr "Περιγραφή:"
 
 #: Wammu/Utils.py:451
 msgid "Function:"
-msgstr ""
+msgstr "Λειτουργία:"
 
 #: Wammu/Utils.py:451
 msgid "Error code:"
-msgstr ""
+msgstr "Κωδικός σφάλματος:"
 
 #: Wammu/Utils.py:506 Wammu/Utils.py:508 Wammu/Utils.py:514 Wammu/Utils.py:516
 #, python-format
 msgid "Device %s does not exist!"
-msgstr ""
+msgstr "Η συσκεύη %s δεν υπάρχει!"
 
 #: Wammu/Utils.py:507 Wammu/Utils.py:515 Wammu/Utils.py:526
 msgid "Error opening device"
-msgstr ""
+msgstr "Σφάλμα κατά το άνοιγμα της συσκεύης"
 
 #: Wammu/Utils.py:525 Wammu/Utils.py:527
 #, python-format
 msgid "You don't have permissions for %s device!"
-msgstr ""
+msgstr "Δεν έχετε δικαιώματα πρόσβασης στην %s συσκεύη!"
 
 #: Wammu/Utils.py:529
 #, python-format
 msgid "Maybe you need to be member of %s group."
-msgstr ""
+msgstr "Ίσως χρειάζεστε να είστε μέλος της %s ομάδας."
 
 #: wammu-configure.py:46
 #, python-format
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
-msgstr ""
+msgstr "Wammu Configurator - Wammu and Gammu έκδοση %s"
 
 #: wammu-configure.py:54 wammu.py:58
 #, python-format
 msgid "Usage: %s [OPTION...]"
-msgstr ""
+msgstr "Χρήση: %s [OPTION...]"
 
 #: wammu-configure.py:56 wammu.py:60
 msgid "Options:"
-msgstr ""
+msgstr "Επιλογές:"
 
 #: wammu-configure.py:59 wammu.py:63
 msgid "show this help"
-msgstr ""
+msgstr "εμφάνιση αυτής της βοήθειας"
 
 #: wammu-configure.py:62 wammu.py:66
 msgid "show program version"
-msgstr ""
+msgstr "Εμφάνιση έκδοσης προγράμματος"
 
 #: wammu-configure.py:65 wammu.py:69
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
+"Υποχρεωτική χρήση τοπικών ρυθμίσεων από το παρόν φάκελο, αντί για του "
+"συστήματος"
 
 #: wammu-configure.py:78 wammu.py:82
 msgid "Command line parsing failed with error:"
-msgstr ""
+msgstr "Γραμμή εντολής απέτυχε με σφάλμα:"
 
 #: wammu-configure.py:84 wammu.py:88
 msgid "Extra unrecognized parameters passed to program"
-msgstr ""
+msgstr "Επιπλέον μη αναγνωρισμένες παράμετροι περάσαν στο πρόγραμμα"
 
 #: wammu-configure.py:90 wammu.py:94
 msgid "Using local built locales!"
-msgstr ""
+msgstr "Χρήση τοπικά δημιουργημένων τοπικών ρυθμίσεων!"
 
 #: wammu-configure.py:115
 msgid "Updating gammu configuration..."
-msgstr ""
+msgstr "Ενημέρωση ρυθμίσεων του Gammu..."
 
 #: wammu.py:51
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
-msgstr ""
+msgstr "Wammu - Windowed Gammu version %s"
 
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
 msgid "Wammu"
-msgstr ""
+msgstr "Wammu"
 
 #. l10n: Generic name of program shown in desktop file
 #: wammu_setup/msgfmt.py:46
 msgid "Mobile Phone Manager"
-msgstr ""
+msgstr "Mobile Phone Manager"
 
 #. l10n: Comment about program shown in desktop file
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
-msgstr ""
+msgstr "Εφαρμογή για κινητά τηλέφωνα - frontend for Gammu"
