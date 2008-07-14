@@ -112,6 +112,7 @@ class Reader(Wammu.Thread.Thread):
                     return
                 try:
                     if start:
+                        loc = 0
                         value = self.GetNextStart()
                         start = False
                     else:
