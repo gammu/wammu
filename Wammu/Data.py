@@ -431,21 +431,13 @@ Conn_Bluetooth_All = [
     'bluerfgnapbus',
     'blueat',
     'blueobex',
-    'bluerfobex',
-    'bluerfphonet',
-    'bluerffbus',
-    'bluerfat',
     ]
 Conn_Bluetooth_Nokia = [
     'bluephonet',
     'bluefbus',
     'bluerfgnapbus',
-    'bluerfphonet',
-    'bluerffbus',
     'blueat',
-    'bluerfat',
     'blueobex',
-    'bluerfobex',
     ]
 Conn_Bluetooth_Standard = [
     'blueat',
