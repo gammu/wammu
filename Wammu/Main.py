@@ -1377,7 +1377,7 @@ class WammuFrame(wx.Frame):
                 if (os.path.splitext(path)[1] == '' and
                         ext is not None):
                     path += '.' + ext
-            return path
+            return Wammu.Locales.ConsoleStrConv(path)
         return None
 
     def ReadBackup(self, type, data = False):
