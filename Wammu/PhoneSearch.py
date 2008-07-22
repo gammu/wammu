@@ -293,13 +293,14 @@ class PhoneInfoThread(threading.Thread):
         self.win = win
 
     def run(self):
-        res = Wammu.Utils.CheckDeviceNode(self.device)
-        if res[0] != 0:
-            evt = Wammu.Events.DataEvent(
-                    data = None,
-                    error = (res[2], res[3]))
-            wx.PostEvent(self.win, evt)
-            return
+        if self.connection.lower().find('blue') == -1 and self.connection.lower().find('irda') == -1:
+            res = Wammu.Utils.CheckDeviceNode(self.device)
+            if res[0] != 0:
+                evt = Wammu.Events.DataEvent(
+                        data = None,
+                        error = (res[2], res[3]))
+                wx.PostEvent(self.win, evt)
+                return
         try:
             sm = gammu.StateMachine()
             sm.SetConfig(0,
