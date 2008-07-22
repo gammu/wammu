@@ -331,9 +331,10 @@ class Settings:
         helps = []
 
         if self.driver == 'at':
-            names.append('at')
-            connections.append(_('Generic AT over serial line or it\'s emulation'))
-            helps.append(_('Select this if you have real serial port or it is emulated by phone driver (eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.).'))
+            if self.connection != 'bluetooth':
+                names.append('at')
+                connections.append(_('Generic AT over serial line or it\'s emulation'))
+                helps.append(_('Select this if you have real serial port or it is emulated by phone driver (eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.).'))
 
             if self.connection == 'serial':
                 for rate in [19200, 38400, 115200]:
@@ -345,6 +346,10 @@ class Settings:
                 names.append('blueat')
                 connections.append(_('AT over Bluetooth'))
                 helps.append(_('Select this if your phone is connected over Bluetooth and you want to use native Bluetooth connection.'))
+
+                names.append('at')
+                connections.append(_('Generic AT over serial line or it\'s emulation'))
+                helps.append(_('Select this if you have real serial port or it is emulated by phone driver (eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.).'))
 
                 names.append('bluerfat')
                 connections.append(_('AT over Bluetooth with RF searching'))
