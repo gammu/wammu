@@ -217,7 +217,13 @@ def ParseMemoryEntry(entry, config = None):
         if i['Type'] == 'Text_FormalName':
             formalname = i['Value']
         if i['Type'] == 'Date':
-            date = i['Value']
+            # Store date olny if it is more recent
+            # This can happen in multiple call records
+            if date is None:
+                date = i['Value']
+            else:
+                if i['Value'] > date:
+                    date = i['Value']
         if i['Type'] == 'Text_Company':
             company = i['Value']
         if i['Type'] == 'Number_General':
