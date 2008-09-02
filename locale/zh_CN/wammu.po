@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Wammu 0.28\n"
+"Project-Id-Version: Wammu 0.29\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-07-14 21:55+0200\n"
+"POT-Creation-Date: 2008-09-02 16:53+0200\n"
 "PO-Revision-Date: 2007-08-30 10:14+0200\n"
 "Last-Translator: MA Gang <magang@gmail.com>\n"
 "Language-Team: none\n"
@@ -438,55 +438,55 @@ msgstr "戴眼睛"
 msgid "Devil"
 msgstr "邪恶"
 
-#: Wammu/Data.py:554
+#: Wammu/Data.py:546
 msgid "Alignment"
 msgstr "排列"
 
-#: Wammu/Data.py:554 Wammu/Editor.py:211 Wammu/Editor.py:419
+#: Wammu/Data.py:546 Wammu/Editor.py:211 Wammu/Editor.py:419
 msgid "None"
 msgstr "默认"
 
-#: Wammu/Data.py:555
+#: Wammu/Data.py:547
 msgid "Left"
 msgstr "居左"
 
-#: Wammu/Data.py:556
+#: Wammu/Data.py:548
 msgid "Right"
 msgstr "居右"
 
-#: Wammu/Data.py:557
+#: Wammu/Data.py:549
 msgid "Center"
 msgstr "居中"
 
-#: Wammu/Data.py:559
+#: Wammu/Data.py:551
 msgid "Text Size"
 msgstr "文字大小"
 
-#: Wammu/Data.py:559
+#: Wammu/Data.py:551
 msgid "Normal"
 msgstr "正常"
 
-#: Wammu/Data.py:560
+#: Wammu/Data.py:552
 msgid "Large"
 msgstr "大"
 
-#: Wammu/Data.py:561
+#: Wammu/Data.py:553
 msgid "Small"
 msgstr "小"
 
-#: Wammu/Data.py:563
+#: Wammu/Data.py:555
 msgid "Bold"
 msgstr "粗体"
 
-#: Wammu/Data.py:564
+#: Wammu/Data.py:556
 msgid "Italic"
 msgstr "斜体"
 
-#: Wammu/Data.py:565
+#: Wammu/Data.py:557
 msgid "Underlined"
 msgstr "下划线"
 
-#: Wammu/Data.py:566
+#: Wammu/Data.py:558
 msgid "Strikethrough"
 msgstr "删除线"
 
@@ -1884,7 +1884,7 @@ msgstr ""
 msgid "All finished, found %d phones"
 msgstr ""
 
-#: Wammu/PhoneSearch.py:328
+#: Wammu/PhoneSearch.py:329
 #, fuzzy
 #| msgid "Failed to set exception handler."
 msgid "Failed to connect to phone"
@@ -2692,11 +2692,12 @@ msgstr "这个设置不能为空！"
 msgid "Enter device name of USB port."
 msgstr "输入USB端口的设备名"
 
-#: Wammu/SettingsStorage.py:335
+#: Wammu/SettingsStorage.py:336 Wammu/SettingsStorage.py:351
 msgid "Generic AT over serial line or it's emulation"
 msgstr "串口上的通用AT命令集，或模拟串口上的"
 
-#: Wammu/SettingsStorage.py:336 Wammu/SettingsStorage.py:366
+#: Wammu/SettingsStorage.py:337 Wammu/SettingsStorage.py:352
+#: Wammu/SettingsStorage.py:371
 msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
@@ -2705,209 +2706,209 @@ msgstr ""
 "rfcomm, /dev/ircomm等等选择这个如果你有物理串口或手机驱动提供的模拟串口，比如"
 "虚拟COM端口，像/dev/rfcomm, /dev/ircomm等等"
 
-#: Wammu/SettingsStorage.py:341
+#: Wammu/SettingsStorage.py:342
 #, python-format
 msgid "Generic AT at %d bps"
 msgstr "%d bps的通用AT命令集"
 
-#: Wammu/SettingsStorage.py:342
+#: Wammu/SettingsStorage.py:343
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
 msgstr "选择这个，如果你的手机要求%d bps的速率"
 
-#: Wammu/SettingsStorage.py:346
+#: Wammu/SettingsStorage.py:347
 msgid "AT over Bluetooth"
 msgstr "蓝牙上的AT命令集"
 
-#: Wammu/SettingsStorage.py:347 Wammu/SettingsStorage.py:371
-#: Wammu/SettingsStorage.py:386
+#: Wammu/SettingsStorage.py:348 Wammu/SettingsStorage.py:376
+#: Wammu/SettingsStorage.py:391
 msgid ""
 "Select this if your phone is connected over Bluetooth and you want to use "
 "native Bluetooth connection."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:350
+#: Wammu/SettingsStorage.py:355
 msgid "AT over Bluetooth with RF searching"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:351 Wammu/SettingsStorage.py:375
+#: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
 msgid ""
 "Use for Bluetooth stack and 6210 / DCT4 Nokia models, which don't inform "
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
 "5.50, 8910,..)"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:355
+#: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
-#: Wammu/SettingsStorage.py:391
+#: Wammu/SettingsStorage.py:361 Wammu/SettingsStorage.py:385
+#: Wammu/SettingsStorage.py:396
 msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:360
+#: Wammu/SettingsStorage.py:365
 msgid "AT over DKU2"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:361
+#: Wammu/SettingsStorage.py:366
 msgid "Select this if your phone is connected using DKU2 cable."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:365
+#: Wammu/SettingsStorage.py:370
 msgid "Generic OBEX over serial line or it's emulation"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:370
+#: Wammu/SettingsStorage.py:375
 msgid "OBEX over Bluetooth"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:374
+#: Wammu/SettingsStorage.py:379
 msgid "OBEX over Bluetooth with RF searching"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:379
+#: Wammu/SettingsStorage.py:384
 msgid "OBEX over IrDA"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:385
+#: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:390
+#: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:396
+#: Wammu/SettingsStorage.py:401
 msgid "MBUS proprietary protocol"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:397
+#: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:402
+#: Wammu/SettingsStorage.py:407
 msgid "FBUS proprietary protocol"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:403
+#: Wammu/SettingsStorage.py:408
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:408
+#: Wammu/SettingsStorage.py:413
 msgid "DKU5 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:409
+#: Wammu/SettingsStorage.py:414
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:412
+#: Wammu/SettingsStorage.py:417
 msgid "PL2303 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:413
+#: Wammu/SettingsStorage.py:418
 msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:416
+#: Wammu/SettingsStorage.py:421
 msgid "DKU2 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:417
+#: Wammu/SettingsStorage.py:422
 msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:420
+#: Wammu/SettingsStorage.py:425
 msgid "DLR3-3P/CA-42 cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:421
+#: Wammu/SettingsStorage.py:426
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
 "with phones like Nokia 7110/6210/6310."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:424
+#: Wammu/SettingsStorage.py:429
 msgid "FBUS proprietary protocol using ARK cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:425
+#: Wammu/SettingsStorage.py:430
 msgid ""
 "ARK cable (third party cable) for phones not supporting AT commands like "
 "Nokia 6020."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:428
+#: Wammu/SettingsStorage.py:433
 msgid "DKU5 phone with ARK cable"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:429
+#: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:433
+#: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:434 Wammu/SettingsStorage.py:445
+#: Wammu/SettingsStorage.py:439 Wammu/SettingsStorage.py:450
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:437
+#: Wammu/SettingsStorage.py:442
 msgid "FBUS over Bluetooth (emulated serial port)"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:438 Wammu/SettingsStorage.py:452
+#: Wammu/SettingsStorage.py:443 Wammu/SettingsStorage.py:457
 msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:440 Wammu/SettingsStorage.py:447
+#: Wammu/SettingsStorage.py:445 Wammu/SettingsStorage.py:452
 msgid "Using emulated serial port."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:444
+#: Wammu/SettingsStorage.py:449
 msgid "Phonet over Bluetooth (emulated serial port)"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:451
+#: Wammu/SettingsStorage.py:456
 msgid "FBUS over Bluetooth"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:455
+#: Wammu/SettingsStorage.py:460
 msgid "Phonet over Bluetooth with RF searching"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:456
+#: Wammu/SettingsStorage.py:461
 msgid ""
 "Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don't "
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
 "8910,..)."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:460
+#: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:461
+#: Wammu/SettingsStorage.py:466
 msgid "Nokia protocol for infrared with other Nokia models."
 msgstr ""
 
-#: Wammu/SettingsStorage.py:464
+#: Wammu/SettingsStorage.py:469
 msgid "FBUS over IrDA"
 msgstr ""
 
-#: Wammu/SettingsStorage.py:465
+#: Wammu/SettingsStorage.py:470
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
 msgstr ""
 
@@ -3348,97 +3349,97 @@ msgstr ""
 msgid "Action canceled"
 msgstr ""
 
-#: Wammu/Utils.py:290
+#: Wammu/Utils.py:296
 msgid "Yes"
 msgstr "是"
 
-#: Wammu/Utils.py:292
+#: Wammu/Utils.py:298
 msgid "No"
 msgstr "否"
 
-#: Wammu/Utils.py:313
+#: Wammu/Utils.py:319
 msgid "enabled (tone)"
 msgstr ""
 
-#: Wammu/Utils.py:315
+#: Wammu/Utils.py:321
 msgid "enabled (silent)"
 msgstr ""
 
-#: Wammu/Utils.py:321
+#: Wammu/Utils.py:327
 msgid "yearly"
 msgstr "每年"
 
-#: Wammu/Utils.py:323
+#: Wammu/Utils.py:329
 msgid "monthly"
 msgstr "每月"
 
-#: Wammu/Utils.py:326
+#: Wammu/Utils.py:332
 msgid "daily"
 msgstr "每天"
 
-#: Wammu/Utils.py:328
+#: Wammu/Utils.py:334
 msgid "biweekly"
 msgstr "每两周"
 
-#: Wammu/Utils.py:331
+#: Wammu/Utils.py:337
 msgid "weekly on monday"
 msgstr "每周一"
 
-#: Wammu/Utils.py:333
+#: Wammu/Utils.py:339
 msgid "weekly on tuesday"
 msgstr "每周二"
 
-#: Wammu/Utils.py:335
+#: Wammu/Utils.py:341
 msgid "weekly on wednesday"
 msgstr "每周三"
 
-#: Wammu/Utils.py:337
+#: Wammu/Utils.py:343
 msgid "weekly on thursday"
 msgstr "每周四"
 
-#: Wammu/Utils.py:339
+#: Wammu/Utils.py:345
 msgid "weekly on friday"
 msgstr "每周五"
 
-#: Wammu/Utils.py:341
+#: Wammu/Utils.py:347
 msgid "weekly on saturday"
 msgstr "每周六"
 
-#: Wammu/Utils.py:343
+#: Wammu/Utils.py:349
 msgid "weekly on sunday"
 msgstr "每周日"
 
-#: Wammu/Utils.py:350
+#: Wammu/Utils.py:356
 msgid "disabled"
 msgstr ""
 
-#: Wammu/Utils.py:353
+#: Wammu/Utils.py:359
 msgid "nonrecurring"
 msgstr ""
 
-#: Wammu/Utils.py:429
+#: Wammu/Utils.py:435
 msgid "Your phone doesn't support this function."
 msgstr "你的手机不支持这个功能."
 
-#: Wammu/Utils.py:431
+#: Wammu/Utils.py:437
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
 msgstr "这个功能不支持你的手机，如果你想提供帮助，请联系作者。"
 
-#: Wammu/Utils.py:433
+#: Wammu/Utils.py:439
 msgid "Your phone asks for PIN."
 msgstr "手机要求你提供PIN."
 
-#: Wammu/Utils.py:435
+#: Wammu/Utils.py:441
 msgid "Memory is full, try deleting some entries."
 msgstr "内存满,请尝试删除一些条目."
 
-#: Wammu/Utils.py:437
+#: Wammu/Utils.py:443
 msgid "Communication canceled by phone, did you press cancel on phone?"
 msgstr "通讯被手机端取消,你是否触按了手机上的取消键?"
 
-#: Wammu/Utils.py:439
+#: Wammu/Utils.py:445
 msgid ""
 "Empty entry received. This usually should not happen and most likely is "
 "caused by bug in phone firmware or in Gammu/Wammu.\n"
@@ -3449,60 +3450,60 @@ msgstr ""
 "\n"
 "如果你丢失了一些条目,请联系Gammu/Wammu的作者."
 
-#: Wammu/Utils.py:441
+#: Wammu/Utils.py:447
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
 msgstr "请关闭手机上打开的菜单并重试，数据无法被获取如果你已经在手机上打开了."
 
-#: Wammu/Utils.py:443
+#: Wammu/Utils.py:449
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for bluetooth or IrDA)."
 msgstr ""
 "与手机通讯超时。可能你的手机未连接（数据线）或者超出距离（蓝牙或红外）。"
 
-#: Wammu/Utils.py:445
+#: Wammu/Utils.py:451
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
 
-#: Wammu/Utils.py:447
+#: Wammu/Utils.py:453
 msgid "Can not access device for communication with phone."
 msgstr ""
 
-#: Wammu/Utils.py:449
+#: Wammu/Utils.py:455
 msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
 
-#: Wammu/Utils.py:451
+#: Wammu/Utils.py:457
 msgid "Description:"
 msgstr "描述："
 
-#: Wammu/Utils.py:451
+#: Wammu/Utils.py:457
 msgid "Function:"
 msgstr "函数："
 
-#: Wammu/Utils.py:451
+#: Wammu/Utils.py:457
 msgid "Error code:"
 msgstr "错误码："
 
-#: Wammu/Utils.py:506 Wammu/Utils.py:508 Wammu/Utils.py:514 Wammu/Utils.py:516
+#: Wammu/Utils.py:512 Wammu/Utils.py:514 Wammu/Utils.py:520 Wammu/Utils.py:522
 #, python-format
 msgid "Device %s does not exist!"
 msgstr ""
 
-#: Wammu/Utils.py:507 Wammu/Utils.py:515 Wammu/Utils.py:526
+#: Wammu/Utils.py:513 Wammu/Utils.py:521 Wammu/Utils.py:532
 msgid "Error opening device"
 msgstr ""
 
-#: Wammu/Utils.py:525 Wammu/Utils.py:527
+#: Wammu/Utils.py:531 Wammu/Utils.py:533
 #, python-format
 msgid "You don't have permissions for %s device!"
 msgstr ""
 
-#: Wammu/Utils.py:529
+#: Wammu/Utils.py:535
 #, python-format
 msgid "Maybe you need to be member of %s group."
 msgstr ""
