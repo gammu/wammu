@@ -1103,7 +1103,14 @@ class WammuFrame(wx.Frame):
 
                 # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                 try:
-                    v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                    attempts = 0
+                    while attempts < 10:
+                        try:
+                            v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                        except gammu.ERR_EMPTY:
+                            # some phones need time till entry appears
+                            attempts = attempts + 1
+                            time.sleep(1)
                 except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
                     wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
                 Wammu.Utils.ParseMemoryEntry(v, self.cfg)
