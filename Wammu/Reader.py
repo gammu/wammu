@@ -183,7 +183,12 @@ class Reader(Wammu.Thread.Thread):
                     self.ShowMessage(
                             _('Ignoring corrupted'),
                             _('While reading, entry on location %d seems to be corrupted, ignoring it!') % location)
-                    continue
+                    remain = remain - 1
+                except gammu.ERR_UNKNOWN:
+                    self.ShowMessage(
+                            _('Ignoring unknown'),
+                            _('While reading, entry on location %d reported unknown error, ignoring it!') % location)
+                    remain = remain - 1
                 except gammu.GSMError, val:
                     self.ShowError(val[0], True)
                     return
