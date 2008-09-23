@@ -116,26 +116,25 @@ class Reader(Wammu.Thread.Thread):
                         value = self.GetNextStart()
                         start = False
                     else:
+                        value = self.GetNext(loc)
                         try:
-                            value = self.GetNext(loc)
-                            try:
-                                loc = value['Location']
-                            except TypeError:
-                                loc = value[0]['Location']
-                        except gammu.ERR_UNKNOWN:
-                            self.ShowMessage(
-                                    _('Ignoring unknown'),
-                                    _('While reading, entry on location %d reported unknown error, ignoring it!') % loc)
-                            loc = loc + 1
-                            remain = remain - 1
-                            continue
-                        except gammu.ERR_CORRUPTED:
-                            self.ShowMessage(
-                                    _('Ignoring corrupted'),
-                                    _('While reading, entry on location %d seems to be corrupted, ignoring it!') % loc)
-                            loc = loc + 1
-                            remain = remain - 1
-                            continue
+                            loc = value['Location']
+                        except TypeError:
+                            loc = value[0]['Location']
+                except gammu.ERR_UNKNOWN:
+                    self.ShowMessage(
+                            _('Ignoring unknown'),
+                            _('While reading, entry on location %d reported unknown error, ignoring it!') % loc)
+                    loc = loc + 1
+                    remain = remain - 1
+                    continue
+                except gammu.ERR_CORRUPTED:
+                    self.ShowMessage(
+                            _('Ignoring corrupted'),
+                            _('While reading, entry on location %d seems to be corrupted, ignoring it!') % loc)
+                    loc = loc + 1
+                    remain = remain - 1
+                    continue
                 except gammu.ERR_EMPTY:
                     break
 
