@@ -127,12 +127,14 @@ class Reader(Wammu.Thread.Thread):
                                     _('Ignoring unknown'),
                                     _('While reading, entry on location %d reported unknown error, ignoring it!') % loc)
                             loc = loc + 1
+                            remain = remain - 1
                             continue
                         except gammu.ERR_CORRUPTED:
                             self.ShowMessage(
                                     _('Ignoring corrupted'),
                                     _('While reading, entry on location %d seems to be corrupted, ignoring it!') % loc)
                             loc = loc + 1
+                            remain = remain - 1
                             continue
                 except gammu.ERR_EMPTY:
                     break
