@@ -77,6 +77,7 @@ import Wammu.ErrorMessage
 import Wammu.TalkbackDialog
 import Wammu.WammuSettings
 import Wammu.SMSExport
+import Wammu.SMSXML
 from Wammu.Locales import StrConv, ConsoleStrConv
 
 TALKBACK_COUNT = 30
@@ -332,6 +333,7 @@ class WammuFrame(wx.Frame):
         menu5.Append(504, _('I&mport messages'), _('Import messages from backup to phone.'))
         menu5.AppendSeparator()
         menu5.Append(510, _('Export messages to &emails'), _('Export messages to emails in storage you choose.'))
+        menu5.Append(511, _('Export messages to &XML'), _('Export messages to XML file you choose.'))
         # Add menu to the menu bar
         self.menuBar.Append(menu5, _('&Backups'))
 
@@ -386,6 +388,8 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 503, self.Import)
         wx.EVT_MENU(self, 504, self.ImportSMS)
         wx.EVT_MENU(self, 510, self.SMSToMails)
+        wx.EVT_MENU(self, 511, self.SMSToXML)
+
 
         wx.EVT_MENU(self, 1001, self.Website)
         wx.EVT_MENU(self, 1002, self.Support)
@@ -784,6 +788,7 @@ class WammuFrame(wx.Frame):
         mb.Enable(504, enable);
 
         mb.Enable(510, enable);
+        mb.Enable(511, enable);
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])
@@ -1333,6 +1338,15 @@ class WammuFrame(wx.Frame):
         contacts =  self.values['contact']['ME'] + \
             self.values['contact']['SM']
         Wammu.SMSExport.SMSExport(self, messages, contacts)
+
+    def SMSToXML(self, evt):
+        messages = self.values['message']['Read'] + \
+            self.values['message']['UnRead'] + \
+            self.values['message']['Sent'] + \
+            self.values['message']['UnSent']
+        contacts =  self.values['contact']['ME'] + \
+            self.values['contact']['SM']
+        Wammu.SMSXML.SMSExportXML(self, messages, contacts)
 
     def SelectBackupFile(self, type, save = True, data = False):
         wildcard = ''
