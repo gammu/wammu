@@ -121,30 +121,26 @@ class Reader(Wammu.Thread.Thread):
                             loc = value['Location']
                         except TypeError:
                             loc = value[0]['Location']
+                    self.Parse(value)
+                    if type(value) == list:
+                        for i in range(len(value)):
+                            value[i]['Synced'] = True
+                    else:
+                        value['Synced'] = True
+                    data.append(value)
                 except gammu.ERR_UNKNOWN:
                     self.ShowMessage(
                             _('Ignoring unknown'),
                             _('While reading, entry on location %d reported unknown error, ignoring it!') % loc)
                     loc = loc + 1
-                    remain = remain - 1
-                    continue
                 except gammu.ERR_CORRUPTED:
                     self.ShowMessage(
                             _('Ignoring corrupted'),
                             _('While reading, entry on location %d seems to be corrupted, ignoring it!') % loc)
                     loc = loc + 1
-                    remain = remain - 1
-                    continue
                 except gammu.ERR_EMPTY:
                     break
 
-                self.Parse(value)
-                if type(value) == list:
-                    for i in range(len(value)):
-                        value[i]['Synced'] = True
-                else:
-                    value['Synced'] = True
-                data.append(value)
                 remain = remain - 1
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             location = 1
