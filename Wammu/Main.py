@@ -1507,13 +1507,21 @@ class WammuFrame(wx.Frame):
 
                     self.ActivateView('message', '  ')
 
+            del busy
+            wx.Yield()
+
+            wx.MessageDialog(self,
+                _('Backup has been imported from file "%s"') % filename,
+                _('Backup imported'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+
         except gammu.GSMError, val:
             self.ShowError(val[0])
 
-        wx.MessageDialog(self,
-            _('Backup has been imported from file "%s"') % filename,
-            _('Backup imported'),
-            wx.OK | wx.ICON_INFORMATION).ShowModal()
+            wx.MessageDialog(self,
+                _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % filename,
+                _('Backup import failed'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
 
     def Import(self, evt):
         (filename, backup) = self.ReadBackup('all')
@@ -1607,13 +1615,22 @@ class WammuFrame(wx.Frame):
                         # append new value to list
                         self.values['calendar']['  '].append(v)
                     self.ActivateView('calendar', '  ')
+
+            del busy
+            wx.Yield()
+
+            wx.MessageDialog(self,
+                _('Backup has been imported from file "%s"') % filename,
+                _('Backup imported'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
+
         except gammu.GSMError, val:
             self.ShowError(val[0])
 
-        wx.MessageDialog(self,
-            _('Backup has been imported from file "%s"') % filename,
-            _('Backup imported'),
-            wx.OK | wx.ICON_INFORMATION).ShowModal()
+            wx.MessageDialog(self,
+                _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % filename,
+                _('Backup import failed'),
+                wx.OK | wx.ICON_INFORMATION).ShowModal()
 
     def WriteData(self, evt):
         self.DoBackup(True, 'all')
