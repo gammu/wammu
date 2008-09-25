@@ -287,7 +287,7 @@ class WammuFrame(wx.Frame):
         menu1.Append(150, _('&Phone wizard'), _('Search for phone or configure it using guided wizard.'))
         menu1.Append(151, _('Se&ttings'), _('Change Wammu settings.'))
         menu1.AppendSeparator()
-        menu1.Append(199, _('E&xit'), _('Terminate Wammu.'))
+        menu1.Append(199, '%s\tCtrl+Q' % _('E&xit'), _('Terminate Wammu.'))
         # Add menu to the menu bar
         self.menuBar.Append(menu1, _('&Wammu'))
 
@@ -302,7 +302,7 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu2, _('&Phone'))
 
         menu3 = wx.Menu()
-        menu3.Append(301, _('&Info'), _('Retrieve phone information.'))
+        menu3.Append(301, '%s\tCtrl+I' % _('&Info'), _('Retrieve phone information.'))
         menu3.AppendSeparator()
         menu3.Append(310, _('Contacts (&SIM)'), _('Retrieve contacts from SIM.'))
         menu3.Append(311, _('Contacts (&phone)'), _('Retrieve contacts from phone memory.'))
@@ -319,10 +319,10 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu3, _('&Retrieve'))
 
         menu4 = wx.Menu()
-        menu4.Append(401, _('&Contact'), _('Create new contact.'))
-        menu4.Append(402, _('Calendar &event'), _('Create new calendar event.'))
-        menu4.Append(403, _('&Todo'), _('Create new todo.'))
-        menu4.Append(404, _('&Message'), _('Create new message.'))
+        menu4.Append(401, '%s\tCtrl+C' % _('&Contact'), _('Create new contact.'))
+        menu4.Append(402, '%s\tCtrl+E' % _('Calendar &event'), _('Create new calendar event.'))
+        menu4.Append(403, '%s\tCtrl+T' % _('&Todo'), _('Create new todo.'))
+        menu4.Append(404, '%s\tCtrl+M' % _('&Message'), _('Create new message.'))
         # Add menu to the menu bar
         self.menuBar.Append(menu4, _('&Create'))
 
