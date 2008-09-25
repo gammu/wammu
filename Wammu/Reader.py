@@ -117,10 +117,10 @@ class Reader(Wammu.Thread.Thread):
                         start = False
                     else:
                         value = self.GetNext(loc)
-                        try:
-                            loc = value['Location']
-                        except TypeError:
-                            loc = value[0]['Location']
+                    try:
+                        loc = value['Location']
+                    except TypeError:
+                        loc = value[0]['Location']
                     self.Parse(value)
                     if type(value) == list:
                         for i in range(len(value)):
