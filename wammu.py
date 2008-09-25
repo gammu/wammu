@@ -67,7 +67,55 @@ def usage():
     print '%-20s ... %s' % (
             '-l/--local-locales',
             _('force using of locales from current directory rather than system ones'))
+    print '%-20s ... %s' % (
+            '-i/--info',
+            _('prints connection settings and tries to connect the phone'))
     print
+
+def info():
+    '''
+    Displays configuration summary and tries to connect to phone.
+    '''
+    import Wammu.WammuSettings
+    import gammu
+
+    settings = Wammu.WammuSettings.WammuConfig()
+    section = settings.ReadInt('/Gammu/Section')
+    config = settings.gammu.GetConfig(section)
+    if config['Connection'] == '' or config['Device'] == '':
+        print _('Wammu is not configured!')
+    cfg = {
+        'StartInfo': settings.Read('/Gammu/StartInfo'),
+        'UseGlobalDebugFile': 1,
+        'DebugFile': None, # Set on other place
+        'SyncTime': settings.Read('/Gammu/SyncTime'),
+        'Connection': config['Connection'],
+        'LockDevice': settings.Read('/Gammu/LockDevice'),
+        'DebugLevel': 'textalldate', # Set on other place
+        'Device': config['Device'],
+        'Localize': None,  # Set automatically by python-gammu
+        'Model': config['Model'],
+        }
+    if cfg['Model'] == 'auto':
+        cfg['Model'] = ''
+    print _('Wammu configuration:')
+    print '%-15s: %s' % (_('Connection'), cfg['Connection'])
+    print '%-15s: %s' % (_('Model'), cfg['Model'])
+    print '%-15s: %s' % (_('Device'), cfg['Device'])
+    print _('Connecting...')
+    sm = gammu.StateMachine()
+    sm.SetConfig(0, cfg)
+    sm.Init()
+    print _('Getting phone information...')
+    Manufacturer = sm.GetManufacturer()
+    Model = sm.GetModel()
+    IMEI = sm.GetIMEI()
+    Firmware = sm.GetFirmware()
+    print _('Phone infomation:')
+    print '%-15s: %s' % (_('Manufacturer'), Manufacturer)
+    print '%-15s: %s (%s)' % (_('Model'), Model[0], Model[1])
+    print '%-15s: %s' % (_('IMEI'), IMEI)
+    print '%-15s: %s' % (_('Firmware'), Firmware[0])
 
 def parse_options():
     '''
@@ -75,8 +123,8 @@ def parse_options():
     '''
     try:
         opts, args = getopt.getopt(sys.argv[1:],
-                'hvl',
-                ['help', 'version', 'local-locales'])
+                'hvli',
+                ['help', 'version', 'local-locales', 'info'])
     except getopt.GetoptError, val:
         usage()
         print _('Command line parsing failed with error:')
@@ -97,6 +145,9 @@ def parse_options():
             sys.exit()
         if opt in ('-v', '--version'):
             version()
+            sys.exit()
+        if opt in ('-i', '--info'):
+            info()
             sys.exit()
 
 if __name__ == '__main__':
