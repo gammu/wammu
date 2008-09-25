@@ -319,7 +319,7 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu3, _('&Retrieve'))
 
         menu4 = wx.Menu()
-        menu4.Append(401, '%s\tCtrl+C' % _('&Contact'), _('Create new contact.'))
+        menu4.Append(401, '%s\tCtrl+N' % _('&Contact'), _('Create new contact.'))
         menu4.Append(402, '%s\tCtrl+E' % _('Calendar &event'), _('Create new calendar event.'))
         menu4.Append(403, '%s\tCtrl+T' % _('&Todo'), _('Create new todo.'))
         menu4.Append(404, '%s\tCtrl+M' % _('&Message'), _('Create new message.'))
