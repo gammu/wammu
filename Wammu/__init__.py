@@ -27,3 +27,4 @@ __version__ = '0.29'
 
 gammu_error = None
 configuration = None
+debug = False

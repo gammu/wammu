@@ -70,6 +70,9 @@ def usage():
     print '%-20s ... %s' % (
             '-i/--info',
             _('prints connection settings and tries to connect the phone'))
+    print '%-20s ... %s' % (
+            '-d/--debug',
+            _('enables debug output to stderr'))
     print
 
 def info():
@@ -103,6 +106,9 @@ def info():
     print '%-15s: %s' % (_('Model'), cfg['Model'])
     print '%-15s: %s' % (_('Device'), cfg['Device'])
     print _('Connecting...')
+    if Wammu.debug:
+        gammu.SetDebugFile(sys.stderr)
+        gammu.SetDebugLevel('textalldate')
     sm = gammu.StateMachine()
     sm.SetConfig(0, cfg)
     sm.Init()
@@ -123,8 +129,8 @@ def parse_options():
     '''
     try:
         opts, args = getopt.getopt(sys.argv[1:],
-                'hvli',
-                ['help', 'version', 'local-locales', 'info'])
+                'hvlid',
+                ['help', 'version', 'local-locales', 'info', 'debug'])
     except getopt.GetoptError, val:
         usage()
         print _('Command line parsing failed with error:')
@@ -135,6 +141,8 @@ def parse_options():
         usage()
         print _('Extra unrecognized parameters passed to program')
         sys.exit(3)
+
+    do_info = False
 
     for opt, dummy in opts:
         if opt in ('-l', '--local-locales'):
@@ -147,8 +155,13 @@ def parse_options():
             version()
             sys.exit()
         if opt in ('-i', '--info'):
-            info()
-            sys.exit()
+            do_info = True
+        if opt in ('-d', '--debug'):
+            Wammu.debug = True
+
+    if do_info:
+        info()
+        sys.exit()
 
 if __name__ == '__main__':
     Wammu.Locales.Init()

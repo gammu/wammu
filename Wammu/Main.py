@@ -427,6 +427,10 @@ class WammuFrame(wx.Frame):
             gammu.SetDebugFile(self.logfilefd)
             gammu.SetDebugLevel('textalldate')
 
+            if Wammu.debug:
+                self.loggerdebug = Wammu.Logger.LoggerDebug(self.logfilename)
+                self.loggerdebug.start()
+
         # initialize variables
         self.showdebug = ''
         self.IMEI = ''
@@ -876,6 +880,10 @@ class WammuFrame(wx.Frame):
         if hasattr(self, 'logger'):
             self.logger.canceled = True
             self.logger.join()
+
+        if hasattr(self, 'loggerdebug'):
+            self.loggerdebug.canceled = True
+            self.loggerdebug.join()
 
         if self.tbicon is not None:
             self.tbicon.Destroy()
