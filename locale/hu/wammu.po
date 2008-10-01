@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-09-25 17:39+0200\n"
-"PO-Revision-Date: 2008-07-18 17:50+0200\n"
+"PO-Revision-Date: 2008-09-26 15:14+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1175,18 +1175,15 @@ msgid "Export messages to emails in storage you choose."
 msgstr ""
 "Üzenetek exportálása e-mailként, az Ön által kiválasztott tárolóformátumban."
 
+#  msgid "Export messages to &emails"
 #: Wammu/Main.py:336
-#, fuzzy
-#| msgid "Export messages to &emails"
 msgid "Export messages to &XML"
-msgstr "Üzenetek exportálása &e-mailként"
+msgstr "Üzenetek exportálása &XML-fájlként"
 
+#  msgid "Export messages to emails in storage you choose."
 #: Wammu/Main.py:336
-#, fuzzy
-#| msgid "Export messages to emails in storage you choose."
 msgid "Export messages to XML file you choose."
-msgstr ""
-"Üzenetek exportálása e-mailként, az Ön által kiválasztott tárolóformátumban."
+msgstr "Üzenetek exportálása az Ön által megadott &XML-fájlba."
 
 #: Wammu/Main.py:338
 msgid "&Backups"
@@ -1620,12 +1617,13 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
+"A(z) \"%s\" fájlból történő mentés visszaállítása nem meghiúsult. A mentés "
+"egyes részei visszakerültek a telefonra, más részei viszont nem."
 
+#  msgid "Backup imported"
 #: Wammu/Main.py:1531 Wammu/Main.py:1640
-#, fuzzy
-#| msgid "Backup imported"
 msgid "Backup import failed"
-msgstr "Mentés visszaállítva"
+msgstr "A mentés visszaállítása nem sikerült"
 
 #: Wammu/Main.py:1542
 #, python-format
@@ -2273,12 +2271,12 @@ msgstr "Wammu telefonbeállító tündér"
 
 #: Wammu/Reader.py:133 Wammu/Reader.py:184
 msgid "Ignoring unknown"
-msgstr ""
+msgstr "Ismeretlen figyelmen kívül hagyása"
 
+#  msgid ""
+#  "While reading, entry on location %d seems to be corrupted, ignoring it!"
 #: Wammu/Reader.py:134 Wammu/Reader.py:185
-#, fuzzy, python-format
-#| msgid ""
-#| "While reading, entry on location %d seems to be corrupted, ignoring it!"
+#, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
 msgstr ""
@@ -3272,19 +3270,17 @@ msgstr "IMAP fiók"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
-msgstr ""
+msgstr "XML fájl"
 
+#  msgid "Select mailbox file..."
 #: Wammu/SMSXML.py:85
-#, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select XML file..."
-msgstr "Válassza ki a mailbox fájlt..."
+msgstr "Válassza ki az XML fájlt..."
 
+#  msgid "Saving messages to IMAP"
 #: Wammu/SMSXML.py:98
-#, fuzzy
-#| msgid "Saving messages to IMAP"
 msgid "Saving messages to XML"
-msgstr "Üzenetek mentése az IMAP kiszolgálóra"
+msgstr "Üzenetek mentése XML-fájlba"
 
 #: Wammu/TalkbackDialog.py:48
 msgid ""
@@ -3743,53 +3739,49 @@ msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - Ablakba zárt Gammu - verzió %s"
 
 #  msgid "Phone connection test is still active, you can not continue."
+#  msgid ""
+#  "Phone connection is not properly configured, can not connect to phone."
 #: wammu.py:72
-#, fuzzy
-#| msgid ""
-#| "Phone connection is not properly configured, can not connect to phone."
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
-"A telefonkapcsolat nincs jól beállítva, ezért a telefonhoz nem lehet "
-"csatlakozni."
+"Megjeleníti a telefonkapcsolat beállításait és megpróbál kapcsolódni a "
+"mobiltelefonhoz."
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
 msgstr ""
+"Hibakeresési kimenet engedélyezése az alapértelmezett hibajelző kimenetre "
+"(stderr)"
 
 #  msgid "No phone configured!"
+#  msgid "Connection not configured!"
 #: wammu.py:89
-#, fuzzy
-#| msgid "Connection not configured!"
 msgid "Wammu is not configured!"
-msgstr "A telefonkapcsolat nincs beállítva."
+msgstr "A Wammu program nincs beállítva."
 
+#  msgid "Manual configuration"
 #: wammu.py:104
-#, fuzzy
-#| msgid "Manual configuration"
 msgid "Wammu configuration:"
-msgstr "Kézi beállítás"
+msgstr "Wammu beállításai:"
 
+#  msgid "Connection"
 #: wammu.py:108
-#, fuzzy
-#| msgid "Connection"
 msgid "Connecting..."
-msgstr "Kapcsolat"
+msgstr "Kapcsolódás..."
 
+#  msgid "Reading phone information"
 #: wammu.py:115
-#, fuzzy
-#| msgid "Reading phone information"
 msgid "Getting phone information..."
 msgstr "Telefoninformációk olvasása..."
 
+#  msgid "Phone information"
 #: wammu.py:120
-#, fuzzy
-#| msgid "Phone information"
 msgid "Phone infomation:"
-msgstr "Telefoninformáció"
+msgstr "Telefoninformáció:"
 
 #: wammu.py:123
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
