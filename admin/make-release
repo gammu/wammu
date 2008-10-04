@@ -53,9 +53,31 @@ wine c:\\python25\\python setup.py build --skip-deps py2exe
 cp ~/.wine/drive_c/windows/system32/python25.dll dist/
 cp ~/.wine/drive_c/Python25/Lib/site-packages/wx-2.8-msw-unicode/wx/*.dll dist/
 
+# Sign main binary
+signcode \
+    -spc ~/.id/codesigning.spc \
+    -v ~/.id/codesigning.pvk \
+    -$ individual \
+    -n 'Wammu installer' \
+    -t http://timestamp.verisign.com/scripts/timstamp.dll \
+    -i http://cihar.com/ \
+    dist/wammu.exe
+
 # Build Windows installer
 wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 mv Output/$repo-$version-setup.exe ../
+
+# Sign binaries
+for bin in $tmp/*.exe ; do
+    signcode \
+        -spc ~/.id/codesigning.spc \
+        -v ~/.id/codesigning.pvk \
+        -$ individual \
+        -n 'Wammu installer' \
+        -t http://timestamp.verisign.com/scripts/timstamp.dll \
+        -i http://cihar.com/ \
+        $bin
+done
 
 # We're done
 echo "Release is in $tmp directory"
