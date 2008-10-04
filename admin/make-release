@@ -9,12 +9,35 @@ repo=wammu
 
 version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
 
+srcdir=`pwd`
+
+signexe() {
+    if [ ! -f ~/.id/codesigning.spc ] ; then 
+        echo 'Skipping signing, no certificates!'
+        return 0
+    fi
+    if [ "x$NO_SIGN" != "x" ] ; then
+        echo 'Skipping signing, disabled!'
+        return 0
+    fi
+    signcode \
+        -spc ~/.id/codesigning.spc \
+        -v ~/.id/codesigning.pvk \
+        -$ individual \
+        -n "$2" \
+        -t http://timestamp.verisign.com/scripts/timstamp.dll \
+        -i http://cihar.com/ \
+        "$1"
+    rm "$1.bak"
+}
+
 
 tmp=`mktemp -dt $repo-build-XXXXXX`
 
 cd $tmp
 echo Working in $tmp
 if [ "x$1" = "xbranch" ] ; then
+    shift
     rel=RELEASE_`echo -n $version|tr . _`
     svn cp -m "Tag release $version" svn+ssh://mort/home/svn/$repo/trunk svn+ssh://mort/home/svn/$repo/tags/$rel
     svn export svn+ssh://mort/home/svn/$repo/tags/$rel $repo-$version
@@ -23,6 +46,7 @@ elif [ "x$1" = "x" ] ; then
     svn export svn+ssh://mort/home/svn/$repo/trunk $repo-$version
 else
     version="$1"
+    shift
     rel=RELEASE_`echo -n $version|tr . _`
     svn export svn+ssh://mort/home/svn/$repo/tags/$rel $repo-$version
 fi
@@ -54,29 +78,15 @@ cp ~/.wine/drive_c/windows/system32/python25.dll dist/
 cp ~/.wine/drive_c/Python25/Lib/site-packages/wx-2.8-msw-unicode/wx/*.dll dist/
 
 # Sign main binary
-signcode \
-    -spc ~/.id/codesigning.spc \
-    -v ~/.id/codesigning.pvk \
-    -$ individual \
-    -n 'Wammu installer' \
-    -t http://timestamp.verisign.com/scripts/timstamp.dll \
-    -i http://cihar.com/ \
-    dist/wammu.exe
+signexe dist/wammu.exe "Wammu"
 
 # Build Windows installer
 wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 mv Output/$repo-$version-setup.exe ../
 
 # Sign binaries
-for bin in $tmp/*.exe ; do
-    signcode \
-        -spc ~/.id/codesigning.spc \
-        -v ~/.id/codesigning.pvk \
-        -$ individual \
-        -n 'Wammu installer' \
-        -t http://timestamp.verisign.com/scripts/timstamp.dll \
-        -i http://cihar.com/ \
-        $bin
+for bin in $tmp/*-setup.exe ; do
+    signexe $bin "Wammu installer"
 done
 
 # We're done
