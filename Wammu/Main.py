@@ -1120,6 +1120,7 @@ class WammuFrame(wx.Frame):
                     while attempts < 10:
                         try:
                             v = self.sm.GetMemory(v['MemoryType'], v['Location'])
+                            break
                         except gammu.ERR_EMPTY:
                             # some phones need time till entry appears
                             attempts = attempts + 1
