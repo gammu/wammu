@@ -25,7 +25,6 @@ Group:          Applications/Communications
 %endif
 Packager:       Michal Cihar <michal@cihar.com>
 Vendor:         Michal Cihar <michal@cihar.com>
-Prefix:         %{_prefix}
 
 Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}, python >= %py_minver, python < %py_maxver
 BuildRequires:  python, python-devel
@@ -47,6 +46,11 @@ CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
 %install
 python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES --prefix=%{_prefix}
 sed -i '/man1/ D' INSTALLED_FILES
+%find_lang %{name}
+cat %{name}.lang >> INSTALLED_FILES
+%if 0%{?suse_version}
+%suse_update_desktop_file %{name}
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,3 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README AUTHORS FAQ COPYING ChangeLog
 %doc %{_mandir}/man1/*
+
+%changelog
+* Mon Jan 05 2004 michal@cihar.com
+- initial packaging
+- see SVN log for changelog
