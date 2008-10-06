@@ -28,6 +28,9 @@ Vendor:         Michal Cihar <michal@cihar.com>
 
 Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}, python >= %py_minver, python < %py_maxver
 BuildRequires:  python, python-devel
+%if 0%{?suse_version}
+BuildRequires:  update-desktop-files
+%endif
 
 Url:        http://wammu.eu/
 Buildroot:  %{_tmppath}/%name-%version-root
@@ -45,7 +48,7 @@ CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
 
 %install
 python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES --prefix=%{_prefix}
-sed -i '/man1/ D' INSTALLED_FILES
+sed -i '/man1/ D ; /locale/ D' INSTALLED_FILES
 %find_lang %{name}
 cat %{name}.lang >> INSTALLED_FILES
 %if 0%{?suse_version}
