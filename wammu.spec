@@ -9,6 +9,12 @@
 %define py_ver %(python -c "import sys; v=sys.version_info[:2]; print '%%d.%%d'%%v" 2>/dev/null || echo PYTHON-NOT-FOUND)
 %endif
 
+%if %{!?%py_sitedir:1}0 == 10
+%define py_prefix      %(python -c "import sys; print sys.prefix" 2>/dev/null || echo PYTHON-NOT-FOUND)
+%define py_libdir      %{py_prefix}/%{_lib}/python%{py_ver}
+%define py_sitedir     %{py_libdir}/site-packages
+%endif
+
 %define py_minver %py_ver
 %define py_maxver %(python -c "import sys; a,b=sys.version_info[:2]; print '%%d.%%d'%%(a,b+1)" 2>/dev/null || echo PYTHON-NOT-FOUND) 
 
@@ -37,8 +43,17 @@ Buildroot:  %{_tmppath}/%name-%version-root
 BuildArch: noarch
 
 %description
-Mobile phone manager using Gammu as it's backend. It works with any phone Gammu
-supports - many Nokias, Siemens, Alcatel, ... Written using wxGTK.
+It works with any phone that Gammu supports, including many models from
+Nokia, Siemens, and Alcatel. It has complete support (read, edit,
+delete, copy) for contacts, todo, and calendar. It can read, save, and
+send SMS. It includes an SMS composer for multi-part SMS messages, and
+it can display SMS messages that include pictures. Currently, only text
+and predefined bitmaps or sounds can be edited in the SMS composer. It
+can export messages to an IMAP4 server (or other email storage).
+
+This program does not support browsing files in phone, use gMobileMedia
+instead.
+
 
 %prep
 %setup
@@ -62,6 +77,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README AUTHORS FAQ COPYING ChangeLog
 %doc %{_mandir}/man1/*
+%dir %py_sitedir/Wammu
+%dir %py_sitedir/Wammu/wxcomp
+%dir /usr/share/Wammu
+%dir /usr/share/Wammu/images
+%dir /usr/share/Wammu/images/icons
+%dir /usr/share/Wammu/images/misc
 
 %changelog
 * Mon Jan 05 2004 michal@cihar.com
