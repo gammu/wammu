@@ -11,7 +11,11 @@
 
 %if %{!?%py_sitedir:1}0 == 10
 %define py_prefix      %(python -c "import sys; print sys.prefix" 2>/dev/null || echo PYTHON-NOT-FOUND)
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?mandriva_version}
+%define py_libdir      %{py_prefix}/lib/python%{py_ver}
+%else
 %define py_libdir      %{py_prefix}/%{_lib}/python%{py_ver}
+%endif
 %define py_sitedir     %{py_libdir}/site-packages
 %endif
 
@@ -40,7 +44,10 @@ BuildRequires:  update-desktop-files
 
 Url:        http://wammu.eu/
 Buildroot:  %{_tmppath}/%name-%version-root
+# These distributions use /usr/lib for python on all architectures
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?mandriva_version}
 BuildArch: noarch
+%endif
 
 %description
 It works with any phone that Gammu supports, including many models from
@@ -85,6 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir /usr/share/Wammu/images/misc
 
 %changelog
+* Wed Oct  8 2008 michal@cihar.com
+- do not make it noarch package because it is sometimes in lib64 dir
 * Mon Jan 05 2004 michal@cihar.com
 - initial packaging
 - see SVN log for changelog
