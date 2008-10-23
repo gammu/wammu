@@ -27,7 +27,7 @@ Name:           %{name}
 Version:        %{version}
 Release:        %{rel}
 Source0:        %{name}-%{version}.tar.%{extension}
-License:        GPL
+License:        GPLv2
 %if 0%{?suse_version}
 Group:          Hardware/Mobile
 %else
@@ -68,6 +68,8 @@ instead.
 CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
 
 %install
+rm -rf %buildroot
+mkdir %buildroot
 python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES --prefix=%{_prefix}
 sed -i '/man1/ D ; /locale/ D' INSTALLED_FILES
 %find_lang %{name}
