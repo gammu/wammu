@@ -33,7 +33,6 @@ Group:          Hardware/Mobile
 %else
 Group:          Applications/Communications
 %endif
-Packager:       Michal Cihar <michal@cihar.com>
 Vendor:         Michal Cihar <michal@cihar.com>
 
 Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}, python >= %py_minver, python < %py_maxver
@@ -63,7 +62,7 @@ instead.
 
 
 %prep
-%setup
+%setup -q
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
