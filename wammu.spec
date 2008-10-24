@@ -1,32 +1,18 @@
 %define name wammu
-%define version 0.30
+%define ver 0.30
 %define rel 1
 %define extension   bz2
 
 %define python_gammu_req 0.24
 
-%if %{!?py_ver:1}0 == 10
-%define py_ver %(python -c "import sys; v=sys.version_info[:2]; print '%%d.%%d'%%v" 2>/dev/null || echo PYTHON-NOT-FOUND)
-%endif
-
-%if %{!?%py_sitedir:1}0 == 10
-%define py_prefix      %(python -c "import sys; print sys.prefix" 2>/dev/null || echo PYTHON-NOT-FOUND)
-%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?mandriva_version}
-%define py_libdir      %{py_prefix}/lib/python%{py_ver}
-%else
-%define py_libdir      %{py_prefix}/%{_lib}/python%{py_ver}
-%endif
-%define py_sitedir     %{py_libdir}/site-packages
-%endif
-
-%define py_minver %py_ver
-%define py_maxver %(python -c "import sys; a,b=sys.version_info[:2]; print '%%d.%%d'%%(a,b+1)" 2>/dev/null || echo PYTHON-NOT-FOUND) 
+%{!?__python: %define __python python}
+%define wammu_python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(0)")
 
 Summary:        Mobile phone manager
 Name:           %{name}
-Version:        %{version}
+Version:        %{ver}
 Release:        %{rel}
-Source0:        %{name}-%{version}.tar.%{extension}
+Source:         http://dl.cihar.com/%{name}/latest/%{name}-%{ver}.tar.%{extension}
 License:        GPLv2
 %if 0%{?suse_version}
 Group:          Hardware/Mobile
@@ -36,16 +22,20 @@ Group:          Applications/Communications
 Vendor:         Michal Čihař <michal@cihar.com>
 Packager:       Michal Čihař <michal@cihar.com>
 
-Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}, python >= %py_minver, python < %py_maxver
-BuildRequires:  python, python-devel
+Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}
+BuildRequires:  python-devel
 %if 0%{?suse_version}
 BuildRequires:  update-desktop-files
 %endif
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
+BuildRequires:  desktop-file-utils
+%endif
+%{?py_requires}
 
 Url:        http://wammu.eu/
-Buildroot:  %{_tmppath}/%name-%version-root
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # These distributions use /usr/lib for python on all architectures
-%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?mandriva_version}
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel} || 0%{?mandriva_version}
 BuildArch: noarch
 %endif
 
@@ -66,34 +56,45 @@ instead.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" python setup.py build --skip-deps
+CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build --skip-deps
 
 %install
 rm -rf %buildroot
 mkdir %buildroot
-python setup.py install --skip-deps --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES --prefix=%{_prefix}
-sed -i '/man1/ D ; /locale/ D' INSTALLED_FILES
+%{__python} setup.py install --skip-build --root=%buildroot --prefix=%{_prefix}
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
+%{__python} setup.py install -O1 --skip-build --root=%buildroot --prefix=%{_prefix}
+%endif
 %find_lang %{name}
-cat %{name}.lang >> INSTALLED_FILES
 %if 0%{?suse_version}
 %suse_update_desktop_file %{name}
 %endif
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
+desktop-file-install --vendor ""				\
+		--dir %buildroot%{_datadir}/applications	\
+		--mode 0644					\
+		--remove-category=Application			\
+		%buildroot%{_datadir}/applications/%{name}.desktop
+%endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %buildroot
 
-%files -f INSTALLED_FILES
+%files -f %name.lang
 %defattr(-,root,root)
-%doc README AUTHORS FAQ COPYING ChangeLog
+%doc COPYING AUTHORS FAQ README PKG-INFO ChangeLog
 %doc %{_mandir}/man1/*
-%dir %py_sitedir/Wammu
-%dir %py_sitedir/Wammu/wxcomp
-%dir /usr/share/Wammu
-%dir /usr/share/Wammu/images
-%dir /usr/share/Wammu/images/icons
-%dir /usr/share/Wammu/images/misc
+%{_bindir}/%{name}
+%{_bindir}/%{name}-configure
+%{_datadir}/Wammu
+%{_datadir}/pixmaps/*
+%{_datadir}/applications/%{name}.desktop
+%{wammu_python_sitelib}/*
 
 %changelog
+* Fri Oct 24 2008 Michal Čihař <michal@cihar.com> - 0.29-1
+- fixed according to Fedora policy
+
 * Wed Oct  8 2008 michal@cihar.com
 - do not make it noarch package because it is sometimes in lib64 dir
 * Mon Jan 05 2004 michal@cihar.com
