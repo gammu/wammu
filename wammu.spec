@@ -70,11 +70,11 @@ mkdir %buildroot
 %suse_update_desktop_file %{name}
 %endif
 %if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
-desktop-file-install --vendor ""				\
-		--dir %buildroot%{_datadir}/applications	\
-		--mode 0644					\
-		--remove-category=Application			\
-		%buildroot%{_datadir}/applications/%{name}.desktop
+desktop-file-install --vendor "" \
+    --dir %buildroot%{_datadir}/applications \
+    --mode 0644 \
+    --remove-category=Application \
+    %buildroot%{_datadir}/applications/%{name}.desktop
 %endif
 
 %clean
