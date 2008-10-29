@@ -90,6 +90,9 @@ Name: {group}\{cm:SelectLanguage}; Filename: {uninstallexe}; Parameters: /langse
 Filename: {app}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent unchecked
 Filename: {uninstallexe}; Parameters: /langsetup; Description: {cm:SelectLanguage}; Flags: postinstall nowait
 
+[Components]
+Name: Translations; Description: {cm:TranslationsDesc}; Types: custom full; Languages: 
+
 [UninstallDelete]
 Type: files; Name: {app}\{#MyAppUrlName}
 Type: files; Name: {app}\{#MyAppBugsUrlName}
@@ -99,6 +102,10 @@ en.ReportBug=Report bug in application %1
 cs.ReportBug=Nahlásit chybu v aplikaci %1
 en.SelectLanguage=Select application language
 cs.SelectLanguage=Zvolit jazyk aplikace
+en.Translations=Translations
+en.TranslationsDesc=Translations of user interface
+cs.Translations=Pøeklady
+cs.TranslationsDesc=Pøeklady uživatelského rozhraní
 
 [Registry]
 Root: HKCU; Subkey: Environment; ValueType: string; ValueName: LANG; ValueData: {language}; Check: UsingWinNT
@@ -487,5 +494,5 @@ end;
 
 begin
 end.
-[Components]
-Name: Translations; Description: Translation data; Types: custom full; Languages: 
+
+; vim: fileencoding=windows-1250 fencs=windows-1250:
