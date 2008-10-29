@@ -37,26 +37,34 @@ ShowLanguageDialog=yes
 AppVersion={#MyAppVersion}
 UninstallDisplayIcon={app}\share\pixmaps\wammu.ico
 AppModifyPath="{uninstallexe}" /langsetup
+ChangesEnvironment=true
+SetupIconFile={app}\share\pixmaps\wammu.ico
 
 [Languages]
 Name: en; MessagesFile: compiler:Default.isl
-Name: pt_BR; MessagesFile: compiler:Languages\BrazilianPortuguese.isl
+;Name: af; MessagesFile: compiler:Languages\Afrikaans.isl
 Name: ca; MessagesFile: compiler:Languages\Catalan.isl
 Name: cs; MessagesFile: compiler:Languages\Czech.isl
-;Name: da; MessagesFile: compiler:Languages\Danish.isl
-Name: nl; MessagesFile: compiler:Languages\Dutch.isl
+Name: de; MessagesFile: compiler:Languages\German.isl
+;Name: el; MessagesFile: compiler:Languages\Greek.isl
+Name: es; MessagesFile: compiler:Languages\Spanish.isl
+;Name: et; MessagesFile: compiler:Languages\Estonian.isl
 Name: fi; MessagesFile: compiler:Languages\Finnish.isl
 Name: fr; MessagesFile: compiler:Languages\French.isl
-Name: de; MessagesFile: compiler:Languages\German.isl
+;Name: gl; MessagesFile: compiler:Languages\Galician.isl
+Name: he; MessagesFile: compiler:Languages\Hebrew.isl
 Name: hu; MessagesFile: compiler:Languages\Hungarian.isl
+;Name: id; MessagesFile: compiler:Languages\Indonesian.isl
 Name: it; MessagesFile: compiler:Languages\Italian.isl
-;Name: no; MessagesFile: compiler:Languages\Norwehian.isl
+;Name: ko; MessagesFile: compiler:Languages\Korean.isl
+Name: nl; MessagesFile: compiler:Languages\Dutch.isl
 Name: pl; MessagesFile: compiler:Languages\Polish.isl
-;Name: pt; MessagesFile: compiler:Languages\Portuguese.isl
-;Name: ru; MessagesFile: compiler:Languages\Russian.isl
+Name: pt_BR; MessagesFile: compiler:Languages\BrazilianPortuguese.isl
+Name: ru; MessagesFile: compiler:Languages\Russian.isl
 Name: sk; MessagesFile: compiler:Languages\Slovak.isl
-;Name: sl; MessagesFile: compiler:Languages\Slovenian.isl
 ;Name: sv; MessagesFile: compiler:Languages\Swedish.isl
+;Name: ; MessagesFile: compiler:Languages\.isl
+;Name: ; MessagesFile: compiler:Languages\.isl
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
@@ -207,7 +215,7 @@ begin
 		Height := ScaleY(13);
 		Caption := GetTransStr('LangText');
 	end;
-	
+
 	{ lblUser }
 	lblUser := TLabel.Create(frmLangChooser);
 	with lblUser do
@@ -220,7 +228,7 @@ begin
 		Caption := GetTransStr('LangUser');
 		FocusControl := cbUser;
 	end;
-	
+
 	{ lblSystem }
 	lblSystem := TLabel.Create(frmLangChooser);
 	with lblSystem do
@@ -233,7 +241,7 @@ begin
 		Caption := GetTransStr('LangSystem');
 		FocusControl := cbSystem;
 	end;
-	
+
 	{ cbUser }
 	cbUser := TComboBox.Create(frmLangChooser);
 	with cbUser do
@@ -249,7 +257,7 @@ begin
 		TabOrder := 0;
 		Sorted := True;
 	end;
-	
+
 	{ cbSystem }
 	cbSystem := TComboBox.Create(frmLangChooser);
 	with cbSystem do
@@ -265,7 +273,7 @@ begin
 		TabOrder := 1;
 		Sorted := True;
 	end;
-	
+
 	{ btnOK }
 	btnOK := TButton.Create(frmLangChooser);
 	with btnOK do
@@ -280,7 +288,7 @@ begin
 		TabOrder := 2;
 		ModalResult := 1;
 	end;
-	
+
 	{ btnCancel }
 	btnCancel := TButton.Create(frmLangChooser);
 	with btnCancel do
@@ -349,7 +357,7 @@ begin
 					begin
 						cbUser.Items.Add(frMsgs.Name);
 					end;
-						
+
 				end;
 			until not FindNext(frMsgs);
 
@@ -361,7 +369,7 @@ begin
 	end;
 
 	if UsingWinNT then
-	begin		
+	begin
 		if not IsAdminLoggedOn then //only admins can change system-wide environment variables
 		begin
 			cbSystem.Enabled := False;
