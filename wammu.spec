@@ -20,7 +20,6 @@ Group:          Hardware/Mobile
 Group:          Applications/Communications
 %endif
 Vendor:         Michal Čihař <michal@cihar.com>
-Packager:       Michal Čihař <michal@cihar.com>
 
 Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}
 BuildRequires:  python-devel
