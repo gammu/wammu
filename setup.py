@@ -371,6 +371,21 @@ if HAVE_PY2EXE:
         ]
     addparams['zipfile'] = 'shared.lib'
 
+data_files = [
+    (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
+    (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
+    ]
+
+if sys.platform != 'win32':
+    data_files.append((os.path.join('share','applications'), ['build/wammu.desktop']))
+    data_files.append((os.path.join('share','pixmaps'), [
+        'icon/wammu.png',
+        'icon/wammu.xpm',
+        'icon/wammu.ico',
+        'icon/wammu.svg',
+        ]))
+    data_files.append((os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1']))
+
 distutils.core.setup(name="wammu",
     version = Wammu.__version__,
     description = "Wammu Mobile Phone Manager",
@@ -398,40 +413,34 @@ distutils.core.setup(name="wammu",
         'Topic :: Communications :: Telephony',
         'Topic :: Office/Business :: Scheduling',
         'Topic :: Utilities',
-        'Natural Language :: Afrikaans',
         'Natural Language :: English',
+        'Natural Language :: Afrikaans',
         'Natural Language :: Catalan',
-        'Natural Language :: Chinese (Simplified)',
         'Natural Language :: Czech',
-        'Natural Language :: Dutch',
-#        'Natural Language :: Estonian',
+        'Natural Language :: German',
+        'Natural Language :: Greek',
+        'Natural Language :: Spanish',
+        'Natural Language :: Estonian',
         'Natural Language :: Finnish',
         'Natural Language :: French',
-        'Natural Language :: German',
+        'Natural Language :: Galician',
+        'Natural Language :: Hebrew',
         'Natural Language :: Hungarian',
+        'Natural Language :: Indonesian',
         'Natural Language :: Italian',
         'Natural Language :: Korean',
+        'Natural Language :: Dutch',
         'Natural Language :: Polish',
         'Natural Language :: Portuguese (Brazilian)',
         'Natural Language :: Russian',
         'Natural Language :: Slovak',
-        'Natural Language :: Spanish',
         'Natural Language :: Swedish',
+        'Natural Language :: Chinese (Simplified)',
+        'Natural Language :: Chinese (Traditional)',
     ],
     packages = ['Wammu', 'Wammu.wxcomp'],
     scripts = ['wammu.py', 'wammu-configure.py'],
-    data_files = [
-        (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
-        (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
-        (os.path.join('share','applications'), ['build/wammu.desktop']),
-        (os.path.join('share','pixmaps'), [
-            'icon/wammu.png',
-            'icon/wammu.xpm',
-            'icon/wammu.ico',
-            'icon/wammu.svg',
-            ]),
-        (os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1'])
-        ],
+    data_files = data_files,
     # Override certain command classes with our own ones
     cmdclass = {
         'build': build_wammu,

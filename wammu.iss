@@ -38,7 +38,7 @@ AppVersion={#MyAppVersion}
 UninstallDisplayIcon={app}\share\pixmaps\wammu.ico
 AppModifyPath="{uninstallexe}" /langsetup
 ChangesEnvironment=true
-SetupIconFile={app}\share\pixmaps\wammu.ico
+;SetupIconFile={app}\icon\wammu.ico
 
 [Languages]
 Name: en; MessagesFile: compiler:Default.isl
@@ -63,15 +63,16 @@ Name: pt_BR; MessagesFile: compiler:Languages\BrazilianPortuguese.isl
 Name: ru; MessagesFile: compiler:Languages\Russian.isl
 Name: sk; MessagesFile: compiler:Languages\Slovak.isl
 ;Name: sv; MessagesFile: compiler:Languages\Swedish.isl
-;Name: ; MessagesFile: compiler:Languages\.isl
-;Name: ; MessagesFile: compiler:Languages\.isl
+;Name: zh_tw; MessagesFile: compiler:Languages\SimpChinese.isl
+;Name: zh_cz; MessagesFile: compiler:Languages\TradChinese.isl
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
 
 [Files]
-Source: dist\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: dist\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; Excludes: locale
 Source: uninst.isl; DestDir: {app}
+Source: dist\share\locale\*; DestDir: {app}\share\locale; Flags: ignoreversion recursesubdirs createallsubdirs; Components: " Translations"; Tasks: ; Languages: 
 
 [INI]
 Filename: {app}\{#MyAppUrlName}; Section: InternetShortcut; Key: URL; String: {#MyAppURL}
@@ -87,7 +88,7 @@ Name: {group}\{cm:SelectLanguage}; Filename: {uninstallexe}; Parameters: /langse
 
 [Run]
 Filename: {app}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#MyAppName}}; Flags: nowait postinstall skipifsilent unchecked
-Filename: {uninstallexe}; Parameters: /langsetup; Description: "{cm:SelectLanguage}"; Flags: postinstall nowait
+Filename: {uninstallexe}; Parameters: /langsetup; Description: {cm:SelectLanguage}; Flags: postinstall nowait
 
 [UninstallDelete]
 Type: files; Name: {app}\{#MyAppUrlName}
@@ -486,3 +487,5 @@ end;
 
 begin
 end.
+[Components]
+Name: Translations; Description: Translation data; Types: custom full; Languages: 
