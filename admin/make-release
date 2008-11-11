@@ -20,7 +20,7 @@ signexe() {
         echo 'Skipping signing, disabled!'
         return 0
     fi
-    signcode \
+    gk-get --user=nijel --object=codesign | signcode \
         -spc ~/.id/codesigning.spc \
         -v ~/.id/codesigning.pvk \
         -$ individual \
