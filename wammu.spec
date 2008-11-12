@@ -21,7 +21,7 @@ Group:          Applications/Communications
 %endif
 Vendor:         Michal Čihař <michal@cihar.com>
 
-Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}
+Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}, python-xml
 BuildRequires:  python-devel
 %if 0%{?suse_version}
 BuildRequires:  update-desktop-files
