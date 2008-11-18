@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-10-06 16:47+0200\n"
-"PO-Revision-Date: 2008-04-18 09:25+0200\n"
-"Last-Translator: Artem Urvanov <artem62@gmail.com>\n"
+"PO-Revision-Date: 2008-11-11 00:54+0100\n"
+"Last-Translator: Ivan Potapov <elsewhere@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: Wammu/About.py:43
@@ -1042,9 +1042,9 @@ msgstr ""
 msgid "&Messages"
 msgstr ""
 
+#| msgid "Send message"
 #: Wammu/Main.py:313
 #, fuzzy
-#| msgid "Send message"
 msgid "Retrieve messages."
 msgstr "Отправить сообщение"
 
@@ -1096,9 +1096,9 @@ msgstr ""
 msgid "&Message"
 msgstr ""
 
+#| msgid "Send message"
 #: Wammu/Main.py:325
 #, fuzzy
-#| msgid "Send message"
 msgid "Create new message."
 msgstr "Отправить сообщение"
 
@@ -1146,9 +1146,9 @@ msgstr ""
 msgid "Export messages to emails in storage you choose."
 msgstr ""
 
+#| msgid "Saving messages to IMAP"
 #: Wammu/Main.py:336
 #, fuzzy
-#| msgid "Saving messages to IMAP"
 msgid "Export messages to &XML"
 msgstr "Сохранение сообщений на IMAP-сервер"
 
@@ -1557,9 +1557,9 @@ msgid ""
 "stored to phone and some were not."
 msgstr ""
 
+#| msgid "Backup all"
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
 #, fuzzy
-#| msgid "Backup all"
 msgid "Backup import failed"
 msgstr "Создать резервную копию всех сообщений"
 
@@ -1758,9 +1758,9 @@ msgstr ""
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr ""
 
+#| msgid "No phone selected!"
 #: Wammu/Main.py:2081
 #, fuzzy
-#| msgid "No phone selected!"
 msgid "Connection not configured!"
 msgstr "Телефон не выбран!"
 
@@ -1855,9 +1855,9 @@ msgstr ""
 msgid "All finished, found %d phones"
 msgstr ""
 
+#| msgid "Failed to set exception handler."
 #: Wammu/PhoneSearch.py:329
 #, fuzzy
-#| msgid "Failed to set exception handler."
 msgid "Failed to connect to phone"
 msgstr "Не удалось установить обработчик исключения."
 
@@ -2518,9 +2518,9 @@ msgid ""
 "conect to your phone!"
 msgstr ""
 
+#| msgid "No phone selected!"
 #: Wammu/Settings.py:526
 #, fuzzy
-#| msgid "No phone selected!"
 msgid "No phone configured!"
 msgstr "Телефон не выбран!"
 
@@ -2850,31 +2850,31 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
-msgstr ""
+msgstr "Phonet через Bluetooth"
 
 #: Wammu/SettingsStorage.py:439 Wammu/SettingsStorage.py:450
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
-msgstr ""
+msgstr "Протокол Nokia для стека Bluetooth (другие DCT4-модели Nokia)."
 
 #: Wammu/SettingsStorage.py:442
 msgid "FBUS over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "FBUS через Bluetooth (эмуляция последовательного порта)"
 
 #: Wammu/SettingsStorage.py:443 Wammu/SettingsStorage.py:457
 msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
-msgstr ""
+msgstr "Протокол Nokia для стека Bluetooth (Nokia 6210)."
 
 #: Wammu/SettingsStorage.py:445 Wammu/SettingsStorage.py:452
 msgid "Using emulated serial port."
-msgstr ""
+msgstr "Используем эмуляцию последовательного порта."
 
 #: Wammu/SettingsStorage.py:449
 msgid "Phonet over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "Phonet через Bluetooth (эмуляция последовательного порта)"
 
 #: Wammu/SettingsStorage.py:456
 msgid "FBUS over Bluetooth"
-msgstr ""
+msgstr "FBUS через Bluetooth"
 
 #: Wammu/SettingsStorage.py:460
 msgid "Phonet over Bluetooth with RF searching"
@@ -2889,25 +2889,24 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
-msgstr ""
+msgstr "Phonet через IrDA"
 
 #: Wammu/SettingsStorage.py:466
 msgid "Nokia protocol for infrared with other Nokia models."
-msgstr ""
+msgstr "Протокол Nokia для инфракрасного порта (другие модели Nokia)."
 
 #: Wammu/SettingsStorage.py:469
 msgid "FBUS over IrDA"
-msgstr ""
+msgstr "FBUS через IrDA"
 
 #: Wammu/SettingsStorage.py:470
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
-msgstr ""
+msgstr "Протокол Nokia для инфракрасного порта (Nokia 6110/6130/6150)."
 
+#  msgid "Mailbox file"
 #: Wammu/SMSExport.py:38
-#, fuzzy
-#| msgid "Mailbox file"
 msgid "Mailboxes"
-msgstr "Файл почтового ящика"
+msgstr "Почтовые ящики"
 
 #: Wammu/SMSExport.py:41
 msgid "Select mailbox file..."
@@ -3139,15 +3138,15 @@ msgstr "Учётная запись IMAP"
 msgid "XML File"
 msgstr ""
 
+#| msgid "Select mailbox file..."
 #: Wammu/SMSXML.py:85
 #, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select XML file..."
 msgstr "Выбор файла почтового ящика..."
 
+#| msgid "Saving messages to IMAP"
 #: Wammu/SMSXML.py:98
 #, fuzzy
-#| msgid "Saving messages to IMAP"
 msgid "Saving messages to XML"
 msgstr "Сохранение сообщений на IMAP-сервер"
 
@@ -3528,7 +3527,7 @@ msgstr "Описание:"
 
 #: Wammu/Utils.py:457
 msgid "Function:"
-msgstr "Функция: "
+msgstr "Функция:"
 
 #: Wammu/Utils.py:457
 msgid "Error code:"
@@ -3537,21 +3536,21 @@ msgstr "Код ошибки:"
 #: Wammu/Utils.py:512 Wammu/Utils.py:514 Wammu/Utils.py:520 Wammu/Utils.py:522
 #, python-format
 msgid "Device %s does not exist!"
-msgstr ""
+msgstr "Устройство %s не существует!"
 
 #: Wammu/Utils.py:513 Wammu/Utils.py:521 Wammu/Utils.py:532
 msgid "Error opening device"
-msgstr ""
+msgstr "Ошибка обращения к устройству"
 
 #: Wammu/Utils.py:531 Wammu/Utils.py:533
 #, python-format
 msgid "You don't have permissions for %s device!"
-msgstr ""
+msgstr "У вас нет прав доступа к устройству %s!"
 
 #: Wammu/Utils.py:535
 #, python-format
 msgid "Maybe you need to be member of %s group."
-msgstr ""
+msgstr "Возможно, вам нужно быть членом группы %s."
 
 #: wammu-configure.py:46
 #, python-format
@@ -3580,9 +3579,8 @@ msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 
 #: wammu-configure.py:78 wammu.py:136
-#, fuzzy
 msgid "Command line parsing failed with error:"
-msgstr "Анализ командной строки завершился с ошибкой"
+msgstr "Анализ командной строки завершился с ошибкой:"
 
 #: wammu-configure.py:84 wammu.py:142
 msgid "Extra unrecognized parameters passed to program"
@@ -3604,40 +3602,37 @@ msgstr "Wammu — оконная версия Gammu версии %s"
 #: wammu.py:72
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
+"выводит на экран параметры соединения и пытается подключиться к телефону"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
-msgstr ""
+msgstr "выводит сообщения отладчика на stderr"
 
+#  msgid "No phone selected!"
 #: wammu.py:89
-#, fuzzy
-#| msgid "No phone selected!"
 msgid "Wammu is not configured!"
-msgstr "Телефон не выбран!"
+msgstr "Wammu не настроен!"
 
+#  msgid "Manual configuration"
 #: wammu.py:104
-#, fuzzy
-#| msgid "Manual configuration"
 msgid "Wammu configuration:"
-msgstr "Настройка вручную"
+msgstr "Настройка Wammu:"
 
+#  msgid "Connection"
 #: wammu.py:108
-#, fuzzy
-#| msgid "Connection"
 msgid "Connecting..."
-msgstr "Соединение"
+msgstr "Подключаемся..."
 
+#  msgid "Phone information"
 #: wammu.py:115
-#, fuzzy
-#| msgid "Phone information"
 msgid "Getting phone information..."
-msgstr "Информация о телефоне"
+msgstr "Получаем информацию о телефоне..."
 
+#  msgid "Phone information"
 #: wammu.py:120
 #, fuzzy
-#| msgid "Phone information"
 msgid "Phone infomation:"
-msgstr "Информация о телефоне"
+msgstr "Информация о телефоне:"
 
 #: wammu.py:123
 msgid "IMEI"

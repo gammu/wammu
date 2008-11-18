@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-10-06 16:48+0200\n"
-"PO-Revision-Date: 2008-10-04 18:50+0200\n"
+"PO-Revision-Date: 2008-11-13 11:16+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -1639,11 +1639,12 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
+"Återskapning från filen \"%s\" har misslyckats. Några delar av säkerhetskopian "
+"kan ha lagrats på telefonen och vissa inte."
 
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
-#, fuzzy
 msgid "Backup import failed"
-msgstr "Säkerhetskopia importerad"
+msgstr "Import av säkerhetskopia misslyckades"
 
 #: Wammu/Main.py:1543
 #, python-format
@@ -1849,17 +1850,17 @@ msgstr "Överföringen nekades!"
 msgid "One moment please, connecting to phone..."
 msgstr "Vänta, ansluter till telefon..."
 
+#  msgid "Phone connection test is still active, you can not continue."
 #: Wammu/Main.py:2080
-#, fuzzy
-#| msgid "Phone connection test is still active, you can not continue."
 msgid "Phone connection is not properly configured, can not connect to phone."
-msgstr "Test av telefonanslutning är fortfarande aktiv. Du kan inte fortsätta."
+msgstr ""
+"Telefonanslutningen är inte korrekt konfigurerad, kan inte ansluta till "
+"telefonen."
 
+#  msgid "No phone configured!"
 #: Wammu/Main.py:2081
-#, fuzzy
-#| msgid "No phone configured!"
 msgid "Connection not configured!"
-msgstr "Ingen telefon har konfigurerats!"
+msgstr "Anslutning inte konfigurerad!"
 
 #: Wammu/Main.py:2171
 msgid "Your phone has just received incoming call"
@@ -2300,16 +2301,15 @@ msgstr "Wammus guide för konfiguration av telefon"
 
 #: Wammu/Reader.py:133 Wammu/Reader.py:184
 msgid "Ignoring unknown"
-msgstr ""
+msgstr "Ignorerar okänd"
 
+#  msgid ""
+#  "While reading, entry on location %d seems to be corrupted, ignoring it!"
 #: Wammu/Reader.py:134 Wammu/Reader.py:185
-#, fuzzy, python-format
-#| msgid ""
-#| "While reading, entry on location %d seems to be corrupted, ignoring it!"
+#, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
-msgstr ""
-"Posten på plats %d verkar skadad och kommer att ignoreras vid inläsning!"
+msgstr "Under läsningen rapporterades ett okänt fel på plats %d, ignorerar den!"
 
 #: Wammu/Reader.py:138 Wammu/Reader.py:179
 msgid "Ignoring corrupted"
@@ -2674,17 +2674,15 @@ msgstr "BenQ/Siemens-telefon"
 msgid "BenQ or Siemens phone not running Symbian."
 msgstr "BenQ eller Siemens-telefon som inte kör Symbian."
 
+#  msgid "Nokia phone"
 #: Wammu/SettingsStorage.py:113
-#, fuzzy
-#| msgid "Nokia phone"
 msgid "Motorola phone"
-msgstr "Nokia-telefon"
+msgstr "Motorola-telefon"
 
+#  msgid "Nokia phone not running Symbian."
 #: Wammu/SettingsStorage.py:114
-#, fuzzy
-#| msgid "Nokia phone not running Symbian."
 msgid "Motorola phone not running Symbian."
-msgstr "Nokia-telefon som inte kör Symbian."
+msgstr "Motorola-telefon som inte kör Symbian."
 
 #: Wammu/SettingsStorage.py:117
 msgid "Nokia phone"
@@ -3308,19 +3306,17 @@ msgstr "IMAP-konto"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
-msgstr ""
+msgstr "XML-fil"
 
+#  msgid "Select mailbox file..."
 #: Wammu/SMSXML.py:85
-#, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select XML file..."
-msgstr "Välj postlådefil..."
+msgstr "Välj XML-fil..."
 
+#  msgid "Saving messages to IMAP"
 #: Wammu/SMSXML.py:98
-#, fuzzy
-#| msgid "Saving messages to IMAP"
 msgid "Saving messages to XML"
-msgstr "Sparar meddelanden till IMAP"
+msgstr "Sparar meddelanden till XML"
 
 #: Wammu/TalkbackDialog.py:48
 msgid ""
@@ -3773,44 +3769,38 @@ msgstr "Uppdaterar gammu-konfiguration..."
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - Windowed Gammu version %s"
 
+#  msgid "Phone connection test is still active, you can not continue."
 #: wammu.py:72
-#, fuzzy
-#| msgid "Phone connection test is still active, you can not continue."
 msgid "prints connection settings and tries to connect the phone"
-msgstr "Test av telefonanslutning är fortfarande aktiv. Du kan inte fortsätta."
+msgstr "skriver ut anslutningsinställningar och försöker att ansluta telefonen"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
-msgstr ""
+msgstr "aktiverar felsökningsutdata till standard fel"
 
 #: wammu.py:89
-#, fuzzy
 msgid "Wammu is not configured!"
-msgstr "Ingen telefon har konfigurerats!"
+msgstr "Wammu är inte konfigurerad!"
 
 #: wammu.py:104
-#, fuzzy
 msgid "Wammu configuration:"
-msgstr "Manuell konfiguration"
+msgstr "Wammu-konfiguration:"
 
 #: wammu.py:108
-#, fuzzy
 msgid "Connecting..."
-msgstr "Anslutning"
+msgstr "Ansluter..."
 
 #: wammu.py:115
-#, fuzzy
 msgid "Getting phone information..."
-msgstr "Läser telefoninformation"
+msgstr "Hämtar telefoninformation..."
 
 #: wammu.py:120
-#, fuzzy
 msgid "Phone infomation:"
-msgstr "Telefoninformation"
+msgstr "Telefoninformation:"
 
 #: wammu.py:123
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #  msgid "&Wammu"
 #. l10n: Name of program shown in desktop file
