@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2008-10-06 16:47+0200\n"
-"PO-Revision-Date: 2008-07-21 13:37+0200\n"
+"PO-Revision-Date: 2008-11-24 21:40+0100\n"
 "Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1207,18 +1207,16 @@ msgstr "Exportiere Nachrichten ins &E-Mail-Format"
 msgid "Export messages to emails in storage you choose."
 msgstr "Exportiere Nachrichten ins E-Mail-Format in die Ablage ihrer Wahl."
 
+#  msgid "Export messages to &emails"
 #: Wammu/Main.py:336
-#, fuzzy
-#| msgid "Export messages to &emails"
 msgid "Export messages to &XML"
-msgstr "Exportiere Nachrichten ins &E-Mail-Format"
+msgstr "Exportiere Nachrichten im &XML-Format"
 
 #  msgid "Exports messages to emails in storage you choose"
+#  msgid "Export messages to emails in storage you choose."
 #: Wammu/Main.py:336
-#, fuzzy
-#| msgid "Export messages to emails in storage you choose."
 msgid "Export messages to XML file you choose."
-msgstr "Exportiere Nachrichten ins E-Mail-Format in die Ablage ihrer Wahl."
+msgstr "Exportiere Nachrichten in XML-Datei ihrer Wahl."
 
 #: Wammu/Main.py:338
 msgid "&Backups"
@@ -1666,12 +1664,13 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
+"Wiederherstellung aus der Datei \"%s\" schlug fehl, einige Teile der Sicherung "
+"wurden eventuell auf dem Handy gespeichert und einige nicht."
 
+#  msgid "Backup imported"
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
-#, fuzzy
-#| msgid "Backup imported"
 msgid "Backup import failed"
-msgstr "Sicherung wurde importiert"
+msgstr "Import der Sicherung schlug fehl"
 
 #: Wammu/Main.py:1543
 #, python-format
@@ -2342,17 +2341,17 @@ msgstr "Wammu-Handy-Konfigurationsassistent"
 
 #: Wammu/Reader.py:133 Wammu/Reader.py:184
 msgid "Ignoring unknown"
-msgstr ""
+msgstr "Ignoriere unbekannte"
 
+#  msgid ""
+#  "While reading, entry on location %d seems to be corrupted, ignoring it!"
 #: Wammu/Reader.py:134 Wammu/Reader.py:185
-#, fuzzy, python-format
-#| msgid ""
-#| "While reading, entry on location %d seems to be corrupted, ignoring it!"
+#, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
 msgstr ""
-"Während des Einlesens scheint der der Eintrag bei %d beschädigt zu sein und "
-"wird ignoriert."
+"Während des Einlesens meldete der der Eintrag bei %d einen unbekannten "
+"Fehler und wird ignoriert."
 
 #: Wammu/Reader.py:138 Wammu/Reader.py:179
 msgid "Ignoring corrupted"
@@ -3392,19 +3391,17 @@ msgstr "IMAP-Konto"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
-msgstr ""
+msgstr "XML-Datei"
 
+#  msgid "Select mailbox file..."
 #: Wammu/SMSXML.py:85
-#, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select XML file..."
-msgstr "Wählen sie die Mailbox-Datei..."
+msgstr "Wählen sie eine XML-Datei..."
 
+#  msgid "Saving messages to IMAP"
 #: Wammu/SMSXML.py:98
-#, fuzzy
-#| msgid "Saving messages to IMAP"
 msgid "Saving messages to XML"
-msgstr "Nachrichten werden auf dem IMAP-Server gespeichert."
+msgstr "Nachrichten werden als XML gespeichert"
 
 #: Wammu/TalkbackDialog.py:48
 msgid ""
@@ -3864,54 +3861,48 @@ msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - grafische Benutzeroberfläche von Gammu Version %s"
 
 #  msgid "Phone connection test is still active, you can not continue."
+#  msgid ""
+#  "Phone connection is not properly configured, can not connect to phone."
 #: wammu.py:72
-#, fuzzy
-#| msgid ""
-#| "Phone connection is not properly configured, can not connect to phone."
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
-"Die Handyverbindung ist nicht richtig konfiguriert, keine Verbindung zum "
-"Handy möglich."
+"Zeigt die Verbindungseinstellungen und versucht, eine Verbindung zum Handy "
+"herzustellen"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
-msgstr ""
+msgstr "Schaltet Fehlermeldungsausgabe nach stderr ein"
 
 #  msgid "No phone found!"
 #  msgid "No phone configured!"
+#  msgid "Connection not configured!"
 #: wammu.py:89
-#, fuzzy
-#| msgid "Connection not configured!"
 msgid "Wammu is not configured!"
-msgstr "Verbindung nicht eingerichtet!"
+msgstr "Wammu ist nicht eingerichtet!"
 
+#  msgid "Manual configuration"
 #: wammu.py:104
-#, fuzzy
-#| msgid "Manual configuration"
 msgid "Wammu configuration:"
-msgstr "Manuelle Konfiguration"
+msgstr "Wammu-Einrichtung:"
 
+#  msgid "Connection"
 #: wammu.py:108
-#, fuzzy
-#| msgid "Connection"
 msgid "Connecting..."
-msgstr "Verbindung"
+msgstr "Verbinde..."
 
+#  msgid "Reading phone information"
 #: wammu.py:115
-#, fuzzy
-#| msgid "Reading phone information"
 msgid "Getting phone information..."
-msgstr "Lese Handy-Infos"
+msgstr "Empfange Handy-Informationen..."
 
+#  msgid "Phone information"
 #: wammu.py:120
-#, fuzzy
-#| msgid "Phone information"
 msgid "Phone infomation:"
-msgstr "Handy-Info"
+msgstr "Handy-Information:"
 
 #: wammu.py:123
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
