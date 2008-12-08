@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-10-06 16:47+0200\n"
+"POT-Creation-Date: 2008-12-08 13:00+0100\n"
 "PO-Revision-Date: 2008-11-24 21:40+0100\n"
 "Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -1664,8 +1664,8 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
-"Wiederherstellung aus der Datei \"%s\" schlug fehl, einige Teile der Sicherung "
-"wurden eventuell auf dem Handy gespeichert und einige nicht."
+"Wiederherstellung aus der Datei \"%s\" schlug fehl, einige Teile der "
+"Sicherung wurden eventuell auf dem Handy gespeichert und einige nicht."
 
 #  msgid "Backup imported"
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
@@ -2142,11 +2142,15 @@ msgid "No connection selected!"
 msgstr "Keine Verbindung ausgewählt!"
 
 #: Wammu/PhoneWizard.py:316
-msgid "Phone port"
-msgstr "Handy-Port"
+#, fuzzy
+#| msgid "Phone search"
+msgid "Phone Device"
+msgstr "Handysuche"
 
 #: Wammu/PhoneWizard.py:317
-msgid "Please enter port where phone is connected"
+#, fuzzy
+#| msgid "Please enter port where phone is connected"
+msgid "Please enter device where phone is accessible"
 msgstr "Bitte wählen Sie den Port, über den das Handy angeschlossen ist."
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
@@ -3918,3 +3922,6 @@ msgstr "Mobiltelefon-Manager"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Anwendung für Mobiltelefone - Oberfläche für Gammu"
+
+#~ msgid "Phone port"
+#~ msgstr "Handy-Port"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-11-26 21:26+0100\n"
+"POT-Creation-Date: 2008-12-08 13:00+0100\n"
 "PO-Revision-Date: 2008-12-02 14:18+0100\n"
 "Last-Translator: Daniel Campos <daniel.campos@juntaextremadura.net>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -651,8 +651,7 @@ msgid ""
 msgstr ""
 "Si desea ayudar a mejorar este programa, por favor envíe la siguiente "
 "información y descripción de como ocurrió a %s. Por favor, envíe el reporte "
-"en Inglés, en otro caso se le pediría más adelante que lo traduzca al "
-"Inglés."
+"en Inglés, en otro caso se le pediría más adelante que lo traduzca al Inglés."
 
 #: Wammu/Error.py:118
 msgid ""
@@ -1423,7 +1422,8 @@ msgstr ""
 
 #: Wammu/Main.py:899
 msgid "Failed to unlink temporary log file, please delete it yourself."
-msgstr "No se pudo borrar el archivo de registro temporal, bórrelo usted mismo."
+msgstr ""
+"No se pudo borrar el archivo de registro temporal, bórrelo usted mismo."
 
 #  msgid "Finished %s"
 #: Wammu/Main.py:902
@@ -2068,11 +2068,15 @@ msgid "No connection selected!"
 msgstr "¡No se ha seleccionado ninguna conexión!"
 
 #: Wammu/PhoneWizard.py:316
-msgid "Phone port"
-msgstr "Puerto del teléfono"
+#, fuzzy
+#| msgid "Phone search"
+msgid "Phone Device"
+msgstr "Búsqueda de teléfono"
 
 #: Wammu/PhoneWizard.py:317
-msgid "Please enter port where phone is connected"
+#, fuzzy
+#| msgid "Please enter port where phone is connected"
+msgid "Please enter device where phone is accessible"
 msgstr "Por favor, introduzca el puerto al que está conectado el teléfono"
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
@@ -2323,8 +2327,7 @@ msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
 msgstr ""
-"Si desea conectar el teléfono automáticamente cuando la aplicación se "
-"inicia."
+"Si desea conectar el teléfono automáticamente cuando la aplicación se inicia."
 
 #: Wammu/Settings.py:105
 msgid "Show debug log"
@@ -2396,8 +2399,7 @@ msgstr "Conexión"
 msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr ""
-"Modelo de teléfono, puede dejarlo en modo auto salvo si le da algún "
-"problema."
+"Modelo de teléfono, puede dejarlo en modo auto salvo si le da algún problema."
 
 #: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
 msgid "Model"
@@ -2472,8 +2474,8 @@ msgid ""
 "Format string for name displaying. You can use %%(value)s format marks. "
 "Currently available values are: %s."
 msgstr ""
-"Cadena de formato para mostrar el nombre. Puede utilizar marcas de formato "
-"%%(valor)s. Los valores disponibles son: %s. "
+"Cadena de formato para mostrar el nombre. Puede utilizar marcas de formato %%"
+"(valor)s. Los valores disponibles son: %s. "
 
 #: Wammu/Settings.py:319
 msgid "Name format string"
@@ -2953,7 +2955,8 @@ msgstr "Teléfono DKU5 con cable ARK"
 
 #: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
-msgstr "Cable ARK (de terceros) para teléfonos con chip USB como el Nokia 5100."
+msgstr ""
+"Cable ARK (de terceros) para teléfonos con chip USB como el Nokia 5100."
 
 #: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
@@ -3158,7 +3161,8 @@ msgstr "Login fallido"
 msgid ""
 "Connection suceeded, do you want to remember password? This is a bit "
 "insecure."
-msgstr "Conexión con éxito, ¿quiere recordar la contraseña? Puede ser inseguro."
+msgstr ""
+"Conexión con éxito, ¿quiere recordar la contraseña? Puede ser inseguro."
 
 #: Wammu/SMSExport.py:239
 msgid "Save password?"
@@ -3180,8 +3184,7 @@ msgstr "Fallo al listar"
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr ""
-"Por favor, seleccione la carpeta del servidor %s donde almacenar los "
-"mensajes"
+"Por favor, seleccione la carpeta del servidor %s donde almacenar los mensajes"
 
 #: Wammu/SMSExport.py:278
 msgid "Select folder"
@@ -3259,8 +3262,8 @@ msgid ""
 msgstr ""
 "Por favor, comparta sus experiencias con Wammu y Gammu, que es la librería "
 "en que se basa. Cuando rellene el siguiente forumario, otros usuarios podrán "
-"beneficiarse de sus experiencias con la base de datos de teléfonos de "
-"Gammu. Solo la información que ve aquí será enviada."
+"beneficiarse de sus experiencias con la base de datos de teléfonos de Gammu. "
+"Solo la información que ve aquí será enviada."
 
 #: Wammu/TalkbackDialog.py:50
 msgid "Manufacturer:"
@@ -3401,7 +3404,8 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
-"La entrada en la base de teléfonos de Gammu fue creada, puede verla en <%s>.\n"
+"La entrada en la base de teléfonos de Gammu fue creada, puede verla en <%"
+"s>.\n"
 "¿Quiere abrir el navegador ahora?"
 
 #: Wammu/TalkbackDialog.py:270
@@ -3749,6 +3753,9 @@ msgstr "Gestor de teléfonos móviles"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Aplicación para teléfonos móviles - Interfaz para Gammu"
+
+#~ msgid "Phone port"
+#~ msgstr "Puerto del teléfono"
 
 #~ msgid "Starting %s"
 #~ msgstr "Iniciando %s"

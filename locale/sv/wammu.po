@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-10-06 16:48+0200\n"
+"POT-Creation-Date: 2008-12-08 13:00+0100\n"
 "PO-Revision-Date: 2008-11-13 11:16+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -1639,8 +1639,8 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
-"Återskapning från filen \"%s\" har misslyckats. Några delar av säkerhetskopian "
-"kan ha lagrats på telefonen och vissa inte."
+"Återskapning från filen \"%s\" har misslyckats. Några delar av "
+"säkerhetskopian kan ha lagrats på telefonen och vissa inte."
 
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
 msgid "Backup import failed"
@@ -2110,11 +2110,15 @@ msgid "No connection selected!"
 msgstr "Ingen anslutning vald!"
 
 #: Wammu/PhoneWizard.py:316
-msgid "Phone port"
-msgstr "Telefonport"
+#, fuzzy
+#| msgid "Phone search"
+msgid "Phone Device"
+msgstr "Telefonsökning"
 
 #: Wammu/PhoneWizard.py:317
-msgid "Please enter port where phone is connected"
+#, fuzzy
+#| msgid "Please enter port where phone is connected"
+msgid "Please enter device where phone is accessible"
 msgstr "Ange porten där din telefon är ansluten"
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
@@ -2309,7 +2313,8 @@ msgstr "Ignorerar okänd"
 #, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
-msgstr "Under läsningen rapporterades ett okänt fel på plats %d, ignorerar den!"
+msgstr ""
+"Under läsningen rapporterades ett okänt fel på plats %d, ignorerar den!"
 
 #: Wammu/Reader.py:138 Wammu/Reader.py:179
 msgid "Ignoring corrupted"
@@ -3817,6 +3822,9 @@ msgstr "Hanterare för mobiltelefoner"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Program för mobiltelefoner - klient för Gammu"
+
+#~ msgid "Phone port"
+#~ msgstr "Telefonport"
 
 #~ msgid "Phone searching log"
 #~ msgstr "Telefonsökningslogg"

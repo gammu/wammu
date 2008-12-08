@@ -308,13 +308,13 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
 
 class PhonePortPage(Wammu.Wizard.InputPage):
     """
-    Selects phone port.
+    Selects phone device.
     """
     def __init__(self, parent):
         ports, helptext = parent.settings.GetDevices()
         Wammu.Wizard.InputPage.__init__(self, parent,
-                _('Phone port'),
-                _('Please enter port where phone is connected') + ':',
+                _('Phone Device'),
+                _('Please enter device where phone is accessible') + ':',
                 ports,
                 helptext)
 

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-10-06 16:47+0200\n"
+"POT-Creation-Date: 2008-12-08 13:00+0100\n"
 "PO-Revision-Date: 2008-11-11 00:54+0100\n"
 "Last-Translator: Ivan Potapov <elsewhere@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: Wammu/About.py:43
@@ -2004,11 +2004,15 @@ msgid "No connection selected!"
 msgstr "Не выбрано соединение!"
 
 #: Wammu/PhoneWizard.py:316
-msgid "Phone port"
-msgstr "Порт телефона"
+#, fuzzy
+#| msgid "Device"
+msgid "Phone Device"
+msgstr "Устройство"
 
 #: Wammu/PhoneWizard.py:317
-msgid "Please enter port where phone is connected"
+#, fuzzy
+#| msgid "Please enter port where phone is connected"
+msgid "Please enter device where phone is accessible"
 msgstr "Пожалуйста, укажите порт, к которому подключён телефон"
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
@@ -3654,3 +3658,6 @@ msgstr "Менеджер Мобильного Телефона"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Приложение для мобильных телефонов - графический интерфейс Gammu"
+
+#~ msgid "Phone port"
+#~ msgstr "Порт телефона"
