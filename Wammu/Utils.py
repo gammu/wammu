@@ -523,9 +523,9 @@ def CheckDeviceNode(curdev):
                 )
     if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
         gid =  os.stat(curdev).st_gid
-        if HAVE_GRP:
+        try:
             group = grp.getgrgid(gid)[0]
-        else:
+        except:
             group = str(gid)
         return (-2,
                 _('You don\'t have permissions for %s device!') % curdev,
