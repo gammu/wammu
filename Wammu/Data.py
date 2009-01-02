@@ -585,6 +585,9 @@ ManufacturerMap = {
     'Wavecom': 23,
     'Sierra Wireless': 24,
     'Lenovo': 25,
+    'Fly': 26,
+    'Simcom': 27,
+    'Sanyo': 28,
 }
 GarbleMap = {
     0: 'atdot',
