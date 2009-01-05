@@ -1124,7 +1124,7 @@ class WammuFrame(wx.Frame):
                         except gammu.ERR_EMPTY:
                             # some phones need time till entry appears
                             attempts = attempts + 1
-                            time.sleep(1)
+                            time.sleep(0.2)
                 except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
                     wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
                 Wammu.Utils.ParseMemoryEntry(v, self.cfg)
