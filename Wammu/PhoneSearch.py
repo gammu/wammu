@@ -249,7 +249,6 @@ class SearchThread(threading.Thread):
                  'LockDevice': self.lock,
                  'DebugLevel': self.level,
                  'Device': self.device,
-                 'Localize': None,
                  'Model': ''})
         try:
             if self.level == 'textall':
@@ -312,7 +311,6 @@ class PhoneInfoThread(threading.Thread):
                      'LockDevice': 'no',
                      'DebugLevel': 'nothing',
                      'Device': self.device,
-                     'Localize': None,
                      'Model': '',
                      })
             sm.Init()

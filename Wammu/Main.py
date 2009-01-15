@@ -2090,7 +2090,6 @@ class WammuFrame(wx.Frame):
             'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
             'DebugLevel': 'textalldate', # Set on other place
             'Device': config['Device'],
-            'Localize': None,  # Set automatically by python-gammu
             'Model': config['Model'],
             }
         if cfg['Model'] == 'auto':
