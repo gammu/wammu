@@ -453,6 +453,8 @@ def FormatError(txt, info):
         message = _('Can not access device for communication with phone.')
         if sys.platform == 'linux2':
             message += ' ' + _('Maybe you need to be member of some group to have acces to device.')
+    elif info['Code'] == gammu.Errors['ERR_NOSIM']:
+        message = _('Can not access SIM card. Please check whether it is properly inserted in phone and/or try to reboot the phone by removing battery.')
     else:
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), StrConv(info['Text']), _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
