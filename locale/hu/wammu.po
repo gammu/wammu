@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-12-08 13:00+0100\n"
+"POT-Creation-Date: 2009-01-19 16:49+0100\n"
 "PO-Revision-Date: 2009-01-04 23:19+0100\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -616,7 +616,7 @@ msgstr "Hasonló hibajelentések keresése"
 msgid "Report bug"
 msgstr "Hibajelentés készítése"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2238
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2237
 msgid "Save debug log as..."
 msgstr "Hibajelentése mentése másként..."
 
@@ -1831,28 +1831,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "A telefonkapcsolat nincs beállítva."
 
-#: Wammu/Main.py:2171
+#: Wammu/Main.py:2170
 msgid "Your phone has just received incoming call"
 msgstr "Bejövő hívás a telefonon"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2172
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Bejövő hívás a telefonon. Hívó fél: %s"
 
-#: Wammu/Main.py:2174
+#: Wammu/Main.py:2173
 msgid "Incoming call"
 msgstr "Beérkező hívás"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2174
 msgid "Reject"
 msgstr "Visszautasítás"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2174
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: Wammu/Main.py:2178
+#: Wammu/Main.py:2177
 msgid "One moment please, disconnecting from phone..."
 msgstr "Kérem várjon. A telefon leválasztása folyamatban."
 
@@ -1925,7 +1925,7 @@ msgstr "%s kész"
 msgid "All finished, found %d phones"
 msgstr "Keresés befejezve, %d telefon érhető el"
 
-#: Wammu/PhoneSearch.py:329
+#: Wammu/PhoneSearch.py:327
 msgid "Failed to connect to phone"
 msgstr "Nem sikerült a mobiltelefonhoz kapcsolódni."
 
@@ -3658,32 +3658,38 @@ msgstr ""
 "kellene lennie."
 
 #: Wammu/Utils.py:457
+msgid ""
+"Can not access SIM card. Please check whether it is properly inserted in "
+"phone and/or try to reboot the phone by removing battery."
+msgstr ""
+
+#: Wammu/Utils.py:459
 msgid "Description:"
 msgstr "Leírás:"
 
-#: Wammu/Utils.py:457
+#: Wammu/Utils.py:459
 msgid "Function:"
 msgstr "Funkció:"
 
-#: Wammu/Utils.py:457
+#: Wammu/Utils.py:459
 msgid "Error code:"
 msgstr "Hibakód:"
 
-#: Wammu/Utils.py:512 Wammu/Utils.py:514 Wammu/Utils.py:520 Wammu/Utils.py:522
+#: Wammu/Utils.py:514 Wammu/Utils.py:516 Wammu/Utils.py:522 Wammu/Utils.py:524
 #, python-format
 msgid "Device %s does not exist!"
 msgstr "A(z) %s eszköz nem érhető el."
 
-#: Wammu/Utils.py:513 Wammu/Utils.py:521 Wammu/Utils.py:532
+#: Wammu/Utils.py:515 Wammu/Utils.py:523 Wammu/Utils.py:534
 msgid "Error opening device"
 msgstr "Hiba lépett fel az eszköz megnyitása során."
 
-#: Wammu/Utils.py:531 Wammu/Utils.py:533
+#: Wammu/Utils.py:533 Wammu/Utils.py:535
 #, python-format
 msgid "You don't have permissions for %s device!"
 msgstr "Nincs joga elérni a(z) %s eszközt."
 
-#: Wammu/Utils.py:535
+#: Wammu/Utils.py:537
 #, python-format
 msgid "Maybe you need to be member of %s group."
 msgstr ""

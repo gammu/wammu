@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.30\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-12-08 13:00+0100\n"
+"POT-Creation-Date: 2009-01-19 16:49+0100\n"
 "PO-Revision-Date: 2008-05-22 11:07+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: African <af@li.org>\n"
@@ -595,7 +595,7 @@ msgstr "Soek vir soortgelyke verslae"
 msgid "Report bug"
 msgstr "Raporteer fout"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2238
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2237
 msgid "Save debug log as..."
 msgstr ""
 
@@ -1848,28 +1848,28 @@ msgstr "Verbindingstoets steeds besig - kan nie voortgaan nie."
 msgid "Connection not configured!"
 msgstr "Geen foon gevind nie"
 
-#: Wammu/Main.py:2171
+#: Wammu/Main.py:2170
 msgid "Your phone has just received incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2172
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr ""
 
-#: Wammu/Main.py:2174
+#: Wammu/Main.py:2173
 msgid "Incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2174
 msgid "Reject"
 msgstr ""
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2174
 msgid "Accept"
 msgstr ""
 
-#: Wammu/Main.py:2178
+#: Wammu/Main.py:2177
 msgid "One moment please, disconnecting from phone..."
 msgstr "Net 'n oomblik, ontkoppel vanaf foon..."
 
@@ -1947,7 +1947,7 @@ msgstr "Klaar met %s"
 msgid "All finished, found %d phones"
 msgstr "Alles klaar, %d fone gevind"
 
-#: Wammu/PhoneSearch.py:329
+#: Wammu/PhoneSearch.py:327
 msgid "Failed to connect to phone"
 msgstr ""
 
@@ -3639,32 +3639,38 @@ msgid "Maybe you need to be member of some group to have acces to device."
 msgstr ""
 
 #: Wammu/Utils.py:457
+msgid ""
+"Can not access SIM card. Please check whether it is properly inserted in "
+"phone and/or try to reboot the phone by removing battery."
+msgstr ""
+
+#: Wammu/Utils.py:459
 msgid "Description:"
 msgstr "Beskrywing:"
 
-#: Wammu/Utils.py:457
+#: Wammu/Utils.py:459
 msgid "Function:"
 msgstr "Funksie:"
 
-#: Wammu/Utils.py:457
+#: Wammu/Utils.py:459
 msgid "Error code:"
 msgstr "Foutkode:"
 
-#: Wammu/Utils.py:512 Wammu/Utils.py:514 Wammu/Utils.py:520 Wammu/Utils.py:522
+#: Wammu/Utils.py:514 Wammu/Utils.py:516 Wammu/Utils.py:522 Wammu/Utils.py:524
 #, python-format
 msgid "Device %s does not exist!"
 msgstr ""
 
-#: Wammu/Utils.py:513 Wammu/Utils.py:521 Wammu/Utils.py:532
+#: Wammu/Utils.py:515 Wammu/Utils.py:523 Wammu/Utils.py:534
 msgid "Error opening device"
 msgstr ""
 
-#: Wammu/Utils.py:531 Wammu/Utils.py:533
+#: Wammu/Utils.py:533 Wammu/Utils.py:535
 #, fuzzy, python-format
 msgid "You don't have permissions for %s device!"
 msgstr "Niks hoef vir hierdie instellings gegee te word nie."
 
-#: Wammu/Utils.py:535
+#: Wammu/Utils.py:537
 #, python-format
 msgid "Maybe you need to be member of %s group."
 msgstr ""

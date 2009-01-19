@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2008-12-30 15:12+0100\n"
+"POT-Creation-Date: 2009-01-19 16:49+0100\n"
 "PO-Revision-Date: 2008-12-29 21:24+0200\n"
 "Last-Translator: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
@@ -601,7 +601,7 @@ msgstr "Търсене за подобни проблеми"
 msgid "Report bug"
 msgstr "Съобщаване за програмна грешка"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2238
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2237
 msgid "Save debug log as..."
 msgstr "Запазване на дневника с описанията на грешки като..."
 
@@ -1775,28 +1775,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Връзката не е настроена!"
 
-#: Wammu/Main.py:2171
+#: Wammu/Main.py:2170
 msgid "Your phone has just received incoming call"
 msgstr "Телефонът ви току що получи входящо повикване"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2172
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Телефонът ви току що получи входящо повикване от %s"
 
-#: Wammu/Main.py:2174
+#: Wammu/Main.py:2173
 msgid "Incoming call"
 msgstr "Входящо повикване"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2174
 msgid "Reject"
 msgstr "Отхвърляне"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2174
 msgid "Accept"
 msgstr "Приемане"
 
-#: Wammu/Main.py:2178
+#: Wammu/Main.py:2177
 msgid "One moment please, disconnecting from phone..."
 msgstr "Един момент моля, прекъсване на връзката с телефона..."
 
@@ -1870,7 +1870,7 @@ msgstr ""
 msgid "All finished, found %d phones"
 msgstr "Търсенето е завършено. Намерени са %d телефона"
 
-#: Wammu/PhoneSearch.py:329
+#: Wammu/PhoneSearch.py:327
 msgid "Failed to connect to phone"
 msgstr "Свързването към телефона се провали"
 
@@ -3533,32 +3533,38 @@ msgstr ""
 "устройството."
 
 #: Wammu/Utils.py:457
+msgid ""
+"Can not access SIM card. Please check whether it is properly inserted in "
+"phone and/or try to reboot the phone by removing battery."
+msgstr ""
+
+#: Wammu/Utils.py:459
 msgid "Description:"
 msgstr "Описание:"
 
-#: Wammu/Utils.py:457
+#: Wammu/Utils.py:459
 msgid "Function:"
 msgstr "Функция: "
 
-#: Wammu/Utils.py:457
+#: Wammu/Utils.py:459
 msgid "Error code:"
 msgstr "Код на грешката:"
 
-#: Wammu/Utils.py:512 Wammu/Utils.py:514 Wammu/Utils.py:520 Wammu/Utils.py:522
+#: Wammu/Utils.py:514 Wammu/Utils.py:516 Wammu/Utils.py:522 Wammu/Utils.py:524
 #, python-format
 msgid "Device %s does not exist!"
 msgstr "Устройството %s не съществува!"
 
-#: Wammu/Utils.py:513 Wammu/Utils.py:521 Wammu/Utils.py:532
+#: Wammu/Utils.py:515 Wammu/Utils.py:523 Wammu/Utils.py:534
 msgid "Error opening device"
 msgstr "Грешка при отваряне на устройството"
 
-#: Wammu/Utils.py:531 Wammu/Utils.py:533
+#: Wammu/Utils.py:533 Wammu/Utils.py:535
 #, python-format
 msgid "You don't have permissions for %s device!"
 msgstr "Нямате права за достъп до устройството %s!"
 
-#: Wammu/Utils.py:535
+#: Wammu/Utils.py:537
 #, python-format
 msgid "Maybe you need to be member of %s group."
 msgstr "Може би трябва да сте член на групата %s."
