@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.30\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-01-19 16:49+0100\n"
+"POT-Creation-Date: 2009-01-26 16:56+0100\n"
 "PO-Revision-Date: 2007-08-30 10:14+0200\n"
 "Last-Translator: MA Gang <magang@gmail.com>\n"
 "Language-Team: none\n"
@@ -867,7 +867,6 @@ msgstr "所有日程表事件"
 
 #: Wammu/Main.py:247
 #, fuzzy
-#| msgid "Search:"
 msgid "Search: "
 msgstr "搜索:"
 
@@ -1028,7 +1027,6 @@ msgstr "联系人(手机内)(&p)"
 #  msgid "Contacts from phone memory"
 #: Wammu/Main.py:308
 #, fuzzy
-#| msgid "Retrieve contacts from phone memory"
 msgid "Retrieve contacts from phone memory."
 msgstr "手机上存储的联系人"
 
@@ -1039,7 +1037,6 @@ msgstr "联系人(所有)(&C)"
 #  msgid "Contacts from phone and SIM memory"
 #: Wammu/Main.py:309
 #, fuzzy
-#| msgid "Retrieve contacts from phone and SIM memory"
 msgid "Retrieve contacts from phone and SIM memory."
 msgstr "手机和SIM存储的联系人"
 
@@ -1093,7 +1090,6 @@ msgstr "创建新联系人"
 
 #: Wammu/Main.py:323
 #, fuzzy
-#| msgid "Calendar events"
 msgid "Calendar &event"
 msgstr "日程表事件"
 
@@ -1171,14 +1167,12 @@ msgstr "导出短消息到你选择的电子邮件格式"
 
 #: Wammu/Main.py:336
 #, fuzzy
-#| msgid "Export messages to &emails"
 msgid "Export messages to &XML"
 msgstr "导出短消息到电子邮件(&e)"
 
 #  msgid "Export messages to &emails"
 #: Wammu/Main.py:336
 #, fuzzy
-#| msgid "Export messages to emails in storage you choose."
 msgid "Export messages to XML file you choose."
 msgstr "导出短消息到你选择的电子邮件格式"
 
@@ -1262,9 +1256,6 @@ msgstr "帮助(&H)"
 
 #: Wammu/Main.py:422
 #, fuzzy, python-format
-#| msgid ""
-#| "Debug log has been automatically saved to %s, you are strongly encouraged "
-#| "to include it in bugreport."
 msgid ""
 "Debug log created in temporary file <%s>. In case of crash please include it "
 "in bugreport!"
@@ -1390,9 +1381,6 @@ msgstr ""
 
 #: Wammu/Main.py:673
 #, fuzzy, python-format
-#| msgid ""
-#| "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_percent)d %"
-#| "%, Time: %(time)s"
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
@@ -1605,7 +1593,6 @@ msgstr ""
 
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
 #, fuzzy
-#| msgid "Backup all"
 msgid "Backup import failed"
 msgstr "备份所有"
 
@@ -1672,65 +1659,55 @@ msgstr ""
 
 #: Wammu/Main.py:1769
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete contact \"%s\"?"
 msgstr "你确认要删除%s？"
 
 #: Wammu/Main.py:1771
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete call from \"%s\"?"
 msgstr "你确认要删除%s？"
 
 #: Wammu/Main.py:1773
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete message from \"%s\"?"
 msgstr "你确认要删除%s？"
 
 #: Wammu/Main.py:1775
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete todo entry \"%s\"?"
 msgstr "你确认要删除%s？"
 
 #: Wammu/Main.py:1777
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
 msgstr "你确认要删除%s？"
 
 #: Wammu/Main.py:1781
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
 msgstr[0] "你确认要删除%s？"
 
 #: Wammu/Main.py:1786
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
 msgstr[0] "你确认要删除%s？"
 
 #: Wammu/Main.py:1791
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
 msgstr[0] "你确认要删除%s？"
 
 #: Wammu/Main.py:1796
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
 msgstr[0] "你确认要删除%s？"
 
 #: Wammu/Main.py:1801
 #, fuzzy, python-format
-#| msgid "Are you sure you want to delete %s?"
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
 msgstr[0] "你确认要删除%s？"
@@ -1807,13 +1784,11 @@ msgstr "请稍等，正在连接手机..."
 
 #: Wammu/Main.py:2080
 #, fuzzy
-#| msgid "Phone connection test is still active, you can not continue."
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr "手机连接测试仍在进行中，请等待。"
 
 #: Wammu/Main.py:2081
 #, fuzzy
-#| msgid "No phone found!"
 msgid "Connection not configured!"
 msgstr "没有找到手机！"
 
@@ -1865,7 +1840,6 @@ msgstr ""
 
 #: Wammu/PhoneSearch.py:96
 #, fuzzy
-#| msgid "Could not read saved entry!"
 msgid "Could not guess vendor"
 msgstr "不能读取已保存的记录！"
 
@@ -1912,7 +1886,6 @@ msgstr ""
 
 #: Wammu/PhoneSearch.py:327
 #, fuzzy
-#| msgid "Failed to set exception handler."
 msgid "Failed to connect to phone"
 msgstr "建立异常处理例程失败."
 
@@ -2059,13 +2032,11 @@ msgstr "没有选择连接！"
 
 #: Wammu/PhoneWizard.py:316
 #, fuzzy
-#| msgid "Phone search"
 msgid "Phone Device"
 msgstr "搜索手机"
 
 #: Wammu/PhoneWizard.py:317
 #, fuzzy
-#| msgid "Please enter port where phone is connected"
 msgid "Please enter device where phone is accessible"
 msgstr "请输入手机连接到的端口"
 
@@ -2155,7 +2126,6 @@ msgstr "你的手机如何连接到电脑的？"
 
 #: Wammu/PhoneWizard.py:460 Wammu/PhoneWizard.py:461
 #, fuzzy
-#| msgid "Configuration type"
 msgid "Configuration style"
 msgstr "配置方式"
 
@@ -2404,7 +2374,6 @@ msgstr ""
 
 #: Wammu/Settings.py:292
 #, fuzzy
-#| msgid "Automatically search for a phone"
 msgid "Automatic starting with first name"
 msgstr "自动搜索手机"
 
@@ -2523,15 +2492,11 @@ msgstr "其他"
 
 #: Wammu/Settings.py:442
 #, fuzzy
-#| msgid "&Backups"
 msgid "Hacks"
 msgstr "备份(&B)"
 
 #: Wammu/Settings.py:525
 #, fuzzy
-#| msgid ""
-#| "You changed parameters affecting phone connection, they will be used next "
-#| "time you connect to phone."
 msgid ""
 "You don't have any phone connection configured. Wammu will not be able to "
 "conect to your phone!"
@@ -2539,7 +2504,6 @@ msgstr "你已改变了影响手机连接的参数，这些参数将在下次连
 
 #: Wammu/Settings.py:526
 #, fuzzy
-#| msgid "No phone found!"
 msgid "No phone configured!"
 msgstr "没有找到手机！"
 
@@ -2563,7 +2527,6 @@ msgstr "如果你的手机使用Symbian操作系统，那就不必考虑生产�
 
 #: Wammu/SettingsStorage.py:105
 #, fuzzy
-#| msgid "Select phone"
 msgid "Alcatel phone"
 msgstr "选择手机"
 
@@ -2573,7 +2536,6 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:109
 #, fuzzy
-#| msgid "Select phone"
 msgid "BenQ/Siemens phone"
 msgstr "选择手机"
 
@@ -2583,7 +2545,6 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:113
 #, fuzzy
-#| msgid "Nokia phone"
 msgid "Motorola phone"
 msgstr "诺基亚Nokia手机"
 
@@ -2601,7 +2562,6 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:121
 #, fuzzy
-#| msgid "&Search phone"
 msgid "Samsung phone"
 msgstr "(&S)搜索手机"
 
@@ -2611,7 +2571,6 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:125
 #, fuzzy
-#| msgid "&Search phone"
 msgid "Sharp phone"
 msgstr "(&S)搜索手机"
 
@@ -2641,9 +2600,6 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:142
 #, fuzzy
-#| msgid ""
-#| "Standard access to filesystem and sometimes also to phone data. Good "
-#| "choice for recent phones."
 msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
@@ -2671,25 +2627,21 @@ msgstr "使用这种连接前必须安装Gnapplet。你可以在Gammu源里找�
 
 #: Wammu/SettingsStorage.py:153
 #, fuzzy
-#| msgid "Nokia proprietary protocol."
 msgid "Nokia proprietary protocol"
 msgstr "Nokia专有协议"
 
 #: Wammu/SettingsStorage.py:154
 #, fuzzy
-#| msgid "Nokia proprietary protocol."
 msgid "Nokia proprietary protocol FBUS."
 msgstr "Nokia专有协议"
 
 #: Wammu/SettingsStorage.py:157
 #, fuzzy
-#| msgid "Nokia proprietary protocol."
 msgid "Nokia proprietary service protocol"
 msgstr "Nokia专有协议"
 
 #: Wammu/SettingsStorage.py:158
 #, fuzzy
-#| msgid "Nokia proprietary protocol. Older version, use FBUS if possible."
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
 msgstr "老版本的Nokia专有协议，尽可能使用FBUS"
 
@@ -2954,7 +2906,6 @@ msgstr ""
 
 #: Wammu/SMSExport.py:38
 #, fuzzy
-#| msgid "Mailbox file"
 msgid "Mailboxes"
 msgstr "Mailbox文件"
 
@@ -3178,13 +3129,11 @@ msgstr ""
 
 #: Wammu/SMSXML.py:85
 #, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select XML file..."
 msgstr "选择mailbox文件..."
 
 #: Wammu/SMSXML.py:98
 #, fuzzy
-#| msgid "Saving messages to IMAP"
 msgid "Saving messages to XML"
 msgstr "正在保存消息到IMAP"
 
@@ -3260,7 +3209,6 @@ msgstr "不显示email地址"
 
 #: Wammu/TalkbackDialog.py:77
 #, fuzzy
-#| msgid "Not supported id: %s"
 msgid "Not supported"
 msgstr "不被支持 id:%s"
 
@@ -3621,7 +3569,6 @@ msgstr "Wammu-窗口化的Gammu 版本号%s"
 
 #: wammu.py:72
 #, fuzzy
-#| msgid "Phone connection test is still active, you can not continue."
 msgid "prints connection settings and tries to connect the phone"
 msgstr "手机连接测试仍在进行中，请等待。"
 
@@ -3631,31 +3578,26 @@ msgstr ""
 
 #: wammu.py:89
 #, fuzzy
-#| msgid "No phone found!"
 msgid "Wammu is not configured!"
 msgstr "没有找到手机！"
 
 #: wammu.py:104
 #, fuzzy
-#| msgid "Manual configuration"
 msgid "Wammu configuration:"
 msgstr "手动配置"
 
 #: wammu.py:108
 #, fuzzy
-#| msgid "Connection"
 msgid "Connecting..."
 msgstr "连接"
 
 #: wammu.py:115
 #, fuzzy
-#| msgid "Reading phone information"
 msgid "Getting phone information..."
 msgstr "正在读取手机信息"
 
 #: wammu.py:120
 #, fuzzy
-#| msgid "Phone information"
 msgid "Phone infomation:"
 msgstr "手机信息"
 
@@ -3666,7 +3608,6 @@ msgstr ""
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
 #, fuzzy
-#| msgid "&Wammu"
 msgid "Wammu"
 msgstr "(&W)ammu"
 
