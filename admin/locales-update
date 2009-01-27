@@ -26,5 +26,9 @@ for loc in $LOCS ; do
         s/VERSION/'$ver'/;
         s/Project-Id-Version: Wammu [0-9.]*/Project-Id-Version: Wammu '$ver'/;
         ' locale/$loc/wammu.po
-    msgmerge -U locale/$loc/wammu.po locale/wammu.pot
+    msgmerge \
+        -C ../gammu/locale/$loc/gammu.po \
+        -C ../gammu/locale/$loc/libgammu.po \
+        -C ../gammu/locale/$loc/docs.po \
+        -U locale/$loc/wammu.po locale/wammu.pot
 done
