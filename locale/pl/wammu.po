@@ -15,6 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -1712,7 +1714,7 @@ msgstr[1] "Czy na pewno usunąć %d rozmowy?"
 msgstr[2] "Czy na pewno usunąć %d rozmów?"
 
 #: Wammu/Main.py:1791
-#, python-format
+#, python-format, fuzzy
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
 msgstr[0] "Czy na pewno usunąć %d wiadomość?"
