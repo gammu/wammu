@@ -1,0 +1,23 @@
+#!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
+
+set -e
+
+if [ -z "$1" ] ; then
+    echo "Usage: ./admin/new-lang ll"
+    exit 1
+fi
+
+mkdir locale/$1
+
+for loc in wammu ; do
+    msginit -i locale/$loc.pot -o locale/$1/$loc.po -l $1 --no-translator
+done
+
+svn add locale/$1
+
+tmp=`mktemp`
+svn propget svn:ignore locale/cs/ > $tmp
+svn propset svn:ignore -F $tmp locale/$1
+rm -f $tmp
+
