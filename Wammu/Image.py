@@ -25,6 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 import wx.lib.throbber
+import base64
 
 defaultbmp = [
     '20 20 2 1',
@@ -51,6 +52,21 @@ defaultbmp = [
     ' ..              .. ',
     '                    ']
 
+class MemoryInputStream(wx.InputStream):
+    def __init__(self, data):
+        import cStringIO
+        wx.InputStream.__init__(self,cStringIO.StringIO(data))
+
+class EncodedBitmap(wx.StaticBitmap):
+    def __init__(self, parent, tooltip = 'Image', image = defaultbmp, size = None, scale = 1):
+        image = wx.ImageFromStream(MemoryInputStream(base64.b64decode(image)))
+        if scale > 1:
+            bitmap = wx.BitmapFromImage(image.Scale(bitmap.GetWidth() * scale, bitmap.GetHeight() * scale))
+        else:
+            bitmap = wx.BitmapFromImage(image)
+        wx.StaticBitmap.__init__(self, parent, -1, bitmap, (0,0))
+        self.SetToolTipString(tooltip)
+
 class Bitmap(wx.StaticBitmap):
     def __init__(self, parent, tooltip = 'Image', image = defaultbmp, size = None, scale = 1):
         bitmap = wx.BitmapFromXPMData(image)
@@ -71,3 +87,4 @@ class Throbber(wx.lib.throbber.Throbber):
             bitmaps.append(bitmap)
         wx.lib.throbber.Throbber.__init__(self, parent, -1, bitmaps, frameDelay = delay)
         self.SetToolTipString(tooltip)
+

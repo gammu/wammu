@@ -30,6 +30,7 @@ import re
 import wx
 import string
 import os
+import base64
 try:
     import grp
     HAVE_GRP = True
@@ -62,6 +63,8 @@ def GetItemType(txt):
         return 'category'
     elif txt == 'PictureID' or txt == 'RingtoneID' or txt == 'RingtoneFileSystemID':
         return 'id'
+    elif txt == 'Photo':
+        return 'photo'
     else:
         return 'number'
 
@@ -191,6 +194,12 @@ def GetTypeString(type, value, values, linkphone = True):
         if v[-1] == 'L':
             v = v[:-1]
         return v
+    elif t == 'photo':
+        return '<wxp module="Wammu.Image" class="EncodedBitmap">' + \
+                    '<param name="image" value="' + \
+                    base64.b64encode(value) + \
+                    '">' + \
+                    '</wxp>'
     else:
         return StrConv(value)
 
