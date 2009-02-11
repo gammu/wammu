@@ -1446,7 +1446,7 @@ class WammuFrame(wx.Frame):
 
         self.ActivateView('contact', '  ')
 
-        self.SetStatusText(_('Data has been read from file "%s"') % filename)
+        self.SetStatusText(_('Data has been read from file "%s"') % StrConv(filename))
 
     def ReadSMSData(self, evt):
         (filename, backup) = self.ReadBackup('message', True)
@@ -1462,7 +1462,7 @@ class WammuFrame(wx.Frame):
 
         self.ActivateView('message', '  ')
 
-        self.SetStatusText(_('Data has been read from file "%s"') % filename)
+        self.SetStatusText(_('Data has been read from file "%s"') % StrConv(filename))
 
     def ImportSMS(self, evt):
         (filename, backup) = self.ReadBackup('message')
@@ -1476,7 +1476,7 @@ class WammuFrame(wx.Frame):
 
         if len(values) == 0:
             wx.MessageDialog(self,
-                _('No importable data were found in file "%s"') % filename,
+                _('No importable data were found in file "%s"') % strconv(filename),
                 _('No data to import'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
             return
@@ -1520,7 +1520,7 @@ class WammuFrame(wx.Frame):
             wx.Yield()
 
             wx.MessageDialog(self,
-                _('Backup has been imported from file "%s"') % filename,
+                _('Backup has been imported from file "%s"') % StrConv(filename),
                 _('Backup imported'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
@@ -1528,7 +1528,7 @@ class WammuFrame(wx.Frame):
             self.ShowError(val[0])
 
             wx.MessageDialog(self,
-                _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % filename,
+                _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % StrConv(filename),
                 _('Backup import failed'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
@@ -1553,7 +1553,7 @@ class WammuFrame(wx.Frame):
 
         if len(values) == 0:
             wx.MessageDialog(self,
-                _('No importable data were found in file "%s"') % filename,
+                _('No importable data were found in file "%s"') % StrConv(filename),
                 _('No data to import'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
             return
@@ -1629,7 +1629,7 @@ class WammuFrame(wx.Frame):
             wx.Yield()
 
             wx.MessageDialog(self,
-                _('Backup has been imported from file "%s"') % filename,
+                _('Backup has been imported from file "%s"') % StrConv(filename),
                 _('Backup imported'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
@@ -1637,7 +1637,7 @@ class WammuFrame(wx.Frame):
             self.ShowError(val[0])
 
             wx.MessageDialog(self,
-                _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % filename,
+                _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % StrConv(filename),
                 _('Backup import failed'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
@@ -1672,9 +1672,9 @@ class WammuFrame(wx.Frame):
             else:
                 gammu.SaveBackup(filename, backup)
             if data:
-                self.SetStatusText(_('Backup has been saved to file "%s"') % filename)
+                self.SetStatusText(_('Backup has been saved to file "%s"') % StrConv(filename))
             else:
-                self.SetStatusText(_('Data has been saved to file "%s"') % filename)
+                self.SetStatusText(_('Data has been saved to file "%s"') % StrConv(filename))
         except gammu.GSMError, val:
             info = val[0]
             evt = Wammu.Events.ShowMessageEvent(
