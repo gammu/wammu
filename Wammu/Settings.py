@@ -291,7 +291,7 @@ class Settings(wx.Dialog):
             _('Automatic'),
             _('Automatic starting with first name'),
             _('Automatic starting with last name'),
-            _('Custom, use format string bellow')
+            _('Custom, use format string below')
             ], size = (250, -1))
         if v == 'auto':
             self.editnameformat.SetSelection(0)

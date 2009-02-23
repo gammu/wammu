@@ -107,7 +107,7 @@ class TalkbackDialog(wx.Dialog):
         self.features_label.SetToolTipString(_("Select which features work correctly with your phone"))
         self.gammu_version_label.SetToolTipString(_("This information is automatically included in report."))
         self.note_text_ctrl.SetToolTipString(_("Describe some glitches of this phone or other experiences with Gammu."))
-        self.email_text_ctrl.SetToolTipString(_("Please enter valid mail here, choose display options bellow. Your email won't be given or sold to anybody."))
+        self.email_text_ctrl.SetToolTipString(_("Please enter valid mail here, choose display options below. Your email won't be given or sold to anybody."))
         self.mangle_choice.SetToolTipString(_("If you don't want to display email clear text, please select one mangling option."))
         self.mangle_choice.SetSelection(0)
         # end wxGlade
