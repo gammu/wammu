@@ -90,7 +90,7 @@ class AllSearchThread(threading.Thread):
 
     def search_bt_device(self, address, name):
         '''
-        Searches single bluetooth device.
+        Searches single Bluetooth device.
         '''
         connections = Wammu.Data.Conn_Bluetooth_All
         vendorguess = _('Could not guess vendor')
@@ -159,7 +159,7 @@ class AllSearchThread(threading.Thread):
         '''
         # read devices list
         if self.msgcallback != None:
-            self.msgcallback(_('Scanning for bluetooth devices using %s') %
+            self.msgcallback(_('Scanning for Bluetooth devices using %s') %
                     'PyBluez')
 
         try:
@@ -167,7 +167,7 @@ class AllSearchThread(threading.Thread):
             discovery.find_devices()
             discovery.process_inquiry()
             if len(discovery.names_found) == 0 and self.msgcallback != None:
-                self.msgcallback(_('No bluetooth device found'))
+                self.msgcallback(_('No Bluetooth device found'))
             if self.msgcallback != None:
                 self.msgcallback(_('Bluetooth device scan completed'))
         except bluetooth.BluetoothError, txt:
@@ -186,11 +186,11 @@ class AllSearchThread(threading.Thread):
             self.bluetooth_device_search_bluez()
         else:
             if self.msgcallback != None:
-                self.msgcallback(_('PyBluez not found, it is not possible to scan for bluetooth devices.'))
+                self.msgcallback(_('PyBluez not found, it is not possible to scan for Bluetooth devices.'))
             if self.noticecallback != None:
                 self.noticecallback(
-                        _('No bluetooth searching'),
-                        _('PyBluez not found, it is not possible to scan for bluetooth devices.'))
+                        _('No Bluetooth searching'),
+                        _('PyBluez not found, it is not possible to scan for Bluetooth devices.'))
 
     def run(self):
         try:

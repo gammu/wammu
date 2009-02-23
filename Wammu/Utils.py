@@ -455,7 +455,7 @@ def FormatError(txt, info):
     elif info['Code'] == gammu.Errors['ERR_INSIDEPHONEMENU']:
         message = _('Please close opened menu in phone and retry, data can not be accessed while you have opened them.')
     elif info['Code'] == gammu.Errors['ERR_TIMEOUT']:
-        message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for bluetooth or IrDA).')
+        message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for Bluetooth or IrDA).')
     elif info['Code'] == gammu.Errors['ERR_DEVICENOTEXIST']:
         message = _('Device for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.')
     elif info['Code'] == gammu.Errors['ERR_DEVICENOPERMISSION']:
