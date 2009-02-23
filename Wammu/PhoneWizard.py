@@ -240,7 +240,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
                         'port': phone[0],
                         'connection': phone[1]
                     })
-            dlg = wx.SingleChoiceDialog(self, _('Select phone to use from bellow list'), _('Select phone'),
+            dlg = wx.SingleChoiceDialog(self, _('Select phone to use from below list'), _('Select phone'),
                                         choices)
             if dlg.ShowModal() == wx.ID_OK:
                 idx = dlg.GetSelection()
@@ -348,7 +348,7 @@ class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
                     _('Driver to use'),
                     _('Driver to use'),
                     connections, helps,
-                    extratext = _('Please select which driver you want to use. Follow the help text shown bellow to select the best one.')
+                    extratext = _('Please select which driver you want to use. Follow the help text shown below to select the best one.')
                     )
 
     def GetNext(self):

@@ -47,7 +47,7 @@ def SelectContact(parent, contactlist, index = False):
 
     dlg = wx.SingleChoiceDialog(
             parent,
-            _('Select contact from bellow list'),
+            _('Select contact from below list'),
             _('Select contact'),
             choices,
             wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
