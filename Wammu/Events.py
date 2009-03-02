@@ -23,11 +23,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 '''
 
-try:
-    from wx.lib.newevent import NewEvent
-except:
-    print 'Please consider updating to newer wxPython, using local copy of newevent'
-    from Wammu.wxcomp.newevent import NewEvent
+from wx.lib.newevent import NewEvent
 
 # create some events:
 ShowMessageEvent, EVT_SHOW_MESSAGE = NewEvent()
