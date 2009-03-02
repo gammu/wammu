@@ -45,9 +45,6 @@ try:
 except:
     HAVE_PY2EXE = False
 
-# used for passing state for skiping dependency check
-skip_dependencies = False
-
 # some defines
 PYTHONGAMMU_REQUIRED = (0, 24)
 WXPYTHON_REQUIRED = (2, 6, 2, 0)
@@ -154,19 +151,6 @@ class build_wammu(distutils.command.build.build, object):
     """
     Custom build command with locales support.
     """
-    user_options = distutils.command.build.build.user_options + [('skip-deps', 's', 'skip checking for dependencies')]
-    boolean_options = distutils.command.build.build.boolean_options + ['skip-deps']
-
-    def initialize_options(self):
-        global skip_dependencies
-        super(build_wammu, self).initialize_options()
-        self.skip_deps = skip_dependencies
-
-    def finalize_options(self):
-        global skip_dependencies
-        super(build_wammu, self).finalize_options()
-        if self.skip_deps:
-            skip_dependencies = self.skip_deps
 
     def build_message_files (self):
         """
@@ -209,63 +193,60 @@ class build_wammu(distutils.command.build.build, object):
 
 
     def check_requirements(self):
-        if os.getenv('SKIPGAMMUCHECK') == 'yes':
-            print 'Skipping Gammu check, expecting you know what you are doing!'
-        else:
-            print 'Checking for python-gammu ...',
-            try:
-                import gammu
-                version = gammu.Version()
-                print 'found version %s using Gammu %s ...' % (version[1], version[0]),
+        print 'Checking for python-gammu ...',
+        try:
+            import gammu
+            version = gammu.Version()
+            print 'found version %s using Gammu %s ...' % (version[1], version[0]),
 
-                pygver = tuple(map(int, version[1].split('.')))
-                if  pygver < PYTHONGAMMU_REQUIRED:
-                    print 'too old!'
-                    print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
-                    print 'You can get it from <http://cihar.com/gammu/python/>'
-                    sys.exit(1)
-                print 'OK'
-            except ImportError, message:
-                print 'Could not import python-gammu!'
+            pygver = tuple(map(int, version[1].split('.')))
+            if pygver < PYTHONGAMMU_REQUIRED:
+                print 'too old!'
+                print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
                 print 'You can get it from <http://cihar.com/gammu/python/>'
-                print 'Import failed with following error: %s' % message
-                sys.exit(1)
-
-        if os.getenv('SKIPWXCHECK') == 'yes':
-            print 'Skipping wxPython check, expecting you know what you are doing!'
-        else:
-            print 'Checking for wxPython ...',
-            try:
-                import wx
-                print 'found version %s ...' % wx.VERSION_STRING,
-                if wx.VERSION < WXPYTHON_REQUIRED:
-                    print 'too old!'
-                    print 'You need at least wxPython %s!' % '.'.join(map(str, WXPYTHON_REQUIRED))
-                    print 'You can get it from <http://www.wxpython.org>'
-                    sys.exit(1)
-                if not wx.USE_UNICODE:
-                    print 'not unicode!'
-                    print 'You need at least wxPython %s with unicode enabled!' % '.'.join(map(str, WXPYTHON_REQUIRED))
-                    print 'You can get it from <http://www.wxpython.org>'
-                    sys.exit(1)
+            else:
                 print 'OK'
-            except ImportError:
-                print 'You need wxPython!'
+        except ImportError, message:
+            print
+            print 'Could not import python-gammu!'
+            print 'You can get it from <http://cihar.com/gammu/python/>'
+            print 'Import failed with following error: %s' % message
+
+        print 'Checking for wxPython ...',
+        try:
+            import wx
+            print 'found version %s ...' % wx.VERSION_STRING,
+            if wx.VERSION < WXPYTHON_REQUIRED:
+                print 'too old!'
+                print 'You need at least wxPython %s!' % '.'.join(map(str, WXPYTHON_REQUIRED))
                 print 'You can get it from <http://www.wxpython.org>'
-                sys.exit(1)
+            elif not wx.USE_UNICODE:
+                print 'not unicode!'
+                print 'You need at least wxPython %s with unicode enabled!' % '.'.join(map(str, WXPYTHON_REQUIRED))
+                print 'You can get it from <http://www.wxpython.org>'
+            else:
+                print 'OK'
+        except ImportError:
+            print
+            print 'You need wxPython!'
+            print 'You can get it from <http://www.wxpython.org>'
 
         print 'Checking for Bluetooth stack ...',
         try:
             import bluetooth
-            print 'PyBluez found'
+            print 'OK'
         except ImportError:
-            try:
-                import gnomebt.controller
-                print 'GNOME Bluetooth found'
-                print 'WARNING: GNOME Bluetooth support is limited, consider installing PyBluez'
-            except ImportError:
-                print 'WARNING: neither GNOME Bluetooth nor PyBluez found, without those you can not search for bluetooth devices'
+            print
+            print 'WARNING: PyBluez not found, without it you can not search for bluetooth devices'
             print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
+
+        print 'Checking for xml stack ...',
+        try:
+            import xml
+            print 'OK'
+        except ImportError:
+            print
+            print 'python-xml not found!'
 
         if sys.platform == 'win32':
             print 'Checking for PyWin32 ...',
@@ -279,10 +260,8 @@ class build_wammu(distutils.command.build.build, object):
                 sys.exit(1)
 
     def run (self):
-        global skip_dependencies
         self.build_message_files()
-        if not skip_dependencies:
-            self.check_requirements()
+        self.check_requirements()
         super(build_wammu, self).run()
 
 class clean_wammu(distutils.command.clean.clean, object):
@@ -300,25 +279,6 @@ class clean_wammu(distutils.command.clean.clean, object):
                 distutils.log.warn('\'%s\' does not exist -- can\'t clean it',
                                    directory)
         super(clean_wammu, self).run()
-
-class install_wammu(distutils.command.install.install, object):
-    """
-    Install wrapper to support option for skipping deps
-    """
-
-    user_options = distutils.command.install.install.user_options + [('skip-deps', 's', 'skip checking for dependencies')]
-    boolean_options = distutils.command.install.install.boolean_options + ['skip-deps']
-
-    def initialize_options(self):
-        global skip_dependencies
-        super(install_wammu, self).initialize_options()
-        self.skip_deps = skip_dependencies
-
-    def finalize_options(self):
-        global skip_dependencies
-        super(install_wammu, self).finalize_options()
-        if self.skip_deps:
-            skip_dependencies = self.skip_deps
 
 class install_data_wammu(distutils.command.install_data.install_data, object):
     """
@@ -446,7 +406,6 @@ distutils.core.setup(name="wammu",
         'build': build_wammu,
         'build_scripts': build_scripts_wammu,
         'clean': clean_wammu,
-        'install': install_wammu,
         'install_data': install_data_wammu,
         },
     # py2exe options
