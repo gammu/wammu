@@ -398,7 +398,7 @@ distutils.core.setup(name="wammu",
         'Natural Language :: Chinese (Simplified)',
         'Natural Language :: Chinese (Traditional)',
     ],
-    packages = ['Wammu', 'Wammu.wxcomp'],
+    packages = ['Wammu'],
     scripts = ['wammu.py', 'wammu-configure.py'],
     data_files = data_files,
     # Override certain command classes with our own ones
