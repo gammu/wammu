@@ -55,14 +55,14 @@ instead.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build --skip-deps
+CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
 
 %install
 rm -rf %buildroot
 mkdir %buildroot
-%{__python} setup.py install --skip-build --root=%buildroot --prefix=%{_prefix}
+%{__python} setup.py install --root=%buildroot --prefix=%{_prefix}
 %if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
-%{__python} setup.py install -O1 --skip-build --root=%buildroot --prefix=%{_prefix}
+%{__python} setup.py install -O1 --root=%buildroot --prefix=%{_prefix}
 %endif
 %find_lang %{name}
 %if 0%{?suse_version}
