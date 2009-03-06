@@ -1,5 +1,5 @@
 %define name wammu
-%define ver 0.30
+%define ver 0.31
 %define rel 1
 %define extension   bz2
 
