@@ -338,13 +338,14 @@ data_files = [
 
 if sys.platform != 'win32':
     data_files.append((os.path.join('share','applications'), ['build/wammu.desktop']))
-    data_files.append((os.path.join('share','pixmaps'), [
-        'icon/wammu.png',
-        'icon/wammu.xpm',
-        'icon/wammu.ico',
-        'icon/wammu.svg',
-        ]))
-    data_files.append((os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1']))
+
+data_files.append((os.path.join('share','pixmaps'), [
+    'icon/wammu.png',
+    'icon/wammu.xpm',
+    'icon/wammu.ico',
+    'icon/wammu.svg',
+    ]))
+data_files.append((os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1']))
 
 distutils.core.setup(name="wammu",
     version = Wammu.__version__,
