@@ -161,7 +161,7 @@ class build_wammu(distutils.command.build.build, object):
         """
         desktop_translations = {}
         for (_locale, _src, _dst) in list_message_files():
-            _build_dst = os.path.join('build', _dst)
+            _build_dst = os.path.join(self.build_base, _dst)
             destdir = os.path.dirname(_build_dst)
             if not os.path.exists(destdir):
                 self.mkpath(destdir)
@@ -169,7 +169,7 @@ class build_wammu(distutils.command.build.build, object):
             msgfmt.make(_src, _build_dst)
             desktop_translations[_locale] = msgfmt.DESKTOP_TRANSLATIONS
 
-        desktop = os.path.join('build', 'wammu.desktop')
+        desktop = os.path.join(self.build_base, 'wammu.desktop')
         in_desktop = file('wammu.desktop.in', 'r')
         out_desktop = file(desktop, 'w')
         for line in in_desktop:
@@ -272,7 +272,7 @@ class clean_wammu(distutils.command.clean.clean, object):
     def run (self):
         if self.all:
             # remove share directory
-            directory = os.path.join('build', 'share')
+            directory = os.path.join(self.build_base, 'share')
             if os.path.exists(directory):
                 distutils.dir_util.remove_tree(directory, dry_run=self.dry_run)
             else:
@@ -291,9 +291,13 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         """
         # add .mo files to data files
         for (_locale, _src, _dst) in list_message_files():
-            _build_dst = os.path.join('build', _dst)
+            _build_dst = os.path.join(self.build_base, _dst)
             item = [os.path.dirname(_dst), [_build_dst]]
             self.data_files.append(item)
+
+        # desktop file
+        if sys.platform != 'win32':
+            self.data_files.append((os.path.join('share','applications'), [os.path.join(self.build_base, 'wammu.desktop')]))
 
         # install data files
         super(install_data_wammu, self).run()
@@ -335,9 +339,6 @@ data_files = [
     (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
     (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
     ]
-
-if sys.platform != 'win32':
-    data_files.append((os.path.join('share','applications'), ['build/wammu.desktop']))
 
 data_files.append((os.path.join('share','pixmaps'), [
     'icon/wammu.png',
