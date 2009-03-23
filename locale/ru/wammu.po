@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-02-23 14:45+0100\n"
-"PO-Revision-Date: 2008-11-11 00:54+0100\n"
-"Last-Translator: Ivan Potapov <elsewhere@yandex.ru>\n"
+"PO-Revision-Date: 2009-03-16 21:15+0200\n"
+"Last-Translator: Арсений Агеев <Vertong@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -453,7 +454,7 @@ msgstr ""
 
 #: Wammu/Data.py:546
 msgid "Alignment"
-msgstr ""
+msgstr "Выравнивание"
 
 #: Wammu/Data.py:546 Wammu/Editor.py:211 Wammu/Editor.py:419
 #, fuzzy
@@ -462,19 +463,19 @@ msgstr "Готово\n"
 
 #: Wammu/Data.py:547
 msgid "Left"
-msgstr ""
+msgstr "По левому краю"
 
 #: Wammu/Data.py:548
 msgid "Right"
-msgstr ""
+msgstr "По правому краю"
 
 #: Wammu/Data.py:549
 msgid "Center"
-msgstr ""
+msgstr "По центру"
 
 #: Wammu/Data.py:551
 msgid "Text Size"
-msgstr ""
+msgstr "Размер текста"
 
 #: Wammu/Data.py:551
 msgid "Normal"
@@ -482,27 +483,27 @@ msgstr "Обычный"
 
 #: Wammu/Data.py:552
 msgid "Large"
-msgstr ""
+msgstr "Крупный"
 
 #: Wammu/Data.py:553
 msgid "Small"
-msgstr ""
+msgstr "Мелкий"
 
 #: Wammu/Data.py:555
 msgid "Bold"
-msgstr ""
+msgstr "Жирный"
 
 #: Wammu/Data.py:556
 msgid "Italic"
-msgstr ""
+msgstr "Курсив"
 
 #: Wammu/Data.py:557
 msgid "Underlined"
-msgstr ""
+msgstr "Подчёркнутый"
 
 #: Wammu/Data.py:558
 msgid "Strikethrough"
-msgstr ""
+msgstr "Зачёркнутый"
 
 #: Wammu/EditContactList.py:43
 msgid "Available contacts:"
@@ -514,12 +515,12 @@ msgstr ""
 
 #: Wammu/EditContactList.py:91
 msgid "Contact list"
-msgstr ""
+msgstr "Список контактов"
 
 #: Wammu/EditContactList.py:92 Wammu/Main.py:1388 Wammu/Main.py:2027
 #: Wammu/SMSExport.py:38 Wammu/SMSXML.py:82
 msgid "All files"
-msgstr ""
+msgstr "Все файлы"
 
 #: Wammu/EditContactList.py:95
 #, fuzzy
@@ -528,7 +529,7 @@ msgstr "%d Записи в календаре"
 
 #: Wammu/EditContactList.py:148 Wammu/EditContactList.py:163
 msgid "Load contacts from file"
-msgstr ""
+msgstr "Загрузить контакты из файла"
 
 #: Wammu/EditContactList.py:158
 #, python-format
@@ -537,7 +538,7 @@ msgstr ""
 
 #: Wammu/EditContactList.py:159
 msgid "File can not be created!"
-msgstr ""
+msgstr "Файл не может быть создан!"
 
 #: Wammu/EditContactList.py:176 Wammu/Main.py:2064
 #, python-format
@@ -546,7 +547,7 @@ msgstr ""
 
 #: Wammu/EditContactList.py:177 Wammu/Main.py:2065
 msgid "File not found!"
-msgstr ""
+msgstr "Файл не найден!"
 
 #: Wammu/Editor.py:215 Wammu/Editor.py:423 Wammu/Main.py:646 Wammu/Main.py:662
 #: Wammu/Main.py:668
@@ -570,7 +571,7 @@ msgstr ""
 
 #: Wammu/Editor.py:282
 msgid "Add one more field."
-msgstr ""
+msgstr "Добавить ещё одно поле."
 
 #: Wammu/Editor.py:495
 msgid "contact"
@@ -578,15 +579,15 @@ msgstr ""
 
 #: Wammu/Editor.py:495 Wammu/Main.py:975
 msgid "Memory type"
-msgstr ""
+msgstr "Тип памяти"
 
 #: Wammu/Editor.py:503
 msgid "calendar event"
-msgstr ""
+msgstr "календарное событие"
 
 #: Wammu/Editor.py:503
 msgid "Event type"
-msgstr ""
+msgstr "Тип события"
 
 #: Wammu/Editor.py:511
 msgid "todo item"
@@ -609,7 +610,7 @@ msgstr ""
 
 #: Wammu/ErrorMessage.py:80
 msgid "Report bug"
-msgstr ""
+msgstr "Сообщить о неполадке"
 
 #: Wammu/ErrorMessage.py:96 Wammu/Main.py:2237
 msgid "Save debug log as..."
@@ -668,7 +669,7 @@ msgstr ""
 
 #: Wammu/GammuSettings.py:142
 msgid "Create new configuration"
-msgstr ""
+msgstr "Создать новую конфигурацию"
 
 #. l10n: %(name)s is name of current configuration or 'Create new
 #. configuration', %(position) d is position of this config in .gammurc
@@ -778,45 +779,44 @@ msgid "python-gammu version"
 msgstr ""
 
 #: Wammu/Main.py:119
-#, fuzzy
 msgid "Calls"
-msgstr "Позвонить\n"
+msgstr "Вызовы\n"
 
 #: Wammu/Main.py:119
 msgid "All Calls"
-msgstr ""
+msgstr "Все Вызовы"
 
 #: Wammu/Main.py:120
 msgid "Received"
-msgstr ""
+msgstr "Принятые"
 
 #: Wammu/Main.py:120
 msgid "Received Calls"
-msgstr ""
+msgstr "Принятые Вызовы"
 
 #: Wammu/Main.py:121
 msgid "Missed"
-msgstr ""
+msgstr "Пропущенные"
 
 #: Wammu/Main.py:121
 msgid "Missed Calls"
-msgstr ""
+msgstr "Пропущенные Вызовы"
 
 #: Wammu/Main.py:122
 msgid "Outgoing"
-msgstr ""
+msgstr "Исходящие"
 
 #: Wammu/Main.py:122
 msgid "Outgoing Calls"
-msgstr ""
+msgstr "Исходящие Вызовы"
 
 #: Wammu/Main.py:125
 msgid "Contacts"
-msgstr ""
+msgstr "Контакты"
 
 #: Wammu/Main.py:125
 msgid "All Contacts"
-msgstr ""
+msgstr "Все Контакты"
 
 #: Wammu/Main.py:126
 msgid "SIM"
@@ -824,47 +824,47 @@ msgstr "SIM"
 
 #: Wammu/Main.py:126
 msgid "SIM Contacts"
-msgstr ""
+msgstr "Контакты SIM"
 
 #: Wammu/Main.py:127
 msgid "Phone Contacts"
-msgstr ""
+msgstr "Контакты в памяти телефона"
 
 #: Wammu/Main.py:130 Wammu/Settings.py:439
 msgid "Messages"
-msgstr ""
+msgstr "Сообщения"
 
 #: Wammu/Main.py:130
 msgid "All Messages"
-msgstr ""
+msgstr "Все Сообщения"
 
 #: Wammu/Main.py:131
 msgid "Read"
-msgstr "Прочитано"
+msgstr "Прочитанные"
 
 #: Wammu/Main.py:131
 msgid "Read Messages"
-msgstr ""
+msgstr "Прочитанные Сообщения"
 
 #: Wammu/Main.py:132
 msgid "Unread"
-msgstr ""
+msgstr "Непрочитанные"
 
 #: Wammu/Main.py:132
 msgid "Unread Messages"
-msgstr ""
+msgstr "Непрочитанные Сообщения"
 
 #: Wammu/Main.py:133
 msgid "Sent Messages"
-msgstr ""
+msgstr "Отправленные Сообщения"
 
 #: Wammu/Main.py:134
 msgid "Unsent"
-msgstr ""
+msgstr "Неотправленные"
 
 #: Wammu/Main.py:134
 msgid "Unsent Messages"
-msgstr ""
+msgstr "Неотправленные Сообшения"
 
 #: Wammu/Main.py:137 Wammu/TalkbackFeaturesDialog.py:45
 msgid "Todos"
@@ -972,39 +972,39 @@ msgstr ""
 
 #: Wammu/Main.py:295
 msgid "&Connect"
-msgstr ""
+msgstr "Присоединить"
 
 #: Wammu/Main.py:295
 msgid "Connect the device."
-msgstr ""
+msgstr "Присоединить устройство."
 
 #: Wammu/Main.py:296
 msgid "&Disconnect"
-msgstr ""
+msgstr "Разъединить"
 
 #: Wammu/Main.py:296
 msgid "Disconnect the device."
-msgstr ""
+msgstr "Разъединить устройство."
 
 #: Wammu/Main.py:298
 msgid "&Synchronise time"
-msgstr ""
+msgstr "Синхронизировать время"
 
 #: Wammu/Main.py:298
 msgid "Synchronise time in mobile with PC."
-msgstr ""
+msgstr "Синхронизировать время в телефоне с ПК."
 
 #: Wammu/Main.py:300
 msgid "Send &file"
-msgstr ""
+msgstr "Отправить файл"
 
 #: Wammu/Main.py:300
 msgid "Send file to phone."
-msgstr ""
+msgstr "Отправить файл на телефон."
 
 #: Wammu/Main.py:302
 msgid "&Phone"
-msgstr ""
+msgstr "Телефон"
 
 #: Wammu/Main.py:305
 msgid "&Info"
@@ -1077,19 +1077,19 @@ msgstr ""
 
 #: Wammu/Main.py:322
 msgid "&Contact"
-msgstr ""
+msgstr "Контакт"
 
 #: Wammu/Main.py:322
 msgid "Create new contact."
-msgstr ""
+msgstr "Создать новый контакт."
 
 #: Wammu/Main.py:323
 msgid "Calendar &event"
-msgstr ""
+msgstr "Календарное событие"
 
 #: Wammu/Main.py:323
 msgid "Create new calendar event."
-msgstr ""
+msgstr "Создать новое календарное событие."
 
 #: Wammu/Main.py:324
 msgid "&Todo"
@@ -1101,7 +1101,7 @@ msgstr ""
 
 #: Wammu/Main.py:325
 msgid "&Message"
-msgstr ""
+msgstr "Сообщение"
 
 #: Wammu/Main.py:325
 #, fuzzy
@@ -1110,7 +1110,7 @@ msgstr "Отправить сообщение"
 
 #: Wammu/Main.py:327
 msgid "&Create"
-msgstr ""
+msgstr "Создать"
 
 #: Wammu/Main.py:330
 msgid "&Save"
@@ -1167,35 +1167,39 @@ msgstr ""
 
 #: Wammu/Main.py:341
 msgid "&Website"
-msgstr ""
+msgstr "Веб-сайт"
 
 #: Wammu/Main.py:341
 msgid "Visit Wammu website."
-msgstr ""
+msgstr "Посетить веб-сайт Wammu."
 
 #: Wammu/Main.py:342
 msgid "&Support"
-msgstr ""
+msgstr "Поддержка"
 
 #: Wammu/Main.py:342
 msgid "Visit Wammu support website."
-msgstr ""
+msgstr "Посетить веб-сайт поддержки Wammu."
 
 #: Wammu/Main.py:343
 msgid "&Report bug"
-msgstr ""
+msgstr "Сообщить о неполадке"
 
 #: Wammu/Main.py:343
 msgid "Report bug in Wammu, please include saved debug log if possible."
 msgstr ""
+"Сообщить о неполадке в Wammu. Если возможно, приложите, пожалуйста, "
+"сохранённый журнал отладки. "
 
 #: Wammu/Main.py:344
 msgid "&Save debug log"
-msgstr ""
+msgstr "Сохранить журнал отладки"
 
 #: Wammu/Main.py:344
 msgid "Save a copy of debug log, please include this in bug report."
 msgstr ""
+"Сохранить копию журнала отладки. Пожалуйста, включите её в сообщение о "
+"неполадке."
 
 #: Wammu/Main.py:346
 msgid "&Gammu Phone Database"
@@ -1215,23 +1219,23 @@ msgstr ""
 
 #: Wammu/Main.py:349
 msgid "&Donate"
-msgstr ""
+msgstr "Поддержать проект"
 
 #: Wammu/Main.py:349
 msgid "Donate to Wammu project."
-msgstr ""
+msgstr "Поддержать проект Wammu."
 
 #: Wammu/Main.py:351
 msgid "&About"
-msgstr ""
+msgstr "О программе"
 
 #: Wammu/Main.py:351
 msgid "Information about program."
-msgstr ""
+msgstr "Информация о программе."
 
 #: Wammu/Main.py:353
 msgid "&Help"
-msgstr ""
+msgstr "Помощь"
 
 #: Wammu/Main.py:422
 #, python-format
@@ -1282,13 +1286,15 @@ msgstr ""
 
 #: Wammu/Main.py:482
 msgid "Configuration not found"
-msgstr ""
+msgstr "Конфигурация не найдена"
 
 #: Wammu/Main.py:504
 msgid ""
 "You are using Wammu for more than a month. We would like to hear from you "
 "how your phone is supported. Do you want to participate in this survey?"
 msgstr ""
+"Вы используете Wammu более месяца. Мы хотели бы услышать от вас насколько "
+"хорошо поддерживается ваш телефон. Вы хотите принять участие в опросе?"
 
 #: Wammu/Main.py:505
 msgid "Press Cancel to never show this question again."
@@ -1296,7 +1302,7 @@ msgstr ""
 
 #: Wammu/Main.py:506
 msgid "Thanks for using Wammu"
-msgstr ""
+msgstr "Спасибо за пользование Wammu"
 
 #: Wammu/Main.py:531
 msgid "Migrated from older Wammu"
@@ -1320,11 +1326,11 @@ msgstr ""
 
 #: Wammu/Main.py:617
 msgid "Minimize"
-msgstr ""
+msgstr "Свернуть"
 
 #: Wammu/Main.py:619
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: Wammu/Main.py:648
 msgid "battery"
@@ -1344,17 +1350,17 @@ msgstr ""
 
 #: Wammu/Main.py:656
 msgid "charging"
-msgstr ""
+msgstr "заряжается"
 
 #: Wammu/Main.py:658
 msgid "charged"
-msgstr ""
+msgstr "заряжена"
 
 #. l10n: Formatting of signal percentage, usually you can keep this as it is.
 #: Wammu/Main.py:671
 #, python-format
 msgid "%d %%"
-msgstr ""
+msgstr "%d %%"
 
 #: Wammu/Main.py:673
 #, python-format
@@ -1362,6 +1368,8 @@ msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
 msgstr ""
+"Бат: %(battery_percent)d %% (%(power_source)s), Сиг: %(signal_level)s, Дата: "
+"%(time)s"
 
 #: Wammu/Main.py:756
 msgid "Connected"
@@ -1563,19 +1571,18 @@ msgid ""
 msgstr ""
 
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
-#, fuzzy
 msgid "Backup import failed"
-msgstr "Создать резервную копию всех сообщений"
+msgstr ""
 
 #: Wammu/Main.py:1543
-#, fuzzy, python-format
+#, python-format
 msgid "%d phone contact entries"
-msgstr "%d Записи в календаре"
+msgstr "%d контактов в памяти телефона"
 
 #: Wammu/Main.py:1546
-#, fuzzy, python-format
+#, python-format
 msgid "%d SIM contact entries"
-msgstr "%d Записи в календаре"
+msgstr "%d контактов в памяти SIM"
 
 #: Wammu/Main.py:1549
 #, fuzzy, python-format
@@ -1585,7 +1592,7 @@ msgstr "%d Записи в календаре"
 #: Wammu/Main.py:1552
 #, python-format
 msgid "%d calendar entries"
-msgstr ""
+msgstr "%d календарных записей"
 
 #: Wammu/Main.py:1563
 #, python-format
