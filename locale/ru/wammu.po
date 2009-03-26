@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-03-24 16:16+0100\n"
-"PO-Revision-Date: 2009-03-23 20:30+0200\n"
+"PO-Revision-Date: 2009-03-25 15:47+0200\n"
 "Last-Translator: Арсений Агеев <Vertong@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.2.1\n"
@@ -506,11 +506,11 @@ msgstr "Зачёркнутый"
 
 #: Wammu/EditContactList.py:43
 msgid "Available contacts:"
-msgstr ""
+msgstr "Доступные контакты:"
 
 #: Wammu/EditContactList.py:47
 msgid "Current recipients:"
-msgstr ""
+msgstr "Текущие адресаты:"
 
 #: Wammu/EditContactList.py:91
 msgid "Contact list"
@@ -542,7 +542,7 @@ msgstr "Файл не может быть создан!"
 #: Wammu/EditContactList.py:176 Wammu/Main.py:2064
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
-msgstr ""
+msgstr "Выбранный файл \"%s\" не найден, данные не прочитаны. "
 
 #: Wammu/EditContactList.py:177 Wammu/Main.py:2065
 msgid "File not found!"
@@ -574,7 +574,7 @@ msgstr "Добавить ещё одно поле."
 
 #: Wammu/Editor.py:495
 msgid "contact"
-msgstr ""
+msgstr "контакт"
 
 #: Wammu/Editor.py:495 Wammu/Main.py:975
 msgid "Memory type"
@@ -598,6 +598,8 @@ msgid ""
 "Debug log has been automatically saved to %s, you are strongly encouraged to "
 "include it in bugreport."
 msgstr ""
+"Журнал отладки был автоматически сохранён в %s, настоятельно рекомендуем вам "
+"включить его в отчёт о неполадке."
 
 #: Wammu/ErrorMessage.py:71
 msgid "Save debug log..."
@@ -679,7 +681,7 @@ msgstr ""
 
 #: Wammu/GammuSettings.py:164
 msgid "Select which configration you want to modify."
-msgstr ""
+msgstr "Выберите конфигурацию, которую хотите изменить."
 
 #: Wammu/GammuSettings.py:165
 msgid "Select configuration section"
@@ -743,7 +745,7 @@ msgstr ""
 
 #: Wammu/Info.py:179
 msgid "Language packs in phone"
-msgstr ""
+msgstr "Языковые пакеты в телефоне"
 
 #: Wammu/Locales.py:182
 msgid "Automatically switched to local locales."
@@ -751,11 +753,13 @@ msgstr ""
 
 #: Wammu/Logger.py:130
 msgid "Wammu debug log"
-msgstr ""
+msgstr "Журнал отладки Wammu"
 
 #: Wammu/Logger.py:137
 msgid "Here will appear debug messages from Gammu...\n"
 msgstr ""
+"Здесь будут появляться отладочные сообщения от Gammu...\n"
+" "
 
 #: Wammu/Main.py:111 Wammu/Main.py:127
 msgid "Phone"
@@ -763,15 +767,15 @@ msgstr "Телефон"
 
 #: Wammu/Main.py:111
 msgid "Phone Information"
-msgstr ""
+msgstr "Информация о телефоне"
 
 #: Wammu/Main.py:112
 msgid "Wammu version"
-msgstr ""
+msgstr "Версия Wammu"
 
 #: Wammu/Main.py:115
 msgid "Gammu version"
-msgstr ""
+msgstr "Версия Gammu"
 
 #: Wammu/Main.py:116
 msgid "python-gammu version"
@@ -880,11 +884,11 @@ msgstr "Nokia: заметка в календаре"
 
 #: Wammu/Main.py:140
 msgid "All Calendar Events"
-msgstr ""
+msgstr "Все Календарные События"
 
 #: Wammu/Main.py:247
 msgid "Search: "
-msgstr ""
+msgstr "Поиск:_"
 
 #: Wammu/Main.py:249
 msgid ""
@@ -902,12 +906,12 @@ msgstr ""
 
 #: Wammu/Main.py:252
 msgid "Select search type"
-msgstr ""
+msgstr "Выбрать тип поиска"
 
 #: Wammu/Main.py:276
 #, python-format
 msgid "Welcome to Wammu %s"
-msgstr ""
+msgstr "Добро Пожаловать в Wammu %s"
 
 #: Wammu/Main.py:282
 msgid "&Write data"
@@ -955,7 +959,7 @@ msgstr ""
 
 #: Wammu/Main.py:288
 msgid "Change Wammu settings."
-msgstr ""
+msgstr "Изменить настройки Wammu."
 
 #: Wammu/Main.py:290
 msgid "E&xit"
@@ -963,7 +967,7 @@ msgstr ""
 
 #: Wammu/Main.py:290
 msgid "Terminate Wammu."
-msgstr ""
+msgstr "Завершить работу Wammu."
 
 #: Wammu/Main.py:292
 msgid "&Wammu"
@@ -1007,52 +1011,51 @@ msgstr "Телефон"
 
 #: Wammu/Main.py:305
 msgid "&Info"
-msgstr ""
+msgstr "Информация"
 
 #: Wammu/Main.py:305
 msgid "Retrieve phone information."
-msgstr ""
+msgstr "Получить информацию о телефоне."
 
 #: Wammu/Main.py:307
 msgid "Contacts (&SIM)"
-msgstr ""
+msgstr "Контакты (SIM)"
 
 #: Wammu/Main.py:307
 msgid "Retrieve contacts from SIM."
-msgstr ""
+msgstr "Получить контакты с SIM карты."
 
 #: Wammu/Main.py:308
 msgid "Contacts (&phone)"
-msgstr ""
+msgstr "Контакты (телефон)"
 
 #: Wammu/Main.py:308
 msgid "Retrieve contacts from phone memory."
-msgstr ""
+msgstr "Получить контакты из памяти телефона."
 
 #: Wammu/Main.py:309
 msgid "&Contacts (All)"
-msgstr ""
+msgstr "Контакты (Все)"
 
 #: Wammu/Main.py:309
 msgid "Retrieve contacts from phone and SIM memory."
-msgstr ""
+msgstr "Получить контакты из памяти телефона и SIM карты."
 
 #: Wammu/Main.py:311
 msgid "C&alls"
-msgstr ""
+msgstr "Вызовы"
 
 #: Wammu/Main.py:311
 msgid "Retrieve call history."
-msgstr ""
+msgstr "Получить историю вызовов."
 
 #: Wammu/Main.py:313
 msgid "&Messages"
-msgstr ""
+msgstr "Сообщения"
 
 #: Wammu/Main.py:313
-#, fuzzy
 msgid "Retrieve messages."
-msgstr "Отправить сообщение"
+msgstr "Получить сообщения."
 
 #: Wammu/Main.py:315
 msgid "&Todos"
@@ -1064,15 +1067,15 @@ msgstr ""
 
 #: Wammu/Main.py:317
 msgid "Calenda&r"
-msgstr ""
+msgstr "Календарь"
 
 #: Wammu/Main.py:317
 msgid "Retrieve calendar events."
-msgstr ""
+msgstr "Получить календарные события."
 
 #: Wammu/Main.py:319
 msgid "&Retrieve"
-msgstr ""
+msgstr "Получить"
 
 #: Wammu/Main.py:322
 msgid "&Contact"
@@ -2225,11 +2228,11 @@ msgstr ""
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
-msgstr ""
+msgstr "Невозможно найти timidity, мелодия не может быть воспроизведена"
 
 #: Wammu/Ringtone.py:49
 msgid "Timidity not found"
-msgstr ""
+msgstr "Timidity не найдено"
 
 #: Wammu/Select.py:50
 msgid "Select contact from below list"
@@ -2552,6 +2555,8 @@ msgstr "Телефон на базе Symbian"
 #: Wammu/SettingsStorage.py:102
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
 msgstr ""
+"Продолжите, если ваш телефон использует ОС Symbian (независимо от "
+"производителя)."
 
 #: Wammu/SettingsStorage.py:105
 msgid "Alcatel phone"
@@ -2771,11 +2776,11 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:384
 msgid "OBEX over IrDA"
-msgstr ""
+msgstr "OBEX через IrDA"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
-msgstr ""
+msgstr "Gnapplet через Bluetooth"
 
 #: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
@@ -2787,7 +2792,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
-msgstr ""
+msgstr "Протокол использовался в старых телефонах Nokia."
 
 #: Wammu/SettingsStorage.py:407
 msgid "FBUS proprietary protocol"
@@ -3528,11 +3533,15 @@ msgstr ""
 "Возможно, Вам нужно быть членом определённой группы, чтобы иметь доступ к "
 "устройству."
 
+# Смысл передан, но язык не очень литературный. Надо как-то облагородить.
 #: Wammu/Utils.py:466
+#, fuzzy
 msgid ""
 "Can not access SIM card. Please check whether it is properly inserted in "
 "phone and/or try to reboot the phone by removing battery."
 msgstr ""
+"Нет доступа к SIM карте. Пожалуйста, проверьте, правильно ли она вставлена в "
+"телефон и/или попробуйте перезагрузить телефон, вынув из него аккумулятор."
 
 #: Wammu/Utils.py:468
 msgid "Description:"
