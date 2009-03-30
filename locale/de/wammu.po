@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-02-23 14:45+0100\n"
-"PO-Revision-Date: 2009-01-27 19:42+0100\n"
-"Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
+"PO-Revision-Date: 2009-03-28 10:51+0200\n"
+"Last-Translator: John Doe <webdb22@hotmail.com>\n"
 "Language-Team: German <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -655,8 +656,9 @@ msgid ""
 "english later."
 msgstr ""
 "Wenn Sie etwas zur Verbesserung dieses Programms beitragen möchten, schicken "
-"Sie die folgende Info und Fehlerbeschreibung an %s. Bitte schreiben Sie auf "
-"Englisch, sonst werden Sie später um eine Englischübersetzung gebeten."
+"Sie die folgende Informationen und Fehlerbeschreibung an %s. Bitte "
+"schreiben Sie auf Englisch, sonst werden Sie später um eine "
+"Englischübersetzung gebeten."
 
 #: Wammu/Error.py:118
 msgid ""
@@ -779,7 +781,7 @@ msgstr "Telefon"
 
 #: Wammu/Main.py:111
 msgid "Phone Information"
-msgstr "Telefon-Info"
+msgstr "Telefon-Informationen"
 
 #: Wammu/Main.py:112
 msgid "Wammu version"
@@ -853,13 +855,15 @@ msgstr "Nachrichten"
 msgid "All Messages"
 msgstr "Alle Nachrichten"
 
+# To be consistent with the other entries like "Ungelesen" in the menu tree below "Nachrichten" it should be "Gelesen" instead of "Lesen".
 #: Wammu/Main.py:131
 msgid "Read"
-msgstr "Lesen"
+msgstr "Gelesen"
 
+# To be consistent with the other headings like "Ungelesene Nachrichten" within "Nachrichten" it should be "Gelesene Nachrichten".
 #: Wammu/Main.py:131
 msgid "Read Messages"
-msgstr "Nachrichten lesen"
+msgstr "Gelesene Nachrichten"
 
 #: Wammu/Main.py:132
 msgid "Unread"
@@ -977,7 +981,7 @@ msgstr "&Telefon-Assistent"
 #: Wammu/Main.py:287
 msgid "Search for phone or configure it using guided wizard."
 msgstr ""
-"Suche nach Telefon oder konfiguriere es unter Verwendung des geführten "
+"Suche nach einem Telefon oder konfiguriere es unter Verwendung des geführten "
 "Assistenten."
 
 #: Wammu/Main.py:288
@@ -1024,10 +1028,11 @@ msgstr "Gerät trennen."
 msgid "&Synchronise time"
 msgstr "&Zeit synchronisieren"
 
-#  msgid "Synchronises time in mobile with PC"
+# <span class="translation-space"> </span>
+# msgid "Synchronises time in mobile with PC"
 #: Wammu/Main.py:298
 msgid "Synchronise time in mobile with PC."
-msgstr "Synchronisiere die Telefonzeit mit dem PC."
+msgstr "Synchronisiere die Uhrzeit am Telefon mit dem PC."
 
 #: Wammu/Main.py:300
 msgid "Send &file"
@@ -1062,23 +1067,25 @@ msgstr "Addressbuch aus der SIM-Karte empfangen."
 
 #: Wammu/Main.py:308
 msgid "Contacts (&phone)"
-msgstr "Adressbuch (&Telefonspeicher)"
+msgstr "Adressbuch (&Telefon-Speicher)"
 
-#  msgid "Contacts from phone memory"
-#  msgid "Retrieve contacts from phone memory"
+# <span class="translation-space"> </span>
+# msgid "Contacts from phone memory"<br /><span class="translation-space"> </span>
+# msgid "Retrieve contacts from phone memory"
 #: Wammu/Main.py:308
 msgid "Retrieve contacts from phone memory."
-msgstr "Adressbuch aus dem Telefonspeicher empfangen."
+msgstr "Adressbuch aus dem Telefon-Speicher empfangen."
 
 #: Wammu/Main.py:309
 msgid "&Contacts (All)"
 msgstr "&Adressbuch (Alles)"
 
-#  msgid "Contacts from phone and SIM memory"
-#  msgid "Retrieve contacts from phone and SIM memory"
+# <span class="translation-space"> </span>
+# msgid "Contacts from phone and SIM memory"<br /><span class="translation-space"> </span>
+# msgid "Retrieve contacts from phone and SIM memory"
 #: Wammu/Main.py:309
 msgid "Retrieve contacts from phone and SIM memory."
-msgstr "Addressbuch aus dem Telefonspeicher und von der SIM-Karte empfangen."
+msgstr "Adressbuch aus dem Telefon-Speicher und von der SIM-Karte empfangen."
 
 #: Wammu/Main.py:311
 msgid "C&alls"
@@ -1264,19 +1271,22 @@ msgstr ""
 msgid "&Gammu Phone Database"
 msgstr "&Gammu Telefondatenbank"
 
-#  msgid "Database of user experiences with phones"
+# <span class="translation-space"> </span>
+# msgid "Database of user experiences with phones"
 #: Wammu/Main.py:346
+#, fuzzy
 msgid "Visit database of user experiences with phones."
-msgstr "Besuche die Datenbank der Benutzererfahrungen mit Telefons."
+msgstr "Besuche die Datenbank der Benutzererfahrungen mit Telefonen."
 
 #: Wammu/Main.py:347
 msgid "&Talkback"
 msgstr "&Rückmeldung"
 
-#  msgid "Report your experiences in Gammu Phone Database"
+# <span class="translation-space"> </span>
+# msgid "Report your experiences in Gammu Phone Database"
 #: Wammu/Main.py:347
 msgid "Report your experiences into Gammu Phone Database."
-msgstr "Berichten Sie Ihre Erfahrungen in die Gammu-Telefondatenbank."
+msgstr "Berichten Sie Ihre Erfahrungen in die Gammu Telefondatenbank."
 
 #: Wammu/Main.py:349
 msgid "&Donate"
@@ -1291,10 +1301,11 @@ msgstr "Spenden Sie an das Wammu-Projekt."
 msgid "&About"
 msgstr "&Über"
 
-#  msgid "Information about program"
+# <span class="translation-space"> </span>
+# msgid "Information about program"
 #: Wammu/Main.py:351
 msgid "Information about program."
-msgstr "Info über das Programm."
+msgstr "Informationen über das Programm."
 
 #: Wammu/Main.py:353
 msgid "&Help"
@@ -1361,7 +1372,7 @@ msgstr ""
 
 #: Wammu/Main.py:481
 msgid "Do you want to configure phone connection now?"
-msgstr "Möchten Sie Ihre Telefonverbindung jetzt konfigurieren?"
+msgstr "Möchten Sie die Telefonverbindung jetzt konfigurieren?"
 
 #: Wammu/Main.py:482
 msgid "Configuration not found"
@@ -1373,8 +1384,8 @@ msgid ""
 "how your phone is supported. Do you want to participate in this survey?"
 msgstr ""
 "Sie verwenden Wammu seit mehr als einem Monat. Wir würden uns freuen, von "
-"Ihnen zu erfahren, wie Ihr Telefon unerstützt wird. Möchten Sie sich an dieser "
-"Umfrage beteiligen?"
+"Ihnen zu erfahren, wie Ihr Telefon unterstützt wird. Möchten Sie sich an "
+"dieser Umfrage beteiligen?"
 
 #: Wammu/Main.py:505
 msgid "Press Cancel to never show this question again."
@@ -1664,8 +1675,8 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
-"Wiederherstellung aus der Datei \"%s\" schlug fehl, einige Teile der "
-"Sicherung wurden eventuell auf dem Telefon gespeichert und einige nicht."
+"Wiederherstellung aus der Datei \"%s\" schlug fehl, einige Teile der Sicherung "
+"wurden eventuell im Telefon gespeichert und einige nicht."
 
 #  msgid "Backup imported"
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
@@ -1675,7 +1686,7 @@ msgstr "Import der Sicherung schlug fehl"
 #: Wammu/Main.py:1543
 #, python-format
 msgid "%d phone contact entries"
-msgstr "%d Kontakte im Telefonspeicher"
+msgstr "%d Kontakte im Telefon-Speicher"
 
 #: Wammu/Main.py:1546
 #, python-format
@@ -1832,7 +1843,7 @@ msgstr "Lösche Kalendereinträge..."
 
 #: Wammu/Main.py:1917
 msgid "Reading phone information"
-msgstr "Lese Telefon-Infos"
+msgstr "Lese Telefon-Informationen"
 
 #: Wammu/Main.py:1942
 #, python-format
@@ -1858,7 +1869,7 @@ msgstr "Kalendereinträge werden übertragen"
 
 #: Wammu/Main.py:2008
 msgid "Setting time in phone..."
-msgstr "Telefonuhr wird gesetzt..."
+msgstr "Uhrzeit im Telefon wird gesetzt..."
 
 #: Wammu/Main.py:2027
 msgid "Send file to phone"
@@ -1997,11 +2008,11 @@ msgstr "Verbindung zum Telefon fehlgeschlagen"
 
 #: Wammu/PhoneValidator.py:91
 msgid "You did not specify valid phone number."
-msgstr "Die angegebene Telefonnummer ist falsch."
+msgstr "Die angegebene Telefonnummer ist ungültig."
 
 #: Wammu/PhoneValidator.py:92
 msgid "Invalid phone number"
-msgstr "Falsche Telefonnummer"
+msgstr "Ungültige Telefonnummer"
 
 #: Wammu/PhoneWizard.py:44
 msgid "Configuration done"
@@ -2027,7 +2038,7 @@ msgstr "Wammu testet jetzt die Telefonverbindung, bitte warten..."
 
 #: Wammu/PhoneWizard.py:104
 msgid "Phone has been found."
-msgstr "Telefon wurde gefunden!"
+msgstr "Telefon wurde gefunden."
 
 #: Wammu/PhoneWizard.py:105
 #, python-format
@@ -2040,7 +2051,7 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:112 Wammu/PhoneWizard.py:129
 msgid "Phone connection test is still active, you can not continue."
-msgstr "Die Telefonverbindung ist noch aktiv, Sie können nicht fortfahren."
+msgstr "Die Telefonverbindung ist noch aktiv, sie können nicht fortfahren."
 
 #: Wammu/PhoneWizard.py:113 Wammu/PhoneWizard.py:130
 msgid "Testing still active!"
@@ -2049,7 +2060,8 @@ msgstr "Testvorgang ist noch aktiv!"
 #: Wammu/PhoneWizard.py:118
 msgid "Phone has not been found, are you sure you want to continue?"
 msgstr ""
-"Es wurde kein Telefon gefunden, sind Sie sicher, dass Sie fortfahren möchten?"
+"Es wurde kein Telefon gefunden, sind sie sicher, dass Sie fortfahren "
+"möchten?"
 
 #: Wammu/PhoneWizard.py:119
 msgid "Phone not found!"
@@ -2098,7 +2110,7 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
-msgstr "Wählen Sie ein Telefon aus der unteren Liste aus"
+msgstr "Wählen Sie ein Telefon aus der unten stehenden Liste aus"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone"
@@ -2118,7 +2130,7 @@ msgstr "Manuelle Konfiguration"
 
 #: Wammu/PhoneWizard.py:279
 msgid "Port where phone is connected"
-msgstr "Port, an den das Telefon angeschlossen ist"
+msgstr "Schnittstelle, an den das Telefon angeschlossen ist"
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2141,13 +2153,17 @@ msgstr "Sie müssen den Verbindungstyp angeben, der verwendet werden soll."
 msgid "No connection selected!"
 msgstr "Keine Verbindung ausgewählt!"
 
-#  msgid "Phone search"
+# <span class="translation-space"> </span>
+# msgid "Phone search"
 #: Wammu/PhoneWizard.py:316
+#, fuzzy
 msgid "Phone Device"
 msgstr "Telefonanschluss"
 
-#  msgid "Please enter port where phone is connected"
+# <span class="translation-space"> </span>
+# msgid "Please enter port where phone is connected"
 #: Wammu/PhoneWizard.py:317
+#, fuzzy
 msgid "Please enter device where phone is accessible"
 msgstr "Bitte wählen Sie Anschluss, über den das Telefon erreichbar ist."
 
@@ -2187,8 +2203,8 @@ msgstr "Telefontyp"
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
-"Bitte wählen Sie den Telefonhersteller oder -typ. Versuchen Sie dabei so genau "
-"wie möglich zu sein."
+"Bitte wählen sie den Telefonhersteller oder -typ. Versuchen sie dabei so "
+"genau wie möglich zu sein."
 
 #: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
@@ -2211,8 +2227,8 @@ msgid ""
 "Many phones now come with USB cable, select this if you're using this "
 "connection type."
 msgstr ""
-"Viele Telefons werden jetzt mit USB-Kabel ausgeliefert, wählen Sie diese "
-"Option, wenn Sie diesen Verbindungstyp verwenden."
+"Viele Telefone werden jetzt mit USB-Kabel ausgeliefert, wählen sie diese "
+"Option, wenn sie diesen Verbindungstyp verwenden."
 
 #: Wammu/PhoneWizard.py:432
 msgid "Bluetooth"
@@ -2223,9 +2239,9 @@ msgid ""
 "Bluetooth connection is wireless and does not require direct visibility. "
 "Phone needs to be properly paired with computer before proceeding."
 msgstr ""
-"Eine Bluetoothverbindung ist kabellos und benötigt keine direkte "
-"Sichtverbindung. Das Telefon muss mit dem Rechner ordentlich verbunden werden "
-"(Pairing), bevor fortgefahren werden kann."
+"Eine Bluetooth-Verbindung ist kabellos und benötigt keine direkte "
+"Sichtverbindung. Das Telefon muss mit dem Rechner ordentlich verbunden "
+"werden (Pairing), bevor fortgefahren werden kann."
 
 #: Wammu/PhoneWizard.py:436
 msgid "IrDA"
@@ -2236,7 +2252,7 @@ msgid ""
 "IrDA wireless connection requires direct visibility, please make sure this "
 "is fullfilled and computer can see phone."
 msgstr ""
-"Eine kabellose Infrarotverbindung benötigt direkten Sichtkontakt, bitte "
+"Eine kabellose Infrarot-Verbindung benötigt direkten Sichtkontakt, bitte "
 "stellen Sie daher sicher, dass der Adapter des Computers das Telefon sehen "
 "kann."
 
@@ -2248,7 +2264,7 @@ msgstr "Serielles Kabel"
 msgid ""
 "This is not often used connection, but was very popular for older phones."
 msgstr ""
-"Dies ist keine häufig verwendete Verbindung, war aber bei älteren Telefons "
+"Dies ist keine häufig verwendete Verbindung, war aber bei älteren Telefonen "
 "sehr verbreitet."
 
 #: Wammu/PhoneWizard.py:447
@@ -2278,7 +2294,8 @@ msgstr ""
 #: Wammu/PhoneWizard.py:470
 msgid "Wizard will attempt to search phone on usual ports."
 msgstr ""
-"Der Assistent wird versuchen, das Telefon auf den verbreiteten Ports zu suchen."
+"Der Assistent wird versuchen, das Telefon auf den üblichen Schnittstellen zu "
+"suchen."
 
 #: Wammu/PhoneWizard.py:471
 msgid ""
@@ -2298,8 +2315,8 @@ msgid ""
 "Gammu Phone Database for other users experiences:"
 msgstr ""
 "Falls Sie keine Idee haben, wie Ihre Telefonverbindung zu konfigurieren ist, "
-"können Sie in der Gammu-Telefon-Datenbank nach den Erfahrungen anderer "
-"Anwender schauen:"
+"können Sie in der Gammu Telefon-Datenbank die Erfahrungen anderer Anwender "
+"nachlesen:"
 
 #: Wammu/PhoneWizard.py:493
 msgid "Welcome"
@@ -2339,7 +2356,7 @@ msgstr "Sobald Ihr Telefon bereit ist, können Sie fortfahren."
 
 #: Wammu/PhoneWizard.py:514
 msgid "Wammu Phone Configuration Wizard"
-msgstr "Wammu-Telefon-Konfigurationsassistent"
+msgstr "Wammu Telefon-Konfigurationsassistent"
 
 #: Wammu/Reader.py:133 Wammu/Reader.py:184
 msgid "Ignoring unknown"
@@ -2416,7 +2433,7 @@ msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
 msgstr ""
-"Ob Sie möchten, dass beim Start automatisch ein Verbindung zum Telefon "
+"Ob Sie möchten, dass beim Start automatisch eine Verbindung zum Telefon "
 "hergestellt wird."
 
 #: Wammu/Settings.py:105
@@ -2433,7 +2450,9 @@ msgstr "Zeit synchronisieren"
 
 #: Wammu/Settings.py:112
 msgid "Synchronise time in phone with computer time while connecting."
-msgstr "Synchronisiere PC-Zeit mit Telefon-Zeit während des Verbindungsaufbaus."
+msgstr ""
+"Synchronisiere die Uhrzeit im Telefon mit dem PC während des "
+"Verbindungsaufbaus."
 
 #: Wammu/Settings.py:117
 msgid "Startup information"
@@ -2473,18 +2492,21 @@ msgid "Device"
 msgstr "Gerät"
 
 #: Wammu/Settings.py:179
+#, fuzzy
 msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
 msgstr ""
 "Sie müssen den zu verwendenden Port auswählen.Verbindung, die von Ihrem "
-"Telefon unterstützt wird. Konsultieren Sie die Gammu-Dokumentation für Details."
+"Telefon unterstützt wird. Konsultieren Sie die Gammu-Dokumentation für "
+"Details."
 
 #: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
 msgid "Connection"
 msgstr "Verbindung"
 
 #: Wammu/Settings.py:185
+#, fuzzy
 msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr ""
@@ -2611,9 +2633,8 @@ msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
 msgstr ""
-"Diese Verbindung wird nicht oft verwendet, war aber bei älteren Telefons sehr "
-"beliebt.Standarddatum für neuerstellte Zeitfelder. Eingabe von Anzahl der "
-"Tage ab heute (1 = morgen)."
+"Standarddatum für neu erstellte Zeitfelder. Eingabe der Anzahl der Tage ab "
+"heute (1 = morgen)."
 
 #: Wammu/Settings.py:379
 msgid "Default date = now + x days"
@@ -2791,16 +2812,17 @@ msgstr "Wählen Sie diese Option, falls keine der oben genannten zutrifft."
 msgid "OBEX and IrMC protocols"
 msgstr "OBEX- und IrMC-Protkolle"
 
-#  msgid ""
-#  "Standard access to filesystem and sometimes also to phone data. Good "
-#  "choice for recent phones."
+# <span class="translation-space"> </span>
+# msgid ""<br /><span class="translation-space"> </span>
+# "Standard access to filesystem and sometimes also to phone data. Good "<br /><span class="translation-space"> </span>
+# "choice for recent phones."
 #: Wammu/SettingsStorage.py:142
 msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
 msgstr ""
-"Standardzugriff auf das Dateisystem. Keine gute Wahl für Nokia-Telefons, falls "
-"Sie auf Daten zugreifen wollen."
+"Standardzugriff auf das Dateisystem. Keine gute Wahl für Nokia-Telefone, "
+"falls Sie auf Daten zugreifen wollen."
 
 #: Wammu/SettingsStorage.py:144
 msgid ""
@@ -2808,7 +2830,7 @@ msgid ""
 "for recent phones."
 msgstr ""
 "Standardzugriff auf das Dateisystem und manchmal auch auf die Telefondaten. "
-"Gute Wahl für jüngere Telefons."
+"Gute Wahl für jüngere Telefone."
 
 #: Wammu/SettingsStorage.py:148
 msgid "Symbian using Gnapplet"
@@ -2861,8 +2883,9 @@ msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
 msgstr ""
-"Eine gute Wahl für die meisten Telefons, mit Ausnahme von Nokia- und Symbian-"
-"basierten Geräten. Stellt den Zugriff auf die meisten Telefonfunktionen bereit."
+"Eine gute Wahl für die meisten Telefone, mit Ausnahme von Nokia- und "
+"Symbian-basierten Geräten. Stellt den Zugriff auf die meisten "
+"Telefonfunktionen bereit."
 
 #: Wammu/SettingsStorage.py:277 Wammu/SettingsStorage.py:309
 msgid "Enter device name of serial port."
@@ -2874,7 +2897,7 @@ msgstr "Tragen Sie den Gerätenamen des emulierten seriellen Ports ein."
 
 #: Wammu/SettingsStorage.py:281 Wammu/SettingsStorage.py:313
 msgid "Enter Bluetooth address of your phone."
-msgstr "Tragen Sie die Bluetoothadresse Ihres Telefons ein."
+msgstr "Tragen Sie die Bluetooth-Adresse Ihres Telefons ein."
 
 #: Wammu/SettingsStorage.py:283 Wammu/SettingsStorage.py:317
 msgid "You don't have to enter anything for this settings."
@@ -2894,9 +2917,9 @@ msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
 msgstr ""
-"Verwenden Sie diese Option, wenn Sie einen echten seriellen Anschluss haben "
-"oder er von einem Telefon-Treiber (z.B.: virtual COM port, /dev/rfcomm, /dev/"
-"ircomm usw.) emuliert wird."
+"Verwenden Sie diese Option, wenn Sie eine echte serielle Schnittstelle haben "
+"oder diese von einem Telefon-Treiber (z.B.: virtual COM port, /dev/rfcomm, "
+"/dev/ircomm usw.) emuliert wird."
 
 #: Wammu/SettingsStorage.py:342
 #, python-format
@@ -2933,9 +2956,9 @@ msgid ""
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
 "5.50, 8910,..)"
 msgstr ""
-"Verwenden Sie diese Option für Bluetooth-Verbindungen und 6210 / DCT4 Nokia-"
+"Verwenden Sie diese Option für Bluetooth-Verbindungen und 6210 / DCT4 Nokia "
 "Modelle, die nicht korrekt über die Bluetooth-Dienste informieren (6310, "
-"6310i mit einer Firmware kleiner als 5.50, 8910...)"
+"6310i mit einer Firmware kleiner als 5.50, 8910,...)"
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
@@ -2990,7 +3013,7 @@ msgstr "Proprietäres MBUS-Protokoll"
 
 #: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
-msgstr "Protokoll welches in älteren Nokia-Telefons verwendet wird."
+msgstr "Protokoll, welches in älteren Nokia-Telefonen verwendet wird."
 
 #: Wammu/SettingsStorage.py:407
 msgid "FBUS proprietary protocol"
@@ -3001,91 +3024,98 @@ msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
 msgstr ""
-"Protokoll welches in Nokia-Telefons verwendet wird. Bitte versuchen Sie zuerst "
-"eine der spezifischeren Optionen."
+"Protokoll, welches in Nokia-Telefonen verwendet wird. Bitte versuchen Sie "
+"zuerst eine der spezifischeren Optionen."
 
 #: Wammu/SettingsStorage.py:413
 msgid "DKU5 cable"
 msgstr "DKU5-Kabel"
 
-#  msgid ""
-#  "Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like "
-#  "Nokia 5100."
+# <span class="translation-space"> </span>
+# msgid ""<br /><span class="translation-space"> </span>
+# "Nokia Connectivity Adapter Cable DKU-5, for phones with USB chip like "<br /><span class="translation-space"> </span>
+# "Nokia 5100."
 #: Wammu/SettingsStorage.py:414
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
-"Nokia Verbindungskabel DKU-5 (Originalkabel oder kompatibel) für Telefons mit "
-"USB-Chip, wie das Nokia 5100."
+"Nokia Verbindungskabel DKU-5 (Originalkabel oder kompatibel) für Telefone "
+"mit USB-Chip, wie das Nokia 5100."
 
 #: Wammu/SettingsStorage.py:417
 msgid "PL2303 cable"
 msgstr "PL2303-Kabel"
 
-#  msgid ""
-#  "New Nokia protocol for PL2303 USB cable, for phones with USB chip like "
-#  "Nokia 5100."
+# <span class="translation-space"> </span>
+# msgid ""<br /><span class="translation-space"> </span>
+# "New Nokia protocol for PL2303 USB cable, for phones with USB chip like "<br /><span class="translation-space"> </span>
+# "Nokia 5100."
 #: Wammu/SettingsStorage.py:418
 msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
-"Neues Nokia Protokoll für PL2303-USB-Kabel (üblicherweise "
-"Drittanbieterkabel), für Telefons mit USB-Chip wie dem Nokia 5100."
+"Neues Nokia Protokoll für PL2303 USB-Kabel (üblicherweise Kabel von "
+"Drittanbietern) für Telefone mit USB-Chip wie das Nokia 5100."
 
 #: Wammu/SettingsStorage.py:421
 msgid "DKU2 cable"
 msgstr "DKU2-Kabel"
 
-#  msgid ""
-#  "Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia "
-#  "6230."
+# <span class="translation-space"> </span>
+# msgid ""<br /><span class="translation-space"> </span>
+# "Nokia Connectivity Cable DKU-2, for phones without USB chip like Nokia "<br /><span class="translation-space"> </span>
+# "6230."
 #: Wammu/SettingsStorage.py:422
 msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
 msgstr ""
-"Nokia Datenkabel DKU-2 (Originalkabel oder kompatibel), für Telefons ohne USB-"
-"Chip wie dem Nokia 6230."
+"Nokia Datenkabel DKU-2 (Originalkabel oder kompatibel), für Telefone ohne "
+"USB-Chip wie dem Nokia 6230."
 
 #: Wammu/SettingsStorage.py:425
 msgid "DLR3-3P/CA-42 cable"
 msgstr "DLR3-3P/CA-42-Kabel"
 
-#  msgid ""
-#  "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "
-#  "7110/6210/6310."
+# <span class="translation-space"> </span>
+# msgid ""<br /><span class="translation-space"> </span>
+# "Nokia RS-232 Adapter Cable DLR-3P, usually with phones like Nokia "<br /><span class="translation-space"> </span>
+# "7110/6210/6310."
 #: Wammu/SettingsStorage.py:426
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
 "with phones like Nokia 7110/6210/6310."
 msgstr ""
 "Nokia RS-232 Verbindungskabel (Originalkabel oder kompatibel), üblicherweise "
-"mit Telefons wie Nokia 7110/6210/6310."
+"für Telefone wie Nokia 7110/6210/6310."
 
 #: Wammu/SettingsStorage.py:429
 msgid "FBUS proprietary protocol using ARK cable"
 msgstr "proprietäres FBUS-Protokoll ARK-Kabel verwendend"
 
-#  msgid "ARK cable for phones not supporting AT commands like Nokia 6020."
+# <span class="translation-space"> </span>
+# msgid "ARK cable for phones not supporting AT commands like Nokia 6020."
 #: Wammu/SettingsStorage.py:430
 msgid ""
 "ARK cable (third party cable) for phones not supporting AT commands like "
 "Nokia 6020."
 msgstr ""
-"ARK-Kabel (Drittanbieterkabel) für Telefons, die AT-Befehle nicht "
+"ARK-Kabel (Kabel von Drittanbieter) für Telefone, die AT-Befehle nicht "
 "unterstützen, wie das Nokia 6020."
 
 #: Wammu/SettingsStorage.py:433
 msgid "DKU5 phone with ARK cable"
 msgstr "DKU5-Telefon mit ARK-Kabel"
 
-#  msgid "ARK cable for phones with USB chip like Nokia 5100."
+# <span class="translation-space"> </span>
+# msgid "ARK cable for phones with USB chip like Nokia 5100."
 #: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
 msgstr ""
-"ARK-Kabel (Drittanbieterkabel) für Telefons mit USB-Chip, wie das Nokia 5100."
+"ARK-Kabel (Kabel von Drittanbieter) für Telefone mit USB-Chip, wie das Nokia "
+"5100."
 
 #: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
@@ -3127,9 +3157,9 @@ msgid ""
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
 "8910,..)."
 msgstr ""
-"Nokia-Protokoll für Bluetooth-Verbindungen mit DCT4 Nokia-Modellen, die "
+"Nokia-Protokoll für Bluetooth-Verbindungen mit DCT4 Nokia Modellen, die "
 "nicht korrekt über Dienste informieren (6310, 6310i mit einer Firmware "
-"kleiner als 5.50, 8910...)."
+"kleiner als 5.50, 8910,...)."
 
 #: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
@@ -3179,11 +3209,12 @@ msgstr "Fehler beim Erstellen der Datei!"
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:331
 #: Wammu/SMSXML.py:128
 #, python-format
+#, fuzzy
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr ""
-"Bitte stellen Sie sicher, dass Ihr Telefon bereit  und eingeschaltet ist sowie "
-"dass eine der Verbindungsarten eingerichtet ist:%(count)d Nachrichten wurden "
-"in die Mailbox \"%(path)s\" (%(type)s) exportiert"
+"Bitte stellen Sie sicher, dass Ihr Telefon bereit  und eingeschaltet ist "
+"sowie dass eine der Verbindungsarten eingerichtet ist:%(count)d Nachrichten "
+"wurden in die Mailbox \"%(path)s\" (%(type)s) exportiert"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSXML.py:128
 msgid "mailbox"
@@ -3193,7 +3224,7 @@ msgstr "Mailbox-Datei"
 msgid "Select maildir directory where to save files"
 msgstr ""
 "Sie haben IrDA (Infrarot) aktiviert und Ihr Telefon ist in sichtbarer "
-"Reichweite.Wählen sie das Maildir-Verzeichnis aus in dem die Dateien "
+"Reichweite. Wählen sie das Maildir-Verzeichnis aus in dem die Dateien "
 "gespeichert werden sollen"
 
 #: Wammu/SMSExport.py:97
@@ -3406,6 +3437,7 @@ msgid "Saving messages to XML"
 msgstr "Nachrichten werden als XML gespeichert"
 
 #: Wammu/TalkbackDialog.py:48
+#, fuzzy
 msgid ""
 "Please share your experiences with Wammu and Gammu which is backend library. "
 "When you fill in following form, other users can benefit from your "
@@ -3484,7 +3516,7 @@ msgstr "Nicht unterstützt"
 
 #: Wammu/TalkbackDialog.py:106
 msgid "Gammu Phone Database Talkback"
-msgstr "Gammu-Telefondatenbank-Rückmeldung"
+msgstr "Gammu Telefon-Datenbank Rückmeldung"
 
 #: Wammu/TalkbackDialog.py:107
 msgid "Select which features work correctly with your phone"
@@ -3579,7 +3611,7 @@ msgstr ""
 
 #: Wammu/TalkbackFeaturesDialog.py:39
 msgid "Phone information"
-msgstr "Telefon-Info"
+msgstr "Telefon-Informationen"
 
 #: Wammu/TalkbackFeaturesDialog.py:40
 msgid "Sending and saving SMS"
@@ -3760,8 +3792,8 @@ msgid ""
 "(for cable) or out of range (for Bluetooth or IrDA)."
 msgstr ""
 "Timeout während der Datenübertragung mit dem Telefon. Vielleicht wurde das "
-"Telefon getrennt (Kabelverbindung) oder befindet sich ausserhalb der "
-"Reichweite (Bluetooth oder IrDa)."
+"Telefon getrennt (Kabelverbindung) oder befindet sich außerhalb der "
+"Reichweite (Bluetooth oder IrDA)."
 
 #: Wammu/Utils.py:460
 msgid ""
@@ -3871,10 +3903,12 @@ msgstr "Gammu-Konfiguration wird aktualisiert..."
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - grafische Benutzeroberfläche von Gammu Version %s"
 
-#  msgid "Phone connection test is still active, you can not continue."
-#  msgid ""
-#  "Phone connection is not properly configured, can not connect to phone."
+# <span class="translation-space"> </span>
+# msgid "Phone connection test is still active, you can not continue."<br /><span class="translation-space"> </span>
+# msgid ""<br /><span class="translation-space"> </span>
+# "Phone connection is not properly configured, can not connect to phone."
 #: wammu.py:72
+#, fuzzy
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
 "Zeigt die Verbindungseinstellungen und versucht, eine Verbindung zum Telefon "
