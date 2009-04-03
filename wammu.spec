@@ -1,6 +1,7 @@
-%define name wammu
-%define ver 0.31
-%define rel 1
+Name            wammu
+Version:        0.31
+Release:        1
+
 %define extension   bz2
 
 %define python_gammu_req 0.24
@@ -9,10 +10,7 @@
 %define wammu_python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(0)")
 
 Summary:        Mobile phone manager
-Name:           %{name}
-Version:        %{ver}
-Release:        %{rel}
-Source:         http://dl.cihar.com/%{name}/latest/%{name}-%{ver}.tar.%{extension}
+Source:         http://dl.cihar.com/%{name}/latest/%{name}-%{version}.tar.%{extension}
 License:        GPLv2
 %if 0%{?suse_version}
 Group:          Hardware/Mobile
@@ -58,8 +56,10 @@ instead.
 CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
 
 %install
+%if 0%{?suse_version} == 0
 rm -rf %buildroot
 mkdir %buildroot
+%endif
 %{__python} setup.py install --root=%buildroot --prefix=%{_prefix}
 %if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
 %{__python} setup.py install -O1 --root=%buildroot --prefix=%{_prefix}
@@ -82,7 +82,7 @@ rm -rf %buildroot
 %files -f %name.lang
 %defattr(-,root,root)
 %doc COPYING AUTHORS FAQ README PKG-INFO ChangeLog
-%doc %{_mandir}/man1/*
+%{_mandir}/man1/*
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
@@ -91,6 +91,10 @@ rm -rf %buildroot
 %{wammu_python_sitelib}/*
 
 %changelog
+* Fri Apr  3 2009 Michal Čihař <michal@cihar.com> - 0.31-1
+- do not define own %version, %name, %rel
+- do not delete build root on SUSE
+
 * Fri Oct 24 2008 Michal Čihař <michal@cihar.com> - 0.29-1
 - fixed according to Fedora policy
 
