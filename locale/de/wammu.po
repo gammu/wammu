@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-02-23 14:45+0100\n"
-"PO-Revision-Date: 2009-03-28 10:51+0200\n"
-"Last-Translator: John Doe <webdb22@hotmail.com>\n"
+"PO-Revision-Date: 2009-03-31 14:01+0200\n"
+"Last-Translator: Thorsten Gutsche <thorsten.gutsche@googlemail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -397,7 +397,7 @@ msgstr "Akkord tief"
 
 #: Wammu/Data.py:90
 msgid "I'm ironic, flirty"
-msgstr "Ich meine es ironisch, flirty"
+msgstr "Ich meine es ironisch, kokett"
 
 #: Wammu/Data.py:110
 msgid "I am glad"
@@ -809,7 +809,7 @@ msgstr "Empfangene"
 
 #: Wammu/Main.py:120
 msgid "Received Calls"
-msgstr "Angenommene Anrufe"
+msgstr "Empfangene Anrufe"
 
 #: Wammu/Main.py:121
 msgid "Missed"
@@ -1191,19 +1191,21 @@ msgstr ""
 msgid "&Import"
 msgstr "&Importieren"
 
-#  msgid "Imports data from backup to phone"
+# <span class="translation-space"> </span>
+# msgid "Imports data from backup to phone"
 #: Wammu/Main.py:332
 msgid "Import data from backup to phone."
-msgstr "Übertrage Daten aus der Sicherung in das Telefon."
+msgstr "Importiere Daten aus der Sicherung in das Telefon."
 
 #: Wammu/Main.py:333
 msgid "I&mport messages"
 msgstr "Nachrichten i&mportieren"
 
-#  msgid "Imports messages from backup to phone"
+# <span class="translation-space"> </span>
+# msgid "Imports messages from backup to phone"
 #: Wammu/Main.py:333
 msgid "Import messages from backup to phone."
-msgstr "Übertrage Nachrichten vom Backup ins Telefon."
+msgstr "Importiere Nachrichten aus Sicherung in das Telefon."
 
 #: Wammu/Main.py:335
 msgid "Export messages to &emails"
@@ -1271,12 +1273,11 @@ msgstr ""
 msgid "&Gammu Phone Database"
 msgstr "&Gammu Telefondatenbank"
 
-# <span class="translation-space"> </span>
+# &lt;span class="translation-space"&gt; &lt;/span&gt;<br />
 # msgid "Database of user experiences with phones"
 #: Wammu/Main.py:346
-#, fuzzy
 msgid "Visit database of user experiences with phones."
-msgstr "Besuche die Datenbank der Benutzererfahrungen mit Telefonen."
+msgstr "Besuche die Datenbank der Benutzererfahrungen mit Handys."
 
 #: Wammu/Main.py:347
 msgid "&Talkback"
@@ -2153,19 +2154,17 @@ msgstr "Sie müssen den Verbindungstyp angeben, der verwendet werden soll."
 msgid "No connection selected!"
 msgstr "Keine Verbindung ausgewählt!"
 
-# <span class="translation-space"> </span>
+# &lt;span class="translation-space"&gt; &lt;/span&gt;<br />
 # msgid "Phone search"
 #: Wammu/PhoneWizard.py:316
-#, fuzzy
 msgid "Phone Device"
-msgstr "Telefonanschluss"
+msgstr "Handy-Modell"
 
-# <span class="translation-space"> </span>
+# &lt;span class="translation-space"&gt; &lt;/span&gt;<br />
 # msgid "Please enter port where phone is connected"
 #: Wammu/PhoneWizard.py:317
-#, fuzzy
 msgid "Please enter device where phone is accessible"
-msgstr "Bitte wählen Sie Anschluss, über den das Telefon erreichbar ist."
+msgstr "Bitte wählen Sie den Anschluss, über den das Handy erreichbar ist."
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
 msgid "Driver to use"
@@ -2492,26 +2491,22 @@ msgid "Device"
 msgstr "Gerät"
 
 #: Wammu/Settings.py:179
-#, fuzzy
 msgid ""
 "Connection which your phone understands, check Gammu documentation for "
 "connection details."
 msgstr ""
-"Sie müssen den zu verwendenden Port auswählen.Verbindung, die von Ihrem "
-"Telefon unterstützt wird. Konsultieren Sie die Gammu-Dokumentation für "
-"Details."
+"Verbindung, die von Ihrem Handy unterstützt wird. Konsultieren Sie die "
+"Gammu-Dokumentation für Details."
 
 #: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
 msgid "Connection"
 msgstr "Verbindung"
 
 #: Wammu/Settings.py:185
-#, fuzzy
 msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr ""
-"Sie müssen den zu verwendenden Verbindungstyp auswählen.Telefonmodell. Sie "
-"können hier \"auto\" belassen außer wenn Probleme auftreten."
+"Handy-Modell. Sie können hier \"auto\" belassen außer wenn Probleme auftreten."
 
 #: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
 msgid "Model"
@@ -3209,12 +3204,8 @@ msgstr "Fehler beim Erstellen der Datei!"
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:331
 #: Wammu/SMSXML.py:128
 #, python-format
-#, fuzzy
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr ""
-"Bitte stellen Sie sicher, dass Ihr Telefon bereit  und eingeschaltet ist "
-"sowie dass eine der Verbindungsarten eingerichtet ist:%(count)d Nachrichten "
-"wurden in die Mailbox \"%(path)s\" (%(type)s) exportiert"
+msgstr "%(count)d Nachrichten wurden nach \"%(path)s\" (%(type)s) exportiert"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSXML.py:128
 msgid "mailbox"
@@ -3223,9 +3214,8 @@ msgstr "Mailbox-Datei"
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
 msgstr ""
-"Sie haben IrDA (Infrarot) aktiviert und Ihr Telefon ist in sichtbarer "
-"Reichweite. Wählen sie das Maildir-Verzeichnis aus in dem die Dateien "
-"gespeichert werden sollen"
+"Wählen sie das Maildir-Verzeichnis aus, in dem die Dateien gespeichert "
+"werden sollen"
 
 #: Wammu/SMSExport.py:97
 msgid ""
@@ -3234,8 +3224,7 @@ msgid ""
 "\n"
 "Do you want to create new subfolder and export to it?"
 msgstr ""
-"Sie haben die Bluetoothverbindung zum Computer hergestellt (Pairing).Der "
-"ausgewählte Ordner enthält keine Unterordner und ist wahrscheinlich kein "
+"Der ausgewählte Ordner enthält keine Unterordner und ist wahrscheinlich kein "
 "gültiger Maildir-Ordner.\n"
 "\n"
 "Möchten Sie einen neuen Unterordner erstellen und die Daten dorthin "
@@ -3437,7 +3426,6 @@ msgid "Saving messages to XML"
 msgstr "Nachrichten werden als XML gespeichert"
 
 #: Wammu/TalkbackDialog.py:48
-#, fuzzy
 msgid ""
 "Please share your experiences with Wammu and Gammu which is backend library. "
 "When you fill in following form, other users can benefit from your "
@@ -3446,7 +3434,7 @@ msgid ""
 msgstr ""
 "Bitte teilen Sie Ihre Erfahrungen mit Wammu und Gammu, welches die "
 "nachgeschaltete Bibliothek ist. Wenn Sie das folgende Formular ausfüllen, "
-"können andere Anwender von Ihren Erfahrungen in der Gammu-Telefondatenbank "
+"können andere Anwender von Ihren Erfahrungen in der Gammu-Handy-Datenbank "
 "profitieren. Nur die Informationen, die Sie hier sehen, werden übertragen."
 
 #: Wammu/TalkbackDialog.py:50
@@ -3903,15 +3891,14 @@ msgstr "Gammu-Konfiguration wird aktualisiert..."
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - grafische Benutzeroberfläche von Gammu Version %s"
 
-# <span class="translation-space"> </span>
-# msgid "Phone connection test is still active, you can not continue."<br /><span class="translation-space"> </span>
-# msgid ""<br /><span class="translation-space"> </span>
+# &lt;span class="translation-space"&gt; &lt;/span&gt;<br />
+# msgid "Phone connection test is still active, you can not continue."&lt;br /&gt;&lt;span class="translation-space"&gt; &lt;/span&gt;<br />
+# msgid ""&lt;br /&gt;&lt;span class="translation-space"&gt; &lt;/span&gt;<br />
 # "Phone connection is not properly configured, can not connect to phone."
 #: wammu.py:72
-#, fuzzy
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
-"Zeigt die Verbindungseinstellungen und versucht, eine Verbindung zum Telefon "
+"Zeigt die Verbindungseinstellungen und versucht, eine Verbindung zum Handy "
 "herzustellen"
 
 #: wammu.py:75
