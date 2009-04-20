@@ -960,7 +960,7 @@ class WammuFrame(wx.Frame):
                 if len(d) == 2:
                     text += u'<b>%s</b>: %s<br>' % (d[0], d[1])
                 else:
-                    text += u'<br>%s' % d[0]
+                    text += u'<p>%s</p>' % d[0]
         self.content.SetContent(text)
 
     def OnShow(self, evt):
