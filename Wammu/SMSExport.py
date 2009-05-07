@@ -61,7 +61,7 @@ def SMSToMailbox(parent, messages, contacts):
                 return
 
             sms = messages[i]
-            filename, data = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts, True)
+            filename, data, unused_msgid = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts, True)
             f.write(data)
             f.write('\n')
             f.write('\n')
@@ -122,7 +122,7 @@ def SMSToMaildir(parent, messages, contacts):
             return
 
         sms = messages[i]
-        filename, data = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts)
+        filename, data, unused_msgid = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts)
 
         outfile = os.path.join(outpath, filename)
         if os.path.exists(outfile):
@@ -240,6 +240,12 @@ def SMSToIMAP(parent, messages, contacts):
             wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
                 parent.cfg.Write('/IMAP/Password', password)
 
+    backup_new = False
+    if wx.MessageDialog(parent,
+        _('Do you only want to back-up messages which are not yet on the IMAP server?'),
+        _('Back-up new messages only?'),
+        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
+        backup_new = True
 
     busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
     try:
@@ -297,6 +303,7 @@ def SMSToIMAP(parent, messages, contacts):
         return
 
     parent.ShowProgress(_('Saving messages to IMAP'))
+    new_messages_num = 0
     for i in range(count):
         if not parent.progress.Update(i * 100 / count):
             del parent.progress
@@ -304,7 +311,15 @@ def SMSToIMAP(parent, messages, contacts):
             return
 
         sms = messages[i]
-        filename, data = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts)
+
+        filename, data, msgid = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts)
+
+        if backup_new == True:
+            res, msgnums = m.search(None, 'HEADER', '"Message-ID" "' + msgid + '"')
+            if len(msgnums[0].split()) != 0:
+                continue
+
+        new_messages_num += 1
 
         try:
             res = m.append(folder, '$SMS', None, data)
@@ -328,7 +343,10 @@ def SMSToIMAP(parent, messages, contacts):
     except:
         pass
 
-    parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('IMAP server')})
+    if backup_new == False:
+        parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('IMAP server')})
+    else:
+        parent.SetStatusText(_('%(new)d new of %(count)d messages exported to "%(path)s" (%(type)s)') % {'new':new_messages_num, 'count':count, 'path':path, 'type': _('IMAP server')})
 
 def SMSExport(parent, messages, contacts):
     # Select where to export

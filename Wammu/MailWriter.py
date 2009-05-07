@@ -114,8 +114,9 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         msg.add_header(HEADER_FORMAT % 'SMSCDate', 
                 DateToString(sms['SMS'][0]['SMSCDateTime']))
 
-    remote = '%s<%s@wammu.sms>' % (name, sms['Number'])
+    remote = '%s<%s@wammu.sms>' % (name, sms['Number'].replace(' ', '_'))
     local = cfg.Read('/MesageExport/From')
+
     if sms['SMS'][0]['Type'] == 'Submit':
         msg['To'] = remote
         msg['From'] = local
@@ -208,7 +209,8 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
                 md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
     # Add message ID
-    msg.add_header('Message-ID', '<%s@%s>' % (filename[:-4], sms['Number']))
+    msgid = '<%s@%s>' % (filename[:-4], sms['Number'].replace(' ', '_'))
+    msg.add_header('Message-ID', msgid)
 
     if mailbox:
         if sms['DateTime'] is None:
@@ -217,5 +219,5 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
             timestamp = time.asctime(sms['DateTime'].timetuple())
         prepend = ('From wammu@wammu.sms %s\n' % timestamp) + prepend
 
-    return filename, prepend + msg.as_string()
+    return filename, prepend + msg.as_string(), msgid
 
