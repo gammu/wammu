@@ -115,7 +115,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
                 DateToString(sms['SMS'][0]['SMSCDateTime']))
 
     remote = '%s<%s@wammu.sms>' % (name, sms['Number'].replace(' ', '_'))
-    local = cfg.Read('/MesageExport/From')
+    local = cfg.Read('/MessageExport/From')
 
     if sms['SMS'][0]['Type'] == 'Submit':
         msg['To'] = remote

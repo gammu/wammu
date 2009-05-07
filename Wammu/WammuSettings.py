@@ -78,7 +78,7 @@ DEFAULT_CONFIG = {
     '/IMAP/Server': '',
     '/IMAP/Login': '',
     '/IMAP/Password': '',
-    '/MesageExport/From': 'Wammu <wammu@wammu.sms>',
+    '/MessageExport/From': 'Wammu <wammu@wammu.sms>',
     '/Gammu/Section': 0,
     '/User/Name': Wammu.OSUtils.GetUserFullName(),
     '/Gammu/Gammurc': os.path.join(u'~', u'.gammurc'),
