@@ -42,13 +42,13 @@ if Wammu.gammu_error == None:
 HEADER_FORMAT = 'X-Wammu-%s'
 CID_FORMAT = '%d*sms@wammu.sms'
 PARTS_TO_HEADER = [
-        'Folder', 
-        'Memory', 
-        'Location', 
-        'Name', 
-        'Type', 
-        'State', 
-        'Class', 
+        'Folder',
+        'Memory',
+        'Location',
+        'Name',
+        'Type',
+        'State',
+        'Class',
         'MessageReference',
         ]
 
@@ -111,7 +111,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         msg.add_header(HEADER_FORMAT % header, unicode(sms['SMS'][0][header]))
     msg.add_header(HEADER_FORMAT % 'SMSC', sms['SMS'][0]['SMSC']['Number'])
     if sms['SMS'][0]['SMSCDateTime'] is not None:
-        msg.add_header(HEADER_FORMAT % 'SMSCDate', 
+        msg.add_header(HEADER_FORMAT % 'SMSCDate',
                 DateToString(sms['SMS'][0]['SMSCDateTime']))
 
     remote = '%s<%s@wammu.sms>' % (name, sms['Number'].replace(' ', '_'))
@@ -123,7 +123,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     else:
         msg['To'] = local
         msg['From'] = remote
-        prepend = ('Received: from %s via GSM\n' % 
+        prepend = ('Received: from %s via GSM\n' %
                 unicode(sms['SMS'][0]['SMSC']['Number'])) + prepend
 
     if len(sms['Name']) > 0 :
@@ -200,12 +200,12 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
 
     if sms['DateTime'] is not None:
         filename = '%s-%s-%s.eml' % (
-                sms['SMS'][0]['Type'], 
-                sms['DateTime'].strftime("%Y%m%d%H%M%S"), 
+                sms['SMS'][0]['Type'],
+                sms['DateTime'].strftime("%Y%m%d%H%M%S"),
                 md5.new(sms['Text'].encode('utf-8')).hexdigest())
     else:
         filename = '%s-%s.eml' % (
-                sms['SMS'][0]['Type'], 
+                sms['SMS'][0]['Type'],
                 md5.new(sms['Text'].encode('utf-8')).hexdigest())
 
     # Add message ID
