@@ -24,7 +24,10 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import traceback
-import md5
+try:
+    from hashlib import md5 as md5
+except ImportError:
+    from md5 import new as md5
 import Wammu.ErrorLog
 import Wammu.ErrorMessage
 from Wammu.Locales import StrConv
@@ -52,7 +55,7 @@ def Handler(errtype, value, tback):
 
 
     # detection of same errors
-    tracehash = md5.new('%s,%s' % (textexc, texttrace)).hexdigest()
+    tracehash = md5('%s,%s' % (textexc, texttrace)).hexdigest()
     if tracehash in ERROR_HISTORY:
         print 'Same error already detected, not showing dialog!'
         print texttrace
@@ -66,13 +69,13 @@ def Handler(errtype, value, tback):
             if trace_line[0].rfind('Wammu') > -1:
                 lasttrace = trace_line
         traceidtext = '%s(%s):%s' % (
-                lasttrace[0][lasttrace[0].rfind('Wammu'):], 
-                lasttrace[2], 
+                lasttrace[0][lasttrace[0].rfind('Wammu'):],
+                lasttrace[2],
                 lasttrace[3])
-        traceid = md5.new(traceidtext).hexdigest()
+        traceid = md5(traceidtext).hexdigest()
         tracetext = '\n%s\n' % (
-                _('Before submiting please try searching for simmilar bugs on %s') 
-                % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n' 
+                _('Before submiting please try searching for simmilar bugs on %s')
+                % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n'
                     % traceid))
     except:
         traceid = 'N/A'
@@ -80,7 +83,7 @@ def Handler(errtype, value, tback):
 
     # unicode warning
     if errtype == UnicodeEncodeError or errtype == UnicodeDecodeError:
-        unicodewarning =  ('\n%s\n' % 
+        unicodewarning =  ('\n%s\n' %
                 _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.'))
     else:
         unicodewarning = ''
@@ -118,8 +121,8 @@ def Handler(errtype, value, tback):
             _('Unhandled exception appeared. If you want to help improving this program, please report this together with description how this situation has happened. Please report in english, otherwise you will be most likely told to translate you report to english later.'),
             _('Unhandled exception'),
             traceid = traceid, autolog = logname,
-            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % { 
-                    'traceback': StrConv(texttrace), 
+            exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % {
+                    'traceback': StrConv(texttrace),
                     'exception' : StrConv(textexc) }).ShowModal()
     except:
         print text
