@@ -43,7 +43,7 @@ def SMSToXML(cfg, sms, lookuplist = None):
 	'''
 
 
-	text = SmsTextFormat(cfg, sms['Text'])
+	text = SmsTextFormat(cfg, sms['Text'], doxml = True)
 
 	smsxml = "    <message>\n"
 

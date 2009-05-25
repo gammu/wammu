@@ -31,7 +31,7 @@ import re
 import xml.sax.saxutils
 from Wammu.Locales import UnicodeConv, HtmlStrConv, hgettext as _
 
-def SmsTextFormat(cfg, txt, dohtml = True):
+def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
     if cfg.Read('/Message/Format') == 'yes':
         ret = ''
         arr = txt.split(' ')
@@ -88,9 +88,12 @@ def SmsTextFormat(cfg, txt, dohtml = True):
                 ret += a + ' '
     else:
         ret = txt
-    if dohtml:
+    if dohtml or doxml:
         xmlsafe = xml.sax.saxutils.escape(ret)
-        return xmlsafe.replace('\n', '<br>')
+        if doxml:
+            return xmlsafe.replace('\n', '<br />')
+        else:
+            return xmlsafe.replace('\n', '<br>')
     else:
         return ret.replace('\n', ' ')
 
