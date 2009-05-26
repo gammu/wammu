@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-02-23 14:45+0100\n"
+"POT-Creation-Date: 2009-05-26 11:56+0200\n"
 "PO-Revision-Date: 2008-12-29 21:24+0200\n"
 "Last-Translator: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
@@ -605,7 +605,7 @@ msgstr "Съобщаване за програмна грешка"
 msgid "Save debug log as..."
 msgstr "Запазване на дневника с описанията на грешки като..."
 
-#: Wammu/Error.py:51
+#: Wammu/Error.py:54
 #, python-format
 msgid ""
 "Debug log was saved for phone communication, if this error appeared during "
@@ -613,21 +613,21 @@ msgid ""
 "bugreport. Debug log is saved in file %s."
 msgstr ""
 
-#: Wammu/Error.py:74
+#: Wammu/Error.py:77
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "Преди да изпратите, моля потърсете за подобни програмни грешки на %s"
 
-#: Wammu/Error.py:84
+#: Wammu/Error.py:87
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr ""
 
-#: Wammu/Error.py:100
+#: Wammu/Error.py:103
 msgid "Unhandled exception appeared."
 msgstr ""
 
-#: Wammu/Error.py:101
+#: Wammu/Error.py:104
 #, python-format
 msgid ""
 "If you want to help improving this program, please submit following "
@@ -636,7 +636,7 @@ msgid ""
 "english later."
 msgstr ""
 
-#: Wammu/Error.py:118
+#: Wammu/Error.py:121
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
 "please report this together with description how this situation has "
@@ -644,11 +644,11 @@ msgid ""
 "to translate you report to english later."
 msgstr ""
 
-#: Wammu/Error.py:119
+#: Wammu/Error.py:122
 msgid "Unhandled exception"
 msgstr ""
 
-#: Wammu/Error.py:121
+#: Wammu/Error.py:124
 #, python-format
 msgid ""
 "Traceback:\n"
@@ -978,7 +978,8 @@ msgid "&Synchronise time"
 msgstr "Синхронизиране на &времето"
 
 #: Wammu/Main.py:298
-msgid "Synchronise time in mobile with PC."
+#, fuzzy
+msgid "Synchronise time in phone with PC."
 msgstr "Синхронизиране на времето в телефона с това в компютъра."
 
 #: Wammu/Main.py:300
@@ -1800,17 +1801,17 @@ msgstr "Приемане"
 msgid "One moment please, disconnecting from phone..."
 msgstr "Един момент моля, прекъсване на връзката с телефона..."
 
-#: Wammu/MessageDisplay.py:107
+#: Wammu/MessageDisplay.py:110
 #, python-format
 msgid "Predefined animation number %d"
 msgstr "Предопределена анимация номер %d"
 
-#: Wammu/MessageDisplay.py:119
+#: Wammu/MessageDisplay.py:122
 #, python-format
 msgid "Unknown predefined sound #%d"
 msgstr "Непознат предопределен звук #%d"
 
-#: Wammu/MessageDisplay.py:162
+#: Wammu/MessageDisplay.py:165
 msgid ""
 "Some parts of this message were not decoded correctly, probably due to "
 "missing support for it in Gammu."
@@ -1966,9 +1967,9 @@ msgid "No phone has been found!"
 msgstr "Не е открит телефон"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
+"Model %(model)s (%(manufacturer)s) on %(port)s device using connection %"
 "(connection)s"
 msgstr ""
 "Модел %(model)s (%(manufacturer)s) на %(port)s с използване на връзката %"
@@ -1995,8 +1996,9 @@ msgid "Manual configuration"
 msgstr "Ръчна настройка"
 
 #: Wammu/PhoneWizard.py:279
-msgid "Port where phone is connected"
-msgstr "Порт, към който е свързан телефонът"
+#, fuzzy
+msgid "Device where phone is connected"
+msgstr "Устройство, където е свързан телефонът ви."
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2004,12 +2006,14 @@ msgid "Connection type"
 msgstr "Тип на връзката"
 
 #: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
-msgid "You need to select port which will be used."
+#, fuzzy
+msgid "You need to select device which will be used."
 msgstr "Трябва да изберете порт, който ще се използва."
 
 #: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
-msgid "No port selected!"
-msgstr "Не е избран порт!"
+#, fuzzy
+msgid "No device selected!"
+msgstr "Не е избран телефон!"
 
 #: Wammu/PhoneWizard.py:303
 msgid "You need to select connection type which will be used."
@@ -2938,8 +2942,8 @@ msgid "Saving messages to mailbox"
 msgstr "Запазване на съобщенията в пощенската кутия"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:255
-#: Wammu/SMSExport.py:296 Wammu/SMSExport.py:303 Wammu/SMSExport.py:320
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
+#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "Изнасянето е прекъснато"
@@ -2953,7 +2957,7 @@ msgstr "Създаването на файла %s се провали."
 msgid "Can not create file!"
 msgstr "Файлът не може да бъде създаден!"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
 #: Wammu/SMSXML.py:128
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3080,77 +3084,91 @@ msgstr ""
 msgid "Save password?"
 msgstr "Запазване на паролата?"
 
-#: Wammu/SMSExport.py:244
+#: Wammu/SMSExport.py:245
+msgid ""
+"Do you only want to back-up messages which are not yet on the IMAP server?"
+msgstr ""
+
+#: Wammu/SMSExport.py:246
+msgid "Back-up new messages only?"
+msgstr ""
+
+#: Wammu/SMSExport.py:250
 msgid "Listing folders on IMAP server..."
 msgstr "Прочитане на папките на на IMAP-сървъра..."
 
-#: Wammu/SMSExport.py:252
+#: Wammu/SMSExport.py:258
 #, fuzzy
 msgid "Can not list folders on server, bailing out."
 msgstr "Папките на сървъра не могат да се прочетат."
 
-#: Wammu/SMSExport.py:253
+#: Wammu/SMSExport.py:259
 msgid "Listing failed!"
 msgstr "Прочитането на списъка с папки се провали!"
 
-#: Wammu/SMSExport.py:277
+#: Wammu/SMSExport.py:283
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr ""
 "Моля изберете папка на сървъра %s, където ще се съхраняват съобщенията."
 
-#: Wammu/SMSExport.py:278
+#: Wammu/SMSExport.py:284
 msgid "Select folder"
 msgstr "Избиране на папка"
 
-#: Wammu/SMSExport.py:285
+#: Wammu/SMSExport.py:291
 msgid "Selecting folder on IMAP server..."
 msgstr "Избиране на папка на IMAP..."
 
-#: Wammu/SMSExport.py:293
+#: Wammu/SMSExport.py:299
 #, fuzzy, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "Папката %s на сървъра не може да бъде избрана."
 
-#: Wammu/SMSExport.py:294
+#: Wammu/SMSExport.py:300
 msgid "Selecting failed!"
 msgstr "Избирането се провали"
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:305
 msgid "Saving messages to IMAP"
 msgstr "Запазване на съобщенията на IMAP"
 
-#: Wammu/SMSExport.py:315
+#: Wammu/SMSExport.py:330
 #, fuzzy, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "Съобщението не може да бъде запазено в папката %s на сървъра."
 
-#: Wammu/SMSExport.py:316
+#: Wammu/SMSExport.py:331
 msgid "Saving failed!"
 msgstr "Запазването се провали!"
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
 msgid "IMAP server"
 msgstr "Сървър IMAP"
 
-#: Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:349
+#, fuzzy, python-format
+msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
+msgstr "Брой съобщения , изнесени в \"%(path)s\" (%(type)s): %(count)d"
+
+#: Wammu/SMSExport.py:353
 msgid "Where do you want to export emails created from your messages?"
 msgstr ""
 "Къде желаете да изнесете електронните писма, създадени от вашите съобщения?"
 
-#: Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:353
 msgid "Select export type"
 msgstr "Изберете тип на изнасянето"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "Mailbox file"
 msgstr "Файл на пощенската кутия"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "Maildir folder"
 msgstr "Пощенска папка"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "IMAP account"
 msgstr "профил IMAP"
 
@@ -3661,6 +3679,12 @@ msgstr "Мениджър на мобилни телефони"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Приложение за мобилни телефони - графичен интерфейс за Gammu"
+
+#~ msgid "Port where phone is connected"
+#~ msgstr "Порт, към който е свързан телефонът"
+
+#~ msgid "No port selected!"
+#~ msgstr "Не е избран порт!"
 
 #~ msgid "Phone port"
 #~ msgstr "Порт на телефона"

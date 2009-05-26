@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-02-23 14:45+0100\n"
+"POT-Creation-Date: 2009-05-26 11:56+0200\n"
 "PO-Revision-Date: 2009-01-27 15:02+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -604,7 +604,7 @@ msgstr "Nahlásit chybu"
 msgid "Save debug log as..."
 msgstr "Uložit ladicí hlášky jako..."
 
-#: Wammu/Error.py:51
+#: Wammu/Error.py:54
 #, python-format
 msgid ""
 "Debug log was saved for phone communication, if this error appeared during "
@@ -615,23 +615,23 @@ msgstr ""
 "nastala při komunikaci s telefonem připojte prosím tento log k hlášení "
 "chyby. Log je uložen v souboru %s."
 
-#: Wammu/Error.py:74
+#: Wammu/Error.py:77
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "Před odesláním prosím zkuste vyhledat podobné chyby na %s"
 
-#: Wammu/Error.py:84
+#: Wammu/Error.py:87
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr ""
 "Chyba souvisí s unicode, přečtě si prosím otázku 1 ve FAQ jak tento problém "
 "řešit."
 
-#: Wammu/Error.py:100
+#: Wammu/Error.py:103
 msgid "Unhandled exception appeared."
 msgstr "Vyskytla se nezachycená výjimka."
 
-#: Wammu/Error.py:101
+#: Wammu/Error.py:104
 #, python-format
 msgid ""
 "If you want to help improving this program, please submit following "
@@ -643,7 +643,7 @@ msgstr ""
 "popis jak k této situaci došlo na %s. Pro hlášení prosím použijte "
 "angličtinu, jinak budete pravděpodobně později požádáni o přeložení."
 
-#: Wammu/Error.py:118
+#: Wammu/Error.py:121
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
 "please report this together with description how this situation has "
@@ -655,11 +655,11 @@ msgstr ""
 "prosím použijte angličtinu, jinak budete pravděpodobně později požádáni o "
 "přeložení do ní."
 
-#: Wammu/Error.py:119
+#: Wammu/Error.py:122
 msgid "Unhandled exception"
 msgstr "Nezachycená výjimka"
 
-#: Wammu/Error.py:121
+#: Wammu/Error.py:124
 #, python-format
 msgid ""
 "Traceback:\n"
@@ -991,7 +991,8 @@ msgid "&Synchronise time"
 msgstr "&Synchronizovat čas"
 
 #: Wammu/Main.py:298
-msgid "Synchronise time in mobile with PC."
+#, fuzzy
+msgid "Synchronise time in phone with PC."
 msgstr "Nastavit čas v telefonu podle PC."
 
 #: Wammu/Main.py:300
@@ -1833,17 +1834,17 @@ msgstr "Přijmout"
 msgid "One moment please, disconnecting from phone..."
 msgstr "Chvilku strpení, odpojuji se od telefonu..."
 
-#: Wammu/MessageDisplay.py:107
+#: Wammu/MessageDisplay.py:110
 #, python-format
 msgid "Predefined animation number %d"
 msgstr "Předdefinovaná animace číslo %d"
 
-#: Wammu/MessageDisplay.py:119
+#: Wammu/MessageDisplay.py:122
 #, python-format
 msgid "Unknown predefined sound #%d"
 msgstr "Neznámý předdefinovaný zvuk #%d"
 
-#: Wammu/MessageDisplay.py:162
+#: Wammu/MessageDisplay.py:165
 msgid ""
 "Some parts of this message were not decoded correctly, probably due to "
 "missing support for it in Gammu."
@@ -1997,9 +1998,9 @@ msgid "No phone has been found!"
 msgstr "Žádný telefon nenalezen!"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
+"Model %(model)s (%(manufacturer)s) on %(port)s device using connection %"
 "(connection)s"
 msgstr ""
 "Model %(model)s (%(manufacturer)s) na portu %(port)s používající připojení %"
@@ -2026,8 +2027,9 @@ msgid "Manual configuration"
 msgstr "Ruční nastavení"
 
 #: Wammu/PhoneWizard.py:279
-msgid "Port where phone is connected"
-msgstr "Zařízení na kterém je připojen telefon"
+#, fuzzy
+msgid "Device where phone is connected"
+msgstr "Zařízení na kterém je připojen telefon."
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2035,12 +2037,14 @@ msgid "Connection type"
 msgstr "Typ připojení"
 
 #: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
-msgid "You need to select port which will be used."
+#, fuzzy
+msgid "You need to select device which will be used."
 msgstr "Musíte zvolit port, který bude použit."
 
 #: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
-msgid "No port selected!"
-msgstr "Nebyl vybrán žádný port!"
+#, fuzzy
+msgid "No device selected!"
+msgstr "Nebyl vybrán žádný telefon!"
 
 #: Wammu/PhoneWizard.py:303
 msgid "You need to select connection type which will be used."
@@ -3001,8 +3005,8 @@ msgid "Saving messages to mailbox"
 msgstr "Ukládám zprávy do mailboxu"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:255
-#: Wammu/SMSExport.py:296 Wammu/SMSExport.py:303 Wammu/SMSExport.py:320
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
+#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "Export přerušen"
@@ -3016,7 +3020,7 @@ msgstr "Vytváření souboru %s selhalo, končím."
 msgid "Can not create file!"
 msgstr "Nepodařilo se vytvořit soubor!"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
 #: Wammu/SMSXML.py:128
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3140,74 +3144,88 @@ msgstr ""
 msgid "Save password?"
 msgstr "Uložit heslo?"
 
-#: Wammu/SMSExport.py:244
+#: Wammu/SMSExport.py:245
+msgid ""
+"Do you only want to back-up messages which are not yet on the IMAP server?"
+msgstr ""
+
+#: Wammu/SMSExport.py:246
+msgid "Back-up new messages only?"
+msgstr ""
+
+#: Wammu/SMSExport.py:250
 msgid "Listing folders on IMAP server..."
 msgstr "Získávám seznam složek na IMAP serveru..."
 
-#: Wammu/SMSExport.py:252
+#: Wammu/SMSExport.py:258
 msgid "Can not list folders on server, bailing out."
 msgstr "Nepodařilo se získat seznam složek na serveru, končím."
 
-#: Wammu/SMSExport.py:253
+#: Wammu/SMSExport.py:259
 msgid "Listing failed!"
 msgstr "Vypisování selhalo!"
 
-#: Wammu/SMSExport.py:277
+#: Wammu/SMSExport.py:283
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr "Prosím vyberte složku ve které budou zprávy na serveru %s uloženy"
 
-#: Wammu/SMSExport.py:278
+#: Wammu/SMSExport.py:284
 msgid "Select folder"
 msgstr "Vyberte složku"
 
-#: Wammu/SMSExport.py:285
+#: Wammu/SMSExport.py:291
 msgid "Selecting folder on IMAP server..."
 msgstr "Vybírám složku na IMAP serveru..."
 
-#: Wammu/SMSExport.py:293
+#: Wammu/SMSExport.py:299
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "Nepodařilo se vybrat složku %s, končím."
 
-#: Wammu/SMSExport.py:294
+#: Wammu/SMSExport.py:300
 msgid "Selecting failed!"
 msgstr "Vybírání selhalo!"
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:305
 msgid "Saving messages to IMAP"
 msgstr "Ukládám zprávy na IMAP"
 
-#: Wammu/SMSExport.py:315
+#: Wammu/SMSExport.py:330
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "Nepodařilo se zapsat zprávu do složky %s na serveru, končím."
 
-#: Wammu/SMSExport.py:316
+#: Wammu/SMSExport.py:331
 msgid "Saving failed!"
 msgstr "Ukládání selhalo!"
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
 msgid "IMAP server"
 msgstr "IMAP server"
 
-#: Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:349
+#, fuzzy, python-format
+msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
+msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
+
+#: Wammu/SMSExport.py:353
 msgid "Where do you want to export emails created from your messages?"
 msgstr "Kam chcete uložit emaily vytvořené z vašich zpráv?"
 
-#: Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:353
 msgid "Select export type"
 msgstr "Vyberte typ exportu"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "Mailbox file"
 msgstr "Soubor mailboxu"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "Maildir folder"
 msgstr "Složka maildiru"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "IMAP account"
 msgstr "Účet IMAP"
 
@@ -3725,6 +3743,12 @@ msgstr "Správce mobilního telefonu"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Aplikace pro práci s mobilními telefony - grafické rozhaní pro Gammu"
+
+#~ msgid "Port where phone is connected"
+#~ msgstr "Zařízení na kterém je připojen telefon"
+
+#~ msgid "No port selected!"
+#~ msgstr "Nebyl vybrán žádný port!"
 
 #~ msgid "Phone port"
 #~ msgstr "Port telefonu"

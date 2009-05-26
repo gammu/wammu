@@ -295,7 +295,7 @@ class WammuFrame(wx.Frame):
         menu2.Append(201, _('&Connect'), _('Connect the device.'))
         menu2.Append(202, _('&Disconnect'), _('Disconnect the device.'))
         menu2.AppendSeparator()
-        menu2.Append(210, _('&Synchronise time'), _('Synchronise time in mobile with PC.'))
+        menu2.Append(210, _('&Synchronise time'), _('Synchronise time in phone with PC.'))
         menu2.AppendSeparator()
         menu2.Append(250, _('Send &file'), _('Send file to phone.'))
         # Add menu to the menu bar

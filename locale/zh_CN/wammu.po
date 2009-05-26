@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-02-23 14:45+0100\n"
+"POT-Creation-Date: 2009-05-26 11:56+0200\n"
 "PO-Revision-Date: 2007-08-30 10:14+0200\n"
 "Last-Translator: MA Gang <magang@gmail.com>\n"
 "Language-Team: none\n"
@@ -599,7 +599,7 @@ msgstr "报告错误"
 msgid "Save debug log as..."
 msgstr "保存调试日志到..."
 
-#: Wammu/Error.py:51
+#: Wammu/Error.py:54
 #, python-format
 msgid ""
 "Debug log was saved for phone communication, if this error appeared during "
@@ -609,21 +609,21 @@ msgstr ""
 "电脑和手机通信的调试日志已经保存，如果此条错误出现在电脑访问手机的时候，请把"
 "此调试日志附在错误报告中。调试日志保存在文件%s。"
 
-#: Wammu/Error.py:74
+#: Wammu/Error.py:77
 #, python-format
 msgid "Before submiting please try searching for simmilar bugs on %s"
 msgstr "在提交前请尝试查找关于%s的相似错误。"
 
-#: Wammu/Error.py:84
+#: Wammu/Error.py:87
 msgid ""
 "Unicode encoding error appeared, see question 1 in FAQ, how to solve this."
 msgstr "出现Unicode编码错误。要解决此问题，请查看FAQ之问题1。"
 
-#: Wammu/Error.py:100
+#: Wammu/Error.py:103
 msgid "Unhandled exception appeared."
 msgstr "出现Unhandled exception。"
 
-#: Wammu/Error.py:101
+#: Wammu/Error.py:104
 #, python-format
 msgid ""
 "If you want to help improving this program, please submit following "
@@ -634,7 +634,7 @@ msgstr ""
 "如果你愿意帮助改善此程序，请提交关于%s如何发生的信息和描述。请用英文报告，否"
 "则很可能你要被告知需要翻译你的报告为英文。"
 
-#: Wammu/Error.py:118
+#: Wammu/Error.py:121
 msgid ""
 "Unhandled exception appeared. If you want to help improving this program, "
 "please report this together with description how this situation has "
@@ -642,11 +642,11 @@ msgid ""
 "to translate you report to english later."
 msgstr ""
 
-#: Wammu/Error.py:119
+#: Wammu/Error.py:122
 msgid "Unhandled exception"
 msgstr ""
 
-#: Wammu/Error.py:121
+#: Wammu/Error.py:124
 #, python-format
 msgid ""
 "Traceback:\n"
@@ -986,7 +986,8 @@ msgstr "同步时间(&S)"
 
 #  msgid "Synchronises time in mobile with PC"
 #: Wammu/Main.py:298
-msgid "Synchronise time in mobile with PC."
+#, fuzzy
+msgid "Synchronise time in phone with PC."
 msgstr "同电脑的时间去校准手机上的时间"
 
 #: Wammu/Main.py:300
@@ -1817,17 +1818,17 @@ msgstr ""
 msgid "One moment please, disconnecting from phone..."
 msgstr "请稍等，正在断开手机..."
 
-#: Wammu/MessageDisplay.py:107
+#: Wammu/MessageDisplay.py:110
 #, python-format
 msgid "Predefined animation number %d"
 msgstr ""
 
-#: Wammu/MessageDisplay.py:119
+#: Wammu/MessageDisplay.py:122
 #, python-format
 msgid "Unknown predefined sound #%d"
 msgstr ""
 
-#: Wammu/MessageDisplay.py:162
+#: Wammu/MessageDisplay.py:165
 msgid ""
 "Some parts of this message were not decoded correctly, probably due to "
 "missing support for it in Gammu."
@@ -1981,7 +1982,7 @@ msgstr ""
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
 #, python-format
 msgid ""
-"Model %(model)s (%(manufacturer)s) on %(port)s port using connection %"
+"Model %(model)s (%(manufacturer)s) on %(port)s device using connection %"
 "(connection)s"
 msgstr ""
 
@@ -2006,8 +2007,9 @@ msgid "Manual configuration"
 msgstr "手动配置"
 
 #: Wammu/PhoneWizard.py:279
-msgid "Port where phone is connected"
-msgstr "手机使用的端口"
+#, fuzzy
+msgid "Device where phone is connected"
+msgstr "设备,即你手机连接到位置"
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2015,12 +2017,14 @@ msgid "Connection type"
 msgstr "连接类型"
 
 #: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
-msgid "You need to select port which will be used."
+#, fuzzy
+msgid "You need to select device which will be used."
 msgstr "你需要选择使用的端口。"
 
 #: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
-msgid "No port selected!"
-msgstr "没有端口被选择！"
+#, fuzzy
+msgid "No device selected!"
+msgstr "没有选择手机！"
 
 #: Wammu/PhoneWizard.py:303
 msgid "You need to select connection type which will be used."
@@ -2918,8 +2922,8 @@ msgid "Saving messages to mailbox"
 msgstr "正在保存消息到mailbox"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:255
-#: Wammu/SMSExport.py:296 Wammu/SMSExport.py:303 Wammu/SMSExport.py:320
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
+#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "导出终止"
@@ -2933,7 +2937,7 @@ msgstr "创建文件%s失败，放弃。"
 msgid "Can not create file!"
 msgstr "无法创建文件！"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
 #: Wammu/SMSXML.py:128
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3052,74 +3056,88 @@ msgstr "连接成功，你要程序记住密码吗？这稍微有些不安全。
 msgid "Save password?"
 msgstr "保存密码？"
 
-#: Wammu/SMSExport.py:244
+#: Wammu/SMSExport.py:245
+msgid ""
+"Do you only want to back-up messages which are not yet on the IMAP server?"
+msgstr ""
+
+#: Wammu/SMSExport.py:246
+msgid "Back-up new messages only?"
+msgstr ""
+
+#: Wammu/SMSExport.py:250
 msgid "Listing folders on IMAP server..."
 msgstr "正在列出IMAP服务器上的文件夹..."
 
-#: Wammu/SMSExport.py:252
+#: Wammu/SMSExport.py:258
 msgid "Can not list folders on server, bailing out."
 msgstr "无法列出服务器上的文件夹，放弃。"
 
-#: Wammu/SMSExport.py:253
+#: Wammu/SMSExport.py:259
 msgid "Listing failed!"
 msgstr "列出失败！"
 
-#: Wammu/SMSExport.py:277
+#: Wammu/SMSExport.py:283
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr "请选择服务器%s上将用于存储消息的文件夹"
 
-#: Wammu/SMSExport.py:278
+#: Wammu/SMSExport.py:284
 msgid "Select folder"
 msgstr "选择文件夹"
 
-#: Wammu/SMSExport.py:285
+#: Wammu/SMSExport.py:291
 msgid "Selecting folder on IMAP server..."
 msgstr "正在选择IMAP服务器上的文件夹..."
 
-#: Wammu/SMSExport.py:293
+#: Wammu/SMSExport.py:299
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "无法选择服务器上的文件夹%s，放弃。"
 
-#: Wammu/SMSExport.py:294
+#: Wammu/SMSExport.py:300
 msgid "Selecting failed!"
 msgstr "选择失败！"
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:305
 msgid "Saving messages to IMAP"
 msgstr "正在保存消息到IMAP"
 
-#: Wammu/SMSExport.py:315
+#: Wammu/SMSExport.py:330
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "无法保存消息到服务器上的文件夹%s，放弃。"
 
-#: Wammu/SMSExport.py:316
+#: Wammu/SMSExport.py:331
 msgid "Saving failed!"
 msgstr "保存失败！"
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
 msgid "IMAP server"
 msgstr "IMAP服务器"
 
-#: Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:349
+#, fuzzy, python-format
+msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
+msgstr "%(count)d条消息已导出到\"%(path)s\" (%(type)s)"
+
+#: Wammu/SMSExport.py:353
 msgid "Where do you want to export emails created from your messages?"
 msgstr "你要把从消息创建的电子邮件导出到哪里？"
 
-#: Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:353
 msgid "Select export type"
 msgstr "选择导出类型"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "Mailbox file"
 msgstr "Mailbox文件"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "Maildir folder"
 msgstr "Maildir文件夹"
 
-#: Wammu/SMSExport.py:336
+#: Wammu/SMSExport.py:354
 msgid "IMAP account"
 msgstr "IMAP账户"
 
@@ -3620,6 +3638,12 @@ msgstr ""
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr ""
+
+#~ msgid "Port where phone is connected"
+#~ msgstr "手机使用的端口"
+
+#~ msgid "No port selected!"
+#~ msgstr "没有端口被选择！"
 
 #~ msgid "Phone port"
 #~ msgstr "手机端口"

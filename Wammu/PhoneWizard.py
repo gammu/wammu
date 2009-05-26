@@ -233,7 +233,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             choices = []
             for phone in self.results:
                 choices.append(
-                    _('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+                    _('Model %(model)s (%(manufacturer)s) on %(port)s device using connection %(connection)s') %
                     {
                         'model': phone[2][0],
                         'manufacturer': phone[3],
@@ -257,7 +257,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             self.parent.settings.SetGammuDriver(config[1])
             self.edit.AppendText(_('Following phone will be used:') + '\n')
             self.edit.AppendText(
-                _('Model %(model)s (%(manufacturer)s) on %(port)s port using connection %(connection)s') %
+                _('Model %(model)s (%(manufacturer)s) on %(port)s device using connection %(connection)s') %
                 {
                     'model': config[2][0],
                     'manufacturer': config[3],
@@ -276,7 +276,7 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
         Wammu.Wizard.MultiInputPage.__init__(self, parent,
                 _('Manual configuration'),
                 [
-                    _('Port where phone is connected') + ':',
+                    _('Device where phone is connected') + ':',
                     _('Connection type') + ':',
                 ],
                 [
@@ -294,8 +294,8 @@ class ManualPage(Wammu.Wizard.MultiInputPage):
         if evt.GetDirection():
             if self.edits[0].GetValue() == '':
                 wx.MessageDialog(self,
-                    _('You need to select port which will be used.'),
-                    _('No port selected!'),
+                    _('You need to select device which will be used.'),
+                    _('No device selected!'),
                     wx.OK | wx.ICON_ERROR).ShowModal()
                 return True
             if self.edits[1].GetValue() == '':
@@ -326,8 +326,8 @@ class PhonePortPage(Wammu.Wizard.InputPage):
     def Blocked(self, evt):
         if evt.GetDirection() and self.edit.GetValue() == '':
             wx.MessageDialog(self,
-                _('You need to select port which will be used.'),
-                _('No port selected!'),
+                _('You need to select device which will be used.'),
+                _('No device selected!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
             return True
         return False
