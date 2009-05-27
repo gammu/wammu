@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-05-27 10:21+0200\n"
-"PO-Revision-Date: 2009-05-26 11:59+0200\n"
+"PO-Revision-Date: 2009-05-27 10:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3147,9 +3147,11 @@ msgid "IMAP server"
 msgstr "IMAP server"
 
 #: Wammu/SMSExport.py:329
-#, fuzzy, python-format
+#, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
+msgstr ""
+"%(new)d nových zpráv z celkových %(count)d bylo uloženo do \"%(path)s\" (%"
+"(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
@@ -3172,29 +3174,25 @@ msgid "IMAP account"
 msgstr "Účet IMAP"
 
 #: Wammu/SMSExport.py:422
-#, fuzzy
 msgid "IMAP Settings"
-msgstr "Nastavení"
+msgstr "Nastavení IMAPu"
 
 #: Wammu/SMSExport.py:424
-#, fuzzy
 msgid "Connection Details"
-msgstr "Zkouška připojení"
+msgstr "Podrobnosti připojení"
 
 #: Wammu/SMSExport.py:425
 msgid "Preferences"
-msgstr ""
+msgstr "Nastavení"
 
 # type: SS
 #: Wammu/SMSExport.py:426
-#, fuzzy
 msgid "Message State Selection"
-msgstr "Filtrování zpráv"
+msgstr "Výběr podle stavu zpráv"
 
 #: Wammu/SMSExport.py:427
-#, fuzzy
 msgid "From Address"
-msgstr "Adresa"
+msgstr "Adresa odesílatele"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
@@ -3202,9 +3200,8 @@ msgstr "Server"
 
 # type: TP
 #: Wammu/SMSExport.py:431
-#, fuzzy
 msgid "Port"
-msgstr "B<Port>"
+msgstr "Port"
 
 #: Wammu/SMSExport.py:433
 msgid "Login"
@@ -3216,52 +3213,51 @@ msgstr "Heslo"
 
 #: Wammu/SMSExport.py:437
 msgid "Remember password (insecure)"
-msgstr ""
+msgstr "Zapamatovat si heslo (nebezpečné)"
 
 #: Wammu/SMSExport.py:438
-#, fuzzy
 msgid "Use SSL"
-msgstr "Použít SSL?"
+msgstr "Použít SSL"
 
 #: Wammu/SMSExport.py:439
 msgid "Only back-up new messages"
-msgstr ""
+msgstr "Zálohovat jen nové zprávy"
 
 #: Wammu/SMSExport.py:550
 #, python-format
 msgid "%d. From Address invalid\n"
-msgstr ""
+msgstr "%d. Adresa odesílatele je chybná\n"
 
 #: Wammu/SMSExport.py:553
-#, fuzzy, python-format
+#, python-format
 msgid "%d. Server incomplete\n"
-msgstr "Jméno serveru"
+msgstr "%d. Chybně zadané jméno serveru\n"
 
 #: Wammu/SMSExport.py:556
 #, python-format
 msgid "%d. Port invalid\n"
-msgstr ""
+msgstr "%d. Chybně zadaný port\n"
 
 #: Wammu/SMSExport.py:559
 #, python-format
 msgid "%d. Login incomplete\n"
-msgstr ""
+msgstr "%d. Chybně zadané jméno uživatele\n"
 
 #: Wammu/SMSExport.py:562
 #, python-format
 msgid "%d. Password incomplete\n"
-msgstr ""
+msgstr "%d. Chybně zadané heslo\n"
 
 #: Wammu/SMSExport.py:568
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Nebyly vybrány zprávy k zálohování. Prosím zvolte aspoň jeden stav zpráv."
 
 #: Wammu/SMSExport.py:573
-#, fuzzy
 msgid "Incomplete"
-msgstr "Hotovo"
+msgstr "Chybné údaje"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
