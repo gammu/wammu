@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-05-26 11:56+0200\n"
+"POT-Creation-Date: 2009-05-27 10:21+0200\n"
 "PO-Revision-Date: 2009-01-27 20:25+0100\n"
 "Last-Translator: Paweł Kuźniar <kuzniarpawel@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -289,7 +289,7 @@ msgstr "Raport dostarczenia"
 msgid "Check to request delivery report for message."
 msgstr "Zaznacz, jeśli chcesz otrzymać raport o doręczeniu wiadomości."
 
-#: Wammu/Composer.py:400 Wammu/Main.py:133
+#: Wammu/Composer.py:400 Wammu/Main.py:133 Wammu/SMSExport.py:441
 msgid "Sent"
 msgstr "Wysłane"
 
@@ -847,7 +847,7 @@ msgstr "Wiadomości"
 msgid "All Messages"
 msgstr "Wszystkie Wiadomości"
 
-#: Wammu/Main.py:131
+#: Wammu/Main.py:131 Wammu/SMSExport.py:440
 msgid "Read"
 msgstr "Przeczytane"
 
@@ -855,7 +855,7 @@ msgstr "Przeczytane"
 msgid "Read Messages"
 msgstr "Przeczytane wiadomości"
 
-#: Wammu/Main.py:132
+#: Wammu/Main.py:132 Wammu/SMSExport.py:442
 msgid "Unread"
 msgstr "Nieprzeczytane"
 
@@ -867,7 +867,7 @@ msgstr "Nieprzeczytane wiadomości"
 msgid "Sent Messages"
 msgstr "Wysłane wiadomości"
 
-#: Wammu/Main.py:134
+#: Wammu/Main.py:134 Wammu/SMSExport.py:443
 msgid "Unsent"
 msgstr "Niewysłane"
 
@@ -3021,8 +3021,8 @@ msgid "Saving messages to mailbox"
 msgstr "Zapisywanie wiadomości do Skrzynki Odbiorczej"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
-#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
+#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "Eksport przerwany"
@@ -3036,7 +3036,7 @@ msgstr "Stworzenie nowego pliku %s nie powiodło się."
 msgid "Can not create file!"
 msgstr "Problem z utworzeniem pliku!"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:128
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3100,153 +3100,185 @@ msgstr "Plik istnieje!"
 msgid "maildir"
 msgstr "katalog poczty"
 
-#: Wammu/SMSExport.py:177
-msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr ""
-"Czy chcesz użyć szyfrowania SSL podczas wysyłania wadomości poprzez serwer "
-"IMAP?"
-
-#: Wammu/SMSExport.py:178
-msgid "Use SSL?"
-msgstr "Użyć SSL?"
-
-#: Wammu/SMSExport.py:184
-msgid "Please enter server name"
-msgstr "Proszę podać nazwę serwera"
-
-#: Wammu/SMSExport.py:185
-msgid "Server name"
-msgstr "Nazwa serwera"
-
-#: Wammu/SMSExport.py:194
-#, python-format
-msgid "Please enter login on server %s"
-msgstr "Wpisz login na serwer %s"
-
-#: Wammu/SMSExport.py:195
-msgid "Login"
-msgstr "Login"
-
-#: Wammu/SMSExport.py:208
-#, python-format
-msgid "Please enter password for %(login)s@%(server)s"
-msgstr "Podaj hasło dla %(login)s@%(server)s"
-
-#: Wammu/SMSExport.py:209
-msgid "Password"
-msgstr "Hasło"
-
-#: Wammu/SMSExport.py:215
+#: Wammu/SMSExport.py:181
 msgid "Connecting to IMAP server..."
 msgstr "Łączy się z serwerem IMAP..."
 
-#: Wammu/SMSExport.py:231
+#: Wammu/SMSExport.py:197
 msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
 msgstr ""
 "Problem z logowaniem. Prawdopodobnie podano zły login. Chcesz powtórzyć?"
 
-#: Wammu/SMSExport.py:232
+#: Wammu/SMSExport.py:198
 msgid "Login failed!"
 msgstr "Logowanie nie powiodło się!"
 
-#: Wammu/SMSExport.py:238
-msgid ""
-"Connection suceeded, do you want to remember password? This is a bit "
-"insecure."
-msgstr ""
-"Połączenie powiodło się. Czy chcesz zapamiętać hasło? Jest to potencjalnie "
-"niebezpieczne."
-
-#: Wammu/SMSExport.py:239
-msgid "Save password?"
-msgstr "Zapamiętać hasło?"
-
-#: Wammu/SMSExport.py:245
-msgid ""
-"Do you only want to back-up messages which are not yet on the IMAP server?"
-msgstr ""
-
-#: Wammu/SMSExport.py:246
-msgid "Back-up new messages only?"
-msgstr ""
-
-#: Wammu/SMSExport.py:250
+#: Wammu/SMSExport.py:202
 msgid "Listing folders on IMAP server..."
 msgstr "Wylistowanie katalogów na serwerze IMAP..."
 
-#: Wammu/SMSExport.py:258
+#: Wammu/SMSExport.py:210
 msgid "Can not list folders on server, bailing out."
 msgstr "Problem z wylistowaniem katalogów na serwerze."
 
-#: Wammu/SMSExport.py:259
+#: Wammu/SMSExport.py:211
 msgid "Listing failed!"
 msgstr "Wylistowanie nie powiodło się!"
 
-#: Wammu/SMSExport.py:283
+#: Wammu/SMSExport.py:243
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr "Proszę wybrać katalog na serwerze %s gdzie będą zapisywane wiadomości"
 
-#: Wammu/SMSExport.py:284
+#: Wammu/SMSExport.py:244
 msgid "Select folder"
 msgstr "Wybierz folder"
 
-#: Wammu/SMSExport.py:291
+#: Wammu/SMSExport.py:259
 msgid "Selecting folder on IMAP server..."
 msgstr "Wybieranie folderu na serwerze IMAP...."
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:267
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "Nie można wybrać katalogu %s na serwerze, odrzucono."
 
-#: Wammu/SMSExport.py:300
+#: Wammu/SMSExport.py:268
 msgid "Selecting failed!"
 msgstr "Wybór nie powiódł się!"
 
-#: Wammu/SMSExport.py:305
+#: Wammu/SMSExport.py:283
 msgid "Saving messages to IMAP"
 msgstr "Zapisuję wiadomości do IMAP"
 
-#: Wammu/SMSExport.py:330
+#: Wammu/SMSExport.py:310
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "Nie można zapisać wiadomości do katalogu %s na serweze."
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:311
 msgid "Saving failed!"
 msgstr "Zapisywanie nieudane!"
 
-#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:327 Wammu/SMSExport.py:329
 msgid "IMAP server"
 msgstr "Serwer IMAP"
 
-#: Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:329
 #, fuzzy, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d wiadomości wyeksportowanych do \"%(path)s\" (%(type)s)"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
 msgstr "Dokąd eksportować emalie utworzone z wiadomości?"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Select export type"
 msgstr "Wybierz ty eksportu"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Mailbox file"
 msgstr "Plik skrzynki pocztowej"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Maildir folder"
 msgstr "Katalog poczty"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "IMAP account"
 msgstr "Konto IMAP"
+
+#: Wammu/SMSExport.py:422
+#, fuzzy
+msgid "IMAP Settings"
+msgstr "Ustawienia"
+
+#: Wammu/SMSExport.py:424
+#, fuzzy
+msgid "Connection Details"
+msgstr "Test połączenia"
+
+#: Wammu/SMSExport.py:425
+msgid "Preferences"
+msgstr ""
+
+#: Wammu/SMSExport.py:426
+msgid "Message State Selection"
+msgstr ""
+
+#: Wammu/SMSExport.py:427
+#, fuzzy
+msgid "From Address"
+msgstr "Dodaję \"%s\""
+
+#: Wammu/SMSExport.py:429
+msgid "Server"
+msgstr ""
+
+#: Wammu/SMSExport.py:431
+#, fuzzy
+msgid "Port"
+msgstr "Priorytet"
+
+#: Wammu/SMSExport.py:433
+msgid "Login"
+msgstr "Login"
+
+#: Wammu/SMSExport.py:435
+msgid "Password"
+msgstr "Hasło"
+
+#: Wammu/SMSExport.py:437
+msgid "Remember password (insecure)"
+msgstr ""
+
+#: Wammu/SMSExport.py:438
+#, fuzzy
+msgid "Use SSL"
+msgstr "Użyć SSL?"
+
+#: Wammu/SMSExport.py:439
+msgid "Only back-up new messages"
+msgstr ""
+
+#: Wammu/SMSExport.py:550
+#, python-format
+msgid "%d. From Address invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:553
+#, fuzzy, python-format
+msgid "%d. Server incomplete\n"
+msgstr "Nazwa serwera"
+
+#: Wammu/SMSExport.py:556
+#, python-format
+msgid "%d. Port invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:559
+#, python-format
+msgid "%d. Login incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:562
+#, python-format
+msgid "%d. Password incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:568
+#, python-format
+msgid ""
+"%d. No messages to back-up selected. Please tick at least one of the states."
+msgstr ""
+
+#: Wammu/SMSExport.py:573
+#, fuzzy
+msgid "Incomplete"
+msgstr "Ukończono"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
@@ -3761,6 +3793,30 @@ msgstr "Menedżer Telefonów Komórkowych"
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr ""
 "Aplikacja do obsługi telefonów komórkowych - nakładka graficzna dla Gammu"
+
+#~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
+#~ msgstr ""
+#~ "Czy chcesz użyć szyfrowania SSL podczas wysyłania wadomości poprzez "
+#~ "serwer IMAP?"
+
+#~ msgid "Please enter server name"
+#~ msgstr "Proszę podać nazwę serwera"
+
+#~ msgid "Please enter login on server %s"
+#~ msgstr "Wpisz login na serwer %s"
+
+#~ msgid "Please enter password for %(login)s@%(server)s"
+#~ msgstr "Podaj hasło dla %(login)s@%(server)s"
+
+#~ msgid ""
+#~ "Connection suceeded, do you want to remember password? This is a bit "
+#~ "insecure."
+#~ msgstr ""
+#~ "Połączenie powiodło się. Czy chcesz zapamiętać hasło? Jest to "
+#~ "potencjalnie niebezpieczne."
+
+#~ msgid "Save password?"
+#~ msgstr "Zapamiętać hasło?"
 
 #~ msgid "Port where phone is connected"
 #~ msgstr "Port, gdzie twój telefon jest podłączony"

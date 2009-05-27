@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-05-26 11:56+0200\n"
+"POT-Creation-Date: 2009-05-27 10:21+0200\n"
 "PO-Revision-Date: 2009-05-26 11:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -281,7 +281,7 @@ msgstr "Potvrzení o doručení"
 msgid "Check to request delivery report for message."
 msgstr "Zaškrtněte pro požadování potvrzení o doručení pro zprávu."
 
-#: Wammu/Composer.py:400 Wammu/Main.py:133
+#: Wammu/Composer.py:400 Wammu/Main.py:133 Wammu/SMSExport.py:441
 msgid "Sent"
 msgstr "Odeslaná"
 
@@ -837,7 +837,7 @@ msgstr "Zprávy"
 msgid "All Messages"
 msgstr "Všechny zprávy"
 
-#: Wammu/Main.py:131
+#: Wammu/Main.py:131 Wammu/SMSExport.py:440
 msgid "Read"
 msgstr "Přečtené"
 
@@ -845,7 +845,7 @@ msgstr "Přečtené"
 msgid "Read Messages"
 msgstr "Přečtené zprávy"
 
-#: Wammu/Main.py:132
+#: Wammu/Main.py:132 Wammu/SMSExport.py:442
 msgid "Unread"
 msgstr "Nepřečtené"
 
@@ -857,7 +857,7 @@ msgstr "Nepřečtené zprávy"
 msgid "Sent Messages"
 msgstr "Odeslané zprávy"
 
-#: Wammu/Main.py:134
+#: Wammu/Main.py:134 Wammu/SMSExport.py:443
 msgid "Unsent"
 msgstr "Neodeslané"
 
@@ -3001,8 +3001,8 @@ msgid "Saving messages to mailbox"
 msgstr "Ukládám zprávy do mailboxu"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
-#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
+#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "Export přerušen"
@@ -3016,7 +3016,7 @@ msgstr "Vytváření souboru %s selhalo, končím."
 msgid "Can not create file!"
 msgstr "Nepodařilo se vytvořit soubor!"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:128
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3079,45 +3079,11 @@ msgstr "Soubor již existuje!"
 msgid "maildir"
 msgstr "maildir"
 
-#: Wammu/SMSExport.py:177
-msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr "Přejete si pro komunikaci s IMAP serverem použít SSL?"
-
-#: Wammu/SMSExport.py:178
-msgid "Use SSL?"
-msgstr "Použít SSL?"
-
-#: Wammu/SMSExport.py:184
-msgid "Please enter server name"
-msgstr "Prosím zadejte jméno serveru"
-
-#: Wammu/SMSExport.py:185
-msgid "Server name"
-msgstr "Jméno serveru"
-
-#: Wammu/SMSExport.py:194
-#, python-format
-msgid "Please enter login on server %s"
-msgstr "Prosím zadejte uživatelské jméno na server %s"
-
-#: Wammu/SMSExport.py:195
-msgid "Login"
-msgstr "Uživatelské jméno"
-
-#: Wammu/SMSExport.py:208
-#, python-format
-msgid "Please enter password for %(login)s@%(server)s"
-msgstr "Prosím zadejte heslo pro %(login)s@%(server)s"
-
-#: Wammu/SMSExport.py:209
-msgid "Password"
-msgstr "Heslo"
-
-#: Wammu/SMSExport.py:215
+#: Wammu/SMSExport.py:181
 msgid "Connecting to IMAP server..."
 msgstr "Připojuji se na IMAP server..."
 
-#: Wammu/SMSExport.py:231
+#: Wammu/SMSExport.py:197
 msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
@@ -3125,105 +3091,177 @@ msgstr ""
 "Nepodařilo se přihlásit, pravděpodobně jste zadali špatné přihlašovací "
 "informace. Chcete to zkusit znovu?"
 
-#: Wammu/SMSExport.py:232
+#: Wammu/SMSExport.py:198
 msgid "Login failed!"
 msgstr "Přihlášení selhalo!"
 
-#: Wammu/SMSExport.py:238
-msgid ""
-"Connection suceeded, do you want to remember password? This is a bit "
-"insecure."
-msgstr ""
-"Připojení se podařilo, přejete si uložit heslo? Toto není zrovna bezpečné."
-
-#: Wammu/SMSExport.py:239
-msgid "Save password?"
-msgstr "Uložit heslo?"
-
-#: Wammu/SMSExport.py:245
-msgid ""
-"Do you only want to back-up messages which are not yet on the IMAP server?"
-msgstr ""
-
-#: Wammu/SMSExport.py:246
-msgid "Back-up new messages only?"
-msgstr ""
-
-#: Wammu/SMSExport.py:250
+#: Wammu/SMSExport.py:202
 msgid "Listing folders on IMAP server..."
 msgstr "Získávám seznam složek na IMAP serveru..."
 
-#: Wammu/SMSExport.py:258
+#: Wammu/SMSExport.py:210
 msgid "Can not list folders on server, bailing out."
 msgstr "Nepodařilo se získat seznam složek na serveru, končím."
 
-#: Wammu/SMSExport.py:259
+#: Wammu/SMSExport.py:211
 msgid "Listing failed!"
 msgstr "Vypisování selhalo!"
 
-#: Wammu/SMSExport.py:283
+#: Wammu/SMSExport.py:243
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr "Prosím vyberte složku ve které budou zprávy na serveru %s uloženy"
 
-#: Wammu/SMSExport.py:284
+#: Wammu/SMSExport.py:244
 msgid "Select folder"
 msgstr "Vyberte složku"
 
-#: Wammu/SMSExport.py:291
+#: Wammu/SMSExport.py:259
 msgid "Selecting folder on IMAP server..."
 msgstr "Vybírám složku na IMAP serveru..."
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:267
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "Nepodařilo se vybrat složku %s, končím."
 
-#: Wammu/SMSExport.py:300
+#: Wammu/SMSExport.py:268
 msgid "Selecting failed!"
 msgstr "Vybírání selhalo!"
 
-#: Wammu/SMSExport.py:305
+#: Wammu/SMSExport.py:283
 msgid "Saving messages to IMAP"
 msgstr "Ukládám zprávy na IMAP"
 
-#: Wammu/SMSExport.py:330
+#: Wammu/SMSExport.py:310
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "Nepodařilo se zapsat zprávu do složky %s na serveru, končím."
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:311
 msgid "Saving failed!"
 msgstr "Ukládání selhalo!"
 
-#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:327 Wammu/SMSExport.py:329
 msgid "IMAP server"
 msgstr "IMAP server"
 
-#: Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:329
 #, fuzzy, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d zpráv uloženo do \"%(path)s\" (%(type)s)"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
 msgstr "Kam chcete uložit emaily vytvořené z vašich zpráv?"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Select export type"
 msgstr "Vyberte typ exportu"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Mailbox file"
 msgstr "Soubor mailboxu"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Maildir folder"
 msgstr "Složka maildiru"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "IMAP account"
 msgstr "Účet IMAP"
+
+#: Wammu/SMSExport.py:422
+#, fuzzy
+msgid "IMAP Settings"
+msgstr "Nastavení"
+
+#: Wammu/SMSExport.py:424
+#, fuzzy
+msgid "Connection Details"
+msgstr "Zkouška připojení"
+
+#: Wammu/SMSExport.py:425
+msgid "Preferences"
+msgstr ""
+
+# type: SS
+#: Wammu/SMSExport.py:426
+#, fuzzy
+msgid "Message State Selection"
+msgstr "Filtrování zpráv"
+
+#: Wammu/SMSExport.py:427
+#, fuzzy
+msgid "From Address"
+msgstr "Adresa"
+
+#: Wammu/SMSExport.py:429
+msgid "Server"
+msgstr "Server"
+
+# type: TP
+#: Wammu/SMSExport.py:431
+#, fuzzy
+msgid "Port"
+msgstr "B<Port>"
+
+#: Wammu/SMSExport.py:433
+msgid "Login"
+msgstr "Uživatelské jméno"
+
+#: Wammu/SMSExport.py:435
+msgid "Password"
+msgstr "Heslo"
+
+#: Wammu/SMSExport.py:437
+msgid "Remember password (insecure)"
+msgstr ""
+
+#: Wammu/SMSExport.py:438
+#, fuzzy
+msgid "Use SSL"
+msgstr "Použít SSL?"
+
+#: Wammu/SMSExport.py:439
+msgid "Only back-up new messages"
+msgstr ""
+
+#: Wammu/SMSExport.py:550
+#, python-format
+msgid "%d. From Address invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:553
+#, fuzzy, python-format
+msgid "%d. Server incomplete\n"
+msgstr "Jméno serveru"
+
+#: Wammu/SMSExport.py:556
+#, python-format
+msgid "%d. Port invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:559
+#, python-format
+msgid "%d. Login incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:562
+#, python-format
+msgid "%d. Password incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:568
+#, python-format
+msgid ""
+"%d. No messages to back-up selected. Please tick at least one of the states."
+msgstr ""
+
+#: Wammu/SMSExport.py:573
+#, fuzzy
+msgid "Incomplete"
+msgstr "Hotovo"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
@@ -3739,6 +3777,27 @@ msgstr "Správce mobilního telefonu"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Aplikace pro práci s mobilními telefony - grafické rozhaní pro Gammu"
+
+#~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
+#~ msgstr "Přejete si pro komunikaci s IMAP serverem použít SSL?"
+
+#~ msgid "Please enter server name"
+#~ msgstr "Prosím zadejte jméno serveru"
+
+#~ msgid "Please enter login on server %s"
+#~ msgstr "Prosím zadejte uživatelské jméno na server %s"
+
+#~ msgid "Please enter password for %(login)s@%(server)s"
+#~ msgstr "Prosím zadejte heslo pro %(login)s@%(server)s"
+
+#~ msgid ""
+#~ "Connection suceeded, do you want to remember password? This is a bit "
+#~ "insecure."
+#~ msgstr ""
+#~ "Připojení se podařilo, přejete si uložit heslo? Toto není zrovna bezpečné."
+
+#~ msgid "Save password?"
+#~ msgstr "Uložit heslo?"
 
 #~ msgid "Port where phone is connected"
 #~ msgstr "Zařízení na kterém je připojen telefon"

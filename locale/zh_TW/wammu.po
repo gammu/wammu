@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-05-26 11:56+0200\n"
+"POT-Creation-Date: 2009-05-27 10:21+0200\n"
 "PO-Revision-Date: 2008-04-23 10:04+0200\n"
 "Last-Translator: Accord Tsai <accordtsai@gmail.com>\n"
 "Language-Team: none\n"
@@ -280,7 +280,7 @@ msgstr "發送報告"
 msgid "Check to request delivery report for message."
 msgstr "勾選此項以獲得關於簡訊發送情況的報告"
 
-#: Wammu/Composer.py:400 Wammu/Main.py:133
+#: Wammu/Composer.py:400 Wammu/Main.py:133 Wammu/SMSExport.py:441
 msgid "Sent"
 msgstr "標記為已發送"
 
@@ -833,7 +833,7 @@ msgstr "簡訊"
 msgid "All Messages"
 msgstr "所有簡訊"
 
-#: Wammu/Main.py:131
+#: Wammu/Main.py:131 Wammu/SMSExport.py:440
 msgid "Read"
 msgstr "已讀"
 
@@ -841,7 +841,7 @@ msgstr "已讀"
 msgid "Read Messages"
 msgstr "已讀的簡訊"
 
-#: Wammu/Main.py:132
+#: Wammu/Main.py:132 Wammu/SMSExport.py:442
 msgid "Unread"
 msgstr "未讀"
 
@@ -853,7 +853,7 @@ msgstr "未讀的簡訊"
 msgid "Sent Messages"
 msgstr "已發送的簡訊"
 
-#: Wammu/Main.py:134
+#: Wammu/Main.py:134 Wammu/SMSExport.py:443
 msgid "Unsent"
 msgstr "未發送"
 
@@ -2930,8 +2930,8 @@ msgid "Saving messages to mailbox"
 msgstr "正在儲存簡訊到mailbox"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
-#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
+#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "匯出終止"
@@ -2945,7 +2945,7 @@ msgstr "建立檔案 %s 失敗，放棄。"
 msgid "Can not create file!"
 msgstr "無法建立檔案！"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:128
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3006,148 +3006,183 @@ msgstr "檔案已存在！"
 msgid "maildir"
 msgstr "maildir"
 
-#: Wammu/SMSExport.py:177
-msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr "將簡訊上傳到IMAP伺服器時要使用SSL嗎？"
-
-#: Wammu/SMSExport.py:178
-msgid "Use SSL?"
-msgstr "要使用SSL嗎？"
-
-#: Wammu/SMSExport.py:184
-msgid "Please enter server name"
-msgstr "請輸入伺服器名稱"
-
-#: Wammu/SMSExport.py:185
-msgid "Server name"
-msgstr "伺服器名稱"
-
-#: Wammu/SMSExport.py:194
-#, python-format
-msgid "Please enter login on server %s"
-msgstr "請輸入伺服器%s上的登入名稱"
-
-#: Wammu/SMSExport.py:195
-msgid "Login"
-msgstr "登入名稱"
-
-#: Wammu/SMSExport.py:208
-#, python-format
-msgid "Please enter password for %(login)s@%(server)s"
-msgstr "請輸入對應於%(login)s@%(server)s的密碼"
-
-#: Wammu/SMSExport.py:209
-msgid "Password"
-msgstr "密碼"
-
-#: Wammu/SMSExport.py:215
+#: Wammu/SMSExport.py:181
 msgid "Connecting to IMAP server..."
 msgstr "正在連線到IMAP伺服器..."
 
-#: Wammu/SMSExport.py:231
+#: Wammu/SMSExport.py:197
 msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
 msgstr "無法登入，可能是帳號密碼錯誤。您要重試嗎？"
 
-#: Wammu/SMSExport.py:232
+#: Wammu/SMSExport.py:198
 msgid "Login failed!"
 msgstr "登入失敗！"
 
-#: Wammu/SMSExport.py:238
-msgid ""
-"Connection suceeded, do you want to remember password? This is a bit "
-"insecure."
-msgstr "連線成功，您希望程式記住密碼嗎？這稍微有些不安全。"
-
-#: Wammu/SMSExport.py:239
-msgid "Save password?"
-msgstr "儲存密碼？"
-
-#: Wammu/SMSExport.py:245
-msgid ""
-"Do you only want to back-up messages which are not yet on the IMAP server?"
-msgstr ""
-
-#: Wammu/SMSExport.py:246
-msgid "Back-up new messages only?"
-msgstr ""
-
-#: Wammu/SMSExport.py:250
+#: Wammu/SMSExport.py:202
 msgid "Listing folders on IMAP server..."
 msgstr "正在列出IMAP伺服器上的資料夾..."
 
-#: Wammu/SMSExport.py:258
+#: Wammu/SMSExport.py:210
 msgid "Can not list folders on server, bailing out."
 msgstr "無法列出伺服器上的資料夾，放棄。"
 
-#: Wammu/SMSExport.py:259
+#: Wammu/SMSExport.py:211
 msgid "Listing failed!"
 msgstr "列出失敗！"
 
-#: Wammu/SMSExport.py:283
+#: Wammu/SMSExport.py:243
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr "請選擇伺服器%s上將用於儲存簡訊的資料夾"
 
-#: Wammu/SMSExport.py:284
+#: Wammu/SMSExport.py:244
 msgid "Select folder"
 msgstr "選擇資料夾"
 
-#: Wammu/SMSExport.py:291
+#: Wammu/SMSExport.py:259
 msgid "Selecting folder on IMAP server..."
 msgstr "正在選擇IMAP伺服器上的資料夾..."
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:267
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "無法選擇伺服器上的資料夾%s，放棄。"
 
-#: Wammu/SMSExport.py:300
+#: Wammu/SMSExport.py:268
 msgid "Selecting failed!"
 msgstr "選擇失敗！"
 
-#: Wammu/SMSExport.py:305
+#: Wammu/SMSExport.py:283
 msgid "Saving messages to IMAP"
 msgstr "正在儲存簡訊到IMAP"
 
-#: Wammu/SMSExport.py:330
+#: Wammu/SMSExport.py:310
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "無法儲存簡訊到伺服器上的資料夾%s，放棄。"
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:311
 msgid "Saving failed!"
 msgstr "儲存失敗！"
 
-#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:327 Wammu/SMSExport.py:329
 msgid "IMAP server"
 msgstr "IMAP伺服器"
 
-#: Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:329
 #, fuzzy, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d條簡訊已匯出到\"%(path)s\" (%(type)s)"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
 msgstr "您要把從簡訊建立的電子郵件匯出到哪裡？"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Select export type"
 msgstr "選擇匯出類型"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Mailbox file"
 msgstr "Mailbox檔案"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Maildir folder"
 msgstr "Maildir資料夾"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "IMAP account"
 msgstr "IMAP帳戶"
+
+#: Wammu/SMSExport.py:422
+#, fuzzy
+msgid "IMAP Settings"
+msgstr "設定"
+
+#: Wammu/SMSExport.py:424
+#, fuzzy
+msgid "Connection Details"
+msgstr "連線測試"
+
+#: Wammu/SMSExport.py:425
+msgid "Preferences"
+msgstr ""
+
+#: Wammu/SMSExport.py:426
+msgid "Message State Selection"
+msgstr ""
+
+#: Wammu/SMSExport.py:427
+msgid "From Address"
+msgstr ""
+
+#: Wammu/SMSExport.py:429
+msgid "Server"
+msgstr ""
+
+#: Wammu/SMSExport.py:431
+#, fuzzy
+msgid "Port"
+msgstr "重要性"
+
+#: Wammu/SMSExport.py:433
+msgid "Login"
+msgstr "登入名稱"
+
+#: Wammu/SMSExport.py:435
+msgid "Password"
+msgstr "密碼"
+
+#: Wammu/SMSExport.py:437
+msgid "Remember password (insecure)"
+msgstr ""
+
+#: Wammu/SMSExport.py:438
+#, fuzzy
+msgid "Use SSL"
+msgstr "要使用SSL嗎？"
+
+#: Wammu/SMSExport.py:439
+msgid "Only back-up new messages"
+msgstr ""
+
+#: Wammu/SMSExport.py:550
+#, python-format
+msgid "%d. From Address invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:553
+#, fuzzy, python-format
+msgid "%d. Server incomplete\n"
+msgstr "伺服器名稱"
+
+#: Wammu/SMSExport.py:556
+#, python-format
+msgid "%d. Port invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:559
+#, python-format
+msgid "%d. Login incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:562
+#, python-format
+msgid "%d. Password incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:568
+#, python-format
+msgid ""
+"%d. No messages to back-up selected. Please tick at least one of the states."
+msgstr ""
+
+#: Wammu/SMSExport.py:573
+#, fuzzy
+msgid "Incomplete"
+msgstr "已完成"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
@@ -3647,6 +3682,26 @@ msgstr ""
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr ""
+
+#~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
+#~ msgstr "將簡訊上傳到IMAP伺服器時要使用SSL嗎？"
+
+#~ msgid "Please enter server name"
+#~ msgstr "請輸入伺服器名稱"
+
+#~ msgid "Please enter login on server %s"
+#~ msgstr "請輸入伺服器%s上的登入名稱"
+
+#~ msgid "Please enter password for %(login)s@%(server)s"
+#~ msgstr "請輸入對應於%(login)s@%(server)s的密碼"
+
+#~ msgid ""
+#~ "Connection suceeded, do you want to remember password? This is a bit "
+#~ "insecure."
+#~ msgstr "連線成功，您希望程式記住密碼嗎？這稍微有些不安全。"
+
+#~ msgid "Save password?"
+#~ msgstr "儲存密碼？"
 
 #~ msgid "Port where phone is connected"
 #~ msgstr "手機使用的連接埠"

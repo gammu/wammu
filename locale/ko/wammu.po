@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-05-26 11:56+0200\n"
+"POT-Creation-Date: 2009-05-27 10:21+0200\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -280,7 +280,7 @@ msgstr "배달 보고"
 msgid "Check to request delivery report for message."
 msgstr "메세지 배달 보고를 신청하는 것을 점검 합니다"
 
-#: Wammu/Composer.py:400 Wammu/Main.py:133
+#: Wammu/Composer.py:400 Wammu/Main.py:133 Wammu/SMSExport.py:441
 msgid "Sent"
 msgstr "송신됨"
 
@@ -846,7 +846,7 @@ msgstr "메세지"
 msgid "All Messages"
 msgstr "모든 메세지"
 
-#: Wammu/Main.py:131
+#: Wammu/Main.py:131 Wammu/SMSExport.py:440
 msgid "Read"
 msgstr "읽기"
 
@@ -854,7 +854,7 @@ msgstr "읽기"
 msgid "Read Messages"
 msgstr "메세지 읽기"
 
-#: Wammu/Main.py:132
+#: Wammu/Main.py:132 Wammu/SMSExport.py:442
 msgid "Unread"
 msgstr "읽지 않음"
 
@@ -866,7 +866,7 @@ msgstr "읽지 않은 메세지"
 msgid "Sent Messages"
 msgstr "메세지 송신됨"
 
-#: Wammu/Main.py:134
+#: Wammu/Main.py:134 Wammu/SMSExport.py:443
 msgid "Unsent"
 msgstr "송신 않음"
 
@@ -2989,8 +2989,8 @@ msgid "Saving messages to mailbox"
 msgstr "메일박스로 메세지 저장 중"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:261
-#: Wammu/SMSExport.py:302 Wammu/SMSExport.py:310 Wammu/SMSExport.py:335
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
+#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
 #: Wammu/SMSXML.py:106 Wammu/SMSXML.py:123
 msgid "Export terminated"
 msgstr "내보내기 끝냄"
@@ -3004,7 +3004,7 @@ msgstr "파일 %s (을)를 만드는데 실패해서, 바깥으로 꺼냅니다.
 msgid "Can not create file!"
 msgstr "파일을 만들 수 없습니다!"
 
-#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:347
+#: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:128
 #, fuzzy, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
@@ -3068,45 +3068,11 @@ msgstr "파일이 이미 있습니다!"
 msgid "maildir"
 msgstr ""
 
-#: Wammu/SMSExport.py:177
-msgid "Do you wish to use SSL while uploading messages to IMAP server?"
-msgstr "IMAP 서버로 메세지를 업로드 할 때 SSL을 사용하기 바랍니까?"
-
-#: Wammu/SMSExport.py:178
-msgid "Use SSL?"
-msgstr "SSL 사용?"
-
-#: Wammu/SMSExport.py:184
-msgid "Please enter server name"
-msgstr "서버 이름을 입력 하십시오"
-
-#: Wammu/SMSExport.py:185
-msgid "Server name"
-msgstr "서버 이름"
-
-#: Wammu/SMSExport.py:194
-#, python-format
-msgid "Please enter login on server %s"
-msgstr "서버 %s 의 로그인을 입력 하십시오"
-
-#: Wammu/SMSExport.py:195
-msgid "Login"
-msgstr "로그인"
-
-#: Wammu/SMSExport.py:208
-#, fuzzy, python-format
-msgid "Please enter password for %(login)s@%(server)s"
-msgstr "%s@%s 의 암호를 입력 하십시오"
-
-#: Wammu/SMSExport.py:209
-msgid "Password"
-msgstr "암호"
-
-#: Wammu/SMSExport.py:215
+#: Wammu/SMSExport.py:181
 msgid "Connecting to IMAP server..."
 msgstr "IMAP 서버로 접속 중..."
 
-#: Wammu/SMSExport.py:231
+#: Wammu/SMSExport.py:197
 #, fuzzy
 msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
@@ -3115,105 +3081,173 @@ msgstr ""
 "로그인 할 수 없습니다, 아마도 올바르지 않은 로그인 정보를 입력 하였습니다, 바"
 "깥으로 꺼냅니다."
 
-#: Wammu/SMSExport.py:232
+#: Wammu/SMSExport.py:198
 msgid "Login failed!"
 msgstr "로그인 실패함!"
 
-#: Wammu/SMSExport.py:238
-msgid ""
-"Connection suceeded, do you want to remember password? This is a bit "
-"insecure."
-msgstr ""
-
-#: Wammu/SMSExport.py:239
-#, fuzzy
-msgid "Save password?"
-msgstr "암호"
-
-#: Wammu/SMSExport.py:245
-msgid ""
-"Do you only want to back-up messages which are not yet on the IMAP server?"
-msgstr ""
-
-#: Wammu/SMSExport.py:246
-msgid "Back-up new messages only?"
-msgstr ""
-
-#: Wammu/SMSExport.py:250
+#: Wammu/SMSExport.py:202
 msgid "Listing folders on IMAP server..."
 msgstr "IMAP 서버의 폴더 목록 표시..."
 
-#: Wammu/SMSExport.py:258
+#: Wammu/SMSExport.py:210
 msgid "Can not list folders on server, bailing out."
 msgstr "서버의 폴더들을 나열할 수 없어, 바깥으로 꺼냅니다."
 
-#: Wammu/SMSExport.py:259
+#: Wammu/SMSExport.py:211
 msgid "Listing failed!"
 msgstr "목록 보이기 실패함!"
 
-#: Wammu/SMSExport.py:283
+#: Wammu/SMSExport.py:243
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
 msgstr "메세지가 저장될 서버 %s 의 폴더를 선택 하십시오"
 
-#: Wammu/SMSExport.py:284
+#: Wammu/SMSExport.py:244
 msgid "Select folder"
 msgstr "폴더 선택"
 
-#: Wammu/SMSExport.py:291
+#: Wammu/SMSExport.py:259
 msgid "Selecting folder on IMAP server..."
 msgstr "IMAP 서버의 폴더 선택 중..."
 
-#: Wammu/SMSExport.py:299
+#: Wammu/SMSExport.py:267
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
 msgstr "서버의 폴더 %s (을)를 선택할 수 없습니다, 바깥으로 꺼냅니다."
 
-#: Wammu/SMSExport.py:300
+#: Wammu/SMSExport.py:268
 msgid "Selecting failed!"
 msgstr "선택 실패함!"
 
-#: Wammu/SMSExport.py:305
+#: Wammu/SMSExport.py:283
 msgid "Saving messages to IMAP"
 msgstr "IMAP으로 메세지 저장 중"
 
-#: Wammu/SMSExport.py:330
+#: Wammu/SMSExport.py:310
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
 msgstr "서버의 폴더 %s 에 메세지를 저장할 수 없습니다, 바깥으로 꺼냅니다."
 
-#: Wammu/SMSExport.py:331
+#: Wammu/SMSExport.py:311
 msgid "Saving failed!"
 msgstr "저장 실패함!"
 
-#: Wammu/SMSExport.py:347 Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:327 Wammu/SMSExport.py:329
 msgid "IMAP server"
 msgstr ""
 
-#: Wammu/SMSExport.py:349
+#: Wammu/SMSExport.py:329
 #, fuzzy, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%d 메세지가 메일박스 \"%s\" 로 내보내짐"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
 msgstr "메세지에서 만들어진 이메일을 어디로 내보내기를 원합니까?"
 
-#: Wammu/SMSExport.py:353
+#: Wammu/SMSExport.py:333
 msgid "Select export type"
 msgstr "내보내기 종류 선택"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Mailbox file"
 msgstr "메일박스 파일"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "Maildir folder"
 msgstr "메일디렉토리 폴더"
 
-#: Wammu/SMSExport.py:354
+#: Wammu/SMSExport.py:334
 msgid "IMAP account"
 msgstr "IMAP 계정"
+
+#: Wammu/SMSExport.py:422
+#, fuzzy
+msgid "IMAP Settings"
+msgstr "설정"
+
+#: Wammu/SMSExport.py:424
+#, fuzzy
+msgid "Connection Details"
+msgstr "접속"
+
+#: Wammu/SMSExport.py:425
+msgid "Preferences"
+msgstr ""
+
+#: Wammu/SMSExport.py:426
+msgid "Message State Selection"
+msgstr ""
+
+#: Wammu/SMSExport.py:427
+msgid "From Address"
+msgstr ""
+
+#: Wammu/SMSExport.py:429
+msgid "Server"
+msgstr ""
+
+#: Wammu/SMSExport.py:431
+#, fuzzy
+msgid "Port"
+msgstr "순위"
+
+#: Wammu/SMSExport.py:433
+msgid "Login"
+msgstr "로그인"
+
+#: Wammu/SMSExport.py:435
+msgid "Password"
+msgstr "암호"
+
+#: Wammu/SMSExport.py:437
+msgid "Remember password (insecure)"
+msgstr ""
+
+#: Wammu/SMSExport.py:438
+#, fuzzy
+msgid "Use SSL"
+msgstr "SSL 사용?"
+
+#: Wammu/SMSExport.py:439
+msgid "Only back-up new messages"
+msgstr ""
+
+#: Wammu/SMSExport.py:550
+#, python-format
+msgid "%d. From Address invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:553
+#, fuzzy, python-format
+msgid "%d. Server incomplete\n"
+msgstr "서버 이름"
+
+#: Wammu/SMSExport.py:556
+#, python-format
+msgid "%d. Port invalid\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:559
+#, python-format
+msgid "%d. Login incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:562
+#, python-format
+msgid "%d. Password incomplete\n"
+msgstr ""
+
+#: Wammu/SMSExport.py:568
+#, python-format
+msgid ""
+"%d. No messages to back-up selected. Please tick at least one of the states."
+msgstr ""
+
+#: Wammu/SMSExport.py:573
+#, fuzzy
+msgid "Incomplete"
+msgstr "완료됨"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
@@ -3731,6 +3765,23 @@ msgstr ""
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr ""
+
+#~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
+#~ msgstr "IMAP 서버로 메세지를 업로드 할 때 SSL을 사용하기 바랍니까?"
+
+#~ msgid "Please enter server name"
+#~ msgstr "서버 이름을 입력 하십시오"
+
+#~ msgid "Please enter login on server %s"
+#~ msgstr "서버 %s 의 로그인을 입력 하십시오"
+
+#, fuzzy
+#~ msgid "Please enter password for %(login)s@%(server)s"
+#~ msgstr "%s@%s 의 암호를 입력 하십시오"
+
+#, fuzzy
+#~ msgid "Save password?"
+#~ msgstr "암호"
 
 #, fuzzy
 #~ msgid "Port where phone is connected"
