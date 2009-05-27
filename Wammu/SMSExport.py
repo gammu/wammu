@@ -171,56 +171,22 @@ def ParseIMAPFolder(item):
     return (path, flags)
 
 def SMSToIMAP(parent, messages, contacts):
-    count = len(messages)
-    ssl = False
-    if wx.MessageDialog(parent,
-        _('Do you wish to use SSL while uploading messages to IMAP server?'),
-        _('Use SSL?'),
-        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
-        ssl = True
+    imapConfig = IMAPConfigHelper(parent.cfg)
 
-    default_server = parent.cfg.Read('/IMAP/Server')
-    dlg = wx.TextEntryDialog(parent,
-        _('Please enter server name'),
-        _('Server name'),
-        default_server)
-    if dlg.ShowModal() == wx.ID_CANCEL:
-        return
-    server = dlg.GetValue()
-    parent.cfg.Write('/IMAP/Server', server)
-
-    default_login = parent.cfg.Read('/IMAP/Login')
-    dlg = wx.TextEntryDialog(parent,
-        _('Please enter login on server %s') % server,
-        _('Login'),
-        default_login)
-    if dlg.ShowModal() == wx.ID_CANCEL:
-        return
-    login = dlg.GetValue()
-    parent.cfg.Write('/IMAP/Login', login)
-
-    if server == default_server and login == default_login:
-        default_password = parent.cfg.Read('/IMAP/Password')
-    else:
-        default_password = ''
     while True:
-        dlg = wx.PasswordEntryDialog(parent,
-            _('Please enter password for %(login)s@%(server)s') % {'login': login,'server': server},
-            _('Password'),
-            default_password)
-        if dlg.ShowModal() == wx.ID_CANCEL:
-            return
-        password = dlg.GetValue()
+        value = IMAPSettingsDialog(parent, imapConfig).ShowModal()
+        if value == wx.ID_CANCEL:
+             return
 
         busy = wx.BusyInfo(_('Connecting to IMAP server...'))
 
-        if ssl:
-            m = imaplib.IMAP4_SSL(server)
+        if imapConfig.useSSL:
+            m = imaplib.IMAP4_SSL(imapConfig.server, int(imapConfig.port))
         else:
-            m = imaplib.IMAP4(server)
+            m = imaplib.IMAP4(imapConfig.server, int(imapConfig.port))
 
         try:
-            res = m.login(login, password)
+            res = m.login(imapConfig.login, imapConfig.password)
         except:
             res = ['FAIL']
         del busy
@@ -232,20 +198,6 @@ def SMSToIMAP(parent, messages, contacts):
                 _('Login failed!'),
                 wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_NO:
                 return
-
-    if password != default_password:
-        if wx.MessageDialog(parent,
-            _('Connection suceeded, do you want to remember password? This is a bit insecure.'),
-            _('Save password?'),
-            wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
-                parent.cfg.Write('/IMAP/Password', password)
-
-    backup_new = False
-    if wx.MessageDialog(parent,
-        _('Do you only want to back-up messages which are not yet on the IMAP server?'),
-        _('Back-up new messages only?'),
-        wx.YES_NO | wx.YES_DEFAULT | wx.ICON_QUESTION).ShowModal() == wx.ID_YES:
-        backup_new = True
 
     busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
     try:
@@ -279,14 +231,30 @@ def SMSToIMAP(parent, messages, contacts):
 
     folders.sort()
 
+    lastFolder = parent.cfg.Read('/IMAP/LastUsedFolder')
+    folderIndex = 0
+    if lastFolder != '':
+        try:
+            folderIndex = folders.index(lastFolder)
+        except:
+            pass
+
     dlg = wx.SingleChoiceDialog(parent,
-        _('Please select folder on server %s where messages will be stored') % server,
+        _('Please select folder on server %s where messages will be stored') % imapConfig.server,
         _('Select folder'),
         folders, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
+    if folderIndex > 0:
+        dlg.SetSelection(folderIndex)
     if dlg.ShowModal() == wx.ID_CANCEL:
+        try:
+            m.logout()
+        except:
+            pass
         return
-    path = '%s@%s/%s' % (login, server, folders[dlg.GetSelection()])
+    path = '%s@%s/%s' % (imapConfig.login, imapConfig.server, folders[dlg.GetSelection()])
     folder = folders[dlg.GetSelection()].encode('imap4-utf-7')
+
+    parent.cfg.Write('/IMAP/LastUsedFolder', folders[dlg.GetSelection()])
 
     busy = wx.BusyInfo(_('Selecting folder on IMAP server...'))
     try:
@@ -302,8 +270,20 @@ def SMSToIMAP(parent, messages, contacts):
         parent.SetStatusText(_('Export terminated'))
         return
 
+    def msgFilter(sms):
+        return \
+               (imapConfig.backupRead   and sms['SMS'][0]['State'] == 'Read') \
+            or (imapConfig.backupSent   and sms['SMS'][0]['State'] == 'Sent') \
+            or (imapConfig.backupUnread and sms['SMS'][0]['State'] == 'UnRead') \
+            or (imapConfig.backupUnsent and sms['SMS'][0]['State'] == 'UnSent')
+
+    messages = filter(msgFilter, messages)
+    count = len(messages)
+
     parent.ShowProgress(_('Saving messages to IMAP'))
+
     new_messages_num = 0
+    count = len(messages)
     for i in range(count):
         if not parent.progress.Update(i * 100 / count):
             del parent.progress
@@ -314,7 +294,7 @@ def SMSToIMAP(parent, messages, contacts):
 
         filename, data, msgid = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts)
 
-        if backup_new == True:
+        if imapConfig.newMessages == True:
             res, msgnums = m.search(None, 'HEADER', '"Message-ID" "' + msgid + '"')
             if len(msgnums[0].split()) != 0:
                 continue
@@ -343,7 +323,7 @@ def SMSToIMAP(parent, messages, contacts):
     except:
         pass
 
-    if backup_new == False:
+    if imapConfig.newMessages == False:
         parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('IMAP server')})
     else:
         parent.SetStatusText(_('%(new)d new of %(count)d messages exported to "%(path)s" (%(type)s)') % {'new':new_messages_num, 'count':count, 'path':path, 'type': _('IMAP server')})
@@ -370,3 +350,230 @@ def SMSExport(parent, messages, contacts):
     else:
         raise Exception('Not implemented export functionality!')
 
+def bool2yn(value):
+    if value:
+        return 'yes'
+    else:
+        return 'no'
+
+def yn2bool(value):
+    return value == 'yes'
+
+class IMAPConfigHelper():
+    '''
+    A small helper to read and write the Wammu config
+    '''
+    def __init__(self, WammuConfig):
+        self.wcfg = WammuConfig
+        self.load()
+
+    def load(self):
+
+        # Textfields
+        self.fromAddress = self.wcfg.Read('/MessageExport/From')
+        self.server = self.wcfg.Read('/IMAP/Server')
+        self.port = self.wcfg.Read('/IMAP/Port')
+        self.login = self.wcfg.Read('/IMAP/Login')
+        self.password = self.wcfg.Read('/IMAP/Password')
+
+        # Checkboxes
+        self.rememberPassword = yn2bool(self.wcfg.Read('/IMAP/RememberPassword'))
+        self.useSSL = yn2bool(self.wcfg.Read('/IMAP/UseSSL'))
+        self.newMessages = yn2bool(self.wcfg.Read('/IMAP/OnlyNewMessages'))
+
+        # States
+        self.backupRead = yn2bool(self.wcfg.Read('/IMAP/BackupStateRead'))
+        self.backupSent = yn2bool(self.wcfg.Read('/IMAP/BackupStateSent'))
+        self.backupUnread = yn2bool(self.wcfg.Read('/IMAP/BackupStateUnread'))
+        self.backupUnsent = yn2bool(self.wcfg.Read('/IMAP/BackupStateUnsent'))
+
+        if self.port == '':
+            if self.useSSL:
+                self.port = '993'
+            else:
+                self.port = '143'
+
+    def write(self):
+
+        # Textfields
+        self.wcfg.Write('/MessageExport/From', self.fromAddress)
+        self.wcfg.Write('/IMAP/Server', self.server)
+        self.wcfg.Write('/IMAP/Port', self.port)
+        self.wcfg.Write('/IMAP/Login', self.login)
+        if self.rememberPassword:
+            self.wcfg.Write('/IMAP/Password', self.password)
+        else:
+            self.wcfg.Write('/IMAP/Password', '')
+
+        # Checkboxes
+        self.wcfg.Write('/IMAP/RememberPassword', bool2yn(self.rememberPassword))
+        self.wcfg.Write('/IMAP/UseSSL', bool2yn(self.useSSL))
+        self.wcfg.Write('/IMAP/OnlyNewMessages', bool2yn(self.newMessages))
+
+        # States
+        self.wcfg.Write('/IMAP/BackupStateRead', bool2yn(self.backupRead))
+        self.wcfg.Write('/IMAP/BackupStateSent', bool2yn(self.backupSent))
+        self.wcfg.Write('/IMAP/BackupStateUnread', bool2yn(self.backupUnread))
+        self.wcfg.Write('/IMAP/BackupStateUnsent', bool2yn(self.backupUnsent))
+
+
+class IMAPSettingsDialog(wx.Dialog):
+    def __init__(self, parent, imapConfig):
+        wx.Dialog.__init__(self, parent, -1, _("IMAP Settings"), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+        self.cfg = imapConfig
+        self.connectionFrameSizer_staticbox = wx.StaticBox(self, -1, _("Connection Details"))
+        self.preferenciesFrameSizer_staticbox = wx.StaticBox(self, -1, _("Preferences"))
+        self.stateFrameSizer_staticbox = wx.StaticBox(self, -1, _("Message State Selection"))
+        self.fromAddressLabel = wx.StaticText(self, -1, _("From Address"))
+        self.fromAddressTextCtrl = wx.TextCtrl(self, -1, "")
+        self.serverLabel = wx.StaticText(self, -1, _("Server"))
+        self.serverTextCtrl = wx.TextCtrl(self, -1, "")
+        self.portLabel = wx.StaticText(self, -1, _("Port"))
+        self.portTextCtrl = wx.TextCtrl(self, -1, "")
+        self.loginLabel = wx.StaticText(self, -1, _("Login"))
+        self.loginTextCtrl = wx.TextCtrl(self, -1, "")
+        self.passwordLabel = wx.StaticText(self, -1, _("Password"))
+        self.passwordTextCtrl = wx.TextCtrl(self, -1, "", style=wx.TE_PASSWORD)
+        self.rememberCheckBox = wx.CheckBox(self, -1, _("Remember password (insecure)"))
+        self.useSSLCheckBox = wx.CheckBox(self, -1, _("Use SSL"))
+        self.newMessagesCheckBox = wx.CheckBox(self, -1, _("Only back-up new messages"))
+        self.readCheckBox = wx.CheckBox(self, -1, _("Read"))
+        self.sentCheckBox = wx.CheckBox(self, -1, _("Sent"))
+        self.unreadCheckBox = wx.CheckBox(self, -1, _("Unread"))
+        self.unsentCheckBox = wx.CheckBox(self, -1, _("Unsent"))
+        self.applyButton = wx.Button(self, wx.ID_APPLY, "")
+        self.cancelButton = wx.Button(self, wx.ID_CANCEL, "")
+        self.okButton = wx.Button(self, wx.ID_OK, "")
+
+        self.__read_config()
+        self.__do_layout()
+
+        self.Bind(wx.EVT_CHECKBOX, self.OnToggleSSL, self.useSSLCheckBox)
+        self.Bind(wx.EVT_BUTTON, self.OnOkClick, self.okButton)
+        self.Bind(wx.EVT_BUTTON, self.OnApplyClick, self.applyButton)
+
+    def __read_config(self):
+        self.fromAddressTextCtrl.SetValue(self.cfg.fromAddress)
+        self.serverTextCtrl.SetValue(self.cfg.server)
+        self.portTextCtrl.SetValue(self.cfg.port)
+        self.loginTextCtrl.SetValue(self.cfg.login)
+        self.passwordTextCtrl.SetValue(self.cfg.password)
+
+        self.rememberCheckBox.SetValue(self.cfg.rememberPassword)
+        self.useSSLCheckBox.SetValue(self.cfg.useSSL)
+        self.newMessagesCheckBox.SetValue(self.cfg.newMessages)
+
+        self.readCheckBox.SetValue(self.cfg.backupRead)
+        self.sentCheckBox.SetValue(self.cfg.backupSent)
+        self.unreadCheckBox.SetValue(self.cfg.backupUnread)
+        self.unsentCheckBox.SetValue(self.cfg.backupUnsent)
+
+    def __copy_config(self):
+        self.cfg.fromAddress = self.fromAddressTextCtrl.GetValue()
+        self.cfg.server = self.serverTextCtrl.GetValue()
+        self.cfg.port = self.portTextCtrl.GetValue()
+        self.cfg.login = self.loginTextCtrl.GetValue()
+        self.cfg.password = self.passwordTextCtrl.GetValue()
+        
+        self.cfg.rememberPassword = self.rememberCheckBox.GetValue()
+        self.cfg.useSSL = self.useSSLCheckBox.GetValue()
+        self.cfg.newMessages = self.useSSLCheckBox.GetValue()
+
+        self.cfg.backupRead = self.readCheckBox.GetValue()
+        self.cfg.backupSent = self.sentCheckBox.GetValue()
+        self.cfg.backupUnread = self.unreadCheckBox.GetValue()
+        self.cfg.backupUnsent = self.unsentCheckBox.GetValue()
+
+    def __do_layout(self):
+        mainSizer = wx.BoxSizer(wx.VERTICAL)
+        buttonRowSizer = wx.BoxSizer(wx.HORIZONTAL)
+        stateFrameSizer = wx.StaticBoxSizer(self.stateFrameSizer_staticbox, wx.HORIZONTAL)
+        preferenciesFrameSizer = wx.StaticBoxSizer(self.preferenciesFrameSizer_staticbox, wx.HORIZONTAL)
+        preferenciesGridSizer = wx.FlexGridSizer(3, 2, 2, 2)
+        connectionFrameSizer = wx.StaticBoxSizer(self.connectionFrameSizer_staticbox, wx.HORIZONTAL)
+        connectionGridSizer = wx.FlexGridSizer(5, 2, 2, 10)
+        connectionGridSizer.Add(self.fromAddressLabel, 0, wx.ALIGN_CENTER_VERTICAL, 0)
+        connectionGridSizer.Add(self.fromAddressTextCtrl, 0, wx.EXPAND, 0)
+        connectionGridSizer.Add(self.serverLabel, 0, wx.ALIGN_CENTER_VERTICAL, 0)
+        connectionGridSizer.Add(self.serverTextCtrl, 0, wx.EXPAND, 0)
+        connectionGridSizer.Add(self.portLabel, 0, wx.ALIGN_CENTER_VERTICAL, 0)
+        connectionGridSizer.Add(self.portTextCtrl, 0, wx.EXPAND, 0)
+        connectionGridSizer.Add(self.loginLabel, 0, wx.ALIGN_CENTER_VERTICAL, 0)
+        connectionGridSizer.Add(self.loginTextCtrl, 0, wx.EXPAND, 0)
+        connectionGridSizer.Add(self.passwordLabel, 0, wx.ALIGN_CENTER_VERTICAL, 0)
+        connectionGridSizer.Add(self.passwordTextCtrl, 0, wx.EXPAND, 0)
+        connectionGridSizer.AddGrowableCol(1)
+        connectionFrameSizer.Add(connectionGridSizer, 1, wx.EXPAND, 0)
+        mainSizer.Add(connectionFrameSizer, 0, wx.ALL|wx.EXPAND, 2)
+        preferenciesGridSizer.Add((90, 20), 0, 0, 0)
+        preferenciesGridSizer.Add(self.rememberCheckBox, 0, 0, 0)
+        preferenciesGridSizer.Add((20, 20), 0, 0, 0)
+        preferenciesGridSizer.Add(self.useSSLCheckBox, 0, 0, 0)
+        preferenciesGridSizer.Add((20, 20), 0, 0, 0)
+        preferenciesGridSizer.Add(self.newMessagesCheckBox, 0, 0, 0)
+        preferenciesGridSizer.AddGrowableCol(1)
+        preferenciesFrameSizer.Add(preferenciesGridSizer, 1, wx.EXPAND, 0)
+        mainSizer.Add(preferenciesFrameSizer, 0, wx.ALL|wx.EXPAND, 2)
+        stateFrameSizer.Add(self.readCheckBox, 1, wx.EXPAND, 0)
+        stateFrameSizer.Add(self.sentCheckBox, 1, wx.EXPAND, 0)
+        stateFrameSizer.Add(self.unreadCheckBox, 1, wx.EXPAND, 0)
+        stateFrameSizer.Add(self.unsentCheckBox, 1, wx.EXPAND, 0)
+        mainSizer.Add(stateFrameSizer, 0, wx.ALL|wx.EXPAND, 2)
+        buttonRowSizer.Add((20, 20), 1, wx.EXPAND, 0)
+        buttonRowSizer.Add(self.applyButton, 0, wx.ALIGN_BOTTOM, 0)
+        buttonRowSizer.Add(self.cancelButton, 0, wx.ALIGN_BOTTOM, 0)
+        buttonRowSizer.Add(self.okButton, 0, wx.ALIGN_BOTTOM, 0)
+        mainSizer.Add(buttonRowSizer, 1, wx.ALL|wx.EXPAND, 2)
+        self.SetSizer(mainSizer)
+        mainSizer.Fit(self)
+        self.Layout()
+
+    def OnToggleSSL(self, event):
+        if self.useSSLCheckBox.GetValue():
+            if self.portTextCtrl.GetValue() == '143':
+                self.portTextCtrl.SetValue('993')
+        else:
+            if self.portTextCtrl.GetValue() == '993':
+                self.portTextCtrl.SetValue('143')
+
+
+    def OnApplyClick(self, event):
+        self.__copy_config()
+        self.cfg.write()
+
+    def OnOkClick(self, event):
+        # check for all required fields
+        counter = 0
+        error = ''
+        if self.fromAddressTextCtrl.GetValue() == "":
+            counter += 1
+            error += _('%d. From Address invalid\n') % counter
+        if self.serverTextCtrl.GetValue() == "":
+            counter += 1
+            error += _('%d. Server incomplete\n') % counter
+        if self.portTextCtrl.GetValue() == "" or re.search('\D', self.portTextCtrl.GetValue()) :
+            counter += 1
+            error += _('%d. Port invalid\n') % counter
+        if self.loginTextCtrl.GetValue() == "":
+            counter += 1
+            error += _('%d. Login incomplete\n') % counter
+        if self.passwordTextCtrl.GetValue() == "":
+            counter += 1
+            error += _('%d. Password incomplete\n') % counter
+        if  not self.readCheckBox.GetValue() and \
+            not self.sentCheckBox.GetValue() and \
+            not self.unreadCheckBox.GetValue() and \
+            not self.unsentCheckBox.GetValue():
+            counter += 1
+            error += _('%d. No messages to back-up selected. Please tick at least one of the states.') % counter
+
+        if counter != 0:
+            wx.MessageDialog(self,
+                error,
+                _('Incomplete'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+        else:
+            self.__copy_config()
+            event.Skip()
+
+# end of class IMAPSettingsDialog
