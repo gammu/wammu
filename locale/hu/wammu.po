@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-05-27 10:21+0200\n"
-"PO-Revision-Date: 2009-03-07 08:57+0200\n"
+"PO-Revision-Date: 2009-05-31 02:55+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n !=1);\n"
 "X-Generator: Pootle 1.2.1\n"
 
@@ -1014,7 +1014,6 @@ msgid "&Synchronise time"
 msgstr "&Időszinkronizáció"
 
 #: Wammu/Main.py:298
-#, fuzzy
 msgid "Synchronise time in phone with PC."
 msgstr "A mobiltelefon időbeállításának szinkronizálása a PC-vel."
 
@@ -2025,7 +2024,7 @@ msgid "No phone has been found!"
 msgstr "Telefon nem található!"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Model %(model)s (%(manufacturer)s) on %(port)s device using connection %"
 "(connection)s"
@@ -2054,7 +2053,6 @@ msgid "Manual configuration"
 msgstr "Kézi beállítás"
 
 #: Wammu/PhoneWizard.py:279
-#, fuzzy
 msgid "Device where phone is connected"
 msgstr "Az eszköz, amelyhez a telefonja kapcsolódik."
 
@@ -2064,12 +2062,10 @@ msgid "Connection type"
 msgstr "Kapcsolat típusa"
 
 #: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
-#, fuzzy
 msgid "You need to select device which will be used."
 msgstr "Ki kell választania a kapcsolódáshoz használandó portot."
 
 #: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
-#, fuzzy
 msgid "No device selected!"
 msgstr "Nem választott ki telefont."
 
@@ -3205,7 +3201,7 @@ msgid "IMAP server"
 msgstr "IMAP kiszolgáló"
 
 #: Wammu/SMSExport.py:329
-#, fuzzy, python-format
+#, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr "%(count)d üzenet exportálva lett ide: „%(path)s” (%(type)s)"
 
@@ -3231,35 +3227,32 @@ msgid "IMAP account"
 msgstr "IMAP fiók"
 
 #: Wammu/SMSExport.py:422
-#, fuzzy
 msgid "IMAP Settings"
-msgstr "Beállítások"
+msgstr "IMAP beállítások"
 
 #: Wammu/SMSExport.py:424
-#, fuzzy
 msgid "Connection Details"
-msgstr "Kapcsolat tesztelése"
+msgstr "Kapcsolat részletei"
 
 #: Wammu/SMSExport.py:425
 msgid "Preferences"
-msgstr ""
+msgstr "Beállítások"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
-msgstr ""
+msgstr "Üzenetállapot kiválasztás"
 
 #: Wammu/SMSExport.py:427
 msgid "From Address"
-msgstr ""
+msgstr "Feladó"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
-msgstr ""
+msgstr "Szerver"
 
 #: Wammu/SMSExport.py:431
-#, fuzzy
 msgid "Port"
-msgstr "Prioritás"
+msgstr "Port"
 
 #: Wammu/SMSExport.py:433
 msgid "Login"
@@ -3271,52 +3264,52 @@ msgstr "Jelszó"
 
 #: Wammu/SMSExport.py:437
 msgid "Remember password (insecure)"
-msgstr ""
+msgstr "Jelszó tárolása (nem biztonságos)"
 
 #: Wammu/SMSExport.py:438
-#, fuzzy
 msgid "Use SSL"
-msgstr "SSL használata?"
+msgstr "SSL használata"
 
 #: Wammu/SMSExport.py:439
 msgid "Only back-up new messages"
-msgstr ""
+msgstr "Csak az új üzenetek mentése"
 
 #: Wammu/SMSExport.py:550
 #, python-format
 msgid "%d. From Address invalid\n"
-msgstr ""
+msgstr "%d. Feladó címe érvénytelen\n"
 
 #: Wammu/SMSExport.py:553
-#, fuzzy, python-format
+#, python-format
 msgid "%d. Server incomplete\n"
-msgstr "Kiszolgálónév"
+msgstr "%d. Kiszolgáló neve nem teljes\n"
 
 #: Wammu/SMSExport.py:556
 #, python-format
 msgid "%d. Port invalid\n"
-msgstr ""
+msgstr "%d. Port érvénytelen\n"
 
 #: Wammu/SMSExport.py:559
 #, python-format
 msgid "%d. Login incomplete\n"
-msgstr ""
+msgstr "%d. Bejelentkezési adatok nem teljesek\n"
 
 #: Wammu/SMSExport.py:562
 #, python-format
 msgid "%d. Password incomplete\n"
-msgstr ""
+msgstr "%d. Jelszó nem teljes\n"
 
 #: Wammu/SMSExport.py:568
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Nem választott ki üzeneteket mentésre. Legalább egy fajta állapotban "
+"lévő üzenetcsoportot válasszon ki."
 
 #: Wammu/SMSExport.py:573
-#, fuzzy
 msgid "Incomplete"
-msgstr "Befejezve"
+msgstr "Nem teljes"
 
 #: Wammu/SMSXML.py:82
 msgid "XML File"
