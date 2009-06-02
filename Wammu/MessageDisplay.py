@@ -32,6 +32,8 @@ import xml.sax.saxutils
 from Wammu.Locales import UnicodeConv, HtmlStrConv, hgettext as _
 
 def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
+    if txt is None:
+        return ''
     if cfg.Read('/Message/Format') == 'yes':
         ret = ''
         arr = txt.split(' ')
