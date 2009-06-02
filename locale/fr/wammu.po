@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-05-27 10:21+0200\n"
-"PO-Revision-Date: 2008-06-11 18:24+0200\n"
-"Last-Translator: Picolino <morgoth48@hotmail.com>\n"
+"PO-Revision-Date: 2009-06-01 14:55+0200\n"
+"Last-Translator: Cédric Corazza <cedric.corazza@wanadoo.fr>\n"
 "Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 1.2.1\n"
 "X-Rosetta-Export-Date: 2006-12-18 12:08+0000\n"
 
 #: Wammu/About.py:43
@@ -1009,17 +1011,16 @@ msgid "&Synchronise time"
 msgstr "&Synchroniser la date et l'heure"
 
 #: Wammu/Main.py:298
-#, fuzzy
 msgid "Synchronise time in phone with PC."
 msgstr "Synchronise la date et l'heure du téléphone mobile avec le PC"
 
 #: Wammu/Main.py:300
 msgid "Send &file"
-msgstr "Transmettre &fichier"
+msgstr "Transmettre le &fichier"
 
 #: Wammu/Main.py:300
 msgid "Send file to phone."
-msgstr "Envoyer fichier vers téléphone"
+msgstr "Envoyer le fichier vers téléphone"
 
 #: Wammu/Main.py:302
 msgid "&Phone"
@@ -1170,14 +1171,12 @@ msgid "Export messages to emails in storage you choose."
 msgstr "Exporter messages vers courriels dans un emplacement"
 
 #: Wammu/Main.py:336
-#, fuzzy
 msgid "Export messages to &XML"
-msgstr "Exporter messages vers courriels"
+msgstr "Exporter les messages au format &XML"
 
 #: Wammu/Main.py:336
-#, fuzzy
 msgid "Export messages to XML file you choose."
-msgstr "Exporter messages vers courriels dans un emplacement"
+msgstr "Exporter les messages vers le fichier XML choisi."
 
 #: Wammu/Main.py:338
 msgid "&Backups"
@@ -1616,9 +1615,8 @@ msgid ""
 msgstr ""
 
 #: Wammu/Main.py:1532 Wammu/Main.py:1641
-#, fuzzy
 msgid "Backup import failed"
-msgstr "Copie de sauvegarde importée"
+msgstr "L'import de la sauvegarde a échoué"
 
 #: Wammu/Main.py:1543
 #, python-format
@@ -1714,39 +1712,39 @@ msgid "Are you sure you want to delete calendar entry \"%s\"?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'entrée de calendrier %s ?"
 
 #: Wammu/Main.py:1781
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
-msgstr[0] "Êtes-vous sûr de vouloir supprimer %d contact?"
-msgstr[1] "Êtes-vous sûr de vouloir supprimer %d contacts?"
+msgstr[0] "Êtes-vous sûr de vouloir supprimer %d contact ?"
+msgstr[1] "Êtes-vous sûr de vouloir supprimer %d contacts ?"
 
 #: Wammu/Main.py:1786
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
 msgstr[0] "Êtes-vous sûr de vouloir supprimer %d appel ?"
 msgstr[1] "Êtes-vous sûr de vouloir supprimer %d appels ?"
 
 #: Wammu/Main.py:1791
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
-msgstr[0] "Êtes-vous sûr de vouloir supprimer %d message?"
-msgstr[1] "Êtes-vous sûr de vouloir supprimer %d messages?"
+msgstr[0] "Êtes-vous sûr de vouloir supprimer %d message ?"
+msgstr[1] "Êtes-vous sûr de vouloir supprimer %d messages ?"
 
 #: Wammu/Main.py:1796
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
 msgstr[0] "Êtes-vous sûr de vouloir supprimer %d tâche ?"
 msgstr[1] "Êtes-vous sûr de vouloir supprimer %d tâches ?"
 
 #: Wammu/Main.py:1801
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "Êtes-vous sûr de vouloir supprimer %d entrée du calendrier?"
-msgstr[1] "Êtes-vous sûr de vouloir supprimer %d entrées du calendrier ?"
+msgstr[0] "Êtes-vous sûr de vouloir supprimer %d entrée de l'agenda ?"
+msgstr[1] "Êtes-vous sûr de vouloir supprimer %d entrées de l'agenda ?"
 
 #: Wammu/Main.py:1806 Wammu/Settings.py:346
 msgid "Confirm deleting"
@@ -1819,9 +1817,9 @@ msgstr "Transfert refusé !"
 msgid "One moment please, connecting to phone..."
 msgstr "Connexion au téléphone, veuillez patientez..."
 
-#  msgid "Phone connection test is still active, you can not continue."
+# <span class="translation-space"> </span>
+# msgid "Phone connection test is still active, you can not continue."
 #: Wammu/Main.py:2080
-#, fuzzy
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr ""
 "La connexion n'est pas correctement configurée, impossible de se connecter "
@@ -1881,9 +1879,8 @@ msgid "Checking %s"
 msgstr "Vérification de %s"
 
 #: Wammu/PhoneSearch.py:96
-#, fuzzy
 msgid "Could not guess vendor"
-msgstr "Impossible de lire l'entrée sauvegardée !"
+msgstr "Le fabricant n'a pu être déterminé"
 
 #: Wammu/PhoneSearch.py:101
 #, python-format
@@ -1909,16 +1906,14 @@ msgid "Could not access Bluetooth subsystem (%s)"
 msgstr "Impossible d'accéder au sous-système Bluetooth (%s)"
 
 #: Wammu/PhoneSearch.py:189 Wammu/PhoneSearch.py:193
-#, fuzzy
 msgid "PyBluez not found, it is not possible to scan for Bluetooth devices."
 msgstr ""
-"GNOME Bluetooth et PyBluez non trouvé, impossible de rechercher des "
-"périphériques Bluetooth"
+"PyBluez n'a pas été trouvé, impossible de rechercher des périphériques "
+"Bluetooth."
 
 #: Wammu/PhoneSearch.py:192
-#, fuzzy
 msgid "No Bluetooth searching"
-msgstr "Commandes AT sur Bluetooth avec recherche RF"
+msgstr "Pas de recherche Bluetooth"
 
 #: Wammu/PhoneSearch.py:206
 #, python-format
@@ -1931,9 +1926,8 @@ msgid "All finished, found %d phones"
 msgstr "Fin, %d téléphones trouvés"
 
 #: Wammu/PhoneSearch.py:327
-#, fuzzy
 msgid "Failed to connect to phone"
-msgstr "Échec de création du handler d'exception."
+msgstr "Échec de la connexion au téléphone."
 
 #: Wammu/PhoneValidator.py:91
 msgid "You did not specify valid phone number."
@@ -1941,7 +1935,7 @@ msgstr "Vous n'avez pas indiqué de numéro de téléphone valide."
 
 #: Wammu/PhoneValidator.py:92
 msgid "Invalid phone number"
-msgstr "Numéro de téléphone inadmissible"
+msgstr "Numéro de téléphone invalide"
 
 #: Wammu/PhoneWizard.py:44
 msgid "Configuration done"
@@ -2025,7 +2019,7 @@ msgid "No phone has been found!"
 msgstr "Aucun téléphone trouvé !"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Model %(model)s (%(manufacturer)s) on %(port)s device using connection %"
 "(connection)s"
@@ -2054,9 +2048,8 @@ msgid "Manual configuration"
 msgstr "Configuration manuelle"
 
 #: Wammu/PhoneWizard.py:279
-#, fuzzy
 msgid "Device where phone is connected"
-msgstr "Périphérique, où votre téléphone est relié."
+msgstr "Périphérique auquel votre téléphone est relié."
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2064,12 +2057,10 @@ msgid "Connection type"
 msgstr "Type de connexion"
 
 #: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
-#, fuzzy
 msgid "You need to select device which will be used."
-msgstr "Vous devez sélectionner le port à utiliser."
+msgstr "Vous devez sélectionner l'équipement à utiliser."
 
 #: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
-#, fuzzy
 msgid "No device selected!"
 msgstr "Aucun téléphone sélectionné !"
 
@@ -2082,43 +2073,39 @@ msgid "No connection selected!"
 msgstr "Aucune connexion sélectionnée !"
 
 #: Wammu/PhoneWizard.py:316
-#, fuzzy
 msgid "Phone Device"
-msgstr "Recherche de téléphone"
+msgstr "Téléphone"
 
 #: Wammu/PhoneWizard.py:317
-#, fuzzy
 msgid "Please enter device where phone is accessible"
-msgstr "Entrez le port de connexion"
+msgstr "Saisissez le port de connexion"
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
 msgid "Driver to use"
-msgstr "Driver à utiliser"
+msgstr "Pilote à utiliser"
 
 #: Wammu/PhoneWizard.py:345
 msgid ""
 "Sorry no driver matches your configuration, please return back and try "
 "different settings or manual configuration."
 msgstr ""
-"Désolé aucun driver ne correspond à votre configuration, recommencez en "
+"Désolé aucun pilote ne correspond à votre configuration, recommencez en "
 "essayant d'autres paramètres ou une configuration manuelle."
 
 #: Wammu/PhoneWizard.py:351
-#, fuzzy
 msgid ""
 "Please select which driver you want to use. Follow the help text shown below "
 "to select the best one."
 msgstr ""
-"Veuillez sélectionner le river que vous souhaitez utiliser. Utilisez le "
-"texte d'aide affiché en-dessus pour guider votre choix."
+"Veuillez sélectionner le pilote que vous souhaitez utiliser. Utilisez le "
+"texte d'aide affiché ci-dessous pour guider votre choix."
 
 #: Wammu/PhoneWizard.py:376
-#, fuzzy
 msgid ""
 "Please select connection type, default choice should be best in most cases."
 msgstr ""
 "Veuillez sélectionner le type de connexion, la valeur par défaut est en "
-"général la meilleur."
+"général la meilleure."
 
 #: Wammu/PhoneWizard.py:397 Wammu/PhoneWizard.py:398
 msgid "Phone type"
@@ -2128,6 +2115,8 @@ msgstr "Type de téléphone"
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
+"Veuillez sélectionner le fabricant du téléphone ou le type. Essayez d'être "
+"aussi précis que possible."
 
 #: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
@@ -2192,7 +2181,6 @@ msgid "How is your phone connected?"
 msgstr "Comment votre téléphone est connecté ?"
 
 #: Wammu/PhoneWizard.py:460 Wammu/PhoneWizard.py:461
-#, fuzzy
 msgid "Configuration style"
 msgstr "Type de configuration"
 
@@ -2276,22 +2264,26 @@ msgstr "Assistant de configuration"
 
 #: Wammu/Reader.py:133 Wammu/Reader.py:184
 msgid "Ignoring unknown"
-msgstr ""
+msgstr "Inconnu : ignoré"
 
 #: Wammu/Reader.py:134 Wammu/Reader.py:185
 #, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
 msgstr ""
+"Lors de la lecture, l'entrée à l'emplacement %d a renvoyé une erreur "
+"inconnue. Entrée ignorée !"
 
 #: Wammu/Reader.py:138 Wammu/Reader.py:179
 msgid "Ignoring corrupted"
-msgstr ""
+msgstr "Corrompu : ignoré"
 
 #: Wammu/Reader.py:139 Wammu/Reader.py:180
 #, python-format
 msgid "While reading, entry on location %d seems to be corrupted, ignoring it!"
 msgstr ""
+"Lors de la lecture, une entrée à l'emplacement %d a été lue comme corrompue. "
+"Entrée ignorée !"
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
@@ -2466,24 +2458,23 @@ msgstr ""
 
 #: Wammu/Settings.py:291
 msgid "Automatic"
-msgstr ""
+msgstr "Automatique"
 
 #: Wammu/Settings.py:292
-#, fuzzy
 msgid "Automatic starting with first name"
-msgstr "Recherche automatique de téléphone"
+msgstr "Recherche automatique sur le prénom"
 
 #: Wammu/Settings.py:293
 msgid "Automatic starting with last name"
-msgstr ""
+msgstr "Recherche automatique sur le nom"
 
 #: Wammu/Settings.py:294
 msgid "Custom, use format string below"
-msgstr ""
+msgstr "Personnalisé, utilise le format ci-dessous"
 
 #: Wammu/Settings.py:304
 msgid "Name display format"
-msgstr ""
+msgstr "Format d'affichage du nom"
 
 #. l10n: The %s will be replaced by list of currently supported tags, %%(value)s should be kept intact (you can translate word value).
 #: Wammu/Settings.py:317
@@ -2492,10 +2483,12 @@ msgid ""
 "Format string for name displaying. You can use %%(value)s format marks. "
 "Currently available values are: %s."
 msgstr ""
+"Format d'affichage du nom. Vous pouvez utiliser le format %%(value)s. "
+"Actuellement, les valeurs disponibles sont : %s."
 
 #: Wammu/Settings.py:319
 msgid "Name format string"
-msgstr ""
+msgstr "Chaîne de formatage du nom"
 
 #: Wammu/Settings.py:341
 msgid ""
