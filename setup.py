@@ -291,13 +291,13 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         """
         # add .mo files to data files
         for (_locale, _src, _dst) in list_message_files():
-            _build_dst = os.path.join(self.build_base, _dst)
+            _build_dst = os.path.join('build', _dst)
             item = [os.path.dirname(_dst), [_build_dst]]
             self.data_files.append(item)
 
         # desktop file
         if sys.platform != 'win32':
-            self.data_files.append((os.path.join('share','applications'), [os.path.join(self.build_base, 'wammu.desktop')]))
+            self.data_files.append((os.path.join('share','applications'), [os.path.join('build', 'wammu.desktop')]))
 
         # install data files
         super(install_data_wammu, self).run()
