@@ -14,10 +14,4 @@ for loc in wammu ; do
     msginit -i locale/$loc.pot -o locale/$1/$loc.po -l $1 --no-translator
 done
 
-svn add locale/$1
-
-tmp=`mktemp`
-svn propget svn:ignore locale/cs/ > $tmp
-svn propset svn:ignore -F $tmp locale/$1
-rm -f $tmp
-
+git add locale/$1
