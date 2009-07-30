@@ -1587,6 +1587,7 @@ class WammuFrame(wx.Frame):
                 if datatype == 'PhonePhonebook':
                     for v in backup['PhonePhonebook']:
                         v['Location'] = self.sm.AddMemory(v)
+                        time.sleep(0.5)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                         Wammu.Utils.ParseMemoryEntry(v, self.cfg)
@@ -1597,6 +1598,7 @@ class WammuFrame(wx.Frame):
                 elif datatype == 'SIMPhonebook':
                     for v in backup['SIMPhonebook']:
                         v['Location'] = self.sm.AddMemory(v)
+                        time.sleep(0.5)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetMemory(v['MemoryType'], v['Location'])
                         Wammu.Utils.ParseMemoryEntry(v, self.cfg)
@@ -1607,6 +1609,7 @@ class WammuFrame(wx.Frame):
                 elif datatype == 'ToDo':
                     for v in backup['ToDo']:
                         v['Location'] = self.sm.AddToDo(v)
+                        time.sleep(0.5)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetToDo(v['Location'])
                         Wammu.Utils.ParseTodo(v)
@@ -1617,6 +1620,7 @@ class WammuFrame(wx.Frame):
                 elif datatype == 'Calendar':
                     for v in backup['Calendar']:
                         v['Location'] = self.sm.AddCalendar(v)
+                        time.sleep(0.5)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetCalendar(v['Location'])
                         Wammu.Utils.ParseCalendar(v)
