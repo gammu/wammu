@@ -102,4 +102,4 @@ rm -rf %buildroot
 - do not make it noarch package because it is sometimes in lib64 dir
 * Mon Jan 05 2004 michal@cihar.com
 - initial packaging
-- see SVN log for changelog
+- see Git log for changelog
