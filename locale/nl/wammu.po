@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-06-07 02:58+0200\n"
-"PO-Revision-Date: 2009-08-14 11:59+0200\n"
+"PO-Revision-Date: 2009-08-23 15:57+0200\n"
 "Last-Translator: rob  <linuxned@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "Language: nl\n"
@@ -529,22 +529,20 @@ msgstr "Contacten laden van bestand"
 #: Wammu/EditContactList.py:158
 #, python-format
 msgid "Selected file \"%s\" could not be written."
-msgstr ""
+msgstr "Geselecteerde bestand \"%s\" kon niet geschreven worden."
 
 #: Wammu/EditContactList.py:159
-#, fuzzy
 msgid "File can not be created!"
-msgstr "Kan map niet aanmaken!"
+msgstr "Kan bestand niet aanmaken!"
 
 #: Wammu/EditContactList.py:176 Wammu/Main.py:2064
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
-msgstr ""
+msgstr "Geselecteerde bestand \"%s\" is niet gevonden, kon data niet lezen."
 
 #: Wammu/EditContactList.py:177 Wammu/Main.py:2065
-#, fuzzy
 msgid "File not found!"
-msgstr "Geen telefoon gevonden"
+msgstr "Bestand is niet gevonden!"
 
 #: Wammu/Editor.py:215 Wammu/Editor.py:423 Wammu/Main.py:646 Wammu/Main.py:662
 #: Wammu/Main.py:668
@@ -892,7 +890,6 @@ msgid "All Calendar Events"
 msgstr "Alle kalender gebeurtenissen"
 
 #: Wammu/Main.py:247
-#, fuzzy
 msgid "Search: "
 msgstr "Zoeken:"
 
@@ -928,37 +925,34 @@ msgid "&Write data"
 msgstr "&Schrijf gegevens"
 
 #: Wammu/Main.py:282
-#, fuzzy
 msgid "Write data (except messages) to file."
-msgstr "Schrijft data (behalve berichten) naar bestand"
+msgstr "Schrijf data (behalve berichten) naar bestand."
 
 #: Wammu/Main.py:283
 msgid "W&rite message"
 msgstr "Sch&rijf bericht"
 
 #: Wammu/Main.py:283
-#, fuzzy
 msgid "Write messages to file."
-msgstr "Schrijft berichten naar bestand"
+msgstr "Schrijf berichten naar bestand."
 
 #: Wammu/Main.py:284
 msgid "&Read data"
-msgstr "&Lees gegevens"
+msgstr "&Lees data"
 
 #: Wammu/Main.py:284
-#, fuzzy
 msgid "Read data (except messages) from file (does not import to the phone)."
 msgstr ""
-"Leest data (behalve berichten) van bestand (importeert niet naar de telefoon)"
+"Lees data (behalve berichten) van bestand (importeert niet naar de "
+"telefoon)."
 
 #: Wammu/Main.py:285
 msgid "R&ead messages"
 msgstr "L&ees berichten"
 
 #: Wammu/Main.py:285
-#, fuzzy
 msgid "Read messages from file (does not import to the phone)."
-msgstr "Leest berichten van bestand (importeert niet naar de telefoon)"
+msgstr "Lees berichten van bestand (importeert niet naar de telefoon)."
 
 #: Wammu/Main.py:287
 msgid "&Phone wizard"
@@ -2291,19 +2285,19 @@ msgstr "Timidity niet gevonden"
 
 #: Wammu/Select.py:50
 msgid "Select contact from below list"
-msgstr "Kies contactpersoon uit onderstaande lijst"
+msgstr "Selecteer contactpersoon uit onderstaande lijst"
 
 #: Wammu/Select.py:51
 msgid "Select contact"
-msgstr "Kies contactpersoon"
+msgstr "Selecteer contactpersoon"
 
 #: Wammu/Select.py:93
 msgid "Select number for selected contact"
-msgstr "Kies nummer voor geselecteerde contactpersoon"
+msgstr "Selecteer nummer van geselecteerde contactpersoon"
 
 #: Wammu/Select.py:94
 msgid "Select phone number"
-msgstr "Kies telefoonnummer"
+msgstr "Selecteer telefoonnummer"
 
 #: Wammu/Settings.py:86
 msgid "Please enter here path to gammu configuration file you want to use."
@@ -2328,7 +2322,7 @@ msgid ""
 "Whether you want application automatically connect to phone when it is "
 "started."
 msgstr ""
-"Of je de toepassing automatisch wil laten verbinden met de telefoon bij het "
+"Of je het programma automatisch wil laten verbinden met de telefoon bij het "
 "opstarten."
 
 #: Wammu/Settings.py:105
@@ -2485,7 +2479,7 @@ msgid ""
 "miliseconds, 0 to disable."
 msgstr ""
 "Hoe vaak de telefoonstatus in de statusbalk wordt ververst.  Vul een waarde "
-"in miliseconden in, 0 om uit te schakelen."
+"in milliseconden in, 0 om uit te schakelen."
 
 #: Wammu/Settings.py:342
 msgid "Refresh phone state"
@@ -2673,7 +2667,7 @@ msgstr "Geen van bovenstaande"
 
 #: Wammu/SettingsStorage.py:134
 msgid "Select this option if nothing above matches."
-msgstr "Kies deze optie als je hierboven niets gevonden hebt."
+msgstr "Selecteer deze optie als je hierboven niets gevonden hebt."
 
 #: Wammu/SettingsStorage.py:140
 msgid "OBEX and IrMC protocols"
@@ -3440,8 +3434,8 @@ msgid ""
 "Select which functionality works without problems on your phone (either in "
 "Wammu or in some other tool using Gammu library)."
 msgstr ""
-"Kies welke functies zonder problemen werken op je telefoon (ofwel in Wammu, "
-"ofwel in een andere applicatie die de Gammu-bibliotheek gebruikt)."
+"Selecteer welke functies zonder problemen werken op je telefoon (ofwel in "
+"Wammu, ofwel in een andere applicatie die de Gammu-bibliotheek gebruikt)."
 
 #: Wammu/TalkbackFeaturesDialog.py:39
 msgid "Phone information"
@@ -3700,23 +3694,21 @@ msgid "Usage: %s [OPTION...]"
 msgstr ""
 
 #: wammu-configure.py:56 wammu.py:60
-#, fuzzy
 msgid "Options:"
-msgstr "Omschrijving:"
+msgstr "Opties:"
 
 #: wammu-configure.py:59 wammu.py:63
 msgid "show this help"
-msgstr ""
+msgstr "Deze hulp tonen"
 
 #: wammu-configure.py:62 wammu.py:66
-#, fuzzy
 msgid "show program version"
-msgstr "python-gammu versie"
+msgstr "Programmaversie tonen"
 
 #: wammu-configure.py:65 wammu.py:69
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
-"Forceer gebruik talen uit de huidige map in plaats van deze van het systeem"
+"Forceer gebruik talen uit de huidige map in plaats van die van het systeem"
 
 #: wammu-configure.py:78 wammu.py:136
 msgid "Command line parsing failed with error:"
@@ -3724,11 +3716,11 @@ msgstr "Commandolijn inlezen mislukt met error:"
 
 #: wammu-configure.py:84 wammu.py:142
 msgid "Extra unrecognized parameters passed to program"
-msgstr "Extra onherkende parameters meegegeven met programma"
+msgstr "Extra onherkende parameters doorgegeven aan programma"
 
 #: wammu-configure.py:90 wammu.py:150
 msgid "Using local built locales!"
-msgstr ""
+msgstr "Gebruik lokale talen!"
 
 #: wammu-configure.py:115
 msgid "Updating gammu configuration..."
@@ -3742,10 +3734,11 @@ msgstr ""
 #: wammu.py:72
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
+"Drukt verbindingsinstellingen af en probeert te verbinden met de telefoon"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
-msgstr ""
+msgstr "Activeert foutinformatie naar stderr"
 
 #: wammu.py:89
 msgid "Wammu is not configured!"
@@ -3779,12 +3772,12 @@ msgstr "Wammu"
 #. l10n: Generic name of program shown in desktop file
 #: wammu_setup/msgfmt.py:46
 msgid "Mobile Phone Manager"
-msgstr ""
+msgstr "Mobiele telefoonbeheerder"
 
 #. l10n: Comment about program shown in desktop file
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
-msgstr ""
+msgstr "Programma voor mobiele telefoons - gebruikersinterface voor Gammu"
 
 #~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 #~ msgstr ""
