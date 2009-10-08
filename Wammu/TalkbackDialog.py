@@ -246,7 +246,7 @@ def DoTalkback(parent, config, phoneid = 0):
 
         # Perform request
         conn = httplib.HTTPConnection('wammu.eu')
-        conn.request('POST', '/phones/new-wammu/', params, headers)
+        conn.request('POST', '/api/phones/new/', params, headers)
 
         # Check request response
         response = conn.getresponse()
