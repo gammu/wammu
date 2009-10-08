@@ -219,6 +219,7 @@ def DoTalkback(parent, config, phoneid = 0):
         # Prepare data to post
         params_dict = {
             'irobot': 'wammu',
+            'version': '2',
             'manufacturer': man_id,
             'name': dlg.model_text_ctrl.GetValue(),
             'model': dlg.model_combo_box.GetValue(),
@@ -244,8 +245,8 @@ def DoTalkback(parent, config, phoneid = 0):
                     'Accept': 'text/plain'}
 
         # Perform request
-        conn = httplib.HTTPConnection('cihar.com')
-        conn.request('POST', '/gammu/phonedb/new.php', params, headers)
+        conn = httplib.HTTPConnection('wammu.eu')
+        conn.request('POST', '/phones/new-wammu/', params, headers)
 
         # Check request response
         response = conn.getresponse()
@@ -264,7 +265,7 @@ def DoTalkback(parent, config, phoneid = 0):
         conn.close()
         ok_test = ok_matcher.match(data)
         if ok_test is not None:
-            url = 'http://%scihar.com%s' % (Wammu.Utils.GetWebsiteLang(), ok_test.groups()[1])
+            url = 'http://%swammu.eu%s' % (Wammu.Utils.GetWebsiteLang(), ok_test.groups()[1])
             if wx.MessageDialog(parent,
                 _('Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\nDo you want to open it in browser now?') % url,
                 _('Entry created!'),
