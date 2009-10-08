@@ -588,6 +588,8 @@ ManufacturerMap = {
     'Fly': 26,
     'Simcom': 27,
     'Sanyo': 28,
+    'ZTE': 29,
+    'Jinpeng': 30,
 }
 GarbleMap = {
     0: 'atdot',
