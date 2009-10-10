@@ -479,7 +479,7 @@ def GetWebsiteLang():
     (loc, charset) = locale.getdefaultlocale()
     try:
         if loc[:2].lower() == 'cs':
-            return 'cz.'
+            return 'cs.'
         return ''
     except TypeError:
         return ''
