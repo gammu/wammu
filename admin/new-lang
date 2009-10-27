@@ -10,8 +10,10 @@ fi
 
 mkdir locale/$1
 
-for loc in wammu ; do
+for loc in wammu docs ; do
     msginit -i locale/$loc.pot -o locale/$1/$loc.po -l $1 --no-translator
 done
+
+sed -i "s/\(.*po4a_langs.*\)/\1 $1/" admin/po4a.config
 
 git add locale/$1
