@@ -1,0 +1,19 @@
+#!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
+
+LOCS=`ls locale/*/wammu.po | sed 's@.*/\(.*\)/[^/]*@\1@'`
+ver=`python -c 'import Wammu; print Wammu.__version__'`
+
+po4a \
+    --msgid-bugs-address michal@cihar.com \
+    --copyright-holder "Michal Čihař <michal@cihar.com>" \
+    --package-name Wammu-docs \
+    --package-version $ver \
+    admin/po4a.config
+sed -i '
+    s/SOME DESCRIPTIVE TITLE/Wammu documentation translation/;
+    s/PACKAGE/Wammu-docs/;
+    s/(C) YEAR/(C) 2003 - '`date +%Y`'/;
+    s/VERSION/'$ver'/;
+    ' locale/docs.pot
+    
