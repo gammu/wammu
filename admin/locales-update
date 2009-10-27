@@ -13,15 +13,15 @@ xgettext \
 
 ver=`python -c 'import Wammu; print Wammu.__version__'`
 
+if [ "x$1" != "x--nopo4a" ] ; then
+    ./admin/po4a
+fi
+
 for loc in $LOCS ; do
     cd locale/$loc
     msgmerge -U -C ../../../gammu/locale/$loc/docs.po -C wammu.po -C ../../../gammu/locale/$loc/gammu.po -C ../../../gammu/locale/$loc/libgammu.po docs.po ../docs.pot
     cd ../..
 done
-
-if [ "x$1" != "x--nopo4a" ] ; then
-    ./admin/po4a
-fi
 
 sed -i '
     s/SOME DESCRIPTIVE TITLE/Wammu translation/;
