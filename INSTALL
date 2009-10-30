@@ -14,9 +14,9 @@ Building from Sources
 =====================
 
 It uses standard distutils, so:
-python setup.py build
-su
-python setup.py install
+
+    python setup.py build
+    sudo python setup.py install
 
 You need python-gammu and wxPython [1] (Unicode enabled build) installed to
 run and install this program. If you want support for scanning Bluetooth
@@ -42,12 +42,12 @@ to get them).
 
 Building installer for wammu for Python is easy:
 
-wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
 
 However this way user needs to also install all dependencies, what is
 really not comfortable. This should be solved using py2exe [5]:
 
-wine c:\\python25\\python setup.py build --skip-deps py2exe
+    wine c:\\python25\\python setup.py build --skip-deps py2exe
 
 But except of this, you need to do a bit of manual tuning. To make
 py2exe work in Wine, you need to fix it's binary using PE Tools
@@ -57,7 +57,7 @@ wxPython). See script admin/make-release which automates this copying.
 
 Then you can use InnoSetup[6] to build installer for Wammu:
 
-wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+    wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 
 [5]: http://www.py2exe.org/
 [6]: http://www.jrsoftware.org/isinfo.php
