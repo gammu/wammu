@@ -18,10 +18,10 @@ Wammu používá standardní distutils, takže instalace proběhne:
     python setup.py build
     sudo python setup.py install
 
-You need python-gammu and wxPython [1] (Unicode enabled build) installed to
-run and install this program. If you want support for scanning Bluetooth
-devices, you need PyBluez [2]. For incoming events notifications, you need
-dbus-python [3].
+Pro instalaci a spuštění tohoto programu potřebujete mít nainstalované
+python-gammu a wxPython [1] (build s Unicode). Pokud chcete podporu pro
+vyhledávání zařízení na Bluetooth, potřebujete PyBluez [2]. Pro upozorňování
+na příchozí události potřebujete dbus-python [3].
 
 Na Windows take budete muset nainstalovat Pywin32 [4].
 
@@ -42,16 +42,16 @@ Vytvoření instalátoru balíčku wammu pro Python je snadné:
 
     wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
 
-However this way user needs to also install all dependencies, what is really
-not comfortable. This should be solved using py2exe [5]:
+Ale tímto způsobem si uživatel musí nainstalovat všechny závislosti sám, což
+není moc pohodlné. Toto může být vyřešeno pomocí py2exe [5]:
 
     wine c:\\python25\\python setup.py build --skip-deps py2exe
 
-But except of this, you need to do a bit of manual tuning. To make py2exe
-work in Wine, you need to fix it's binary using PE Tools (described in bug
-report on Wine [w1]) and copy some extra libraries which are missing to dist
-directory (python25.dll and libraries from wxPython). See script
-admin/make-release which automates this copying.
+Ale kromě tohoto musíte provést trochu ručních úprav. Pro fungování py2exe
+ve Wine, potřebujete jeho binárky opravit pomocí programu PE Tools (jak je
+popsáno v chybovém hlášené na Wine [w1]) a zkopírovat nějaké další knihovny,
+které chybějí v adresáři dist (python25.dll a knihovny z wxPython). Ve
+skriptu admin/make-release se toto všechno udělá automaticky
 
 Poté můžete použít InnoSetup[6] pro vytvoření instalátoru Wammu:
 

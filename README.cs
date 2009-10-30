@@ -23,15 +23,15 @@ které by mělo ve většině případů nalézt správnou konfiguraci.
 Použití
 =======
 
-First you have to connect to phone, then you can perform some operations
-with it. For creating entries and importing you do not need to read things
-from phone, for others you have to (surprising? :-)).
+Nejdříve se musíte připojit k telefonu, pak s ním můžete provádět nějaké
+operace. Pro vytváření záznamů a pro import nepotřebujete načíst data z
+telefonu, pro ostatní musíte (překvapivě? :-)).
 
-All actions with current list are accessible from context menu on each item,
-you can also use keys: Enter for editing and Delete for deleting.
+Všechny akce s aktuálními daty jsou dostupné také z kontextového menu na
+každé položky. Můžete také použít klávesu Enter pro upravení položky a
+Delete pro vymazání.
 
-Backup from main menu creates backup of entries you have already retrieved
-from phone.
+Zálohování uloží všechny položky, který jste již načetli z telefonu.
 
 Hlášení chyb
 ============

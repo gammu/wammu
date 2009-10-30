@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2009-10-30 09:20+0100\n"
-"PO-Revision-Date: 2009-10-30 09:21+0100\n"
+"PO-Revision-Date: 2009-10-30 09:34+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -364,6 +364,9 @@ msgid ""
 "with it. For creating entries and importing you do not need to read things "
 "from phone, for others you have to (surprising? :-))."
 msgstr ""
+"Nejdříve se musíte připojit k telefonu, pak s ním můžete provádět nějaké "
+"operace. Pro vytváření záznamů a pro import nepotřebujete načíst data z "
+"telefonu, pro ostatní musíte (překvapivě? :-))."
 
 #. type: Plain text
 #: README:32
@@ -371,13 +374,16 @@ msgid ""
 "All actions with current list are accessible from context menu on each item, "
 "you can also use keys: Enter for editing and Delete for deleting."
 msgstr ""
+"Všechny akce s aktuálními daty jsou dostupné také z kontextového menu na "
+"každé položky. Můžete také použít klávesu Enter pro upravení položky a "
+"Delete pro vymazání."
 
 #. type: Plain text
 #: README:35
 msgid ""
 "Backup from main menu creates backup of entries you have already retrieved "
 "from phone."
-msgstr ""
+msgstr "Zálohování uloží všechny položky, který jste již načetli z telefonu."
 
 #. type: Plain text
 #: README:37
@@ -504,6 +510,10 @@ msgid ""
 "devices, you need PyBluez [2]. For incoming events notifications, you need "
 "dbus-python [3]."
 msgstr ""
+"Pro instalaci a spuštění tohoto programu potřebujete mít nainstalované "
+"python-gammu a wxPython [1] (build s Unicode). Pokud chcete podporu pro "
+"vyhledávání zařízení na Bluetooth, potřebujete PyBluez [2]. Pro upozorňování "
+"na příchozí události potřebujete dbus-python [3]."
 
 #. type: Plain text
 #: INSTALL:27
@@ -565,6 +575,8 @@ msgid ""
 "However this way user needs to also install all dependencies, what is really "
 "not comfortable. This should be solved using py2exe [5]:"
 msgstr ""
+"Ale tímto způsobem si uživatel musí nainstalovat všechny závislosti sám, což "
+"není moc pohodlné. Toto může být vyřešeno pomocí py2exe [5]:"
 
 #. type: Plain text
 #: INSTALL:51
@@ -581,6 +593,11 @@ msgid ""
 "directory (python25.dll and libraries from wxPython). See script admin/make-"
 "release which automates this copying."
 msgstr ""
+"Ale kromě tohoto musíte provést trochu ručních úprav. Pro fungování py2exe "
+"ve Wine, potřebujete jeho binárky opravit pomocí programu PE Tools (jak je "
+"popsáno v chybovém hlášené na Wine [w1]) a zkopírovat nějaké další knihovny, "
+"které chybějí v adresáři dist (python25.dll a knihovny z wxPython). Ve "
+"skriptu admin/make-release se toto všechno udělá automaticky"
 
 #. type: Plain text
 #: INSTALL:59
