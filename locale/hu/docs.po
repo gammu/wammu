@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-10-27 14:10+0100\n"
+"POT-Creation-Date: 2009-10-30 09:20+0100\n"
 "PO-Revision-Date: 2009-10-27 13:41+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -404,8 +404,8 @@ msgstr ""
 msgid ""
 "Many distributions come with prebuilt Wammu binaries, if you can use them, "
 "it is definitely the easiest thing. There are also binary packages of latest "
-"release built for many distributions available on Wammu home page <http://"
-"wammu.eu/download/>."
+"release built for many distributions available on Wammu web site <http://"
+"wammu.eu/download/wammu/>."
 msgstr ""
 
 #. type: Plain text
@@ -417,10 +417,16 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
+#: INSTALL:17
+msgid "It uses standard distutils, so:"
+msgstr ""
+
+#. type: Plain text
 #: INSTALL:20
+#, no-wrap
 msgid ""
-"It uses standard distutils, so: python setup.py build su python setup.py "
-"install"
+"    python setup.py build\n"
+"    sudo python setup.py install\n"
 msgstr ""
 
 #. type: Plain text
@@ -474,7 +480,8 @@ msgstr ""
 
 #. type: Plain text
 #: INSTALL:46
-msgid "wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst"
+#, no-wrap
+msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 msgstr ""
 
 #. type: Plain text
@@ -486,7 +493,8 @@ msgstr ""
 
 #. type: Plain text
 #: INSTALL:51
-msgid "wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe"
+#, no-wrap
+msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 msgstr ""
 
 #. type: Plain text
@@ -506,7 +514,8 @@ msgstr ""
 
 #. type: Plain text
 #: INSTALL:61
-msgid "wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss"
+#, no-wrap
+msgid "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 msgstr ""
 
 #. type: Plain text

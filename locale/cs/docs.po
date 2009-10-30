@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2009-10-27 14:10+0100\n"
-"PO-Revision-Date: 2009-10-30 09:18+0100\n"
+"POT-Creation-Date: 2009-10-30 09:20+0100\n"
+"PO-Revision-Date: 2009-10-30 09:21+0100\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -464,12 +464,12 @@ msgstr ""
 msgid ""
 "Many distributions come with prebuilt Wammu binaries, if you can use them, "
 "it is definitely the easiest thing. There are also binary packages of latest "
-"release built for many distributions available on Wammu home page <http://"
-"wammu.eu/download/>."
+"release built for many distributions available on Wammu web site <http://"
+"wammu.eu/download/wammu/>."
 msgstr ""
 "Mnoho distribucí obsahuje balíčku pro Wammu, takže pokud je můžete použít, "
 "je to určitě nejsnadnější cesta. Aktuální verzi zabalenou pro mnoho "
-"distribucí naleznete na stránkách Wammu <http://wammu.eu/download/>."
+"distribucí naleznete na stránkách Wammu <http://cs.wammu.eu/download/wammu/>."
 
 #. type: Plain text
 #: INSTALL:14
@@ -482,11 +482,19 @@ msgstr ""
 "============================\n"
 
 #. type: Plain text
+#: INSTALL:17
+msgid "It uses standard distutils, so:"
+msgstr "Wammu používá standardní distutils, takže instalace proběhne:"
+
+#. type: Plain text
 #: INSTALL:20
+#, no-wrap
 msgid ""
-"It uses standard distutils, so: python setup.py build su python setup.py "
-"install"
+"    python setup.py build\n"
+"    sudo python setup.py install\n"
 msgstr ""
+"    python setup.py build\n"
+"    sudo python setup.py install\n"
 
 #. type: Plain text
 #: INSTALL:25
@@ -547,8 +555,9 @@ msgstr "Vytvoření instalátoru balíčku wammu pro Python je snadné:"
 
 #. type: Plain text
 #: INSTALL:46
-msgid "wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst"
-msgstr "wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst"
+#, no-wrap
+msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
+msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 
 #. type: Plain text
 #: INSTALL:49
@@ -559,8 +568,9 @@ msgstr ""
 
 #. type: Plain text
 #: INSTALL:51
-msgid "wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe"
-msgstr "wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe"
+#, no-wrap
+msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
+msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 
 #. type: Plain text
 #: INSTALL:57
@@ -579,8 +589,9 @@ msgstr "Poté můžete použít InnoSetup[6] pro vytvoření instalátoru Wammu:
 
 #. type: Plain text
 #: INSTALL:61
-msgid "wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss"
-msgstr "wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss"
+#, no-wrap
+msgid "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
+msgstr "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 
 #. type: Plain text
 #: INSTALL:64
