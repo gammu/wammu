@@ -347,6 +347,7 @@ data_files.append((os.path.join('share','pixmaps'), [
     'icon/wammu.svg',
     ]))
 data_files.append((os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1']))
+data_files.append((os.path.join('share','man','cs','man1'), ['man/cs/wammu.1', 'man/cs/wammu-configure.1']))
 
 distutils.core.setup(name="wammu",
     version = Wammu.__version__,
