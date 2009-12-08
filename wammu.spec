@@ -32,7 +32,7 @@ BuildRequires:  desktop-file-utils
 Url:        http://wammu.eu/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # These distributions use /usr/lib for python on all architectures
-%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel} || 0%{?mandriva_version}
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel} || 0%{?mandriva_version} || 0%{?suse_version} > 1110
 BuildArch: noarch
 %endif
 
@@ -82,7 +82,8 @@ rm -rf %buildroot
 %files -f %name.lang
 %defattr(-,root,root)
 %doc COPYING AUTHORS FAQ README PKG-INFO ChangeLog
-%{_mandir}/man1/*
+%doc %{_mandir}/man1/*
+%lang(cs) %doc %{_mandir}/cs/man1/*
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
