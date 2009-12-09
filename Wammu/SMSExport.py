@@ -359,7 +359,7 @@ def bool2yn(value):
 def yn2bool(value):
     return value == 'yes'
 
-class IMAPConfigHelper():
+class IMAPConfigHelper:
     '''
     A small helper to read and write the Wammu config
     '''
@@ -474,7 +474,7 @@ class IMAPSettingsDialog(wx.Dialog):
         self.cfg.port = self.portTextCtrl.GetValue()
         self.cfg.login = self.loginTextCtrl.GetValue()
         self.cfg.password = self.passwordTextCtrl.GetValue()
-        
+
         self.cfg.rememberPassword = self.rememberCheckBox.GetValue()
         self.cfg.useSSL = self.useSSLCheckBox.GetValue()
         self.cfg.newMessages = self.useSSLCheckBox.GetValue()
