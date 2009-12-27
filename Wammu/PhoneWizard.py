@@ -180,7 +180,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             self.edit.Clear()
             self.edit.AppendText(_('Wammu is now searching for phone:') + '\n')
             self.thread = Wammu.PhoneSearch.AllSearchThread(
-                    lock = 'no',
+                    lock = False,
                     callback = self.SearchDone,
                     msgcallback = self.SearchMessage,
                     noticecallback = self.SearchNotice,

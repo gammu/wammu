@@ -48,7 +48,7 @@ class AllSearchThread(threading.Thread):
     device.
     '''
     def __init__(self,
-            lock = 'no',
+            lock = False,
             level = 'nothing',
             msgcallback = None,
             callback = None,
@@ -223,7 +223,7 @@ class SearchThread(threading.Thread):
             connections,
             lst,
             listlock,
-            lock = 'no',
+            lock = False,
             level = 'nothing',
             win = None):
         threading.Thread.__init__(self)
