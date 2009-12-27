@@ -2087,7 +2087,7 @@ class WammuFrame(wx.Frame):
             return
         cfg = {
             'StartInfo': self.cfg.Read('/Gammu/StartInfo'),
-            'UseGlobalDebugFile': 1,
+            'UseGlobalDebugFile': True,
             'DebugFile': None, # Set on other place
             'SyncTime': self.cfg.Read('/Gammu/SyncTime'),
             'Connection': config['Connection'],

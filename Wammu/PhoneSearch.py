@@ -241,10 +241,10 @@ class SearchThread(threading.Thread):
         '''
         gsm = gammu.StateMachine()
         gsm.SetConfig(0,
-                {'StartInfo': 'no',
-                 'UseGlobalDebugFile': 1,
+                {'StartInfo': False,
+                 'UseGlobalDebugFile': True,
                  'DebugFile': '',
-                 'SyncTime': 'no',
+                 'SyncTime': False,
                  'Connection': connection,
                  'LockDevice': self.lock,
                  'DebugLevel': self.level,
@@ -303,10 +303,10 @@ class PhoneInfoThread(threading.Thread):
         try:
             sm = gammu.StateMachine()
             sm.SetConfig(0,
-                    {'StartInfo': 'no',
-                     'UseGlobalDebugFile': 1,
+                    {'StartInfo': False,
+                     'UseGlobalDebugFile': True,
                      'DebugFile': '',
-                     'SyncTime': 'no',
+                     'SyncTime': False,
                      'Connection': self.connection,
                      'LockDevice': 'no',
                      'DebugLevel': 'nothing',
