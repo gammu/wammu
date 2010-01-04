@@ -35,7 +35,7 @@ def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
     if txt is None:
         return ''
     if cfg.Read('/Message/Format') == 'yes':
-        ret = ''
+        parts = []
         arr = txt.split(' ')
         for a in arr:
             if re.match('^([a-z]+[^ ]*)?[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) != None:
@@ -70,24 +70,25 @@ def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
                             s += x
                             continue
                         if curtype == 'p':
-                            ret = ret.rstrip() + s + ' '
+                            parts[-1] += s
                         elif curtype == 'u':
-                            ret += s.lower() + ' '
+                            parts.append(s.lower())
                         else:
-                            ret += s + ' '
+                            parts.append(s)
                         s = x
                         prevtype = curtype
                         curtype = nexttype
 
                 if curtype == 'p':
-                    ret = ret.rstrip() + s + ' '
+                    parts[-1] += s
                 elif curtype == 'u':
-                    ret += s.lower() + ' '
+                    parts.append(s.lower())
                 else:
-                    ret += s + ' '
+                    parts.append(s)
                 s = x
             else:
-                ret += a + ' '
+                parts.append(a)
+        ret = ' '.join(parts)
     else:
         ret = txt
     if dohtml or doxml:
