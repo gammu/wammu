@@ -1500,7 +1500,6 @@ class WammuFrame(wx.Frame):
                 if datatype == 'message':
                     smsl = []
                     for v in backup:
-                        v['Folder'] = 2 # FIXME: this should be configurable
                         v['SMSC']['Location'] = 1
                         (v['Location'], v['Folder']) = self.sm.AddSMS(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
