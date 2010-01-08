@@ -2085,12 +2085,12 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_ERROR).ShowModal()
             return
         cfg = {
-            'StartInfo': self.cfg.Read('/Gammu/StartInfo'),
+            'StartInfo': self.cfg.ReadBool('/Gammu/StartInfo'),
             'UseGlobalDebugFile': True,
             'DebugFile': None, # Set on other place
-            'SyncTime': self.cfg.Read('/Gammu/SyncTime'),
+            'SyncTime': self.cfg.ReadBool('/Gammu/SyncTime'),
             'Connection': config['Connection'],
-            'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
+            'LockDevice': self.cfg.ReadBool('/Gammu/LockDevice'),
             'DebugLevel': 'textalldate', # Set on other place
             'Device': config['Device'],
             'Model': config['Model'],

@@ -49,7 +49,7 @@ DEFAULT_CONFIG = {
     '/Defaults/Entry-calendar-1': 'START_DATETIME',
     '/Defaults/Entry-calendar-2': 'END_DATETIME',
     '/Wammu/AutoConnect': 'no',
-    '/Gammu/LockDevice': 'no',
+    '/Gammu/LockDevice': False,
     '/Debug/Show': 'no',
     '/Wammu/PhonePrefix': 'Auto',
     '/Wammu/LastPhonePrefix': '',
@@ -64,8 +64,8 @@ DEFAULT_CONFIG = {
     '/Message/Unicode': 'no',
     '/Message/DeliveryReport': 'no',
     '/Message/16bitId': 'yes',
-    '/Gammu/SyncTime': 'yes',
-    '/Gammu/StartInfo': 'no',
+    '/Gammu/SyncTime': True,
+    '/Gammu/StartInfo': True,
     '/Wammu/ConfirmDelete': 'yes',
     '/Wammu/DefaultTime': '09:00:00',
     '/Wammu/DefaultDateOffset': 1,
@@ -157,6 +157,18 @@ class WammuConfig:
             # Following line is for debugging purposes only
             #print 'Warning: no default value for %s' % path
             result = self.cfg.ReadFloat(path, 0)
+        return result
+
+    def ReadBool(self, path):
+        '''
+        Reads boolean option from configuration.
+        '''
+        try:
+            result = self.cfg.ReadBool(path, DEFAULT_CONFIG[path])
+        except KeyError:
+            # Following line is for debugging purposes only
+            #print 'Warning: no default value for %s' % path
+            result = self.cfg.ReadBool(path, 0)
         return result
 
     def Write(self, path, value):
