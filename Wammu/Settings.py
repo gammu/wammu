@@ -110,13 +110,13 @@ class Settings(wx.Dialog):
 
         self.editsync = wx.CheckBox(self.notebook_gammu, -1, _('Synchronize time'))
         self.editsync.SetToolTipString(_('Synchronise time in phone with computer time while connecting.'))
-        self.editsync.SetValue(config.Read('/Gammu/SyncTime') == 'yes')
+        self.editsync.SetValue(config.ReadBool('/Gammu/SyncTime'))
         self.sizer_gammu.Add(self.editsync, pos = (r, 1), colspan = 2)
         r += 1
 
         self.editinfo = wx.CheckBox(self.notebook_gammu, -1, _('Startup information'))
         self.editinfo.SetToolTipString(_('Display startup on phone (not supported by all models).'))
-        self.editinfo.SetValue(config.Read('/Gammu/StartInfo') == 'yes')
+        self.editinfo.SetValue(config.ReadBool('/Gammu/StartInfo'))
         self.sizer_gammu.Add(self.editinfo, pos = (r, 1), colspan = 2)
         r += 1
 
@@ -124,7 +124,7 @@ class Settings(wx.Dialog):
             # locking not available on windoze
             self.editlock = wx.CheckBox(self.notebook_gammu, -1, _('Lock device'))
             self.editlock.SetToolTipString(_('Whether to lock device in /var/lock. On some systems you might lack privileges to do so.'))
-            self.editlock.SetValue(config.Read('/Gammu/LockDevice') == 'yes')
+            self.editlock.SetValue(config.ReadBool('/Gammu/LockDevice'))
             self.sizer_gammu.Add(self.editlock, pos = (r, 1), colspan = 2)
             r += 1
 
@@ -536,22 +536,10 @@ class Settings(wx.Dialog):
             self.config.Write('/Gammu/Gammurc', self.editcfgpath.GetValue())
             self.config.WriteInt('/Gammu/Section', current['Id'])
 
-        if self.editsync.GetValue():
-            value = 'yes'
-        else:
-            value = 'no'
-        self.config.Write('/Gammu/SyncTime', value)
+        self.config.WriteBool('/Gammu/SyncTime', self.editsync.GetValue())
         if sys.platform != 'win32':
-            if self.editlock.GetValue():
-                value = 'yes'
-            else:
-                value = 'no'
-            self.config.Write('/Gammu/LockDevice', value)
-        if self.editinfo.GetValue():
-            value = 'yes'
-        else:
-            value = 'no'
-        self.config.Write('/Gammu/StartInfo', value)
+            self.config.WriteBool('/Gammu/LockDevice', self.editlock.GetValue())
+        self.config.WriteBool('/Gammu/StartInfo', self.editinfo.GetValue())
         if self.editdebug.GetValue():
             value = 'yes'
         else:

@@ -189,6 +189,12 @@ class WammuConfig:
         '''
         self.cfg.WriteFloat(path, value)
 
+    def WriteBool(self, path, value):
+        '''
+        Writes boolean option to configuration.
+        '''
+        self.cfg.WriteBool(path, value)
+
     def HasEntry(self, path):
         '''
         Checks whether configuration has some entry.
