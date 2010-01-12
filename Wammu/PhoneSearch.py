@@ -240,16 +240,26 @@ class SearchThread(threading.Thread):
         Performs test on single connection.
         '''
         gsm = gammu.StateMachine()
-        gsm.SetConfig(0,
-                {'StartInfo': False,
-                 'UseGlobalDebugFile': True,
-                 'DebugFile': '',
-                 'SyncTime': False,
-                 'Connection': connection,
-                 'LockDevice': self.lock,
-                 'DebugLevel': self.level,
-                 'Device': self.device,
-                 'Model': ''})
+        cfg = {
+            'StartInfo': False,
+             'UseGlobalDebugFile': True,
+             'DebugFile': '',
+             'SyncTime': False,
+             'Connection': connection,
+             'LockDevice': self.lock,
+             'DebugLevel': self.level,
+             'Device': self.device,
+             'Model': ''
+        }
+
+        # Compatibility with old Gammu versions
+        cfg = Wammu.Utils.CompatConfig(cfg)
+
+        gsm.SetConfig(0, cfg)
+
+        # Compatibility with old Gammu versions
+        cfg = Wammu.Utils.CompatConfig(cfg)
+
         try:
             if self.level == 'textall':
                 print 'Trying at %s using %s' % (self.device, connection)
@@ -302,17 +312,22 @@ class PhoneInfoThread(threading.Thread):
                 return
         try:
             sm = gammu.StateMachine()
-            sm.SetConfig(0,
-                    {'StartInfo': False,
-                     'UseGlobalDebugFile': True,
-                     'DebugFile': '',
-                     'SyncTime': False,
-                     'Connection': self.connection,
-                     'LockDevice': 'no',
-                     'DebugLevel': 'nothing',
-                     'Device': self.device,
-                     'Model': '',
-                     })
+            cfg = {
+                'StartInfo': False,
+                'UseGlobalDebugFile': True,
+                'DebugFile': '',
+                'SyncTime': False,
+                'Connection': self.connection,
+                'LockDevice': 'no',
+                'DebugLevel': 'nothing',
+                'Device': self.device,
+                'Model': '',
+            }
+
+            # Compatibility with old Gammu versions
+            cfg = Wammu.Utils.CompatConfig(cfg)
+
+            sm.SetConfig(0, cfg)
             sm.Init()
             self.result = {
                     'Model': sm.GetModel(),

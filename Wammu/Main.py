@@ -2095,8 +2095,10 @@ class WammuFrame(wx.Frame):
             'Device': config['Device'],
             'Model': config['Model'],
             }
-        if cfg['Model'] == 'auto':
-            cfg['Model'] = ''
+
+        # Compatibility with old Gammu versions
+        cfg = Wammu.Utils.CompatConfig(cfg)
+
         self.sm.SetConfig(0, cfg)
         try:
             self.sm.Init()

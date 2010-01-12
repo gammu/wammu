@@ -80,6 +80,7 @@ def info():
     Displays configuration summary and tries to connect to phone.
     '''
     import Wammu.WammuSettings
+    import Wammu.Utils
     import gammu
 
     settings = Wammu.WammuSettings.WammuConfig()
@@ -87,20 +88,22 @@ def info():
     config = settings.gammu.GetConfig(section)
     if config['Connection'] == '' or config['Device'] == '':
         print _('Wammu is not configured!')
+
     cfg = {
-        'StartInfo': settings.Read('/Gammu/StartInfo'),
-        'UseGlobalDebugFile': 1,
+        'StartInfo': settings.ReadBool('/Gammu/StartInfo'),
+        'UseGlobalDebugFile': True,
         'DebugFile': None, # Set on other place
-        'SyncTime': settings.Read('/Gammu/SyncTime'),
+        'SyncTime': settings.ReadBool('/Gammu/SyncTime'),
         'Connection': config['Connection'],
-        'LockDevice': settings.Read('/Gammu/LockDevice'),
+        'LockDevice': settings.ReadBool('/Gammu/LockDevice'),
         'DebugLevel': 'textalldate', # Set on other place
         'Device': config['Device'],
-        'Localize': None,  # Set automatically by python-gammu
         'Model': config['Model'],
         }
-    if cfg['Model'] == 'auto':
-        cfg['Model'] = ''
+
+    # Compatibility with old Gammu versions
+    cfg = Wammu.Utils.CompatConfig(cfg)
+
     print _('Wammu configuration:')
     print '%-15s: %s' % (_('Connection'), cfg['Connection'])
     print '%-15s: %s' % (_('Model'), cfg['Model'])

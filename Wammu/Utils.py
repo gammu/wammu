@@ -546,3 +546,29 @@ def CheckDeviceNode(curdev):
                 (_('Maybe you need to be member of %s group.') % group)
                 )
     return (0, '', '', '')
+
+def CompatConfig(cfg):
+    '''
+    Adjust configuration for possible changes in Gammu history.
+    '''
+
+    # 1.27.0 changed handling of boolean options
+    if tuple(map(int, gammu.Version()[1].split('.'))) < (1, 27, 0):
+        if cfg['SyncTime']:
+            cfg['SyncTime'] = 'yes'
+        else:
+            cfg['SyncTime'] = 'no'
+        if cfg['LockDevice']:
+            cfg['LockDevice'] = 'yes'
+        else:
+            cfg['LockDevice'] = 'no'
+        if cfg['StartInfo']:
+            cfg['StartInfo'] = 'yes'
+        else:
+            cfg['StartInfo'] = 'no'
+
+    # Older versions did not use model auto
+    if cfg['Model'] == 'auto':
+        cfg['Model'] = ''
+
+    return cfg
