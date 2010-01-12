@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2009-03-13 03:00+0200\n"
 "Last-Translator: Pietro Battiston <toobaz@email.it>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -604,7 +604,7 @@ msgstr "Cerca report simili"
 msgid "Report bug"
 msgstr "Segnala bug"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Salva registro di debug come..."
 
@@ -693,7 +693,7 @@ msgstr "Selezionare configurazione da modificare"
 msgid "Select configuration section"
 msgstr "Selezionare la sezione della configurazione"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Produttore"
 
@@ -705,7 +705,7 @@ msgstr "Modello (identificazione di Gammu)"
 msgid "Model (real)"
 msgstr "Modello (reale)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -1810,28 +1810,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Connessione non configurata!"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Il telefono ha appena ricevuto una chiamata in ingresso"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Il telefono ha appena ricevuto una chiamata in ingresso da %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Chiamata in ingresso"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Rifiuta"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Accetta"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Un momento per favore, disconnessione dal telefono..."
 
@@ -1903,7 +1903,7 @@ msgstr "%s completato"
 msgid "All finished, found %d phones"
 msgstr "Operazioni terminate, trovati %d telefoni"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Impossibile connettersi al telefono"
 
@@ -2365,7 +2365,7 @@ msgstr "Crea un nuovo contatto"
 msgid "Device, where your phone is connected."
 msgstr "Periferica a cui il telefono è collegato."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Periferica"
 
@@ -2377,7 +2377,7 @@ msgstr ""
 "Connessioni supportate dal telefono, leggere la documentazione di Gammu per "
 "dettagli sulle connessioni."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Connessione"
 
@@ -2388,7 +2388,7 @@ msgstr ""
 "Modello del telefono, è possibile lasciare \"auto\" se non si verificano "
 "problemi."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Modello"
 
@@ -3717,15 +3717,15 @@ msgstr ""
 "forza l'utilizzo della localizzazione dalla cartella corrente invece che di "
 "quella di sistema"
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr "La scansione della riga di comando è fallita con errore:"
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Parametri in più non riconosciuti passati al programma"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr "Utilizzo la localizzazione costruita in loco!"
 
@@ -3747,32 +3747,32 @@ msgstr ""
 msgid "enables debug output to stderr"
 msgstr ""
 
-#: wammu.py:89
+#: wammu.py:90
 #, fuzzy
 msgid "Wammu is not configured!"
 msgstr "Nessun telefono trovato"
 
-#: wammu.py:104
+#: wammu.py:107
 #, fuzzy
 msgid "Wammu configuration:"
 msgstr "Crea un nuovo contatto"
 
-#: wammu.py:108
+#: wammu.py:111
 #, fuzzy
 msgid "Connecting..."
 msgstr "Connessione"
 
-#: wammu.py:115
+#: wammu.py:118
 #, fuzzy
 msgid "Getting phone information..."
 msgstr "Lettura informazioni telefono"
 
-#: wammu.py:120
+#: wammu.py:123
 #, fuzzy
 msgid "Phone infomation:"
 msgstr "Informazioni sul telefono"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr ""
 

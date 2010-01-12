@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -605,7 +605,7 @@ msgstr "전화기 찾기"
 msgid "Report bug"
 msgstr "백업 가져오기"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 #, fuzzy
 msgid "Save debug log as..."
 msgstr "다른 이름으로 백업 저장..."
@@ -695,7 +695,7 @@ msgstr "설정을 찾지 못함"
 msgid "Select configuration section"
 msgstr "설정을 찾지 못함"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "제조업체"
 
@@ -707,7 +707,7 @@ msgstr "모델 (Gammu 식별)"
 msgid "Model (real)"
 msgstr "모델 (실제)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "펌웨어"
 
@@ -1832,28 +1832,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "전화기 찾지 못함"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr ""
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr ""
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr ""
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "잠시만, 전화 연결 끊는 중..."
 
@@ -1930,7 +1930,7 @@ msgstr "%s 끝냄"
 msgid "All finished, found %d phones"
 msgstr "모든 종료된 것, %d 전화기에서 찾음"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 #, fuzzy
 msgid "Failed to connect to phone"
 msgstr "예외 처리 지정 실패함"
@@ -2375,7 +2375,7 @@ msgstr "새로운 연락처를 만듭니다"
 msgid "Device, where your phone is connected."
 msgstr "장치, 전화기가 접속되는 곳 입니다."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "장치"
 
@@ -2386,7 +2386,7 @@ msgid ""
 msgstr ""
 "전화기에 알맞는 접속, 접속에 대한 자세한 것은 Gammu 문서를 참조 하십시오."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "접속"
 
@@ -2396,7 +2396,7 @@ msgid ""
 msgstr ""
 "전화기 모델, 무슨 문제가 있지 않는 한 자동으로 여기에 보존할 수 있습니다."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "모델"
 
@@ -3690,15 +3690,15 @@ msgstr "python-gammu 버전"
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr ""
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr ""
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr ""
 
@@ -3720,32 +3720,32 @@ msgstr ""
 msgid "enables debug output to stderr"
 msgstr ""
 
-#: wammu.py:89
+#: wammu.py:90
 #, fuzzy
 msgid "Wammu is not configured!"
 msgstr "전화기 찾지 못함"
 
-#: wammu.py:104
+#: wammu.py:107
 #, fuzzy
 msgid "Wammu configuration:"
 msgstr "새로운 연락처를 만듭니다"
 
-#: wammu.py:108
+#: wammu.py:111
 #, fuzzy
 msgid "Connecting..."
 msgstr "접속"
 
-#: wammu.py:115
+#: wammu.py:118
 #, fuzzy
 msgid "Getting phone information..."
 msgstr "전화기 정보 읽음"
 
-#: wammu.py:120
+#: wammu.py:123
 #, fuzzy
 msgid "Phone infomation:"
 msgstr "전화기 정보"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr ""
 

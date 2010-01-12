@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2009-06-03 20:52+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -616,7 +616,7 @@ msgstr "Hasonló hibajelentések keresése"
 msgid "Report bug"
 msgstr "Hibajelentés készítése"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Hibajelentése mentése másként..."
 
@@ -708,7 +708,7 @@ msgstr "Válassza ki a módosítani kívánt konfigurációt."
 msgid "Select configuration section"
 msgstr "Válassza ki a konfigurációs részt"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Gyártó"
 
@@ -720,7 +720,7 @@ msgstr "Modell (Gammu azonosítás)"
 msgid "Model (real)"
 msgstr "Modell (valódi)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Förmver"
 
@@ -1831,28 +1831,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "A telefonkapcsolat nincs beállítva."
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Bejövő hívás a telefonon"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Bejövő hívás a telefonon. Hívó fél: %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Beérkező hívás"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Visszautasítás"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Kérem várjon. A telefon leválasztása folyamatban."
 
@@ -1925,7 +1925,7 @@ msgstr "%s kész"
 msgid "All finished, found %d phones"
 msgstr "Keresés befejezve, %d telefon érhető el"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Nem sikerült a mobiltelefonhoz kapcsolódni."
 
@@ -2390,7 +2390,7 @@ msgstr "A konfiguráció neve."
 msgid "Device, where your phone is connected."
 msgstr "Az eszköz, amelyhez a telefonja kapcsolódik."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Eszköz"
 
@@ -2402,7 +2402,7 @@ msgstr ""
 "Kapcsolódás a telefon által lehetséges kapcsolódási móddal. Tekintse át a "
 "Gammu dokumentációját a részletekért."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Kapcsolat"
 
@@ -2413,7 +2413,7 @@ msgstr ""
 "Telefonmodell megadása. Általában az automatikus beállítás megfelelő, ha "
 "csak nincs valami probléma."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Modell"
 
@@ -3770,15 +3770,15 @@ msgstr ""
 "Az aktuális mappából elérhető fordítás használata a rendszer által "
 "biztosított helyett."
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr "Parancssor feldolgozási hiba:"
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "További ismeretlen parancssori opciót adott meg a programnak"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr "Helyileg fordított fordítás használata."
 
@@ -3808,30 +3808,30 @@ msgstr ""
 
 #  msgid "No phone configured!"
 #  msgid "Connection not configured!"
-#: wammu.py:89
+#: wammu.py:90
 msgid "Wammu is not configured!"
 msgstr "A Wammu program nincs beállítva."
 
 #  msgid "Manual configuration"
-#: wammu.py:104
+#: wammu.py:107
 msgid "Wammu configuration:"
 msgstr "Wammu beállításai:"
 
-#: wammu.py:108
+#: wammu.py:111
 msgid "Connecting..."
 msgstr "Kapcsolódás..."
 
 #  msgid "Reading phone information"
-#: wammu.py:115
+#: wammu.py:118
 msgid "Getting phone information..."
 msgstr "Telefoninformációk olvasása..."
 
 #  msgid "Phone information"
-#: wammu.py:120
+#: wammu.py:123
 msgid "Phone infomation:"
 msgstr "Telefoninformáció:"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr "IMEI"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.32\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2008-07-14 14:30+0200\n"
 "Last-Translator: alx <schumifer21@yahoo.com>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -606,7 +606,7 @@ msgstr "Αναζήτηση για παρόμοιες αναφορές"
 msgid "Report bug"
 msgstr "Αναφορά σφάλματος"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Αποθήκευση αρχείου αποσφαλμάτωσης ως ..."
 
@@ -699,7 +699,7 @@ msgstr "Επιλογή διαμόρφωσης προς τροποποίηση"
 msgid "Select configuration section"
 msgstr "Τομέας επιλογής διαμόρφωσης"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Κατασκευαστής"
 
@@ -711,7 +711,7 @@ msgstr "Μοντέλο (Αναγνωριστικό Gammu)"
 msgid "Model (real)"
 msgstr "Μοντέλο (πραγματικό)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -1826,28 +1826,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Η σύνδεση δεν έχει ρυθμιστεί!"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Το τηλέφωνό σας μόλις δέχτηκε μία εισερχόμενη κλήση"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Το τηλέφωνό σας μόλις δέχθηκε εισερχόμενη κλήση από %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Εισερχόμενη κλήση"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Ένα λεπτό παρακαλώ, αποσύνδεση από το τηλέφωνο..."
 
@@ -1920,7 +1920,7 @@ msgstr "Τέλος %s"
 msgid "All finished, found %d phones"
 msgstr "Τέλος, βρέθηκαν %d τηλέφωνα"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Αποτυχία σύνδεσης με το τηλέφωνο"
 
@@ -2390,7 +2390,7 @@ msgstr "Όνομα αυτής της ρύθμισης."
 msgid "Device, where your phone is connected."
 msgstr "Συσκεύη, όπου το τηλέφωνό σας είναι συνδεδεμένο."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Συσκευή"
 
@@ -2402,7 +2402,7 @@ msgstr ""
 "Σύνδεση που το κινητό σας αντιλαμβάνεται, ελέγξτε την τεκμηρίωση του Gammu "
 "για λεπτομέρειες σύνδεσης."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Σύνδεση"
 
@@ -2413,7 +2413,7 @@ msgstr ""
 "Τύπος τηλεφώνου, συνήθως μπορείτε α διατηρήσετε την αυτόματη ρύθμιση εδώ "
 "εκτός αν έχετε προβλήματα."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Τύπος"
 
@@ -3754,15 +3754,15 @@ msgstr ""
 "Υποχρεωτική χρήση τοπικών ρυθμίσεων από το παρόν φάκελο, αντί για του "
 "συστήματος"
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr "Γραμμή εντολής απέτυχε με σφάλμα:"
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Επιπλέον μη αναγνωρισμένες παράμετροι περάσαν στο πρόγραμμα"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr "Χρήση τοπικά δημιουργημένων τοπικών ρυθμίσεων!"
 
@@ -3786,32 +3786,32 @@ msgstr ""
 msgid "enables debug output to stderr"
 msgstr ""
 
-#: wammu.py:89
+#: wammu.py:90
 #, fuzzy
 msgid "Wammu is not configured!"
 msgstr "Η σύνδεση δεν έχει ρυθμιστεί!"
 
-#: wammu.py:104
+#: wammu.py:107
 #, fuzzy
 msgid "Wammu configuration:"
 msgstr "Χειροκίνητη ρύθμιση"
 
-#: wammu.py:108
+#: wammu.py:111
 #, fuzzy
 msgid "Connecting..."
 msgstr "Σύνδεση"
 
-#: wammu.py:115
+#: wammu.py:118
 #, fuzzy
 msgid "Getting phone information..."
 msgstr "Ανάγνωση πληροφοριών τηλεφώνου"
 
-#: wammu.py:120
+#: wammu.py:123
 #, fuzzy
 msgid "Phone infomation:"
 msgstr "Πληροφορίες τηλεφώνου"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr ""
 

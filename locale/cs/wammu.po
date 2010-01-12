@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2009-07-30 12:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -602,7 +602,7 @@ msgstr "Hledat podobné chyby"
 msgid "Report bug"
 msgstr "Nahlásit chybu"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Uložit ladicí hlášky jako..."
 
@@ -691,7 +691,7 @@ msgstr "Zvolte sekci konfigurace kterou chcete upravit."
 msgid "Select configuration section"
 msgstr "Zvolte sekci konfigurace"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Výrobce"
 
@@ -703,7 +703,7 @@ msgstr "Model (identifikace Gammu)"
 msgid "Model (real)"
 msgstr "Model (skutečný)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -1810,28 +1810,28 @@ msgstr "Připojení telefonu není správně nakonfigurováno, nelze se připoji
 msgid "Connection not configured!"
 msgstr "Není nastaveno připojení!"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Na váš telefon právě někdo volá"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Na váš telefon právě volá %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Příchozí hovor"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Odmítnout"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Přijmout"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Chvilku strpení, odpojuji se od telefonu..."
 
@@ -1904,7 +1904,7 @@ msgstr "Dokončeno %s"
 msgid "All finished, found %d phones"
 msgstr "Vše ukončeno, nalezeno %d telefonů"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Nepodařilo se připojit k telefonu"
 
@@ -2353,7 +2353,7 @@ msgstr "Pojmenujte toto připojení."
 msgid "Device, where your phone is connected."
 msgstr "Zařízení na kterém je připojen telefon."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Zařízení"
 
@@ -2365,7 +2365,7 @@ msgstr ""
 "Připojení, kterému rozumí váš telefon, přečtěte si dokumentaci Gammu pro "
 "dostupné možnosti."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Připojení"
 
@@ -2375,7 +2375,7 @@ msgid ""
 msgstr ""
 "Model telefonu obvykle můžete ponechat auto pokud s tím nemáte problémy."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Model"
 
@@ -3706,15 +3706,15 @@ msgstr "zobrazí verzi programu"
 msgid "force using of locales from current directory rather than system ones"
 msgstr "použít locales z aktuálního adresáře namísto systémových"
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr "Zpracování parametrů skončilo s chybou:"
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Nerozpoznané parametry předané programu"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr "Používám locales z aktuálního adresáře!"
 
@@ -3737,27 +3737,27 @@ msgid "enables debug output to stderr"
 msgstr "zapne ladicí výstup na standardní chybový výstup"
 
 #  msgid "No phone configured!"
-#: wammu.py:89
+#: wammu.py:90
 msgid "Wammu is not configured!"
 msgstr "Wammu není nastaveno!"
 
-#: wammu.py:104
+#: wammu.py:107
 msgid "Wammu configuration:"
 msgstr "Nastavení Wammu:"
 
-#: wammu.py:108
+#: wammu.py:111
 msgid "Connecting..."
 msgstr "Připojuji se..."
 
-#: wammu.py:115
+#: wammu.py:118
 msgid "Getting phone information..."
 msgstr "Načítám informace o telefonu..."
 
-#: wammu.py:120
+#: wammu.py:123
 msgid "Phone infomation:"
 msgstr "Informace o telefonu:"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr "IMEI"
 

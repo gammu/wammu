@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2009-11-18 08:09+0200\n"
 "Last-Translator: NiLon <nilon@kartio.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -609,7 +609,7 @@ msgstr "Etsi vastaavia raportteja"
 msgid "Report bug"
 msgstr "Ilmoita virheestä"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Tallenna virhelogi nimellä..."
 
@@ -696,7 +696,7 @@ msgstr "Valitse mitä asetuksia haluat muokata."
 msgid "Select configuration section"
 msgstr "Valitse konfiguraatio kohta"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Valmistaja"
 
@@ -708,7 +708,7 @@ msgstr "Malli (Gammun tunniste)"
 msgid "Model (real)"
 msgstr "Malli (oikea)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -1826,28 +1826,28 @@ msgstr "Puhelimen yhteyden testaus on yhä käynnissä, et voi jatkaa."
 msgid "Connection not configured!"
 msgstr "Puhelinta ei löydy"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Puhelimesi vastaanotti juuri puhelun"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Puhelimesi vastaanotti juuri puhelun numerosta %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Tuleva puhelu"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Hylkää"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen..."
 
@@ -1923,7 +1923,7 @@ msgstr "Lopetettu %s"
 msgid "All finished, found %d phones"
 msgstr "Valmis, löytyi %d puhelinta"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 #, fuzzy
 msgid "Failed to connect to phone"
 msgstr "Virhe asettaessa exception handleria."
@@ -2366,7 +2366,7 @@ msgstr "Luo uusi yhteystieto"
 msgid "Device, where your phone is connected."
 msgstr "Laite, johon puhelimesi on kytketty."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Laite"
 
@@ -2378,7 +2378,7 @@ msgstr ""
 "Yhteys, jonka puhelimesi ymmärtää, tarkista yksityiskohdat Gammu-"
 "dokumentaatiosta."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Yhteys"
 
@@ -2387,7 +2387,7 @@ msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr "Puhelin malli, voit yleensä pitää tämän auto:na jos ei ole ongelmia."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Malli"
 
@@ -3668,15 +3668,15 @@ msgstr "python-gammu versio"
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr ""
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr ""
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr ""
 
@@ -3699,32 +3699,32 @@ msgstr "Puhelimen yhteyden testaus on yhä käynnissä, et voi jatkaa."
 msgid "enables debug output to stderr"
 msgstr ""
 
-#: wammu.py:89
+#: wammu.py:90
 #, fuzzy
 msgid "Wammu is not configured!"
 msgstr "Puhelinta ei löydy"
 
-#: wammu.py:104
+#: wammu.py:107
 #, fuzzy
 msgid "Wammu configuration:"
 msgstr "Luo uusi yhteystieto"
 
-#: wammu.py:108
+#: wammu.py:111
 #, fuzzy
 msgid "Connecting..."
 msgstr "Yhteys"
 
-#: wammu.py:115
+#: wammu.py:118
 #, fuzzy
 msgid "Getting phone information..."
 msgstr "Luetaan puhelimen tietoja"
 
-#: wammu.py:120
+#: wammu.py:123
 #, fuzzy
 msgid "Phone infomation:"
 msgstr "Puhelimen tiedot"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr ""
 

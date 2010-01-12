@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2009-02-18 23:10+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -608,7 +608,7 @@ msgstr "Sök efter liknande rapporter"
 msgid "Report bug"
 msgstr "Rapportera fel"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Spara felsökningslogg som..."
 
@@ -696,7 +696,7 @@ msgstr "Välj vilken konfiguration du vill ändra."
 msgid "Select configuration section"
 msgstr "Välj konfigurationssektion"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Tillverkare"
 
@@ -708,7 +708,7 @@ msgstr "Modell (identifierad av Gammu)"
 msgid "Model (real)"
 msgstr "Modell (riktig)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Fast programvara"
 
@@ -1863,28 +1863,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Anslutning inte konfigurerad!"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Din telefon har fått ett inkommande samtal"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Din telefon har fått ett inkommande samtal från %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Inkommande samtal"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Neka"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Acceptera"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Vänta, kopplar från telefon..."
 
@@ -1963,7 +1963,7 @@ msgid "All finished, found %d phones"
 msgstr "Alla färdiga, hittade %d telefoner"
 
 #  msgid "Failed to set exception handler."
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Misslyckades med att ansluta till telefonen"
 
@@ -2424,7 +2424,7 @@ msgstr "Namn för den här konfigurationen."
 msgid "Device, where your phone is connected."
 msgstr "Enhet, där din telefon är ansluten."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Enhet"
 
@@ -2436,7 +2436,7 @@ msgstr ""
 "Anslutning som din telefon förstår, kontrollera Gammu-dokumentationen för "
 "anslutningsdetaljer."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Anslutning"
 
@@ -2446,7 +2446,7 @@ msgid ""
 msgstr ""
 "Telefonmodell, du kan vanligtvis behålla \"auto\" såvida du inte har problem."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Modell"
 
@@ -3811,15 +3811,15 @@ msgstr ""
 "tvinga användning av lokaler från aktuell katalog istället för "
 "systemkatalogen"
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr "Kommandoradstolkning misslyckades med följande fel:"
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Okända extraparametrar skickades till program"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr "Använder lokalt byggda lokaler!"
 
@@ -3841,27 +3841,27 @@ msgstr "skriver ut anslutningsinställningar och försöker att ansluta telefone
 msgid "enables debug output to stderr"
 msgstr "aktiverar felsökningsutdata till standard fel"
 
-#: wammu.py:89
+#: wammu.py:90
 msgid "Wammu is not configured!"
 msgstr "Wammu är inte konfigurerad!"
 
-#: wammu.py:104
+#: wammu.py:107
 msgid "Wammu configuration:"
 msgstr "Wammu-konfiguration:"
 
-#: wammu.py:108
+#: wammu.py:111
 msgid "Connecting..."
 msgstr "Ansluter..."
 
-#: wammu.py:115
+#: wammu.py:118
 msgid "Getting phone information..."
 msgstr "Hämtar telefoninformation..."
 
-#: wammu.py:120
+#: wammu.py:123
 msgid "Phone infomation:"
 msgstr "Telefoninformation:"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr "IMEI"
 

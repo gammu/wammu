@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2008-12-29 21:24+0200\n"
 "Last-Translator: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
@@ -600,7 +600,7 @@ msgstr "Търсене за подобни проблеми"
 msgid "Report bug"
 msgstr "Съобщаване за програмна грешка"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Запазване на дневника с описанията на грешки като..."
 
@@ -674,7 +674,7 @@ msgstr "Изберете коя конфигурация желаете да п�
 msgid "Select configuration section"
 msgstr ""
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Производител"
 
@@ -687,7 +687,7 @@ msgstr "Модел (Идентификация на Gammu)"
 msgid "Model (real)"
 msgstr "Модел"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Вътрешно програмно осигуряване"
 
@@ -1775,28 +1775,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Връзката не е настроена!"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Телефонът ви току що получи входящо повикване"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Телефонът ви току що получи входящо повикване от %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Входящо повикване"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Отхвърляне"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Приемане"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Един момент моля, прекъсване на връзката с телефона..."
 
@@ -1870,7 +1870,7 @@ msgstr ""
 msgid "All finished, found %d phones"
 msgstr "Търсенето е завършено. Намерени са %d телефона"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Свързването към телефона се провали"
 
@@ -2329,7 +2329,7 @@ msgstr "Име за тази конфигурация."
 msgid "Device, where your phone is connected."
 msgstr "Устройство, където е свързан телефонът ви."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Устройство"
 
@@ -2341,7 +2341,7 @@ msgstr ""
 "Връзка, която телефонът ви разбира. Проверете документацията на Gammu за "
 "подробности."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Връзка"
 
@@ -2352,7 +2352,7 @@ msgstr ""
 "Модел на телефона. Обикновено, ако няма проблеми, можете да оставите "
 "автоматичното засичане."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Модел"
 
@@ -3642,15 +3642,15 @@ msgstr "показване на версията на програмата"
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr ""
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Допълнителни неразпознати параметри са подадени към програмата"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr ""
 
@@ -3671,27 +3671,27 @@ msgstr "показва настройките на връзката и се оп
 msgid "enables debug output to stderr"
 msgstr ""
 
-#: wammu.py:89
+#: wammu.py:90
 msgid "Wammu is not configured!"
 msgstr "Липсва конфигурация на Wammu!"
 
-#: wammu.py:104
+#: wammu.py:107
 msgid "Wammu configuration:"
 msgstr "Конфигурация на Wammu:"
 
-#: wammu.py:108
+#: wammu.py:111
 msgid "Connecting..."
 msgstr "Свързване..."
 
-#: wammu.py:115
+#: wammu.py:118
 msgid "Getting phone information..."
 msgstr "Получаване на информация за телефона..."
 
-#: wammu.py:120
+#: wammu.py:123
 msgid "Phone infomation:"
 msgstr "Информация за телефона"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr "IMEI"
 

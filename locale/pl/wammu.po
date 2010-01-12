@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-08 15:05+0100\n"
+"POT-Creation-Date: 2010-01-12 10:16+0100\n"
 "PO-Revision-Date: 2009-06-03 12:26+0200\n"
 "Last-Translator: Potwór Jaworny <sklep@szybkieczytanie.net>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -610,7 +610,7 @@ msgstr "Szukaj podobnych raportów"
 msgid "Report bug"
 msgstr "Wyślij raport o błędach"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2240
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2242
 msgid "Save debug log as..."
 msgstr "Zapisz log debugowania jako..."
 
@@ -699,7 +699,7 @@ msgstr "Wybierz konfigurację do zmiany."
 msgid "Select configuration section"
 msgstr "Wybierz sekcję konfiguracji"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:121
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:201 wammu.py:124
 msgid "Manufacturer"
 msgstr "Producent"
 
@@ -711,7 +711,7 @@ msgstr "Model (Identyfikacja Gammu)"
 msgid "Model (real)"
 msgstr "Model (rzeczywisty)"
 
-#: Wammu/Info.py:71 wammu.py:124
+#: Wammu/Info.py:71 wammu.py:127
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -1820,28 +1820,28 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Połączenie nie zostało skonfigurowane!"
 
-#: Wammu/Main.py:2173
+#: Wammu/Main.py:2175
 msgid "Your phone has just received incoming call"
 msgstr "Twój telefon właśnie otrzymał połączenie przychodzące"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2177
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Twój telefon właśnie otrzymał połączenie przychodzące od %s"
 
-#: Wammu/Main.py:2176
+#: Wammu/Main.py:2178
 msgid "Incoming call"
 msgstr "Rozmowy przychodzące"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Reject"
 msgstr "Odrzuć"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2179
 msgid "Accept"
 msgstr "Akceptuj"
 
-#: Wammu/Main.py:2180
+#: Wammu/Main.py:2182
 msgid "One moment please, disconnecting from phone..."
 msgstr "Proszę czekać, rozłączam telefon..."
 
@@ -1915,7 +1915,7 @@ msgstr "Zakończono %s"
 msgid "All finished, found %d phones"
 msgstr "Ukończono, znaleziono %d telefonów"
 
-#: Wammu/PhoneSearch.py:327
+#: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
 msgstr "Nie można nawiązać połączenia z telefonem"
 
@@ -2370,7 +2370,7 @@ msgstr "Nazwa tej konfiguracji."
 msgid "Device, where your phone is connected."
 msgstr "Urządzenie, gdzie twój telefon jest podłączony."
 
-#: Wammu/Settings.py:174 wammu.py:107
+#: Wammu/Settings.py:174 wammu.py:110
 msgid "Device"
 msgstr "Urządzenie"
 
@@ -2382,7 +2382,7 @@ msgstr ""
 "Połączenie, które jest rozpoznawane przez twój telefon, sprawdź dokumentację "
 "Gammu aby dowiedzieć się o szczegółach połączenia."
 
-#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:105
+#: Wammu/Settings.py:180 Wammu/Settings.py:438 wammu.py:108
 msgid "Connection"
 msgstr "Połączenie"
 
@@ -2392,7 +2392,7 @@ msgid ""
 msgstr ""
 "Model telefonu, zwykle możesz zostawić auto, chyba że masz jakieś problemy."
 
-#: Wammu/Settings.py:188 wammu.py:106 wammu.py:122
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
 msgid "Model"
 msgstr "Model"
 
@@ -3725,15 +3725,15 @@ msgstr "pokaż wersję programu"
 msgid "force using of locales from current directory rather than system ones"
 msgstr "wymuś uzywanie lokalizacji z bieżącego katalogu zamiast systemowej"
 
-#: wammu-configure.py:78 wammu.py:136
+#: wammu-configure.py:78 wammu.py:139
 msgid "Command line parsing failed with error:"
 msgstr "Parsowanie linii poleceń zakończone niepowodzeniem z błędem:"
 
-#: wammu-configure.py:84 wammu.py:142
+#: wammu-configure.py:84 wammu.py:145
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Dodatkowe nierozpoznane parametry przekazane do programu"
 
-#: wammu-configure.py:90 wammu.py:150
+#: wammu-configure.py:90 wammu.py:153
 msgid "Using local built locales!"
 msgstr "Używana jest lokalna wbudowana lokalizacja!"
 
@@ -3754,27 +3754,27 @@ msgstr "drukuje ustawienia połączenia i podejmuje próbę połączenia z telef
 msgid "enables debug output to stderr"
 msgstr "pozwala przekierować dane debugowania do strumienia stderr"
 
-#: wammu.py:89
+#: wammu.py:90
 msgid "Wammu is not configured!"
 msgstr "Wammu nie zostało skonfigurowane!"
 
-#: wammu.py:104
+#: wammu.py:107
 msgid "Wammu configuration:"
 msgstr "Konfiguracja Wammu:"
 
-#: wammu.py:108
+#: wammu.py:111
 msgid "Connecting..."
 msgstr "Łączenie..."
 
-#: wammu.py:115
+#: wammu.py:118
 msgid "Getting phone information..."
 msgstr "Czytanie informacji o telefonie..."
 
-#: wammu.py:120
+#: wammu.py:123
 msgid "Phone infomation:"
 msgstr "Informacje o telefonie:"
 
-#: wammu.py:123
+#: wammu.py:126
 msgid "IMEI"
 msgstr "IMEI"
 
