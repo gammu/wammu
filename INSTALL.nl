@@ -1,8 +1,8 @@
 Wammu installatie
-==================
+=================
 
 Pakketten voor Linux
-==================
+====================
 
 Veel distibuties hebben kant en klare Wammu software. Als je die kunt
 gebruiken is dat zeker de eenvoudigste methode. Er zijn ook binaire
@@ -34,7 +34,7 @@ https://sourceforge.net/projects/pywin32/
 
 
 Kruiscompilatie voor Windows op Linux
-======================================
+=====================================
 
 Je hebt Wine met alle afhankelijke bibloitheken nodig (zie hierboven waar je
 die kunt vinden).
