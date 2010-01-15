@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-15 14:52+0100\n"
+"POT-Creation-Date: 2010-01-15 15:24+0100\n"
 "PO-Revision-Date: 2008-12-29 21:24+0200\n"
 "Last-Translator: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
@@ -600,7 +600,7 @@ msgstr "Търсене за подобни проблеми"
 msgid "Report bug"
 msgstr "Съобщаване за програмна грешка"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2249
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2259
 msgid "Save debug log as..."
 msgstr "Запазване на дневника с описанията на грешки като..."
 
@@ -674,7 +674,7 @@ msgstr "Изберете коя конфигурация желаете да п�
 msgid "Select configuration section"
 msgstr ""
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:202 wammu.py:124
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:124
 msgid "Manufacturer"
 msgstr "Производител"
 
@@ -1775,38 +1775,47 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Връзката не е настроена!"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2147
+#, fuzzy, python-format
+msgid "Please enter %s code:"
+msgstr "Моля въведете име на сървъра"
+
+#: Wammu/Main.py:2148
+msgid "Phone asks for security code"
+msgstr ""
+
+#: Wammu/Main.py:2185
 msgid "Your phone has just received incoming call"
 msgstr "Телефонът ви току що получи входящо повикване"
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2187
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Телефонът ви току що получи входящо повикване от %s"
 
-#: Wammu/Main.py:2178
+#: Wammu/Main.py:2188
 msgid "Incoming call"
 msgstr "Входящо повикване"
 
-#: Wammu/Main.py:2179
+#: Wammu/Main.py:2189
 msgid "Reject"
 msgstr "Отхвърляне"
 
-#: Wammu/Main.py:2179
+#: Wammu/Main.py:2189
 msgid "Accept"
 msgstr "Приемане"
 
-#: Wammu/Main.py:2182
+#: Wammu/Main.py:2192
 msgid "One moment please, disconnecting from phone..."
 msgstr "Един момент моля, прекъсване на връзката с телефона..."
 
-#: Wammu/Main.py:2212
+#: Wammu/Main.py:2222
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
 msgstr ""
 
-#: Wammu/Main.py:2213
+#: Wammu/Main.py:2223
 #, fuzzy
 msgid "You are connected to phone!"
 msgstr "Свързването към телефона се провали"
@@ -3226,7 +3235,7 @@ msgstr "Избор на XML файл..."
 msgid "Saving messages to XML"
 msgstr "Запазване на съобщенията в XML"
 
-#: Wammu/TalkbackDialog.py:49
+#: Wammu/TalkbackDialog.py:52
 msgid ""
 "Please share your experiences with Wammu and Gammu which is backend library. "
 "When you fill in following form, other users can benefit from your "
@@ -3237,87 +3246,87 @@ msgstr ""
 "и други потребители могат спечелят от вашите впечатления в Gammu Phone "
 "Databasе. Ще бъде изпратена само информацията, която виждате тук."
 
-#: Wammu/TalkbackDialog.py:51
+#: Wammu/TalkbackDialog.py:54
 msgid "Manufacturer:"
 msgstr "Производител:"
 
-#: Wammu/TalkbackDialog.py:53
+#: Wammu/TalkbackDialog.py:56
 msgid "Phone model:"
 msgstr "Модел на телефона:"
 
-#: Wammu/TalkbackDialog.py:55
+#: Wammu/TalkbackDialog.py:58
 msgid "Connection type:"
 msgstr "Тип на връзката:"
 
-#: Wammu/TalkbackDialog.py:57
+#: Wammu/TalkbackDialog.py:60
 msgid "Model in gammu configuration:"
 msgstr "Модел в настройките на gammu:"
 
-#: Wammu/TalkbackDialog.py:59
+#: Wammu/TalkbackDialog.py:62
 msgid "Working features:"
 msgstr "Работещи функции:"
 
-#: Wammu/TalkbackDialog.py:60
+#: Wammu/TalkbackDialog.py:63
 msgid "Please select features..."
 msgstr "Моля изберете функции..."
 
-#: Wammu/TalkbackDialog.py:61
+#: Wammu/TalkbackDialog.py:64
 msgid "Gammu version:"
 msgstr "Версия на Gammu:"
 
-#: Wammu/TalkbackDialog.py:63
+#: Wammu/TalkbackDialog.py:66
 msgid "Note:"
 msgstr "Бележка:"
 
-#: Wammu/TalkbackDialog.py:65
+#: Wammu/TalkbackDialog.py:68
 msgid "Your name:"
 msgstr "Вашето име:"
 
-#: Wammu/TalkbackDialog.py:67
+#: Wammu/TalkbackDialog.py:70
 msgid "Your email:"
 msgstr "Вашата е-поща:"
 
-#: Wammu/TalkbackDialog.py:69
+#: Wammu/TalkbackDialog.py:72
 msgid "Email displaying:"
 msgstr "Показване на  адреса:"
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Use [at] and [dot]"
 msgstr "Използване на [at] и [dot]"
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Insert NOSPAM text at random position"
 msgstr "Вмъкване на  текст NOSPAM на произволно място"
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Display it normally"
 msgstr "Нормално показване"
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Don't show email at all"
 msgstr "Изобщо да не се показва адреса"
 
-#: Wammu/TalkbackDialog.py:78
+#: Wammu/TalkbackDialog.py:81
 msgid "Not supported"
 msgstr "Не се поддържа"
 
-#: Wammu/TalkbackDialog.py:107
+#: Wammu/TalkbackDialog.py:110
 msgid "Gammu Phone Database Talkback"
 msgstr "Обратна връзка Gammu Phone Database"
 
-#: Wammu/TalkbackDialog.py:108
+#: Wammu/TalkbackDialog.py:111
 msgid "Select which features work correctly with your phone"
 msgstr "Изберете кои функции работят правилно с телефона ви"
 
-#: Wammu/TalkbackDialog.py:109
+#: Wammu/TalkbackDialog.py:112
 msgid "This information is automatically included in report."
 msgstr "Тази информация е автоматично включена в отчета."
 
-#: Wammu/TalkbackDialog.py:110
+#: Wammu/TalkbackDialog.py:113
 msgid "Describe some glitches of this phone or other experiences with Gammu."
 msgstr "Опишете проблемите с този телефон или други впечатления от Gammu."
 
-#: Wammu/TalkbackDialog.py:111
+#: Wammu/TalkbackDialog.py:114
 msgid ""
 "Please enter valid mail here, choose display options below. Your email won't "
 "be given or sold to anybody."
@@ -3325,7 +3334,7 @@ msgstr ""
 "Моля въведете валиден адрес на е-поща, изберете начин на показване по-долу. "
 "Вашият адрес няма да беде даден или продаден на трети лица."
 
-#: Wammu/TalkbackDialog.py:112
+#: Wammu/TalkbackDialog.py:115
 #, fuzzy
 msgid ""
 "If you don't want to display email clear text, please select one mangling "
@@ -3334,9 +3343,9 @@ msgstr ""
 "Ако не желаете адреса на е-пощата да е виден, моля изберете един от начините "
 "на показване."
 
-#: Wammu/TalkbackDialog.py:187 Wammu/TalkbackDialog.py:193
-#: Wammu/TalkbackDialog.py:202 Wammu/TalkbackDialog.py:211
-#: Wammu/TalkbackDialog.py:296
+#: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
+#: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
+#: Wammu/TalkbackDialog.py:295
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database was not created, following fields are "
@@ -3347,22 +3356,22 @@ msgstr ""
 "полета са невалидни:\n"
 "%s"
 
-#: Wammu/TalkbackDialog.py:187 Wammu/TalkbackDialog.py:193
+#: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 msgid "Supported features"
 msgstr "Поддържани функции"
 
-#: Wammu/TalkbackDialog.py:188 Wammu/TalkbackDialog.py:194
-#: Wammu/TalkbackDialog.py:203 Wammu/TalkbackDialog.py:212
-#: Wammu/TalkbackDialog.py:261 Wammu/TalkbackDialog.py:275
-#: Wammu/TalkbackDialog.py:297
+#: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
+#: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
+#: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
+#: Wammu/TalkbackDialog.py:296
 msgid "Entry not created!"
 msgstr "Записът не е създаден!"
 
-#: Wammu/TalkbackDialog.py:211
+#: Wammu/TalkbackDialog.py:208
 msgid "Email displaying"
 msgstr "Показване на е-пощата"
 
-#: Wammu/TalkbackDialog.py:257
+#: Wammu/TalkbackDialog.py:254
 #, python-format
 msgid ""
 "HTTP request failed with status %(code)d (%(text)s), please retry later or "
@@ -3371,7 +3380,7 @@ msgstr ""
 "Запитването към HTTP завърши с грешка (%(code)d (%(text)s)), моля, опитайте "
 "още веднъж по-късно или ръчно добавете записа."
 
-#: Wammu/TalkbackDialog.py:272
+#: Wammu/TalkbackDialog.py:269
 #, fuzzy, python-format
 msgid ""
 "HTTP request failed with exception:\n"
@@ -3381,7 +3390,7 @@ msgstr ""
 "Запитването към HTTP завърши с грешка (%(code)d (%(text)s)), моля, опитайте "
 "още веднъж по-късно или ръчно добавете записа."
 
-#: Wammu/TalkbackDialog.py:286
+#: Wammu/TalkbackDialog.py:283
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
@@ -3391,7 +3400,7 @@ msgstr ""
 "видите на: <%s>.\n"
 "Да се отвори ли връзката в уеб четеца?"
 
-#: Wammu/TalkbackDialog.py:287
+#: Wammu/TalkbackDialog.py:284
 msgid "Entry created!"
 msgstr "Записът е създаден!"
 
@@ -3736,9 +3745,6 @@ msgstr "Приложение за мобилни телефони - графич
 #~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 #~ msgstr ""
 #~ "Желаете ли да използване SSL докато съобщенията се качват на IMAP-сървъра?"
-
-#~ msgid "Please enter server name"
-#~ msgstr "Моля въведете име на сървъра"
 
 #~ msgid "Please enter login on server %s"
 #~ msgstr "Моля въведете име за вписване на сървъра %s"

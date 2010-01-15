@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-15 14:52+0100\n"
+"POT-Creation-Date: 2010-01-15 15:24+0100\n"
 "PO-Revision-Date: 2009-01-28 17:26+0100\n"
 "Last-Translator: hawshinka manson <hawshinka@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
@@ -614,7 +614,7 @@ msgstr "Procurando por telefone"
 msgid "Report bug"
 msgstr "Importar cópia de segurança"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2249
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2259
 #, fuzzy
 msgid "Save debug log as..."
 msgstr "Salvar cópia de segurança como..."
@@ -703,7 +703,7 @@ msgstr "Escolha qual configuração você quer modificar."
 msgid "Select configuration section"
 msgstr "Selecione seção de configuração"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:202 wammu.py:124
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:124
 msgid "Manufacturer"
 msgstr "Fabricante"
 
@@ -1840,38 +1840,47 @@ msgstr ""
 msgid "Connection not configured!"
 msgstr "Nenhum telefone encontrado"
 
-#: Wammu/Main.py:2175
+#: Wammu/Main.py:2147
+#, fuzzy, python-format
+msgid "Please enter %s code:"
+msgstr "Por favor digite o nome do servidor"
+
+#: Wammu/Main.py:2148
+msgid "Phone asks for security code"
+msgstr ""
+
+#: Wammu/Main.py:2185
 msgid "Your phone has just received incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2177
+#: Wammu/Main.py:2187
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr ""
 
-#: Wammu/Main.py:2178
+#: Wammu/Main.py:2188
 msgid "Incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2179
+#: Wammu/Main.py:2189
 msgid "Reject"
 msgstr ""
 
-#: Wammu/Main.py:2179
+#: Wammu/Main.py:2189
 msgid "Accept"
 msgstr ""
 
-#: Wammu/Main.py:2182
+#: Wammu/Main.py:2192
 msgid "One moment please, disconnecting from phone..."
 msgstr "Um momento por favor, desconectando do telefone..."
 
-#: Wammu/Main.py:2212
+#: Wammu/Main.py:2222
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
 msgstr ""
 
-#: Wammu/Main.py:2213
+#: Wammu/Main.py:2223
 #, fuzzy
 msgid "You are connected to phone!"
 msgstr "Falhou ao ajustar o tratamento de exceção."
@@ -3343,7 +3352,7 @@ msgstr "Selecionar arquivo de caixa de correio..."
 msgid "Saving messages to XML"
 msgstr "Salvando mensagens para IMAP"
 
-#: Wammu/TalkbackDialog.py:49
+#: Wammu/TalkbackDialog.py:52
 msgid ""
 "Please share your experiences with Wammu and Gammu which is backend library. "
 "When you fill in following form, other users can benefit from your "
@@ -3351,109 +3360,109 @@ msgid ""
 "submited."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:51
+#: Wammu/TalkbackDialog.py:54
 #, fuzzy
 msgid "Manufacturer:"
 msgstr "Fabricante"
 
-#: Wammu/TalkbackDialog.py:53
+#: Wammu/TalkbackDialog.py:56
 #, fuzzy
 msgid "Phone model:"
 msgstr "Telefone"
 
-#: Wammu/TalkbackDialog.py:55
+#: Wammu/TalkbackDialog.py:58
 #, fuzzy
 msgid "Connection type:"
 msgstr "Conexão"
 
-#: Wammu/TalkbackDialog.py:57
+#: Wammu/TalkbackDialog.py:60
 #, fuzzy
 msgid "Model in gammu configuration:"
 msgstr "Cria novo contato"
 
-#: Wammu/TalkbackDialog.py:59
+#: Wammu/TalkbackDialog.py:62
 msgid "Working features:"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:60
+#: Wammu/TalkbackDialog.py:63
 #, fuzzy
 msgid "Please select features..."
 msgstr "Selecionar tipo de exportação"
 
-#: Wammu/TalkbackDialog.py:61
+#: Wammu/TalkbackDialog.py:64
 #, fuzzy
 msgid "Gammu version:"
 msgstr "Versão do Gammu"
 
-#: Wammu/TalkbackDialog.py:63
+#: Wammu/TalkbackDialog.py:66
 #, fuzzy
 msgid "Note:"
 msgstr "Notificação"
 
-#: Wammu/TalkbackDialog.py:65
+#: Wammu/TalkbackDialog.py:68
 msgid "Your name:"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:67
+#: Wammu/TalkbackDialog.py:70
 msgid "Your email:"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:69
+#: Wammu/TalkbackDialog.py:72
 msgid "Email displaying:"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Use [at] and [dot]"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Insert NOSPAM text at random position"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Display it normally"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:70
+#: Wammu/TalkbackDialog.py:73
 msgid "Don't show email at all"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:78
+#: Wammu/TalkbackDialog.py:81
 #, fuzzy
 msgid "Not supported"
 msgstr "Identificação[id] não suportada: %s"
 
-#: Wammu/TalkbackDialog.py:107
+#: Wammu/TalkbackDialog.py:110
 msgid "Gammu Phone Database Talkback"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:108
+#: Wammu/TalkbackDialog.py:111
 msgid "Select which features work correctly with your phone"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:109
+#: Wammu/TalkbackDialog.py:112
 msgid "This information is automatically included in report."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:110
+#: Wammu/TalkbackDialog.py:113
 msgid "Describe some glitches of this phone or other experiences with Gammu."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:111
+#: Wammu/TalkbackDialog.py:114
 msgid ""
 "Please enter valid mail here, choose display options below. Your email won't "
 "be given or sold to anybody."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:112
+#: Wammu/TalkbackDialog.py:115
 msgid ""
 "If you don't want to display email clear text, please select one mangling "
 "option."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:187 Wammu/TalkbackDialog.py:193
-#: Wammu/TalkbackDialog.py:202 Wammu/TalkbackDialog.py:211
-#: Wammu/TalkbackDialog.py:296
+#: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
+#: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
+#: Wammu/TalkbackDialog.py:295
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database was not created, following fields are "
@@ -3461,30 +3470,30 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:187 Wammu/TalkbackDialog.py:193
+#: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 msgid "Supported features"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:188 Wammu/TalkbackDialog.py:194
-#: Wammu/TalkbackDialog.py:203 Wammu/TalkbackDialog.py:212
-#: Wammu/TalkbackDialog.py:261 Wammu/TalkbackDialog.py:275
-#: Wammu/TalkbackDialog.py:297
+#: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
+#: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
+#: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
+#: Wammu/TalkbackDialog.py:296
 #, fuzzy
 msgid "Entry not created!"
 msgstr "Não conseguiu criar pasta!"
 
-#: Wammu/TalkbackDialog.py:211
+#: Wammu/TalkbackDialog.py:208
 msgid "Email displaying"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:257
+#: Wammu/TalkbackDialog.py:254
 #, python-format
 msgid ""
 "HTTP request failed with status %(code)d (%(text)s), please retry later or "
 "create entry manually."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:272
+#: Wammu/TalkbackDialog.py:269
 #, python-format
 msgid ""
 "HTTP request failed with exception:\n"
@@ -3492,14 +3501,14 @@ msgid ""
 "Please retry later or create entry manually."
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:286
+#: Wammu/TalkbackDialog.py:283
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
 
-#: Wammu/TalkbackDialog.py:287
+#: Wammu/TalkbackDialog.py:284
 #, fuzzy
 msgid "Entry created!"
 msgstr "Não conseguiu criar pasta!"
@@ -3855,9 +3864,6 @@ msgstr ""
 #~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 #~ msgstr ""
 #~ "Você deseja usar SSL quando for carregar mensagens para o servidor IMAP?"
-
-#~ msgid "Please enter server name"
-#~ msgstr "Por favor digite o nome do servidor"
 
 #~ msgid "Please enter login on server %s"
 #~ msgstr "Por favor digite seu login no servidor %s"
