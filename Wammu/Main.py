@@ -839,7 +839,7 @@ class WammuFrame(wx.Frame):
         if self.connected:
             connection_settings = {
                 'Connection': self.cfg.Read('/Gammu/Connection'),
-                'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
+                'LockDevice': self.cfg.ReadBool('/Gammu/LockDevice'),
                 'Device': self.cfg.Read('/Gammu/Device'),
                 'Model': self.cfg.Read('/Gammu/Model')
             }
@@ -849,7 +849,7 @@ class WammuFrame(wx.Frame):
             if self.connected:
                 connection_settings_new = {
                     'Connection': self.cfg.Read('/Gammu/Connection'),
-                    'LockDevice': self.cfg.Read('/Gammu/LockDevice'),
+                    'LockDevice': self.cfg.ReadBool('/Gammu/LockDevice'),
                     'Device': self.cfg.Read('/Gammu/Device'),
                     'Model': self.cfg.Read('/Gammu/Model')
                 }
