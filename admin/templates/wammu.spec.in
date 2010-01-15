@@ -32,7 +32,7 @@ BuildRequires:  desktop-file-utils
 Url:        http://wammu.eu/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # These distributions use /usr/lib for python on all architectures
-%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel} || 0%{?mandriva_version}
+%if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel} || 0%{?mandriva_version} || 0%{?suse_version} > 1110
 BuildArch: noarch
 %endif
 
@@ -51,6 +51,11 @@ instead.
 
 %prep
 %setup -q
+# Ugly hack for SUSE because it does not like TelephonyTools
+%if 0%{?suse_version}
+sed -i 's/TelephonyTools/Telephony/' wammu.desktop.in
+%endif
+
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
@@ -82,7 +87,9 @@ rm -rf %buildroot
 %files -f %name.lang
 %defattr(-,root,root)
 %doc COPYING AUTHORS FAQ README PKG-INFO ChangeLog
-%{_mandir}/man1/*
+%doc %{_mandir}/man1/*
+%lang(cs) %doc %{_mandir}/cs
+%lang(nl) %doc %{_mandir}/nl
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
