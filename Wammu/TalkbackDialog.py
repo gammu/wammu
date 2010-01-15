@@ -33,6 +33,7 @@ import wx
 import Wammu.TalkbackFeaturesDialog
 import Wammu.Utils
 import Wammu.Data
+from Wammu.Locales import StrConv
 if Wammu.gammu_error == None:
     import gammu
 
@@ -246,15 +247,30 @@ def DoTalkback(parent, config, phoneid = 0):
 
         # Perform request
         conn = httplib.HTTPConnection('wammu.eu')
-        conn.request('POST', '/api/phones/new/', params, headers)
+        try:
+            conn.request('POST', '/api/phones/new/', params, headers)
 
-        # Check request response
-        response = conn.getresponse()
-        if response.status != 200:
+            # Check request response
+            response = conn.getresponse()
+            if response.status != 200:
+                wx.MessageDialog(parent,
+                    _('HTTP request failed with status %(code)d (%(text)s), please retry later or create entry manually.') % {
+                        'code': response.status,
+                        'text': response.reason,
+                        },
+                    _('Entry not created!'),
+                    wx.OK | wx.ICON_ERROR).ShowModal()
+                continue
+        except Exception, e:
+            if hasattr(e, 'message') and e.message != '':
+                msg = e.message
+            elif hasattr(e, 'args') and len(e.args) > 0:
+                msg = e.args[-1]
+            else:
+                msg = str(e)
             wx.MessageDialog(parent,
-                _('HTTP request failed with status %(code)d (%(text)s), please retry later or create entry manually.') % {
-                    'code': response.status,
-                    'text': response.reason,
+                _('HTTP request failed with exception:\n%(exception)s\nPlease retry later or create entry manually.') % {
+                    'exception': StrConv(msg),
                     },
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
