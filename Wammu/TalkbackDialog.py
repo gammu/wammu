@@ -37,6 +37,9 @@ from Wammu.Locales import StrConv
 if Wammu.gammu_error == None:
     import gammu
 
+OK_MATCHER = re.compile('Entry created, id=(\d*), url=(.*)')
+FAIL_MATCHER = re.compile('Invalid values: (.*)')
+
 # begin wxGlade: dependencies
 # end wxGlade
 
@@ -163,6 +166,7 @@ class TalkbackDialog(wx.Dialog):
         window_grid_sizer.Add(self.button_sizer, 0, wx.ALIGN_RIGHT, 0)
         window_grid_sizer.Fit(self)
         self.Layout()
+        wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
 
     def OnFeatures(self, event): # wxGlade: TalkbackDialog.<event_handler>
         dlg = Wammu.TalkbackFeaturesDialog.TalkbackFeaturesDialog(self)
@@ -171,67 +175,60 @@ class TalkbackDialog(wx.Dialog):
             self.features = dlg.GetFeatures()
             self.features_button.SetLabel(', '.join(self.features))
 
-# end of class TalkbackDialog
-
-def DoTalkback(parent, config, phoneid = 0):
-    dlg = TalkbackDialog(parent, config, phoneid)
-    ok_matcher = re.compile('Entry created, id=(\d*), url=(.*)')
-    fail_matcher = re.compile('Invalid values: (.*)')
-
-    while dlg.ShowModal() == wx.ID_OK:
-        connection = dlg.connection_combo_box.GetValue()
-        if connection == dlg.ns_string:
+    def Okay(self, evt):
+        connection = self.connection_combo_box.GetValue()
+        if connection == self.ns_string:
             connection = 'NULL'
-        if len(dlg.features) == 0 and connection != 'NULL':
-            wx.MessageDialog(parent,
+        if len(self.features) == 0 and connection != 'NULL':
+            wx.MessageDialog(self,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Supported features'),
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            continue
-        elif len(dlg.features) != 0 and connection == 'NULL':
-            wx.MessageDialog(parent,
+            return
+        elif len(self.features) != 0 and connection == 'NULL':
+            wx.MessageDialog(self,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Supported features'),
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            continue
-        man_str = dlg.manufacturer_choice.GetStringSelection()
+            return
+        man_str = self.manufacturer_choice.GetStringSelection()
         try:
             man_id = Wammu.Data.ManufacturerMap[man_str]
         except:
-            wx.MessageDialog(parent,
+            wx.MessageDialog(self,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Manufacturer'),
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            continue
-        garble_id = dlg.mangle_choice.GetSelection()
+            return
+        garble_id = self.mangle_choice.GetSelection()
         try:
             garble_text = Wammu.Data.GarbleMap[garble_id]
         except:
-            wx.MessageDialog(parent,
+            wx.MessageDialog(self,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % _('Email displaying'),
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            continue
+            return
 
         # Remember user information for next run
-        config.Write('/User/Name', dlg.name_text_ctrl.GetValue())
-        config.Write('/User/Email', dlg.email_text_ctrl.GetValue())
+        self.wammu_cfg.Write('/User/Name', self.name_text_ctrl.GetValue())
+        self.wammu_cfg.Write('/User/Email', self.email_text_ctrl.GetValue())
 
         # Prepare data to post
         params_dict = {
             'irobot': 'wammu',
             'version': '2',
             'manufacturer': man_id,
-            'name': dlg.model_text_ctrl.GetValue(),
-            'model': dlg.model_combo_box.GetValue(),
+            'name': self.model_text_ctrl.GetValue(),
+            'model': self.model_combo_box.GetValue(),
             'connection': connection,
-            'note': dlg.note_text_ctrl.GetValue(),
-            'author_name': dlg.name_text_ctrl.GetValue(),
-            'author_email': dlg.email_text_ctrl.GetValue(),
+            'note': self.note_text_ctrl.GetValue(),
+            'author_name': self.name_text_ctrl.GetValue(),
+            'author_email': self.email_text_ctrl.GetValue(),
             'email_garble': garble_text,
             'gammu_version': gammu.Version()[0],
         }
-        for x in dlg.features:
+        for x in self.features:
             params_dict['fts[%s]' % x] = 1
 
         # Convert unicode to raw utf-8 strigns so that they can be properly
@@ -253,14 +250,14 @@ def DoTalkback(parent, config, phoneid = 0):
             # Check request response
             response = conn.getresponse()
             if response.status != 200:
-                wx.MessageDialog(parent,
+                wx.MessageDialog(self,
                     _('HTTP request failed with status %(code)d (%(text)s), please retry later or create entry manually.') % {
                         'code': response.status,
                         'text': response.reason,
                         },
                     _('Entry not created!'),
                     wx.OK | wx.ICON_ERROR).ShowModal()
-                continue
+                return
         except Exception, e:
             if hasattr(e, 'message') and e.message != '':
                 msg = e.message
@@ -268,32 +265,40 @@ def DoTalkback(parent, config, phoneid = 0):
                 msg = e.args[-1]
             else:
                 msg = str(e)
-            wx.MessageDialog(parent,
+            wx.MessageDialog(self,
                 _('HTTP request failed with exception:\n%(exception)s\nPlease retry later or create entry manually.') % {
                     'exception': StrConv(msg),
                     },
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            continue
+            return
 
         # Verify acquired data
         data = response.read()
         conn.close()
-        ok_test = ok_matcher.match(data)
+        ok_test = OK_MATCHER.match(data)
         if ok_test is not None:
             url = 'http://%swammu.eu%s' % (Wammu.Utils.GetWebsiteLang(), ok_test.groups()[1])
-            if wx.MessageDialog(parent,
+            if wx.MessageDialog(self,
                 _('Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\nDo you want to open it in browser now?') % url,
                 _('Entry created!'),
                 wx.YES_NO | wx.ICON_INFORMATION).ShowModal() == wx.ID_YES:
                 Wammu.Webbrowser.Open(url)
-            config.Write('/Wammu/TalkbackDone', 'yes')
-            break
-        fail_test = fail_matcher.match(data)
+            self.wammu_cfg.Write('/Wammu/TalkbackDone', 'yes')
+
+            self.EndModal(wx.ID_OK)
+
+        fail_test = FAIL_MATCHER.match(data)
         if fail_test is not None:
             wrong_fields = fail_test.groups()[0]
-            wx.MessageDialog(parent,
+            wx.MessageDialog(self,
                 _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % wrong_fields,
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
-            continue
+            return
+
+# end of class TalkbackDialog
+
+def DoTalkback(parent, config, phoneid = 0):
+    dlg = TalkbackDialog(parent, config, phoneid)
+    dlg.Show()
