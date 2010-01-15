@@ -120,11 +120,14 @@ def info():
     Model = sm.GetModel()
     IMEI = sm.GetIMEI()
     Firmware = sm.GetFirmware()
+    Code = sm.GetSecurityStatus()
     print _('Phone infomation:')
     print '%-15s: %s' % (_('Manufacturer'), Manufacturer)
     print '%-15s: %s (%s)' % (_('Model'), Model[0], Model[1])
     print '%-15s: %s' % (_('IMEI'), IMEI)
     print '%-15s: %s' % (_('Firmware'), Firmware[0])
+    if Code is not None:
+        print '%-15s: %s' % (_('Requested code'), Code)
 
 def parse_options():
     '''

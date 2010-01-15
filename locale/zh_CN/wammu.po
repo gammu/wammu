@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.32.1\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-15 15:24+0100\n"
+"POT-Creation-Date: 2010-01-15 15:27+0100\n"
 "PO-Revision-Date: 2009-12-27 18:44+0200\n"
 "Last-Translator:  <rainofchaos@gmail.com>\n"
 "Language-Team: none\n"
@@ -674,7 +674,7 @@ msgstr "选择要修改的配置文件。"
 msgid "Select configuration section"
 msgstr "选择配置部分"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:124
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:125
 msgid "Manufacturer"
 msgstr "制造商"
 
@@ -686,7 +686,7 @@ msgstr "型号(由Gammu识别)"
 msgid "Model (real)"
 msgstr "型号(实际)"
 
-#: Wammu/Info.py:71 wammu.py:127
+#: Wammu/Info.py:71 wammu.py:128
 msgid "Firmware"
 msgstr "固件"
 
@@ -2335,7 +2335,7 @@ msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr "手机型号，如果一切正常就请选择auto"
 
-#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:126
 msgid "Model"
 msgstr "型号"
 
@@ -3586,15 +3586,15 @@ msgstr "显示程序版本信息"
 msgid "force using of locales from current directory rather than system ones"
 msgstr "强制使用当前目录下的locale文件而不使用系统设置的。"
 
-#: wammu-configure.py:78 wammu.py:139
+#: wammu-configure.py:78 wammu.py:142
 msgid "Command line parsing failed with error:"
 msgstr "命令行分析因出现下列错误而失败："
 
-#: wammu-configure.py:84 wammu.py:145
+#: wammu-configure.py:84 wammu.py:148
 msgid "Extra unrecognized parameters passed to program"
 msgstr "额外的未识别参数已传递给程序"
 
-#: wammu-configure.py:90 wammu.py:153
+#: wammu-configure.py:90 wammu.py:156
 msgid "Using local built locales!"
 msgstr "正在使用本地编译的locale文件！"
 
@@ -3631,13 +3631,17 @@ msgstr "连接..."
 msgid "Getting phone information..."
 msgstr "正在获取手机信息..."
 
-#: wammu.py:123
+#: wammu.py:124
 msgid "Phone infomation:"
 msgstr "手机信息："
 
-#: wammu.py:126
+#: wammu.py:127
 msgid "IMEI"
 msgstr "IMEI"
+
+#: wammu.py:130
+msgid "Requested code"
+msgstr ""
 
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44

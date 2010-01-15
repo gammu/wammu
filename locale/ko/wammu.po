@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-15 15:24+0100\n"
+"POT-Creation-Date: 2010-01-15 15:27+0100\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -695,7 +695,7 @@ msgstr "설정을 찾지 못함"
 msgid "Select configuration section"
 msgstr "설정을 찾지 못함"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:124
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:125
 msgid "Manufacturer"
 msgstr "제조업체"
 
@@ -707,7 +707,7 @@ msgstr "모델 (Gammu 식별)"
 msgid "Model (real)"
 msgstr "모델 (실제)"
 
-#: Wammu/Info.py:71 wammu.py:127
+#: Wammu/Info.py:71 wammu.py:128
 msgid "Firmware"
 msgstr "펌웨어"
 
@@ -2416,7 +2416,7 @@ msgid ""
 msgstr ""
 "전화기 모델, 무슨 문제가 있지 않는 한 자동으로 여기에 보존할 수 있습니다."
 
-#: Wammu/Settings.py:188 wammu.py:109 wammu.py:125
+#: Wammu/Settings.py:188 wammu.py:109 wammu.py:126
 msgid "Model"
 msgstr "모델"
 
@@ -3719,15 +3719,15 @@ msgstr "python-gammu 버전"
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 
-#: wammu-configure.py:78 wammu.py:139
+#: wammu-configure.py:78 wammu.py:142
 msgid "Command line parsing failed with error:"
 msgstr ""
 
-#: wammu-configure.py:84 wammu.py:145
+#: wammu-configure.py:84 wammu.py:148
 msgid "Extra unrecognized parameters passed to program"
 msgstr ""
 
-#: wammu-configure.py:90 wammu.py:153
+#: wammu-configure.py:90 wammu.py:156
 msgid "Using local built locales!"
 msgstr ""
 
@@ -3769,13 +3769,17 @@ msgstr "접속"
 msgid "Getting phone information..."
 msgstr "전화기 정보 읽음"
 
-#: wammu.py:123
+#: wammu.py:124
 #, fuzzy
 msgid "Phone infomation:"
 msgstr "전화기 정보"
 
-#: wammu.py:126
+#: wammu.py:127
 msgid "IMEI"
+msgstr ""
+
+#: wammu.py:130
+msgid "Requested code"
 msgstr ""
 
 #. l10n: Name of program shown in desktop file
