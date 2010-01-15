@@ -2207,6 +2207,13 @@ class WammuFrame(wx.Frame):
         wx.PostEvent(self.searchlog, evt)
 
     def SearchPhone(self, evt = None):
+        if self.connected:
+            wx.MessageDialog(self,
+                _('Searching for phone can not be performed while you are connected to phone, please disconnect first.'),
+                _('You are connected to phone!'),
+                wx.OK | wx.ICON_ERROR).ShowModal()
+            return
+
         index = self.cfg.gammu.FirstFree()
         result = Wammu.PhoneWizard.RunConfigureWizard(self, index)
         if result is not None:
