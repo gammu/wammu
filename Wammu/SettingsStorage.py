@@ -297,7 +297,7 @@ class Settings:
             self.AddDevs(result, '/dev/ircomm%d', UNX_DEVICES)
         if type in ['usbserial', 'dku', None]:
             self.AddDevs(result, '/dev/ttyACM%d', UNX_DEVICES)
-            self.AddDevs(result, '/dev/ttyUSB0%d', UNX_DEVICES)
+            self.AddDevs(result, '/dev/ttyUSB%d', UNX_DEVICES)
             self.AddDevs(result, '/dev/usb/tts/%d', UNX_DEVICES)
             self.AddDevs(result, '/dev/usb/acm/%d', UNX_DEVICES)
             self.AddDevs(result, '/dev/input/ttyACM%d', UNX_DEVICES)
