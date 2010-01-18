@@ -553,6 +553,7 @@ def CompatConfig(cfg):
     '''
 
     # 1.27.0 changed handling of boolean options
+    # Pre 1.27.0 used strings
     if tuple(map(int, gammu.Version()[1].split('.'))) < (1, 27, 0):
         if cfg['SyncTime']:
             cfg['SyncTime'] = 'yes'
@@ -566,6 +567,20 @@ def CompatConfig(cfg):
             cfg['StartInfo'] = 'yes'
         else:
             cfg['StartInfo'] = 'no'
+    # 1.27.0 accepted only numbers
+    if tuple(map(int, gammu.Version()[1].split('.'))) == (1, 27, 0):
+        if cfg['SyncTime']:
+            cfg['SyncTime'] = 1
+        else:
+            cfg['SyncTime'] = 0
+        if cfg['LockDevice']:
+            cfg['LockDevice'] = 1
+        else:
+            cfg['LockDevice'] = 0
+        if cfg['StartInfo']:
+            cfg['StartInfo'] = 1
+        else:
+            cfg['StartInfo'] = 0
 
     # Older versions did not use model auto
     if cfg['Model'] == 'auto':
