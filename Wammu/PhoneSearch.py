@@ -318,7 +318,7 @@ class PhoneInfoThread(threading.Thread):
                 'DebugFile': '',
                 'SyncTime': False,
                 'Connection': self.connection,
-                'LockDevice': 'no',
+                'LockDevice': False,
                 'DebugLevel': 'nothing',
                 'Device': self.device,
                 'Model': '',
