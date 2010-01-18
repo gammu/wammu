@@ -411,8 +411,6 @@ Conn_Cable = [
     'fbus',
     'mbus',
     'fbuspl2303',
-    'phonetblue',
-    'fbusblue',
     ]
 Conn_IrDA_Win = [
     'irdaphonet',
