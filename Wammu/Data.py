@@ -594,6 +594,18 @@ ManufacturerMap = {
     'Sanyo': 28,
     'ZTE': 29,
     'Jinpeng': 30,
+    'Emgeton': 31,
+    'Hughes': 32,
+    'SciPhone': 33,
+    'Gionee': 34,
+    'Openmoko': 35,
+    'Vodafone': 36,
+    'CECT': 37,
+    'Matsunichi': 38,
+    'Foston': 39,
+    'Daxian': 40,
+    'Sandshine': 41,
+    'Sonim': 42,
 }
 GarbleMap = {
     0: 'atdot',
