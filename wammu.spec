@@ -1,5 +1,5 @@
 Name:           wammu
-Version:        0.32.1
+Version:        0.33
 Release:        1
 
 %define extension   bz2
@@ -90,6 +90,7 @@ rm -rf %buildroot
 %doc %{_mandir}/man1/*
 %lang(cs) %doc %{_mandir}/cs
 %lang(nl) %doc %{_mandir}/nl
+%lang(de) %doc %{_mandir}/de
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
