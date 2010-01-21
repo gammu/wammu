@@ -1,4 +1,4 @@
-Name            wammu
+Name:           wammu
 Version:        0.32.1
 Release:        1
 
