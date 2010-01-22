@@ -233,7 +233,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             choices = []
             for phone in self.results:
                 choices.append(
-                    _('Model %(model)s (%(manufacturer)s) on %(port)s device using connection %(connection)s') %
+                    _('Phone %(manufacturer)s %(model)s on device %(port)s using connection %(connection)s') %
                     {
                         'model': phone[2][0],
                         'manufacturer': phone[3],
@@ -257,7 +257,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             self.parent.settings.SetGammuDriver(config[1])
             self.edit.AppendText(_('Following phone will be used:') + '\n')
             self.edit.AppendText(
-                _('Model %(model)s (%(manufacturer)s) on %(port)s device using connection %(connection)s') %
+                _('Phone %(manufacturer)s %(model)s on device %(port)s using connection %(connection)s') %
                 {
                     'model': config[2][0],
                     'manufacturer': config[3],
