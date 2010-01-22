@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu.sk\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-21 16:36+0100\n"
+"POT-Creation-Date: 2010-01-22 14:33+0100\n"
 "PO-Revision-Date: 2009-02-20 21:34+0100\n"
 "Last-Translator: Katarina Machalkova <kmachalkova@suse.cz>\n"
 "Language-Team:  <en@li.org>\n"
@@ -2544,9 +2544,9 @@ msgstr "Predvoľba čísel"
 
 #: Wammu/Settings.py:416
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone where total count was guessed, it assumes that rest is "
-"empty."
+"Applies only when Wammu can not find proper count of entries to read. This "
+"number limits how many empty entries will be read before reading will be "
+"stopped."
 msgstr ""
 
 #: Wammu/Settings.py:417
@@ -2556,11 +2556,10 @@ msgstr ""
 
 #: Wammu/Settings.py:423
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone which have known total count, it assumes that rest is empty."
+"In case phone reports wrongly number of entries, Wammu would try to read "
+"infinitely or till error. This number limits how many empty entries will be "
+"read before reading will be stopped."
 msgstr ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone which have known total count, it assumes that rest is empty."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -3816,6 +3815,15 @@ msgstr "Správca Mobilného Telefónu"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Aplikácia pre mobilne telefóny - frontend pre Gammu"
+
+#~ msgid ""
+#~ "When Wammu encounters continuous this count of empty entries when reading "
+#~ "items from phone which have known total count, it assumes that rest is "
+#~ "empty."
+#~ msgstr ""
+#~ "When Wammu encounters continuous this count of empty entries when reading "
+#~ "items from phone which have known total count, it assumes that rest is "
+#~ "empty."
 
 #~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 #~ msgstr "Chcete pri odosielaní správ na IMAP server použiť SSL?"

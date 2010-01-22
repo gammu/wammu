@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-21 16:36+0100\n"
+"POT-Creation-Date: 2010-01-22 14:33+0100\n"
 "PO-Revision-Date: 2009-01-28 17:26+0100\n"
 "Last-Translator: hawshinka manson <hawshinka@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <pt_BR@li.org>\n"
@@ -2580,9 +2580,9 @@ msgstr "Número"
 
 #: Wammu/Settings.py:416
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone where total count was guessed, it assumes that rest is "
-"empty."
+"Applies only when Wammu can not find proper count of entries to read. This "
+"number limits how many empty entries will be read before reading will be "
+"stopped."
 msgstr ""
 
 #: Wammu/Settings.py:417
@@ -2591,8 +2591,9 @@ msgstr ""
 
 #: Wammu/Settings.py:423
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone which have known total count, it assumes that rest is empty."
+"In case phone reports wrongly number of entries, Wammu would try to read "
+"infinitely or till error. This number limits how many empty entries will be "
+"read before reading will be stopped."
 msgstr ""
 
 #: Wammu/Settings.py:424

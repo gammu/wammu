@@ -413,14 +413,14 @@ class Settings(wx.Dialog):
 
         v = config.ReadInt('/Hacks/MaxEmptyGuess')
         self.editmaxemptyguess = wx.SpinCtrl(self.notebook_hacks, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
-        self.editmaxemptyguess.SetToolTipString(_('When Wammu encounters continuous this count of empty entries when reading items from phone where total count was guessed, it assumes that rest is empty.'))
+        self.editmaxemptyguess.SetToolTipString(_('Applies only when Wammu can not find proper count of entries to read. This number limits how many empty entries will be read before reading will be stopped.'))
         self.sizer_hacks.Add(wx.StaticText(self.notebook_hacks, -1, _('Maximal empty entries if total is guessed')), pos = (r, 1))
         self.sizer_hacks.Add(self.editmaxemptyguess, pos = (r, 2))
         r += 1
 
         v = config.ReadInt('/Hacks/MaxEmptyKnown')
         self.editmaxemptyknown = wx.SpinCtrl(self.notebook_hacks, -1, str(v), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000000, initial = v, size = (150, -1))
-        self.editmaxemptyknown.SetToolTipString(_('When Wammu encounters continuous this count of empty entries when reading items from phone which have known total count, it assumes that rest is empty.'))
+        self.editmaxemptyknown.SetToolTipString(_('In case phone reports wrongly number of entries, Wammu would try to read infinitely or till error. This number limits how many empty entries will be read before reading will be stopped.'))
         self.sizer_hacks.Add(wx.StaticText(self.notebook_hacks, -1, _('Maximal empty entries if total is known')), pos = (r, 1))
         self.sizer_hacks.Add(self.editmaxemptyknown, pos = (r, 2))
         r += 1

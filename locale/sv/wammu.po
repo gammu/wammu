@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-21 16:36+0100\n"
+"POT-Creation-Date: 2010-01-22 14:33+0100\n"
 "PO-Revision-Date: 2009-02-18 23:10+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -2609,12 +2609,10 @@ msgstr "Nummerprefix"
 
 #: Wammu/Settings.py:416
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone where total count was guessed, it assumes that rest is "
-"empty."
+"Applies only when Wammu can not find proper count of entries to read. This "
+"number limits how many empty entries will be read before reading will be "
+"stopped."
 msgstr ""
-"När Wammu påträffar detta antal tomma poster vid läsning av objekt från "
-"telefonen där totala antalet gissades, så antas att resten är tomma."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
@@ -2622,11 +2620,10 @@ msgstr "Maximalt antal poster om totalen är gissad"
 
 #: Wammu/Settings.py:423
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone which have known total count, it assumes that rest is empty."
+"In case phone reports wrongly number of entries, Wammu would try to read "
+"infinitely or till error. This number limits how many empty entries will be "
+"read before reading will be stopped."
 msgstr ""
-"När Wammu påträffar detta antal tomma poster vid läsning av objekt från "
-"telefonen där totala antalet är känt, så antas att resten är tomma."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -3917,6 +3914,22 @@ msgstr "Hanterare för mobiltelefoner"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Program för mobiltelefoner - klient för Gammu"
+
+#~ msgid ""
+#~ "When Wammu encounters continuous this count of empty entries when reading "
+#~ "items from phone where total count was guessed, it assumes that rest is "
+#~ "empty."
+#~ msgstr ""
+#~ "När Wammu påträffar detta antal tomma poster vid läsning av objekt från "
+#~ "telefonen där totala antalet gissades, så antas att resten är tomma."
+
+#~ msgid ""
+#~ "When Wammu encounters continuous this count of empty entries when reading "
+#~ "items from phone which have known total count, it assumes that rest is "
+#~ "empty."
+#~ msgstr ""
+#~ "När Wammu påträffar detta antal tomma poster vid läsning av objekt från "
+#~ "telefonen där totala antalet är känt, så antas att resten är tomma."
 
 #~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 #~ msgstr ""

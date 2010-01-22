@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wammu 0.32.1\n"
+"Project-Id-Version: Wammu 0.33\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-01-21 16:36+0100\n"
+"POT-Creation-Date: 2010-01-22 14:33+0100\n"
 "PO-Revision-Date: 2008-07-14 14:30+0200\n"
 "Last-Translator: alx <schumifer21@yahoo.com>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -2575,13 +2575,10 @@ msgstr "Πρόθεμα τηλεφώνου"
 
 #: Wammu/Settings.py:416
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone where total count was guessed, it assumes that rest is "
-"empty."
+"Applies only when Wammu can not find proper count of entries to read. This "
+"number limits how many empty entries will be read before reading will be "
+"stopped."
 msgstr ""
-"Όταν το wammu συναντά συνεχόμενα τόσες άδειες εγγραφές διαβάζοντας "
-"αντικείμενα από τηλέφωνο όπου χρειάστηκε να υποθέσει το συνολικό αριθμό "
-"αντικειμένων, θεωρεί ότι οι υπόλοιπες είναι άδειες."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
@@ -2589,12 +2586,10 @@ msgstr "Μέγιστος αριθμός εγγραφών ,εάν ο συνολι
 
 #: Wammu/Settings.py:423
 msgid ""
-"When Wammu encounters continuous this count of empty entries when reading "
-"items from phone which have known total count, it assumes that rest is empty."
+"In case phone reports wrongly number of entries, Wammu would try to read "
+"infinitely or till error. This number limits how many empty entries will be "
+"read before reading will be stopped."
 msgstr ""
-"Όταν το wammu συναντά συνεχόμενα τόσες άδειες εγγραφές διαβάζοντας "
-"αντικείμενα από τηλέφωνο με γνωστό συνολικό αριθμό αντικειμένων, θεωρεί ότι "
-"οι υπόλοιπες είναι άδειες."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -3864,6 +3859,24 @@ msgstr "Mobile Phone Manager"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Εφαρμογή για κινητά τηλέφωνα - frontend for Gammu"
+
+#~ msgid ""
+#~ "When Wammu encounters continuous this count of empty entries when reading "
+#~ "items from phone where total count was guessed, it assumes that rest is "
+#~ "empty."
+#~ msgstr ""
+#~ "Όταν το wammu συναντά συνεχόμενα τόσες άδειες εγγραφές διαβάζοντας "
+#~ "αντικείμενα από τηλέφωνο όπου χρειάστηκε να υποθέσει το συνολικό αριθμό "
+#~ "αντικειμένων, θεωρεί ότι οι υπόλοιπες είναι άδειες."
+
+#~ msgid ""
+#~ "When Wammu encounters continuous this count of empty entries when reading "
+#~ "items from phone which have known total count, it assumes that rest is "
+#~ "empty."
+#~ msgstr ""
+#~ "Όταν το wammu συναντά συνεχόμενα τόσες άδειες εγγραφές διαβάζοντας "
+#~ "αντικείμενα από τηλέφωνο με γνωστό συνολικό αριθμό αντικειμένων, θεωρεί "
+#~ "ότι οι υπόλοιπες είναι άδειες."
 
 #~ msgid "Do you wish to use SSL while uploading messages to IMAP server?"
 #~ msgstr ""
