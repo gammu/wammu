@@ -2142,7 +2142,10 @@ class WammuFrame(wx.Frame):
 
         # Check for PIN
         if self.connected:
-            code = self.sm.GetSecurityStatus()
+            try:
+                code = self.sm.GetSecurityStatus()
+            except gammu.GSMError:
+                code = None
             if code is not None:
                 dlg = wx.PasswordEntryDialog(self,
                     _('Please enter %s code:') % code,
