@@ -159,11 +159,11 @@ def SmsToHtml(cfg, v):
                 data = []
                 for x in i['Bitmap']:
                     data.append("['" + string.join(x['XPM'], "', '") + "']")
-                    text = text + \
-                        '<wxp module="Wammu.Image" class="Throbber">' + \
-                        '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage')) + ')">' + \
-                        '<param name="images" value="' + "['" + string.join(data, "', '") + "']" + '">' + \
-                        '</wxp>'
+                text = text + \
+                    '<wxp module="Wammu.Image" class="Throbber">' + \
+                    '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage')) + ')">' + \
+                    '<param name="images" value="' + "[" + string.join(data, ", ") + "]" + '">' + \
+                    '</wxp>'
         if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:
             text = ('<table border="1" bgcolor="#dd7777" color="#000000"><tr><td>%s</td></tr></table>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it in Gammu.')) + text
     else:
