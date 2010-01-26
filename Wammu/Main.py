@@ -2141,13 +2141,14 @@ class WammuFrame(wx.Frame):
                 pass
 
         # Check for PIN
-        code = self.sm.GetSecurityStatus()
-        if code is not None:
-            dlg = wx.PasswordEntryDialog(self,
-                _('Please enter %s code:') % code,
-                _('Phone asks for security code'))
-            if dlg.ShowModal() == wx.ID_OK:
-                self.sm.EnterSecurityCode(code, dlg.GetValue())
+        if self.connected:
+            code = self.sm.GetSecurityStatus()
+            if code is not None:
+                dlg = wx.PasswordEntryDialog(self,
+                    _('Please enter %s code:') % code,
+                    _('Phone asks for security code'))
+                if dlg.ShowModal() == wx.ID_OK:
+                    self.sm.EnterSecurityCode(code, dlg.GetValue())
 
 
     def DBUSActionCallback(self, id, action):
