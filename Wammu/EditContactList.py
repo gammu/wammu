@@ -41,11 +41,11 @@ class EditContactList(wx.Dialog):
         wx.Dialog.__init__(self, parent, *args, **kwds)
         self.__init_data()
         self.all_label = wx.StaticText(self, -1, _('Available contacts:'))
-        self.all_contacts = wx.ListBox(self, -1, choices=self.optionslist)
+        self.all_contacts = wx.ListBox(self, -1, choices=self.optionslist, style=wx.LB_EXTENDED)
         self.add_button = wx.Button(self, wx.ID_ADD)
         self.delete_button = wx.Button(self, wx.ID_DELETE)
         self.current_label = wx.StaticText(self, -1, _('Current recipients:'))
-        self.current_contacts = wx.ListBox(self, -1, choices=self.currentlist)
+        self.current_contacts = wx.ListBox(self, -1, choices=self.currentlist, style=wx.LB_EXTENDED)
         self.save_button = wx.Button(self, wx.ID_SAVEAS)
         # TODO: Load would be better
         self.load_button = wx.Button(self, wx.ID_OPEN)
@@ -130,19 +130,22 @@ class EditContactList(wx.Dialog):
         return ' '.join(self.currentlist)
 
     def Add(self, evt=None):
-        index = self.all_contacts.GetSelection()
+        index = self.all_contacts.GetSelections()
         if index == wx.NOT_FOUND:
             return
-        newone = self.numberlist[index]
-        self.currentlist.append(newone)
-        self.current_contacts.Append(newone)
+        for i in index:
+            newone = self.numberlist[i]
+            if newone not in self.currentlist:
+                self.currentlist.append(newone)
+                self.current_contacts.Append(newone)
 
     def Delete(self, evt=None):
-        index = self.current_contacts.GetSelection()
+        index = self.current_contacts.GetSelections()
         if index == wx.NOT_FOUND:
             return
-        del self.currentlist[index]
-        self.current_contacts.Delete(index)
+        for i in reversed(index):
+            del self.currentlist[i]
+            self.current_contacts.Delete(i)
 
     def Save(self, evt=None):
         dlg = wx.FileDialog(self, _('Load contacts from file'), os.getcwd(), '', self.wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
