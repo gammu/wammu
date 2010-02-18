@@ -484,14 +484,14 @@ else:
         '/dev/usb/tts/0',
         ]
     AllDevices = [
-        (Conn_Cable, '/dev/ttyS%d', (0, 3), ['serial']),
-        (Conn_Cable, '/dev/ttyUSB%d', (0, 3), ['serial', 'usb']),
-        (Conn_Cable, '/dev/ttyACM%d', (0, 3), ['serial', 'usb']),
-        (Conn_Cable, '/dev/cuaU%d', (0, 3), ['serial', 'usb']),
-        (Conn_Cable, '/dev/cua%d', (0, 3), ['serial', 'usb']),
-        (Conn_BlueRF, '/dev/rfrcomm%d', (0, 1), ['bluetooth']),
-        (Conn_IrDA_Other, '/dev/ircomm%d', (0, 1), ['irda']),
-        (Conn_Cable, '/dev/usb/tts/%d', (0, 3), ['serial', 'usb']),
+        (Conn_Cable, '/dev/ttyS%d', (0, 20), ['serial']),
+        (Conn_Cable, '/dev/ttyUSB%d', (0, 20), ['serial', 'usb']),
+        (Conn_Cable, '/dev/ttyACM%d', (0, 20), ['serial', 'usb']),
+        (Conn_Cable, '/dev/cuaU%d', (0, 20), ['serial', 'usb']),
+        (Conn_Cable, '/dev/cua%d', (0, 20), ['serial', 'usb']),
+        (Conn_BlueRF, '/dev/rfrcomm%d', (0, 20), ['bluetooth']),
+        (Conn_IrDA_Other, '/dev/ircomm%d', (0, 20), ['irda']),
+        (Conn_Cable, '/dev/usb/tts/%d', (0, 20), ['serial', 'usb']),
         ]
 
 ContactMemoryTypes = ['ME', 'SM']
