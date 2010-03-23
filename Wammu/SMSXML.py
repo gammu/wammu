@@ -37,7 +37,7 @@ XMLheader = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\
 
 
 
-def SMSToXML(cfg, sms, lookuplist = None):
+def SMSToXML(cfg, sms, contact = None):
 	'''
 	Convert a sms to XML
 	'''
@@ -64,6 +64,10 @@ def SMSToXML(cfg, sms, lookuplist = None):
 	smsxml += "        <telephone>"
 	smsxml += sms['Number'].encode('utf-8')
 	smsxml += "</telephone>\n"
+
+	smsxml += "        <contact>"
+	smsxml += contact.encode('utf-8')
+	smsxml += "</contact>\n"
 
 	smsxml += "        <folder>"
 	smsxml += str(sms['Folder'])
@@ -107,7 +111,12 @@ def SMSExportXML(parent, messages, contacts):
                 return
 
             sms = messages[i]
-            data = Wammu.SMSXML.SMSToXML(parent.cfg, sms, contacts)
+            j = SearchNumber(contacts, sms['Number'])
+            if j == -1:
+                contact = sms['Number']
+            else:
+                contact = contacts[j]['Name']
+            data = Wammu.SMSXML.SMSToXML(parent.cfg, sms, contact)
 
             f.write(data)
 
