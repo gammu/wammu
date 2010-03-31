@@ -21,7 +21,7 @@ niets is ingesteld wordt het zoeken naar een telefoon gesuggereerd, wat
 automatisch goed moet verlopen.
 
 Gebruik
-======
+=======
 
 Eerst moet de telefoon worden aangesloten, daarna kun je er iets mee
 doen. Om entries aan te maken en te importeren hoef je niets van de telefoon
