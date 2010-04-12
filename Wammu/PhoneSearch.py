@@ -159,7 +159,7 @@ class AllSearchThread(threading.Thread):
         '''
         # read devices list
         if self.msgcallback != None:
-            self.msgcallback(_('Scanning for Bluetooth devices using %s') %
+            self.msgcallback(_('Discovering Bluetooth devices using %s') %
                     'PyBluez')
 
         try:
@@ -169,7 +169,7 @@ class AllSearchThread(threading.Thread):
             if len(discovery.names_found) == 0 and self.msgcallback != None:
                 self.msgcallback(_('No Bluetooth device found'))
             if self.msgcallback != None:
-                self.msgcallback(_('Bluetooth device scan completed'))
+                self.msgcallback(_('All Bluetooth devices discovered, connection tests still in progress...'))
         except bluetooth.BluetoothError, txt:
             if self.msgcallback != None:
                 self.msgcallback(
