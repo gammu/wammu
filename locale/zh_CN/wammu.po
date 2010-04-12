@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.33\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-04-12 10:30+0200\n"
+"POT-Creation-Date: 2010-04-12 11:04+0200\n"
 "PO-Revision-Date: 2010-02-22 04:07+0200\n"
 "Last-Translator:  <rainofchaos@gmail.com>\n"
 "Language-Team: none\n"
@@ -1137,9 +1137,11 @@ msgstr "保存短消息(&a)"
 msgid "Save currently retrieved messages to backup."
 msgstr "保存当前已获取的短消息到备份文件。"
 
+#  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:332
-msgid "&Import"
-msgstr "导入(&I)"
+#, fuzzy
+msgid "&Import to phone"
+msgstr "从备份文件导入数据到手机"
 
 #  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:332
@@ -1147,7 +1149,8 @@ msgid "Import data from backup to phone."
 msgstr "从备份文件导入数据到手机"
 
 #: Wammu/Main.py:333
-msgid "I&mport messages"
+#, fuzzy
+msgid "I&mport messages to phone"
 msgstr "导入短消息(&m)"
 
 #  msgid "Imports messages from backup to phone"
@@ -3663,6 +3666,9 @@ msgstr "移动电话管理器"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "移动电话应用程序 - Gammu 的前端"
+
+#~ msgid "&Import"
+#~ msgstr "导入(&I)"
 
 #~ msgid "Bluetooth device scan completed"
 #~ msgstr "蓝牙设备扫描完毕"
