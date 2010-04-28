@@ -10,6 +10,13 @@ repo=wammu
 version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
 
 srcdir=`pwd`
+if [ -f ~/.id/codesigning.spc -a "x$NO_SIGN" = "x" ] ; then
+    sign_passwd=`gk-get --user=nijel --object=codesign || true`
+    if [ -z "$sign_passwd" ] ; then
+        echo -n "Enter sign password: "
+        read sign_passwd
+    fi
+fi
 
 signexe() {
     if [ ! -f ~/.id/codesigning.spc ] ; then 
@@ -20,9 +27,10 @@ signexe() {
         echo 'Skipping signing, disabled!'
         return 0
     fi
-    gk-get --user=nijel --object=codesign | signcode \
+    echo "$sign_passwd" | signcode \
         -spc ~/.id/codesigning.spc \
         -v ~/.id/codesigning.pvk \
+        -a sha1 \
         -$ individual \
         -n "$2" \
         -t http://timestamp.verisign.com/scripts/timstamp.dll \
