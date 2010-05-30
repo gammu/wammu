@@ -91,6 +91,7 @@ rm -rf %buildroot
 %lang(cs) %doc %{_mandir}/cs
 %lang(nl) %doc %{_mandir}/nl
 %lang(it) %doc %{_mandir}/it
+%lang(sk) %doc %{_mandir}/sk
 %lang(de) %doc %{_mandir}/de
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure

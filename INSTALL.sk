@@ -1,0 +1,64 @@
+Inštalácia Wammu
+==================
+
+Balíčky pre Linux
+===================
+
+Mnoho distribúcií obsahuje balíčky pre Wammu. Ak ich môžete použiť, je to
+určite najjednoduchšia cesta. Aktuálnu verziu zabalenú pre mnoho distribúcií
+nájdete na stránkach Wammu <http://wammu.eu/download/wammu/>.
+
+
+Kompilácia zo zdrojových kódov
+=================================
+
+Používa sa štandardný distutils, takže inštalácia prebehne:
+
+    python setup.py build
+    sudo python setup.py install
+
+Pre inštaláciu a spustenie tohto programu potrebujete python-gammu and
+wxPython [1] (build s Unicode). Keď chcete podporu pre vyhľadávanie
+zariadení na Bluetooth potrebujete PyBluez [2]. Pre upozorňovanie na
+prichádzajúce udalosti potrebujete dbus-python [3].
+
+Pre Windows budete potrebovať tiež Pywin32 [4].
+
+Ak budete chcieť z akéhokoľvek dôvodu preskočiť kontrolovanie závislostí,
+môžete použiť parameter --skip-deps.
+
+[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]:
+http://www.freedesktop.org/wiki/Software/DBusBindings [4]:
+https://sourceforge.net/projects/pywin32/
+
+
+Medziplatformová kompilácia pre Windows na Linuxe
+===================================================
+
+Potrebujete mať nainštalovaný Wine a všetky závislosti Wammu (viď. vyššie).
+
+Vytvorenie inštalátoru pre Wammu pre Python je jednoduché:
+
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
+Ale týmto spôsobom používateľ potrebuje tiež nainštalovať všetky závislosti,
+čo nieje veľmi pohodlné. Toto môže byť vyriešené použitím py2exe [5]:
+
+    wine c:\\python25\\python setup.py build --skip-deps py2exe
+
+Ale okrem tohto musíte spraviť niekoľko ručných úprav. Pre fungovanie py2exe
+vo Wine potrebujete jeho binárky opraviť pomocou programu PE Tools (ako je
+popísané v chybovom hlásení na Wine [w1]) a skopírovať niektoré ďalšie
+knižnice, ktoré chýbajú v adresári dist (python25.dll a knižnice z
+wxPython). Pozrite skript admin/make-release ktorý toto kopírovanie robí
+automaticky.
+
+Potom môžete použiť InnoSetup[6] pre vytvorenie inštalátora Wammu:
+
+    wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+
+[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php
+
+[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591
+
+# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
