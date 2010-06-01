@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu.sk\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-04-12 11:04+0200\n"
+"POT-Creation-Date: 2010-06-01 16:17+0200\n"
 "PO-Revision-Date: 2010-05-29 18:09+0200\n"
 "Last-Translator: Pavol <scroolik@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
@@ -1381,8 +1381,8 @@ msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
 msgstr ""
-"Batéria: %(battery_percent)d %% (%(power_source)s), Signál: %(signal_level)"
-"s, Čas: %(time)s"
+"Batéria: %(battery_percent)d %% (%(power_source)s), Signál: "
+"%(signal_level)s, Čas: %(time)s"
 
 #: Wammu/Main.py:756
 msgid "Connected"
@@ -2024,11 +2024,11 @@ msgstr "Nenašiel sa žiadny telefón!"
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
 #, python-format
 msgid ""
-"Phone %(manufacturer)s %(model)s on device %(port)s using connection %"
-"(connection)s"
+"Phone %(manufacturer)s %(model)s on device %(port)s using connection "
+"%(connection)s"
 msgstr ""
-"Telefón %(manufacturer)s %(model)s na porte %(port)s používa pripojenie %"
-"(connection)s"
+"Telefón %(manufacturer)s %(model)s na porte %(port)s používa pripojenie "
+"%(connection)s"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
@@ -2429,6 +2429,11 @@ msgid ""
 msgstr ""
 "Ak občas dostávate \"zhustené\" správy, ako napríkladTakýtoTEXT, táto voľba "
 "môže byť pre vás zaujímavá."
+
+#: Wammu/Settings.py:229
+#, fuzzy
+msgid "Default options for new message"
+msgstr "Vytvoriť novú správu."
 
 #: Wammu/Settings.py:245
 msgid "Create unicode message"
@@ -2964,7 +2969,8 @@ msgstr "Phonet cez Bluetooth"
 
 #: Wammu/SettingsStorage.py:439 Wammu/SettingsStorage.py:450
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
-msgstr "Nokia protokol pre stack Bluetooth s ostatnými modelmi Nokia typu DCT4."
+msgstr ""
+"Nokia protokol pre stack Bluetooth s ostatnými modelmi Nokia typu DCT4."
 
 #: Wammu/SettingsStorage.py:442
 msgid "FBUS over Bluetooth (emulated serial port)"
@@ -3630,7 +3636,8 @@ msgstr "Pamäť je plná, skúste vymazať niektoré položky."
 
 #: Wammu/Utils.py:452
 msgid "Communication canceled by phone, did you press cancel on phone?"
-msgstr "Telefón prerušil komunikáciu, stlačili ste na telefóne tlačítko Zrušiť?"
+msgstr ""
+"Telefón prerušil komunikáciu, stlačili ste na telefóne tlačítko Zrušiť?"
 
 #: Wammu/Utils.py:454
 msgid ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-04-12 11:04+0200\n"
+"POT-Creation-Date: 2010-06-01 16:17+0200\n"
 "PO-Revision-Date: 2010-05-30 11:47+0200\n"
 "Last-Translator: KAMI <kami911@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -1282,8 +1282,8 @@ msgid ""
 "it is using version %(runtime)s)."
 msgstr ""
 "Az importálás meghiúsult, mert a python-gammu híd fordítása a most használt "
-"Gammu programtól eltérő verzióval készült. (A fordítás verziója: %(compile)"
-"s, a jelenleg használt verzió: %(runtime)s)."
+"Gammu programtól eltérő verzióval készült. (A fordítás verziója: "
+"%(compile)s, a jelenleg használt verzió: %(runtime)s)."
 
 #: Wammu/Main.py:454
 msgid ""
@@ -1404,8 +1404,8 @@ msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
 msgstr ""
-"Akkumulátor: %(battery_percent)d %%, (%(power_source)s), Térerő: %"
-"(signal_level)s, Idő: %(time)s"
+"Akkumulátor: %(battery_percent)d %%, (%(power_source)s), Térerő: "
+"%(signal_level)s, Idő: %(time)s"
 
 #: Wammu/Main.py:756
 msgid "Connected"
@@ -2047,8 +2047,8 @@ msgstr "Telefon nem található!"
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
 #, python-format
 msgid ""
-"Phone %(manufacturer)s %(model)s on device %(port)s using connection %"
-"(connection)s"
+"Phone %(manufacturer)s %(model)s on device %(port)s using connection "
+"%(connection)s"
 msgstr ""
 "Telefonmodell: %(model)s (%(manufacturer)s), port: %(port)s, csatlakozás "
 "módja:  %(connection)s"
@@ -2462,6 +2462,11 @@ msgid ""
 msgstr ""
 "Ha ilyen „tömörített” üzeneteket kap MINTezAszöveg, akkor ezt a lehetőséget "
 "szeretni fogja."
+
+#: Wammu/Settings.py:229
+#, fuzzy
+msgid "Default options for new message"
+msgstr "Új üzenet létrehozása."
 
 #: Wammu/Settings.py:245
 msgid "Create unicode message"
@@ -3222,8 +3227,8 @@ msgstr "IMAP kiszolgáló"
 #, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr ""
-"Összesen %(count)d üzenetből %(new)d új üzenet exportálva lett ide: „%(path)"
-"s” (%(type)s)"
+"Összesen %(count)d üzenetből %(new)d új üzenet exportálva lett ide: "
+"„%(path)s” (%(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
