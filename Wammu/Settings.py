@@ -226,7 +226,7 @@ class Settings(wx.Dialog):
         self.sizer_messages.Add(self.new_message_panel, pos = (r, 1), colspan = 2, flag = wx.EXPAND)
         r += 1
 
-        self.sizer_message_new = wx.StaticBoxSizer(wx.StaticBox(self.new_message_panel, -1, 'Default options for new message'), wx.HORIZONTAL)
+        self.sizer_message_new = wx.StaticBoxSizer(wx.StaticBox(self.new_message_panel, -1, _('Default options for new message')), wx.HORIZONTAL)
         self.new_message_panel_2 = wx.Panel(self.new_message_panel, -1)
         self.sizer_message_new.Add(self.new_message_panel_2, 1, wx.EXPAND, 0)
 
