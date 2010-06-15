@@ -70,8 +70,11 @@ class PhoneValidator(wx.PyValidator):
         else:
             values = [text]
         for val in values:
-            if val == '':
-                result = self.empty
+            if val == '' and not self.empty:
+                if immediate:
+                    continue
+                else:
+                    return False
             elif self.pause and MATCHER_PAUSE.match(val) == None:
                 return False
             elif not self.pause and MATCHER_NORMAL.match(val) == None:
