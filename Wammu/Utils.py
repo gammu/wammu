@@ -401,7 +401,7 @@ def ParseMessage(msg, parseinfo = False):
             loc = loc + ', '
         loc = loc + str(i['Location'])
     try:
-        tmp = StrConv(txt)
+        StrConv(txt)
         msg['Text'] = txt
     except:
         s2 = ''
