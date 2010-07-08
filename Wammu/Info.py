@@ -138,7 +138,7 @@ class GetInfo(Wammu.Thread.Thread):
         try:
             SMSC = self.sm.GetSMSC()
             data.append({'Name': _('SMSC'), 'Value': SMSC['Number'], 'Synced': True})
-        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
+        except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED, gammu.ERR_EMPTY):
             pass
         except gammu.GSMError, val:
             self.ShowError(val[0])
