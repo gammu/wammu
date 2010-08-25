@@ -93,6 +93,7 @@ rm -rf %buildroot
 %lang(it) %doc %{_mandir}/it
 %lang(sk) %doc %{_mandir}/sk
 %lang(de) %doc %{_mandir}/de
+%lang(ru) %doc %{_mandir}/ru
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
