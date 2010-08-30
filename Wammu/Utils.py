@@ -462,12 +462,21 @@ def FormatError(txt, info, gammu_config = None):
         else:
             message = _('Device "%s" for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.') % gammu_config['Device']
     elif info['Code'] == gammu.Errors['ERR_DEVICENOPERMISSION']:
+        if sys.platform == 'linux2':
+            message_group = ' ' + _('Maybe you need to be member of some group to have acces to device.')
+        else:
+            message_group = ''
         if gammu_config is None:
             message = _('Can not access device for communication with phone.')
         else:
-            message = _('Can not access device "%s" for communication with phone.') % gammu_config['Device']
-        if sys.platform == 'linux2':
-            message += ' ' + _('Maybe you need to be member of some group to have acces to device.')
+            check = CheckDeviceNode(gammu_config['Device'])
+            if check[0] == -2:
+                message = check[3]
+                message_group = ''
+            else:
+                message = _('Can not access device "%s" for communication with phone.') % gammu_config['Device']
+        if message_group != '':
+            message += ' ' + message_group
     elif info['Code'] == gammu.Errors['ERR_NOSIM']:
         message = _('Can not access SIM card. Please check whether it is properly inserted in phone and/or try to reboot the phone by removing battery.')
     else:
