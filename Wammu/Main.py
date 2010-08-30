@@ -909,8 +909,12 @@ class WammuFrame(wx.Frame):
         self.Destroy()
 
     def ShowError(self, info):
+        try:
+            gammu_config = self.gammu_config
+        except AttributeError:
+            gammu_config = Noe
         evt = Wammu.Events.ShowMessageEvent(
-            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info),
+            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info, gammu_config = gammu_config),
             title = _('Error Occured'),
             errortype = 'gammu',
             type = wx.ICON_ERROR)
@@ -2095,6 +2099,9 @@ class WammuFrame(wx.Frame):
             'Device': config['Device'],
             'Model': config['Model'],
             }
+
+        # Store configuration for error handling
+        self.gammu_config = cfg
 
         # Compatibility with old Gammu versions
         cfg = Wammu.Utils.CompatConfig(cfg)

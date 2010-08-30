@@ -439,7 +439,7 @@ def ProcessMessages(list, synced):
 
     return {'read':read, 'unread':unread, 'sent':sent, 'unsent':unsent}
 
-def FormatError(txt, info):
+def FormatError(txt, info, gammu_config = None):
     if info['Code'] == gammu.Errors['ERR_NOTSUPPORTED']:
         message = _('Your phone doesn\'t support this function.')
     elif info['Code'] == gammu.Errors['ERR_NOTIMPLEMENTED']:
@@ -457,9 +457,15 @@ def FormatError(txt, info):
     elif info['Code'] == gammu.Errors['ERR_TIMEOUT']:
         message = _('Timeout while trying to communicate with phone. Maybe phone is not connected (for cable) or out of range (for Bluetooth or IrDA).')
     elif info['Code'] == gammu.Errors['ERR_DEVICENOTEXIST']:
-        message = _('Device for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.')
+        if gammu_config is None:
+            message = _('Device for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.')
+        else:
+            message = _('Device "%s" for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.') % gammu_config['Device']
     elif info['Code'] == gammu.Errors['ERR_DEVICENOPERMISSION']:
-        message = _('Can not access device for communication with phone.')
+        if gammu_config is None:
+            message = _('Can not access device for communication with phone.')
+        else:
+            message = _('Can not access device "%s" for communication with phone.') % gammu_config['Device']
         if sys.platform == 'linux2':
             message += ' ' + _('Maybe you need to be member of some group to have acces to device.')
     elif info['Code'] == gammu.Errors['ERR_NOSIM']:
