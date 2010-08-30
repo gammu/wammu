@@ -1263,6 +1263,8 @@ class WammuFrame(wx.Frame):
             return
         if self.type[0] == 'contact':
             self.EditContact(evt.data)
+        elif self.type[0] == 'call' and evt.data['Location'] == 0:
+            self.EditContact(evt.data)
         elif self.type[0] == 'calendar':
             self.EditCalendar(evt.data)
         elif self.type[0] == 'todo':

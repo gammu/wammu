@@ -195,6 +195,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.popup_id_send        = wx.NewId()
         self.popup_id_edit        = wx.NewId()
         self.popup_id_message     = wx.NewId()
+        self.popup_id_contact     = wx.NewId()
         self.popup_id_call        = wx.NewId()
         self.popup_id_delete      = wx.NewId()
         self.popup_id_delete_selection   = wx.NewId()
@@ -235,6 +236,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.Bind(wx.EVT_MENU,
                 self.OnPopupMessage,
                 id = self.popup_id_message)
+        self.Bind(wx.EVT_MENU,
+                self.OnPopupContact,
+                id = self.popup_id_contact)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupCall,
                 id = self.popup_id_call)
@@ -518,6 +522,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         if self.popup_index != -1 and self.type in ['contact', 'call']:
             menu.Append(self.popup_id_message,    _('Send message'))
             menu.Append(self.popup_id_call,       _('Call'))
+            if self.popup_index != -1 and self.type in ['call']:
+                menu.Append(self.popup_id_contact,    _('Store as new contact'))
             menu.AppendSeparator()
 
         if self.popup_index != -1 and not self.type in ['call', 'message']:
@@ -558,6 +564,13 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnPopupMessage(self, event):
         evt = Wammu.Events.MessageEvent(data = self.values[self.popup_index])
+        wx.PostEvent(self.win, evt)
+
+    def OnPopupContact(self, event):
+        data = self.values[self.popup_index]
+        data['Location'] = 0
+        data['MemoryType'] = 'ME'
+        evt = Wammu.Events.EditEvent(data = data)
         wx.PostEvent(self.win, evt)
 
     def OnPopupEdit(self, event):
