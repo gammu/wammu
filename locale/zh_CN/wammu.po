@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.34\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-06-16 09:46+0200\n"
+"POT-Creation-Date: 2010-08-30 11:38+0200\n"
 "PO-Revision-Date: 2010-02-22 04:07+0200\n"
 "Last-Translator:  <rainofchaos@gmail.com>\n"
 "Language-Team: none\n"
@@ -72,7 +72,7 @@ msgid "Failed to set exception handler."
 msgstr "建立异常处理例程失败。"
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:994 Wammu/Settings.py:168
+#: Wammu/Main.py:998 Wammu/Settings.py:168
 msgid "Name"
 msgstr "名称"
 
@@ -81,31 +81,31 @@ msgid "Value"
 msgstr "值"
 
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:974
-#: Wammu/Main.py:988 Wammu/Main.py:998 Wammu/Main.py:1006
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:978
+#: Wammu/Main.py:992 Wammu/Main.py:1002 Wammu/Main.py:1010
 msgid "Location"
 msgstr "位置"
 
-#: Wammu/Browser.py:52 Wammu/Main.py:990
+#: Wammu/Browser.py:52 Wammu/Main.py:994
 msgid "Memory"
 msgstr "存储器"
 
 #: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
-#: Wammu/Main.py:986
+#: Wammu/Main.py:990
 msgid "Number"
 msgstr "号码"
 
-#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:1000
-#: Wammu/Main.py:1007
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:1004
+#: Wammu/Main.py:1011
 msgid "Type"
 msgstr "类型"
 
 #: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
-#: Wammu/Main.py:987
+#: Wammu/Main.py:991
 msgid "Date"
 msgstr "日期"
 
-#: Wammu/Browser.py:84 Wammu/Main.py:992
+#: Wammu/Browser.py:84 Wammu/Main.py:996
 msgid "State"
 msgstr "状态"
 
@@ -118,7 +118,7 @@ msgstr "文本"
 msgid "Completed"
 msgstr "已完成"
 
-#: Wammu/Browser.py:102 Wammu/Editor.py:511 Wammu/Main.py:999
+#: Wammu/Browser.py:102 Wammu/Editor.py:511 Wammu/Main.py:1003
 msgid "Priority"
 msgstr "优先级"
 
@@ -138,51 +138,57 @@ msgstr "提醒"
 msgid "Recurrence"
 msgstr "重复"
 
-#: Wammu/Browser.py:508
+#: Wammu/Browser.py:512
 msgid "Resend"
 msgstr "重发"
 
-#: Wammu/Browser.py:510
+#: Wammu/Browser.py:514
 msgid "Send"
 msgstr "发送"
 
-#: Wammu/Browser.py:513
+#: Wammu/Browser.py:517
 msgid "Reply"
 msgstr "回复"
 
-#: Wammu/Browser.py:515 Wammu/Browser.py:520
+#: Wammu/Browser.py:519 Wammu/Browser.py:524
 msgid "Call"
 msgstr "呼叫"
 
-#: Wammu/Browser.py:519 Wammu/Composer.py:348
+#: Wammu/Browser.py:523 Wammu/Composer.py:348
 msgid "Send message"
 msgstr "发送短信"
 
-#: Wammu/Browser.py:524 Wammu/Composer.py:371
+#  msgid "Creates new contact"
+#: Wammu/Browser.py:526
+#, fuzzy
+msgid "Store as new contact"
+msgstr "创建新联系人。"
+
+#: Wammu/Browser.py:530 Wammu/Composer.py:371
 msgid "Edit"
 msgstr "编辑"
 
-#: Wammu/Browser.py:526
+#: Wammu/Browser.py:532
 msgid "Duplicate"
 msgstr "复制"
 
-#: Wammu/Browser.py:530
+#: Wammu/Browser.py:536
 msgid "Delete current"
 msgstr "删除当前"
 
-#: Wammu/Browser.py:531
+#: Wammu/Browser.py:537
 msgid "Delete selected"
 msgstr "删除所选"
 
-#: Wammu/Browser.py:535
+#: Wammu/Browser.py:541
 msgid "Backup current"
 msgstr "备份当前"
 
-#: Wammu/Browser.py:536
+#: Wammu/Browser.py:542
 msgid "Backup selected"
 msgstr "备份所选"
 
-#: Wammu/Browser.py:537
+#: Wammu/Browser.py:543
 msgid "Backup all"
 msgstr "备份所有"
 
@@ -503,7 +509,7 @@ msgstr "当前收信人"
 msgid "Contact list"
 msgstr "联系人列表"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1388 Wammu/Main.py:2030
+#: Wammu/EditContactList.py:92 Wammu/Main.py:1394 Wammu/Main.py:2036
 #: Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
 msgid "All files"
 msgstr "所有文件"
@@ -525,12 +531,12 @@ msgstr "所选的文件\"%s\"无法写入。"
 msgid "File can not be created!"
 msgstr "无法创建文件!"
 
-#: Wammu/EditContactList.py:179 Wammu/Main.py:2067
+#: Wammu/EditContactList.py:179 Wammu/Main.py:2073
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr "未找到所选的文件\"%s\",无数据读入。"
 
-#: Wammu/EditContactList.py:180 Wammu/Main.py:2068
+#: Wammu/EditContactList.py:180 Wammu/Main.py:2074
 msgid "File not found!"
 msgstr "文件未找到!"
 
@@ -561,7 +567,7 @@ msgstr "添加一个字段。"
 msgid "contact"
 msgstr "联系人"
 
-#: Wammu/Editor.py:495 Wammu/Main.py:975
+#: Wammu/Editor.py:495 Wammu/Main.py:979
 msgid "Memory type"
 msgstr "存储器类型"
 
@@ -596,7 +602,7 @@ msgstr "查找相似的报告"
 msgid "Report bug"
 msgstr "报告错误"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2263
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2272
 msgid "Save debug log as..."
 msgstr "保存调试日志到..."
 
@@ -716,7 +722,7 @@ msgstr "产品代码"
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:140 Wammu/Main.py:991
+#: Wammu/Info.py:140 Wammu/Main.py:995
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -1422,33 +1428,33 @@ msgstr "无法删除临时日志文件，请自行删除。"
 msgid "Filename: %s"
 msgstr "文件名：%s"
 
-#: Wammu/Main.py:913 Wammu/Thread.py:56
+#: Wammu/Main.py:917 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
 msgstr "与手机通讯中发生错误"
 
-#: Wammu/Main.py:914 Wammu/Main.py:1426 Wammu/Main.py:1685 Wammu/Main.py:1693
+#: Wammu/Main.py:918 Wammu/Main.py:1432 Wammu/Main.py:1691 Wammu/Main.py:1699
 #: Wammu/Thread.py:58
 msgid "Error Occured"
 msgstr "发生错误"
 
-#: Wammu/Main.py:921
+#: Wammu/Main.py:925
 msgid "Operation in progress"
 msgstr "操作进行中"
 
-#: Wammu/Main.py:980
+#: Wammu/Main.py:984
 #, python-format
 msgid "voice tag %x"
 msgstr "声控标签%x"
 
-#: Wammu/Main.py:989
+#: Wammu/Main.py:993
 msgid "Folder"
 msgstr "文件夹"
 
-#: Wammu/Main.py:1034
+#: Wammu/Main.py:1038
 msgid "Writing message(s)..."
 msgstr "正在保存短消息..."
 
-#: Wammu/Main.py:1064
+#: Wammu/Main.py:1068
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1457,15 +1463,15 @@ msgstr ""
 "不能读入已保存的短消息！这很可能是Gammu的bug导致的，请联系作者，并附上此次操"
 "作的日志。要在Wammu查看短消息，你需要重新读入所有短消息。"
 
-#: Wammu/Main.py:1064
+#: Wammu/Main.py:1068
 msgid "Could not read saved message!"
 msgstr "不能读入已保存的短消息！"
 
-#: Wammu/Main.py:1092
+#: Wammu/Main.py:1096
 msgid "Writing contact..."
 msgstr "正在保存联系人..."
 
-#: Wammu/Main.py:1129 Wammu/Main.py:1188 Wammu/Main.py:1239
+#: Wammu/Main.py:1133 Wammu/Main.py:1192 Wammu/Main.py:1243
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
@@ -1473,366 +1479,366 @@ msgstr ""
 "不能读取已经保存的记录。如果你不重新读入所有记录，那现在的记录和手机里的可能"
 "不一致。"
 
-#: Wammu/Main.py:1129 Wammu/Main.py:1188 Wammu/Main.py:1239
+#: Wammu/Main.py:1133 Wammu/Main.py:1192 Wammu/Main.py:1243
 msgid "Could not read saved entry!"
 msgstr "不能读取已保存的记录！"
 
-#: Wammu/Main.py:1158
+#: Wammu/Main.py:1162
 msgid "Writing calendar..."
 msgstr "正在保存日程表..."
 
-#: Wammu/Main.py:1210
+#: Wammu/Main.py:1214
 msgid "Writing todo..."
 msgstr "正在写入任务..."
 
-#: Wammu/Main.py:1258 Wammu/Main.py:1308 Wammu/Main.py:1328 Wammu/Main.py:1763
+#: Wammu/Main.py:1262 Wammu/Main.py:1314 Wammu/Main.py:1334 Wammu/Main.py:1769
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr "无法处理此数据，请先从手机中获取它"
 
-#: Wammu/Main.py:1258 Wammu/Main.py:1308 Wammu/Main.py:1328 Wammu/Main.py:1763
+#: Wammu/Main.py:1262 Wammu/Main.py:1314 Wammu/Main.py:1334 Wammu/Main.py:1769
 msgid "Data not up to date"
 msgstr "数据已经过期"
 
-#: Wammu/Main.py:1363
+#: Wammu/Main.py:1369
 msgid "Gammu messages backup"
 msgstr "Gammu 消息备份"
 
-#: Wammu/Main.py:1367
+#: Wammu/Main.py:1373
 msgid "All backup formats"
 msgstr "所有备份格式"
 
-#: Wammu/Main.py:1369
+#: Wammu/Main.py:1375
 msgid "Gammu backup [all data]"
 msgstr "Gammu 格式 [全部数据]"
 
-#: Wammu/Main.py:1373
+#: Wammu/Main.py:1379
 msgid "Nokia backup [contacts]"
 msgstr "诺基亚格式 [联系人]"
 
-#: Wammu/Main.py:1376
+#: Wammu/Main.py:1382
 msgid "vCard [contacts]"
 msgstr "vCard 格式 [联系人]"
 
-#: Wammu/Main.py:1379
+#: Wammu/Main.py:1385
 msgid "LDIF [contacts]"
 msgstr "LDIF 格式 [联系人]"
 
-#: Wammu/Main.py:1382
+#: Wammu/Main.py:1388
 msgid "vCalendar [todo,calendar]"
 msgstr "vCalendar 格式 [日程表，日历]"
 
-#: Wammu/Main.py:1385
+#: Wammu/Main.py:1391
 msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar 格式 [日程表，日历]"
 
-#: Wammu/Main.py:1393
+#: Wammu/Main.py:1399
 msgid "Save data as..."
 msgstr "数据保存为..."
 
-#: Wammu/Main.py:1395
+#: Wammu/Main.py:1401
 msgid "Read data"
 msgstr "读取数据"
 
-#: Wammu/Main.py:1398
+#: Wammu/Main.py:1404
 msgid "Save backup as..."
 msgstr "保存备份为..."
 
-#: Wammu/Main.py:1400
+#: Wammu/Main.py:1406
 msgid "Import backup"
 msgstr "导入备份"
 
-#: Wammu/Main.py:1425
+#: Wammu/Main.py:1431
 msgid "Error while reading backup"
 msgstr "读取备份时出错"
 
-#: Wammu/Main.py:1449 Wammu/Main.py:1465
+#: Wammu/Main.py:1455 Wammu/Main.py:1471
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "数据已经从文件“%s”中读取出来"
 
-#: Wammu/Main.py:1475
+#: Wammu/Main.py:1481
 #, python-format
 msgid "%d messages"
 msgstr "%d 个信息"
 
-#: Wammu/Main.py:1479 Wammu/Main.py:1555
+#: Wammu/Main.py:1485 Wammu/Main.py:1561
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "文件 \"%s\" 中找不到可以导入的数据"
 
-#: Wammu/Main.py:1480 Wammu/Main.py:1556
+#: Wammu/Main.py:1486 Wammu/Main.py:1562
 msgid "No data to import"
 msgstr "无数据需要导入"
 
-#: Wammu/Main.py:1484 Wammu/Main.py:1570
+#: Wammu/Main.py:1490 Wammu/Main.py:1576
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
 msgstr "在备份中找到下列数据，请选择哪些是需要加入到手机中的。"
 
-#: Wammu/Main.py:1484 Wammu/Main.py:1570
+#: Wammu/Main.py:1490 Wammu/Main.py:1576
 msgid "Select what to import"
 msgstr "选择导入的内如"
 
-#: Wammu/Main.py:1495 Wammu/Main.py:1581
+#: Wammu/Main.py:1501 Wammu/Main.py:1587
 msgid "Importing data..."
 msgstr "正在导入数据..."
 
-#: Wammu/Main.py:1522 Wammu/Main.py:1635
+#: Wammu/Main.py:1528 Wammu/Main.py:1641
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "已从文件 \"%s\" 中导入备份"
 
-#: Wammu/Main.py:1523 Wammu/Main.py:1636
+#: Wammu/Main.py:1529 Wammu/Main.py:1642
 msgid "Backup imported"
 msgstr "备份已经导入"
 
-#: Wammu/Main.py:1530 Wammu/Main.py:1643
+#: Wammu/Main.py:1536 Wammu/Main.py:1649
 #, python-format
 msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr "从文件 \"%s\" 中恢复失败，部分数据可能没有恢复。"
 
-#: Wammu/Main.py:1531 Wammu/Main.py:1644
+#: Wammu/Main.py:1537 Wammu/Main.py:1650
 msgid "Backup import failed"
 msgstr "备份导入失败"
 
-#: Wammu/Main.py:1542
+#: Wammu/Main.py:1548
 #, python-format
 msgid "%d phone contact entries"
 msgstr ""
 
-#: Wammu/Main.py:1545
+#: Wammu/Main.py:1551
 #, python-format
 msgid "%d SIM contact entries"
 msgstr ""
 
-#: Wammu/Main.py:1548
+#: Wammu/Main.py:1554
 #, python-format
 msgid "%d to do entries"
 msgstr ""
 
-#: Wammu/Main.py:1551
+#: Wammu/Main.py:1557
 #, python-format
 msgid "%d calendar entries"
 msgstr ""
 
-#: Wammu/Main.py:1562
+#: Wammu/Main.py:1568
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "已保存手机 %s 的备份"
 
-#: Wammu/Main.py:1564
+#: Wammu/Main.py:1570
 #, python-format
 msgid ", serial number %s"
 msgstr "，序列号 %s"
 
-#: Wammu/Main.py:1566
+#: Wammu/Main.py:1572
 #, python-format
 msgid "Backup was created by %s"
 msgstr ""
 
-#: Wammu/Main.py:1568
+#: Wammu/Main.py:1574
 #, python-format
 msgid "Backup saved on %s"
 msgstr "备份保存为%s"
 
-#: Wammu/Main.py:1678
+#: Wammu/Main.py:1684
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "已保存备份到文件 \"%s\""
 
-#: Wammu/Main.py:1680
+#: Wammu/Main.py:1686
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "已保存数据到文件 \"%s\""
 
-#: Wammu/Main.py:1684
+#: Wammu/Main.py:1690
 msgid "Error while saving backup"
 msgstr "保存备份时出错"
 
-#: Wammu/Main.py:1692
+#: Wammu/Main.py:1698
 #, python-format
 msgid ""
 "Error while saving backup, probably some limit inside of Gammu exceeded.\n"
 "%s"
 msgstr ""
 
-#: Wammu/Main.py:1772
+#: Wammu/Main.py:1778
 #, python-format
 msgid "Are you sure you want to delete contact \"%s\"?"
 msgstr "你确认要删除联系人\"%s\"？"
 
-#: Wammu/Main.py:1774
+#: Wammu/Main.py:1780
 #, python-format
 msgid "Are you sure you want to delete call from \"%s\"?"
 msgstr "你确认要删除来自\"%s\"的呼叫么？"
 
-#: Wammu/Main.py:1776
+#: Wammu/Main.py:1782
 #, python-format
 msgid "Are you sure you want to delete message from \"%s\"?"
 msgstr "你确认要删除来自“%s”的短信么？"
 
-#: Wammu/Main.py:1778
+#: Wammu/Main.py:1784
 #, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
 msgstr "你确认要删除任务“%s”么？"
 
-#: Wammu/Main.py:1780
+#: Wammu/Main.py:1786
 #, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
 msgstr "你确认要删除日历项\"%s\"吗？"
 
-#: Wammu/Main.py:1784
+#: Wammu/Main.py:1790
 #, fuzzy, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
 msgstr[0] "你确认要删除%s？"
 
-#: Wammu/Main.py:1789
+#: Wammu/Main.py:1795
 #, fuzzy, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
 msgstr[0] "你确认要删除%s？"
 
-#: Wammu/Main.py:1794
+#: Wammu/Main.py:1800
 #, fuzzy, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
 msgstr[0] "你确认要删除%s？"
 
-#: Wammu/Main.py:1799
+#: Wammu/Main.py:1805
 #, fuzzy, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
 msgstr[0] "你确认要删除%s？"
 
-#: Wammu/Main.py:1804
+#: Wammu/Main.py:1810
 #, fuzzy, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
 msgstr[0] "你确认要删除%s？"
 
-#: Wammu/Main.py:1809 Wammu/Settings.py:346
+#: Wammu/Main.py:1815 Wammu/Settings.py:346
 msgid "Confirm deleting"
 msgstr "确认删除"
 
-#: Wammu/Main.py:1817
+#: Wammu/Main.py:1823
 msgid "Deleting contact(s)..."
 msgstr "正在删除联系人..."
 
-#: Wammu/Main.py:1827
+#: Wammu/Main.py:1833
 msgid "Deleting message(s)..."
 msgstr "正在删除消息..."
 
-#: Wammu/Main.py:1838
+#: Wammu/Main.py:1844
 msgid "Deleting todo(s)..."
 msgstr "正在删除任务..."
 
-#: Wammu/Main.py:1848
+#: Wammu/Main.py:1854
 msgid "Deleting calendar event(s)..."
 msgstr "正在删除日程表事件..."
 
-#: Wammu/Main.py:1920
+#: Wammu/Main.py:1926
 msgid "Reading phone information"
 msgstr "正在读取手机信息"
 
-#: Wammu/Main.py:1945
+#: Wammu/Main.py:1951
 #, python-format
 msgid "Reading calls of type %s"
 msgstr ""
 
-#: Wammu/Main.py:1973
+#: Wammu/Main.py:1979
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "正在从%s读取联系人"
 
-#: Wammu/Main.py:1981
+#: Wammu/Main.py:1987
 msgid "Reading messages"
 msgstr "正在读取消息"
 
-#: Wammu/Main.py:1991
+#: Wammu/Main.py:1997
 msgid "Reading todos"
 msgstr "正在读取任务"
 
-#: Wammu/Main.py:2001
+#: Wammu/Main.py:2007
 msgid "Reading calendar"
 msgstr "正在读取日程表"
 
-#: Wammu/Main.py:2011
+#: Wammu/Main.py:2017
 msgid "Setting time in phone..."
 msgstr "正在校对手机的时钟..."
 
-#: Wammu/Main.py:2030
+#: Wammu/Main.py:2036
 msgid "Send file to phone"
 msgstr "发送文件到手机"
 
-#: Wammu/Main.py:2051
+#: Wammu/Main.py:2057
 msgid "Sending file to phone..."
 msgstr "正在发送文件到手机..."
 
-#: Wammu/Main.py:2059
+#: Wammu/Main.py:2065
 msgid "Transfer has been rejected by phone."
 msgstr "传输被手机拒绝"
 
-#: Wammu/Main.py:2060
+#: Wammu/Main.py:2066
 msgid "Transfer rejected!"
 msgstr "传输被拒绝"
 
-#: Wammu/Main.py:2076
+#: Wammu/Main.py:2082
 msgid "One moment please, connecting to phone..."
 msgstr "请稍等，正在连接手机..."
 
-#: Wammu/Main.py:2083
+#: Wammu/Main.py:2089
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr "手机连接未被正确配置，无法连接到手机。"
 
-#: Wammu/Main.py:2084
+#: Wammu/Main.py:2090
 msgid "Connection not configured!"
 msgstr "连接未被配置！"
 
-#: Wammu/Main.py:2151
+#: Wammu/Main.py:2160
 #, fuzzy, python-format
 msgid "Please enter %s code:"
 msgstr "请输入服务器名称"
 
-#: Wammu/Main.py:2152
+#: Wammu/Main.py:2161
 msgid "Phone asks for security code"
 msgstr ""
 
-#: Wammu/Main.py:2189
+#: Wammu/Main.py:2198
 msgid "Your phone has just received incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2191
+#: Wammu/Main.py:2200
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr ""
 
-#: Wammu/Main.py:2192
+#: Wammu/Main.py:2201
 msgid "Incoming call"
 msgstr "呼入电话"
 
-#: Wammu/Main.py:2193
+#: Wammu/Main.py:2202
 msgid "Reject"
 msgstr "拒绝"
 
-#: Wammu/Main.py:2193
+#: Wammu/Main.py:2202
 msgid "Accept"
 msgstr "接受"
 
-#: Wammu/Main.py:2196
+#: Wammu/Main.py:2205
 msgid "One moment please, disconnecting from phone..."
 msgstr "请稍等，正在断开手机..."
 
-#: Wammu/Main.py:2226
+#: Wammu/Main.py:2235
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
 msgstr ""
 
-#: Wammu/Main.py:2227
+#: Wammu/Main.py:2236
 #, fuzzy
 msgid "You are connected to phone!"
 msgstr "无法连接到手机"
@@ -3524,53 +3530,65 @@ msgid ""
 msgstr ""
 "与手机通讯超时。可能你的手机未连接（数据线）或者超出距离（蓝牙或红外）。"
 
-#: Wammu/Utils.py:460
+#: Wammu/Utils.py:461
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
 
-#: Wammu/Utils.py:462
-msgid "Can not access device for communication with phone."
-msgstr ""
-
-#: Wammu/Utils.py:464
-msgid "Maybe you need to be member of some group to have acces to device."
+#: Wammu/Utils.py:463
+#, python-format
+msgid ""
+"Device \"%s\" for communication with phone does not exist. Maybe you don't "
+"have phone plugged or your configuration is wrong."
 msgstr ""
 
 #: Wammu/Utils.py:466
+msgid "Maybe you need to be member of some group to have acces to device."
+msgstr ""
+
+#: Wammu/Utils.py:470
+msgid "Can not access device for communication with phone."
+msgstr ""
+
+#: Wammu/Utils.py:477
+#, fuzzy, python-format
+msgid "Can not access device \"%s\" for communication with phone."
+msgstr "与手机通讯中发生错误"
+
+#: Wammu/Utils.py:481
 msgid ""
 "Can not access SIM card. Please check whether it is properly inserted in "
 "phone and/or try to reboot the phone by removing battery."
 msgstr ""
 
-#: Wammu/Utils.py:468
+#: Wammu/Utils.py:483
 msgid "Description:"
 msgstr "描述："
 
-#: Wammu/Utils.py:468
+#: Wammu/Utils.py:483
 msgid "Function:"
 msgstr "函数："
 
-#: Wammu/Utils.py:468
+#: Wammu/Utils.py:483
 msgid "Error code:"
 msgstr "错误码："
 
-#: Wammu/Utils.py:523 Wammu/Utils.py:525 Wammu/Utils.py:531 Wammu/Utils.py:533
+#: Wammu/Utils.py:538 Wammu/Utils.py:540 Wammu/Utils.py:546 Wammu/Utils.py:548
 #, python-format
 msgid "Device %s does not exist!"
 msgstr ""
 
-#: Wammu/Utils.py:524 Wammu/Utils.py:532 Wammu/Utils.py:543
+#: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
 msgid "Error opening device"
 msgstr ""
 
-#: Wammu/Utils.py:542 Wammu/Utils.py:544
+#: Wammu/Utils.py:557 Wammu/Utils.py:559
 #, python-format
 msgid "You don't have permissions for %s device!"
 msgstr ""
 
-#: Wammu/Utils.py:546
+#: Wammu/Utils.py:561
 #, python-format
 msgid "Maybe you need to be member of %s group."
 msgstr ""
