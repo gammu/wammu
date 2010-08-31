@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-08-30 11:38+0200\n"
+"POT-Creation-Date: 2010-08-31 11:31+0200\n"
 "PO-Revision-Date: 2010-08-30 11:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -696,7 +696,8 @@ msgstr "Zvolte sekci konfigurace kterou chcete upravit."
 msgid "Select configuration section"
 msgstr "Zvolte sekci konfigurace"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:125
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:297
+#: wammu.py:125
 msgid "Manufacturer"
 msgstr "Výrobce"
 
@@ -776,7 +777,7 @@ msgstr "Informace o telefonu"
 msgid "Wammu version"
 msgstr "Verze Wammu"
 
-#: Wammu/Main.py:115
+#: Wammu/Main.py:115 Wammu/TalkbackDialog.py:313
 msgid "Gammu version"
 msgstr "Verze Gammu"
 
@@ -2060,6 +2061,7 @@ msgstr "Zařízení na kterém je připojen telefon"
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
+#: Wammu/TalkbackDialog.py:303
 msgid "Connection type"
 msgstr "Typ připojení"
 
@@ -3419,7 +3421,7 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
-#: Wammu/TalkbackDialog.py:295
+#: Wammu/TalkbackDialog.py:318
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database was not created, following fields are "
@@ -3437,11 +3439,11 @@ msgstr "Podporované funce"
 #: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
-#: Wammu/TalkbackDialog.py:296
+#: Wammu/TalkbackDialog.py:319
 msgid "Entry not created!"
 msgstr "Nepodařilo se vytvořit položku!"
 
-#: Wammu/TalkbackDialog.py:208
+#: Wammu/TalkbackDialog.py:208 Wammu/TalkbackDialog.py:311
 msgid "Email displaying"
 msgstr "Zobrazení emailu"
 
@@ -3478,6 +3480,36 @@ msgstr ""
 #: Wammu/TalkbackDialog.py:284
 msgid "Entry created!"
 msgstr "Položka vytvořena!"
+
+#: Wammu/TalkbackDialog.py:299
+#, fuzzy
+msgid "Phone model"
+msgstr "Model telefonu:"
+
+#: Wammu/TalkbackDialog.py:301
+#, fuzzy
+msgid "Model in gammu configuration"
+msgstr "Model v nastavení gammu:"
+
+#: Wammu/TalkbackDialog.py:305
+#, fuzzy
+msgid "Note"
+msgstr "Poznámka:"
+
+#: Wammu/TalkbackDialog.py:307
+#, fuzzy
+msgid "Your name"
+msgstr "Vaše jméno:"
+
+#: Wammu/TalkbackDialog.py:309
+#, fuzzy
+msgid "Your email"
+msgstr "Váš email:"
+
+#: Wammu/TalkbackDialog.py:315
+#, fuzzy, python-format
+msgid "Field: %s"
+msgstr "Jméno souboru: %s"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""

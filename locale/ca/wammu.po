@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-08-30 11:38+0200\n"
+"POT-Creation-Date: 2010-08-31 11:31+0200\n"
 "PO-Revision-Date: 2009-11-03 16:49+0200\n"
 "Last-Translator: guillem <guillem.gilabert@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -690,7 +690,8 @@ msgstr "Seleccioneu quina configuració voleu modificar."
 msgid "Select configuration section"
 msgstr "Selecciona una nova secció de la configuració"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:125
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:297
+#: wammu.py:125
 msgid "Manufacturer"
 msgstr "Fabricant"
 
@@ -770,7 +771,7 @@ msgstr ""
 msgid "Wammu version"
 msgstr "Versió del Wammu"
 
-#: Wammu/Main.py:115
+#: Wammu/Main.py:115 Wammu/TalkbackDialog.py:313
 msgid "Gammu version"
 msgstr "Versió del Gammu"
 
@@ -2051,6 +2052,7 @@ msgstr "Dispositiu on el telèfon està connectat"
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
+#: Wammu/TalkbackDialog.py:303
 msgid "Connection type"
 msgstr "Tipus de connexió"
 
@@ -3331,7 +3333,7 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
-#: Wammu/TalkbackDialog.py:295
+#: Wammu/TalkbackDialog.py:318
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database was not created, following fields are "
@@ -3346,12 +3348,12 @@ msgstr ""
 #: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
-#: Wammu/TalkbackDialog.py:296
+#: Wammu/TalkbackDialog.py:319
 #, fuzzy
 msgid "Entry not created!"
 msgstr "No es pot crear el directori!"
 
-#: Wammu/TalkbackDialog.py:208
+#: Wammu/TalkbackDialog.py:208 Wammu/TalkbackDialog.py:311
 msgid "Email displaying"
 msgstr ""
 
@@ -3381,6 +3383,34 @@ msgstr ""
 #, fuzzy
 msgid "Entry created!"
 msgstr "No es pot crear el directori!"
+
+#: Wammu/TalkbackDialog.py:299
+#, fuzzy
+msgid "Phone model"
+msgstr "&Telèfon"
+
+#: Wammu/TalkbackDialog.py:301
+#, fuzzy
+msgid "Model in gammu configuration"
+msgstr "Configuració no trobada"
+
+#: Wammu/TalkbackDialog.py:305
+#, fuzzy
+msgid "Note"
+msgstr "Cap"
+
+#: Wammu/TalkbackDialog.py:307
+msgid "Your name"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:309
+msgid "Your email"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:315
+#, fuzzy, python-format
+msgid "Field: %s"
+msgstr "Nom de l'arxiu: %s"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""

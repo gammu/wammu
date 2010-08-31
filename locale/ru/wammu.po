@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-08-30 11:38+0200\n"
+"POT-Creation-Date: 2010-08-31 11:31+0200\n"
 "PO-Revision-Date: 2010-08-24 08:57+0200\n"
 "Last-Translator: Ilya Kurikhin <il.linuxdev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -713,7 +713,8 @@ msgstr "Выберите конфигурацию, которую хотите �
 msgid "Select configuration section"
 msgstr "Выберите секцию кинфигурации"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:125
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:297
+#: wammu.py:125
 msgid "Manufacturer"
 msgstr "Производитель"
 
@@ -794,7 +795,7 @@ msgstr "Информация о телефоне"
 msgid "Wammu version"
 msgstr "Версия Wammu"
 
-#: Wammu/Main.py:115
+#: Wammu/Main.py:115 Wammu/TalkbackDialog.py:313
 msgid "Gammu version"
 msgstr "Версия Gammu"
 
@@ -2066,6 +2067,7 @@ msgstr "Устройство, к которому подключен Ваш те
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
+#: Wammu/TalkbackDialog.py:303
 msgid "Connection type"
 msgstr "Тип подключения"
 
@@ -3450,7 +3452,7 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
-#: Wammu/TalkbackDialog.py:295
+#: Wammu/TalkbackDialog.py:318
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database was not created, following fields are "
@@ -3468,11 +3470,11 @@ msgstr "Поддерживаемые функции"
 #: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
-#: Wammu/TalkbackDialog.py:296
+#: Wammu/TalkbackDialog.py:319
 msgid "Entry not created!"
 msgstr "Запись не создана!"
 
-#: Wammu/TalkbackDialog.py:208
+#: Wammu/TalkbackDialog.py:208 Wammu/TalkbackDialog.py:311
 msgid "Email displaying"
 msgstr "Отображение адреса электронной почты"
 
@@ -3508,6 +3510,36 @@ msgstr ""
 #: Wammu/TalkbackDialog.py:284
 msgid "Entry created!"
 msgstr "Запись добавлена!"
+
+#: Wammu/TalkbackDialog.py:299
+#, fuzzy
+msgid "Phone model"
+msgstr "Модель телефона:"
+
+#: Wammu/TalkbackDialog.py:301
+#, fuzzy
+msgid "Model in gammu configuration"
+msgstr "Модель в конфигурации gammu:"
+
+#: Wammu/TalkbackDialog.py:305
+#, fuzzy
+msgid "Note"
+msgstr "Заметки:"
+
+#: Wammu/TalkbackDialog.py:307
+#, fuzzy
+msgid "Your name"
+msgstr "Ваше имя:"
+
+#: Wammu/TalkbackDialog.py:309
+#, fuzzy
+msgid "Your email"
+msgstr "Ваш адрес электронной почты:"
+
+#: Wammu/TalkbackDialog.py:315
+#, fuzzy, python-format
+msgid "Field: %s"
+msgstr "Имя файла: %s"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""

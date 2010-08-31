@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-08-30 11:38+0200\n"
+"POT-Creation-Date: 2010-08-31 11:31+0200\n"
 "PO-Revision-Date: 2006-10-05 23:42+0000\n"
 "Last-Translator: atie <atie.at.matrix@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -701,7 +701,8 @@ msgstr "설정을 찾지 못함"
 msgid "Select configuration section"
 msgstr "설정을 찾지 못함"
 
-#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 wammu.py:125
+#: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:297
+#: wammu.py:125
 msgid "Manufacturer"
 msgstr "제조업체"
 
@@ -783,7 +784,7 @@ msgstr "전화기 정보"
 msgid "Wammu version"
 msgstr "Wammu 버전"
 
-#: Wammu/Main.py:115
+#: Wammu/Main.py:115 Wammu/TalkbackDialog.py:313
 msgid "Gammu version"
 msgstr "Gammu 버전"
 
@@ -2094,6 +2095,7 @@ msgstr "장치, 전화기가 접속되는 곳 입니다."
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
+#: Wammu/TalkbackDialog.py:303
 #, fuzzy
 msgid "Connection type"
 msgstr "접속"
@@ -3406,7 +3408,7 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
-#: Wammu/TalkbackDialog.py:295
+#: Wammu/TalkbackDialog.py:318
 #, python-format
 msgid ""
 "Entry in Gammu Phone Database was not created, following fields are "
@@ -3421,12 +3423,12 @@ msgstr ""
 #: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
-#: Wammu/TalkbackDialog.py:296
+#: Wammu/TalkbackDialog.py:319
 #, fuzzy
 msgid "Entry not created!"
 msgstr "폴더를 만들 수 없습니다!"
 
-#: Wammu/TalkbackDialog.py:208
+#: Wammu/TalkbackDialog.py:208 Wammu/TalkbackDialog.py:311
 msgid "Email displaying"
 msgstr ""
 
@@ -3456,6 +3458,34 @@ msgstr ""
 #, fuzzy
 msgid "Entry created!"
 msgstr "폴더를 만들 수 없습니다!"
+
+#: Wammu/TalkbackDialog.py:299
+#, fuzzy
+msgid "Phone model"
+msgstr "전화기"
+
+#: Wammu/TalkbackDialog.py:301
+#, fuzzy
+msgid "Model in gammu configuration"
+msgstr "새로운 연락처를 만듭니다"
+
+#: Wammu/TalkbackDialog.py:305
+#, fuzzy
+msgid "Note"
+msgstr "통보"
+
+#: Wammu/TalkbackDialog.py:307
+msgid "Your name"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:309
+msgid "Your email"
+msgstr ""
+
+#: Wammu/TalkbackDialog.py:315
+#, fuzzy, python-format
+msgid "Field: %s"
+msgstr "%s 끝냄"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""
