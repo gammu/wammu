@@ -290,9 +290,32 @@ class TalkbackDialog(wx.Dialog):
 
         fail_test = FAIL_MATCHER.match(data)
         if fail_test is not None:
-            wrong_fields = fail_test.groups()[0]
+            wrong_fields = fail_test.groups()[0].split(',')
+            fields_msg = ''
+            for field in wrong_fields:
+                if field == 'manufacturer':
+                    fields_msg += _('Manufacturer') + '\n'
+                elif field == 'name':
+                    fields_msg += _('Phone model') + '\n'
+                elif field == 'model':
+                    fields_msg += _('Model in gammu configuration') + '\n'
+                elif field == 'connection':
+                    fields_msg += _('Connection type') + '\n'
+                elif field == 'note':
+                    fields_msg += _('Note') + '\n'
+                elif field == 'author_name':
+                    fields_msg += _('Your name') + '\n'
+                elif field == 'author_email':
+                    fields_msg += _('Your email') + '\n'
+                elif field == 'email_garble':
+                    fields_msg += _('Email displaying') + '\n'
+                elif field == 'gammu_version':
+                    fields_msg += _('Gammu version') + '\n'
+                else:
+                    fields_msg += _('Field: %s') % field + '\n'
+
             wx.MessageDialog(self,
-                _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % wrong_fields,
+                _('Entry in Gammu Phone Database was not created, following fields are invalid:\n%s') % fields_msg,
                 _('Entry not created!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
             return
