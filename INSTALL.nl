@@ -4,14 +4,14 @@ Wammu installatie
 Pakketten voor Linux
 ====================
 
-Veel distibuties hebben kant en klare Wammu software. Als je die kunt
+Veel distibuties hebben kant en klare Wammu-software. Als je die kunt
 gebruiken is dat zeker de eenvoudigste methode. Er zijn ook binaire
-pakketten van de laatse officiële versie beschikbaar op de Wammu site
+pakketten van de laatse officiële versie beschikbaar op de Wammu-website
 <http://wammu.eu/download/wammu/>.
 
 
-Bouwen vanaf Broncode
-=====================
+Bouwen vanaf de broncode
+========================
 
 Gebruikt de standaard Python distutils, dus:
 
@@ -20,8 +20,8 @@ Gebruikt de standaard Python distutils, dus:
 
 Je hebt python-gammu en wxPython [1] (Unicode versie) nodig om dit programma
 te installeren of te gebruiken. Als je ondersteuning wilt voor het scannen
-van Bluetooth apparaten heb je ook PyBluez [2] nodig. Voor het afhandelen
-van inkomend events is dbus-python [3] nodig.
+van Bluetooth-apparaten heb je ook PyBluez [2] nodig. Voor het afhandelen
+van inkomende gebeurtenissen is dbus-python [3] nodig.
 
 Voor Windows moet je ook Pywin32 [4] installeren.
 

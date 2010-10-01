@@ -3,8 +3,8 @@ Wammu
 
 Grafische gebruikersinterface voor Gammu bibliotheek.
 
-Homepage
-========
+Website
+=======
 
 <http://wammu.eu/>
 
