@@ -44,6 +44,10 @@ msgid ""
 "it under the terms of the GNU General Public License version 2 as\n"
 "published by the Free Software Foundation.\n"
 msgstr ""
+"\n"
+"Bu program özgür bir yazılımdır; yeniden dağıtabilir ve/veya değiştirebilir\n"
+"GNU Genel Kamu Lisansı sürüm 2 sözleşmesi altında Özgür Yazılım Vakfı\n"
+"tarafından yayınlanmıştır.\n"
 
 #: Wammu/About.py:109
 msgid ""
@@ -206,7 +210,7 @@ msgstr "Stil"
 #, python-format
 msgid "%d char"
 msgid_plural "%d chars"
-msgstr[0] ""
+msgstr[0] "%s karakterler"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
@@ -1297,7 +1301,7 @@ msgstr "Wammu kullandığınız için teşekkürler"
 
 #: Wammu/Main.py:531
 msgid "Migrated from older Wammu"
-msgstr ""
+msgstr "Eski Wammu'dan taşınmak"
 
 #: Wammu/Main.py:611
 msgid "Connect"
@@ -1359,6 +1363,8 @@ msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
 msgstr ""
+"Şarj: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, "
+"Zaman: %(time)s"
 
 #: Wammu/Main.py:756
 msgid "Connected"
@@ -1382,7 +1388,7 @@ msgstr "Uyarı"
 
 #: Wammu/Main.py:893
 msgid "Looks like normal program termination, deleting log file."
-msgstr ""
+msgstr "Program normal kapanmış gibi, günlük dosyası siliniyor."
 
 #: Wammu/Main.py:899
 msgid "Failed to unlink temporary log file, please delete it yourself."
@@ -1409,7 +1415,7 @@ msgstr "Süreçteki işlem"
 #: Wammu/Main.py:984
 #, python-format
 msgid "voice tag %x"
-msgstr ""
+msgstr "ses etiketi %x"
 
 #: Wammu/Main.py:993
 msgid "Folder"
@@ -1492,11 +1498,11 @@ msgstr "LDIF [kişiler]"
 
 #: Wammu/Main.py:1388
 msgid "vCalendar [todo,calendar]"
-msgstr ""
+msgstr "vTakvim [todo,calendar]"
 
 #: Wammu/Main.py:1391
 msgid "iCalendar [todo,calendar]"
-msgstr ""
+msgstr "iTakvim [todo,calendar]"
 
 #: Wammu/Main.py:1399
 msgid "Save data as..."
@@ -1567,6 +1573,8 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
+"\"%s\" dosyası yeniden kaydedilirken hata oluştu, yedek dosyanın bazı "
+"parçaları telefona kaydedilmiş ve yok"
 
 #: Wammu/Main.py:1537 Wammu/Main.py:1650
 msgid "Backup import failed"
@@ -1635,61 +1643,64 @@ msgid ""
 "Error while saving backup, probably some limit inside of Gammu exceeded.\n"
 "%s"
 msgstr ""
+"Yedekleme yapılırken hata oluştu, muhtemelen Gammu içindeki bazı limitler "
+"aşıldı.\n"
+"%s"
 
 #: Wammu/Main.py:1778
 #, python-format
 msgid "Are you sure you want to delete contact \"%s\"?"
-msgstr ""
+msgstr "\"%s\" bağlantısını silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1780
 #, python-format
 msgid "Are you sure you want to delete call from \"%s\"?"
-msgstr ""
+msgstr "\"%s\" kişisinden gelen çağrıyı silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1782
 #, python-format
 msgid "Are you sure you want to delete message from \"%s\"?"
-msgstr ""
+msgstr "\"%s\" kişisinden gelen mesajı silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1784
 #, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
-msgstr ""
+msgstr "\"%s\" yapılacak girdisini silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1786
 #, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
-msgstr ""
+msgstr "\"%s\" takvim girdisini silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1790
 #, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
-msgstr[0] ""
+msgstr[0] "%d bağlantılarını silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1795
 #, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
-msgstr[0] ""
+msgstr[0] "%d çağrılarını silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1800
 #, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
-msgstr[0] ""
+msgstr[0] "%d mesajlarını silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1805
 #, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] ""
+msgstr[0] "%d yapılacak girdilerini silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1810
 #, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] ""
+msgstr[0] "%d takvim girdilerini silmek istediğinizden emin misiniz?"
 
 #: Wammu/Main.py:1815 Wammu/Settings.py:346
 msgid "Confirm deleting"
@@ -1742,9 +1753,8 @@ msgid "Setting time in phone..."
 msgstr "Telefonda zaman ayarı..."
 
 #: Wammu/Main.py:2036
-#, fuzzy
 msgid "Send file to phone"
-msgstr "Telefonu seç"
+msgstr "Dosyayı telefona gönder"
 
 #: Wammu/Main.py:2057
 msgid "Sending file to phone..."
@@ -1868,7 +1878,7 @@ msgstr "(%s) Buetooth alt sistemine bağlanılamadı"
 
 #: Wammu/PhoneSearch.py:189 Wammu/PhoneSearch.py:193
 msgid "PyBluez not found, it is not possible to scan for Bluetooth devices."
-msgstr ""
+msgstr "PyBluez bulunamadı, Bluetooth cihazlarının aranması mümkün değil."
 
 #: Wammu/PhoneSearch.py:192
 msgid "No Bluetooth searching"
@@ -2055,11 +2065,14 @@ msgid ""
 "Please select which driver you want to use. Follow the help text shown below "
 "to select the best one."
 msgstr ""
+"Kullanmak istediğiniz sürücüyü seçiniz. Aşağıdaki yardım metinlerinden en "
+"iyi olanı seçerek takip edin."
 
 #: Wammu/PhoneWizard.py:376
 msgid ""
 "Please select connection type, default choice should be best in most cases."
 msgstr ""
+"Lütfen bağlantı türünü seçin, birçok durumda öntanımlı seçim en iyisidir."
 
 #: Wammu/PhoneWizard.py:397 Wammu/PhoneWizard.py:398
 msgid "Phone type"
@@ -2069,6 +2082,8 @@ msgstr "Tefon tipi"
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
+"Lütfen telefon üreticisi veya türünü seçin. Mümkün olduğu kadar "
+"özelleştirin."
 
 #: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
@@ -2297,7 +2312,7 @@ msgstr "Açılış bilgisi"
 
 #: Wammu/Settings.py:118
 msgid "Display startup on phone (not supported by all models)."
-msgstr ""
+msgstr "Telefon açılışında göster (tüm modeller tarafında desteklenmiyor)"
 
 #: Wammu/Settings.py:125
 msgid "Lock device"
@@ -2378,9 +2393,8 @@ msgid "Create unicode message"
 msgstr "Evrensel kodlu mesaj oluştur"
 
 #: Wammu/Settings.py:251
-#, fuzzy
 msgid "Request delivery report by default"
-msgstr "Mesaj için dağıtım raporu isteğini kontrol et"
+msgstr "Öntanımlı olarak dağıtım raporu gerekiyor"
 
 #: Wammu/Settings.py:257
 msgid "Use 16bit Id"
@@ -2388,7 +2402,7 @@ msgstr "16bit Id kullan"
 
 #: Wammu/Settings.py:258
 msgid "Use 16 bit Id inside message. This is safe for most cases."
-msgstr ""
+msgstr "Mesaj içerisinde 16 bit Id kullan. Birçok durumda bu daha güvenlidir."
 
 #: Wammu/Settings.py:291
 msgid "Automatic"
@@ -2436,7 +2450,7 @@ msgstr "Telefon durumunu yenile"
 
 #: Wammu/Settings.py:347
 msgid "Whether to ask for confirmation when deleting entries."
-msgstr ""
+msgstr "Girdiler silindiği zaman onay sor/sorma."
 
 #: Wammu/Settings.py:352
 msgid "Task bar icon"
@@ -2464,7 +2478,7 @@ msgstr ""
 
 #: Wammu/Settings.py:379
 msgid "Default date = now + x days"
-msgstr ""
+msgstr "Öntanımlı tarih = now + x days"
 
 #: Wammu/Settings.py:385
 msgid "How many entries will be shown in newly created item."
@@ -2476,7 +2490,7 @@ msgstr "Yeni madde için girdiler"
 
 #: Wammu/Settings.py:393
 msgid "Prefix for non international phone numbers."
-msgstr ""
+msgstr "Uluslararası olmayan numaralar için ön numara."
 
 #: Wammu/Settings.py:394
 msgid "Number prefix"
@@ -2488,6 +2502,9 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
+"Sadece Wammu uygun miktarda okuyacak girdi bulamadığı zaman uygular. Bu "
+"numara kaç tane okunacak boş girdi girildiğiyle sınırlıdır, okumadan önce "
+"duracaktır."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
@@ -2499,6 +2516,9 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
+"Telefon yanlış numara girdisi rapor ettiğinde, Wammu okumaya çalışacaktır "
+"veya hata verecektir. Bu numara kaç tane okunacak boş girdi girilmesiyle "
+"sınırlıdır, okumadan kapanacaktır."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -2518,16 +2538,15 @@ msgstr "Diğer"
 
 #: Wammu/Settings.py:442
 msgid "Hacks"
-msgstr ""
+msgstr "Saldırılar"
 
 #: Wammu/Settings.py:525
-#, fuzzy
 msgid ""
 "You don't have any phone connection configured. Wammu will not be able to "
 "conect to your phone!"
 msgstr ""
-"Telefon bağlantısını etkileyecek parametreleri değiştirdiniz, değişiklik bir "
-"sonraki bağlantıda kullanılacak."
+"Yapılandırılmış herhangi bir telefon bağlantınız yok. Wammu telefonunuza "
+"bağlanamayacaktır!"
 
 #: Wammu/Settings.py:526
 msgid "No phone configured!"
@@ -2615,20 +2634,19 @@ msgstr "Yukarıdakilerin hiçbiri"
 
 #: Wammu/SettingsStorage.py:134
 msgid "Select this option if nothing above matches."
-msgstr ""
+msgstr "Yukarıda hiçbir eşleştirme yoksa bu seçeneği seçin."
 
 #: Wammu/SettingsStorage.py:140
 msgid "OBEX and IrMC protocols"
 msgstr "OBEX ve IrMC protokolleri"
 
 #: Wammu/SettingsStorage.py:142
-#, fuzzy
 msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
 msgstr ""
-"Dosya sistemleri ve bazen telefon verileri için standart bağlantı. Son "
-"telefonlar için güzel bir seçim."
+"Dosya sistemine standart bağlan. Veri bağlantısı yapmak istiyorsanız Nokia "
+"için iyi bir seçim değil."
 
 #: Wammu/SettingsStorage.py:144
 msgid ""
@@ -2651,23 +2669,20 @@ msgstr ""
 "kaynaklarında bulabilirsiniz."
 
 #: Wammu/SettingsStorage.py:153
-#, fuzzy
 msgid "Nokia proprietary protocol"
-msgstr "FBUS patent protokolu"
+msgstr "Nokia patent protokolü"
 
 #: Wammu/SettingsStorage.py:154
-#, fuzzy
 msgid "Nokia proprietary protocol FBUS."
-msgstr "FBUS patent protokolu"
+msgstr "Nokia patent protokolü FBUS"
 
 #: Wammu/SettingsStorage.py:157
-#, fuzzy
 msgid "Nokia proprietary service protocol"
-msgstr "FBUS patent protokolu"
+msgstr "Nokia patent hizmet protokolü"
 
 #: Wammu/SettingsStorage.py:158
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
-msgstr ""
+msgstr "Nokia patent protokolü MBUS. Eski sürüm, mümkünse FBUS kullan."
 
 #: Wammu/SettingsStorage.py:162
 msgid "AT based"
@@ -2833,6 +2848,8 @@ msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"Nokia Bağlantı Adaptör Kablosu DKU-5 (orijinal veya uygun kablo), Nokia 5100 "
+"gibi USB'li telefonlar için."
 
 #: Wammu/SettingsStorage.py:417
 msgid "PL2303 cable"
@@ -2843,6 +2860,8 @@ msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"PL2303 USB kablo için yeni Nokia protokolü (genellikle üçüncü parti "
+"kablolar), Nokia 5100 gibi USB'li telefonlar için."
 
 #: Wammu/SettingsStorage.py:421
 msgid "DKU2 cable"
@@ -2853,6 +2872,8 @@ msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
 msgstr ""
+"Nokia bağlantı kablosu DKU-2(orijinal veya uygun kablo), Nokia 6230 gibi "
+"USB'li telefonlar için."
 
 #: Wammu/SettingsStorage.py:425
 msgid "DLR3-3P/CA-42 cable"
@@ -2865,9 +2886,8 @@ msgid ""
 msgstr ""
 
 #: Wammu/SettingsStorage.py:429
-#, fuzzy
 msgid "FBUS proprietary protocol using ARK cable"
-msgstr "FBUS patent protokolu"
+msgstr "ARK kablo kullanarak FBUS patent protokolü"
 
 #: Wammu/SettingsStorage.py:430
 msgid ""
@@ -2877,7 +2897,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:433
 msgid "DKU5 phone with ARK cable"
-msgstr ""
+msgstr "ARK kablo ile DKU5 telefon"
 
 #: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
@@ -3041,6 +3061,8 @@ msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
 msgstr ""
+"Girilmedi, muhtemelen yanlış bilgi giriyorsunuz. Yeniden denemek ister "
+"misiniz?"
 
 #: Wammu/SMSExport.py:198
 msgid "Login failed!"
@@ -3104,7 +3126,7 @@ msgstr ""
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
-msgstr ""
+msgstr "Mesajlarınızdan oluşturulan e-postaları nereye çıkartmak istersiniz?"
 
 #: Wammu/SMSExport.py:333
 msgid "Select export type"
@@ -3136,11 +3158,11 @@ msgstr "Tercihler"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
-msgstr ""
+msgstr "Mesaj Konum Seçimi"
 
 #: Wammu/SMSExport.py:427
 msgid "From Address"
-msgstr ""
+msgstr "Adresten"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
@@ -3173,33 +3195,35 @@ msgstr "Sadece yeni mesajları yedekle"
 #: Wammu/SMSExport.py:550
 #, python-format
 msgid "%d. From Address invalid\n"
-msgstr ""
+msgstr "%d. Adres geçersiz\n"
 
 #: Wammu/SMSExport.py:553
-#, fuzzy, python-format
+#, python-format
+#, python-format
 msgid "%d. Server incomplete\n"
-msgstr "Sunucu adı"
+msgstr "%d. Sunucu tamamlanmadı\n"
 
 #: Wammu/SMSExport.py:556
 #, python-format
 msgid "%d. Port invalid\n"
-msgstr ""
+msgstr "%d. Port geçersiz\n"
 
 #: Wammu/SMSExport.py:559
 #, python-format
 msgid "%d. Login incomplete\n"
-msgstr ""
+msgstr "%d. Giriş tamamlanmadı\n"
 
 #: Wammu/SMSExport.py:562
 #, python-format
 msgid "%d. Password incomplete\n"
-msgstr ""
+msgstr "%d. Şifre tamamlanmadı\n"
 
 #: Wammu/SMSExport.py:568
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Seçilmiş yedeklenecek mesaj yok. Lütfen konumdan en az bir tane seçin."
 
 #: Wammu/SMSExport.py:573
 msgid "Incomplete"
@@ -3224,6 +3248,10 @@ msgid ""
 "experiences in Gammu Phone Database. Only information you see here will be "
 "submited."
 msgstr ""
+"Lütfen deneyimlerinizi Wammu ve arkasındaki kütüphane Gammu ile paylaşın. "
+"Aşağıdaki formu doldurduğunuzda diğer kullanıcılarda Gammu Telefon "
+"Veritabanındaki sizin deneyimlerinizden faydalanacak. Sadece sizin burada "
+"gördüğünüz bilgiler gönderilecek."
 
 #: Wammu/TalkbackDialog.py:54
 msgid "Manufacturer:"
@@ -3271,7 +3299,7 @@ msgstr "E-posta görüntüleme:"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Use [at] and [dot]"
-msgstr ""
+msgstr "[at] ve [dot] kullan"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Insert NOSPAM text at random position"
@@ -3279,11 +3307,11 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Display it normally"
-msgstr ""
+msgstr "Normal olarak göster"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Don't show email at all"
-msgstr ""
+msgstr "E-postaları hiçbir şekilde gösterme"
 
 #: Wammu/TalkbackDialog.py:81
 msgid "Not supported"
@@ -3295,11 +3323,11 @@ msgstr "Gammu Telefon Veritabanı Geri Bildirimi"
 
 #: Wammu/TalkbackDialog.py:111
 msgid "Select which features work correctly with your phone"
-msgstr ""
+msgstr "Telefonunuzla doğru çalışacak özellikleri seçiniz"
 
 #: Wammu/TalkbackDialog.py:112
 msgid "This information is automatically included in report."
-msgstr ""
+msgstr "Bu bilgi otomatik olarak rapora eklenecektir."
 
 #: Wammu/TalkbackDialog.py:113
 msgid "Describe some glitches of this phone or other experiences with Gammu."
@@ -3310,12 +3338,16 @@ msgid ""
 "Please enter valid mail here, choose display options below. Your email won't "
 "be given or sold to anybody."
 msgstr ""
+"Geçerli bir posta adresi girin, aşağıdaki seçeneklerden birini seç. "
+"E-postanız hiç kimseye verilmeyecek veya satılmayacaktır."
 
 #: Wammu/TalkbackDialog.py:115
 msgid ""
 "If you don't want to display email clear text, please select one mangling "
 "option."
 msgstr ""
+"E-postanızı açık metin olarak göstermek istemiyorsanız, bozma "
+"seçeneklerinden birini seçin."
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
@@ -3326,6 +3358,9 @@ msgid ""
 "invalid:\n"
 "%s"
 msgstr ""
+"Gammu Telefon Veritabanında girdi oluşturulamadı, aşağıdaki alanlar "
+"geçersiz:\n"
+"%s"
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 msgid "Supported features"
@@ -3381,9 +3416,8 @@ msgid "Note"
 msgstr "Not"
 
 #: Wammu/TalkbackDialog.py:307
-#, fuzzy
 msgid "Your name"
-msgstr "Sunucu adı"
+msgstr "Adınız"
 
 #: Wammu/TalkbackDialog.py:309
 msgid "Your email"
@@ -3429,9 +3463,8 @@ msgid "Filesystem manipulation"
 msgstr ""
 
 #: Wammu/TalkbackFeaturesDialog.py:47
-#, fuzzy
 msgid "Reading and making calls"
-msgstr "Takvim okunuyor"
+msgstr "Okunuyor ve arama yapılıyor"
 
 #: Wammu/TalkbackFeaturesDialog.py:48
 msgid "Logos"
@@ -3439,7 +3472,7 @@ msgstr "Logolar"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
 msgid "Ringtones"
-msgstr ""
+msgstr "Zil sesi"
 
 #: Wammu/TalkbackFeaturesDialog.py:60
 msgid "Select features"
@@ -3473,11 +3506,11 @@ msgstr "Yok"
 
 #: Wammu/Utils.py:328
 msgid "enabled (tone)"
-msgstr ""
+msgstr "açık (zil)"
 
 #: Wammu/Utils.py:330
 msgid "enabled (silent)"
-msgstr ""
+msgstr "açık (sessiz)"
 
 #: Wammu/Utils.py:336
 msgid "yearly"
@@ -3497,31 +3530,31 @@ msgstr "iki haftalık"
 
 #: Wammu/Utils.py:346
 msgid "weekly on monday"
-msgstr ""
+msgstr "Haftada pazartesi"
 
 #: Wammu/Utils.py:348
 msgid "weekly on tuesday"
-msgstr ""
+msgstr "haftada salı"
 
 #: Wammu/Utils.py:350
 msgid "weekly on wednesday"
-msgstr ""
+msgstr "haftada çarşamba"
 
 #: Wammu/Utils.py:352
 msgid "weekly on thursday"
-msgstr ""
+msgstr "haftada perşembe"
 
 #: Wammu/Utils.py:354
 msgid "weekly on friday"
-msgstr ""
+msgstr "haftada cuma"
 
 #: Wammu/Utils.py:356
 msgid "weekly on saturday"
-msgstr ""
+msgstr "haftada cumartesi"
 
 #: Wammu/Utils.py:358
 msgid "weekly on sunday"
-msgstr ""
+msgstr "haftada pazar"
 
 #: Wammu/Utils.py:365
 msgid "disabled"
@@ -3529,7 +3562,7 @@ msgstr "etkin değil"
 
 #: Wammu/Utils.py:368
 msgid "nonrecurring"
-msgstr ""
+msgstr "tekrarlama yok"
 
 #: Wammu/Utils.py:444
 msgid "Your phone doesn't support this function."
@@ -3540,6 +3573,8 @@ msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
 msgstr ""
+"Bu işlev telefonunuz için uygulanamıyor. Yardım istiyorsanız lütfen "
+"yazarlarla görüşünüz."
 
 #: Wammu/Utils.py:448
 msgid "Your phone asks for PIN."
@@ -3579,12 +3614,16 @@ msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for Bluetooth or IrDA)."
 msgstr ""
+"Telefonla iletişimde zaman aşımı. Telefon bağlanmamış olabilir (kablo için) "
+"veya mesafe dışında olabilir (Bluetooth veya IrDA için)."
 
 #: Wammu/Utils.py:461
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
+"Telefonunuzla iletişim kuracak cihaz yok. Telefonu takmamış olabilirsiniz "
+"veya yapılandırmanız yanlış."
 
 #: Wammu/Utils.py:463
 #, python-format
@@ -3592,26 +3631,30 @@ msgid ""
 "Device \"%s\" for communication with phone does not exist. Maybe you don't "
 "have phone plugged or your configuration is wrong."
 msgstr ""
+"Telefonunuzla iletişim kuracak olan \"%s\" cihazı yok. Telefonunuzu takmamış "
+"olabilirsiniz veya yapılandırmanız yanlış."
 
 #: Wammu/Utils.py:466
 msgid "Maybe you need to be member of some group to have acces to device."
-msgstr ""
+msgstr "Cihaza bağlanmak için bazı grupların üyesi olmanız gerekebilir."
 
 #: Wammu/Utils.py:470
-#, fuzzy
 msgid "Can not access device for communication with phone."
-msgstr "Telefon ile iletişimde hata oluştu"
+msgstr "Telefonla iletişim için cihaz bağlanamadı."
 
 #: Wammu/Utils.py:477
-#, fuzzy, python-format
+#, python-format
+#, python-format
 msgid "Can not access device \"%s\" for communication with phone."
-msgstr "Telefon ile iletişimde hata oluştu"
+msgstr "Telefonla iletişim için \"%s\" cihazı bağlanamadı."
 
 #: Wammu/Utils.py:481
 msgid ""
 "Can not access SIM card. Please check whether it is properly inserted in "
 "phone and/or try to reboot the phone by removing battery."
 msgstr ""
+"SIM karta bağlanılamadı. Lütfen kartın telefona uygun takılıp takılmadığını "
+"kontrol edin ve/veya bataryayı çıkarak telefonu yeniden başlatmayı deneyin."
 
 #: Wammu/Utils.py:483
 msgid "Description:"
@@ -3628,31 +3671,32 @@ msgstr "Hata Kodu:"
 #: Wammu/Utils.py:538 Wammu/Utils.py:540 Wammu/Utils.py:546 Wammu/Utils.py:548
 #, python-format
 msgid "Device %s does not exist!"
-msgstr ""
+msgstr "%s cihazı oluşturulmadı!"
 
 #: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
 msgid "Error opening device"
-msgstr ""
+msgstr "Cihaz açma hatası"
 
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
-#, fuzzy, python-format
+#, python-format
+#, python-format
 msgid "You don't have permissions for %s device!"
-msgstr "Bu ayar için hiçbirşey yapmadınız."
+msgstr "%s cihazı için yetkiniz yok!"
 
 #: Wammu/Utils.py:561
 #, python-format
 msgid "Maybe you need to be member of %s group."
-msgstr ""
+msgstr "%s grubunun üyesi olmanız gerekebilir."
 
 #: wammu-configure.py:46
 #, python-format
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
-msgstr ""
+msgstr "Wammu Yapılandırıcı-Wammu ve Gammu yapılandırıcı sürüm %s"
 
 #: wammu-configure.py:54 wammu.py:58
 #, python-format
 msgid "Usage: %s [OPTION...]"
-msgstr ""
+msgstr "Kullanım: %s [OPTION...]"
 
 #: wammu-configure.py:56 wammu.py:60
 msgid "Options:"
@@ -3672,33 +3716,32 @@ msgstr ""
 
 #: wammu-configure.py:78 wammu.py:142
 msgid "Command line parsing failed with error:"
-msgstr ""
+msgstr "Komut satırı gramer hatası:"
 
 #: wammu-configure.py:84 wammu.py:148
 msgid "Extra unrecognized parameters passed to program"
-msgstr ""
+msgstr "İlave tanınmamış parametreler programa geçti"
 
 #: wammu-configure.py:90 wammu.py:156
 msgid "Using local built locales!"
-msgstr ""
+msgstr "Yereli kullanarak yerelleri inşa et!"
 
 #: wammu-configure.py:115
-#, fuzzy
 msgid "Updating gammu configuration..."
-msgstr "Elle yapılandırma"
+msgstr "Gammu yapılandırması güncelleniyor..."
 
 #: wammu.py:51
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
-msgstr ""
+msgstr "Wammu-Pencerelendirilmiş Gammu sürümü %s"
 
 #: wammu.py:72
 msgid "prints connection settings and tries to connect the phone"
-msgstr ""
+msgstr "bağlantı ayarlarını yazar ve telefona bağlanmaya çalışır"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
-msgstr ""
+msgstr "stderr'e hata çıktısı açık"
 
 #: wammu.py:90
 msgid "Wammu is not configured!"
