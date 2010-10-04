@@ -210,7 +210,7 @@ msgstr "Stil"
 #, python-format
 msgid "%d char"
 msgid_plural "%d chars"
-msgstr[0] "%s karakterler"
+msgstr[0] "%d karakterler"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
@@ -551,7 +551,7 @@ msgstr "Yeni %s oluşturuluyor"
 #: Wammu/Editor.py:235
 #, python-format
 msgid "Editing %(name)s %(location)s"
-msgstr "%(isim)s %(konum)s düzenleniyor"
+msgstr "%(name)s %(location)s düzenleniyor"
 
 #: Wammu/Editor.py:253
 msgid "Location (0 = auto):"
@@ -664,8 +664,8 @@ msgid ""
 "Exception: %(exception)s"
 msgstr ""
 "Geriiz:\n"
-"%(geriiz)s\n"
-"İstisna:%(istisna)s"
+"%(traceback)s\n"
+"İstisna:%(exception)s"
 
 #: Wammu/GammuSettings.py:142
 msgid "Create new configuration"
@@ -676,7 +676,7 @@ msgstr "Yeni yapılandırma"
 #: Wammu/GammuSettings.py:150
 #, python-format
 msgid "%(name)s (position %(position)d)"
-msgstr "%(isim)s (konum %(konum)d)"
+msgstr "%(name)s (konum %(position)d)"
 
 #: Wammu/GammuSettings.py:164
 msgid "Select which configration you want to modify."
@@ -1936,7 +1936,7 @@ msgid ""
 "Manufacturer: %(manufacturer)s\n"
 "Model: %(model)s"
 msgstr ""
-"Üretici: %(üretici)s\n"
+"Üretici: %(manufacturer)s\n"
 "Model: %(model)s"
 
 #: Wammu/PhoneWizard.py:112 Wammu/PhoneWizard.py:129
