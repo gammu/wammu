@@ -123,7 +123,10 @@ class GetInfo(Wammu.Thread.Thread):
 
         self.ShowProgress(6*100/progress)
         try:
-            SIMIMSI = self.sm.GetSIMIMSI()
+            try:
+                SIMIMSI = self.sm.GetSIMIMSI()
+            except (gammu.ERR_SECURITYERROR):
+                SIMIMSI = _('N/A')
             data.append({'Name': _('SIM IMSI'), 'Value': SIMIMSI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
@@ -136,7 +139,10 @@ class GetInfo(Wammu.Thread.Thread):
 
         self.ShowProgress(7*100/progress)
         try:
-            SMSC = self.sm.GetSMSC()
+            try:
+                SMSC = self.sm.GetSMSC()
+            except (gammu.ERR_SECURITYERROR):
+                SMSC = _('N/A')
             data.append({'Name': _('SMSC'), 'Value': SMSC['Number'], 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED, gammu.ERR_EMPTY):
             pass
