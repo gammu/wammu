@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-08-31 11:31+0200\n"
+"POT-Creation-Date: 2010-11-11 11:50+0100\n"
 "PO-Revision-Date: 2010-10-02 18:25+0200\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -736,23 +736,27 @@ msgstr "Origineel IMEI"
 msgid "Product code"
 msgstr "Productcode"
 
-#: Wammu/Info.py:127
+#: Wammu/Info.py:129 Wammu/Info.py:145
+msgid "N/A"
+msgstr ""
+
+#: Wammu/Info.py:130
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:140 Wammu/Main.py:995
+#: Wammu/Info.py:146 Wammu/Main.py:995
 msgid "SMSC"
 msgstr "SMSC"
 
-#: Wammu/Info.py:153
+#: Wammu/Info.py:159
 msgid "Hardware"
 msgstr "Hardware"
 
-#: Wammu/Info.py:166
+#: Wammu/Info.py:172
 msgid "Manufacture month"
 msgstr "Fabricagemaand"
 
-#: Wammu/Info.py:179
+#: Wammu/Info.py:185
 msgid "Language packs in phone"
 msgstr "Taalpakketten in telefoon"
 
@@ -1278,8 +1282,7 @@ msgid ""
 "You can fix it by recompiling python-gammu against gammu library you are "
 "currently using."
 msgstr ""
-"Je kunt dit herstellen door de juiste versie van python-gammu te "
-"installeren."
+"Je kunt dit herstellen door de juiste versie van python-gammu te installeren."
 
 #: Wammu/Main.py:455 Wammu/Main.py:461 Wammu/Main.py:467
 msgid "Gammu module not working!"
@@ -1607,8 +1610,8 @@ msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
 "stored to phone and some were not."
 msgstr ""
-"Herstellen van bestand \"%s\" is mislukt, sommige delen van de back-up naar de "
-"telefoon kunnen gelukt zijn en andere mogelijk niet."
+"Herstellen van bestand \"%s\" is mislukt, sommige delen van de back-up naar "
+"de telefoon kunnen gelukt zijn en andere mogelijk niet."
 
 #: Wammu/Main.py:1537 Wammu/Main.py:1650
 msgid "Backup import failed"
@@ -2034,8 +2037,8 @@ msgid ""
 "Phone %(manufacturer)s %(model)s on device %(port)s using connection "
 "%(connection)s"
 msgstr ""
-"Telefoon %(manufacturer)s (%(model)s) op apparaat %(port)s via verbinding %"
-"(connection)s"
+"Telefoon %(manufacturer)s (%(model)s) op apparaat %(port)s via verbinding "
+"%(connection)s"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
@@ -2904,8 +2907,7 @@ msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
 msgstr ""
-"Protocol gebruikt in Nokia-telefoons. Selecteer eerst meer specifieke "
-"opties."
+"Protocol gebruikt in Nokia-telefoons. Selecteer eerst meer specifieke opties."
 
 #: Wammu/SettingsStorage.py:413
 msgid "DKU5 cable"
@@ -3077,7 +3079,8 @@ msgstr "mailbox"
 
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
-msgstr "Selecteer e-mailopslagmap waar de bestanden opgeslagen dienen te worden"
+msgstr ""
+"Selecteer e-mailopslagmap waar de bestanden opgeslagen dienen te worden"
 
 #: Wammu/SMSExport.py:97
 msgid ""
@@ -3199,8 +3202,8 @@ msgstr "IMAP-server"
 #, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr ""
-"%(new)d nieuwe van %(count)d berichten geëxporteerd naar \"%(path)s\" (%"
-"(type)s)"
+"%(new)d nieuwe van %(count)d berichten geëxporteerd naar \"%(path)s"
+"\" (%(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
@@ -3422,8 +3425,7 @@ msgid ""
 "If you don't want to display email clear text, please select one mangling "
 "option."
 msgstr ""
-"Als je je e-mailberichten wilt beveiligen , kies dan een "
-"versleutelingsoptie."
+"Als je je e-mailberichten wilt beveiligen , kies dan een versleutelingsoptie."
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
@@ -3479,7 +3481,8 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
-"Invoer in Gammu-telefoondatabank is voltooid, je kan het vinden op <%s> URL.\n"
+"Invoer in Gammu-telefoondatabank is voltooid, je kan het vinden op <%s> "
+"URL.\n"
 "Wil je nu je browser openen?"
 
 #: Wammu/TalkbackDialog.py:284

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-10-01 18:14+0200\n"
+"POT-Creation-Date: 2010-11-11 11:50+0100\n"
 "PO-Revision-Date: 2010-10-02 14:22+0200\n"
 "Last-Translator: Ayhan YALÇINSOY <dellpardus@hotmail.com>\n"
 "Language-Team: Turkish <xfce-i18n@xfce.org>\n"
@@ -727,23 +727,27 @@ msgstr "Orijinal IMEI"
 msgid "Product code"
 msgstr "Ürün Kodu"
 
-#: Wammu/Info.py:127
+#: Wammu/Info.py:129 Wammu/Info.py:145
+msgid "N/A"
+msgstr ""
+
+#: Wammu/Info.py:130
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:140 Wammu/Main.py:995
+#: Wammu/Info.py:146 Wammu/Main.py:995
 msgid "SMSC"
 msgstr "SMSC"
 
-#: Wammu/Info.py:153
+#: Wammu/Info.py:159
 msgid "Hardware"
 msgstr "Bilgisayar parçası"
 
-#: Wammu/Info.py:166
+#: Wammu/Info.py:172
 msgid "Manufacture month"
 msgstr "Üretim ayı"
 
-#: Wammu/Info.py:179
+#: Wammu/Info.py:185
 msgid "Language packs in phone"
 msgstr "Telefondaki dil paketleri"
 
@@ -1597,18 +1601,15 @@ msgstr "İçe aktarılanı yedekle başarısız"
 
 #: Wammu/Main.py:1548
 #, python-format
-#, python-format
 msgid "%d phone contact entries"
 msgstr "%d telefon kişi girdileri"
 
 #: Wammu/Main.py:1551
 #, python-format
-#, python-format
 msgid "%d SIM contact entries"
 msgstr "%d SIM kişi girdileri"
 
 #: Wammu/Main.py:1554
-#, python-format
 #, python-format
 msgid "%d to do entries"
 msgstr "%d yapılacak girdileri"
@@ -1797,7 +1798,6 @@ msgstr "Bağlantı yapılandırılmadı!"
 
 #: Wammu/Main.py:2160
 #, python-format
-#, python-format
 msgid "Please enter %s code:"
 msgstr "Lütfen %s kodu giriniz:"
 
@@ -1875,7 +1875,6 @@ msgid "Guessed as %s"
 msgstr "%s olarak bulundu."
 
 #: Wammu/PhoneSearch.py:162
-#, python-format
 #, python-format
 msgid "Discovering Bluetooth devices using %s"
 msgstr "%s kullanan Bluetooth cihazları aranıyor"
@@ -2101,8 +2100,7 @@ msgstr "Tefon tipi"
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
 msgstr ""
-"Lütfen telefon üreticisi veya türünü seçin. Mümkün olduğu kadar "
-"özelleştirin."
+"Lütfen telefon üreticisi veya türünü seçin. Mümkün olduğu kadar özelleştirin."
 
 #: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
@@ -2252,7 +2250,8 @@ msgstr "Bilinmeyeni yoksay"
 #, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
-msgstr "Okuma esnasında, yerel %d girdide bilinmeyen hata rapor edildi, yoksay!"
+msgstr ""
+"Okuma esnasında, yerel %d girdide bilinmeyen hata rapor edildi, yoksay!"
 
 #: Wammu/Reader.py:138 Wammu/Reader.py:179
 msgid "Ignoring corrupted"
@@ -3151,7 +3150,8 @@ msgstr "IMAP sunucu"
 #: Wammu/SMSExport.py:329
 #, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(count)d yenisi %(new)d mesaj \"%(path)s\" (%(type)s) dizinine aktarıldı"
+msgstr ""
+"%(count)d yenisi %(new)d mesaj \"%(path)s\" (%(type)s) dizinine aktarıldı"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
@@ -3227,7 +3227,6 @@ msgid "%d. From Address invalid\n"
 msgstr "%d. Adres geçersiz\n"
 
 #: Wammu/SMSExport.py:553
-#, python-format
 #, python-format
 msgid "%d. Server incomplete\n"
 msgstr "%d. Sunucu tamamlanmadı\n"
@@ -3369,8 +3368,8 @@ msgid ""
 "Please enter valid mail here, choose display options below. Your email won't "
 "be given or sold to anybody."
 msgstr ""
-"Geçerli bir posta adresi girin, aşağıdaki seçeneklerden birini seç. "
-"E-postanız hiç kimseye verilmeyecek veya satılmayacaktır."
+"Geçerli bir posta adresi girin, aşağıdaki seçeneklerden birini seç. E-"
+"postanız hiç kimseye verilmeyecek veya satılmayacaktır."
 
 #: Wammu/TalkbackDialog.py:115
 msgid ""
@@ -3434,7 +3433,8 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
-"Girdi, Gammu Telefon Veritabanında oluşturuldu, <%s> adresinde görebilirsin.\n"
+"Girdi, Gammu Telefon Veritabanında oluşturuldu, <%s> adresinde "
+"görebilirsin.\n"
 "Tarayıcıda açmak ister misin?"
 
 #: Wammu/TalkbackDialog.py:284
@@ -3686,7 +3686,6 @@ msgstr "Telefonla iletişim için cihaz bağlanamadı."
 
 #: Wammu/Utils.py:477
 #, python-format
-#, python-format
 msgid "Can not access device \"%s\" for communication with phone."
 msgstr "Telefonla iletişim için \"%s\" cihazı bağlanamadı."
 
@@ -3720,7 +3719,6 @@ msgid "Error opening device"
 msgstr "Cihaz açma hatası"
 
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
-#, python-format
 #, python-format
 msgid "You don't have permissions for %s device!"
 msgstr "%s cihazı için yetkiniz yok!"
