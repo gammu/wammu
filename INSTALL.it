@@ -1,0 +1,68 @@
+Wammu installation
+==================
+
+Packages for Linux
+==================
+
+Molte distribuzioni sono dotate di binari precompilati per Wammu, se è
+possibile utilizzarli, è sicuramente la cosa più facile. Ci sono anche
+pacchetti binari della versioni più recenti creati per molte distribuzioni e
+disponibili sul sito web Wammu <http://wammu.eu/download/wammu/>.
+
+
+Creando dai Sorgenti
+====================
+
+Esso utilizza pacchetti standard distutils, così:
+
+    python setup.py build
+    sudo python setup.py install
+
+Avete bisogno di python-gammu e wxPython [1] (tipo Unicode abilitato)
+installati per eseguire ed installare questo programma. Se si desidera il
+supporto per la scansione dei dispositivi Bluetooth, è necessario PyBluez
+[2]. Per le notifiche di eventi in ingresso, è necessario dbus-python [3]. 
+
+Per Windows devi installare anche Pywin32[4]
+
+Se si desidera la verifica delle dipendenze in fase di compilazione per
+qualsiasi motivo, è possibile utilizzare l' opzione --skip-deps.
+
+[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]:
+http://www.freedesktop.org/wiki/Software/DBusBindings [4]:
+https://sourceforge.net/projects/pywin32/
+
+
+Compilazione multipla per Windows su Linux
+==========================================
+
+Avete bisogno di Wine con installate tutte le dipendenze (v. sezione per
+ottenerle). 
+
+Creare l' installer Wammu per Phyton è semplice:
+
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
+Comunque con questa con questa strada l'utente ha bisogno d'installare tutte
+le dipendenze, e non è molto semplice. Questo dovrebbe essere risolto usando
+py2exe [5]:
+
+    wine c:\\python25\\python setup.py build --skip-deps py2exe
+
+Ma ad eccezione di ciò, è necessario fare un pò di operazioni
+manualmente. Per far funzionare py2exe in Wine, è necessario correggere il
+binario utilizzando PE Tools (descritto nel commento dell bug su Wine [w1])
+e copiare alcune librerie extra che mancano dalla directory dist
+(python25.dll e alcune librerie da wxPython). Vedere lo script
+admin/make-release, che automatizza questa copia.
+
+Successivamente si può utilizzare InnoSetup[6] per compilare l' installer di
+Wammu:
+
+    wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+
+[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php
+
+[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591
+
+# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=it_it
