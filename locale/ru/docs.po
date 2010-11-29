@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-03-31 13:45+0300\n"
+"POT-Creation-Date: 2010-11-29 11:01+0100\n"
 "PO-Revision-Date: 2010-08-25 13:58+0200\n"
 "Last-Translator: Ilya Kurikhin <il.linuxdev@gmail.com>\n"
 "Language-Team: none\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #. type: TH
@@ -378,8 +378,8 @@ msgid ""
 "You can help translating Wammu to your language on translation server - "
 "<https://l10n.cihar.com/projects/wammu/>."
 msgstr ""
-"Вы можете помочь перевести Wammu на Ваш язык на сервере перевода - "
-"<https://l10n.cihar.com/projects/wammu/>."
+"Вы можете помочь перевести Wammu на Ваш язык на сервере перевода - <https://"
+"l10n.cihar.com/projects/wammu/>."
 
 #. type: Title =
 #: README:48
@@ -394,12 +394,12 @@ msgid ""
 "org/wammu/mainline.git>, you can browse it using <http://gitorious.org/wammu/"
 "mainline/trees>."
 msgstr ""
-"Разработка ведется на Git, главная ветвь - "
-"<git://gitorious.org/wammu/mainline.git>, просмотреть ее можно здесь - "
-"<http://gitorious.org/wammu/mainline/trees>."
+"Разработка ведется на Git, главная ветвь - <git://gitorious.org/wammu/"
+"mainline.git>, просмотреть ее можно здесь - <http://gitorious.org/wammu/"
+"mainline/trees>."
 
 #. type: Plain text
-#: README:54 INSTALL:67
+#: README:54 INSTALL:71
 msgid "# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us"
 msgstr "# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us"
 
@@ -425,8 +425,8 @@ msgid ""
 msgstr ""
 "Многие дистрибутивы включают в себя бинарные пакеты Wammu, это наиболее "
 "легкий способ, чтобы использовать программу. Бинарные пакеты последнего "
-"релиза для многих дистрибутивов доступны на сайте "
-"<http://wammu.eu/download/wammu/>."
+"релиза для многих дистрибутивов доступны на сайте <http://wammu.eu/download/"
+"wammu/>."
 
 #. type: Title =
 #: INSTALL:14
@@ -474,28 +474,37 @@ msgid ""
 "If you want to obey dependency checking at build time for any reason, you "
 "can use --skip-deps option."
 msgstr ""
-"Если Вы не хотите проверять зависимости при сборке, используйте опцию "
-"--skip-deps."
+"Если Вы не хотите проверять зависимости при сборке, используйте опцию --skip-"
+"deps."
 
 #. type: Plain text
-#: INSTALL:35
-msgid ""
-"[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: http://"
-"www.freedesktop.org/wiki/Software/DBusBindings [4]: https://sourceforge.net/"
-"projects/pywin32/"
-msgstr ""
-"[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: "
-"http://www.freedesktop.org/wiki/Software/DBusBindings [4]: "
-"https://sourceforge.net/projects/pywin32/"
+#: INSTALL:32
+msgid "[1]: http://wxpython.org/"
+msgstr "[1]: http://wxpython.org/"
+
+#. type: Plain text
+#: INSTALL:34
+msgid "[2]: http://code.google.com/p/pybluez/"
+msgstr "[2]: http://code.google.com/p/pybluez/"
+
+#. type: Plain text
+#: INSTALL:36
+msgid "[3]: http://www.freedesktop.org/wiki/Software/DBusBindings"
+msgstr "[3]: http://www.freedesktop.org/wiki/Software/DBusBindings"
+
+#. type: Plain text
+#: INSTALL:38
+msgid "[4]: https://sourceforge.net/projects/pywin32/"
+msgstr "[4]: https://sourceforge.net/projects/pywin32/"
 
 #. type: Title =
-#: INSTALL:38
+#: INSTALL:41
 #, no-wrap
 msgid "Cross compilation for Windows on Linux\n"
 msgstr "Кросскомпиляция для Windows в Linux\n"
 
 #. type: Plain text
-#: INSTALL:42
+#: INSTALL:45
 msgid ""
 "You need Wine with installed all dependencies (see above section where to "
 "get them)."
@@ -504,18 +513,18 @@ msgstr ""
 "чтобы получить их)."
 
 #. type: Plain text
-#: INSTALL:44
+#: INSTALL:47
 msgid "Building installer for wammu for Python is easy:"
 msgstr "Собрать установщик wammu на Python легко:"
 
 #. type: Plain text
-#: INSTALL:46
+#: INSTALL:49
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 
 #. type: Plain text
-#: INSTALL:49
+#: INSTALL:52
 msgid ""
 "However this way user needs to also install all dependencies, what is really "
 "not comfortable. This should be solved using py2exe [5]:"
@@ -524,13 +533,13 @@ msgstr ""
 "можно решить, используя py2exe [5]:"
 
 #. type: Plain text
-#: INSTALL:51
+#: INSTALL:54
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 
 #. type: Plain text
-#: INSTALL:57
+#: INSTALL:60
 msgid ""
 "But except of this, you need to do a bit of manual tuning. To make py2exe "
 "work in Wine, you need to fix it's binary using PE Tools (described in bug "
@@ -546,22 +555,37 @@ msgstr ""
 "который автоматизирует это."
 
 #. type: Plain text
-#: INSTALL:59
+#: INSTALL:62
 msgid "Then you can use InnoSetup[6] to build installer for Wammu:"
-msgstr "Вы также можете использовать InnoSetup[6] для сборки установщика Wammu:"
+msgstr ""
+"Вы также можете использовать InnoSetup[6] для сборки установщика Wammu:"
 
 #. type: Plain text
-#: INSTALL:61
+#: INSTALL:64
 #, no-wrap
 msgid "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 msgstr "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 
 #. type: Plain text
-#: INSTALL:64
-msgid "[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php"
-msgstr "[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php"
+#: INSTALL:66
+msgid "[5]: http://www.py2exe.org/"
+msgstr "[5]: http://www.py2exe.org/"
 
 #. type: Plain text
-#: INSTALL:66
+#: INSTALL:68
+msgid "[6]: http://www.jrsoftware.org/isinfo.php"
+msgstr "[6]: http://www.jrsoftware.org/isinfo.php"
+
+#. type: Plain text
+#: INSTALL:70
 msgid "[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591"
 msgstr "[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591"
+
+#~ msgid ""
+#~ "[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: "
+#~ "http://www.freedesktop.org/wiki/Software/DBusBindings [4]: https://"
+#~ "sourceforge.net/projects/pywin32/"
+#~ msgstr ""
+#~ "[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: "
+#~ "http://www.freedesktop.org/wiki/Software/DBusBindings [4]: https://"
+#~ "sourceforge.net/projects/pywin32/"

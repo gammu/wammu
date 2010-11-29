@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2010-03-31 13:45+0300\n"
+"POT-Creation-Date: 2010-11-29 11:01+0100\n"
 "PO-Revision-Date: 2010-05-21 14:29+0200\n"
 "Last-Translator:  <torsten.funck@googlemail.com>\n"
 "Language-Team: none\n"
@@ -411,7 +411,7 @@ msgstr ""
 "gitorious.org/wammu/mainline/trees> durchsuchen."
 
 #. type: Plain text
-#: README:54 INSTALL:67
+#: README:54 INSTALL:71
 msgid "# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us"
 msgstr "# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us"
 
@@ -490,24 +490,33 @@ msgstr ""
 "deps erreichen."
 
 #. type: Plain text
-#: INSTALL:35
-msgid ""
-"[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: http://"
-"www.freedesktop.org/wiki/Software/DBusBindings [4]: https://sourceforge.net/"
-"projects/pywin32/"
-msgstr ""
-"[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: http://"
-"www.freedesktop.org/wiki/Software/DBusBindings [4]: https://sourceforge.net/"
-"projects/pywin32/"
+#: INSTALL:32
+msgid "[1]: http://wxpython.org/"
+msgstr "[1]: http://wxpython.org/"
+
+#. type: Plain text
+#: INSTALL:34
+msgid "[2]: http://code.google.com/p/pybluez/"
+msgstr "[2]: http://code.google.com/p/pybluez/"
+
+#. type: Plain text
+#: INSTALL:36
+msgid "[3]: http://www.freedesktop.org/wiki/Software/DBusBindings"
+msgstr "[3]: http://www.freedesktop.org/wiki/Software/DBusBindings"
+
+#. type: Plain text
+#: INSTALL:38
+msgid "[4]: https://sourceforge.net/projects/pywin32/"
+msgstr "[4]: https://sourceforge.net/projects/pywin32/"
 
 #. type: Title =
-#: INSTALL:38
+#: INSTALL:41
 #, no-wrap
 msgid "Cross compilation for Windows on Linux\n"
 msgstr "Cross-Compilierung für Windows unter Linux\n"
 
 #. type: Plain text
-#: INSTALL:42
+#: INSTALL:45
 msgid ""
 "You need Wine with installed all dependencies (see above section where to "
 "get them)."
@@ -516,18 +525,18 @@ msgstr ""
 "Informationen, wo diese zu finden sind)."
 
 #. type: Plain text
-#: INSTALL:44
+#: INSTALL:47
 msgid "Building installer for wammu for Python is easy:"
 msgstr "Einen Installer für Wammu für Python zu übersetzen ist einfach:"
 
 #. type: Plain text
-#: INSTALL:46
+#: INSTALL:49
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 msgstr "wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 
 #. type: Plain text
-#: INSTALL:49
+#: INSTALL:52
 msgid ""
 "However this way user needs to also install all dependencies, what is really "
 "not comfortable. This should be solved using py2exe [5]:"
@@ -537,13 +546,13 @@ msgstr ""
 "das Benutzen von py2exe [5]:"
 
 #. type: Plain text
-#: INSTALL:51
+#: INSTALL:54
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 msgstr "wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 
 #. type: Plain text
-#: INSTALL:57
+#: INSTALL:60
 msgid ""
 "But except of this, you need to do a bit of manual tuning. To make py2exe "
 "work in Wine, you need to fix it's binary using PE Tools (described in bug "
@@ -559,27 +568,41 @@ msgstr ""
 "Skript, welches das Kopieren der Dateien automatisiert."
 
 #. type: Plain text
-#: INSTALL:59
+#: INSTALL:62
 msgid "Then you can use InnoSetup[6] to build installer for Wammu:"
 msgstr ""
 "Nun kann InnoSetup[6] benutzt werden, um den Installer für Wammu zu "
 "generieren:"
 
 #. type: Plain text
-#: INSTALL:61
+#: INSTALL:64
 #, no-wrap
 msgid "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 msgstr "wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 
 #. type: Plain text
-#: INSTALL:64
-msgid "[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php"
-msgstr "[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php"
+#: INSTALL:66
+msgid "[5]: http://www.py2exe.org/"
+msgstr "[5]: http://www.py2exe.org/"
 
 #. type: Plain text
-#: INSTALL:66
+#: INSTALL:68
+msgid "[6]: http://www.jrsoftware.org/isinfo.php"
+msgstr "[6]: http://www.jrsoftware.org/isinfo.php"
+
+#. type: Plain text
+#: INSTALL:70
 msgid "[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591"
 msgstr "[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591"
+
+#~ msgid ""
+#~ "[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: "
+#~ "http://www.freedesktop.org/wiki/Software/DBusBindings [4]: https://"
+#~ "sourceforge.net/projects/pywin32/"
+#~ msgstr ""
+#~ "[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]: "
+#~ "http://www.freedesktop.org/wiki/Software/DBusBindings [4]: https://"
+#~ "sourceforge.net/projects/pywin32/"
 
 #~ msgid ""
 #~ "Wammu\n"

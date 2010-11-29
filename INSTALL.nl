@@ -28,9 +28,13 @@ Voor Windows moet je ook Pywin32 [4] installeren.
 Als je om een of andere reden geen afhankelijkheid wilt testen tijdens het
 bouwen kun je de --skip-deps optie gebruiken.
 
-[1]: http://wxpython.org/ [2]: http://code.google.com/p/pybluez/ [3]:
-http://www.freedesktop.org/wiki/Software/DBusBindings [4]:
-https://sourceforge.net/projects/pywin32/
+[1]: http://wxpython.org/
+
+[2]: http://code.google.com/p/pybluez/
+
+[3]: http://www.freedesktop.org/wiki/Software/DBusBindings
+
+[4]: https://sourceforge.net/projects/pywin32/
 
 
 Kruiscompilatie voor Windows op Linux
@@ -62,7 +66,9 @@ bouwen.
 
     wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 
-[5]: http://www.py2exe.org/ [6]: http://www.jrsoftware.org/isinfo.php
+[5]: http://www.py2exe.org/
+
+[6]: http://www.jrsoftware.org/isinfo.php
 
 [w1]: http://bugs.winehq.org/show_bug.cgi?id=3591
 
