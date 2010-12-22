@@ -33,7 +33,7 @@ msgstr "Usando wxPython %s"
 #: Wammu/About.py:97
 #, python-format
 msgid "Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s"
-msgstr "Usando python-gammu %s e Gammu %s."
+msgstr "Usando python-gammu %(python_gammu_version)s e Gammu %(gammu_version)s."
 
 #: Wammu/About.py:102
 msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
@@ -559,7 +559,7 @@ msgstr "Criando novo(a) %s"
 #: Wammu/Editor.py:235
 #, python-format
 msgid "Editing %(name)s %(location)s"
-msgstr "Editando %(nome)s %(local)is"
+msgstr "Editando %(name)s %(location)s"
 
 #: Wammu/Editor.py:253
 msgid "Location (0 = auto):"
@@ -1706,36 +1706,36 @@ msgstr "Você tem certeza de que deseja apagar calendário %s?"
 #, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
-msgstr[0] "Você tem certeza de que deseja apagar contato%s?"
-msgstr[1] "Você tem certeza de que deseja apagar contatos %s?"
+msgstr[0] "Você tem certeza de que deseja apagar contato %d?"
+msgstr[1] "Você tem certeza de que deseja apagar contatos %d?"
 
 #: Wammu/Main.py:1795
 #, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
-msgstr[0] "Você tem certeza de que deseja apagar chamada %s?"
-msgstr[1] "Você tem certeza de que deseja apagar chamadas %s?"
+msgstr[0] "Você tem certeza de que deseja apagar chamada %d?"
+msgstr[1] "Você tem certeza de que deseja apagar chamadas %d?"
 
 #: Wammu/Main.py:1800
 #, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
-msgstr[0] "Você tem certeza de que deseja apagar mensagem %s?"
-msgstr[1] "Você tem certeza de que deseja apagar mensagens %s?"
+msgstr[0] "Você tem certeza de que deseja apagar mensagem %d?"
+msgstr[1] "Você tem certeza de que deseja apagar mensagens %d?"
 
 #: Wammu/Main.py:1805
 #, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] "Você tem certeza de que deseja apagar tarefa %s?"
-msgstr[1] "Você tem certeza de que deseja apagar tarefas %s?"
+msgstr[0] "Você tem certeza de que deseja apagar tarefa %d?"
+msgstr[1] "Você tem certeza de que deseja apagar tarefas %d?"
 
 #: Wammu/Main.py:1810
 #, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "Você tem certeza de que deseja apagar agenda %s?"
-msgstr[1] "Você tem certeza de que deseja apagar agendas %s?"
+msgstr[0] "Você tem certeza de que deseja apagar agenda %d?"
+msgstr[1] "Você tem certeza de que deseja apagar agendas %d?"
 
 #: Wammu/Main.py:1815 Wammu/Settings.py:346
 msgid "Confirm deleting"
@@ -2035,7 +2035,7 @@ msgstr "Nenhum telefone encontrado"
 msgid ""
 "Phone %(manufacturer)s %(model)s on device %(port)s using connection "
 "%(connection)s"
-msgstr "Modelo %s (%s) na porta %s usando conexão %s"
+msgstr "Modelo %(manufacturer)s %(model)s na porta %(port)s usando conexão %(connection)s"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
@@ -3190,8 +3190,8 @@ msgstr "Servidor IMAP"
 #, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
 msgstr ""
-"%(nova)d mensagem de %(total)d de mensagens exportadas para \"%(path)s\" (%"
-"(tipo)s)"
+"%(new)d mensagem de %(count)d de mensagens exportadas para \"%(path)s\" (%"
+"(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
