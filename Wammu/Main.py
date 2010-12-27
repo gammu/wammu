@@ -591,6 +591,7 @@ class WammuFrame(wx.Frame):
         if self.cfg.Read('/Wammu/TaskBarIcon') != 'yes':
             if self.tbicon is not None:
                 self.tbicon.Destroy()
+                self.tbicon = None
             return
         if self.tbicon is not None:
             # Nothing to do
