@@ -29,7 +29,6 @@ import wx.calendar
 import wx.lib.masked.timectrl
 from wx.lib.masked import Ctrl as maskedCtrl
 from Wammu.Paths import *
-import sys
 import datetime
 import time
 import Wammu
