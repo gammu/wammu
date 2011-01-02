@@ -26,8 +26,6 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import Wammu.Reader
 import Wammu.Utils
 import Wammu
-if Wammu.gammu_error == None:
-    import gammu
 
 class GetMessage(Wammu.Reader.Reader):
     def GetStatus(self):

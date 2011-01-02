@@ -26,8 +26,6 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import Wammu.Reader
 import Wammu.Utils
 import Wammu
-if Wammu.gammu_error == None:
-    import gammu
 
 class GetMemory(Wammu.Reader.Reader):
     def __init__(self, win, sm, datatype, type):
