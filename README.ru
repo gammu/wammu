@@ -51,5 +51,3 @@ Delete для удаления.
 Разработка ведется на Git, главная ветвь -
 <git://gitorious.org/wammu/mainline.git>, просмотреть ее можно здесь -
 <http://gitorious.org/wammu/mainline/trees>.
-
-# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
