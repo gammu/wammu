@@ -42,7 +42,7 @@ class AboutBox(wx.Dialog):
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
 
-        copyrightline = u'Copyright &copy; 2003 - 2007 Michal Čihař'
+        copyrightline = u'Copyright &copy; 2003 - 2011 Michal Čihař'
 
         # default system colours
         bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)
