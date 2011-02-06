@@ -68,5 +68,3 @@ dbus-python [3].
 [6]: http://www.jrsoftware.org/isinfo.php
 
 [w1]: http://bugs.winehq.org/show_bug.cgi?id=3591
-
-# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us

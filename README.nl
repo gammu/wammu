@@ -51,5 +51,3 @@ Versie beheer
 Ontwikkeling gebeurt in Git, de hoofdversie is te vinden op
 <git://gitorious.org/wammu/mainline.git>, je kunt de bestanden bekijken via
 <http://gitorious.org/wammu/mainline/trees>.
-
-# vim: et ts=4 sw=4 sts=4 tw=72 spell spelllang=en_us
