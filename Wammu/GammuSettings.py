@@ -77,7 +77,9 @@ class GammuSettings:
             path = 'gammu'
         else:
             path = 'gammu%s' % position
-        device = self.config.Read('/%s/port' % path)
+        device = self.config.Read('/%s/device' % path)
+        if device == '':
+            device = self.config.Read('/%s/port' % path)
         connection = self.config.Read('/%s/connection' % path)
         model = self.config.Read('/%s/model' % path)
         name = self.config.Read('/%s/name' % path)
