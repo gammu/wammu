@@ -30,7 +30,7 @@ from email.MIMEImage import MIMEImage
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 import email.Utils
-import md5
+from hashlib import md5
 import time
 import tempfile
 import os
@@ -202,11 +202,11 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
         filename = '%s-%s-%s.eml' % (
                 sms['SMS'][0]['Type'],
                 sms['DateTime'].strftime("%Y%m%d%H%M%S"),
-                md5.new(sms['Text'].encode('utf-8')).hexdigest())
+                md5(sms['Text'].encode('utf-8')).hexdigest())
     else:
         filename = '%s-%s.eml' % (
                 sms['SMS'][0]['Type'],
-                md5.new(sms['Text'].encode('utf-8')).hexdigest())
+                md5(sms['Text'].encode('utf-8')).hexdigest())
 
     # Add message ID
     msgid = '<%s@%s>' % (filename[:-4], sms['Number'].replace(' ', '_'))
