@@ -23,16 +23,16 @@ telefono, que debería realizar este trabajo por usted.
 Uso
 ===
 
-First you have to connect to phone, then you can perform some operations
-with it. For creating entries and importing you do not need to read things
-from phone, for others you have to (surprising? :-)).
+Primero tienes que conectarte al teléfono, luego puedes trabajar en él. Para
+crear e importar entradas no es necesario leer del teléfono, para lo demás
+sí es necesario (¿sorprendente? :-)).
 
 Todas las acciones de la lista actual son accesibles desde el menú
 contextual en cada elemento, también puede usar las teclas: Intro para
 editar y Supr para eliminar.
 
-Backup from main menu creates backup of entries you have already retrieved
-from phone.
+Respaldo del menú principal crea un respaldo de las entradas que ya has
+recuperado del teléfono.
 
 Informes de errores
 ===================
