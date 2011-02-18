@@ -27,11 +27,21 @@ import os
 import os.path
 import sys
 
-DATAPATH = os.path.join(os.path.dirname(__file__), '..')
-if not os.path.exists(os.path.join(DATAPATH, 'images')):
-    DATAPATH = os.path.join(sys.exec_prefix, 'share', 'Wammu')
-    if not os.path.exists(os.path.join(DATAPATH, 'images')):
-        print 'Could not find images, you will not see them, check your installation!'
+POSSIBLE_PATHS = [
+    os.path.join(sys.exec_prefix, 'share', 'Wammu'), # systemwide
+    os.path.join(sys.exec_prefix, 'local', 'share', 'Wammu'), # systemwide, default distutils
+    os.path.join(os.path.dirname(__file__), '..'), # Local directory
+]
+
+def CheckImagesPath(path):
+    return os.path.exists(os.path.join(path, 'images'))
+
+for DATAPATH in POSSIBLE_PATHS:
+    if CheckImagesPath(DATAPATH):
+        break
+
+if not CheckImagesPath(DATAPATH):
+    print 'Could not find images, you will not see them, check your installation!'
 
 def AppIconPath(*args):
     if sys.platform == 'win32':
@@ -41,6 +51,10 @@ def AppIconPath(*args):
     p = os.path.join(*args) + os.extsep + ext
     if os.path.exists(os.path.join(sys.exec_prefix, 'share', 'pixmaps', p)):
         return os.path.join(sys.exec_prefix, 'share', 'pixmaps', p)
+    elif os.path.exists(os.path.join(DATAPATH, '..', 'pixmaps', p)):
+        return os.path.join(DATAPATH, '..', 'pixmaps', p)
+    elif os.path.exists(os.path.join('usr', 'share', 'pixmaps', p)):
+        return os.path.join('usr', 'share', 'pixmaps', p)
     else:
         return os.path.join('.', 'icon', p)
 
