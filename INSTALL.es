@@ -45,7 +45,8 @@ donde obtenerlas).
 
 Compilar el instalador para wammu para Python es fácil:
 
-    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst 
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
 De esta forma sin embargo, el usuario también necesita instalar todas las
 dependencias; lo que no es realmente muy cómodo. Esto se resolvería
 utilizando py2exe [5]:

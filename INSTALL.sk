@@ -43,7 +43,8 @@ Potrebujete mať nainštalovaný Wine a všetky závislosti Wammu (viď. vyšši
 
 Vytvorenie inštalátoru pre Wammu pre Python je jednoduché:
 
-    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst 
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
 Ale týmto spôsobom používateľ potrebuje tiež nainštalovať všetky závislosti,
 čo nieje veľmi pohodlné. Toto môže byť vyriešené použitím py2exe [5]:
 

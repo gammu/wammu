@@ -45,7 +45,8 @@ dbus-python [3].
 
 Собрать установщик wammu на Python легко:
 
-    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst 
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
 Однако в таком случае нужно установить все зависимости, что неудобно. Это
 можно решить, используя py2exe [5]:
 
