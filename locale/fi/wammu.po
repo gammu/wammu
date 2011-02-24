@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2011-02-11 14:08+0100\n"
+"POT-Creation-Date: 2011-02-24 16:28+0100\n"
 "PO-Revision-Date: 2009-11-18 08:09+0200\n"
 "Last-Translator: NiLon <nilon@kartio.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
@@ -521,14 +521,12 @@ msgid "All files"
 msgstr "Kaikki tiedostot"
 
 #: Wammu/EditContactList.py:95
-#, fuzzy
 msgid "Edit contacts list"
-msgstr "%d yhteystiedot"
+msgstr "Muokkaa yhteystietoja"
 
 #: Wammu/EditContactList.py:151 Wammu/EditContactList.py:166
-#, fuzzy
 msgid "Load contacts from file"
-msgstr "Luetaan yhteystietoja %s :tä"
+msgstr "Lataa yhteystiedot tiedostosta"
 
 #: Wammu/EditContactList.py:161
 #, python-format
@@ -1195,14 +1193,12 @@ msgid "Export messages to emails in storage you choose."
 msgstr "Vie viestit valitsemassasi paikassa oleviin sähköposteihin"
 
 #: Wammu/Main.py:336
-#, fuzzy
 msgid "Export messages to &XML"
-msgstr "Vie viestit &sähköposteihin"
+msgstr "Vie viestit &XML tiedostoon"
 
 #: Wammu/Main.py:336
-#, fuzzy
 msgid "Export messages to XML file you choose."
-msgstr "Vie viestit valitsemassasi paikassa oleviin sähköposteihin"
+msgstr "Vie viestit haluamaasi XML tiedostoon"
 
 #: Wammu/Main.py:338
 msgid "&Backups"
@@ -2839,9 +2835,8 @@ msgid "AT over DKU2"
 msgstr ""
 
 #: Wammu/SettingsStorage.py:366
-#, fuzzy
 msgid "Select this if your phone is connected using DKU2 cable."
-msgstr "Laite, johon puhelimesi on kytketty."
+msgstr "Valitse tämä, jos puhelimesi käyttää DKU2 kaapelia."
 
 #: Wammu/SettingsStorage.py:370
 msgid "Generic OBEX over serial line or it's emulation"
@@ -3183,9 +3178,8 @@ msgid "IMAP account"
 msgstr "IMAP tili"
 
 #: Wammu/SMSExport.py:422
-#, fuzzy
 msgid "IMAP Settings"
-msgstr "Asetukset"
+msgstr "IMAP Asetukset"
 
 #: Wammu/SMSExport.py:424
 #, fuzzy
@@ -3272,12 +3266,11 @@ msgstr "Valmis"
 
 #: Wammu/SMSXML.py:86
 msgid "XML File"
-msgstr ""
+msgstr "XML Tiedosto"
 
 #: Wammu/SMSXML.py:89
-#, fuzzy
 msgid "Select XML file..."
-msgstr "Valitse postilaatikkotiedosto..."
+msgstr "Valitse XML tiedosto..."
 
 #: Wammu/SMSXML.py:102
 #, fuzzy
@@ -3399,7 +3392,7 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 msgid "Supported features"
-msgstr ""
+msgstr "Tuetut ominaisuudet"
 
 #: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
@@ -3563,7 +3556,7 @@ msgstr ""
 
 #: Wammu/Utils.py:336
 msgid "yearly"
-msgstr ""
+msgstr "vuosittain"
 
 #: Wammu/Utils.py:338
 msgid "monthly"
@@ -3575,7 +3568,7 @@ msgstr "päivittäin"
 
 #: Wammu/Utils.py:343
 msgid "biweekly"
-msgstr ""
+msgstr "joka toinen viikko"
 
 #: Wammu/Utils.py:346
 msgid "weekly on monday"
@@ -3681,7 +3674,7 @@ msgstr ""
 
 #: Wammu/Utils.py:466
 msgid "Maybe you need to be member of some group to have acces to device."
-msgstr ""
+msgstr "Oikeutesi eivät oletettavasti riitä käyttämään laitetta."
 
 #: Wammu/Utils.py:470
 #, fuzzy
@@ -3698,6 +3691,9 @@ msgid ""
 "Can not access SIM card. Please check whether it is properly inserted in "
 "phone and/or try to reboot the phone by removing battery."
 msgstr ""
+"Ei saada yhteyttä SIM-korttiin. Ole hyvä ja tarkista että se on oikein "
+"asetettu puhelimeen ja/tai yritä käynnistää puhelin uudelleen irroittamalla "
+"sen akku."
 
 #: Wammu/Utils.py:483
 msgid "Description:"
@@ -3714,21 +3710,21 @@ msgstr "Virhekoodi:"
 #: Wammu/Utils.py:538 Wammu/Utils.py:540 Wammu/Utils.py:546 Wammu/Utils.py:548
 #, python-format
 msgid "Device %s does not exist!"
-msgstr ""
+msgstr "Laitetta %s ei löydy!"
 
 #: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
 msgid "Error opening device"
-msgstr ""
+msgstr "Virhe avattaessa laitetta"
 
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
 #, python-format
 msgid "You don't have permissions for %s device!"
-msgstr ""
+msgstr "Sinulla ei ole oikeuksia käyttää %s laitetta!"
 
 #: Wammu/Utils.py:561
 #, python-format
 msgid "Maybe you need to be member of %s group."
-msgstr ""
+msgstr "Ehkä sinun pitää olla ryhmän %s jäsen"
 
 #: wammu-configure.py:46
 #, python-format
@@ -3747,12 +3743,11 @@ msgstr "Kuvaus:"
 
 #: wammu-configure.py:59 wammu.py:63
 msgid "show this help"
-msgstr ""
+msgstr "näytä tämä ohje"
 
 #: wammu-configure.py:62 wammu.py:66
-#, fuzzy
 msgid "show program version"
-msgstr "python-gammu versio"
+msgstr "näytä ohjelmaversio"
 
 #: wammu-configure.py:65 wammu.py:69
 msgid "force using of locales from current directory rather than system ones"
@@ -3860,11 +3855,9 @@ msgstr ""
 #~ msgid "Port where phone is connected"
 #~ msgstr "Laite, johon puhelimesi on kytketty."
 
-#, fuzzy
 #~ msgid "No port selected!"
 #~ msgstr "Varmuuskopio valittu"
 
-#, fuzzy
 #~ msgid "Phone port"
 #~ msgstr "Puhelin"
 
@@ -3874,7 +3867,6 @@ msgstr ""
 #~ msgid "Starting %s"
 #~ msgstr "Käynnistetään %s"
 
-#, fuzzy
 #~ msgid "Please select phone type"
 #~ msgstr "Valitse vientityyppi"
 
@@ -3884,7 +3876,6 @@ msgstr ""
 #~ msgid "Nokia MBUS"
 #~ msgstr "Nokia MBUS"
 
-#, fuzzy
 #~ msgid "&Event"
 #~ msgstr "Tapahtuma tyyppi"
 
@@ -3915,14 +3906,12 @@ msgstr ""
 #~ msgid "Search for phone"
 #~ msgstr "Etsi puhelin"
 
-#, fuzzy
 #~ msgid "Sends file to phone"
 #~ msgstr "Valitse puhelin"
 
 #~ msgid "Calendar events"
 #~ msgstr "Kalenteri tapahtumat"
 
-#, fuzzy
 #~ msgid "Report bug in Wammu"
 #~ msgstr "Tuo varmuuskopio"
 
@@ -3942,7 +3931,6 @@ msgstr ""
 #~ msgid "Warning: assuming charset %s for html widget"
 #~ msgstr "Varoitus: oletetaan merkistöä %s html widgetille"
 
-#, fuzzy
 #~ msgid "%(count)d messages exported to \"%(path)s (%(type)s)\""
 #~ msgstr "%d viestit lähetetty sähköpostiin \"%s\""
 
@@ -4027,7 +4015,6 @@ msgstr ""
 #~ "You will now be taken to configuration dialog to check configuration."
 #~ msgstr "Asetusikkuna avataan jotta, voit tarkistaa asetukset."
 
-#, fuzzy
 #~ msgid "at"
 #~ msgstr "Päiväys"
 

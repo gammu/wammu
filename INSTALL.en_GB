@@ -45,8 +45,7 @@ get them).
 
 Building installer for wammu for Python is easy:
 
-    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
-
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst 
 However this way user needs to also install all dependencies, what is really
 not comfortable. This should be solved using py2exe [5]:
 
