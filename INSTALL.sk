@@ -17,9 +17,9 @@ Používa sa štandardný distutils, takže inštalácia prebehne:
     python setup.py build
     sudo python setup.py install
 
-Pre inštaláciu a spustenie tohto programu potrebujete python-gammu and
+Pre inštaláciu a spustenie tohto programu potrebujete python-gammu a
 wxPython [1] (build s Unicode). Keď chcete podporu pre vyhľadávanie
-zariadení na Bluetooth potrebujete PyBluez [2]. Pre upozorňovanie na
+zariadení cez Bluetooth potrebujete PyBluez [2]. Pre upozorňovanie na
 prichádzajúce udalosti potrebujete dbus-python [3].
 
 Pre Windows budete potrebovať tiež Pywin32 [4].
@@ -39,7 +39,7 @@ môžete použiť parameter --skip-deps.
 Medziplatformová kompilácia pre Windows na Linuxe
 ===================================================
 
-Potrebujete mať nainštalovaný Wine a všetky závislosti Wammu (viď. vyššie).
+Potrebujete mať nainštalovaný Wine a všetky závislosti Wammu (viď vyššie).
 
 Vytvorenie inštalátoru pre Wammu pre Python je jednoduché:
 
