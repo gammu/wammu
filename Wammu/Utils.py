@@ -462,7 +462,7 @@ def FormatError(txt, info, gammu_config = None):
         else:
             message = _('Device "%s" for communication with phone does not exist. Maybe you don\'t have phone plugged or your configuration is wrong.') % gammu_config['Device']
     elif info['Code'] == gammu.Errors['ERR_DEVICENOPERMISSION']:
-        if sys.platform == 'linux2':
+        if sys.platform[:5] == 'linux':
             message_group = ' ' + _('Maybe you need to be member of some group to have acces to device.')
         else:
             message_group = ''
