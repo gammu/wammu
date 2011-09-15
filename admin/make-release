@@ -10,12 +10,14 @@ repo=wammu
 version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
 
 srcdir=`pwd`
+if false ; then
 if [ -f ~/.id/codesigning.spc -a "x$NO_SIGN" = "x" ] ; then
     sign_passwd=`gk-get --user=nijel --object=codesign || true`
     if [ -z "$sign_passwd" ] ; then
         echo -n "Enter sign password: "
         read sign_passwd
     fi
+fi
 fi
 
 signexe() {
@@ -73,6 +75,8 @@ echo 'Creating source tarballs...'
 ./setup.py sdist --formats=gztar,bztar,zip
 mv dist/* ../
 
+if false ; then
+
 # Build Windows Python installer
 wine c:\\python25\\python setup.py bdist_wininst
 mv dist/* ../
@@ -98,6 +102,8 @@ mv Output/$repo-$version-setup.exe ../
 for bin in $tmp/*-setup.exe ; do
     signexe $bin "Wammu installer"
 done
+
+fi
 
 # We're done
 echo "Release is in $tmp directory"
