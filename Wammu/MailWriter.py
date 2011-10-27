@@ -210,6 +210,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
 
     # Add message ID
     msgid = '<%s@%s>' % (filename[:-4], sms['Number'].replace(' ', '_'))
+    msgid = msgid.encode('ascii', 'xmlcharrefreplace')
     msg.add_header('Message-ID', msgid)
 
     if mailbox:
