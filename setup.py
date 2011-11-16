@@ -355,6 +355,7 @@ data_files.append((os.path.join('share','man','it','man1'), ['man/it/wammu.1', '
 data_files.append((os.path.join('share','man','sk','man1'), ['man/sk/wammu.1', 'man/sk/wammu-configure.1']))
 data_files.append((os.path.join('share','man','ru','man1'), ['man/ru/wammu.1', 'man/ru/wammu-configure.1']))
 data_files.append((os.path.join('share','man','es','man1'), ['man/es/wammu.1', 'man/es/wammu-configure.1']))
+data_files.append((os.path.join('share','man','hu','man1'), ['man/hu/wammu.1', 'man/hu/wammu-configure.1']))
 data_files.append((os.path.join('share','man','pt_BR','man1'), ['man/pt_BR/wammu.1', 'man/pt_BR/wammu-configure.1']))
 
 distutils.core.setup(name="wammu",
