@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Wammu 0.37\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2011-12-06 10:10+0100\n"
-"PO-Revision-Date: 2011-12-13 06:06+0200\n"
+"PO-Revision-Date: 2011-12-13 12:18+0200\n"
 "Last-Translator: Sukma Budi <kanjengdemank@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1340,9 +1340,8 @@ msgid "Disconnect"
 msgstr "Memutuskan koneksi"
 
 #: Wammu/Main.py:615 Wammu/Settings.py:38
-#, fuzzy
 msgid "Settings"
-msgstr "Pengaturan"
+msgstr "Seting"
 
 #: Wammu/Main.py:617
 msgid "Restore"
@@ -2370,8 +2369,8 @@ msgid ""
 "Whether to lock device in /var/lock. On some systems you might lack "
 "privileges to do so."
 msgstr ""
-"Apakah perangkat pada /var/lock akan dikunci. Pada beberapa sistem anda "
-"mungkin tidak punya hak akses untuk melakukannya."
+"Apakah akan dilakukan penguncian perangkat di lokasi /var/lock. Pada "
+"beberapa sistem anda mungkin tidak punya hak akses untuk melakukannya."
 
 #: Wammu/Settings.py:154
 msgid "Phone connection"
@@ -2522,33 +2521,35 @@ msgstr "Waktu standar yang digunakan untuk field baru waktu."
 
 #: Wammu/Settings.py:372
 msgid "Default time"
-msgstr ""
+msgstr "Standar waktu"
 
 #: Wammu/Settings.py:378
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
 msgstr ""
+"Standar tanggal yang digunakan untuk membuat field waktu terbaru. Masukkan "
+"jumlah hari sejak hari ini (1 = besok)."
 
 #: Wammu/Settings.py:379
 msgid "Default date = now + x days"
-msgstr ""
+msgstr "Standar tanggal = hari ini + x hari"
 
 #: Wammu/Settings.py:385
 msgid "How many entries will be shown in newly created item."
-msgstr ""
+msgstr "Berapa banyak entri yang akan ditampilkan di pembuatan item terbaru."
 
 #: Wammu/Settings.py:386
 msgid "Entries for new item"
-msgstr ""
+msgstr "Entri untuk item baru"
 
 #: Wammu/Settings.py:393
 msgid "Prefix for non international phone numbers."
-msgstr ""
+msgstr "Prefiks untuk nomor telepon non internasional."
 
 #: Wammu/Settings.py:394
 msgid "Number prefix"
-msgstr ""
+msgstr "Nomor prefiks"
 
 #: Wammu/Settings.py:416
 msgid ""
@@ -2556,10 +2557,13 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
+"Diterapkan hanya ketika Wammu tidak dapat menemukan jumlah entri yang pantas "
+"untuk dibaca. Jumlah ini terbatas pada seberapa banyak entri kosong akan "
+"dibaca sebelum proses pembacaan akan dihentikan."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
-msgstr ""
+msgstr "Maksimal entri kosong bila total ditebak"
 
 #: Wammu/Settings.py:423
 msgid ""
@@ -2567,200 +2571,219 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
+"Seandainya telepon salah melaporkan jumlah entri, Wammu akan mencoba untuk "
+"terus membaca sebanyak mungkin atau hingga muncul eror. Jumlah ini terbatas "
+"pada seberapa banyak entri kosong akan dibaca sebelum proses pembacaan akan "
+"dihentikan."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
-msgstr ""
+msgstr "Maksimal entri kosong bila total telah diketahui"
 
 #: Wammu/Settings.py:437
 msgid "Gammu"
-msgstr ""
+msgstr "Gammu"
 
 #: Wammu/Settings.py:440
 msgid "View"
-msgstr ""
+msgstr "Tampilan"
 
 #: Wammu/Settings.py:441
 msgid "Other"
-msgstr "Lain"
+msgstr "Lainnya"
 
 #: Wammu/Settings.py:442
 msgid "Hacks"
-msgstr ""
+msgstr "Hack"
 
 #: Wammu/Settings.py:525
 msgid ""
 "You don't have any phone connection configured. Wammu will not be able to "
 "conect to your phone!"
 msgstr ""
+"Anda tidak memiliki konfigurasi koneksi telepon. Wammu tidak akan dapat "
+"terhubung dengan telepon anda!"
 
 #: Wammu/Settings.py:526
 msgid "No phone configured!"
-msgstr ""
+msgstr "Tidak ada telepon yang dikonfigurasikan!"
 
 #: Wammu/SettingsStorage.py:97
 msgid "I don't know"
-msgstr ""
+msgstr "Saya tidak tahu"
 
 #: Wammu/SettingsStorage.py:98
 msgid ""
 "Select this option only if really necessary. You will be provided with too "
 "much options in next step."
 msgstr ""
+"Pilih opsi ini hanya bila benar-benar diperlukan. Anda akan disediakan "
+"dengan banyak opsi pada langkah selanjutnya."
 
 #: Wammu/SettingsStorage.py:101
 msgid "Symbian based phone"
-msgstr ""
+msgstr "Telepon berbasis Symbian"
 
 #: Wammu/SettingsStorage.py:102
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
 msgstr ""
+"Lanjutkan bila telepon anda menggunakan Symbian OS (tanpa melihat pabrikan)."
 
 #: Wammu/SettingsStorage.py:105
 msgid "Alcatel phone"
-msgstr ""
+msgstr "Telepon Alcatel"
 
 #: Wammu/SettingsStorage.py:106
 msgid "Alcatel phone not running Symbian."
-msgstr ""
+msgstr "Telepon Alcatel bukan Symbian."
 
 #: Wammu/SettingsStorage.py:109
 msgid "BenQ/Siemens phone"
-msgstr ""
+msgstr "Telepon BenQ/Siemens"
 
 #: Wammu/SettingsStorage.py:110
 msgid "BenQ or Siemens phone not running Symbian."
-msgstr ""
+msgstr "Telepon BenQ atau Siemens bukan Symbian."
 
 #: Wammu/SettingsStorage.py:113
 msgid "Motorola phone"
-msgstr ""
+msgstr "Telepon Motorola"
 
 #: Wammu/SettingsStorage.py:114
 msgid "Motorola phone not running Symbian."
-msgstr ""
+msgstr "Telepon Motorola bukan Symbian."
 
 #: Wammu/SettingsStorage.py:117
 msgid "Nokia phone"
-msgstr ""
+msgstr "Telepon Nokia"
 
 #: Wammu/SettingsStorage.py:118
 msgid "Nokia phone not running Symbian."
-msgstr ""
+msgstr "Telepon Nokia bukan Symbian."
 
 #: Wammu/SettingsStorage.py:121
 msgid "Samsung phone"
-msgstr ""
+msgstr "Telepon Samsung"
 
 #: Wammu/SettingsStorage.py:122
 msgid "Samsung phone not running Symbian."
-msgstr ""
+msgstr "Telepon Samsung bukan Symbian."
 
 #: Wammu/SettingsStorage.py:125
 msgid "Sharp phone"
-msgstr ""
+msgstr "Telepon Sharp"
 
 #: Wammu/SettingsStorage.py:126
 msgid "Sharp phone not running Symbian."
-msgstr ""
+msgstr "Telepon Sharp bukan Symbian."
 
 #: Wammu/SettingsStorage.py:129
 msgid "Sony Ericsson phone"
-msgstr ""
+msgstr "Telepon Sony Ericsson"
 
 #: Wammu/SettingsStorage.py:130
 msgid "Sony Ericsson phone not running Symbian."
-msgstr ""
+msgstr "Telepon Sony Ericsson bukan Symbian."
 
 #: Wammu/SettingsStorage.py:133
 msgid "None of the above"
-msgstr ""
+msgstr "Tidak ada dalam pilihan di atas"
 
 #: Wammu/SettingsStorage.py:134
 msgid "Select this option if nothing above matches."
-msgstr ""
+msgstr "Pilih opsi ini bila tidak ada perangkat yang cocok."
 
 #: Wammu/SettingsStorage.py:140
 msgid "OBEX and IrMC protocols"
-msgstr ""
+msgstr "Protokol OBEX dan IrMC"
 
 #: Wammu/SettingsStorage.py:142
 msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
 msgstr ""
+"Akses standar ke file sistem. Bukan pilihan bagus untuk Nokia bila anda "
+"ingin mengakses data."
 
 #: Wammu/SettingsStorage.py:144
 msgid ""
 "Standard access to filesystem and sometimes also to phone data. Good choice "
 "for recent phones."
 msgstr ""
+"Akses standar ke file sistem dan terkadang juga ke data telepon. Pilihan "
+"bagus untuk kebanyakan telepon."
 
 #: Wammu/SettingsStorage.py:148
 msgid "Symbian using Gnapplet"
-msgstr ""
+msgstr "Symbian menggunakan Gnapplet"
 
 #: Wammu/SettingsStorage.py:149
 msgid ""
 "You have to install Gnapplet into phone before using this connection. You "
 "can find it in Gammu sources."
 msgstr ""
+"Anda harus menginstalasikan Gnapplet pada telepon sebelum menggunakan "
+"koneksi ini. Anda dapat menemukannya pada sumber-sumber Gammu."
 
 #: Wammu/SettingsStorage.py:153
 msgid "Nokia proprietary protocol"
-msgstr ""
+msgstr "Protokol milik Nokia"
 
 #: Wammu/SettingsStorage.py:154
 msgid "Nokia proprietary protocol FBUS."
-msgstr ""
+msgstr "Protokol FBUS milik Nokia."
 
 #: Wammu/SettingsStorage.py:157
 msgid "Nokia proprietary service protocol"
-msgstr ""
+msgstr "Protokol service milik Nokia"
 
 #: Wammu/SettingsStorage.py:158
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
-msgstr ""
+msgstr "Protokol MBUS milik Nokia. Versi lama, gunakan FBUS bila memungkinkan."
 
 #: Wammu/SettingsStorage.py:162
 msgid "AT based"
-msgstr ""
+msgstr "Berbasis AT"
 
 #: Wammu/SettingsStorage.py:164
 msgid ""
 "This provides minimal access to phone features. It is recommended to use "
 "other connection type."
 msgstr ""
+"Ini menyediakan akses minimal ke fitur-fitur telepon. Direkomendasikan untuk "
+"penggunaan tipe koneksi lainnya."
 
 #: Wammu/SettingsStorage.py:166
 msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
 msgstr ""
+"Pilihan bagus untuk kebanyakan telepon kecuali Nokia dan yang berbasis "
+"Symbian. Menyediakan akses ke hampir semua fitur-fitur telepon."
 
 #: Wammu/SettingsStorage.py:277 Wammu/SettingsStorage.py:309
 msgid "Enter device name of serial port."
-msgstr ""
+msgstr "Masukkan nama perangkat dari port serial."
 
 #: Wammu/SettingsStorage.py:279 Wammu/SettingsStorage.py:311
 msgid "Enter device name of emulated serial port."
-msgstr ""
+msgstr "Masukkan nama perangkat dari port serial yang diemulasi."
 
 #: Wammu/SettingsStorage.py:281 Wammu/SettingsStorage.py:313
 msgid "Enter Bluetooth address of your phone."
-msgstr ""
+msgstr "Masukkan alamat Bluetooth dari telepon anda."
 
 #: Wammu/SettingsStorage.py:283 Wammu/SettingsStorage.py:317
 msgid "You don't have to enter anything for this settings."
-msgstr ""
+msgstr "Anda tidak memasukan entri apapun pada pengaturan ini."
 
 #: Wammu/SettingsStorage.py:315
 msgid "Enter device name of USB port."
-msgstr ""
+msgstr "Masukkan nama perangkat dari port USB."
 
 #: Wammu/SettingsStorage.py:336 Wammu/SettingsStorage.py:351
 msgid "Generic AT over serial line or it's emulation"
-msgstr ""
+msgstr "AT generik lewat jalur serial atau emulasinya"
 
 #: Wammu/SettingsStorage.py:337 Wammu/SettingsStorage.py:352
 #: Wammu/SettingsStorage.py:371
@@ -2768,20 +2791,23 @@ msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
 msgstr ""
+"Pilih ini bila anda memiliki port serial sebenarnya atau yang diemulasikan "
+"oleh driver telepon (contoh virtual COM port, /dev/rfcomm, /dev/ircomm, "
+"dll.)."
 
 #: Wammu/SettingsStorage.py:342
 #, python-format
 msgid "Generic AT at %d bps"
-msgstr ""
+msgstr "AT generik pada %d bps"
 
 #: Wammu/SettingsStorage.py:343
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
-msgstr ""
+msgstr "Pilih ini bila telepon anda membutuhkan kecepatan transfer %d bps."
 
 #: Wammu/SettingsStorage.py:347
 msgid "AT over Bluetooth"
-msgstr ""
+msgstr "AT lewat Bluetooth"
 
 #: Wammu/SettingsStorage.py:348 Wammu/SettingsStorage.py:376
 #: Wammu/SettingsStorage.py:391
@@ -2789,10 +2815,12 @@ msgid ""
 "Select this if your phone is connected over Bluetooth and you want to use "
 "native Bluetooth connection."
 msgstr ""
+"Pilih ini bila telepon anda terhubung lewat Bluetooth dan anda ingin "
+"menggunakan koneksi bawaan Bluetooth."
 
 #: Wammu/SettingsStorage.py:355
 msgid "AT over Bluetooth with RF searching"
-msgstr ""
+msgstr "AT lewat Bluetooth dengan pencarian RF"
 
 #: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
 msgid ""
@@ -2800,10 +2828,13 @@ msgid ""
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
 "5.50, 8910,..)"
 msgstr ""
+"Gunakan untuk Bluetooth stack dan model Nokia 6210 / DCT4, yang tidak "
+"menginformasikan dengan jelas tentang Bluetooth (6310, 6310i dengan firmware "
+"lebih rendah dari 5.50, 8910,..)"
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
-msgstr ""
+msgstr "AT lewat IrDA"
 
 #: Wammu/SettingsStorage.py:361 Wammu/SettingsStorage.py:385
 #: Wammu/SettingsStorage.py:396
@@ -2811,70 +2842,76 @@ msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
 msgstr ""
+"Pilih ini bila telepon anda terhubung lewat IrDA dan anda ingin menggunakan "
+"koneksi bawaan IrDA."
 
 #: Wammu/SettingsStorage.py:365
 msgid "AT over DKU2"
-msgstr ""
+msgstr "AT lewat DKU2"
 
 #: Wammu/SettingsStorage.py:366
 msgid "Select this if your phone is connected using DKU2 cable."
-msgstr ""
+msgstr "Pilih ini bila telepon anda terhubung dengan kabel DKU2."
 
 #: Wammu/SettingsStorage.py:370
 msgid "Generic OBEX over serial line or it's emulation"
-msgstr ""
+msgstr "OBEX generik lewat jalur serial atau emulasinya"
 
 #: Wammu/SettingsStorage.py:375
 msgid "OBEX over Bluetooth"
-msgstr ""
+msgstr "OBEX lewat Bluetooth"
 
 #: Wammu/SettingsStorage.py:379
 msgid "OBEX over Bluetooth with RF searching"
-msgstr ""
+msgstr "OBEX lewat Bluetooth dengan pencarian RF"
 
 #: Wammu/SettingsStorage.py:384
 msgid "OBEX over IrDA"
-msgstr ""
+msgstr "OBEX lewat IrDA"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
-msgstr ""
+msgstr "Gnapplet lewat Bluetooth"
 
 #: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
-msgstr ""
+msgstr "Gnapplet lewat IrDA"
 
 #: Wammu/SettingsStorage.py:401
 msgid "MBUS proprietary protocol"
-msgstr ""
+msgstr "Protokol MBUS hak milik"
 
 #: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
-msgstr ""
+msgstr "Protokol yang digunakan pada telepon Nokia lama."
 
 #: Wammu/SettingsStorage.py:407
 msgid "FBUS proprietary protocol"
-msgstr ""
+msgstr "Protokol FBUS hak milik"
 
 #: Wammu/SettingsStorage.py:408
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
 msgstr ""
+"Protokol yang digunakan pada telepon Nokia. Silahkan coba untuk lebih dulu "
+"memilih opsi yang lebih spesifik."
 
 #: Wammu/SettingsStorage.py:413
 msgid "DKU5 cable"
-msgstr ""
+msgstr "Kabel DKU5"
 
 #: Wammu/SettingsStorage.py:414
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"Kabel Adapter Konektivitas Nokia DKU-5 (kabel orisinil atau yang "
+"kompatibel), untuk telepon dengan dukungan USB chip seperti Nokia 5100."
 
 #: Wammu/SettingsStorage.py:417
 msgid "PL2303 cable"
-msgstr ""
+msgstr "Kabel PL2303"
 
 #: Wammu/SettingsStorage.py:418
 msgid ""
@@ -2990,15 +3027,15 @@ msgstr "Protokol Nokia untuk infrared dengan Nokia 6110/6130/6150."
 
 #: Wammu/SMSExport.py:38
 msgid "Mailboxes"
-msgstr ""
+msgstr "Mailboxes"
 
 #: Wammu/SMSExport.py:41
 msgid "Select mailbox file..."
-msgstr ""
+msgstr "Pilih file mailbox..."
 
 #: Wammu/SMSExport.py:54
 msgid "Saving messages to mailbox"
-msgstr ""
+msgstr "Simpan pesan ke mailbox"
 
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
 #: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
@@ -3028,7 +3065,7 @@ msgstr "mailbox"
 
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
-msgstr ""
+msgstr "Pilih direktori maildir lokasi pesan disimpan"
 
 #: Wammu/SMSExport.py:97
 msgid ""
@@ -3037,22 +3074,26 @@ msgid ""
 "\n"
 "Do you want to create new subfolder and export to it?"
 msgstr ""
+"Folder terpilih tidak berisi subfolder baru dan dengan demikian mungkin "
+"bukan maildir yang sah.\n"
+"\n"
+"Apakah anda ingin membuat subfolder baru dan mengekspornya?"
 
 #: Wammu/SMSExport.py:98
 msgid "Folder doesn't look like maildir!"
-msgstr ""
+msgstr "Folder tidak menyerupai maildir!"
 
 #: Wammu/SMSExport.py:110
 msgid "Creating of folder failed, bailing out."
-msgstr ""
+msgstr "Pembuatan folder gagal."
 
 #: Wammu/SMSExport.py:111
 msgid "Can not create folder!"
-msgstr ""
+msgstr "Tidak dapat membuat folder!"
 
 #: Wammu/SMSExport.py:117
 msgid "Saving messages to maildir"
-msgstr ""
+msgstr "Menyimpan pesan ke maildir"
 
 #: Wammu/SMSExport.py:130
 #, python-format
@@ -3247,6 +3288,8 @@ msgstr "%d. Password tidak lengkap\n"
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Tidak ada pesan terpilih untuk dicadangkan. Silahkan pilih sedikitnya "
+"satu."
 
 #: Wammu/SMSExport.py:573
 msgid "Incomplete"
@@ -3437,9 +3480,8 @@ msgid "Entry created!"
 msgstr "Entri telah dibuat!"
 
 #: Wammu/TalkbackDialog.py:299
-#, fuzzy
 msgid "Phone model"
-msgstr "Model telepon"
+msgstr "Model"
 
 #: Wammu/TalkbackDialog.py:301
 msgid "Model in gammu configuration"
