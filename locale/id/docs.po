@@ -548,6 +548,12 @@ msgid ""
 "directory (python25.dll and libraries from wxPython). See script admin/make-"
 "release which automates this copying."
 msgstr ""
+"Kecuali untuk yang satu ini, anda harus melakukan sedikit rekayasa manual. "
+"Untuk membuat py2exe dapat berjalan baik di Wine, anda harus memperbaiki "
+"binary tersebut dengan menggunakan PE Tools (terlampir dalam laporan bug "
+"Wine [w1]) dan duplikasi beberapa library ekstra yang tidak ada pada "
+"direktori distribusi (python25.dll dan libraries dari wxPython). Lihat skrip "
+"admin/make-release yang mengotomatisasi penduplikasian ini."
 
 #. type: Plain text
 #: INSTALL:62
