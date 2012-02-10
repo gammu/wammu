@@ -31,6 +31,10 @@ from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 import email.Utils
 from hashlib import md5
+try:
+    from hashlib import md5
+except ImportError:
+    from md5 import new as md5
 import time
 import tempfile
 import os
