@@ -994,7 +994,7 @@ class WammuFrame(wx.Frame):
                 (_('Folder'), StrConv(v['SMS'][0]['Folder'])),
                 (_('Memory'), StrConv(v['SMS'][0]['Memory'])),
                 (_('SMSC'), Wammu.Utils.GetNumberLink([] + self.values['contact']['ME'] + self.values['contact']['SM'], v['SMS'][0]['SMSC']['Number'])),
-                (_('State'), StrConv(v['State']))]
+                (_('Status'), StrConv(v['State']))]
             if v['Name'] != '':
                 data.append((_('Name'), StrConv(v['Name'])))
             data.append((Wammu.MessageDisplay.SmsToHtml(self.cfg, v),))

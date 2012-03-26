@@ -81,7 +81,7 @@ COLUMN_INFO = {
         (
             (
                 _('Location'),
-                _('State'),
+                _('Status'),
                 _('Number'),
                 _('Date'),
                 _('Text')
