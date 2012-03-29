@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2011-12-06 10:10+0100\n"
-"PO-Revision-Date: 2012-03-29 01:56+0200\n"
+"PO-Revision-Date: 2012-03-29 07:32+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -348,7 +348,7 @@ msgstr "Nada que previsualizar, el mensaje está vacío."
 
 #: Wammu/Composer.py:640
 msgid "Message empty!"
-msgstr "Mensaje vacío"
+msgstr "¡Mensaje vacío!"
 
 #: Wammu/Composer.py:650
 #, python-format
@@ -1479,7 +1479,7 @@ msgstr ""
 
 #: Wammu/Main.py:1069
 msgid "Could not read saved message!"
-msgstr "No se pueden leer los mensajes guardados"
+msgstr "¡No se pueden leer los mensajes guardados!"
 
 #: Wammu/Main.py:1097
 msgid "Writing contact..."
@@ -1495,7 +1495,7 @@ msgstr ""
 
 #: Wammu/Main.py:1134 Wammu/Main.py:1193 Wammu/Main.py:1244
 msgid "Could not read saved entry!"
-msgstr "No se pueden leer los mensajes guardados"
+msgstr "¡No se pueden leer las entradas guardados!"
 
 #: Wammu/Main.py:1163
 msgid "Writing calendar..."
@@ -2012,7 +2012,7 @@ msgstr "No se ha encontrado ningún teléfono, ¿seguro que desea continuar?"
 
 #: Wammu/PhoneWizard.py:119
 msgid "Phone not found!"
-msgstr "No se encontró el teléfono"
+msgstr "¡No se encontró el teléfono!"
 
 #: Wammu/PhoneWizard.py:141
 msgid "Phone search"
@@ -2028,7 +2028,7 @@ msgstr "La búsqueda de teléfono aún está en curso, no puede continuar."
 
 #: Wammu/PhoneWizard.py:157 Wammu/PhoneWizard.py:173
 msgid "Searching still active!"
-msgstr "La búsqueda aún está activa"
+msgstr "¡La búsqueda aún está activa!"
 
 #: Wammu/PhoneWizard.py:162
 msgid "No phone has not been found, you can not continue."
@@ -2044,7 +2044,7 @@ msgstr "Wammu está buscando teléfono(s):"
 
 #: Wammu/PhoneWizard.py:228
 msgid "No phone has been found!"
-msgstr "No se encontró ningún teléfono"
+msgstr "¡No se encontró ningún teléfono!"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
 #, python-format
@@ -2297,7 +2297,8 @@ msgstr "Omitiendo desconocido"
 #, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
-msgstr "Al leer, la localización %d reportó un error desconocido; se omite"
+msgstr ""
+"Al leer, la localización %d reportó un error desconocido. ¡Lo omitiremos!"
 
 #: Wammu/Reader.py:141 Wammu/Reader.py:182
 msgid "Ignoring corrupted"
@@ -2307,7 +2308,7 @@ msgstr "Omitiendo datos corruptos"
 #, python-format
 msgid "While reading, entry on location %d seems to be corrupted, ignoring it!"
 msgstr ""
-"Al leer, la entrada de la localización %d parece que está corrupta; se omite"
+"Al leer, la entrada de la localización %d parece corrupta. ¡La omitiremos!"
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
@@ -2631,7 +2632,7 @@ msgstr ""
 
 #: Wammu/Settings.py:526
 msgid "No phone configured!"
-msgstr "No se ha seleccionado ningún teléfono"
+msgstr "¡No se ha configurado ningún teléfono!"
 
 #: Wammu/SettingsStorage.py:97
 msgid "I don't know"
@@ -3078,7 +3079,7 @@ msgstr "Fallo al crear el archivo %s, eliminando."
 
 #: Wammu/SMSExport.py:74 Wammu/SMSExport.py:148 Wammu/SMSXML.py:129
 msgid "Can not create file!"
-msgstr "No se puede crear el archivo"
+msgstr "¡No se puede crear el archivo!"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:137
@@ -3108,7 +3109,7 @@ msgstr ""
 
 #: Wammu/SMSExport.py:98
 msgid "Folder doesn't look like maildir!"
-msgstr "La carpeta no parece ser un buzón de correo"
+msgstr "¡La carpeta no parece ser un buzón de correo!"
 
 #: Wammu/SMSExport.py:110
 msgid "Creating of folder failed, bailing out."
@@ -3137,7 +3138,7 @@ msgstr ""
 
 #: Wammu/SMSExport.py:131
 msgid "File already exists!"
-msgstr "El archivo ya existe"
+msgstr "¡El archivo ya existe!"
 
 #: Wammu/SMSExport.py:157
 msgid "maildir"
@@ -3157,7 +3158,7 @@ msgstr ""
 
 #: Wammu/SMSExport.py:198
 msgid "Login failed!"
-msgstr "Login fallido"
+msgstr "¡Inicio de sesión fallido!"
 
 #: Wammu/SMSExport.py:202
 msgid "Listing folders on IMAP server..."
@@ -3169,7 +3170,7 @@ msgstr "Fallo al listar las carpetas del servidor, abandonando."
 
 #: Wammu/SMSExport.py:211
 msgid "Listing failed!"
-msgstr "Fallo al listar"
+msgstr "¡Fallo al listar!"
 
 #: Wammu/SMSExport.py:243
 #, python-format
@@ -3192,7 +3193,7 @@ msgstr "No fue posible seleccionar la carpeta %s en el servidor, abandonando."
 
 #: Wammu/SMSExport.py:268
 msgid "Selecting failed!"
-msgstr "Selección fallida"
+msgstr "¡Selección fallida!"
 
 #: Wammu/SMSExport.py:283
 msgid "Saving messages to IMAP"
@@ -3206,7 +3207,7 @@ msgstr ""
 
 #: Wammu/SMSExport.py:311
 msgid "Saving failed!"
-msgstr "Fallo al guardar"
+msgstr "¡Fallo al guardar!"
 
 #: Wammu/SMSExport.py:327 Wammu/SMSExport.py:329
 msgid "IMAP server"
@@ -3794,7 +3795,7 @@ msgstr "Error abriendo dispositivo"
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
 #, python-format
 msgid "You don't have permissions for %s device!"
-msgstr "No dispone de permisos de acceso al dispositivo %s"
+msgstr "¡No dispone de permisos de acceso al dispositivo %s!"
 
 #: Wammu/Utils.py:561
 #, python-format
@@ -3839,7 +3840,7 @@ msgstr "Parámetros extra no reconocidos pasados al programa"
 
 #: wammu-configure.py:90 wammu.py:156
 msgid "Using local built locales!"
-msgstr "Usando locales del sistema"
+msgstr "¡Usando locales del sistema!"
 
 #: wammu-configure.py:115
 msgid "Updating gammu configuration..."
@@ -3860,7 +3861,7 @@ msgstr "habilita la salida de depuración a stderr"
 
 #: wammu.py:90
 msgid "Wammu is not configured!"
-msgstr "Wammu no está configurado"
+msgstr "¡Wammu no está configurado!"
 
 #: wammu.py:107
 msgid "Wammu configuration:"
