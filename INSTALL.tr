@@ -1,0 +1,71 @@
+Wammu kurulumu
+==============
+
+Linux için paketler
+====================
+
+Pek çok dağıtım önceden yapılmış Wammu binarileriyle gelir, eğer
+kullanabilirseniz, kesinlikle en kolay şeydir. Ayrıca  Wammu web sitesinde
+<http://wammu.eu/download/wammu/> mevcut olan çoğu dağıtımlar için en son
+yayınlanan yapımın binari paketleri vardır.
+
+
+Kaynaklardan yapma
+==================
+
+Standart dağıt. uyg. kullanır, yani:
+
+    python setup.py build
+    sudo python setup.py install
+
+Çalıştırmak için python-gammu ve wxPython [1] (Evrensel kod etkinleştirilmiş
+yapım) kurulmuş olması ve bu programı kurmanız gerekir. Eğer Bluetooth
+cihazları taramak için destek istiyorsanız, PyBluez'e [2] ihtiyacınız
+var. Gelen olayların bildirimleri için dbus-python'a [3] ihtiyacınız var.
+
+Windows için ayrıca Pywin32 [4] kurmak zorundasınız.
+
+Eğer herhangi bir sebep için yapım zamanında bağımlı olan kontrolüne uymak
+istiyorsanız, --skip-deps seçeneğini kullanabilirsiniz.
+
+[1]: http://wxpython.org/
+
+[2]: http://code.google.com/p/pybluez/
+
+[3]: http://www.freedesktop.org/wiki/Software/DBusBindings
+
+[4]: https://sourceforge.net/projects/pywin32/
+
+
+Linux'ta Windows için çapraz derleme
+======================================
+
+Tüm kurulu bağımlı olanlar ile Wine komutuna ihtiyacınız var (yukarıda
+alacağınız bölüme bakın).
+
+Python için wammu için kurma programı yapmak kolaydır:
+
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
+Ancak bu yolu izleyecek kullanıcıların aynı zamanda tüm bağımlı olanları
+kurması gerekir. Bu py2exe [5] kullanılarak çözülmelidir:
+
+    wine c:\\python25\\python setup.py build --skip-deps py2exe
+
+Ama bunun dışında, ufacık elle ayarlama yapmanız gerekir. Wine içinde
+py2exe'yi çalışır hale getirmek için PE Araçlarını ( Wine'de [w1] hata
+raporunda anlatılmıştır) kullanarak binarisini düzeltmeniz ve dist dizininde
+(wxPython'dan kütüphaneler ve python25.dll) eksik olan bazı ilave
+kütüphaneleri kopyalamanız gerekir. Kopyalamayı otomatikleştiren
+admin/make-release betiğine bakın.
+
+Sonra Wammu için kurulum programı yapmak için InnoSetup[6]
+kullanabilirsiniz:
+
+    wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+
+[5]: http://www.py2exe.org/
+
+[6]: http://www.jrsoftware.org/isinfo.php
+
+[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591
