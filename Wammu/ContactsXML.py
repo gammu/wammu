@@ -51,11 +51,9 @@ def ContactToXML(cfg, folder, contact):
 
 	contactxml = "    <contact>\n"
 
-	if contact['Date'] is not None:
-
-		contactxml += "        <birthday>"
-		contactxml += contact['Date'].strftime("%d.%m.%Y")
-		contactxml += "</birthday>\n"
+	contactxml += "        <name>"
+	contactxml += contact['Name'].encode('utf-8')
+	contactxml += "</name>\n"
 
 	for i in contact['Entries']:
 		if i['Type'] == 'Text_Zip':
@@ -86,6 +84,26 @@ def ContactToXML(cfg, folder, contact):
 				contactxml += "        <email>"
 				contactxml += i['Value'].encode('utf-8')
 				contactxml += "</email>\n"
+		elif i['Type'] == 'Number_Mobile':
+			contactxml += "        <mobile>"
+			contactxml += i['Value'].encode('utf-8')
+			contactxml += "</mobile>\n"
+		elif i['Type'] == 'Number_Work':
+			contactxml += "        <work>"
+			contactxml += i['Value'].encode('utf-8')
+			contactxml += "</work>\n"
+		elif i['Type'] == 'Number_Fax':
+			contactxml += "        <fax>"
+			contactxml += i['Value'].encode('utf-8')
+			contactxml += "</fax>\n"
+		elif i['Type'] == 'Number_Home':
+			contactxml += "        <home>"
+			contactxml += i['Value'].encode('utf-8')
+			contactxml += "</home>\n"
+		elif i['Type'][:7] == 'Number_':
+			contactxml += "        <phone>"
+			contactxml += i['Value'].encode('utf-8')
+			contactxml += "</phone>\n"
 
 	addr_full = addr_zip
 	if (addr_street != ''):
@@ -109,13 +127,11 @@ def ContactToXML(cfg, folder, contact):
 		contactxml += addr_full.encode('utf-8')
 		contactxml += "</address>\n"
 
-	contactxml += "        <telephone>"
-	contactxml += contact['Number'].encode('utf-8')
-	contactxml += "</telephone>\n"
+	if contact['Date'] is not None:
 
-	contactxml += "        <contact>"
-	contactxml += contact['Name'].encode('utf-8')
-	contactxml += "</contact>\n"
+		contactxml += "        <birthday>"
+		contactxml += contact['Date'].strftime("%d.%m.%Y")
+		contactxml += "</birthday>\n"
 
 	contactxml += "        <folder>"
 	contactxml += folder.encode('utf-8')
