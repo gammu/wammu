@@ -315,6 +315,8 @@ class WammuFrame(wx.Frame):
         menu3.Append(340, _('&Todos'), _('Retrieve todos.'))
         menu3.AppendSeparator()
         menu3.Append(350, _('Calenda&r'), _('Retrieve calendar events.'))
+        menu3.AppendSeparator()
+        menu3.Append(399, _('A&ll'), _('Retrieve everything above.'))
         # Add menu to the menu bar
         self.menuBar.Append(menu3, _('&Retrieve'))
 
@@ -377,6 +379,7 @@ class WammuFrame(wx.Frame):
         wx.EVT_MENU(self, 330, self.ShowMessages)
         wx.EVT_MENU(self, 340, self.ShowTodos)
         wx.EVT_MENU(self, 350, self.ShowCalendar)
+        wx.EVT_MENU(self, 399, self.GetAll)
 
         wx.EVT_MENU(self, 401, self.NewContact)
         wx.EVT_MENU(self, 402, self.NewCalendar)
@@ -781,6 +784,8 @@ class WammuFrame(wx.Frame):
         mb.Enable(340, enable);
 
         mb.Enable(350, enable);
+
+        mb.Enable(399, enable);
 
         mb.Enable(401, enable);
         mb.Enable(402, enable);
@@ -2009,6 +2014,59 @@ class WammuFrame(wx.Frame):
         Wammu.Calendar.GetCalendar(self, self.sm).start()
         self.nextfun = self.ActivateView
         self.nextarg = ('calendar', '  ')
+
+    #
+    # Get everything
+    #
+
+    def GetAll(self, event):
+        self.ShowProgress(_('Reading phone information'))
+        Wammu.Info.GetInfo(self, self.sm).start()
+        self.nextfun = self.GetAll2
+        self.nextarg = ()
+
+    def GetAll2(self):
+        self.GetContactsType('SM')
+        self.nextfun = self.GetAll3
+        self.nextarg = ()
+
+    def GetAll3(self):
+        self.GetContactsType('ME')
+        self.nextfun = self.GetAll4
+        self.nextarg = ()
+
+    def GetAll4(self):
+        self.GetCallsType('MC')
+        self.nextfun = self.GetAll5
+        self.nextarg = ()
+
+    def GetAll5(self):
+        self.GetCallsType('DC')
+        self.nextfun = self.GetAll6
+        self.nextarg = ()
+
+    def GetAll6(self):
+        self.GetCallsType('RC')
+        self.nextfun = self.GetAll7
+        self.nextarg = ()
+
+    def GetAll7(self):
+        self.ShowProgress(_('Reading messages'))
+        Wammu.Message.GetMessage(self, self.sm).start()
+        self.nextfun = self.GetAll8
+        self.nextarg = ()
+
+    def GetAll8(self):
+        self.ShowProgress(_('Reading todos'))
+        Wammu.Todo.GetTodo(self, self.sm).start()
+        self.nextfun = self.GetAll9
+        self.nextarg = ()
+
+    def GetAll9(self):
+        self.ShowProgress(_('Reading calendar'))
+        Wammu.Calendar.GetCalendar(self, self.sm).start()
+        self.nextfun = self.ActivateView
+        self.nextarg = ('info', '  ')
 
     #
     # Time
