@@ -19,7 +19,7 @@ fi
 
 for loc in $LOCS ; do
     cd locale/$loc
-    msgmerge -U -C ../../../gammu/locale/$loc/manual.po -C ../../../gammu/locale/$loc/docs.po -C wammu.po -C ../../../gammu/locale/$loc/gammu.po -C ../../../gammu/locale/$loc/libgammu.po docs.po ../docs.pot
+    msgmerge -U -C ../../../gammu/locale/$loc/docs.po -C wammu.po -C ../../../gammu/locale/$loc/gammu.po -C ../../../gammu/locale/$loc/libgammu.po docs.po ../docs.pot
     cd ../..
 done
 
@@ -42,6 +42,5 @@ for loc in $LOCS ; do
         -C ../gammu/locale/$loc/gammu.po \
         -C ../gammu/locale/$loc/libgammu.po \
         -C ../gammu/locale/$loc/docs.po \
-        -C ../gammu/locale/$loc/manual.po \
         -U locale/$loc/wammu.po locale/wammu.pot
 done
