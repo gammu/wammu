@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2011-12-06 10:10+0100\n"
-"PO-Revision-Date: 2012-03-16 15:54+0200\n"
+"PO-Revision-Date: 2012-04-09 11:13+0200\n"
 "Last-Translator: Bartosz Feński <fenio@debian.org>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.7\n"
+"X-Generator: Weblate 0.8\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -227,11 +227,11 @@ msgstr[2] "%d znaków"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
-msgstr "Wybierz predefiniowaną animację"
+msgstr "Wybierz predefiniowaną animację:"
 
 #: Wammu/Composer.py:297
 msgid "Select predefined sound:"
-msgstr "Wybierz predefiniowany dźwięk"
+msgstr "Wybierz predefiniowany dźwięk:"
 
 #: Wammu/Composer.py:313
 msgid "Predefined animation"
@@ -522,7 +522,7 @@ msgstr "Dostępne kontakty:"
 
 #: Wammu/EditContactList.py:47
 msgid "Current recipients:"
-msgstr "Bieżący odbiorcy"
+msgstr "Bieżący odbiorcy:"
 
 #: Wammu/EditContactList.py:91
 msgid "Contact list"
@@ -576,7 +576,7 @@ msgstr "Edytowanie %(name)s %(location)s"
 
 #: Wammu/Editor.py:252
 msgid "Location (0 = auto):"
-msgstr "Lokalizacja (0 = auto)"
+msgstr "Lokalizacja (0 = auto):"
 
 #: Wammu/Editor.py:281
 msgid "Add one more field."
@@ -705,7 +705,7 @@ msgstr "Utwórz nową konfigurację"
 #: Wammu/GammuSettings.py:152
 #, python-format
 msgid "%(name)s (position %(position)d)"
-msgstr "%(name)s (position %(position)d)"
+msgstr "%(name)s (pozycja %(position)d)"
 
 #: Wammu/GammuSettings.py:166
 msgid "Select which configration you want to modify."
@@ -1166,7 +1166,7 @@ msgstr "Zapisz obecnie pobrane wiadomości do kopii zapasowej."
 
 #: Wammu/Main.py:332
 msgid "&Import to phone"
-msgstr "&Importuj do telefonu."
+msgstr "&Importuj do telefonu"
 
 # Grammar and spelling correction
 #: Wammu/Main.py:332
@@ -2123,7 +2123,7 @@ msgstr "Aparat Telefoniczny"
 
 #: Wammu/PhoneWizard.py:317
 msgid "Please enter device where phone is accessible"
-msgstr "Proszę wskazać urządzenie pod którym udostępniono telefon."
+msgstr "Proszę wskazać urządzenie pod którym udostępniono telefon"
 
 #: Wammu/PhoneWizard.py:344 Wammu/PhoneWizard.py:348 Wammu/PhoneWizard.py:349
 msgid "Driver to use"
@@ -2599,7 +2599,7 @@ msgstr ""
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
 msgstr ""
-"Maksymalna ilość pustych pól w przypadku zgadywania całkowitej ich ilości."
+"Maksymalna ilość pustych pól w przypadku zgadywania całkowitej ich ilości"
 
 #: Wammu/Settings.py:423
 msgid ""
@@ -2611,7 +2611,7 @@ msgstr ""
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
 msgstr ""
-"Maksymalna ilość pustych pól w przypadku, gdy ich całkowita ilość jest znana."
+"Maksymalna ilość pustych pól w przypadku, gdy ich całkowita ilość jest znana"
 
 #: Wammu/Settings.py:437
 msgid "Gammu"
@@ -3242,14 +3242,12 @@ msgid "IMAP account"
 msgstr "Konto IMAP"
 
 #: Wammu/SMSExport.py:422
-#, fuzzy
 msgid "IMAP Settings"
-msgstr "Ustawienia"
+msgstr "Ustawienia IMAP"
 
 #: Wammu/SMSExport.py:424
-#, fuzzy
 msgid "Connection Details"
-msgstr "Test połączenia"
+msgstr "Szczegóły połączenia"
 
 #: Wammu/SMSExport.py:425
 msgid "Preferences"
@@ -3260,18 +3258,16 @@ msgid "Message State Selection"
 msgstr ""
 
 #: Wammu/SMSExport.py:427
-#, fuzzy
 msgid "From Address"
-msgstr "Dodaję \"%s\""
+msgstr "Z adresu"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
 msgstr ""
 
 #: Wammu/SMSExport.py:431
-#, fuzzy
 msgid "Port"
-msgstr "Priorytet"
+msgstr "Port"
 
 #: Wammu/SMSExport.py:433
 msgid "Login"
@@ -3286,9 +3282,8 @@ msgid "Remember password (insecure)"
 msgstr ""
 
 #: Wammu/SMSExport.py:438
-#, fuzzy
 msgid "Use SSL"
-msgstr "Użyć SSL?"
+msgstr "Użyj SSL"
 
 #: Wammu/SMSExport.py:439
 msgid "Only back-up new messages"
@@ -3512,34 +3507,29 @@ msgid "Entry created!"
 msgstr "Wpis utworzony!"
 
 #: Wammu/TalkbackDialog.py:299
-#, fuzzy
 msgid "Phone model"
-msgstr "Model telefonu:"
+msgstr "Model telefonu"
 
 #: Wammu/TalkbackDialog.py:301
-#, fuzzy
 msgid "Model in gammu configuration"
-msgstr "Model w konfiguracji gammu:"
+msgstr "Model w konfiguracji gammu"
 
 #: Wammu/TalkbackDialog.py:305
-#, fuzzy
 msgid "Note"
-msgstr "Komentarz:"
+msgstr "Komentarz"
 
 #: Wammu/TalkbackDialog.py:307
-#, fuzzy
 msgid "Your name"
-msgstr "Twoje imię:"
+msgstr "Twoje imię"
 
 #: Wammu/TalkbackDialog.py:309
-#, fuzzy
 msgid "Your email"
-msgstr "Twój email:"
+msgstr "Twój email"
 
 #: Wammu/TalkbackDialog.py:315
-#, fuzzy, python-format
+#, python-format
 msgid "Field: %s"
-msgstr "Nazwa pliku: %s"
+msgstr "Pole: %s"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""
@@ -3583,7 +3573,7 @@ msgstr "Czytanie i wykonywanie połączeń"
 
 #: Wammu/TalkbackFeaturesDialog.py:48
 msgid "Logos"
-msgstr "Logos"
+msgstr "Logo"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
 msgid "Ringtones"
