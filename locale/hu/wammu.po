@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2011-12-06 10:10+0100\n"
+"POT-Creation-Date: 2012-04-10 11:43+0200\n"
 "PO-Revision-Date: 2011-11-16 00:02+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -76,7 +76,7 @@ msgid "Failed to set exception handler."
 msgstr "Nem sikerült a kivétel kezelő beállítása."
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:999 Wammu/Settings.py:168
+#: Wammu/Main.py:1008 Wammu/Settings.py:168
 msgid "Name"
 msgstr "Név"
 
@@ -85,36 +85,36 @@ msgid "Value"
 msgstr "Érték"
 
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:979
-#: Wammu/Main.py:993 Wammu/Main.py:1003 Wammu/Main.py:1011
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:988
+#: Wammu/Main.py:1002 Wammu/Main.py:1012 Wammu/Main.py:1020
 msgid "Location"
 msgstr "Hely"
 
-#: Wammu/Browser.py:52 Wammu/Main.py:995
+#: Wammu/Browser.py:52 Wammu/Main.py:1004
 msgid "Memory"
 msgstr "Memória"
 
 #: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
-#: Wammu/Main.py:991
+#: Wammu/Main.py:1000
 msgid "Number"
 msgstr "Szám"
 
-#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:1005
-#: Wammu/Main.py:1012
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:1014
+#: Wammu/Main.py:1021
 msgid "Type"
 msgstr "Típus"
 
 #: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
-#: Wammu/Main.py:992
+#: Wammu/Main.py:1001
 msgid "Date"
 msgstr "Dátum"
 
-#: Wammu/Browser.py:84 Wammu/Main.py:997
+#: Wammu/Browser.py:84 Wammu/Main.py:1006
 msgid "Status"
 msgstr "Állapot"
 
 #: Wammu/Browser.py:87 Wammu/Browser.py:103 Wammu/Browser.py:121
-#: Wammu/Composer.py:312 Wammu/Main.py:251
+#: Wammu/Composer.py:312 Wammu/Main.py:252
 msgid "Text"
 msgstr "Szöveg"
 
@@ -122,7 +122,7 @@ msgstr "Szöveg"
 msgid "Completed"
 msgstr "Befejezve"
 
-#: Wammu/Browser.py:102 Wammu/Editor.py:510 Wammu/Main.py:1004
+#: Wammu/Browser.py:102 Wammu/Editor.py:510 Wammu/Main.py:1013
 msgid "Priority"
 msgstr "Prioritás"
 
@@ -299,7 +299,7 @@ msgstr ""
 "Jelölje be ezt a jelölőnégyzetet, ha kézbesítési jelentést kér erről az "
 "üzenetről."
 
-#: Wammu/Composer.py:400 Wammu/Main.py:133 Wammu/SMSExport.py:441
+#: Wammu/Composer.py:400 Wammu/Main.py:134 Wammu/SMSExport.py:441
 msgid "Sent"
 msgstr "Elküldve"
 
@@ -360,6 +360,54 @@ msgstr "Az üzenet üres!"
 #, python-format
 msgid "Message will fit into %d SMSes"
 msgstr "Az üzenet %d SMS-ben küldhető el"
+
+#: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:86
+msgid "XML File"
+msgstr "XML fájl"
+
+#: Wammu/ContactsXML.py:148 Wammu/EditContactList.py:92 Wammu/Main.py:1407
+#: Wammu/Main.py:2102 Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
+msgid "All files"
+msgstr "Minden fájl"
+
+#  msgid "Select mailbox file..."
+#: Wammu/ContactsXML.py:151 Wammu/SMSXML.py:89
+msgid "Select XML file..."
+msgstr "Válassza ki az XML fájlt..."
+
+#  msgid "Saving messages to IMAP"
+#: Wammu/ContactsXML.py:164
+#, fuzzy
+msgid "Saving contacts to XML"
+msgstr "Üzenetek mentése XML-fájlba"
+
+#: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
+#: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
+#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
+#: Wammu/SMSXML.py:110 Wammu/SMSXML.py:132
+msgid "Export terminated"
+msgstr "Az exportálás megszakadt"
+
+#: Wammu/ContactsXML.py:187
+msgid "phone"
+msgstr ""
+
+#: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
+#: Wammu/SMSXML.py:128
+#, python-format
+msgid "Creating of file %s failed, bailing out."
+msgstr "A(z) %s fájlt nem lehetett létrehozni."
+
+#: Wammu/ContactsXML.py:197 Wammu/SMSExport.py:74 Wammu/SMSExport.py:148
+#: Wammu/SMSXML.py:129
+msgid "Can not create file!"
+msgstr "A fájl nem hozható létre."
+
+#: Wammu/ContactsXML.py:205
+#, fuzzy, python-format
+msgid "%(count)d contacts exported to \"%(path)s\""
+msgstr "%(count)d üzenet exportálva lett ide: „%(path)s” (%(type)s)"
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -525,11 +573,6 @@ msgstr "Címzett:"
 msgid "Contact list"
 msgstr "Névjegyzék"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1395 Wammu/Main.py:2037
-#: Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
-msgid "All files"
-msgstr "Minden fájl"
-
 #: Wammu/EditContactList.py:95
 msgid "Edit contacts list"
 msgstr "Kapcsolatok szerkesztése"
@@ -547,17 +590,17 @@ msgstr "A kiválasztott „%s” fájl nem írható."
 msgid "File can not be created!"
 msgstr "A fájl nem hozható létre!"
 
-#: Wammu/EditContactList.py:179 Wammu/Main.py:2074
+#: Wammu/EditContactList.py:179 Wammu/Main.py:2139
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr "A kiválasztott „%s” fájl nem található. Nem olvasható be adat."
 
-#: Wammu/EditContactList.py:180 Wammu/Main.py:2075
+#: Wammu/EditContactList.py:180 Wammu/Main.py:2140
 msgid "File not found!"
 msgstr "Az állomány nem található!"
 
-#: Wammu/Editor.py:214 Wammu/Editor.py:422 Wammu/Main.py:647 Wammu/Main.py:663
-#: Wammu/Main.py:669
+#: Wammu/Editor.py:214 Wammu/Editor.py:422 Wammu/Main.py:653 Wammu/Main.py:669
+#: Wammu/Main.py:675
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -583,7 +626,7 @@ msgstr "További mező hozzáadása."
 msgid "contact"
 msgstr "névjegy"
 
-#: Wammu/Editor.py:494 Wammu/Main.py:980
+#: Wammu/Editor.py:494 Wammu/Main.py:989
 msgid "Memory type"
 msgstr "Memóriatípus"
 
@@ -620,7 +663,7 @@ msgstr "Hasonló hibajelentések keresése"
 msgid "Report bug"
 msgstr "Hibajelentés készítése"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2273
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2338
 msgid "Save debug log as..."
 msgstr "Hibajelentése mentése másként..."
 
@@ -757,7 +800,7 @@ msgstr "Nincs adat"
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:146 Wammu/Main.py:996
+#: Wammu/Info.py:146 Wammu/Main.py:1005
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -785,135 +828,135 @@ msgstr "Wammu hibanapló"
 msgid "Here will appear debug messages from Gammu...\n"
 msgstr "Gammu hibakövetési információinak megjelenítése...\n"
 
-#: Wammu/Main.py:111 Wammu/Main.py:127
+#: Wammu/Main.py:112 Wammu/Main.py:128
 msgid "Phone"
 msgstr "Telefon"
 
-#: Wammu/Main.py:111
+#: Wammu/Main.py:112
 msgid "Phone Information"
 msgstr "Telefoninformáció"
 
-#: Wammu/Main.py:112
+#: Wammu/Main.py:113
 msgid "Wammu version"
 msgstr "Wammu verzió"
 
-#: Wammu/Main.py:115 Wammu/TalkbackDialog.py:313
+#: Wammu/Main.py:116 Wammu/TalkbackDialog.py:313
 msgid "Gammu version"
 msgstr "Gammu verzió"
 
-#: Wammu/Main.py:116
+#: Wammu/Main.py:117
 msgid "python-gammu version"
 msgstr "python-gammu verzió"
 
-#: Wammu/Main.py:119
+#: Wammu/Main.py:120
 msgid "Calls"
 msgstr "Hívások"
 
-#: Wammu/Main.py:119
+#: Wammu/Main.py:120
 msgid "All Calls"
 msgstr "Összes hívás"
 
-#: Wammu/Main.py:120
+#: Wammu/Main.py:121
 msgid "Received"
 msgstr "Fogadott"
 
-#: Wammu/Main.py:120
+#: Wammu/Main.py:121
 msgid "Received Calls"
 msgstr "Fogadott hívások"
 
-#: Wammu/Main.py:121
+#: Wammu/Main.py:122
 msgid "Missed"
 msgstr "Nem fogadott"
 
-#: Wammu/Main.py:121
+#: Wammu/Main.py:122
 msgid "Missed Calls"
 msgstr "Nem fogadott hívások"
 
-#: Wammu/Main.py:122
+#: Wammu/Main.py:123
 msgid "Outgoing"
 msgstr "Tárcsázott"
 
-#: Wammu/Main.py:122
+#: Wammu/Main.py:123
 msgid "Outgoing Calls"
 msgstr "Tárcsázott hívások"
 
-#: Wammu/Main.py:125
+#: Wammu/Main.py:126
 msgid "Contacts"
 msgstr "Névjegyzék"
 
-#: Wammu/Main.py:125
+#: Wammu/Main.py:126
 msgid "All Contacts"
 msgstr "Összes névjegyzék"
 
-#: Wammu/Main.py:126
+#: Wammu/Main.py:127
 msgid "SIM"
 msgstr "SIM"
 
-#: Wammu/Main.py:126
+#: Wammu/Main.py:127
 msgid "SIM Contacts"
 msgstr "Névjegyzék a SIM kártyán"
 
-#: Wammu/Main.py:127
+#: Wammu/Main.py:128
 msgid "Phone Contacts"
 msgstr "Névjegyzék a telefonban"
 
-#: Wammu/Main.py:130 Wammu/Settings.py:439
+#: Wammu/Main.py:131 Wammu/Settings.py:439
 msgid "Messages"
 msgstr "Üzenetek"
 
-#: Wammu/Main.py:130
+#: Wammu/Main.py:131
 msgid "All Messages"
 msgstr "Összes üzenet"
 
-#: Wammu/Main.py:131 Wammu/SMSExport.py:440
+#: Wammu/Main.py:132 Wammu/SMSExport.py:440
 msgid "Read"
 msgstr "Olvasott"
 
-#: Wammu/Main.py:131
+#: Wammu/Main.py:132
 msgid "Read Messages"
 msgstr "Olvasott üzenetek"
 
-#: Wammu/Main.py:132 Wammu/SMSExport.py:442
+#: Wammu/Main.py:133 Wammu/SMSExport.py:442
 msgid "Unread"
 msgstr "Nem olvasott"
 
-#: Wammu/Main.py:132
+#: Wammu/Main.py:133
 msgid "Unread Messages"
 msgstr "Nem olvasott üzenetek"
 
-#: Wammu/Main.py:133
+#: Wammu/Main.py:134
 msgid "Sent Messages"
 msgstr "Elküldött üzenetek"
 
-#: Wammu/Main.py:134 Wammu/SMSExport.py:443
+#: Wammu/Main.py:135 Wammu/SMSExport.py:443
 msgid "Unsent"
 msgstr "Küldendő"
 
-#: Wammu/Main.py:134
+#: Wammu/Main.py:135
 msgid "Unsent Messages"
 msgstr "Küldendő üzenetek"
 
-#: Wammu/Main.py:137 Wammu/TalkbackFeaturesDialog.py:45
+#: Wammu/Main.py:138 Wammu/TalkbackFeaturesDialog.py:45
 msgid "Todos"
 msgstr "Tennivalók"
 
-#: Wammu/Main.py:137
+#: Wammu/Main.py:138
 msgid "All Todo Items"
 msgstr "Minden tennivaló"
 
-#: Wammu/Main.py:140
+#: Wammu/Main.py:141
 msgid "Calendar"
 msgstr "Naptár"
 
-#: Wammu/Main.py:140
+#: Wammu/Main.py:141
 msgid "All Calendar Events"
 msgstr "Minden naptárbejegyzés"
 
-#: Wammu/Main.py:247
+#: Wammu/Main.py:248
 msgid "Search: "
 msgstr "Keresés: "
 
-#: Wammu/Main.py:249
+#: Wammu/Main.py:250
 msgid ""
 "Enter text to search for, please note that search type is selected next to "
 "this field. Matching is done over all fields."
@@ -921,354 +964,374 @@ msgstr ""
 "Adja meg a keresendő szöveget. Válassza ki a keresés típusát a következő "
 "opció kiválasztásával. A keresés az összes mezőben lezajlik."
 
-#: Wammu/Main.py:251
+#: Wammu/Main.py:252
 msgid "Regexp"
 msgstr "Reguláris kifejezés"
 
-#: Wammu/Main.py:251
+#: Wammu/Main.py:252
 msgid "Wildcard"
 msgstr "Helyettesítő karakter"
 
-#: Wammu/Main.py:252
+#: Wammu/Main.py:253
 msgid "Select search type"
 msgstr "Válasszon ki a keresés típusát"
 
-#: Wammu/Main.py:276
+#: Wammu/Main.py:277
 #, python-format
 msgid "Welcome to Wammu %s"
 msgstr "Üdvözli Önt a Wammu %s"
 
-#: Wammu/Main.py:282
+#: Wammu/Main.py:283
 msgid "&Write data"
 msgstr "&Adatok mentése"
 
-#: Wammu/Main.py:282
+#: Wammu/Main.py:283
 msgid "Write data (except messages) to file."
 msgstr "Adatok írása (az üzenetek kivételével) fájlba."
 
-#: Wammu/Main.py:283
+#: Wammu/Main.py:284
 msgid "W&rite message"
 msgstr "Ü&zenetek mentése"
 
-#: Wammu/Main.py:283
+#: Wammu/Main.py:284
 msgid "Write messages to file."
 msgstr "Üzenetek írása fájlba."
 
-#: Wammu/Main.py:284
+#: Wammu/Main.py:285
 msgid "&Read data"
 msgstr "A&datok betöltése"
 
-#: Wammu/Main.py:284
+#: Wammu/Main.py:285
 msgid "Read data (except messages) from file (does not import to the phone)."
 msgstr ""
 "Adatok olvasása (az üzenetek kivételével) fájlból (nem kerül importálásra a "
 "telefonba)."
 
-#: Wammu/Main.py:285
+#: Wammu/Main.py:286
 msgid "R&ead messages"
 msgstr "Üz&enetek betöltése"
 
-#: Wammu/Main.py:285
+#: Wammu/Main.py:286
 msgid "Read messages from file (does not import to the phone)."
 msgstr "Üzenetek olvasása fájlból (nem kerül importálásra a telefonba)."
 
-#: Wammu/Main.py:287
+#: Wammu/Main.py:288
 msgid "&Phone wizard"
 msgstr "&Telefon tündér"
 
-#: Wammu/Main.py:287
+#: Wammu/Main.py:288
 msgid "Search for phone or configure it using guided wizard."
 msgstr ""
 "Csatlakoztatott telefon keresése vagy beállítása a tündér segítségével."
 
-#: Wammu/Main.py:288
+#: Wammu/Main.py:289
 msgid "Se&ttings"
 msgstr "&Beállítások"
 
-#: Wammu/Main.py:288
+#: Wammu/Main.py:289
 msgid "Change Wammu settings."
 msgstr "Wammu beállításainak megváltoztatása."
 
-#: Wammu/Main.py:290
+#: Wammu/Main.py:291
 msgid "E&xit"
 msgstr "&Kilépés"
 
-#: Wammu/Main.py:290
+#: Wammu/Main.py:291
 msgid "Terminate Wammu."
 msgstr "Kilépés a Wammu programból."
 
-#: Wammu/Main.py:292
+#: Wammu/Main.py:293
 msgid "&Wammu"
 msgstr "&Wammu"
 
-#: Wammu/Main.py:295
+#: Wammu/Main.py:296
 msgid "&Connect"
 msgstr "Kap&csolódás"
 
-#: Wammu/Main.py:295
+#: Wammu/Main.py:296
 msgid "Connect the device."
 msgstr "Kapcsolódás az eszközhöz."
 
-#: Wammu/Main.py:296
+#: Wammu/Main.py:297
 msgid "&Disconnect"
 msgstr "Kapcsolat &bontása"
 
-#: Wammu/Main.py:296
+#: Wammu/Main.py:297
 msgid "Disconnect the device."
 msgstr "Kapcsolódott eszköz leválasztása."
 
-#: Wammu/Main.py:298
+#: Wammu/Main.py:299
 msgid "&Synchronise time"
 msgstr "&Időszinkronizáció"
 
-#: Wammu/Main.py:298
+#: Wammu/Main.py:299
 msgid "Synchronise time in phone with PC."
 msgstr "A mobiltelefon időbeállításának szinkronizálása a PC-vel."
 
-#: Wammu/Main.py:300
+#: Wammu/Main.py:301
 msgid "Send &file"
 msgstr "&Fájl küldése"
 
-#: Wammu/Main.py:300
+#: Wammu/Main.py:301
 msgid "Send file to phone."
 msgstr "Fájl küldése a telefonra."
 
-#: Wammu/Main.py:302
+#: Wammu/Main.py:303
 msgid "&Phone"
 msgstr "&Telefon"
 
-#: Wammu/Main.py:305
+#: Wammu/Main.py:306
 msgid "&Info"
 msgstr "&Információ"
 
-#: Wammu/Main.py:305
+#: Wammu/Main.py:306
 msgid "Retrieve phone information."
 msgstr "Telefon adatainak lekérése."
 
-#: Wammu/Main.py:307
+#: Wammu/Main.py:308
 msgid "Contacts (&SIM)"
 msgstr "Név"
 
-#: Wammu/Main.py:307
+#: Wammu/Main.py:308
 msgid "Retrieve contacts from SIM."
 msgstr "Névjegyzék letöltése a SIM kártyáról."
 
-#: Wammu/Main.py:308
+#: Wammu/Main.py:309
 msgid "Contacts (&phone)"
 msgstr "Névjegyzék (&Telefon)"
 
-#: Wammu/Main.py:308
+#: Wammu/Main.py:309
 msgid "Retrieve contacts from phone memory."
 msgstr "Névjegyzék letöltése a telefonmemóriából."
 
-#: Wammu/Main.py:309
+#: Wammu/Main.py:310
 msgid "&Contacts (All)"
 msgstr "&Névjegyzék (Összes)"
 
-#: Wammu/Main.py:309
+#: Wammu/Main.py:310
 msgid "Retrieve contacts from phone and SIM memory."
 msgstr "Névjegyzék letöltése a telefonból és SIM kártyáról."
 
-#: Wammu/Main.py:311
+#: Wammu/Main.py:312
 msgid "C&alls"
 msgstr "&Hívások"
 
-#: Wammu/Main.py:311
+#: Wammu/Main.py:312
 msgid "Retrieve call history."
 msgstr "Hívástörténet megjelenítése."
 
-#: Wammu/Main.py:313
+#: Wammu/Main.py:314
 msgid "&Messages"
 msgstr "Ü&zenetek"
 
-#: Wammu/Main.py:313
+#: Wammu/Main.py:314
 msgid "Retrieve messages."
 msgstr "Üzenetek megjelenítése."
 
-#: Wammu/Main.py:315
+#: Wammu/Main.py:316
 msgid "&Todos"
 msgstr "&Tennivalók"
 
-#: Wammu/Main.py:315
+#: Wammu/Main.py:316
 msgid "Retrieve todos."
 msgstr "Tennivalók megjelenítése."
 
-#: Wammu/Main.py:317
+#: Wammu/Main.py:318
 msgid "Calenda&r"
 msgstr "&Naptár"
 
-#: Wammu/Main.py:317
+#: Wammu/Main.py:318
 msgid "Retrieve calendar events."
 msgstr "Naptár megjelenítése."
 
-#: Wammu/Main.py:319
+#: Wammu/Main.py:320
+msgid "A&ll"
+msgstr ""
+
+#: Wammu/Main.py:320
+msgid "Retrieve everything above."
+msgstr ""
+
+#: Wammu/Main.py:322
 msgid "&Retrieve"
 msgstr "&Letöltés"
 
-#: Wammu/Main.py:322
+#: Wammu/Main.py:325
 msgid "&Contact"
 msgstr "&Névjegy"
 
-#: Wammu/Main.py:322
+#: Wammu/Main.py:325
 msgid "Create new contact."
 msgstr "Új névjegy létrehozása."
 
-#: Wammu/Main.py:323
+#: Wammu/Main.py:326
 msgid "Calendar &event"
 msgstr "&Naptáresemények"
 
-#: Wammu/Main.py:323
+#: Wammu/Main.py:326
 msgid "Create new calendar event."
 msgstr "Új naptárbejegyzés létrehozása."
 
-#: Wammu/Main.py:324
+#: Wammu/Main.py:327
 msgid "&Todo"
 msgstr "&Tennivaló"
 
-#: Wammu/Main.py:324
+#: Wammu/Main.py:327
 msgid "Create new todo."
 msgstr "Új tennivaló létrehozása."
 
-#: Wammu/Main.py:325
+#: Wammu/Main.py:328
 msgid "&Message"
 msgstr "&Üzenet"
 
-#: Wammu/Main.py:325
+#: Wammu/Main.py:328
 msgid "Create new message."
 msgstr "Új üzenet létrehozása."
 
-#: Wammu/Main.py:327
+#: Wammu/Main.py:330
 msgid "&Create"
 msgstr "&Létrehozás"
 
-#: Wammu/Main.py:330
+#: Wammu/Main.py:333
 msgid "&Save"
 msgstr "&Mentés"
 
-#: Wammu/Main.py:330
+#: Wammu/Main.py:333
 msgid "Save currently retrieved data (except messages) to backup."
 msgstr ""
 "Biztonsági másolat készítése az éppen letöltött adatokról (az üzenetek "
 "kivételével)."
 
-#: Wammu/Main.py:331
+#: Wammu/Main.py:334
 msgid "S&ave messages"
 msgstr "Üzenetek &mentése"
 
-#: Wammu/Main.py:331
+#: Wammu/Main.py:334
 msgid "Save currently retrieved messages to backup."
 msgstr "Biztonsági másolat készítése az éppen letöltött üzenetekről."
 
-#: Wammu/Main.py:332
+#: Wammu/Main.py:335
 msgid "&Import to phone"
 msgstr "&Importálás a telefonba"
 
-#: Wammu/Main.py:332
+#: Wammu/Main.py:335
 msgid "Import data from backup to phone."
 msgstr "Adatok biztonsági mentésének visszaállítása a telefonra."
 
-#: Wammu/Main.py:333
+#: Wammu/Main.py:336
 msgid "I&mport messages to phone"
 msgstr "Üzenetek i&mportálása"
 
-#: Wammu/Main.py:333
+#: Wammu/Main.py:336
 msgid "Import messages from backup to phone."
 msgstr "Üzenetek biztonsági mentésének visszaállítása a telefonra."
 
-#: Wammu/Main.py:335
+#: Wammu/Main.py:338
 msgid "Export messages to &emails"
 msgstr "Üzenetek exportálása &e-mailként"
 
-#: Wammu/Main.py:335
+#: Wammu/Main.py:338
 msgid "Export messages to emails in storage you choose."
 msgstr ""
 "Üzenetek exportálása e-mailként, az Ön által kiválasztott tárolóformátumban."
 
 #  msgid "Export messages to &emails"
-#: Wammu/Main.py:336
+#: Wammu/Main.py:339
 msgid "Export messages to &XML"
 msgstr "Üzenetek exportálása &XML-fájlként"
 
 #  msgid "Export messages to emails in storage you choose."
-#: Wammu/Main.py:336
+#: Wammu/Main.py:339
 msgid "Export messages to XML file you choose."
 msgstr "Üzenetek exportálása az Ön által megadott &XML-fájlba."
 
-#: Wammu/Main.py:338
+#  msgid "Export messages to &emails"
+#: Wammu/Main.py:340
+#, fuzzy
+msgid "Export &contacts to XML"
+msgstr "Üzenetek exportálása &XML-fájlként"
+
+#  msgid "Export messages to emails in storage you choose."
+#: Wammu/Main.py:340
+#, fuzzy
+msgid "Export contacts to XML file you choose."
+msgstr "Üzenetek exportálása az Ön által megadott &XML-fájlba."
+
+#: Wammu/Main.py:342
 msgid "&Backups"
 msgstr "M&entések"
 
-#: Wammu/Main.py:341
+#: Wammu/Main.py:345
 msgid "&Website"
 msgstr "&Weboldal"
 
-#: Wammu/Main.py:341
+#: Wammu/Main.py:345
 msgid "Visit Wammu website."
 msgstr "Wammu weboldalának meglátogatása."
 
-#: Wammu/Main.py:342
+#: Wammu/Main.py:346
 msgid "&Support"
 msgstr "&Támogatás"
 
-#: Wammu/Main.py:342
+#: Wammu/Main.py:346
 msgid "Visit Wammu support website."
 msgstr "Wammu támogatási weboldalának meglátogatása."
 
-#: Wammu/Main.py:343
+#: Wammu/Main.py:347
 msgid "&Report bug"
 msgstr "&Hibajelentés"
 
-#: Wammu/Main.py:343
+#: Wammu/Main.py:347
 msgid "Report bug in Wammu, please include saved debug log if possible."
 msgstr ""
 "Wammu hibák jelentése. Ha lehetséges, küldje be a hibakeresési napló "
 "tartalmát is."
 
-#: Wammu/Main.py:344
+#: Wammu/Main.py:348
 msgid "&Save debug log"
 msgstr "&Hibajelentés mentése"
 
-#: Wammu/Main.py:344
+#: Wammu/Main.py:348
 msgid "Save a copy of debug log, please include this in bug report."
 msgstr "Hibajelentés mentése, amelyet célszerű a hibajelentéshez mellékelni."
 
-#: Wammu/Main.py:346
+#: Wammu/Main.py:350
 msgid "&Gammu Phone Database"
 msgstr "&Gammu telefon-adatbázis"
 
-#: Wammu/Main.py:346
+#: Wammu/Main.py:350
 msgid "Visit database of user experiences with phones."
 msgstr "Tekintse meg a felhasználók telefonokról szerzett tapasztalatait."
 
-#: Wammu/Main.py:347
+#: Wammu/Main.py:351
 msgid "&Talkback"
 msgstr "&Visszajelzés"
 
-#: Wammu/Main.py:347
+#: Wammu/Main.py:351
 msgid "Report your experiences into Gammu Phone Database."
 msgstr "Tapasztalatok visszajelzése a Gammu Telefon-adatbázisba."
 
-#: Wammu/Main.py:349
+#: Wammu/Main.py:353
 msgid "&Donate"
 msgstr "&Támogatás"
 
-#: Wammu/Main.py:349
+#: Wammu/Main.py:353
 msgid "Donate to Wammu project."
 msgstr "A Wammu projekt támogatása."
 
-#: Wammu/Main.py:351
+#: Wammu/Main.py:355
 msgid "&About"
 msgstr "&Névjegy"
 
-#: Wammu/Main.py:351
+#: Wammu/Main.py:355
 msgid "Information about program."
 msgstr "Információk a Wammu programról."
 
-#: Wammu/Main.py:353
+#: Wammu/Main.py:357
 msgid "&Help"
 msgstr "&Súgó"
 
-#: Wammu/Main.py:422
+#: Wammu/Main.py:428
 #, python-format
 msgid ""
 "Debug log created in temporary file <%s>. In case of crash please include it "
@@ -1277,13 +1340,13 @@ msgstr ""
 "A hibajelentés létrejött a(z) %s átmeneti fájlba. Összeomlás esetén kérjük "
 "ezt is csatolja a hibajelentéshez!"
 
-#: Wammu/Main.py:452 Wammu/Main.py:459 Wammu/Main.py:465
+#: Wammu/Main.py:458 Wammu/Main.py:465 Wammu/Main.py:471
 msgid "Wammu could not import gammu module, program will be terminated."
 msgstr ""
 "A Wammu program nem képes a gammu modult betölteni, ezért a program futása "
 "megszakad."
 
-#: Wammu/Main.py:453
+#: Wammu/Main.py:459
 #, python-format
 msgid ""
 "The import failed because python-gammu is compiled with different version of "
@@ -1294,7 +1357,7 @@ msgstr ""
 "Gammu programtól eltérő verzióval készült. (A fordítás verziója: "
 "%(compile)s, a jelenleg használt verzió: %(runtime)s)."
 
-#: Wammu/Main.py:454
+#: Wammu/Main.py:460
 msgid ""
 "You can fix it by recompiling python-gammu against gammu library you are "
 "currently using."
@@ -1302,11 +1365,11 @@ msgstr ""
 "Ezt a hibát korrigálhatja, ha a python-gammu programkönyvtárat újrafordítja "
 "az Ön által jelenleg használt gammu függvénykönyvtárral."
 
-#: Wammu/Main.py:455 Wammu/Main.py:461 Wammu/Main.py:467
+#: Wammu/Main.py:461 Wammu/Main.py:467 Wammu/Main.py:473
 msgid "Gammu module not working!"
 msgstr "A Gammu modul nem üzemképes!"
 
-#: Wammu/Main.py:460
+#: Wammu/Main.py:466
 msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
@@ -1314,25 +1377,25 @@ msgstr ""
 "A Gammu modul nem található. Valószínűleg nincsen megfelelően telepített "
 "python-gammu modulja a jelenleg használt Python verzióhoz."
 
-#: Wammu/Main.py:466
+#: Wammu/Main.py:472
 msgid "The import failed with following error:"
 msgstr "Az importálás megszakadt a következő hiba miatt:"
 
-#: Wammu/Main.py:480
+#: Wammu/Main.py:486
 msgid "Wammu configuration was not found and Gammu settings couldn't be read."
 msgstr ""
 "A Wammu konfigurációja nem található meg, ezért a Gammu beállítások nem "
 "olvashatóak."
 
-#: Wammu/Main.py:481
+#: Wammu/Main.py:487
 msgid "Do you want to configure phone connection now?"
 msgstr "Be kívánja a állítani a telefonkapcsolatot?"
 
-#: Wammu/Main.py:482
+#: Wammu/Main.py:488
 msgid "Configuration not found"
 msgstr "A konfiguráció nem található"
 
-#: Wammu/Main.py:504
+#: Wammu/Main.py:510
 msgid ""
 "You are using Wammu for more than a month. We would like to hear from you "
 "how your phone is supported. Do you want to participate in this survey?"
@@ -1341,73 +1404,73 @@ msgstr ""
 "megtudni, hogy az Ön telefonját mennyire támogatja rendszerünk. Szeretne "
 "részt venni ebben a felmérésben?"
 
-#: Wammu/Main.py:505
+#: Wammu/Main.py:511
 msgid "Press Cancel to never show this question again."
 msgstr "A kérdés végleges elrejtéséhez kattintson a Mégse gombra."
 
-#: Wammu/Main.py:506
+#: Wammu/Main.py:512
 msgid "Thanks for using Wammu"
 msgstr "Köszönjük, hogy a Wammu programot használja"
 
-#: Wammu/Main.py:531
+#: Wammu/Main.py:537
 msgid "Migrated from older Wammu"
 msgstr "Áttérés egy megelőző Wammu verzióról"
 
-#: Wammu/Main.py:612
+#: Wammu/Main.py:618
 msgid "Connect"
 msgstr "Kacsolódás"
 
-#: Wammu/Main.py:613
+#: Wammu/Main.py:619
 msgid "Disconnect"
 msgstr "Leválasztás"
 
-#: Wammu/Main.py:615 Wammu/Settings.py:38
+#: Wammu/Main.py:621 Wammu/Settings.py:38
 msgid "Settings"
 msgstr "Beállítások"
 
-#: Wammu/Main.py:617
+#: Wammu/Main.py:623
 msgid "Restore"
 msgstr "Visszaállítás"
 
-#: Wammu/Main.py:618
+#: Wammu/Main.py:624
 msgid "Minimize"
 msgstr "Minimalizálás"
 
-#: Wammu/Main.py:620
+#: Wammu/Main.py:626
 msgid "Close"
 msgstr "Bezárás"
 
-#: Wammu/Main.py:649
+#: Wammu/Main.py:655
 msgid "battery"
 msgstr "akkumulátor"
 
-#: Wammu/Main.py:651
+#: Wammu/Main.py:657
 msgid "AC"
 msgstr "Váltóáramról"
 
-#: Wammu/Main.py:653
+#: Wammu/Main.py:659
 msgid "no battery"
 msgstr "nincs akkumulátor"
 
-#: Wammu/Main.py:655
+#: Wammu/Main.py:661
 msgid "fault"
 msgstr "hiba"
 
-#: Wammu/Main.py:657
+#: Wammu/Main.py:663
 msgid "charging"
 msgstr "töltés"
 
-#: Wammu/Main.py:659
+#: Wammu/Main.py:665
 msgid "charged"
 msgstr "feltöltve"
 
 #. l10n: Formatting of signal percentage, usually you can keep this as it is.
-#: Wammu/Main.py:672
+#: Wammu/Main.py:678
 #, python-format
 msgid "%d %%"
 msgstr "%d %%"
 
-#: Wammu/Main.py:674
+#: Wammu/Main.py:680
 #, python-format
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
@@ -1416,15 +1479,15 @@ msgstr ""
 "Akkumulátor: %(battery_percent)d %%, (%(power_source)s), Térerő: "
 "%(signal_level)s, Idő: %(time)s"
 
-#: Wammu/Main.py:757
+#: Wammu/Main.py:763
 msgid "Connected"
 msgstr "Kapcsolódva"
 
-#: Wammu/Main.py:761
+#: Wammu/Main.py:767
 msgid "Disconnected"
 msgstr "Leválasztva"
 
-#: Wammu/Main.py:860
+#: Wammu/Main.py:869
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
@@ -1432,51 +1495,51 @@ msgstr ""
 "Ön megváltoztatta a telefonkapcsolat beállításait. Ezek a változtatások a "
 "következő kapcsolódás során jutnak majd érvényre."
 
-#: Wammu/Main.py:861
+#: Wammu/Main.py:870
 msgid "Notice"
 msgstr "Megjegyzés"
 
-#: Wammu/Main.py:894
+#: Wammu/Main.py:903
 msgid "Looks like normal program termination, deleting log file."
 msgstr "Leállás szabályos kilépés miatt, ezért a naplófájl törlésre kerül."
 
-#: Wammu/Main.py:900
+#: Wammu/Main.py:909
 msgid "Failed to unlink temporary log file, please delete it yourself."
 msgstr ""
 "Az átmeneti naplófájl nem törölhető. Kérem távolítsa el a fájlt kézzel."
 
-#: Wammu/Main.py:903
+#: Wammu/Main.py:912
 #, python-format
 msgid "Filename: %s"
 msgstr "Fájlnév: %s"
 
-#: Wammu/Main.py:918 Wammu/Thread.py:56
+#: Wammu/Main.py:927 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
 msgstr "Hiba lépett fel a mobiltelefonnal történő kommunikáció során"
 
-#: Wammu/Main.py:919 Wammu/Main.py:1433 Wammu/Main.py:1692 Wammu/Main.py:1700
+#: Wammu/Main.py:928 Wammu/Main.py:1445 Wammu/Main.py:1704 Wammu/Main.py:1712
 #: Wammu/Thread.py:58
 msgid "Error Occured"
 msgstr "Hiba lépett fel"
 
-#: Wammu/Main.py:926
+#: Wammu/Main.py:935
 msgid "Operation in progress"
 msgstr "Művelet végrehajtása folyamatban"
 
-#: Wammu/Main.py:985
+#: Wammu/Main.py:994
 #, python-format
 msgid "voice tag %x"
 msgstr "hangjelölő %x"
 
-#: Wammu/Main.py:994
+#: Wammu/Main.py:1003
 msgid "Folder"
 msgstr "Mappa"
 
-#: Wammu/Main.py:1039
+#: Wammu/Main.py:1048
 msgid "Writing message(s)..."
 msgstr "Üzenetek írása..."
 
-#: Wammu/Main.py:1069
+#: Wammu/Main.py:1078
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1487,15 +1550,15 @@ msgstr ""
 "hibakeresési naplót. Az üzenetek megjelenítéséhez újra be kell olvasni az "
 "összes üzenetet."
 
-#: Wammu/Main.py:1069
+#: Wammu/Main.py:1078
 msgid "Could not read saved message!"
 msgstr "Az elmentett üzenet nem olvasható!"
 
-#: Wammu/Main.py:1097
+#: Wammu/Main.py:1106
 msgid "Writing contact..."
 msgstr "Névjegyzék írása..."
 
-#: Wammu/Main.py:1134 Wammu/Main.py:1193 Wammu/Main.py:1244
+#: Wammu/Main.py:1143 Wammu/Main.py:1202 Wammu/Main.py:1253
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
@@ -1503,99 +1566,99 @@ msgstr ""
 "Egy elmentett bejegyzés nem olvasható. Vélhetően megváltozott a bejegyzés a "
 "telefonba mentetthez képest, mialatt az összes elem újra be lett olvasva."
 
-#: Wammu/Main.py:1134 Wammu/Main.py:1193 Wammu/Main.py:1244
+#: Wammu/Main.py:1143 Wammu/Main.py:1202 Wammu/Main.py:1253
 msgid "Could not read saved entry!"
 msgstr "Az elmentett bejegyzés nem olvasható!"
 
-#: Wammu/Main.py:1163
+#: Wammu/Main.py:1172
 msgid "Writing calendar..."
 msgstr "Naptár írása..."
 
-#: Wammu/Main.py:1215
+#: Wammu/Main.py:1224
 msgid "Writing todo..."
 msgstr "Tennivalók írása..."
 
-#: Wammu/Main.py:1263 Wammu/Main.py:1315 Wammu/Main.py:1335 Wammu/Main.py:1770
+#: Wammu/Main.py:1272 Wammu/Main.py:1324 Wammu/Main.py:1344 Wammu/Main.py:1782
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr ""
 "Ezen az adaton nem dolgozhat, kérjük töltse le azt először a telefonról"
 
-#: Wammu/Main.py:1263 Wammu/Main.py:1315 Wammu/Main.py:1335 Wammu/Main.py:1770
+#: Wammu/Main.py:1272 Wammu/Main.py:1324 Wammu/Main.py:1344 Wammu/Main.py:1782
 msgid "Data not up to date"
 msgstr "Az adatok elavultak"
 
-#: Wammu/Main.py:1370
+#: Wammu/Main.py:1382
 msgid "Gammu messages backup"
 msgstr "Gammu üzenetmentő"
 
-#: Wammu/Main.py:1374
+#: Wammu/Main.py:1386
 msgid "All backup formats"
 msgstr "Összes mentésformátum"
 
-#: Wammu/Main.py:1376
+#: Wammu/Main.py:1388
 msgid "Gammu backup [all data]"
 msgstr "Gammu mentés [összes adat]"
 
-#: Wammu/Main.py:1380
+#: Wammu/Main.py:1392
 msgid "Nokia backup [contacts]"
 msgstr "Nokia mentés [névjegyzék]"
 
-#: Wammu/Main.py:1383
+#: Wammu/Main.py:1395
 msgid "vCard [contacts]"
 msgstr "vCard [névjegyzék]"
 
-#: Wammu/Main.py:1386
+#: Wammu/Main.py:1398
 msgid "LDIF [contacts]"
 msgstr "LDIF [névjegyzék]"
 
-#: Wammu/Main.py:1389
+#: Wammu/Main.py:1401
 msgid "vCalendar [todo,calendar]"
 msgstr "vCalendar [tennivalók, naptár]"
 
-#: Wammu/Main.py:1392
+#: Wammu/Main.py:1404
 msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [tennivalók, naptár]"
 
-#: Wammu/Main.py:1400
+#: Wammu/Main.py:1412
 msgid "Save data as..."
 msgstr "Adatok mentése másként..."
 
-#: Wammu/Main.py:1402
+#: Wammu/Main.py:1414
 msgid "Read data"
 msgstr "Adatok olvasása"
 
-#: Wammu/Main.py:1405
+#: Wammu/Main.py:1417
 msgid "Save backup as..."
 msgstr "Biztonsági mentés..."
 
-#: Wammu/Main.py:1407
+#: Wammu/Main.py:1419
 msgid "Import backup"
 msgstr "Mentés visszaállítása"
 
-#: Wammu/Main.py:1432
+#: Wammu/Main.py:1444
 msgid "Error while reading backup"
 msgstr "Hiba lépett fel a mentés olvasása közben"
 
-#: Wammu/Main.py:1456 Wammu/Main.py:1472
+#: Wammu/Main.py:1468 Wammu/Main.py:1484
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "Adatok beolvasva a(z) „%s” fájlból"
 
-#: Wammu/Main.py:1482
+#: Wammu/Main.py:1494
 #, python-format
 msgid "%d messages"
 msgstr "%d üzenet"
 
-#: Wammu/Main.py:1486 Wammu/Main.py:1562
+#: Wammu/Main.py:1498 Wammu/Main.py:1574
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "Nincs visszaállítandó mentés a(z) „%s” fájlban"
 
-#: Wammu/Main.py:1487 Wammu/Main.py:1563
+#: Wammu/Main.py:1499 Wammu/Main.py:1575
 msgid "No data to import"
 msgstr "Nincsen visszaállítható mentés"
 
-#: Wammu/Main.py:1491 Wammu/Main.py:1577
+#: Wammu/Main.py:1503 Wammu/Main.py:1589
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
@@ -1603,24 +1666,24 @@ msgstr ""
 "A következő adatok találhatóak meg a mentésben. Válassza ki, hogy mely "
 "elemeket szeretné visszaállítani a telefonra."
 
-#: Wammu/Main.py:1491 Wammu/Main.py:1577
+#: Wammu/Main.py:1503 Wammu/Main.py:1589
 msgid "Select what to import"
 msgstr "Válassza ki a mentésből visszaállítandó elemeket"
 
-#: Wammu/Main.py:1502 Wammu/Main.py:1588
+#: Wammu/Main.py:1514 Wammu/Main.py:1600
 msgid "Importing data..."
 msgstr "Mentés visszaállítása..."
 
-#: Wammu/Main.py:1529 Wammu/Main.py:1642
+#: Wammu/Main.py:1541 Wammu/Main.py:1654
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "Mentés visszaállítva a(z) „%s” fájlból"
 
-#: Wammu/Main.py:1530 Wammu/Main.py:1643
+#: Wammu/Main.py:1542 Wammu/Main.py:1655
 msgid "Backup imported"
 msgstr "Mentés visszaállítva"
 
-#: Wammu/Main.py:1537 Wammu/Main.py:1650
+#: Wammu/Main.py:1549 Wammu/Main.py:1662
 #, python-format
 msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
@@ -1630,65 +1693,65 @@ msgstr ""
 "egyes részei visszakerültek a telefonra, más részei viszont nem."
 
 #  msgid "Backup imported"
-#: Wammu/Main.py:1538 Wammu/Main.py:1651
+#: Wammu/Main.py:1550 Wammu/Main.py:1663
 msgid "Backup import failed"
 msgstr "A mentés visszaállítása nem sikerült"
 
-#: Wammu/Main.py:1549
+#: Wammu/Main.py:1561
 #, python-format
 msgid "%d phone contact entries"
 msgstr "%d névjegy a telefonban"
 
-#: Wammu/Main.py:1552
+#: Wammu/Main.py:1564
 #, python-format
 msgid "%d SIM contact entries"
 msgstr "%d névjegy a SIM kártyán"
 
-#: Wammu/Main.py:1555
+#: Wammu/Main.py:1567
 #, python-format
 msgid "%d to do entries"
 msgstr "%d tennivaló bejegyzés"
 
-#: Wammu/Main.py:1558
+#: Wammu/Main.py:1570
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d naptárbejegyzés"
 
-#: Wammu/Main.py:1569
+#: Wammu/Main.py:1581
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "Biztonsági mentés elkészült a következő telefonról: %s"
 
-#: Wammu/Main.py:1571
+#: Wammu/Main.py:1583
 #, python-format
 msgid ", serial number %s"
 msgstr ", sorozatszám: %s"
 
-#: Wammu/Main.py:1573
+#: Wammu/Main.py:1585
 #, python-format
 msgid "Backup was created by %s"
 msgstr "Biztonsági mentést készítette: %s"
 
-#: Wammu/Main.py:1575
+#: Wammu/Main.py:1587
 #, python-format
 msgid "Backup saved on %s"
 msgstr "Biztonsági mentés dátuma: %s"
 
-#: Wammu/Main.py:1685
+#: Wammu/Main.py:1697
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "Biztonsági mentés fájlja: „%s”"
 
-#: Wammu/Main.py:1687
+#: Wammu/Main.py:1699
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "Adatmentés fájlja: „%s”"
 
-#: Wammu/Main.py:1691
+#: Wammu/Main.py:1703
 msgid "Error while saving backup"
 msgstr "Hiba lépett fel a bitzonsági másolat készítése közben"
 
-#: Wammu/Main.py:1699
+#: Wammu/Main.py:1711
 #, python-format
 msgid ""
 "Error while saving backup, probably some limit inside of Gammu exceeded.\n"
@@ -1698,183 +1761,183 @@ msgstr ""
 "oka, a Gammu belső határértékeiben keresendő.\n"
 "%s"
 
-#: Wammu/Main.py:1779
+#: Wammu/Main.py:1791
 #, python-format
 msgid "Are you sure you want to delete contact \"%s\"?"
 msgstr "Valóban törölni kívánja a(z) „%s” névjegyet?"
 
-#: Wammu/Main.py:1781
+#: Wammu/Main.py:1793
 #, python-format
 msgid "Are you sure you want to delete call from \"%s\"?"
 msgstr "Valóban törölni kívánja a(z) „%s” hívásokat?"
 
-#: Wammu/Main.py:1783
+#: Wammu/Main.py:1795
 #, python-format
 msgid "Are you sure you want to delete message from \"%s\"?"
 msgstr "Valóban törölni kívánja a(z) „%s” üzeneteit?"
 
-#: Wammu/Main.py:1785
+#: Wammu/Main.py:1797
 #, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
 msgstr "Valóban törölni kívánja a(z) „%s” tennivalót?"
 
-#: Wammu/Main.py:1787
+#: Wammu/Main.py:1799
 #, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
 msgstr "Valóban törölni kívánja a(z) „%s”naptárbejegyzést?"
 
-#: Wammu/Main.py:1791
+#: Wammu/Main.py:1803
 #, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
 msgstr[0] "Valóban törölni kívánja „%d” naptárbejegyzést?"
 msgstr[1] "Valóban törölni kívánja „%d” naptárbejegyzést?"
 
-#: Wammu/Main.py:1796
+#: Wammu/Main.py:1808
 #, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
 msgstr[0] "Valóban törölni kívánja „%d” hívást?"
 msgstr[1] "Valóban törölni kívánja „%d” hívást?"
 
-#: Wammu/Main.py:1801
+#: Wammu/Main.py:1813
 #, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
 msgstr[0] "Valóban törölni kívánja „%d” üzenetet?"
 msgstr[1] "Valóban törölni kívánja „%d” üzenetet?"
 
-#: Wammu/Main.py:1806
+#: Wammu/Main.py:1818
 #, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
 msgstr[0] "Valóban törölni kívánja „%d” tennivalót?"
 msgstr[1] "Valóban törölni kívánja „%d” tennivalót?"
 
-#: Wammu/Main.py:1811
+#: Wammu/Main.py:1823
 #, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
 msgstr[0] "Valóban törölni kívánja „%d” naptárbejegyzést?"
 msgstr[1] "Valóban törölni kívánja „%d” naptárbejegyzést?"
 
-#: Wammu/Main.py:1816 Wammu/Settings.py:346
+#: Wammu/Main.py:1828 Wammu/Settings.py:346
 msgid "Confirm deleting"
 msgstr "Törlés jóváhagyása"
 
-#: Wammu/Main.py:1824
+#: Wammu/Main.py:1836
 msgid "Deleting contact(s)..."
 msgstr "Névjegyek törlése..."
 
-#: Wammu/Main.py:1834
+#: Wammu/Main.py:1846
 msgid "Deleting message(s)..."
 msgstr "Üzenetek törlése..."
 
-#: Wammu/Main.py:1845
+#: Wammu/Main.py:1857
 msgid "Deleting todo(s)..."
 msgstr "Tennivalók törlése..."
 
-#: Wammu/Main.py:1855
+#: Wammu/Main.py:1867
 msgid "Deleting calendar event(s)..."
 msgstr "Naptárbejegyzések törlése..."
 
-#: Wammu/Main.py:1927
+#: Wammu/Main.py:1939 Wammu/Main.py:2030
 msgid "Reading phone information"
 msgstr "Telefoninformációk olvasása"
 
-#: Wammu/Main.py:1952
+#: Wammu/Main.py:1964
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "%s típusú hívásinformációk beolvasása"
 
-#: Wammu/Main.py:1980
+#: Wammu/Main.py:1992
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Névjegyek olvasása a(z) %s forrásból"
 
-#: Wammu/Main.py:1988
+#: Wammu/Main.py:2000 Wammu/Main.py:2061
 msgid "Reading messages"
 msgstr "Üzenetek olvasása"
 
-#: Wammu/Main.py:1998
+#: Wammu/Main.py:2010 Wammu/Main.py:2067
 msgid "Reading todos"
 msgstr "Tennivalók olvasása"
 
-#: Wammu/Main.py:2008
+#: Wammu/Main.py:2020 Wammu/Main.py:2073
 msgid "Reading calendar"
 msgstr "Naptár olvasása"
 
-#: Wammu/Main.py:2018
+#: Wammu/Main.py:2083
 msgid "Setting time in phone..."
 msgstr "Időadatok beállítása a telefonon..."
 
-#: Wammu/Main.py:2037
+#: Wammu/Main.py:2102
 msgid "Send file to phone"
 msgstr "Fájl küldése a telefonra"
 
-#: Wammu/Main.py:2058
+#: Wammu/Main.py:2123
 msgid "Sending file to phone..."
 msgstr "Fájl küldése a telefonra..."
 
-#: Wammu/Main.py:2066
+#: Wammu/Main.py:2131
 msgid "Transfer has been rejected by phone."
 msgstr "A fájlátvitelt a telefon visszautasította."
 
-#: Wammu/Main.py:2067
+#: Wammu/Main.py:2132
 msgid "Transfer rejected!"
 msgstr "Az átvitel vissza lett utasítva!"
 
-#: Wammu/Main.py:2083
+#: Wammu/Main.py:2148
 msgid "One moment please, connecting to phone..."
 msgstr "Kérem várjon, kapcsolódás a telefonhoz..."
 
 #  msgid "Phone connection test is still active, you can not continue."
-#: Wammu/Main.py:2090
+#: Wammu/Main.py:2155
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr ""
 "A telefonkapcsolat nincs jól beállítva, ezért a telefonhoz nem lehet "
 "csatlakozni."
 
 #  msgid "No phone configured!"
-#: Wammu/Main.py:2091
+#: Wammu/Main.py:2156
 msgid "Connection not configured!"
 msgstr "A telefonkapcsolat nincs beállítva!"
 
-#: Wammu/Main.py:2161
+#: Wammu/Main.py:2226
 #, python-format
 msgid "Please enter %s code:"
 msgstr "Adja meg a(z) %s kódot:"
 
-#: Wammu/Main.py:2162
+#: Wammu/Main.py:2227
 msgid "Phone asks for security code"
 msgstr "A telefon biztonsági kódot kér"
 
-#: Wammu/Main.py:2199
+#: Wammu/Main.py:2264
 msgid "Your phone has just received incoming call"
 msgstr "Bejövő hívás a telefonon"
 
-#: Wammu/Main.py:2201
+#: Wammu/Main.py:2266
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Bejövő hívás a telefonon. Hívó fél: %s"
 
-#: Wammu/Main.py:2202
+#: Wammu/Main.py:2267
 msgid "Incoming call"
 msgstr "Beérkező hívás"
 
-#: Wammu/Main.py:2203
+#: Wammu/Main.py:2268
 msgid "Reject"
 msgstr "Visszautasítás"
 
-#: Wammu/Main.py:2203
+#: Wammu/Main.py:2268
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: Wammu/Main.py:2206
+#: Wammu/Main.py:2271
 msgid "One moment please, disconnecting from phone..."
 msgstr "Kérem várjon, a telefon leválasztása folyamatban..."
 
-#: Wammu/Main.py:2236
+#: Wammu/Main.py:2301
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
@@ -1882,7 +1945,7 @@ msgstr ""
 "A telefon keresése nem végezhető el, amíg egy telefonhoz kapcsolódik. Kérem "
 "válassza le a telefont először."
 
-#: Wammu/Main.py:2237
+#: Wammu/Main.py:2302
 msgid "You are connected to phone!"
 msgstr "Sikerült a mobiltelefonhoz kapcsolódni!"
 
@@ -3084,22 +3147,6 @@ msgstr "Válassza ki a mailbox fájlt..."
 msgid "Saving messages to mailbox"
 msgstr "Üzenetek mentése a következőbe: mailbox"
 
-#: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
-#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
-#: Wammu/SMSXML.py:110 Wammu/SMSXML.py:132
-msgid "Export terminated"
-msgstr "Az exportálás megszakadt"
-
-#: Wammu/SMSExport.py:73 Wammu/SMSExport.py:147 Wammu/SMSXML.py:128
-#, python-format
-msgid "Creating of file %s failed, bailing out."
-msgstr "A(z) %s fájlt nem lehetett létrehozni."
-
-#: Wammu/SMSExport.py:74 Wammu/SMSExport.py:148 Wammu/SMSXML.py:129
-msgid "Can not create file!"
-msgstr "A fájl nem hozható létre."
-
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:137
 #, python-format
@@ -3345,15 +3392,6 @@ msgstr ""
 #: Wammu/SMSExport.py:573
 msgid "Incomplete"
 msgstr "Nem teljes"
-
-#: Wammu/SMSXML.py:86
-msgid "XML File"
-msgstr "XML fájl"
-
-#  msgid "Select mailbox file..."
-#: Wammu/SMSXML.py:89
-msgid "Select XML file..."
-msgstr "Válassza ki az XML fájlt..."
 
 #  msgid "Saving messages to IMAP"
 #: Wammu/SMSXML.py:102

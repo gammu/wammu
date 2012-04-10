@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.37\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
-"POT-Creation-Date: 2011-12-06 10:10+0100\n"
+"POT-Creation-Date: 2012-04-10 11:43+0200\n"
 "PO-Revision-Date: 2012-03-29 17:06+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -72,7 +72,7 @@ msgid "Failed to set exception handler."
 msgstr "Αποτυχία ορισμού χειριστή εξαίρεσης."
 
 #: Wammu/Browser.py:40 Wammu/Browser.py:53 Wammu/Browser.py:68
-#: Wammu/Main.py:999 Wammu/Settings.py:168
+#: Wammu/Main.py:1008 Wammu/Settings.py:168
 msgid "Name"
 msgstr "Όνομα"
 
@@ -81,36 +81,36 @@ msgid "Value"
 msgstr "Τιμή"
 
 #: Wammu/Browser.py:51 Wammu/Browser.py:66 Wammu/Browser.py:83
-#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:979
-#: Wammu/Main.py:993 Wammu/Main.py:1003 Wammu/Main.py:1011
+#: Wammu/Browser.py:100 Wammu/Browser.py:117 Wammu/Main.py:988
+#: Wammu/Main.py:1002 Wammu/Main.py:1012 Wammu/Main.py:1020
 msgid "Location"
 msgstr "Τοποθεσία"
 
-#: Wammu/Browser.py:52 Wammu/Main.py:995
+#: Wammu/Browser.py:52 Wammu/Main.py:1004
 msgid "Memory"
 msgstr "Μνήμη"
 
 #: Wammu/Browser.py:54 Wammu/Browser.py:69 Wammu/Browser.py:85
-#: Wammu/Main.py:991
+#: Wammu/Main.py:1000
 msgid "Number"
 msgstr "Αριθμός"
 
-#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:1005
-#: Wammu/Main.py:1012
+#: Wammu/Browser.py:67 Wammu/Browser.py:118 Wammu/Main.py:1014
+#: Wammu/Main.py:1021
 msgid "Type"
 msgstr "Είδος"
 
 #: Wammu/Browser.py:70 Wammu/Browser.py:86 Wammu/Browser.py:104
-#: Wammu/Main.py:992
+#: Wammu/Main.py:1001
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: Wammu/Browser.py:84 Wammu/Main.py:997
+#: Wammu/Browser.py:84 Wammu/Main.py:1006
 msgid "Status"
 msgstr "Κατάσταση"
 
 #: Wammu/Browser.py:87 Wammu/Browser.py:103 Wammu/Browser.py:121
-#: Wammu/Composer.py:312 Wammu/Main.py:251
+#: Wammu/Composer.py:312 Wammu/Main.py:252
 msgid "Text"
 msgstr "Κείμενο"
 
@@ -118,7 +118,7 @@ msgstr "Κείμενο"
 msgid "Completed"
 msgstr "Ολοκληρωμένο"
 
-#: Wammu/Browser.py:102 Wammu/Editor.py:510 Wammu/Main.py:1004
+#: Wammu/Browser.py:102 Wammu/Editor.py:510 Wammu/Main.py:1013
 msgid "Priority"
 msgstr "Προτεραιότητα"
 
@@ -290,7 +290,7 @@ msgstr "Αναφορά παράδοσης"
 msgid "Check to request delivery report for message."
 msgstr "Επιλέξτε για να αιτηθείτε αναφοράς παράδοσης"
 
-#: Wammu/Composer.py:400 Wammu/Main.py:133 Wammu/SMSExport.py:441
+#: Wammu/Composer.py:400 Wammu/Main.py:134 Wammu/SMSExport.py:441
 msgid "Sent"
 msgstr "Απεσταλμένα"
 
@@ -351,6 +351,53 @@ msgstr "Κενό μήνυμα"
 #, python-format
 msgid "Message will fit into %d SMSes"
 msgstr "Το μήνυμα θα χωρέσει σε %d SMS"
+
+#: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:86
+msgid "XML File"
+msgstr ""
+
+#: Wammu/ContactsXML.py:148 Wammu/EditContactList.py:92 Wammu/Main.py:1407
+#: Wammu/Main.py:2102 Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
+msgid "All files"
+msgstr "Όλα τα αρχεία"
+
+#: Wammu/ContactsXML.py:151 Wammu/SMSXML.py:89
+#, fuzzy
+msgid "Select XML file..."
+msgstr "Επιλέξτε αρχείο λογαριασμού mail..."
+
+#: Wammu/ContactsXML.py:164
+#, fuzzy
+msgid "Saving contacts to XML"
+msgstr "Αποθήκευση μηνυμάτων στον IMAP"
+
+#: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
+#: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
+#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
+#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
+#: Wammu/SMSXML.py:110 Wammu/SMSXML.py:132
+msgid "Export terminated"
+msgstr "Η εξαγωγή τερματίστηκε"
+
+#: Wammu/ContactsXML.py:187
+msgid "phone"
+msgstr ""
+
+#: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
+#: Wammu/SMSXML.py:128
+#, python-format
+msgid "Creating of file %s failed, bailing out."
+msgstr "Δημιουργία του αρχείου %s απέτυχε, έξοδος."
+
+#: Wammu/ContactsXML.py:197 Wammu/SMSExport.py:74 Wammu/SMSExport.py:148
+#: Wammu/SMSXML.py:129
+msgid "Can not create file!"
+msgstr "Αδυναμία δημιουργίας αρχείου!"
+
+#: Wammu/ContactsXML.py:205
+#, fuzzy, python-format
+msgid "%(count)d contacts exported to \"%(path)s\""
+msgstr "%(count)d μηνύματα εξήχθησαν σε \"%(path)s\" (%(type)s)"
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -516,11 +563,6 @@ msgstr "Παρόντες παραλήπτες"
 msgid "Contact list"
 msgstr "Κατάλογος επαφών"
 
-#: Wammu/EditContactList.py:92 Wammu/Main.py:1395 Wammu/Main.py:2037
-#: Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
-msgid "All files"
-msgstr "Όλα τα αρχεία"
-
 #: Wammu/EditContactList.py:95
 msgid "Edit contacts list"
 msgstr "Διόρθωση καταλόγου επαφών"
@@ -538,17 +580,17 @@ msgstr "Το επιλεγμένο αρχείο \"%s\" δεν μπορούσε ν
 msgid "File can not be created!"
 msgstr "Το αρχείο δεν μπορεί να δημιουργηθεί!"
 
-#: Wammu/EditContactList.py:179 Wammu/Main.py:2074
+#: Wammu/EditContactList.py:179 Wammu/Main.py:2139
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr "Το επιλεγμένο αρχείο \"%s\" δε βρέθηκε,δεν ανεγνώσθησαν δεδομένα."
 
-#: Wammu/EditContactList.py:180 Wammu/Main.py:2075
+#: Wammu/EditContactList.py:180 Wammu/Main.py:2140
 msgid "File not found!"
 msgstr "Το αρχείο δε βρέθηκε!"
 
-#: Wammu/Editor.py:214 Wammu/Editor.py:422 Wammu/Main.py:647 Wammu/Main.py:663
-#: Wammu/Main.py:669
+#: Wammu/Editor.py:214 Wammu/Editor.py:422 Wammu/Main.py:653 Wammu/Main.py:669
+#: Wammu/Main.py:675
 msgid "Unknown"
 msgstr "Άγνωστο"
 
@@ -574,7 +616,7 @@ msgstr "Προσθήκη ενός ακόμη πεδίου"
 msgid "contact"
 msgstr "επαφή"
 
-#: Wammu/Editor.py:494 Wammu/Main.py:980
+#: Wammu/Editor.py:494 Wammu/Main.py:989
 msgid "Memory type"
 msgstr "Τύπος μνήμης"
 
@@ -611,7 +653,7 @@ msgstr "Αναζήτηση για παρόμοιες αναφορές"
 msgid "Report bug"
 msgstr "Αναφορά σφάλματος"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2273
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2338
 msgid "Save debug log as..."
 msgstr "Αποθήκευση αρχείου αποσφαλμάτωσης ως ..."
 
@@ -749,7 +791,7 @@ msgstr ""
 msgid "SIM IMSI"
 msgstr "SIM IMSI"
 
-#: Wammu/Info.py:146 Wammu/Main.py:996
+#: Wammu/Info.py:146 Wammu/Main.py:1005
 msgid "SMSC"
 msgstr "SMSC"
 
@@ -777,135 +819,135 @@ msgstr "Καταγραφή αποσφαλμάτωσης του Wammu"
 msgid "Here will appear debug messages from Gammu...\n"
 msgstr "Εδώ θα εμφανιστούν μηνύματα αποσφαλμάτωσης από το Gammu...\n"
 
-#: Wammu/Main.py:111 Wammu/Main.py:127
+#: Wammu/Main.py:112 Wammu/Main.py:128
 msgid "Phone"
 msgstr "Τηλέφωνο"
 
-#: Wammu/Main.py:111
+#: Wammu/Main.py:112
 msgid "Phone Information"
 msgstr "Πληροφορίες τηλεφώνου"
 
-#: Wammu/Main.py:112
+#: Wammu/Main.py:113
 msgid "Wammu version"
 msgstr "Έκδοση Wammu"
 
-#: Wammu/Main.py:115 Wammu/TalkbackDialog.py:313
+#: Wammu/Main.py:116 Wammu/TalkbackDialog.py:313
 msgid "Gammu version"
 msgstr "Έκδοση Gammu"
 
-#: Wammu/Main.py:116
+#: Wammu/Main.py:117
 msgid "python-gammu version"
 msgstr "Έκδοση python-gammu"
 
-#: Wammu/Main.py:119
+#: Wammu/Main.py:120
 msgid "Calls"
 msgstr "Κλήσεις"
 
-#: Wammu/Main.py:119
+#: Wammu/Main.py:120
 msgid "All Calls"
 msgstr "Όλες οι κλήσεις"
 
-#: Wammu/Main.py:120
+#: Wammu/Main.py:121
 msgid "Received"
 msgstr "Εισερχόμενα"
 
-#: Wammu/Main.py:120
+#: Wammu/Main.py:121
 msgid "Received Calls"
 msgstr "Εισερχόμενες κλήσεις"
 
-#: Wammu/Main.py:121
+#: Wammu/Main.py:122
 msgid "Missed"
 msgstr "Αναπάντητα"
 
-#: Wammu/Main.py:121
+#: Wammu/Main.py:122
 msgid "Missed Calls"
 msgstr "Αναπάντητες κλήσεις"
 
-#: Wammu/Main.py:122
+#: Wammu/Main.py:123
 msgid "Outgoing"
 msgstr "Εξερχόμενα"
 
-#: Wammu/Main.py:122
+#: Wammu/Main.py:123
 msgid "Outgoing Calls"
 msgstr "Εξερχόμενες κλήσεις"
 
-#: Wammu/Main.py:125
+#: Wammu/Main.py:126
 msgid "Contacts"
 msgstr "Επαφές"
 
-#: Wammu/Main.py:125
+#: Wammu/Main.py:126
 msgid "All Contacts"
 msgstr "Όλες οι επαφές"
 
-#: Wammu/Main.py:126
+#: Wammu/Main.py:127
 msgid "SIM"
 msgstr "Κάρτα SIM"
 
-#: Wammu/Main.py:126
+#: Wammu/Main.py:127
 msgid "SIM Contacts"
 msgstr "Επαφές SIM"
 
-#: Wammu/Main.py:127
+#: Wammu/Main.py:128
 msgid "Phone Contacts"
 msgstr "Επαφές τηλεφώνου"
 
-#: Wammu/Main.py:130 Wammu/Settings.py:439
+#: Wammu/Main.py:131 Wammu/Settings.py:439
 msgid "Messages"
 msgstr "Μηνύματα"
 
-#: Wammu/Main.py:130
+#: Wammu/Main.py:131
 msgid "All Messages"
 msgstr "Όλα τα μηνύματα"
 
-#: Wammu/Main.py:131 Wammu/SMSExport.py:440
+#: Wammu/Main.py:132 Wammu/SMSExport.py:440
 msgid "Read"
 msgstr "Αναγνωσμένα"
 
-#: Wammu/Main.py:131
+#: Wammu/Main.py:132
 msgid "Read Messages"
 msgstr "Αναγνωσμένα μηνύματα"
 
-#: Wammu/Main.py:132 Wammu/SMSExport.py:442
+#: Wammu/Main.py:133 Wammu/SMSExport.py:442
 msgid "Unread"
 msgstr "Αδιάβαστα"
 
-#: Wammu/Main.py:132
+#: Wammu/Main.py:133
 msgid "Unread Messages"
 msgstr "Αδιάβαστα μηνύματα"
 
-#: Wammu/Main.py:133
+#: Wammu/Main.py:134
 msgid "Sent Messages"
 msgstr "Απεσταλμένα μηνύματα"
 
-#: Wammu/Main.py:134 Wammu/SMSExport.py:443
+#: Wammu/Main.py:135 Wammu/SMSExport.py:443
 msgid "Unsent"
 msgstr "Μη απεσταλμένα"
 
-#: Wammu/Main.py:134
+#: Wammu/Main.py:135
 msgid "Unsent Messages"
 msgstr "Μη απεσταλμένα μηνύματα"
 
-#: Wammu/Main.py:137 Wammu/TalkbackFeaturesDialog.py:45
+#: Wammu/Main.py:138 Wammu/TalkbackFeaturesDialog.py:45
 msgid "Todos"
 msgstr "Εργασίες"
 
-#: Wammu/Main.py:137
+#: Wammu/Main.py:138
 msgid "All Todo Items"
 msgstr "Όλες οι εργασίες"
 
-#: Wammu/Main.py:140
+#: Wammu/Main.py:141
 msgid "Calendar"
 msgstr "Ημερολόγιο"
 
-#: Wammu/Main.py:140
+#: Wammu/Main.py:141
 msgid "All Calendar Events"
 msgstr "Όλα τα γεγονότα του ημερολογίου"
 
-#: Wammu/Main.py:247
+#: Wammu/Main.py:248
 msgid "Search: "
 msgstr "Αναζήτηση: "
 
-#: Wammu/Main.py:249
+#: Wammu/Main.py:250
 msgid ""
 "Enter text to search for, please note that search type is selected next to "
 "this field. Matching is done over all fields."
@@ -914,354 +956,372 @@ msgstr ""
 "αναζήτησης έχει επιλεχθεί δίπλα σε αυτό το πεδίο. Το ταίριασμα γίνεται με "
 "όλα τα πεδία."
 
-#: Wammu/Main.py:251
+#: Wammu/Main.py:252
 msgid "Regexp"
 msgstr "Regexp"
 
-#: Wammu/Main.py:251
+#: Wammu/Main.py:252
 msgid "Wildcard"
 msgstr "Μπαλαντέρ"
 
-#: Wammu/Main.py:252
+#: Wammu/Main.py:253
 msgid "Select search type"
 msgstr "Επιλογή τύπου αναζήτησης"
 
-#: Wammu/Main.py:276
+#: Wammu/Main.py:277
 #, python-format
 msgid "Welcome to Wammu %s"
 msgstr "Καλώς ήλθατε στο  Wammu %s"
 
-#: Wammu/Main.py:282
+#: Wammu/Main.py:283
 msgid "&Write data"
 msgstr "&Εγγραφή δεδομένων"
 
-#: Wammu/Main.py:282
+#: Wammu/Main.py:283
 msgid "Write data (except messages) to file."
 msgstr "Εγγραφή δεδομένων (εκτός μηνυμάτων) σε αρχείο."
 
-#: Wammu/Main.py:283
+#: Wammu/Main.py:284
 msgid "W&rite message"
 msgstr "&Συγγραφή μηνύματος"
 
-#: Wammu/Main.py:283
+#: Wammu/Main.py:284
 msgid "Write messages to file."
 msgstr "Εγγραφή μηνυμάτων σε αρχείο"
 
-#: Wammu/Main.py:284
+#: Wammu/Main.py:285
 msgid "&Read data"
 msgstr "&Ανάγνωση δεδομένων"
 
-#: Wammu/Main.py:284
+#: Wammu/Main.py:285
 msgid "Read data (except messages) from file (does not import to the phone)."
 msgstr ""
 "Ανάγνωση δεδομένων (εκτός μηνυμάτων) από αρχείο (δεν εισάγει στο τηλέφωνο)"
 
-#: Wammu/Main.py:285
+#: Wammu/Main.py:286
 msgid "R&ead messages"
 msgstr "&Ανάγνωση μηνυμάτων"
 
-#: Wammu/Main.py:285
+#: Wammu/Main.py:286
 msgid "Read messages from file (does not import to the phone)."
 msgstr "Ανάγνωση μηνυμάτων από αρχείο (δεν εισάγει στο τηλέφωνο)"
 
-#: Wammu/Main.py:287
+#: Wammu/Main.py:288
 msgid "&Phone wizard"
 msgstr "&Μάγος τηλεφώνου"
 
-#: Wammu/Main.py:287
+#: Wammu/Main.py:288
 msgid "Search for phone or configure it using guided wizard."
 msgstr "Αναζήτηση για τηλέφωνο, ή ρύθμισή του με χρήση του οδηγού."
 
-#: Wammu/Main.py:288
+#: Wammu/Main.py:289
 msgid "Se&ttings"
 msgstr "&Ρυθμίσεις"
 
-#: Wammu/Main.py:288
+#: Wammu/Main.py:289
 msgid "Change Wammu settings."
 msgstr "Αλλαγή των ρυθμίσεων του Wammu"
 
-#: Wammu/Main.py:290
+#: Wammu/Main.py:291
 msgid "E&xit"
 msgstr "&Έξοδος"
 
-#: Wammu/Main.py:290
+#: Wammu/Main.py:291
 msgid "Terminate Wammu."
 msgstr "Τερματισμός του Wammu"
 
-#: Wammu/Main.py:292
+#: Wammu/Main.py:293
 msgid "&Wammu"
 msgstr "&Wammu"
 
-#: Wammu/Main.py:295
+#: Wammu/Main.py:296
 msgid "&Connect"
 msgstr "&Σύνδεση"
 
-#: Wammu/Main.py:295
+#: Wammu/Main.py:296
 msgid "Connect the device."
 msgstr "Συνδέστε τη συσκευή"
 
-#: Wammu/Main.py:296
+#: Wammu/Main.py:297
 msgid "&Disconnect"
 msgstr "&Αποσύνδεση"
 
-#: Wammu/Main.py:296
+#: Wammu/Main.py:297
 msgid "Disconnect the device."
 msgstr "Αποσυνδέστε τη συσκευή"
 
-#: Wammu/Main.py:298
+#: Wammu/Main.py:299
 msgid "&Synchronise time"
 msgstr "&Συγχρονισμός ώρας"
 
-#: Wammu/Main.py:298
+#: Wammu/Main.py:299
 #, fuzzy
 msgid "Synchronise time in phone with PC."
 msgstr "Συγχρονισμός ώρας κινητού με υπολογιστή"
 
-#: Wammu/Main.py:300
+#: Wammu/Main.py:301
 msgid "Send &file"
 msgstr "Αποστολή &αρχείου"
 
-#: Wammu/Main.py:300
+#: Wammu/Main.py:301
 msgid "Send file to phone."
 msgstr "Αποστολή αρχείου στο τηλέφωνο"
 
-#: Wammu/Main.py:302
+#: Wammu/Main.py:303
 msgid "&Phone"
 msgstr "&Τηλέφωνο"
 
-#: Wammu/Main.py:305
+#: Wammu/Main.py:306
 msgid "&Info"
 msgstr "&Πληροφορίες"
 
-#: Wammu/Main.py:305
+#: Wammu/Main.py:306
 msgid "Retrieve phone information."
 msgstr "Ανάκτηση πληροφοριών τηλεφώνου"
 
-#: Wammu/Main.py:307
+#: Wammu/Main.py:308
 msgid "Contacts (&SIM)"
 msgstr "Επαφές (&SIM)"
 
-#: Wammu/Main.py:307
+#: Wammu/Main.py:308
 msgid "Retrieve contacts from SIM."
 msgstr "Ανάκτηση πληροφοριών κάρτας SIM"
 
-#: Wammu/Main.py:308
+#: Wammu/Main.py:309
 msgid "Contacts (&phone)"
 msgstr "Επαφές (&τηλέφωνο)"
 
-#: Wammu/Main.py:308
+#: Wammu/Main.py:309
 msgid "Retrieve contacts from phone memory."
 msgstr "Ανάκτηση επαφών απó τη μνήμη του τηλεφώνου"
 
-#: Wammu/Main.py:309
+#: Wammu/Main.py:310
 msgid "&Contacts (All)"
 msgstr "&Επαφές (Όλες)"
 
-#: Wammu/Main.py:309
+#: Wammu/Main.py:310
 msgid "Retrieve contacts from phone and SIM memory."
 msgstr "Ανάκτηση επαφών από το τηλέφωνο και τη μνήμη της SIM"
 
-#: Wammu/Main.py:311
+#: Wammu/Main.py:312
 msgid "C&alls"
 msgstr "&Κλήσεις"
 
-#: Wammu/Main.py:311
+#: Wammu/Main.py:312
 msgid "Retrieve call history."
 msgstr "Ανάκτηση ιστορικού κλήσεων"
 
-#: Wammu/Main.py:313
+#: Wammu/Main.py:314
 msgid "&Messages"
 msgstr "&Μηνύματα"
 
-#: Wammu/Main.py:313
+#: Wammu/Main.py:314
 msgid "Retrieve messages."
 msgstr "Ανάκτηση μηνυμάτων"
 
-#: Wammu/Main.py:315
+#: Wammu/Main.py:316
 msgid "&Todos"
 msgstr "&Εργασίες"
 
-#: Wammu/Main.py:315
+#: Wammu/Main.py:316
 msgid "Retrieve todos."
 msgstr "Ανάκτηση εργασιών"
 
-#: Wammu/Main.py:317
+#: Wammu/Main.py:318
 msgid "Calenda&r"
 msgstr "&Ημερολόγιο"
 
-#: Wammu/Main.py:317
+#: Wammu/Main.py:318
 msgid "Retrieve calendar events."
 msgstr "Ανάκτηση γεγονότων ημερολογίου"
 
-#: Wammu/Main.py:319
+#: Wammu/Main.py:320
+msgid "A&ll"
+msgstr ""
+
+#: Wammu/Main.py:320
+msgid "Retrieve everything above."
+msgstr ""
+
+#: Wammu/Main.py:322
 msgid "&Retrieve"
 msgstr "&Ανάκτηση"
 
-#: Wammu/Main.py:322
+#: Wammu/Main.py:325
 msgid "&Contact"
 msgstr "&Επαφή"
 
-#: Wammu/Main.py:322
+#: Wammu/Main.py:325
 msgid "Create new contact."
 msgstr "Δημιουργία νέας επαφής"
 
-#: Wammu/Main.py:323
+#: Wammu/Main.py:326
 msgid "Calendar &event"
 msgstr "&Συμβάν ημερολογίου"
 
-#: Wammu/Main.py:323
+#: Wammu/Main.py:326
 msgid "Create new calendar event."
 msgstr "Δημιουργία νέου συμβάντος ημερολογίου"
 
-#: Wammu/Main.py:324
+#: Wammu/Main.py:327
 msgid "&Todo"
 msgstr "&Εργασία"
 
-#: Wammu/Main.py:324
+#: Wammu/Main.py:327
 msgid "Create new todo."
 msgstr "Δημιουργία νέας εργασίας"
 
-#: Wammu/Main.py:325
+#: Wammu/Main.py:328
 msgid "&Message"
 msgstr "&Μήνυμα"
 
-#: Wammu/Main.py:325
+#: Wammu/Main.py:328
 msgid "Create new message."
 msgstr "Δημιουργία νέου μηνύματος"
 
-#: Wammu/Main.py:327
+#: Wammu/Main.py:330
 msgid "&Create"
 msgstr "&Δημιουργία"
 
-#: Wammu/Main.py:330
+#: Wammu/Main.py:333
 msgid "&Save"
 msgstr "&Αποθήκευση"
 
-#: Wammu/Main.py:330
+#: Wammu/Main.py:333
 msgid "Save currently retrieved data (except messages) to backup."
 msgstr ""
 "Αποθήκευση τρεχουσών ανακτηθεισών πληροφοριών (εκτός μηνυμάτων) σε αντίγραφο "
 "ασφαλείας"
 
-#: Wammu/Main.py:331
+#: Wammu/Main.py:334
 msgid "S&ave messages"
 msgstr "&Αποθήκευση μηνυμάτων"
 
-#: Wammu/Main.py:331
+#: Wammu/Main.py:334
 msgid "Save currently retrieved messages to backup."
 msgstr "Αποθήκευση τρεχόντων ανακτημένων μηνυμάτων σε αντίγραφο ασφαλείας"
 
-#: Wammu/Main.py:332
+#: Wammu/Main.py:335
 #, fuzzy
 msgid "&Import to phone"
 msgstr "Εισαγωγή δεδομένων από αντίγραφο ασφαλείας στο τηλέφωνο"
 
-#: Wammu/Main.py:332
+#: Wammu/Main.py:335
 msgid "Import data from backup to phone."
 msgstr "Εισαγωγή δεδομένων από αντίγραφο ασφαλείας στο τηλέφωνο"
 
-#: Wammu/Main.py:333
+#: Wammu/Main.py:336
 #, fuzzy
 msgid "I&mport messages to phone"
 msgstr "&Εισαγωγή μηνυμάτων"
 
-#: Wammu/Main.py:333
+#: Wammu/Main.py:336
 msgid "Import messages from backup to phone."
 msgstr "Εισαγωγή μηνυμάτων από αντίγραφο ασφαλείας στο τηλέφωνο"
 
-#: Wammu/Main.py:335
+#: Wammu/Main.py:338
 msgid "Export messages to &emails"
 msgstr "Εξαγωγή μηνυμάτων σε &emails"
 
-#: Wammu/Main.py:335
+#: Wammu/Main.py:338
 msgid "Export messages to emails in storage you choose."
 msgstr "Εξαγωγή μηνυμάτων σε emails στο χώρο αποθήκευσης που επιλέγετε"
 
-#: Wammu/Main.py:336
+#: Wammu/Main.py:339
 msgid "Export messages to &XML"
 msgstr "Εξαγωγή μηνυμάτων σε &XML"
 
-#: Wammu/Main.py:336
+#: Wammu/Main.py:339
 msgid "Export messages to XML file you choose."
 msgstr "Εξαγωγή μηνυμάτων σε αρχείο XML που θα επιλέξετε"
 
-#: Wammu/Main.py:338
+#: Wammu/Main.py:340
+#, fuzzy
+msgid "Export &contacts to XML"
+msgstr "Εξαγωγή μηνυμάτων σε &XML"
+
+#: Wammu/Main.py:340
+#, fuzzy
+msgid "Export contacts to XML file you choose."
+msgstr "Εξαγωγή μηνυμάτων σε αρχείο XML που θα επιλέξετε"
+
+#: Wammu/Main.py:342
 msgid "&Backups"
 msgstr "&Αντίγραφα ασφαλείας"
 
-#: Wammu/Main.py:341
+#: Wammu/Main.py:345
 msgid "&Website"
 msgstr "&Ιστοσελίδα"
 
-#: Wammu/Main.py:341
+#: Wammu/Main.py:345
 msgid "Visit Wammu website."
 msgstr "Επισκεφθείτε την ιστοσελίδα του Wammu"
 
-#: Wammu/Main.py:342
+#: Wammu/Main.py:346
 msgid "&Support"
 msgstr "&Υποστήριξη"
 
-#: Wammu/Main.py:342
+#: Wammu/Main.py:346
 msgid "Visit Wammu support website."
 msgstr "Επισκεφθείτε την ιστοσελίδα υποστήριξης του Wammu"
 
-#: Wammu/Main.py:343
+#: Wammu/Main.py:347
 msgid "&Report bug"
 msgstr "&Αναφέρατε σφάλμα"
 
-#: Wammu/Main.py:343
+#: Wammu/Main.py:347
 msgid "Report bug in Wammu, please include saved debug log if possible."
 msgstr ""
 "Αναφορά σφάλματος στο Wammu, παρακαλώ να συμπεριλάβετε την καταγραφή "
 "αποσφαλμάτωσης, ει δυνατόν"
 
-#: Wammu/Main.py:344
+#: Wammu/Main.py:348
 msgid "&Save debug log"
 msgstr "&Αποθήκευση καταγραφής αποσφαλμάτωσης"
 
-#: Wammu/Main.py:344
+#: Wammu/Main.py:348
 msgid "Save a copy of debug log, please include this in bug report."
 msgstr ""
 "Αποθήκευση αντιγράφου της καταγραφής αποσφαλμάτωσης, παρακαλώ να "
 "συμπεριληφθεί αυτό στην αναφορά σφάλματος"
 
-#: Wammu/Main.py:346
+#: Wammu/Main.py:350
 msgid "&Gammu Phone Database"
 msgstr "&Βάση δεδομένων τηλεφώνου του Gammu"
 
-#: Wammu/Main.py:346
+#: Wammu/Main.py:350
 msgid "Visit database of user experiences with phones."
 msgstr "Επισκεφθείτε τη βάση δεδομένων των εμπειριών χρηστών με τηλέφωνα"
 
-#: Wammu/Main.py:347
+#: Wammu/Main.py:351
 msgid "&Talkback"
 msgstr "&Απάντηση"
 
-#: Wammu/Main.py:347
+#: Wammu/Main.py:351
 msgid "Report your experiences into Gammu Phone Database."
 msgstr "Αναφορά εμπειριών στη βάση δεδομένων του Gammu"
 
-#: Wammu/Main.py:349
+#: Wammu/Main.py:353
 msgid "&Donate"
 msgstr "&Δωρεά"
 
-#: Wammu/Main.py:349
+#: Wammu/Main.py:353
 msgid "Donate to Wammu project."
 msgstr "Δωρεά στο πρόγραμμα Wammu"
 
-#: Wammu/Main.py:351
+#: Wammu/Main.py:355
 msgid "&About"
 msgstr "&Σχετικά"
 
-#: Wammu/Main.py:351
+#: Wammu/Main.py:355
 msgid "Information about program."
 msgstr "Πληροφορίες σχετικά με το πρόγραμμα"
 
-#: Wammu/Main.py:353
+#: Wammu/Main.py:357
 msgid "&Help"
 msgstr "&Βοήθεια"
 
-#: Wammu/Main.py:422
+#: Wammu/Main.py:428
 #, python-format
 msgid ""
 "Debug log created in temporary file <%s>. In case of crash please include it "
@@ -1271,12 +1331,12 @@ msgstr ""
 "περίπτωση που κολλήσει το πρόγραμμα παρακαλώ συμπεριλάβετέ το στην αναφορά "
 "σφάλματος!"
 
-#: Wammu/Main.py:452 Wammu/Main.py:459 Wammu/Main.py:465
+#: Wammu/Main.py:458 Wammu/Main.py:465 Wammu/Main.py:471
 msgid "Wammu could not import gammu module, program will be terminated."
 msgstr ""
 "Το Wammu δεν μπόρεσε να εισάγει το άρθρωμα gammu, το πρόγραμμα θα τερματιστεί"
 
-#: Wammu/Main.py:453
+#: Wammu/Main.py:459
 #, python-format
 msgid ""
 "The import failed because python-gammu is compiled with different version of "
@@ -1287,7 +1347,7 @@ msgstr ""
 "έκδοση Gammu από ό,τι τώρα χρησιμοποιεί (δημιουργήθηκε με έκδοση & "
 "%(compile)s και τώρα χρησιμοποιεί έκδοση %(runtime)s)."
 
-#: Wammu/Main.py:454
+#: Wammu/Main.py:460
 msgid ""
 "You can fix it by recompiling python-gammu against gammu library you are "
 "currently using."
@@ -1295,11 +1355,11 @@ msgstr ""
 "Μπορείτε να το φτιάξετε με recompile του python-gammu με την gammu "
 "βιβλιοθήκη που χρησιμοποιείτε τώρα"
 
-#: Wammu/Main.py:455 Wammu/Main.py:461 Wammu/Main.py:467
+#: Wammu/Main.py:461 Wammu/Main.py:467 Wammu/Main.py:473
 msgid "Gammu module not working!"
 msgstr "Το άρθρωμα Gammu δε δουλεύει!"
 
-#: Wammu/Main.py:460
+#: Wammu/Main.py:466
 msgid ""
 "Gammu module was not found, you probably don't have properly installed "
 "python-gammu for current python version."
@@ -1307,25 +1367,25 @@ msgstr ""
 "Το άρθρωμα Gammu δε βρέθηκε, πιθανότατα δεν έχετε σωστά εγκαταστημένο το "
 "python-gammu για την τρέχουσα έκδοση της python."
 
-#: Wammu/Main.py:466
+#: Wammu/Main.py:472
 msgid "The import failed with following error:"
 msgstr "Η εισαγωγή απέτυχε με το ακόλουθο σφάλμα:"
 
-#: Wammu/Main.py:480
+#: Wammu/Main.py:486
 msgid "Wammu configuration was not found and Gammu settings couldn't be read."
 msgstr ""
 "Οι ρυθμίσεις του Wammu δε βρέθηκαν και οι ρυθμίσεις του Gammu δεν μπορούσαν "
 "να διαβασθούν."
 
-#: Wammu/Main.py:481
+#: Wammu/Main.py:487
 msgid "Do you want to configure phone connection now?"
 msgstr "Θέλετε να ρυθμίσετε τη σύνδεση του τηλεφώνου τώρα;"
 
-#: Wammu/Main.py:482
+#: Wammu/Main.py:488
 msgid "Configuration not found"
 msgstr "Ρυθμίσεις δε βρέθηκαν"
 
-#: Wammu/Main.py:504
+#: Wammu/Main.py:510
 msgid ""
 "You are using Wammu for more than a month. We would like to hear from you "
 "how your phone is supported. Do you want to participate in this survey?"
@@ -1334,73 +1394,73 @@ msgstr ""
 "εσάς πώς υποστηρίζεται το τηλέφωνό σας. Θέλετε να συμμετάσχετε σε αυτήν την "
 "έρευνα;"
 
-#: Wammu/Main.py:505
+#: Wammu/Main.py:511
 msgid "Press Cancel to never show this question again."
 msgstr "Πατήστε ακύρωση για να μην ξαναδείτε αυτήν την ερώτηση."
 
-#: Wammu/Main.py:506
+#: Wammu/Main.py:512
 msgid "Thanks for using Wammu"
 msgstr "Ευχαριστούμε που χρησιμοποιείτε το Wammu"
 
-#: Wammu/Main.py:531
+#: Wammu/Main.py:537
 msgid "Migrated from older Wammu"
 msgstr "Migrated from older Wammu"
 
-#: Wammu/Main.py:612
+#: Wammu/Main.py:618
 msgid "Connect"
 msgstr "Σύνδεση"
 
-#: Wammu/Main.py:613
+#: Wammu/Main.py:619
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
-#: Wammu/Main.py:615 Wammu/Settings.py:38
+#: Wammu/Main.py:621 Wammu/Settings.py:38
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: Wammu/Main.py:617
+#: Wammu/Main.py:623
 msgid "Restore"
 msgstr "Επαναφορά"
 
-#: Wammu/Main.py:618
+#: Wammu/Main.py:624
 msgid "Minimize"
 msgstr "Ελαχιστοποίηση"
 
-#: Wammu/Main.py:620
+#: Wammu/Main.py:626
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: Wammu/Main.py:649
+#: Wammu/Main.py:655
 msgid "battery"
 msgstr "Μπαταρία"
 
-#: Wammu/Main.py:651
+#: Wammu/Main.py:657
 msgid "AC"
 msgstr "Εναλλασσόμενο ρεύμα"
 
-#: Wammu/Main.py:653
+#: Wammu/Main.py:659
 msgid "no battery"
 msgstr "Καθόλου μπαταρία"
 
-#: Wammu/Main.py:655
+#: Wammu/Main.py:661
 msgid "fault"
 msgstr "Σφάλμα"
 
-#: Wammu/Main.py:657
+#: Wammu/Main.py:663
 msgid "charging"
 msgstr "Φόρτιση"
 
-#: Wammu/Main.py:659
+#: Wammu/Main.py:665
 msgid "charged"
 msgstr "Φορτισμένο"
 
 #. l10n: Formatting of signal percentage, usually you can keep this as it is.
-#: Wammu/Main.py:672
+#: Wammu/Main.py:678
 #, python-format
 msgid "%d %%"
 msgstr "%d %%"
 
-#: Wammu/Main.py:674
+#: Wammu/Main.py:680
 #, python-format
 msgid ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
@@ -1409,15 +1469,15 @@ msgstr ""
 "Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: "
 "%(time)s"
 
-#: Wammu/Main.py:757
+#: Wammu/Main.py:763
 msgid "Connected"
 msgstr "Συνδεδεμένο"
 
-#: Wammu/Main.py:761
+#: Wammu/Main.py:767
 msgid "Disconnected"
 msgstr "Αποσυνδεδεμένο"
 
-#: Wammu/Main.py:860
+#: Wammu/Main.py:869
 msgid ""
 "You changed parameters affecting phone connection, they will be used next "
 "time you connect to phone."
@@ -1425,53 +1485,53 @@ msgstr ""
 "Άλλαξαν παράμετροι που επηρεάζουν τη σύνδεση τηλεφώνου, θα χρησιμοποιηθούν "
 "την επόμενη φορά που θα συνδέσετε το τηλέφωνο."
 
-#: Wammu/Main.py:861
+#: Wammu/Main.py:870
 msgid "Notice"
 msgstr "Σημείωση"
 
-#: Wammu/Main.py:894
+#: Wammu/Main.py:903
 msgid "Looks like normal program termination, deleting log file."
 msgstr ""
 "Φαίνεται για κανονικό τερματισμό προγράμματος, σβήσιμο αρχείου καταγραφής."
 
-#: Wammu/Main.py:900
+#: Wammu/Main.py:909
 msgid "Failed to unlink temporary log file, please delete it yourself."
 msgstr ""
 "Αποτυχία αποσύνδεσης προσωρινού αρχείου καταγραφής, παρακαλώ σβήστε το μόνοι "
 "σας."
 
-#: Wammu/Main.py:903
+#: Wammu/Main.py:912
 #, python-format
 msgid "Filename: %s"
 msgstr "Όνομα αρχείου: %s"
 
-#: Wammu/Main.py:918 Wammu/Thread.py:56
+#: Wammu/Main.py:927 Wammu/Thread.py:56
 msgid "Error while communicating with phone"
 msgstr "Σφάλμα κατά την επικοινωνία με το τηλέφωνο."
 
-#: Wammu/Main.py:919 Wammu/Main.py:1433 Wammu/Main.py:1692 Wammu/Main.py:1700
+#: Wammu/Main.py:928 Wammu/Main.py:1445 Wammu/Main.py:1704 Wammu/Main.py:1712
 #: Wammu/Thread.py:58
 msgid "Error Occured"
 msgstr "Συνέβη σφάλμα."
 
-#: Wammu/Main.py:926
+#: Wammu/Main.py:935
 msgid "Operation in progress"
 msgstr "Λειτουργία σε διαδικασία."
 
-#: Wammu/Main.py:985
+#: Wammu/Main.py:994
 #, python-format
 msgid "voice tag %x"
 msgstr "Ηχητική ταμπέλα %x"
 
-#: Wammu/Main.py:994
+#: Wammu/Main.py:1003
 msgid "Folder"
 msgstr "Φάκελος"
 
-#: Wammu/Main.py:1039
+#: Wammu/Main.py:1048
 msgid "Writing message(s)..."
 msgstr "Συγγραφή μηνύματος(των)"
 
-#: Wammu/Main.py:1069
+#: Wammu/Main.py:1078
 msgid ""
 "It was not possible to read saved message! There is most likely some bug in "
 "Gammu, please contact author with debug log of this operation. To see "
@@ -1482,15 +1542,15 @@ msgstr ""
 "την καταγραφή αποσφαλμάτωσης αυτου του επιχειρήματος. Για να δείτε το μήνυμα "
 "στο Wammu χρειάζεστε χρειάζεται να ξαναδιαβάσετε όλα τα μηνύματα"
 
-#: Wammu/Main.py:1069
+#: Wammu/Main.py:1078
 msgid "Could not read saved message!"
 msgstr "Δεν κατέστη δυνατή η ανάγνωση του αποθηκευμένου μηνύματος!"
 
-#: Wammu/Main.py:1097
+#: Wammu/Main.py:1106
 msgid "Writing contact..."
 msgstr "Συγγραφή επαφής..."
 
-#: Wammu/Main.py:1134 Wammu/Main.py:1193 Wammu/Main.py:1244
+#: Wammu/Main.py:1143 Wammu/Main.py:1202 Wammu/Main.py:1253
 msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
@@ -1499,100 +1559,100 @@ msgstr ""
 "διαφορετική από το αποθηκευμένη στο τηλέφωνο μέχρι να επαναναγνωσθούν όλες "
 "οι καταχωρήσεις."
 
-#: Wammu/Main.py:1134 Wammu/Main.py:1193 Wammu/Main.py:1244
+#: Wammu/Main.py:1143 Wammu/Main.py:1202 Wammu/Main.py:1253
 msgid "Could not read saved entry!"
 msgstr "Δεν κατέστη δυνατή η ανάγνωση της αποθηκευμένης καταχώρησης!"
 
-#: Wammu/Main.py:1163
+#: Wammu/Main.py:1172
 msgid "Writing calendar..."
 msgstr "Εγγραφή ημερολογίου..."
 
-#: Wammu/Main.py:1215
+#: Wammu/Main.py:1224
 msgid "Writing todo..."
 msgstr "Εγγραφή εργασιών..."
 
-#: Wammu/Main.py:1263 Wammu/Main.py:1315 Wammu/Main.py:1335 Wammu/Main.py:1770
+#: Wammu/Main.py:1272 Wammu/Main.py:1324 Wammu/Main.py:1344 Wammu/Main.py:1782
 msgid "You can not work on this data, please retrieve it first from phone"
 msgstr ""
 "Δεν μπορείτε να εργασθείτε πάνω σε αυτά τα δεδομένα ,παρακαλώ ανακτείστε τα "
 "από το τηλέφωνο πρώτα"
 
-#: Wammu/Main.py:1263 Wammu/Main.py:1315 Wammu/Main.py:1335 Wammu/Main.py:1770
+#: Wammu/Main.py:1272 Wammu/Main.py:1324 Wammu/Main.py:1344 Wammu/Main.py:1782
 msgid "Data not up to date"
 msgstr "Τα δεδομένα δεν είναι ενημερωμένα"
 
-#: Wammu/Main.py:1370
+#: Wammu/Main.py:1382
 msgid "Gammu messages backup"
 msgstr "Αντίγραφο ασφαλείας των μηνυμάτων του Gammu"
 
-#: Wammu/Main.py:1374
+#: Wammu/Main.py:1386
 msgid "All backup formats"
 msgstr "Όλες οι μορφές αντιγράφων ασφαλείας"
 
-#: Wammu/Main.py:1376
+#: Wammu/Main.py:1388
 msgid "Gammu backup [all data]"
 msgstr "Αντίγραφο ασφαλείας του Gammu [όλα τα δεδομένα]"
 
-#: Wammu/Main.py:1380
+#: Wammu/Main.py:1392
 msgid "Nokia backup [contacts]"
 msgstr "Αντίγραφο ασφαλείας Nokia [επαφές]"
 
-#: Wammu/Main.py:1383
+#: Wammu/Main.py:1395
 msgid "vCard [contacts]"
 msgstr "vCard [επαφές]"
 
-#: Wammu/Main.py:1386
+#: Wammu/Main.py:1398
 msgid "LDIF [contacts]"
 msgstr "LDIF [επαφές]"
 
-#: Wammu/Main.py:1389
+#: Wammu/Main.py:1401
 msgid "vCalendar [todo,calendar]"
 msgstr "vCalendar [εργασίες,ημερολόγιο]"
 
-#: Wammu/Main.py:1392
+#: Wammu/Main.py:1404
 msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [εργασίες,ημερολόγιο]"
 
-#: Wammu/Main.py:1400
+#: Wammu/Main.py:1412
 msgid "Save data as..."
 msgstr "Αποθήκευση δεδομένων ως..."
 
-#: Wammu/Main.py:1402
+#: Wammu/Main.py:1414
 msgid "Read data"
 msgstr "Ανάγνωση δεδομένων"
 
-#: Wammu/Main.py:1405
+#: Wammu/Main.py:1417
 msgid "Save backup as..."
 msgstr "Αποθήκευση αντιγράφου ασφαλείας ως..."
 
-#: Wammu/Main.py:1407
+#: Wammu/Main.py:1419
 msgid "Import backup"
 msgstr "Εισαγωγή αντιγράφου ασφαλείας"
 
-#: Wammu/Main.py:1432
+#: Wammu/Main.py:1444
 msgid "Error while reading backup"
 msgstr "Σφάλμα κατά την ανάγνωση του αντιγράφου ασφαλείας"
 
-#: Wammu/Main.py:1456 Wammu/Main.py:1472
+#: Wammu/Main.py:1468 Wammu/Main.py:1484
 #, python-format
 msgid "Data has been read from file \"%s\""
 msgstr "Τα δεδομένα ανεγνώσθησαν από το αρχείο \"%s\""
 
-#: Wammu/Main.py:1482
+#: Wammu/Main.py:1494
 #, python-format
 msgid "%d messages"
 msgstr "%d μηνύματα"
 
-#: Wammu/Main.py:1486 Wammu/Main.py:1562
+#: Wammu/Main.py:1498 Wammu/Main.py:1574
 #, python-format
 msgid "No importable data were found in file \"%s\""
 msgstr "Δε βρέθηκαν εισαγώγιμα δεδομένα στο αρχείο \"%s\""
 
-#: Wammu/Main.py:1487 Wammu/Main.py:1563
+#: Wammu/Main.py:1499 Wammu/Main.py:1575
 msgid "No data to import"
 msgstr "Κανένα δεδομένο προς εισαγωγή"
 
-#: Wammu/Main.py:1491 Wammu/Main.py:1577
+#: Wammu/Main.py:1503 Wammu/Main.py:1589
 msgid ""
 "Following data was found in backup, select which of these do you want to be "
 "added into phone."
@@ -1600,24 +1660,24 @@ msgstr ""
 "Τα ακόλουθα δεδομένα βρέθηκαν στο αντίγραφο ασφαλείας, επιλέξτε ποια από "
 "αυτά θέλετε να προστεθούν στο τηλέφωνο"
 
-#: Wammu/Main.py:1491 Wammu/Main.py:1577
+#: Wammu/Main.py:1503 Wammu/Main.py:1589
 msgid "Select what to import"
 msgstr "Επιλέξτε τα στοιχεία προς εισαγωγή"
 
-#: Wammu/Main.py:1502 Wammu/Main.py:1588
+#: Wammu/Main.py:1514 Wammu/Main.py:1600
 msgid "Importing data..."
 msgstr "Γίνεται εισαγωγή δεδομένων..."
 
-#: Wammu/Main.py:1529 Wammu/Main.py:1642
+#: Wammu/Main.py:1541 Wammu/Main.py:1654
 #, python-format
 msgid "Backup has been imported from file \"%s\""
 msgstr "Έγινε εισαγωγή του αντιγράφου ασφαλείας από το αρχείο \"%s\""
 
-#: Wammu/Main.py:1530 Wammu/Main.py:1643
+#: Wammu/Main.py:1542 Wammu/Main.py:1655
 msgid "Backup imported"
 msgstr "Αντίγραφο ασφαλείας εισήχθη"
 
-#: Wammu/Main.py:1537 Wammu/Main.py:1650
+#: Wammu/Main.py:1549 Wammu/Main.py:1662
 #, python-format
 msgid ""
 "Restoring from file \"%s\" has failed, some parts of backup might have been "
@@ -1626,65 +1686,65 @@ msgstr ""
 "Η ανάκτηση από το \"%s\" αρχείο απέτυχε. Κάποια κομμάτια από το αντίγραφο "
 "ασφαλείας μπορεί να αποθηκεύτηκαν στο τηλέφωνο και κάποια όχι"
 
-#: Wammu/Main.py:1538 Wammu/Main.py:1651
+#: Wammu/Main.py:1550 Wammu/Main.py:1663
 msgid "Backup import failed"
 msgstr "Αποτυχία εισαγωγής αντιγράφου ασφαλείας"
 
-#: Wammu/Main.py:1549
+#: Wammu/Main.py:1561
 #, python-format
 msgid "%d phone contact entries"
 msgstr "%d καταχωρήσεις επαφών τηλεφώνου"
 
-#: Wammu/Main.py:1552
+#: Wammu/Main.py:1564
 #, python-format
 msgid "%d SIM contact entries"
 msgstr "%d Καταχωρήσεις επαφών SIM"
 
-#: Wammu/Main.py:1555
+#: Wammu/Main.py:1567
 #, python-format
 msgid "%d to do entries"
 msgstr "%d καταχωρήσεις εργασιών"
 
-#: Wammu/Main.py:1558
+#: Wammu/Main.py:1570
 #, python-format
 msgid "%d calendar entries"
 msgstr "%d καταχωρήσεις ημερολογίου"
 
-#: Wammu/Main.py:1569
+#: Wammu/Main.py:1581
 #, python-format
 msgid "Backup saved from phone %s"
 msgstr "Αντίγραφο ασφαλείας αποθηκεύτηκε από το τηλέφωνο %s"
 
-#: Wammu/Main.py:1571
+#: Wammu/Main.py:1583
 #, python-format
 msgid ", serial number %s"
 msgstr ", σειριακός αριθμός %s"
 
-#: Wammu/Main.py:1573
+#: Wammu/Main.py:1585
 #, python-format
 msgid "Backup was created by %s"
 msgstr "Αντίγραφο ασφαλείας δημιουργήθηκε από %s"
 
-#: Wammu/Main.py:1575
+#: Wammu/Main.py:1587
 #, python-format
 msgid "Backup saved on %s"
 msgstr "Αντίγραφο ασφαλείας αποθηκευτηκε στο %s"
 
-#: Wammu/Main.py:1685
+#: Wammu/Main.py:1697
 #, python-format
 msgid "Backup has been saved to file \"%s\""
 msgstr "Αντίγραφο ασφαλείας αποθηκεύτηκε στο αρχείο \"%s\""
 
-#: Wammu/Main.py:1687
+#: Wammu/Main.py:1699
 #, python-format
 msgid "Data has been saved to file \"%s\""
 msgstr "Τα δεδομένα αποθηκεύτηκαν στο αρχείο \"%s\""
 
-#: Wammu/Main.py:1691
+#: Wammu/Main.py:1703
 msgid "Error while saving backup"
 msgstr "Σφάλμα κατά την αποθήκευση του αντιγράφου ασφαλείας"
 
-#: Wammu/Main.py:1699
+#: Wammu/Main.py:1711
 #, python-format
 msgid ""
 "Error while saving backup, probably some limit inside of Gammu exceeded.\n"
@@ -1694,62 +1754,62 @@ msgstr ""
 "περιορισμός μέσα στο Gammu ξεπεράστηκε.\n"
 "%s"
 
-#: Wammu/Main.py:1779
+#: Wammu/Main.py:1791
 #, python-format
 msgid "Are you sure you want to delete contact \"%s\"?"
 msgstr "Είστε σίγουρος(η) ότι θέλετε να σβήσετε την επαφή \"%s\"?"
 
-#: Wammu/Main.py:1781
+#: Wammu/Main.py:1793
 #, python-format
 msgid "Are you sure you want to delete call from \"%s\"?"
 msgstr "Είστε σίγουρος(η) ότι θέλετε να σβήσετε την κλήση από \"%s\"?"
 
-#: Wammu/Main.py:1783
+#: Wammu/Main.py:1795
 #, python-format
 msgid "Are you sure you want to delete message from \"%s\"?"
 msgstr "Είστε σίγουρος(η) ότι θέλετε να σβήσετε το μήνυμα από \"%s\"?"
 
-#: Wammu/Main.py:1785
+#: Wammu/Main.py:1797
 #, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
 msgstr ""
 "Είστε σίγουρος(η) ότι θέλετε να σβήσετε την καταχώρηση εργασίας \"%s\"?"
 
-#: Wammu/Main.py:1787
+#: Wammu/Main.py:1799
 #, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
 msgstr ""
 "Είστε σίγουρος(η) ότι θέλετε να σβήσετε την καταχώρηση ημερολογίου \"%s\"?"
 
-#: Wammu/Main.py:1791
+#: Wammu/Main.py:1803
 #, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
 msgstr[0] "Είστε σίγουρος(η) ότι θέλετε να σβήσετε %d επαφή(ές)?"
 msgstr[1] "Are you sure you want to delete %d contact?"
 
-#: Wammu/Main.py:1796
+#: Wammu/Main.py:1808
 #, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
 msgstr[0] "Είστε σίγουρος(η) ότι θέλετε να σβήσετε %d κλήση(εις)"
 msgstr[1] "Are you sure you want to delete %d call?"
 
-#: Wammu/Main.py:1801
+#: Wammu/Main.py:1813
 #, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
 msgstr[0] "Είστε σίγουρος(η) ότι θέλετε να σβήσετε %d μήνυμα(τα)?"
 msgstr[1] "Are you sure you want to delete %d message?"
 
-#: Wammu/Main.py:1806
+#: Wammu/Main.py:1818
 #, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
 msgstr[0] "Είστε σίγουρος(η) ότι θέλετε να σβήσετε %d εργασία(ες);"
 msgstr[1] "Are you sure you want to delete %d todo entry?"
 
-#: Wammu/Main.py:1811
+#: Wammu/Main.py:1823
 #, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
@@ -1757,121 +1817,121 @@ msgstr[0] ""
 "Είστε σίγουρος(η) ότι θέλετε να σβήσετε %d καταχώρηση(σεις) ημερολογίου;"
 msgstr[1] "Are you sure you want to delete %d calendar entry?"
 
-#: Wammu/Main.py:1816 Wammu/Settings.py:346
+#: Wammu/Main.py:1828 Wammu/Settings.py:346
 msgid "Confirm deleting"
 msgstr "Επιβεβαίωση διαγραφής"
 
-#: Wammu/Main.py:1824
+#: Wammu/Main.py:1836
 msgid "Deleting contact(s)..."
 msgstr "Διαγραφή επαφής(ών)..."
 
-#: Wammu/Main.py:1834
+#: Wammu/Main.py:1846
 msgid "Deleting message(s)..."
 msgstr "Διαγραφή μηνύματος(ων)..."
 
-#: Wammu/Main.py:1845
+#: Wammu/Main.py:1857
 msgid "Deleting todo(s)..."
 msgstr "Διαγραφή εργασίας(ών)..."
 
-#: Wammu/Main.py:1855
+#: Wammu/Main.py:1867
 msgid "Deleting calendar event(s)..."
 msgstr "Διαγραφή γεγονότος(ων) ημερολογίου..."
 
-#: Wammu/Main.py:1927
+#: Wammu/Main.py:1939 Wammu/Main.py:2030
 msgid "Reading phone information"
 msgstr "Ανάγνωση πληροφοριών τηλεφώνου"
 
-#: Wammu/Main.py:1952
+#: Wammu/Main.py:1964
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Ανάγνωση κλήσεων τύπου %s"
 
-#: Wammu/Main.py:1980
+#: Wammu/Main.py:1992
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Ανάγνωση επαφών από %s"
 
-#: Wammu/Main.py:1988
+#: Wammu/Main.py:2000 Wammu/Main.py:2061
 msgid "Reading messages"
 msgstr "Ανάγνωση μηνυμάτων"
 
-#: Wammu/Main.py:1998
+#: Wammu/Main.py:2010 Wammu/Main.py:2067
 msgid "Reading todos"
 msgstr "Ανάγνωση εργασιών"
 
-#: Wammu/Main.py:2008
+#: Wammu/Main.py:2020 Wammu/Main.py:2073
 msgid "Reading calendar"
 msgstr "Ανάγνωση ημερρολογίου"
 
-#: Wammu/Main.py:2018
+#: Wammu/Main.py:2083
 msgid "Setting time in phone..."
 msgstr "Ρύθμιση ώρας τηλεφώνου..."
 
-#: Wammu/Main.py:2037
+#: Wammu/Main.py:2102
 msgid "Send file to phone"
 msgstr "Αποστολή αρχείου στο τηλέφωνο"
 
-#: Wammu/Main.py:2058
+#: Wammu/Main.py:2123
 msgid "Sending file to phone..."
 msgstr "Αποστολή αρχείου στο τηλέφωνο"
 
-#: Wammu/Main.py:2066
+#: Wammu/Main.py:2131
 msgid "Transfer has been rejected by phone."
 msgstr "Μεταφορά απερρίφθη από το τηλέφωνο."
 
-#: Wammu/Main.py:2067
+#: Wammu/Main.py:2132
 msgid "Transfer rejected!"
 msgstr "Μεταφορά απερρίφθη!"
 
-#: Wammu/Main.py:2083
+#: Wammu/Main.py:2148
 msgid "One moment please, connecting to phone..."
 msgstr "Ένα λεπτό παρακαλώ, σύνδεση με το τηλέφωνο..."
 
-#: Wammu/Main.py:2090
+#: Wammu/Main.py:2155
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr ""
 "Η σύνδεση τηλεφώνου δεν έχει ρυθμιστεί σωστά,αδυναμία σύνδεσης με το "
 "τηλέφωνο."
 
-#: Wammu/Main.py:2091
+#: Wammu/Main.py:2156
 msgid "Connection not configured!"
 msgstr "Η σύνδεση δεν έχει ρυθμιστεί!"
 
-#: Wammu/Main.py:2161
+#: Wammu/Main.py:2226
 #, python-format
 msgid "Please enter %s code:"
 msgstr "Παρακαλώ εισάγετε %s κωδικό"
 
-#: Wammu/Main.py:2162
+#: Wammu/Main.py:2227
 msgid "Phone asks for security code"
 msgstr "Το τηλέφωνο ζητά κωδικό ασφαλείας"
 
-#: Wammu/Main.py:2199
+#: Wammu/Main.py:2264
 msgid "Your phone has just received incoming call"
 msgstr "Το τηλέφωνό σας μόλις δέχτηκε μία εισερχόμενη κλήση"
 
-#: Wammu/Main.py:2201
+#: Wammu/Main.py:2266
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Το τηλέφωνό σας μόλις δέχθηκε εισερχόμενη κλήση από %s"
 
-#: Wammu/Main.py:2202
+#: Wammu/Main.py:2267
 msgid "Incoming call"
 msgstr "Εισερχόμενη κλήση"
 
-#: Wammu/Main.py:2203
+#: Wammu/Main.py:2268
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: Wammu/Main.py:2203
+#: Wammu/Main.py:2268
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: Wammu/Main.py:2206
+#: Wammu/Main.py:2271
 msgid "One moment please, disconnecting from phone..."
 msgstr "Ένα λεπτό παρακαλώ, αποσύνδεση από το τηλέφωνο..."
 
-#: Wammu/Main.py:2236
+#: Wammu/Main.py:2301
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
@@ -1879,7 +1939,7 @@ msgstr ""
 "Δεν μπορεί να γίνει αναζήτηση τηλεφώνου όσο είναι συνδεδεμένο, παρακαλώ "
 "αποσυνδέστε το πρώτα"
 
-#: Wammu/Main.py:2237
+#: Wammu/Main.py:2302
 msgid "You are connected to phone!"
 msgstr "Έχετε συνδεθεί με το τηλέφωνο"
 
@@ -3075,22 +3135,6 @@ msgstr "Επιλέξτε αρχείο λογαριασμού mail..."
 msgid "Saving messages to mailbox"
 msgstr "Αποθήκευση μηνυμάτων στο λογαριασμό email"
 
-#: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
-#: Wammu/SMSExport.py:136 Wammu/SMSExport.py:151 Wammu/SMSExport.py:213
-#: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
-#: Wammu/SMSXML.py:110 Wammu/SMSXML.py:132
-msgid "Export terminated"
-msgstr "Η εξαγωγή τερματίστηκε"
-
-#: Wammu/SMSExport.py:73 Wammu/SMSExport.py:147 Wammu/SMSXML.py:128
-#, python-format
-msgid "Creating of file %s failed, bailing out."
-msgstr "Δημιουργία του αρχείου %s απέτυχε, έξοδος."
-
-#: Wammu/SMSExport.py:74 Wammu/SMSExport.py:148 Wammu/SMSXML.py:129
-msgid "Can not create file!"
-msgstr "Αδυναμία δημιουργίας αρχείου!"
-
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:137
 #, python-format
@@ -3335,15 +3379,6 @@ msgstr ""
 #, fuzzy
 msgid "Incomplete"
 msgstr "Ολοκληρωμένο"
-
-#: Wammu/SMSXML.py:86
-msgid "XML File"
-msgstr ""
-
-#: Wammu/SMSXML.py:89
-#, fuzzy
-msgid "Select XML file..."
-msgstr "Επιλέξτε αρχείο λογαριασμού mail..."
 
 #: Wammu/SMSXML.py:102
 #, fuzzy
