@@ -352,7 +352,7 @@ data_files.append((os.path.join('share','man','de','man1'), ['man/de/wammu.1', '
 data_files.append((os.path.join('share','man','en_GB','man1'), ['man/en_GB/wammu.1', 'man/en_GB/wammu-configure.1']))
 data_files.append((os.path.join('share','man','es','man1'), ['man/es/wammu.1', 'man/es/wammu-configure.1']))
 data_files.append((os.path.join('share','man','fr','man1'), ['man/fr/wammu.1', 'man/fr/wammu-configure.1']))
-data_files.append((os.path.join('share','man','hu','man1'), ['man/hu/wammu.1', 'man/hu/wammu-configure.1']))
+data_files.append((os.path.join('share','man','hu','man1'), ['man/hu/wammu.1']))
 data_files.append((os.path.join('share','man','id','man1'), ['man/id/wammu.1', 'man/id/wammu-configure.1']))
 data_files.append((os.path.join('share','man','it','man1'), ['man/it/wammu.1', 'man/it/wammu-configure.1']))
 data_files.append((os.path.join('share','man','nl','man1'), ['man/nl/wammu.1', 'man/nl/wammu-configure.1']))
