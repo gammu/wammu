@@ -86,7 +86,7 @@ rm -rf %buildroot
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc COPYING AUTHORS FAQ README PKG-INFO ChangeLog
+%doc COPYING README PKG-INFO ChangeLog
 %doc %{_mandir}/man1/*
 %lang(cs) %doc %{_mandir}/cs
 %lang(nl) %doc %{_mandir}/nl
