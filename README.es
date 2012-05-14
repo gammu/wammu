@@ -48,6 +48,6 @@ Puede ayudar a traducir Wammu a su idioma en el servidor de traducciones -
 Control de versión
 ===================
 
-The development goes on in Git, main development branch is
-<git://github.com/gammu/wammu.git>, you can browse it using
+El desarrollo ocurre en Git, la ramificación principal es
+<git://github.com/gammu/wammu.git>, puede examinarla usando
 <https://github.com/gammu/wammu>.

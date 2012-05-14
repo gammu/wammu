@@ -48,6 +48,6 @@ Je kunt helpen Wammu naar jouw taal te vertalen op de vertaal server -
 Versie beheer
 =============
 
-The development goes on in Git, main development branch is
-<git://github.com/gammu/wammu.git>, you can browse it using
+Ontwikkeling gebeurt in Git, de hoofdversie is te vinden op
+<git://github.com/gammu/wammu.git>, je kunt de bestanden bekijken via
 <https://github.com/gammu/wammu>.

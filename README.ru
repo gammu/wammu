@@ -48,6 +48,6 @@ Delete для удаления.
 Контроль версий
 =============================
 
-The development goes on in Git, main development branch is
-<git://github.com/gammu/wammu.git>, you can browse it using
+Разработка ведется на Git, главная ветвь -
+<git://github.com/gammu/wammu.git>, просмотреть ее можно здесь -
 <https://github.com/gammu/wammu>.
