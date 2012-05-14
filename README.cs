@@ -47,6 +47,6 @@ Můžete pomoci přeložit Wammu do jazyka, který umíte -
 Správa revizí
 ===============
 
-Vývoj probíhá v Gitu, hlavní vývojovou větev naleznete na
-<git://gitorious.org/wammu/mainline.git> a prohlížet si jí můžete na
-stránkách <http://gitorious.org/wammu/mainline/trees>.
+The development goes on in Git, main development branch is
+<git://github.com/gammu/wammu.git>, you can browse it using
+<https://github.com/gammu/wammu>.

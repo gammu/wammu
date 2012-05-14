@@ -55,7 +55,7 @@ Ale kromě tohoto musíte provést trochu ručních úprav. Pro fungování py2e
 ve Wine, potřebujete jeho binárky opravit pomocí programu PE Tools (jak je
 popsáno v chybovém hlášené na Wine [w1]) a zkopírovat nějaké další knihovny,
 které chybějí v adresáři dist (python25.dll a knihovny z wxPython). Ve
-skriptu admin/make-release se toto všechno udělá automaticky
+skriptu admin/make-release se toto všechno udělá automaticky.
 
 Poté můžete použít InnoSetup[6] pro vytvoření instalátoru Wammu:
 

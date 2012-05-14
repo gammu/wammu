@@ -48,6 +48,6 @@ Delete для удаления.
 Контроль версий
 =============================
 
-Разработка ведется на Git, главная ветвь -
-<git://gitorious.org/wammu/mainline.git>, просмотреть ее можно здесь -
-<http://gitorious.org/wammu/mainline/trees>.
+The development goes on in Git, main development branch is
+<git://github.com/gammu/wammu.git>, you can browse it using
+<https://github.com/gammu/wammu>.

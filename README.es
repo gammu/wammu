@@ -43,11 +43,11 @@ Traducciones
 ============
 
 Puede ayudar a traducir Wammu a su idioma en el servidor de traducciones -
-<https://l10n.cihar.com/projects/wammu/>.
+<https://l10n.cihar.com/projects/gammu/wammu/>.
 
 Control de versión
 ===================
 
-El desarrollo ocurre en Git, la ramificación principal es
-<git://gitorious.org/wammu/mainline.git>, puede examinarla usando
-<http://gitorious.org/wammu/mainline/trees>.
+The development goes on in Git, main development branch is
+<git://github.com/gammu/wammu.git>, you can browse it using
+<https://github.com/gammu/wammu>.
