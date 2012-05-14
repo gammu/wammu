@@ -86,19 +86,22 @@ rm -rf %buildroot
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc COPYING AUTHORS FAQ README PKG-INFO ChangeLog
+%doc COPYING README PKG-INFO ChangeLog
 %doc %{_mandir}/man1/*
 %lang(cs) %doc %{_mandir}/cs
-%lang(nl) %doc %{_mandir}/nl
-%lang(it) %doc %{_mandir}/it
-%lang(id) %doc %{_mandir}/id
-%lang(sk) %doc %{_mandir}/sk
 %lang(de) %doc %{_mandir}/de
-%lang(fr) %doc %{_mandir}/fr
-%lang(ru) %doc %{_mandir}/ru
+%lang(en_GB) %doc %{_mandir}/en_GB
 %lang(es) %doc %{_mandir}/es
+%lang(fr) %doc %{_mandir}/fr
 %lang(hu) %doc %{_mandir}/hu
+%lang(id) %doc %{_mandir}/id
+%lang(it) %doc %{_mandir}/it
+%lang(nl) %doc %{_mandir}/nl
 %lang(pt_BR) %doc %{_mandir}/pt_BR
+%lang(ru) %doc %{_mandir}/ru
+%lang(sk) %doc %{_mandir}/sk
+%lang(tr) %doc %{_mandir}/tr
+
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
