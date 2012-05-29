@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-05-19 23:39+0200\n"
+"PO-Revision-Date: 2012-05-25 22:56+0200\n"
 "Last-Translator: Jukka Penttinen <tikkakalja@hotmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1754,18 +1754,18 @@ msgstr[0] "Haluatko varmasti poistaa viestin %d?"
 msgstr[1] "Haluatko varmasti poistaa viestit %d?"
 
 #: Wammu/Main.py:1818
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] "Haluatko varmasti poistaa %s?"
-msgstr[1] "Haluatko varmasti poistaa %s?"
+msgstr[0] "Haluatko varmasti poistaa %d tehtävä merkinnän?"
+msgstr[1] "Haluatko varmasti poistaa %d tehtävä merkinnät?"
 
 #: Wammu/Main.py:1823
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "Haluatko varmasti poistaa %s?"
-msgstr[1] "Haluatko varmasti poistaa %s?"
+msgstr[0] "Haluatko varmasti poistaa %d kalenterimerkinnän?"
+msgstr[1] "Haluatko varmasti poistaa %d kalenterimerkintää?"
 
 #: Wammu/Main.py:1828 Wammu/Settings.py:346
 msgid "Confirm deleting"
@@ -1838,19 +1838,17 @@ msgid "One moment please, connecting to phone..."
 msgstr "Hetkinen, yhdistetään puhelimeen..."
 
 #: Wammu/Main.py:2155
-#, fuzzy
 msgid "Phone connection is not properly configured, can not connect to phone."
-msgstr "Puhelimen yhteyden testaus on yhä käynnissä, et voi jatkaa."
+msgstr "Puhelinyhteys ei ole oikein määritelty, et voi kytkeytyä puhelimeen."
 
 #: Wammu/Main.py:2156
-#, fuzzy
 msgid "Connection not configured!"
-msgstr "Puhelinta ei löydy"
+msgstr "Yhteyttä ei ole määritetty!"
 
 #: Wammu/Main.py:2226
-#, fuzzy, python-format
+#, python-format
 msgid "Please enter %s code:"
-msgstr "Anna palvelimen nimi"
+msgstr "Anna %s koodi:"
 
 #: Wammu/Main.py:2227
 msgid "Phone asks for security code"
@@ -1888,9 +1886,8 @@ msgid ""
 msgstr ""
 
 #: Wammu/Main.py:2302
-#, fuzzy
 msgid "You are connected to phone!"
-msgstr "Virhe asettaessa exception handleria."
+msgstr "Yhdistetty phelimeen!"
 
 #: Wammu/MessageDisplay.py:113
 #, python-format
