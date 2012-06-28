@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-05-25 22:56+0200\n"
+"PO-Revision-Date: 2012-06-27 22:50+0200\n"
 "Last-Translator: Jukka Penttinen <tikkakalja@hotmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -1913,9 +1913,8 @@ msgid "Checking %s"
 msgstr "Tarkistetaan %s"
 
 #: Wammu/PhoneSearch.py:96
-#, fuzzy
 msgid "Could not guess vendor"
-msgstr "Ei voitu lukea talletettua tietoa!"
+msgstr "Ei voitu selvittää valmistajaa"
 
 #: Wammu/PhoneSearch.py:101
 #, python-format
@@ -1941,15 +1940,12 @@ msgid "Could not access Bluetooth subsystem (%s)"
 msgstr "Ei pääsyä Bluetooth alijärjestelmään (%s)"
 
 #: Wammu/PhoneSearch.py:189 Wammu/PhoneSearch.py:193
-#, fuzzy
 msgid "PyBluez not found, it is not possible to scan for Bluetooth devices."
-msgstr ""
-"Gnome Bluetoothia tai PyBluezia ei löydy, ei voi etsiä Bluetooth-laitteita."
+msgstr "PyBluezia ei löydy, ei ole mahdollista etsiä Bluetooth-laitteita."
 
 #: Wammu/PhoneSearch.py:192
-#, fuzzy
 msgid "No Bluetooth searching"
-msgstr "Bluetooth-laitetta ei löydetty"
+msgstr "Ei Bluetooth etsintää"
 
 #: Wammu/PhoneSearch.py:206
 #, python-format
@@ -1962,9 +1958,8 @@ msgid "All finished, found %d phones"
 msgstr "Valmis, löytyi %d puhelinta"
 
 #: Wammu/PhoneSearch.py:342
-#, fuzzy
 msgid "Failed to connect to phone"
-msgstr "Virhe asettaessa exception handleria."
+msgstr "Kytkeytyminen puhelimeen epäonnistui"
 
 #: Wammu/PhoneValidator.py:94
 msgid "You did not specify valid phone number."
@@ -1975,9 +1970,8 @@ msgid "Invalid phone number"
 msgstr "Väärä puhelinnumero"
 
 #: Wammu/PhoneWizard.py:44
-#, fuzzy
 msgid "Configuration done"
-msgstr "Asetuksia ei löytynyt"
+msgstr "Asetukset muutettu"
 
 #: Wammu/PhoneWizard.py:45
 msgid "Thank you for configuring phone connection."
@@ -2057,13 +2051,13 @@ msgid "No phone has been found!"
 msgstr "Yhtään puhelinta ei löytynyt!"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Phone %(manufacturer)s %(model)s on device %(port)s using connection "
 "%(connection)s"
 msgstr ""
-"Malli %(model)s (%(manufacturer)s) portissa %(port)s käyttää yhteyttä "
-"%(connection)s"
+"Puhelin %(manufacturer)s %(model)s portissa %(port)s käyttää yhteyttä %"
+"(connection)s"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
