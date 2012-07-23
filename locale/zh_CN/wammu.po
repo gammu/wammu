@@ -1886,7 +1886,7 @@ msgstr "请稍等，正从手机断开连接..."
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
-msgstr ""
+msgstr "不能在连接到手机时搜索手机，请先断开连接。"
 
 #: Wammu/Main.py:2302
 msgid "You are connected to phone!"
@@ -1895,7 +1895,7 @@ msgstr "您已连接到手机！"
 #: Wammu/MessageDisplay.py:113
 #, python-format
 msgid "Predefined animation number %d"
-msgstr ""
+msgstr "预定义动画 %d"
 
 #: Wammu/MessageDisplay.py:125
 #, python-format
@@ -1906,7 +1906,7 @@ msgstr "未知预定义声音 #%d"
 msgid ""
 "Some parts of this message were not decoded correctly, probably due to "
 "missing support for it in Gammu."
-msgstr ""
+msgstr "此信息的部分内容没有正确解码，可能因为 Gammu 不支持它。"
 
 #: Wammu/PhoneSearch.py:85
 #, python-format
@@ -2140,7 +2140,7 @@ msgstr "手机类型"
 #: Wammu/PhoneWizard.py:400
 msgid ""
 "Please select phone manufacturer or type. Try to be as specific as possible."
-msgstr ""
+msgstr "请选择手机的型号或类型。尽量具体。"
 
 #: Wammu/PhoneWizard.py:424
 msgid "Search all connections"
@@ -2268,22 +2268,22 @@ msgstr "Wammu 手机配置向导"
 
 #: Wammu/Reader.py:136 Wammu/Reader.py:187
 msgid "Ignoring unknown"
-msgstr "忽略未知"
+msgstr "忽略未知错误"
 
 #: Wammu/Reader.py:137 Wammu/Reader.py:188
 #, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
-msgstr ""
+msgstr "读取 %d 的条目时发生未知错误，忽略该条目!"
 
 #: Wammu/Reader.py:141 Wammu/Reader.py:182
 msgid "Ignoring corrupted"
-msgstr "忽略损坏的"
+msgstr "忽略损坏条目"
 
 #: Wammu/Reader.py:142 Wammu/Reader.py:183
 #, python-format
 msgid "While reading, entry on location %d seems to be corrupted, ignoring it!"
-msgstr ""
+msgstr "读取 %d 的条目时发现条目损坏，忽略该条目!"
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
@@ -2303,7 +2303,7 @@ msgstr "选择联系人"
 
 #: Wammu/Select.py:93
 msgid "Select number for selected contact"
-msgstr ""
+msgstr "选择已选择联系人的号码"
 
 #: Wammu/Select.py:94
 msgid "Select phone number"
@@ -2435,11 +2435,11 @@ msgstr "默认索要发送报告"
 
 #: Wammu/Settings.py:257
 msgid "Use 16bit Id"
-msgstr ""
+msgstr "使用 16 位编号"
 
 #: Wammu/Settings.py:258
 msgid "Use 16 bit Id inside message. This is safe for most cases."
-msgstr ""
+msgstr "在信息内部使用 16 位编号。这在大部分情况下都是安全的。"
 
 #: Wammu/Settings.py:291
 msgid "Automatic"
@@ -2459,7 +2459,7 @@ msgstr "自定义，使用下面的格式字符串"
 
 #: Wammu/Settings.py:304
 msgid "Name display format"
-msgstr ""
+msgstr "姓名显示格式"
 
 #. l10n: The %s will be replaced by list of currently supported tags, %%(value)s should be kept intact (you can translate word value).
 #: Wammu/Settings.py:317
@@ -2467,7 +2467,7 @@ msgstr ""
 msgid ""
 "Format string for name displaying. You can use %%(value)s format marks. "
 "Currently available values are: %s."
-msgstr ""
+msgstr "姓名显示格式字符串。您可以使用 %%(value)s 格式标记。当前可用值有: %s 。"
 
 #: Wammu/Settings.py:319
 msgid "Name format string"
@@ -2523,11 +2523,11 @@ msgstr ""
 
 #: Wammu/Settings.py:393
 msgid "Prefix for non international phone numbers."
-msgstr ""
+msgstr "国内电话号码前缀。"
 
 #: Wammu/Settings.py:394
 msgid "Number prefix"
-msgstr "数字前缀"
+msgstr "号码前缀"
 
 #: Wammu/Settings.py:416
 msgid ""
@@ -2557,7 +2557,7 @@ msgstr "Gammu"
 
 #: Wammu/Settings.py:440
 msgid "View"
-msgstr ""
+msgstr "视图"
 
 #: Wammu/Settings.py:441
 msgid "Other"
@@ -2775,188 +2775,188 @@ msgstr "如果您的手机通过蓝牙并且您想使用原生蓝牙连接请选
 
 #: Wammu/SettingsStorage.py:355
 msgid "AT over Bluetooth with RF searching"
-msgstr ""
+msgstr "AT 通过带有 RF 搜索的蓝牙"
 
 #: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
 msgid ""
 "Use for Bluetooth stack and 6210 / DCT4 Nokia models, which don't inform "
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
 "5.50, 8910,..)"
-msgstr ""
+msgstr "用于诺基亚 6210 / DCT4 型号的蓝牙，无法正确获得服务信息 (6310, 固件版本低于 5.50 的 6310i, 8910,..)"
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
-msgstr ""
+msgstr "AT 通过红外线"
 
 #: Wammu/SettingsStorage.py:361 Wammu/SettingsStorage.py:385
 #: Wammu/SettingsStorage.py:396
 msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
-msgstr ""
+msgstr "如果您的手机通过红外线连接并且您想使用原生红外线连接请选择此项。"
 
 #: Wammu/SettingsStorage.py:365
 msgid "AT over DKU2"
-msgstr ""
+msgstr "AT 通过 DKU2"
 
 #: Wammu/SettingsStorage.py:366
 msgid "Select this if your phone is connected using DKU2 cable."
-msgstr ""
+msgstr "如果您的手机通过 DKU2 数据线连接请选择此项。"
 
 #: Wammu/SettingsStorage.py:370
 msgid "Generic OBEX over serial line or it's emulation"
-msgstr ""
+msgstr "通用 OBEX 通过串口或模拟串口"
 
 #: Wammu/SettingsStorage.py:375
 msgid "OBEX over Bluetooth"
-msgstr ""
+msgstr "OBEX 通过蓝牙"
 
 #: Wammu/SettingsStorage.py:379
 msgid "OBEX over Bluetooth with RF searching"
-msgstr ""
+msgstr "OBEX 通过带有 RF 搜索的蓝牙"
 
 #: Wammu/SettingsStorage.py:384
 msgid "OBEX over IrDA"
-msgstr ""
+msgstr "OBEX 通过红外线"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
-msgstr ""
+msgstr "Gnapplet 通过蓝牙"
 
 #: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
-msgstr ""
+msgstr "Gnapplet 通过红外线"
 
 #: Wammu/SettingsStorage.py:401
 msgid "MBUS proprietary protocol"
-msgstr ""
+msgstr "MBUS 私有协议"
 
 #: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
-msgstr ""
+msgstr "旧诺基亚手机使用的协议。"
 
 #: Wammu/SettingsStorage.py:407
 msgid "FBUS proprietary protocol"
-msgstr ""
+msgstr "FBUS 私有协议"
 
 #: Wammu/SettingsStorage.py:408
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
-msgstr ""
+msgstr "诺基亚手机使用的协议。请先尝试选择更加具体的选项。"
 
 #: Wammu/SettingsStorage.py:413
 msgid "DKU5 cable"
-msgstr ""
+msgstr "DKU5 数据线"
 
 #: Wammu/SettingsStorage.py:414
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
-msgstr ""
+msgstr "诺基亚 DKU-5 数据线 (原装或兼容)，用于诺基亚 5100 手机 USB 接口类型。"
 
 #: Wammu/SettingsStorage.py:417
 msgid "PL2303 cable"
-msgstr ""
+msgstr "PL2303 数据线"
 
 #: Wammu/SettingsStorage.py:418
 msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
-msgstr ""
+msgstr "新型诺基亚 PL2303 USB 数据线 (通常是第三方数据线)，用于诺基亚 5100 手机 USB 接口类型。"
 
 #: Wammu/SettingsStorage.py:421
 msgid "DKU2 cable"
-msgstr ""
+msgstr "DKU2 数据线"
 
 #: Wammu/SettingsStorage.py:422
 msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
-msgstr ""
+msgstr "诺基亚 DKU-2 数据线 (原装或兼容)，用于诺基亚 6230 手机 USB 接口类型。"
 
 #: Wammu/SettingsStorage.py:425
 msgid "DLR3-3P/CA-42 cable"
-msgstr ""
+msgstr "DLR3-3P/CA-42 数据线"
 
 #: Wammu/SettingsStorage.py:426
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
 "with phones like Nokia 7110/6210/6310."
-msgstr ""
+msgstr "诺基亚 RS-232 型 DLR-3P 数据线 (原装或兼容)，通常用于诺基亚 7110/6210/6310 手机。"
 
 #: Wammu/SettingsStorage.py:429
 msgid "FBUS proprietary protocol using ARK cable"
-msgstr ""
+msgstr "FBUS 私有协议通过 ARK 数据线"
 
 #: Wammu/SettingsStorage.py:430
 msgid ""
 "ARK cable (third party cable) for phones not supporting AT commands like "
 "Nokia 6020."
-msgstr ""
+msgstr "ARK 数据线 (第三方数据线) 在诺基亚 6020 等手机上不支持 AT 命令。"
 
 #: Wammu/SettingsStorage.py:433
 msgid "DKU5 phone with ARK cable"
-msgstr ""
+msgstr "DKU5 手机的 ARK 数据线"
 
 #: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
-msgstr ""
+msgstr "ARK 数据线 (第三方数据线) 用于诺基亚 5100 手机 USB 接口类型。"
 
 #: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
-msgstr ""
+msgstr "Phonet 通过蓝牙"
 
 #: Wammu/SettingsStorage.py:439 Wammu/SettingsStorage.py:450
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
-msgstr ""
+msgstr "用于诺基亚其它 DCT4 型号的蓝牙协议。"
 
 #: Wammu/SettingsStorage.py:442
 msgid "FBUS over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "FBUS 通过蓝牙 (模拟串口)"
 
 #: Wammu/SettingsStorage.py:443 Wammu/SettingsStorage.py:457
 msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
-msgstr ""
+msgstr "用于诺基亚 6210 的蓝牙协议。"
 
 #: Wammu/SettingsStorage.py:445 Wammu/SettingsStorage.py:452
 msgid "Using emulated serial port."
-msgstr ""
+msgstr "使用模拟串口。"
 
 #: Wammu/SettingsStorage.py:449
 msgid "Phonet over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "Phonet 通过蓝牙 (模拟串口)"
 
 #: Wammu/SettingsStorage.py:456
 msgid "FBUS over Bluetooth"
-msgstr ""
+msgstr "FBUS 通过蓝牙"
 
 #: Wammu/SettingsStorage.py:460
 msgid "Phonet over Bluetooth with RF searching"
-msgstr ""
+msgstr "Phonet 通过带有 RF 搜索的蓝牙"
 
 #: Wammu/SettingsStorage.py:461
 msgid ""
 "Nokia protocol for Bluetooth stack with DCT4 Nokia models, which don't "
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
 "8910,..)."
-msgstr ""
+msgstr "用于诺基亚 DCT4 型号的蓝牙协议，无法正确获得服务信息 (6310, 固件版本低于 5.50 的 6310i, 8910,..)。"
 
 #: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
-msgstr ""
+msgstr "Phonet 通过红外线"
 
 #: Wammu/SettingsStorage.py:466
 msgid "Nokia protocol for infrared with other Nokia models."
-msgstr ""
+msgstr "用于诺基亚其它型号的红外线协议。"
 
 #: Wammu/SettingsStorage.py:469
 msgid "FBUS over IrDA"
-msgstr ""
+msgstr "FBUS 通过红外线"
 
 #: Wammu/SettingsStorage.py:470
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
-msgstr ""
+msgstr "用于诺基亚 6110/6130/6150 的红外线协议。"
 
 #: Wammu/SMSExport.py:38
 msgid "Mailboxes"
@@ -3135,7 +3135,7 @@ msgstr "首选项"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
-msgstr ""
+msgstr "短信状态选择"
 
 #: Wammu/SMSExport.py:427
 msgid "From Address"
@@ -3198,7 +3198,7 @@ msgstr "%d. 密码不完全\n"
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
-msgstr ""
+msgstr "%d. 没有选中要备份的信息。请至少勾选一个。"
 
 #: Wammu/SMSExport.py:573
 msgid "Incomplete"
@@ -3307,7 +3307,7 @@ msgstr "请在此处输入有效的电子邮件地址，并在下方选择显示
 msgid ""
 "If you don't want to display email clear text, please select one mangling "
 "option."
-msgstr ""
+msgstr "如果您不想显示邮件明文，请选择一个干扰选项。"
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
@@ -3330,18 +3330,18 @@ msgstr "支持的功能"
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
 #: Wammu/TalkbackDialog.py:319
 msgid "Entry not created!"
-msgstr ""
+msgstr "未建立条目!"
 
 #: Wammu/TalkbackDialog.py:208 Wammu/TalkbackDialog.py:311
 msgid "Email displaying"
-msgstr ""
+msgstr "正在显示电子邮件"
 
 #: Wammu/TalkbackDialog.py:254
 #, python-format
 msgid ""
 "HTTP request failed with status %(code)d (%(text)s), please retry later or "
 "create entry manually."
-msgstr ""
+msgstr "HTTP 请求失败，状态 %(code)d (%(text)s)，请稍后重试或手动建立。"
 
 #: Wammu/TalkbackDialog.py:269
 #, python-format
@@ -3350,6 +3350,9 @@ msgid ""
 "%(exception)s\n"
 "Please retry later or create entry manually."
 msgstr ""
+"HTTP 请求失败，异常:\n"
+"%(exception)s\n"
+"请稍后重试或手动建立。"
 
 #: Wammu/TalkbackDialog.py:283
 #, python-format
@@ -3357,10 +3360,12 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
+"已在 Gammu 手机数据库中建立条目，您可以通过 <%s> 地址访问。\n"
+"要立即在浏览器中打开吗？"
 
 #: Wammu/TalkbackDialog.py:284
 msgid "Entry created!"
-msgstr ""
+msgstr "已建立条目!"
 
 #: Wammu/TalkbackDialog.py:299
 msgid "Phone model"
