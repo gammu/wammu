@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Wammu 0.37\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-07-03 16:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-07-21 12:29+0200\n"
+"Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -358,9 +358,8 @@ msgid "Select XML file..."
 msgstr "选择m XML 文件..."
 
 #: Wammu/ContactsXML.py:164
-#, fuzzy
 msgid "Saving contacts to XML"
-msgstr "正在保存消息到 XML"
+msgstr "正在保存联系人到 XML"
 
 #: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
@@ -372,7 +371,7 @@ msgstr "导出终止"
 
 #: Wammu/ContactsXML.py:187
 msgid "phone"
-msgstr ""
+msgstr "手机"
 
 #: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #: Wammu/SMSXML.py:128
@@ -386,9 +385,9 @@ msgid "Can not create file!"
 msgstr "无法创建文件！"
 
 #: Wammu/ContactsXML.py:205
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)d contacts exported to \"%(path)s\""
-msgstr "%(count)d条消息已导出到\"%(path)s\" (%(type)s)"
+msgstr "%(count)d 个联系人已导出到 \"%(path)s\""
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -702,6 +701,9 @@ msgid ""
 "%(traceback)s\n"
 "Exception: %(exception)s"
 msgstr ""
+"追溯:\n"
+"%(traceback)s\n"
+"异常: %(exception)s"
 
 #: Wammu/GammuSettings.py:144
 msgid "Create new configuration"
@@ -761,7 +763,7 @@ msgstr "产品代码"
 
 #: Wammu/Info.py:129 Wammu/Info.py:145
 msgid "N/A"
-msgstr ""
+msgstr "不可用"
 
 #: Wammu/Info.py:130
 msgid "SIM IMSI"
@@ -1128,11 +1130,11 @@ msgstr "获取日程表事件。"
 
 #: Wammu/Main.py:320
 msgid "A&ll"
-msgstr ""
+msgstr "全部 (&l)"
 
 #: Wammu/Main.py:320
 msgid "Retrieve everything above."
-msgstr ""
+msgstr "读取所有数据。"
 
 #: Wammu/Main.py:322
 msgid "&Retrieve"
@@ -1198,9 +1200,8 @@ msgstr "保存当前已获取的短消息到备份文件。"
 
 #  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:335
-#, fuzzy
 msgid "&Import to phone"
-msgstr "从备份文件导入数据到手机"
+msgstr "导入到手机 (&I)"
 
 #  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:335
@@ -1208,9 +1209,8 @@ msgid "Import data from backup to phone."
 msgstr "从备份文件导入数据到手机"
 
 #: Wammu/Main.py:336
-#, fuzzy
 msgid "I&mport messages to phone"
-msgstr "导入短消息(&m)"
+msgstr "导入短信到手机 (&m)"
 
 #  msgid "Imports messages from backup to phone"
 #: Wammu/Main.py:336
@@ -1236,15 +1236,13 @@ msgid "Export messages to XML file you choose."
 msgstr "导出短消息到你选择的 XML 文件。"
 
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export &contacts to XML"
-msgstr "导出短消息到(&X)ML"
+msgstr "导出联系人到 XML (&c)"
 
 #  msgid "Export messages to &emails"
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export contacts to XML file you choose."
-msgstr "导出短消息到你选择的 XML 文件。"
+msgstr "导出联系人到你选择的 XML 文件。"
 
 #: Wammu/Main.py:342
 msgid "&Backups"
@@ -1671,22 +1669,22 @@ msgstr "备份导入失败"
 #: Wammu/Main.py:1561
 #, python-format
 msgid "%d phone contact entries"
-msgstr ""
+msgstr "%d 个手机联系人"
 
 #: Wammu/Main.py:1564
 #, python-format
 msgid "%d SIM contact entries"
-msgstr ""
+msgstr "%d 个 SIM 卡联系人"
 
 #: Wammu/Main.py:1567
 #, python-format
 msgid "%d to do entries"
-msgstr ""
+msgstr "%d 条待办事项"
 
 #: Wammu/Main.py:1570
 #, python-format
 msgid "%d calendar entries"
-msgstr ""
+msgstr "%d 条日历记录"
 
 #: Wammu/Main.py:1581
 #, python-format
@@ -1701,7 +1699,7 @@ msgstr "，序列号 %s"
 #: Wammu/Main.py:1585
 #, python-format
 msgid "Backup was created by %s"
-msgstr ""
+msgstr "%s 已创建备份"
 
 #: Wammu/Main.py:1587
 #, python-format
@@ -1732,57 +1730,57 @@ msgstr ""
 #: Wammu/Main.py:1791
 #, python-format
 msgid "Are you sure you want to delete contact \"%s\"?"
-msgstr "你确认要删除联系人\"%s\"？"
+msgstr "您真的要删除联系人 \"%s\" 吗？"
 
 #: Wammu/Main.py:1793
 #, python-format
 msgid "Are you sure you want to delete call from \"%s\"?"
-msgstr "你确认要删除来自\"%s\"的呼叫么？"
+msgstr "您真的要删除来自 \"%s\" 的通话记录吗？"
 
 #: Wammu/Main.py:1795
 #, python-format
 msgid "Are you sure you want to delete message from \"%s\"?"
-msgstr "你确认要删除来自“%s”的短信么？"
+msgstr "您真的要删除来自 “%s” 的短信吗？"
 
 #: Wammu/Main.py:1797
 #, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
-msgstr "你确认要删除任务“%s”么？"
+msgstr "您真的要删除待办事项 “%s” 吗？"
 
 #: Wammu/Main.py:1799
 #, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
-msgstr "你确认要删除日历项\"%s\"吗？"
+msgstr "您真的要删除日历记录 \"%s\" 吗？"
 
 #: Wammu/Main.py:1803
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
-msgstr[0] "你确认要删除%s？"
+msgstr[0] "您真的要删除 %d 个联系人吗？"
 
 #: Wammu/Main.py:1808
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
-msgstr[0] "你确认要删除%s？"
+msgstr[0] "您真的要删除 %d 个通话记录吗？"
 
 #: Wammu/Main.py:1813
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
-msgstr[0] "你确认要删除%s？"
+msgstr[0] "您真的要删除 %d 条短信吗？"
 
 #: Wammu/Main.py:1818
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] "你确认要删除%s？"
+msgstr[0] "您真的要删除 %d 条待办事项吗？"
 
 #: Wammu/Main.py:1823
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "你确认要删除%s？"
+msgstr[0] "您真的要删除 %d 条日历记录吗？"
 
 #: Wammu/Main.py:1828 Wammu/Settings.py:346
 msgid "Confirm deleting"
@@ -1811,7 +1809,7 @@ msgstr "正在读取手机信息"
 #: Wammu/Main.py:1964
 #, python-format
 msgid "Reading calls of type %s"
-msgstr ""
+msgstr "正在读取 %s 类型的通话记录"
 
 #: Wammu/Main.py:1992
 #, python-format
@@ -1863,38 +1861,38 @@ msgid "Connection not configured!"
 msgstr "连接未被配置！"
 
 #: Wammu/Main.py:2226
-#, fuzzy, python-format
+#, python-format
 msgid "Please enter %s code:"
-msgstr "请输入服务器名称"
+msgstr "请输入 %s 码:"
 
 #: Wammu/Main.py:2227
 msgid "Phone asks for security code"
-msgstr ""
+msgstr "手机询问安全码"
 
 #: Wammu/Main.py:2264
 msgid "Your phone has just received incoming call"
-msgstr ""
+msgstr "您的手机刚刚接到一个来电"
 
 #: Wammu/Main.py:2266
 #, python-format
 msgid "Your phone has just received incoming call from %s"
-msgstr ""
+msgstr "您的手机刚刚接到来自 %s 的来电"
 
 #: Wammu/Main.py:2267
 msgid "Incoming call"
-msgstr "呼入电话"
+msgstr "来电"
 
 #: Wammu/Main.py:2268
 msgid "Reject"
-msgstr "拒绝"
+msgstr "挂断"
 
 #: Wammu/Main.py:2268
 msgid "Accept"
-msgstr "接受"
+msgstr "接听"
 
 #: Wammu/Main.py:2271
 msgid "One moment please, disconnecting from phone..."
-msgstr "请稍等，正在断开手机..."
+msgstr "请稍等，正从手机断开连接..."
 
 #: Wammu/Main.py:2301
 msgid ""
@@ -1903,9 +1901,8 @@ msgid ""
 msgstr ""
 
 #: Wammu/Main.py:2302
-#, fuzzy
 msgid "You are connected to phone!"
-msgstr "无法连接到手机"
+msgstr "您已连接到手机！"
 
 #: Wammu/MessageDisplay.py:113
 #, python-format
@@ -1915,7 +1912,7 @@ msgstr ""
 #: Wammu/MessageDisplay.py:125
 #, python-format
 msgid "Unknown predefined sound #%d"
-msgstr ""
+msgstr "未知预定义声音 #%d"
 
 #: Wammu/MessageDisplay.py:168
 msgid ""
@@ -1948,16 +1945,16 @@ msgstr "未找到蓝牙设备"
 
 #: Wammu/PhoneSearch.py:172
 msgid "All Bluetooth devices discovered, connection tests still in progress..."
-msgstr ""
+msgstr "所有蓝牙设备已发现，正在进行连接测试。。。"
 
 #: Wammu/PhoneSearch.py:176
 #, python-format
 msgid "Could not access Bluetooth subsystem (%s)"
-msgstr ""
+msgstr "无法访问蓝牙子系统 (%s)"
 
 #: Wammu/PhoneSearch.py:189 Wammu/PhoneSearch.py:193
 msgid "PyBluez not found, it is not possible to scan for Bluetooth devices."
-msgstr ""
+msgstr "未找到 PyBluez，无法扫描蓝牙设备。"
 
 #: Wammu/PhoneSearch.py:192
 msgid "No Bluetooth searching"
@@ -1966,12 +1963,12 @@ msgstr ""
 #: Wammu/PhoneSearch.py:206
 #, python-format
 msgid "Finished %s"
-msgstr ""
+msgstr "已完成 %s"
 
 #: Wammu/PhoneSearch.py:212
 #, python-format
 msgid "All finished, found %d phones"
-msgstr ""
+msgstr "全部完成，找到 %d 部手机"
 
 #: Wammu/PhoneSearch.py:342
 msgid "Failed to connect to phone"
@@ -2075,7 +2072,7 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
-msgstr ""
+msgstr "请从下列列表中选择要使用的手机"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone"
@@ -2141,12 +2138,12 @@ msgstr "抱歉，没有驱动与你的配置相符，请后退尝试不同的配
 msgid ""
 "Please select which driver you want to use. Follow the help text shown below "
 "to select the best one."
-msgstr ""
+msgstr "请选择您要使用的驱动。根据下方的帮助文字选择最适合的。"
 
 #: Wammu/PhoneWizard.py:376
 msgid ""
 "Please select connection type, default choice should be best in most cases."
-msgstr ""
+msgstr "请选择连接类型，默认选项是最适用于大部分情况的。"
 
 #: Wammu/PhoneWizard.py:397 Wammu/PhoneWizard.py:398
 msgid "Phone type"
