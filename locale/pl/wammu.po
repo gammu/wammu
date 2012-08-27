@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-04-09 11:13+0200\n"
-"Last-Translator: Bartosz Feński <fenio@debian.org>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2012-08-27 13:00+0200\n"
+"Last-Translator: Damian Majchrzak <damiax.m@gmail.com>\n"
+"Language-Team: Polish <http://l10n.cihar.com/projects/gammu/wammu/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.2\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -377,9 +377,8 @@ msgid "Select XML file..."
 msgstr "Wybierz plik XML..."
 
 #: Wammu/ContactsXML.py:164
-#, fuzzy
 msgid "Saving contacts to XML"
-msgstr "Zapisywanie wiadomości do XML"
+msgstr "Zapisywanie kontaktów do XML"
 
 #: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
@@ -391,7 +390,7 @@ msgstr "Eksport przerwany"
 
 #: Wammu/ContactsXML.py:187
 msgid "phone"
-msgstr ""
+msgstr "Telefon"
 
 #: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #: Wammu/SMSXML.py:128
@@ -405,9 +404,9 @@ msgid "Can not create file!"
 msgstr "Problem z utworzeniem pliku!"
 
 #: Wammu/ContactsXML.py:205
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)d contacts exported to \"%(path)s\""
-msgstr "%(count)d wiadomości wyeksportowanych do \"%(path)s\" (%(type)s)"
+msgstr "%(count)d kontakty wyeksportowane do \"%(path)s\""
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -795,7 +794,7 @@ msgstr "Kod produktu"
 
 #: Wammu/Info.py:129 Wammu/Info.py:145
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: Wammu/Info.py:130
 msgid "SIM IMSI"
@@ -1150,11 +1149,11 @@ msgstr "Pobierz wydarzenia z kalendarza."
 
 #: Wammu/Main.py:320
 msgid "A&ll"
-msgstr ""
+msgstr "A&ll"
 
 #: Wammu/Main.py:320
 msgid "Retrieve everything above."
-msgstr ""
+msgstr "Odzyskaj wszystko powyżej."
 
 #: Wammu/Main.py:322
 msgid "&Retrieve"
@@ -1248,15 +1247,13 @@ msgid "Export messages to XML file you choose."
 msgstr "Wyeksportuj wiadomości do wybranego pliku XML."
 
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export &contacts to XML"
-msgstr "Wyeksportuj wiadomości do &XML"
+msgstr "Wyeksportuj &kontakty do pliku XML"
 
 # Grammaticaly correct now
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export contacts to XML file you choose."
-msgstr "Wyeksportuj wiadomości do wybranego pliku XML."
+msgstr "Wypierz kontakty i wyeksportuj je do pliku XML."
 
 #: Wammu/Main.py:342
 msgid "&Backups"
@@ -2000,7 +1997,7 @@ msgstr "Nie odnaleziono urządzenia Bluetooth"
 
 #: Wammu/PhoneSearch.py:172
 msgid "All Bluetooth devices discovered, connection tests still in progress..."
-msgstr ""
+msgstr "Wszystkie urządzenia Bluetooth wykryte, testy połączeń nadal w toku ..."
 
 #: Wammu/PhoneSearch.py:176
 #, python-format
@@ -2667,6 +2664,9 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
+"Przez przypadek telefon zgłasza niewłaściwą liczbę wpisów, Wammu będzie "
+"chciał odczytać tą liczbę na siłę lub do pojawienia się błędu.Liczba ta "
+"ogranicza liczbę pustych wpisów które zostaną odczytane przed sprawdzaniem."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -3261,9 +3261,11 @@ msgid "IMAP server"
 msgstr "Serwer IMAP"
 
 #: Wammu/SMSExport.py:329
-#, fuzzy, python-format
+#, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(count)d wiadomości wyeksportowanych do \"%(path)s\" (%(type)s)"
+msgstr ""
+"%(new)d Nowych %(count)d wiadomości wyeksportowanych do \"%(path)s\" (%"
+"(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
@@ -3295,11 +3297,11 @@ msgstr "Szczegóły połączenia"
 
 #: Wammu/SMSExport.py:425
 msgid "Preferences"
-msgstr ""
+msgstr "Preferencje"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
-msgstr ""
+msgstr "Wybór Stanu Wiadomości"
 
 #: Wammu/SMSExport.py:427
 msgid "From Address"
@@ -3307,7 +3309,7 @@ msgstr "Z adresu"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
-msgstr ""
+msgstr "Serwer"
 
 #: Wammu/SMSExport.py:431
 msgid "Port"
@@ -3323,7 +3325,7 @@ msgstr "Hasło"
 
 #: Wammu/SMSExport.py:437
 msgid "Remember password (insecure)"
-msgstr ""
+msgstr "Zapamiętaj hasło (niebezpiecznie)"
 
 #: Wammu/SMSExport.py:438
 msgid "Use SSL"
@@ -3331,43 +3333,44 @@ msgstr "Użyj SSL"
 
 #: Wammu/SMSExport.py:439
 msgid "Only back-up new messages"
-msgstr ""
+msgstr "Zachowuj kopie zapasowe nowych wiadomości"
 
 #: Wammu/SMSExport.py:550
 #, python-format
 msgid "%d. From Address invalid\n"
-msgstr ""
+msgstr "%d. Adres nieprawidłowy\n"
 
 #: Wammu/SMSExport.py:553
-#, fuzzy, python-format
+#, python-format
 msgid "%d. Server incomplete\n"
-msgstr "Nazwa serwera"
+msgstr "%d. Serwer niekompletny\n"
 
 #: Wammu/SMSExport.py:556
 #, python-format
 msgid "%d. Port invalid\n"
-msgstr ""
+msgstr "%d. Port nieprawidłowy\n"
 
 #: Wammu/SMSExport.py:559
 #, python-format
 msgid "%d. Login incomplete\n"
-msgstr ""
+msgstr "%d. Logowanie niekompletne\n"
 
 #: Wammu/SMSExport.py:562
 #, python-format
 msgid "%d. Password incomplete\n"
-msgstr ""
+msgstr "%d. Hasło niekompletne\n"
 
 #: Wammu/SMSExport.py:568
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Nie wybrano wiadomości do zapisania. Proszę zaznaczyć co najmniej jedną "
+"wiadomość."
 
 #: Wammu/SMSExport.py:573
-#, fuzzy
 msgid "Incomplete"
-msgstr "Ukończono"
+msgstr "Niekompletny"
 
 #: Wammu/SMSXML.py:102
 msgid "Saving messages to XML"
@@ -3519,14 +3522,14 @@ msgstr ""
 "spróbować później lub utworzyć wpis ręcznie."
 
 #: Wammu/TalkbackDialog.py:269
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "HTTP request failed with exception:\n"
 "%(exception)s\n"
 "Please retry later or create entry manually."
 msgstr ""
-"Zapytanie HTTP nie powiodło się ze statusem %(code)d (%(text)s), należy "
-"spróbować później lub utworzyć wpis ręcznie."
+"Żądanie HTTP nie powiodło się z wyjątek: %(exception)s\n"
+"Proszę spróbuj ponownie później lub ręcznie utwórz wpis."
 
 #: Wammu/TalkbackDialog.py:283
 #, python-format
@@ -3769,13 +3772,13 @@ msgstr ""
 "telefonu lub posiadasz błędna konfigurację."
 
 #: Wammu/Utils.py:463
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Device \"%s\" for communication with phone does not exist. Maybe you don't "
 "have phone plugged or your configuration is wrong."
 msgstr ""
-"Urządzenie do komunikacji z telefonem nie istnieje. Może nie podłączyłeś "
-"telefonu lub posiadasz błędna konfigurację."
+"Urządzenie \"%s\" do komunikacji z telefonem nie istnieje. Może nie masz "
+"podłączonego telefonu lub Twoja konfiguracja jest źła."
 
 #: Wammu/Utils.py:466
 msgid "Maybe you need to be member of some group to have acces to device."
@@ -3787,9 +3790,9 @@ msgid "Can not access device for communication with phone."
 msgstr "Nie można uzyskać dostępu do urządzenia do komunikacji z telefonem."
 
 #: Wammu/Utils.py:477
-#, fuzzy, python-format
+#, python-format
 msgid "Can not access device \"%s\" for communication with phone."
-msgstr "Nie można uzyskać dostępu do urządzenia do komunikacji z telefonem."
+msgstr "Nie można uzyskać dostępu urządzenia \"%s\" do komunikacji z telefonu."
 
 #: Wammu/Utils.py:481
 msgid ""
