@@ -29,7 +29,7 @@ te lezen, voor andere handelingen wel.
 
 Alle acties met de huidige lijst zijn bechikbaar via een contextueel menu op
 het item, je kunt ook toetsen gebruiken: Enter om te wijzigen en Delete om
-te verwijderen
+te verwijderen.
 
 Backup uit het hoofdmenu maakt een backup van de gegevens die je al van de
 telefoon hebt gelezen.

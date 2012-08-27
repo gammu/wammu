@@ -62,7 +62,7 @@ alles van wxPython). Zie het script admin/make-release dat dit automatisch
 doet.
 
 Je kunt dan InnoSetup[6] gebruiken om een Wammu installatieprogramma te
-bouwen.
+bouwen:
 
     wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 
