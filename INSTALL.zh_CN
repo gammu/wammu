@@ -1,0 +1,60 @@
+Wammu 安装
+============
+
+Linux 软件包
+===============
+
+许多发行版都带有构建好的 Wammu 二进制，如果您能使用它们，是相当容易的。Wammu 的网站
+<http://wammu.eu/download/wammu/> 也提供了许多发行版上可以使用的最新软件包。
+
+
+从源代码构建
+==================
+
+使用标准发行工具，即:
+
+    python setup.py build
+    sudo python setup.py install
+
+您需要安装 python-gammu 和 wxPython [1] (Unicode 版本) 才能运行及安装此程序。如果您要支持扫描蓝牙设备，需要
+PyBluez [2]。要支持事件通知，需要 dbus-python [3]。
+
+Windows 下还需要安装 Pywin32 [4]。
+
+如果您不想在构建时检查依赖，可使用 --skip-deps 选项。
+
+[1]: http://wxpython.org/
+
+[2]: http://code.google.com/p/pybluez/
+
+[3]: http://www.freedesktop.org/wiki/Software/DBusBindings
+
+[4]: https://sourceforge.net/projects/pywin32/
+
+
+在 Linux 上交叉编译 Windows 版本
+========================================
+
+您需要 Wine 和所有依赖 (参见上一节)。
+
+通过 Python 构建 wammu 的安装包很简单:
+
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+
+但这样用户还是需要安装所有依赖，所以这不好。可以使用 py2exe [5] 解决:
+
+    wine c:\\python25\\python setup.py build --skip-deps py2exe
+
+但除此之外，您还需要做很多手动调整。让 py2exe 在 Wine 里运行，需要使用 PE 工具修复它的二进制 (Wine 的缺陷报告中提及 [w1])
+并额外复制一些发布目录丢失的的库 (python25.dll 和 wxPython 的库)。参见脚本 admin/make-release
+可以自动完成复制。
+
+然后您就可以使用 InnoSetup[6] 来构建 Wammu 的安装包了:
+
+    wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+
+[5]: http://www.py2exe.org/
+
+[6]: http://www.jrsoftware.org/isinfo.php
+
+[w1]: http://bugs.winehq.org/show_bug.cgi?id=3591
