@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: Wammu 0.37\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2010-11-11 11:50+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2012-08-30 21:08+0200\n"
+"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/gammu/wammu/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 1.2\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
-msgstr "عن وامو"
+msgstr "لمحة عن وامو"
 
 #: Wammu/About.py:95
 #, python-format
 msgid "Running on Python %s"
-msgstr "منفّذ ببايثون %s"
+msgstr ""
 
 #: Wammu/About.py:96
 #, python-format
@@ -125,15 +126,15 @@ msgstr "أولوية"
 
 #: Wammu/Browser.py:119
 msgid "Start"
-msgstr ""
+msgstr "إنطلق"
 
 #: Wammu/Browser.py:120
 msgid "End"
-msgstr ""
+msgstr "إنهاء"
 
 #: Wammu/Browser.py:122
 msgid "Alarm"
-msgstr ""
+msgstr "المبه"
 
 #: Wammu/Browser.py:123
 msgid "Recurrence"
@@ -141,31 +142,31 @@ msgstr ""
 
 #: Wammu/Browser.py:512
 msgid "Resend"
-msgstr ""
+msgstr "إعادة الإرسال"
 
 #: Wammu/Browser.py:514
 msgid "Send"
-msgstr ""
+msgstr "أرسل"
 
 #: Wammu/Browser.py:517
 msgid "Reply"
-msgstr ""
+msgstr "ردّ"
 
 #: Wammu/Browser.py:519 Wammu/Browser.py:524
 msgid "Call"
-msgstr ""
+msgstr "كلّم"
 
 #: Wammu/Browser.py:523 Wammu/Composer.py:348
 msgid "Send message"
-msgstr ""
+msgstr "أرسل رسالة"
 
 #: Wammu/Browser.py:526
 msgid "Store as new contact"
-msgstr ""
+msgstr "إحفظ كمراسل جديد"
 
 #: Wammu/Browser.py:530 Wammu/Composer.py:371
 msgid "Edit"
-msgstr ""
+msgstr "حرّر"
 
 #: Wammu/Browser.py:532
 msgid "Duplicate"
@@ -215,8 +216,12 @@ msgstr ""
 #, python-format
 msgid "%d char"
 msgid_plural "%d chars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "لا حرف"
+msgstr[1] "%d حرف"
+msgstr[2] "%d حرفين"
+msgstr[3] "%d أحرف"
+msgstr[4] "%d أحرف"
+msgstr[5] "%d أحرف"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
@@ -244,7 +249,7 @@ msgstr ""
 
 #: Wammu/Composer.py:352
 msgid "Save into folder"
-msgstr ""
+msgstr "إحفظ في المجلد"
 
 #: Wammu/Composer.py:353
 msgid "When checked, message is saved to phone."
@@ -252,19 +257,19 @@ msgstr ""
 
 #: Wammu/Composer.py:368
 msgid "Add"
-msgstr ""
+msgstr "أضف"
 
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
-msgstr ""
+msgstr "أضف رقم المراسل من دفتر العناوين."
 
 #: Wammu/Composer.py:372
 msgid "Edit recipients list."
-msgstr ""
+msgstr "حرّر لائحة المراسلين."
 
 #: Wammu/Composer.py:374
 msgid "Recipient's numbers:"
-msgstr ""
+msgstr "أرقام المراسل:"
 
 #: Wammu/Composer.py:384
 msgid "Unicode"
@@ -279,7 +284,7 @@ msgstr ""
 
 #: Wammu/Composer.py:395
 msgid "Delivery report"
-msgstr ""
+msgstr "تقرير عن التسليم"
 
 #: Wammu/Composer.py:396 Wammu/Settings.py:252
 msgid "Check to request delivery report for message."
@@ -287,7 +292,7 @@ msgstr ""
 
 #: Wammu/Composer.py:400 Wammu/Main.py:134 Wammu/SMSExport.py:441
 msgid "Sent"
-msgstr ""
+msgstr "صادر"
 
 #: Wammu/Composer.py:401
 msgid ""
@@ -306,11 +311,11 @@ msgstr ""
 
 #: Wammu/Composer.py:412
 msgid "Parts of current message"
-msgstr ""
+msgstr "أجزاء من الرسالة الحالية"
 
 #: Wammu/Composer.py:413
 msgid "Available message parts"
-msgstr ""
+msgstr "أجزاء الرسالة المتوفرة"
 
 #: Wammu/Composer.py:442 Wammu/Composer.py:531
 msgid "Create new message by adding part to left list..."
@@ -336,7 +341,7 @@ msgstr ""
 
 #: Wammu/Composer.py:640
 msgid "Message empty!"
-msgstr ""
+msgstr "الرسالة فارغة!"
 
 #: Wammu/Composer.py:650
 #, python-format
@@ -350,7 +355,7 @@ msgstr ""
 #: Wammu/ContactsXML.py:148 Wammu/EditContactList.py:92 Wammu/Main.py:1407
 #: Wammu/Main.py:2102 Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
 msgid "All files"
-msgstr ""
+msgstr "كل الملفات"
 
 #: Wammu/ContactsXML.py:151 Wammu/SMSXML.py:89
 msgid "Select XML file..."
@@ -366,11 +371,11 @@ msgstr ""
 #: Wammu/SMSExport.py:270 Wammu/SMSExport.py:290 Wammu/SMSExport.py:315
 #: Wammu/SMSXML.py:110 Wammu/SMSXML.py:132
 msgid "Export terminated"
-msgstr ""
+msgstr "صدّر المنتهية"
 
 #: Wammu/ContactsXML.py:187
 msgid "phone"
-msgstr ""
+msgstr "الهاتف"
 
 #: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #: Wammu/SMSXML.py:128
@@ -381,7 +386,7 @@ msgstr ""
 #: Wammu/ContactsXML.py:197 Wammu/SMSExport.py:74 Wammu/SMSExport.py:148
 #: Wammu/SMSXML.py:129
 msgid "Can not create file!"
-msgstr ""
+msgstr "غير قادر على إنشاء الملف!"
 
 #: Wammu/ContactsXML.py:205
 #, python-format
@@ -410,7 +415,7 @@ msgstr ""
 
 #: Wammu/Data.py:41
 msgid "Drum"
-msgstr ""
+msgstr "طبل"
 
 #: Wammu/Data.py:42
 msgid "Claps"
@@ -418,7 +423,7 @@ msgstr ""
 
 #: Wammu/Data.py:43
 msgid "Fanfare"
-msgstr ""
+msgstr "نفخ البوق"
 
 #: Wammu/Data.py:44
 msgid "Chord high"
@@ -434,43 +439,43 @@ msgstr ""
 
 #: Wammu/Data.py:113
 msgid "I am glad"
-msgstr ""
+msgstr "أنا هنيء"
 
 #: Wammu/Data.py:133
 msgid "I am skeptic"
-msgstr ""
+msgstr "أنا أشكك"
 
 #: Wammu/Data.py:153
 msgid "I am sad"
-msgstr ""
+msgstr "أنا حزين"
 
 #: Wammu/Data.py:173
 msgid "WOW"
-msgstr ""
+msgstr "يا لطيف"
 
 #: Wammu/Data.py:193
 msgid "I am crying"
-msgstr ""
+msgstr "أنا أبكي"
 
 #: Wammu/Data.py:213
 msgid "I am winking"
-msgstr ""
+msgstr "أنا أغمز"
 
 #: Wammu/Data.py:233
 msgid "I am laughing"
-msgstr ""
+msgstr "أنا أضحك"
 
 #: Wammu/Data.py:253
 msgid "I am indifferent"
-msgstr ""
+msgstr "أنا لا أبالي"
 
 #: Wammu/Data.py:273
 msgid "I am in love"
-msgstr ""
+msgstr "أنا مغرم"
 
 #: Wammu/Data.py:293
 msgid "I am confused"
-msgstr ""
+msgstr "أنا محتار"
 
 #: Wammu/Data.py:313
 msgid "Tongue hanging out"
@@ -478,15 +483,15 @@ msgstr ""
 
 #: Wammu/Data.py:333
 msgid "I am angry"
-msgstr ""
+msgstr "أنا غضبان"
 
 #: Wammu/Data.py:353
 msgid "Wearing glases"
-msgstr ""
+msgstr "لابس نظارات"
 
 #: Wammu/Data.py:373
 msgid "Devil"
-msgstr ""
+msgstr "العفريت"
 
 #: Wammu/Data.py:557
 msgid "Alignment"
@@ -494,35 +499,35 @@ msgstr ""
 
 #: Wammu/Data.py:557 Wammu/Editor.py:210 Wammu/Editor.py:418
 msgid "None"
-msgstr ""
+msgstr "لا شيء"
 
 #: Wammu/Data.py:558
 msgid "Left"
-msgstr ""
+msgstr "يسار"
 
 #: Wammu/Data.py:559
 msgid "Right"
-msgstr ""
+msgstr "يمين"
 
 #: Wammu/Data.py:560
 msgid "Center"
-msgstr ""
+msgstr "في الوسط"
 
 #: Wammu/Data.py:562
 msgid "Text Size"
-msgstr ""
+msgstr "قياس النص"
 
 #: Wammu/Data.py:562
 msgid "Normal"
-msgstr ""
+msgstr "عادي"
 
 #: Wammu/Data.py:563
 msgid "Large"
-msgstr ""
+msgstr "كبير"
 
 #: Wammu/Data.py:564
 msgid "Small"
-msgstr ""
+msgstr "صغير"
 
 #: Wammu/Data.py:566
 msgid "Bold"
@@ -534,7 +539,7 @@ msgstr ""
 
 #: Wammu/Data.py:568
 msgid "Underlined"
-msgstr ""
+msgstr "مسطّر"
 
 #: Wammu/Data.py:569
 msgid "Strikethrough"
@@ -542,23 +547,23 @@ msgstr ""
 
 #: Wammu/EditContactList.py:43
 msgid "Available contacts:"
-msgstr ""
+msgstr "المراسلين المتوفرين:"
 
 #: Wammu/EditContactList.py:47
 msgid "Current recipients:"
-msgstr ""
+msgstr "المستلمين الحاليين:"
 
 #: Wammu/EditContactList.py:91
 msgid "Contact list"
-msgstr ""
+msgstr "لائحة المراسلين"
 
 #: Wammu/EditContactList.py:95
 msgid "Edit contacts list"
-msgstr ""
+msgstr "حرّر لائحة المراسلين"
 
 #: Wammu/EditContactList.py:151 Wammu/EditContactList.py:166
 msgid "Load contacts from file"
-msgstr ""
+msgstr "حمّل المراسلين من الملف"
 
 #: Wammu/EditContactList.py:161
 #, python-format
@@ -567,7 +572,7 @@ msgstr ""
 
 #: Wammu/EditContactList.py:162
 msgid "File can not be created!"
-msgstr ""
+msgstr "!﻿لا يمكن إنشاء الملف"
 
 #: Wammu/EditContactList.py:179 Wammu/Main.py:2139
 #, python-format
@@ -576,17 +581,17 @@ msgstr ""
 
 #: Wammu/EditContactList.py:180 Wammu/Main.py:2140
 msgid "File not found!"
-msgstr ""
+msgstr "الملف غير موجود!"
 
 #: Wammu/Editor.py:214 Wammu/Editor.py:422 Wammu/Main.py:653 Wammu/Main.py:669
 #: Wammu/Main.py:675
 msgid "Unknown"
-msgstr ""
+msgstr "المجهول"
 
 #: Wammu/Editor.py:231
 #, python-format
 msgid "Creating new %s"
-msgstr ""
+msgstr "جاري إنشاء %s جديد "
 
 #: Wammu/Editor.py:234
 #, python-format
@@ -599,15 +604,15 @@ msgstr ""
 
 #: Wammu/Editor.py:281
 msgid "Add one more field."
-msgstr ""
+msgstr "﻿إضافة حقل واحد إضافي."
 
 #: Wammu/Editor.py:494
 msgid "contact"
-msgstr ""
+msgstr "المراسل"
 
 #: Wammu/Editor.py:494 Wammu/Main.py:989
 msgid "Memory type"
-msgstr ""
+msgstr "نوع الذاكرة"
 
 #: Wammu/Editor.py:502
 msgid "calendar event"
@@ -615,7 +620,7 @@ msgstr ""
 
 #: Wammu/Editor.py:502
 msgid "Event type"
-msgstr ""
+msgstr "نوع الحدث"
 
 #: Wammu/Editor.py:510
 msgid "todo item"
@@ -634,11 +639,11 @@ msgstr ""
 
 #: Wammu/ErrorMessage.py:76
 msgid "Search for similar reports"
-msgstr ""
+msgstr "إبحث عن تقارير مشابهة"
 
 #: Wammu/ErrorMessage.py:80
 msgid "Report bug"
-msgstr ""
+msgstr "بلغ عن عطل"
 
 #: Wammu/ErrorMessage.py:96 Wammu/Main.py:2338
 msgid "Save debug log as..."
@@ -717,7 +722,7 @@ msgstr ""
 #: Wammu/Info.py:44 Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:297
 #: wammu.py:125
 msgid "Manufacturer"
-msgstr ""
+msgstr "المصنّع"
 
 #: Wammu/Info.py:57
 msgid "Model (Gammu identification)"
@@ -741,19 +746,19 @@ msgstr ""
 
 #: Wammu/Info.py:88
 msgid "Serial number (IMEI)"
-msgstr ""
+msgstr "الرقم التسلسلي (IMEI)"
 
 #: Wammu/Info.py:101
 msgid "Original IMEI"
-msgstr ""
+msgstr "الــ الأصليIMEI"
 
 #: Wammu/Info.py:114
 msgid "Product code"
-msgstr ""
+msgstr "رمز المنتوج"
 
 #: Wammu/Info.py:129 Wammu/Info.py:145
 msgid "N/A"
-msgstr ""
+msgstr "غير متوفر"
 
 #: Wammu/Info.py:130
 msgid "SIM IMSI"
@@ -765,15 +770,15 @@ msgstr ""
 
 #: Wammu/Info.py:159
 msgid "Hardware"
-msgstr ""
+msgstr "العتاد"
 
 #: Wammu/Info.py:172
 msgid "Manufacture month"
-msgstr ""
+msgstr "شهر تاريخ التصنيع"
 
 #: Wammu/Info.py:185
 msgid "Language packs in phone"
-msgstr ""
+msgstr "رزمات اللغات في الهاتف"
 
 #: Wammu/Locales.py:182
 msgid "Automatically switched to local locales."
@@ -789,11 +794,11 @@ msgstr ""
 
 #: Wammu/Main.py:112 Wammu/Main.py:128
 msgid "Phone"
-msgstr ""
+msgstr "الهاتف"
 
 #: Wammu/Main.py:112
 msgid "Phone Information"
-msgstr ""
+msgstr "معلومات عن الهاتف"
 
 #: Wammu/Main.py:113
 msgid "Wammu version"
@@ -809,91 +814,91 @@ msgstr ""
 
 #: Wammu/Main.py:120
 msgid "Calls"
-msgstr ""
+msgstr "المكالمات"
 
 #: Wammu/Main.py:120
 msgid "All Calls"
-msgstr ""
+msgstr "كل المكالمات"
 
 #: Wammu/Main.py:121
 msgid "Received"
-msgstr ""
+msgstr "الواردة"
 
 #: Wammu/Main.py:121
 msgid "Received Calls"
-msgstr ""
+msgstr "المكالمات الواردة"
 
 #: Wammu/Main.py:122
 msgid "Missed"
-msgstr ""
+msgstr "لم يرد عليها"
 
 #: Wammu/Main.py:122
 msgid "Missed Calls"
-msgstr ""
+msgstr "المكالمات اللتي لم يرد عليها"
 
 #: Wammu/Main.py:123
 msgid "Outgoing"
-msgstr ""
+msgstr "الصادرة"
 
 #: Wammu/Main.py:123
 msgid "Outgoing Calls"
-msgstr ""
+msgstr "المكالمات الصادرة"
 
 #: Wammu/Main.py:126
 msgid "Contacts"
-msgstr ""
+msgstr "المراسلون"
 
 #: Wammu/Main.py:126
 msgid "All Contacts"
-msgstr ""
+msgstr "كل المراسلون"
 
 #: Wammu/Main.py:127
 msgid "SIM"
-msgstr ""
+msgstr "SIM"
 
 #: Wammu/Main.py:127
 msgid "SIM Contacts"
-msgstr ""
+msgstr "المراسلون على الSIM"
 
 #: Wammu/Main.py:128
 msgid "Phone Contacts"
-msgstr ""
+msgstr "المراسلون على الهاتف"
 
 #: Wammu/Main.py:131 Wammu/Settings.py:439
 msgid "Messages"
-msgstr ""
+msgstr "الرسائل"
 
 #: Wammu/Main.py:131
 msgid "All Messages"
-msgstr ""
+msgstr "كل الرسائل"
 
 #: Wammu/Main.py:132 Wammu/SMSExport.py:440
 msgid "Read"
-msgstr ""
+msgstr "إقراء"
 
 #: Wammu/Main.py:132
 msgid "Read Messages"
-msgstr ""
+msgstr "إقراء الرسائل"
 
 #: Wammu/Main.py:133 Wammu/SMSExport.py:442
 msgid "Unread"
-msgstr ""
+msgstr "غير مقرؤة"
 
 #: Wammu/Main.py:133
 msgid "Unread Messages"
-msgstr ""
+msgstr "الرسائل غير المقرؤة"
 
 #: Wammu/Main.py:134
 msgid "Sent Messages"
-msgstr ""
+msgstr "الرسائل الصادرة"
 
 #: Wammu/Main.py:135 Wammu/SMSExport.py:443
 msgid "Unsent"
-msgstr ""
+msgstr "غير المرسلة"
 
 #: Wammu/Main.py:135
 msgid "Unsent Messages"
-msgstr ""
+msgstr "الرسائل غير المرسلة"
 
 #: Wammu/Main.py:138 Wammu/TalkbackFeaturesDialog.py:45
 msgid "Todos"
@@ -913,7 +918,7 @@ msgstr ""
 
 #: Wammu/Main.py:248
 msgid "Search: "
-msgstr ""
+msgstr "إبحث:"
 
 #: Wammu/Main.py:250
 msgid ""
@@ -931,16 +936,16 @@ msgstr ""
 
 #: Wammu/Main.py:253
 msgid "Select search type"
-msgstr ""
+msgstr "إختر نوع البحث"
 
 #: Wammu/Main.py:277
 #, python-format
 msgid "Welcome to Wammu %s"
-msgstr ""
+msgstr "أهلاً بك في Wammu %s"
 
 #: Wammu/Main.py:283
 msgid "&Write data"
-msgstr ""
+msgstr "&أكتب البيانات"
 
 #: Wammu/Main.py:283
 msgid "Write data (except messages) to file."
@@ -948,15 +953,15 @@ msgstr ""
 
 #: Wammu/Main.py:284
 msgid "W&rite message"
-msgstr ""
+msgstr "أ&كتب رسالة"
 
 #: Wammu/Main.py:284
 msgid "Write messages to file."
-msgstr ""
+msgstr "أكتب الرسائل إلى الملف."
 
 #: Wammu/Main.py:285
 msgid "&Read data"
-msgstr ""
+msgstr "&إقراء البيانات"
 
 #: Wammu/Main.py:285
 msgid "Read data (except messages) from file (does not import to the phone)."
@@ -964,7 +969,7 @@ msgstr ""
 
 #: Wammu/Main.py:286
 msgid "R&ead messages"
-msgstr ""
+msgstr "إ&قراء الرسائل"
 
 #: Wammu/Main.py:286
 msgid "Read messages from file (does not import to the phone)."
@@ -980,7 +985,7 @@ msgstr ""
 
 #: Wammu/Main.py:289
 msgid "Se&ttings"
-msgstr ""
+msgstr "الت&عيينات"
 
 #: Wammu/Main.py:289
 msgid "Change Wammu settings."
@@ -988,31 +993,31 @@ msgstr ""
 
 #: Wammu/Main.py:291
 msgid "E&xit"
-msgstr ""
+msgstr "أ&خرج"
 
 #: Wammu/Main.py:291
 msgid "Terminate Wammu."
-msgstr ""
+msgstr "أنهي وامو."
 
 #: Wammu/Main.py:293
 msgid "&Wammu"
-msgstr ""
+msgstr "&وامو"
 
 #: Wammu/Main.py:296
 msgid "&Connect"
-msgstr ""
+msgstr "&إتصل"
 
 #: Wammu/Main.py:296
 msgid "Connect the device."
-msgstr ""
+msgstr "قم بتوصيل الجهاز."
 
 #: Wammu/Main.py:297
 msgid "&Disconnect"
-msgstr ""
+msgstr "&قم بفص الجهاز"
 
 #: Wammu/Main.py:297
 msgid "Disconnect the device."
-msgstr ""
+msgstr "قم بفصل الجهاز."
 
 #: Wammu/Main.py:299
 msgid "&Synchronise time"
@@ -1024,23 +1029,23 @@ msgstr ""
 
 #: Wammu/Main.py:301
 msgid "Send &file"
-msgstr ""
+msgstr "أرسل &ملفاً"
 
 #: Wammu/Main.py:301
 msgid "Send file to phone."
-msgstr ""
+msgstr "أرسل ملفا إلى الهاتف."
 
 #: Wammu/Main.py:303
 msgid "&Phone"
-msgstr ""
+msgstr "ال&هاتف"
 
 #: Wammu/Main.py:306
 msgid "&Info"
-msgstr ""
+msgstr "ال&معلومات"
 
 #: Wammu/Main.py:306
 msgid "Retrieve phone information."
-msgstr ""
+msgstr "إسحب معلومات الهاتف."
 
 #: Wammu/Main.py:308
 msgid "Contacts (&SIM)"
@@ -2516,7 +2521,7 @@ msgstr ""
 
 #: Wammu/Settings.py:441
 msgid "Other"
-msgstr ""
+msgstr "آخر"
 
 #: Wammu/Settings.py:442
 msgid "Hacks"
@@ -3377,7 +3382,7 @@ msgstr ""
 
 #: Wammu/TalkbackFeaturesDialog.py:60
 msgid "Select features"
-msgstr ""
+msgstr "الميزات المختارة"
 
 #: Wammu/TalkbackFeaturesDialog.py:61
 msgid "You can access name and phone number."
@@ -3399,11 +3404,11 @@ msgstr ""
 
 #: Wammu/Utils.py:305
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 #: Wammu/Utils.py:307
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: Wammu/Utils.py:328
 msgid "enabled (tone)"
@@ -3411,55 +3416,55 @@ msgstr ""
 
 #: Wammu/Utils.py:330
 msgid "enabled (silent)"
-msgstr ""
+msgstr "شغال (صامت)"
 
 #: Wammu/Utils.py:336
 msgid "yearly"
-msgstr ""
+msgstr "سنوياً"
 
 #: Wammu/Utils.py:338
 msgid "monthly"
-msgstr ""
+msgstr "شهرياً"
 
 #: Wammu/Utils.py:341
 msgid "daily"
-msgstr ""
+msgstr "يومياً"
 
 #: Wammu/Utils.py:343
 msgid "biweekly"
-msgstr ""
+msgstr "كل جمعتين"
 
 #: Wammu/Utils.py:346
 msgid "weekly on monday"
-msgstr ""
+msgstr "أسبوعياً نهار الإثنين"
 
 #: Wammu/Utils.py:348
 msgid "weekly on tuesday"
-msgstr ""
+msgstr "أسبوعياً نهار الثلاثاء"
 
 #: Wammu/Utils.py:350
 msgid "weekly on wednesday"
-msgstr ""
+msgstr "أسبوعياً نهار الأربعاء"
 
 #: Wammu/Utils.py:352
 msgid "weekly on thursday"
-msgstr ""
+msgstr "أسبوعياً نهار الخميس"
 
 #: Wammu/Utils.py:354
 msgid "weekly on friday"
-msgstr ""
+msgstr "أسبوعياً نهار الجمعة"
 
 #: Wammu/Utils.py:356
 msgid "weekly on saturday"
-msgstr ""
+msgstr "أسسبوعياً نهار السبت"
 
 #: Wammu/Utils.py:358
 msgid "weekly on sunday"
-msgstr ""
+msgstr "أسبوعياً نهار الأحد"
 
 #: Wammu/Utils.py:365
 msgid "disabled"
-msgstr ""
+msgstr "معطّل"
 
 #: Wammu/Utils.py:368
 msgid "nonrecurring"
@@ -3467,7 +3472,7 @@ msgstr ""
 
 #: Wammu/Utils.py:444
 msgid "Your phone doesn't support this function."
-msgstr ""
+msgstr "﻿هاتفك لا يدعم هذه الوظيفة."
 
 #: Wammu/Utils.py:446
 msgid ""
@@ -3541,29 +3546,29 @@ msgstr ""
 
 #: Wammu/Utils.py:483
 msgid "Description:"
-msgstr ""
+msgstr "الوصف:"
 
 #: Wammu/Utils.py:483
 msgid "Function:"
-msgstr ""
+msgstr "الوظيفة:"
 
 #: Wammu/Utils.py:483
 msgid "Error code:"
-msgstr ""
+msgstr "﻿رمز الخطأ:"
 
 #: Wammu/Utils.py:538 Wammu/Utils.py:540 Wammu/Utils.py:546 Wammu/Utils.py:548
 #, python-format
 msgid "Device %s does not exist!"
-msgstr ""
+msgstr "الجهاز %s غير موجود!"
 
 #: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
 msgid "Error opening device"
-msgstr ""
+msgstr "﻿حدث خطأ أثناء فتح الجهاز"
 
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
 #, python-format
 msgid "You don't have permissions for %s device!"
-msgstr ""
+msgstr "ليس لديك الأذونات لألجهاز %s !"
 
 #: Wammu/Utils.py:561
 #, python-format
@@ -3582,15 +3587,15 @@ msgstr ""
 
 #: wammu-configure.py:56 wammu.py:60
 msgid "Options:"
-msgstr ""
+msgstr "الخيارات:"
 
 #: wammu-configure.py:59 wammu.py:63
 msgid "show this help"
-msgstr ""
+msgstr "أعرض هذه المساعدة"
 
 #: wammu-configure.py:62 wammu.py:66
 msgid "show program version"
-msgstr ""
+msgstr "أعرض إصدارة البرنامج"
 
 #: wammu-configure.py:65 wammu.py:69
 msgid "force using of locales from current directory rather than system ones"
@@ -3635,15 +3640,15 @@ msgstr ""
 
 #: wammu.py:111
 msgid "Connecting..."
-msgstr ""
+msgstr "جاري الإتصال..."
 
 #: wammu.py:118
 msgid "Getting phone information..."
-msgstr ""
+msgstr "الحصول على معلومات الهاتف..."
 
 #: wammu.py:124
 msgid "Phone infomation:"
-msgstr ""
+msgstr "﻿معلومات الهاتف:"
 
 #: wammu.py:127
 msgid "IMEI"
@@ -3661,7 +3666,7 @@ msgstr ""
 #. l10n: Generic name of program shown in desktop file
 #: wammu_setup/msgfmt.py:46
 msgid "Mobile Phone Manager"
-msgstr ""
+msgstr "مدبر الهاتف المحمول"
 
 #. l10n: Comment about program shown in desktop file
 #: wammu_setup/msgfmt.py:48
