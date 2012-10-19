@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: michal@cihar.com\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-08-28 10:54+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-10-19 22:07+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/gammu/wammu/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -377,9 +377,8 @@ msgstr "Válassza ki az XML fájlt..."
 
 #  msgid "Saving messages to IMAP"
 #: Wammu/ContactsXML.py:164
-#, fuzzy
 msgid "Saving contacts to XML"
-msgstr "Üzenetek mentése XML-fájlba"
+msgstr "Névjegyek mentése XML-fájlba"
 
 #: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
@@ -405,9 +404,9 @@ msgid "Can not create file!"
 msgstr "A fájl nem hozható létre!"
 
 #: Wammu/ContactsXML.py:205
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)d contacts exported to \"%(path)s\""
-msgstr "%(count)d üzenet exportálva lett ide: „%(path)s” (%(type)s)"
+msgstr "%(count)d névjegy exportálva lett ide: „%(path)s”"
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -1247,15 +1246,13 @@ msgstr "Üzenetek exportálása az Ön által megadott &XML-fájlba."
 
 #  msgid "Export messages to &emails"
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export &contacts to XML"
-msgstr "Üzenetek exportálása &XML-fájlként"
+msgstr "Névjegyek exportálása &XML-fájlba"
 
 #  msgid "Export messages to emails in storage you choose."
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export contacts to XML file you choose."
-msgstr "Üzenetek exportálása az Ön által megadott &XML-fájlba."
+msgstr "Névjegyek exportálása az Ön által megadott &XML-fájlba."
 
 #: Wammu/Main.py:342
 msgid "&Backups"
@@ -2148,7 +2145,7 @@ msgstr "Kézi beállítás"
 
 #: Wammu/PhoneWizard.py:279
 msgid "Device where phone is connected"
-msgstr "Az eszköz, amelyhez a telefonja kapcsolódik."
+msgstr "Az eszköz, amelyhez a telefon kapcsolódik"
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2326,7 +2323,7 @@ msgid ""
 msgstr ""
 "Ha nincsen ötlete, hogy hogyan állíthatná be a telefonkapcsolatot, akkor "
 "látogasson el a Gammu Telefon-adatbázis oldalára, ahol megnézheti más "
-"felhasználók tapasztalatait."
+"felhasználók tapasztalatait:"
 
 #: Wammu/PhoneWizard.py:493
 msgid "Welcome"
@@ -2342,7 +2339,7 @@ msgid ""
 "methods is set up:"
 msgstr ""
 "Győződjön meg róla, hogy a telefon be van kapcsolva, üzemkész és legalább "
-"egy kapcsolati mód be van állítva."
+"egy kapcsolati mód be van állítva:"
 
 #: Wammu/PhoneWizard.py:499
 msgid "Cable is connected."
@@ -2395,8 +2392,9 @@ msgid "Could not find timidity, melody can not be played"
 msgstr "A Timidity nem található, ezért nem lehet a zenét lejátszani"
 
 #: Wammu/Ringtone.py:49
+#, fuzzy
 msgid "Timidity not found"
-msgstr "Timidity not found"
+msgstr "Timidity nem található"
 
 #: Wammu/Select.py:50
 msgid "Select contact from below list"
@@ -2721,7 +2719,7 @@ msgstr "Symbian-alapú telefon"
 
 #: Wammu/SettingsStorage.py:102
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
-msgstr "Folytassa, ha Symbian-alapú telefonnál (gyártótól függetlenül)"
+msgstr "Folytassa, ha a telefonja Symbiant futtat (gyártótól függetlenül)."
 
 #: Wammu/SettingsStorage.py:105
 msgid "Alcatel phone"
@@ -2827,7 +2825,7 @@ msgstr "Nokia szabadalmaztatott protokoll"
 
 #: Wammu/SettingsStorage.py:154
 msgid "Nokia proprietary protocol FBUS."
-msgstr "Nokia szabadalmaztatott FBUS protokoll"
+msgstr "Nokia szabadalmaztatott FBUS protokoll."
 
 #: Wammu/SettingsStorage.py:157
 msgid "Nokia proprietary service protocol"
@@ -2932,7 +2930,7 @@ msgstr ""
 "Nokia protokoll Bluetooth kapcsolattal rendelkező Nokia 6210 telefonmodell "
 "és DCT4 osztályú Nokia telefonmodellek számára, amelyek nem nyújtanak helyes "
 "információt a szolgáltatásokról (6310, 6310i modellek, 5.50-es verziónál "
-"alacsonyabb firmware-rel, 8910 modell,..)."
+"alacsonyabb firmware-rel, 8910 modell,..)"
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
@@ -3094,7 +3092,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:445 Wammu/SettingsStorage.py:452
 msgid "Using emulated serial port."
-msgstr "Emulált soros porton keresztül"
+msgstr "Emulált soros port használata."
 
 #: Wammu/SettingsStorage.py:449
 msgid "Phonet over Bluetooth (emulated serial port)"
@@ -3155,11 +3153,11 @@ msgstr "%(count)d üzenet exportálva lett ide: „%(path)s” (%(type)s)"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSXML.py:137
 msgid "mailbox"
-msgstr "mailbox"
+msgstr "postafiók"
 
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
-msgstr "Adja meg a fájlok mentéséhez használt maildir mappát."
+msgstr "Adja meg a fájlok mentéséhez használt maildir mappát"
 
 #: Wammu/SMSExport.py:97
 msgid ""
@@ -3244,7 +3242,7 @@ msgstr "A listázás meghiúsult!"
 msgid "Please select folder on server %s where messages will be stored"
 msgstr ""
 "Válassza ki a mappát a(z) %s kiszolgálón, ahol az üzenetek el lesznek "
-"tárolva."
+"tárolva"
 
 #: Wammu/SMSExport.py:244
 msgid "Select folder"
@@ -3294,7 +3292,7 @@ msgstr ""
 
 #: Wammu/SMSExport.py:333
 msgid "Select export type"
-msgstr "Válassza ki az exportálás típusát:"
+msgstr "Exportálás típusának kiválasztása"
 
 #: Wammu/SMSExport.py:334
 msgid "Mailbox file"
@@ -3851,7 +3849,7 @@ msgstr "A(z) %s eszköz nem érhető el!"
 
 #: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
 msgid "Error opening device"
-msgstr "Hiba lépett fel az eszköz megnyitása során."
+msgstr "Hiba az eszköz megnyitása során"
 
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
 #, python-format
@@ -3880,7 +3878,7 @@ msgstr "Beállítások:"
 
 #: wammu-configure.py:59 wammu.py:63
 msgid "show this help"
-msgstr "Megjeleníti ezt a súgót."
+msgstr "e súgó megjelenítése"
 
 #: wammu-configure.py:62 wammu.py:66
 msgid "show program version"
@@ -3920,7 +3918,7 @@ msgstr "Wammu – Ablakba zárt Gammu – verzió %s"
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
 "Megjeleníti a telefonkapcsolat beállításait és megpróbál kapcsolódni a "
-"mobiltelefonhoz."
+"mobiltelefonhoz"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
