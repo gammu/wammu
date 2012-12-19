@@ -5,17 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
-"Report-Msgid-Bugs-To: michal@cihar.com\n"
+"Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-03-14 18:43+0200\n"
+"PO-Revision-Date: 2012-12-19 16:16+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <nl@li.org>\n"
+"Language-Team: Dutch <http://l10n.cihar.com/projects/gammu/wammu/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 1.4-dev\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -365,9 +365,8 @@ msgid "Select XML file..."
 msgstr "Selecteer XML-bestand..."
 
 #: Wammu/ContactsXML.py:164
-#, fuzzy
 msgid "Saving contacts to XML"
-msgstr "Berichten worden opgeslagen naar XML"
+msgstr "Contacten worden opgeslagen naar XML"
 
 #: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
@@ -379,7 +378,7 @@ msgstr "Exporteren beëindigd"
 
 #: Wammu/ContactsXML.py:187
 msgid "phone"
-msgstr ""
+msgstr "telefoon"
 
 #: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #: Wammu/SMSXML.py:128
@@ -393,9 +392,9 @@ msgid "Can not create file!"
 msgstr "Kan bestand niet aanmaken!"
 
 #: Wammu/ContactsXML.py:205
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)d contacts exported to \"%(path)s\""
-msgstr "%(count)d berichten geëxporteerd naar \"%(path)s\" (%(type)s)"
+msgstr "%(count)d contacten geëxporteerd naar \"%(path)s\""
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -423,7 +422,7 @@ msgstr "Trom"
 
 #: Wammu/Data.py:42
 msgid "Claps"
-msgstr "Claps"
+msgstr "Geklap"
 
 #: Wammu/Data.py:43
 msgid "Fanfare"
@@ -1130,11 +1129,11 @@ msgstr "Kalendergebeurtenissen ophalen."
 
 #: Wammu/Main.py:320
 msgid "A&ll"
-msgstr ""
+msgstr "A&lle"
 
 #: Wammu/Main.py:320
 msgid "Retrieve everything above."
-msgstr ""
+msgstr "Alles erboven ophalen."
 
 #: Wammu/Main.py:322
 msgid "&Retrieve"
@@ -1225,14 +1224,12 @@ msgid "Export messages to XML file you choose."
 msgstr "Exporteer berichten naar XML-bestand in de gekozen opslag."
 
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export &contacts to XML"
-msgstr "Exporteer berichten naar &XML"
+msgstr "Exporteer &contacten naar XML"
 
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export contacts to XML file you choose."
-msgstr "Exporteer berichten naar XML-bestand in de gekozen opslag."
+msgstr "Exporteer contacten naar het gewenste XML-bestand."
 
 #: Wammu/Main.py:342
 msgid "&Backups"
@@ -2323,7 +2320,7 @@ msgstr "Kabel is aangesloten."
 
 #: Wammu/PhoneWizard.py:501
 msgid "You have enabled IrDA and phone is in visible range."
-msgstr "IrDA aangezet is en de telefoon binnen bereik is."
+msgstr "IrDA (infrarood) aangezet is en de telefoon binnen bereik is."
 
 #: Wammu/PhoneWizard.py:503
 msgid "You have paired Bluetooth with computer."
@@ -2904,7 +2901,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
-msgstr "AT over IrDA"
+msgstr "AT over infrarood"
 
 #: Wammu/SettingsStorage.py:361 Wammu/SettingsStorage.py:385
 #: Wammu/SettingsStorage.py:396
@@ -2912,8 +2909,8 @@ msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
 msgstr ""
-"Selecteer dit als je telefoon verbonden is via IrDA en je standaard de IrDA-"
-"verbinding wilt gebruiken."
+"Selecteer dit als je telefoon verbonden is via IrDA (infrarood) en je "
+"standaard de IrDA-verbinding wilt gebruiken."
 
 #: Wammu/SettingsStorage.py:365
 msgid "AT over DKU2"
@@ -2937,7 +2934,7 @@ msgstr "OBEX over Bluetooth met RF zoeken"
 
 #: Wammu/SettingsStorage.py:384
 msgid "OBEX over IrDA"
-msgstr "OBEX over IrDA"
+msgstr "OBEX over infrarood"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
@@ -2945,7 +2942,7 @@ msgstr "Gnapplet over Bluetooth"
 
 #: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
-msgstr "Gnapplet over IrDA"
+msgstr "Gnapplet over infrarood"
 
 #: Wammu/SettingsStorage.py:401
 msgid "MBUS proprietary protocol"
@@ -3080,7 +3077,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
-msgstr "Phonet over IrDA"
+msgstr "Phonet over infrarood"
 
 #: Wammu/SettingsStorage.py:466
 msgid "Nokia protocol for infrared with other Nokia models."
@@ -3088,7 +3085,7 @@ msgstr "Nokia-protocol voor infrarood met andere Nokia-modellen."
 
 #: Wammu/SettingsStorage.py:469
 msgid "FBUS over IrDA"
-msgstr "FBUS over IrDA"
+msgstr "FBUS over infrarood"
 
 #: Wammu/SettingsStorage.py:470
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
@@ -3114,7 +3111,7 @@ msgstr "%(count)d berichten geëxporteerd naar \"%(path)s\" (%(type)s)"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSXML.py:137
 msgid "mailbox"
-msgstr "mailbox"
+msgstr "postvak"
 
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
@@ -3593,7 +3590,7 @@ msgstr "Logo´s"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
 msgid "Ringtones"
-msgstr "Ringtones"
+msgstr "Beltonen"
 
 #: Wammu/TalkbackFeaturesDialog.py:60
 msgid "Select features"
