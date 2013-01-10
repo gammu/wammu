@@ -19,7 +19,7 @@ fi
 
 for loc in $LOCS ; do
     cd locale/$loc
-    msgmerge -U -C ../../../gammu/locale/$loc/docs.po -C wammu.po -C ../../../gammu/locale/$loc/gammu.po -C ../../../gammu/locale/$loc/libgammu.po docs.po ../docs.pot
+    msgmerge --previous -U -C ../../../gammu/locale/$loc/docs.po -C wammu.po -C ../../../gammu/locale/$loc/gammu.po -C ../../../gammu/locale/$loc/libgammu.po docs.po ../docs.pot
     cd ../..
 done
 
@@ -38,6 +38,7 @@ for loc in $LOCS ; do
         s/Project-Id-Version: Wammu [0-9.]*/Project-Id-Version: Wammu '$ver'/;
         ' locale/$loc/wammu.po
     msgmerge \
+        --previous \
         -C locale/$loc/docs.po \
         -C ../gammu/locale/$loc/gammu.po \
         -C ../gammu/locale/$loc/libgammu.po \
