@@ -6,17 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
-"Report-Msgid-Bugs-To: michal@cihar.com\n"
+"Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2012-08-27 14:23+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-03-14 21:04+0200\n"
+"Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/gammu/wammu/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.5-dev\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -162,9 +162,8 @@ msgstr "Skicka meddelande"
 
 #  msgid "Creates new contact"
 #: Wammu/Browser.py:526
-#, fuzzy
 msgid "Store as new contact"
-msgstr "Skapa ny kontakt."
+msgstr "Lagra som ny kontakt"
 
 #: Wammu/Browser.py:530 Wammu/Composer.py:371
 msgid "Edit"
@@ -372,9 +371,8 @@ msgstr "Välj XML-fil..."
 
 #  msgid "Saving messages to IMAP"
 #: Wammu/ContactsXML.py:164
-#, fuzzy
 msgid "Saving contacts to XML"
-msgstr "Sparar meddelanden till XML"
+msgstr "Sparar kontakter till XML"
 
 #: Wammu/ContactsXML.py:172 Wammu/ContactsXML.py:183 Wammu/ContactsXML.py:200
 #: Wammu/SMSExport.py:60 Wammu/SMSExport.py:77 Wammu/SMSExport.py:121
@@ -386,7 +384,7 @@ msgstr "Exportering avslutad"
 
 #: Wammu/ContactsXML.py:187
 msgid "phone"
-msgstr ""
+msgstr "telefon"
 
 #: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #: Wammu/SMSXML.py:128
@@ -400,9 +398,9 @@ msgid "Can not create file!"
 msgstr "Kan inte skapa fil!"
 
 #: Wammu/ContactsXML.py:205
-#, fuzzy, python-format
+#, python-format
 msgid "%(count)d contacts exported to \"%(path)s\""
-msgstr "%(count)d meddelanden exporterade till \"%(path)s\" (%(type)s)"
+msgstr "%(count)d kontakter exporterade till \"%(path)s\""
 
 #: Wammu/Data.py:36
 msgid "Chimes high"
@@ -470,7 +468,7 @@ msgstr "Jag gråter"
 
 #: Wammu/Data.py:213
 msgid "I am winking"
-msgstr "Jag vinkar"
+msgstr "Jag blinkar"
 
 #: Wammu/Data.py:233
 msgid "I am laughing"
@@ -502,7 +500,7 @@ msgstr "Bär glasögon"
 
 #: Wammu/Data.py:373
 msgid "Devil"
-msgstr "Devil"
+msgstr "Djävul"
 
 #: Wammu/Data.py:557
 msgid "Alignment"
@@ -1066,9 +1064,8 @@ msgstr "&Synkronisera klocka"
 
 #  msgid "Synchronises time in mobile with PC"
 #: Wammu/Main.py:299
-#, fuzzy
 msgid "Synchronise time in phone with PC."
-msgstr "Synkronisera klockan i mobilen med datorn."
+msgstr "Synkronisera klocka i telefon med dator."
 
 #: Wammu/Main.py:301
 msgid "Send &file"
@@ -1158,11 +1155,11 @@ msgstr "Hämta kalenderhändelser."
 
 #: Wammu/Main.py:320
 msgid "A&ll"
-msgstr ""
+msgstr "A&llt"
 
 #: Wammu/Main.py:320
 msgid "Retrieve everything above."
-msgstr ""
+msgstr "Hämta allt ovan."
 
 #: Wammu/Main.py:322
 msgid "&Retrieve"
@@ -1228,9 +1225,8 @@ msgstr "Spara aktuellt hämtade meddelanden till säkerhetskopia."
 
 #  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:335
-#, fuzzy
 msgid "&Import to phone"
-msgstr "Importera data från säkerhetskopia till telefon."
+msgstr "&Importera till telefon"
 
 #  msgid "Imports data from backup to phone"
 #: Wammu/Main.py:335
@@ -1238,9 +1234,8 @@ msgid "Import data from backup to phone."
 msgstr "Importera data från säkerhetskopia till telefon."
 
 #: Wammu/Main.py:336
-#, fuzzy
 msgid "I&mport messages to phone"
-msgstr "I&mportera meddelanden"
+msgstr "I&mportera meddelanden till telefon"
 
 #  msgid "Imports messages from backup to phone"
 #: Wammu/Main.py:336
@@ -1269,16 +1264,14 @@ msgstr "Exportera meddelanden till en valfri XML-fil."
 
 #  msgid "Export messages to &emails"
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export &contacts to XML"
-msgstr "Exportera meddelanden till &XML"
+msgstr "Exportera &kontakter till XML"
 
 #  msgid "Exports messages to emails in storage you choose"
 #  msgid "Export messages to emails in storage you choose."
 #: Wammu/Main.py:340
-#, fuzzy
 msgid "Export contacts to XML file you choose."
-msgstr "Exportera meddelanden till en valfri XML-fil."
+msgstr "Exportera kontakter till en valfri XML-fil."
 
 #: Wammu/Main.py:342
 msgid "&Backups"
@@ -1943,14 +1936,13 @@ msgid "Connection not configured!"
 msgstr "Anslutning inte konfigurerad!"
 
 #: Wammu/Main.py:2226
-#, fuzzy, python-format
+#, python-format
 msgid "Please enter %s code:"
-msgstr "Ange servernamnet"
+msgstr "Var god ange %s-kod:"
 
 #: Wammu/Main.py:2227
-#, fuzzy
 msgid "Phone asks for security code"
-msgstr "Väntar på säkerhetskod."
+msgstr "Telefonen efterfrågar en säkerhetskod"
 
 #: Wammu/Main.py:2264
 msgid "Your phone has just received incoming call"
@@ -1985,9 +1977,8 @@ msgstr ""
 
 #  msgid "Failed to set exception handler."
 #: Wammu/Main.py:2302
-#, fuzzy
 msgid "You are connected to phone!"
-msgstr "Misslyckades med att ansluta till telefonen"
+msgstr "Du är ansluten till telefonen!"
 
 #: Wammu/MessageDisplay.py:113
 #, python-format
@@ -2023,7 +2014,7 @@ msgid "Guessed as %s"
 msgstr "Gissade %s"
 
 #: Wammu/PhoneSearch.py:162
-#, fuzzy, python-format
+#, python-format
 msgid "Discovering Bluetooth devices using %s"
 msgstr "Söker efter blåtandsenheter med %s"
 
@@ -2187,9 +2178,8 @@ msgid "Manual configuration"
 msgstr "Manuell konfiguration"
 
 #: Wammu/PhoneWizard.py:279
-#, fuzzy
 msgid "Device where phone is connected"
-msgstr "Enhet, där din telefon är ansluten."
+msgstr "Enhet där din telefon är ansluten"
 
 #: Wammu/PhoneWizard.py:280 Wammu/PhoneWizard.py:373 Wammu/PhoneWizard.py:374
 #: Wammu/PhoneWizard.py:444 Wammu/PhoneWizard.py:445
@@ -2198,14 +2188,12 @@ msgid "Connection type"
 msgstr "Anslutningstyp"
 
 #: Wammu/PhoneWizard.py:297 Wammu/PhoneWizard.py:329
-#, fuzzy
 msgid "You need to select device which will be used."
-msgstr "Du behöver välja vilken port som ska användas."
+msgstr "Du behöver välja enheten som ska användas."
 
 #: Wammu/PhoneWizard.py:298 Wammu/PhoneWizard.py:330
-#, fuzzy
 msgid "No device selected!"
-msgstr "Ingen telefon vald!"
+msgstr "Ingen enhet vald!"
 
 #: Wammu/PhoneWizard.py:303
 msgid "You need to select connection type which will be used."
@@ -2578,9 +2566,8 @@ msgstr ""
 
 #  msgid "Creates new message"
 #: Wammu/Settings.py:229
-#, fuzzy
 msgid "Default options for new message"
-msgstr "Skapa nytt meddelande."
+msgstr "Standardval för nytt meddelande"
 
 #: Wammu/Settings.py:245
 msgid "Create unicode message"
@@ -3335,9 +3322,10 @@ msgid "IMAP server"
 msgstr "IMAP-server"
 
 #: Wammu/SMSExport.py:329
-#, fuzzy, python-format
+#, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(count)d meddelanden exporterade till \"%(path)s\" (%(type)s)"
+msgstr ""
+"%(new)d nya av %(count)d meddelanden exporterade till \"%(path)s\" (%(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
@@ -3360,18 +3348,16 @@ msgid "IMAP account"
 msgstr "IMAP-konto"
 
 #: Wammu/SMSExport.py:422
-#, fuzzy
 msgid "IMAP Settings"
-msgstr "Inställningar"
+msgstr "IMAP-inställningar"
 
 #: Wammu/SMSExport.py:424
-#, fuzzy
 msgid "Connection Details"
-msgstr "Anslutningstest"
+msgstr "Anslutningsdetaljer"
 
 #: Wammu/SMSExport.py:425
 msgid "Preferences"
-msgstr ""
+msgstr "Inställningar"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
@@ -3384,12 +3370,11 @@ msgstr "IP-adress"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: Wammu/SMSExport.py:431
-#, fuzzy
 msgid "Port"
-msgstr "Prioritet"
+msgstr "Port"
 
 #: Wammu/SMSExport.py:433
 msgid "Login"
@@ -3401,16 +3386,15 @@ msgstr "Lösenord"
 
 #: Wammu/SMSExport.py:437
 msgid "Remember password (insecure)"
-msgstr ""
+msgstr "Kom ihåg lösenord (ej säkert)"
 
 #: Wammu/SMSExport.py:438
-#, fuzzy
 msgid "Use SSL"
-msgstr "Använd SSL?"
+msgstr "Använd SSL"
 
 #: Wammu/SMSExport.py:439
 msgid "Only back-up new messages"
-msgstr ""
+msgstr "Säkerhetskopiera endast nya meddelanden"
 
 #: Wammu/SMSExport.py:550
 #, python-format
@@ -3601,14 +3585,15 @@ msgstr ""
 "eller skapa en post manuellt."
 
 #: Wammu/TalkbackDialog.py:269
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "HTTP request failed with exception:\n"
 "%(exception)s\n"
 "Please retry later or create entry manually."
 msgstr ""
-"HTTP-begäran misslyckades med status %(code)d (%(text)s). Försök igen senare "
-"eller skapa en post manuellt."
+"HTTP-begäran misslyckades med undantaget:\n"
+"%(exception)s\n"
+"Försök igen senare eller skapa en post manuellt."
 
 #: Wammu/TalkbackDialog.py:283
 #, python-format
@@ -3624,14 +3609,12 @@ msgid "Entry created!"
 msgstr "Posten skapad!"
 
 #: Wammu/TalkbackDialog.py:299
-#, fuzzy
 msgid "Phone model"
-msgstr "Telefonmodell:"
+msgstr "Telefonmodell"
 
 #: Wammu/TalkbackDialog.py:301
-#, fuzzy
 msgid "Model in gammu configuration"
-msgstr "Modell i gammu-konfiguration:"
+msgstr "Modell i gammu-konfiguration"
 
 #: Wammu/TalkbackDialog.py:305
 #, fuzzy
@@ -3639,14 +3622,12 @@ msgid "Note"
 msgstr "Notering:"
 
 #: Wammu/TalkbackDialog.py:307
-#, fuzzy
 msgid "Your name"
-msgstr "Ditt namn:"
+msgstr "Ditt namn"
 
 #: Wammu/TalkbackDialog.py:309
-#, fuzzy
 msgid "Your email"
-msgstr "Din e-postadress:"
+msgstr "Din e-postadress"
 
 #  msgid "Finished %s"
 #: Wammu/TalkbackDialog.py:315
@@ -3854,16 +3835,16 @@ msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
-"Enheten för kommunicering med telefonen finns inte. Kanske har inte du "
+"Enheten för kommunikation med telefonen finns inte. Kanske har inte du "
 "anslutit telefonen eller så är din konfiguration felaktig."
 
 #: Wammu/Utils.py:463
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Device \"%s\" for communication with phone does not exist. Maybe you don't "
 "have phone plugged or your configuration is wrong."
 msgstr ""
-"Enheten för kommunicering med telefonen finns inte. Kanske har inte du "
+"Enheten \"%s\" för kommunikation med telefonen finns inte. Kanske har inte du "
 "anslutit telefonen eller så är din konfiguration felaktig."
 
 #: Wammu/Utils.py:466
@@ -3876,9 +3857,9 @@ msgid "Can not access device for communication with phone."
 msgstr "Kan inte komma åt enheten för kommunikation med telefonen."
 
 #: Wammu/Utils.py:477
-#, fuzzy, python-format
+#, python-format
 msgid "Can not access device \"%s\" for communication with phone."
-msgstr "Kan inte komma åt enheten för kommunikation med telefonen."
+msgstr "Kan inte komma åt enheten \"%s\" för kommunikation med telefonen."
 
 #: Wammu/Utils.py:481
 msgid ""
@@ -4003,7 +3984,7 @@ msgstr "IMEI"
 
 #: wammu.py:130
 msgid "Requested code"
-msgstr ""
+msgstr "Efterfrågad kod"
 
 #  msgid "&Wammu"
 #. l10n: Name of program shown in desktop file
