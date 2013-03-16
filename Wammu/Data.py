@@ -350,7 +350,7 @@ PredefinedAnimations = [
     '  x          x  ',
     '   xx      xx   ',
     '     xxxxxx     ']),
-    (_("Wearing glases"),
+    (_("Wearing glasses"),
     ['16 16 2 1',
     'x c Black',
     '  c None',
