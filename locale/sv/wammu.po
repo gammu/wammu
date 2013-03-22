@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2013-03-14 21:04+0200\n"
+"PO-Revision-Date: 2013-03-22 16:21+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/gammu/wammu/sv/>\n"
 "Language: sv\n"
@@ -1974,6 +1974,8 @@ msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
 msgstr ""
+"Telefonsökning kan inte utföras medan du är ansluten till telefonen, koppla "
+"från först."
 
 #  msgid "Failed to set exception handler."
 #: Wammu/Main.py:2302
@@ -2024,7 +2026,7 @@ msgstr "Ingen blåtandsenhet hittades"
 
 #: Wammu/PhoneSearch.py:172
 msgid "All Bluetooth devices discovered, connection tests still in progress..."
-msgstr ""
+msgstr "Alla blåtandsenheter hittade, anslutningstest är fortfarande igång..."
 
 #: Wammu/PhoneSearch.py:176
 #, python-format
@@ -2666,7 +2668,7 @@ msgstr "Standarddatum = nu + x dagar"
 
 #: Wammu/Settings.py:385
 msgid "How many entries will be shown in newly created item."
-msgstr "Hur många poster kommer att visas i nyligen skapad objekt."
+msgstr "Hur många poster som kommer att visas i nyligen skapat objekt."
 
 #: Wammu/Settings.py:386
 msgid "Entries for new item"
@@ -2686,6 +2688,9 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
+"Används endast då Wammu inte kan hitta korrekta antalet poster att läsa. "
+"Detta tal begränsar antalet tomma poster som kommer läsas innan läsningen "
+"stoppas."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
@@ -2697,6 +2702,9 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
+"Om telefonen uppger ett felaktigt antal poster skulle Wammu försöka läsa för "
+"evigt eller till ett fel uppstår. Detta tal begränsar antalet tomma poster "
+"som kommer läsas innan läsningen stoppas."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -3631,9 +3639,9 @@ msgstr "Din e-postadress"
 
 #  msgid "Finished %s"
 #: Wammu/TalkbackDialog.py:315
-#, fuzzy, python-format
+#, python-format
 msgid "Field: %s"
-msgstr "Filnamn: %s"
+msgstr "Fält: %s"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""
