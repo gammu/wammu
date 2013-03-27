@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2013-03-22 16:21+0200\n"
+"PO-Revision-Date: 2013-03-27 22:55+0200\n"
 "Last-Translator: Anders Jonsson <jonars03@student.umu.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/gammu/wammu/sv/>\n"
 "Language: sv\n"
@@ -783,7 +783,7 @@ msgstr "Produktkod"
 
 #: Wammu/Info.py:129 Wammu/Info.py:145
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: Wammu/Info.py:130
 msgid "SIM IMSI"
@@ -2151,13 +2151,13 @@ msgid "No phone has been found!"
 msgstr "Ingen telefon har hittats!"
 
 #: Wammu/PhoneWizard.py:236 Wammu/PhoneWizard.py:260
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Phone %(manufacturer)s %(model)s on device %(port)s using connection "
 "%(connection)s"
 msgstr ""
-"Modell %(model)s (%(manufacturer)s) på porten %(port)s använder anslutningen "
-"%(connection)s"
+"Telefonen %(manufacturer)s %(model)s på enheten %(port)s använder "
+"anslutningen %(connection)s"
 
 #: Wammu/PhoneWizard.py:243
 msgid "Select phone to use from below list"
@@ -3369,12 +3369,11 @@ msgstr "Inställningar"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
-msgstr ""
+msgstr "Val av meddelandetillstånd"
 
 #: Wammu/SMSExport.py:427
-#, fuzzy
 msgid "From Address"
-msgstr "IP-adress"
+msgstr "Från-adress"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
@@ -3407,38 +3406,39 @@ msgstr "Säkerhetskopiera endast nya meddelanden"
 #: Wammu/SMSExport.py:550
 #, python-format
 msgid "%d. From Address invalid\n"
-msgstr ""
+msgstr "%d. Ogiltig från-adress\n"
 
 #: Wammu/SMSExport.py:553
-#, fuzzy, python-format
+#, python-format
 msgid "%d. Server incomplete\n"
-msgstr "Servernamn"
+msgstr "%d. Ofullständig server\n"
 
 #: Wammu/SMSExport.py:556
 #, python-format
 msgid "%d. Port invalid\n"
-msgstr ""
+msgstr "%d. Ogiltig port\n"
 
 #: Wammu/SMSExport.py:559
 #, python-format
 msgid "%d. Login incomplete\n"
-msgstr ""
+msgstr "%d. Ofullständig inloggning\n"
 
 #: Wammu/SMSExport.py:562
 #, python-format
 msgid "%d. Password incomplete\n"
-msgstr ""
+msgstr "%d. Ofullständigt lösenord\n"
 
 #: Wammu/SMSExport.py:568
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Inga meddelanden att säkerhetskopiera valda. Markera minst ett av "
+"tillstånden."
 
 #: Wammu/SMSExport.py:573
-#, fuzzy
 msgid "Incomplete"
-msgstr "Färdig"
+msgstr "Ofullständig"
 
 #  msgid "Saving messages to IMAP"
 #: Wammu/SMSXML.py:102
@@ -3625,9 +3625,8 @@ msgid "Model in gammu configuration"
 msgstr "Modell i gammu-konfiguration"
 
 #: Wammu/TalkbackDialog.py:305
-#, fuzzy
 msgid "Note"
-msgstr "Notering:"
+msgstr "Notering"
 
 #: Wammu/TalkbackDialog.py:307
 msgid "Your name"
