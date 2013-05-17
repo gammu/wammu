@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-14 09:24+0300\n"
-"PO-Revision-Date: 2013-05-09 22:33+0200\n"
+"PO-Revision-Date: 2013-05-17 18:28+0200\n"
 "Last-Translator: Jean-Noël AVILA <jn.avila@free.fr>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/gammu/wammu-doc/fr/>\n"
 "Language: fr\n"
@@ -287,7 +287,7 @@ msgstr "Wammu"
 #. type: Plain text
 #: README:5
 msgid "GUI for Gammu library."
-msgstr ""
+msgstr "Interface graphique pour la bibliothèque Gammu."
 
 #. type: Title =
 #: README:7
@@ -367,7 +367,7 @@ msgstr ""
 
 #. type: Title =
 #: README:37
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Bug reporting"
 msgstr "rapport de bogue"
 
@@ -393,7 +393,7 @@ msgstr ""
 
 #. type: Title =
 #: README:48
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Version control"
 msgstr "Contrôle de version"
 
@@ -441,7 +441,7 @@ msgstr "Compilation depuis les sources"
 #. type: Plain text
 #: INSTALL:17
 msgid "It uses standard distutils, so:"
-msgstr ""
+msgstr "Il utilise les distutils standards, donc :"
 
 #. type: Plain text
 #: INSTALL:20
@@ -450,6 +450,8 @@ msgid ""
 "    python setup.py build\n"
 "    sudo python setup.py install\n"
 msgstr ""
+"    python setup.py build\n"
+"    sudo python setup.py install\n"
 
 #. type: Plain text
 #: INSTALL:25
@@ -459,11 +461,16 @@ msgid ""
 "devices, you need PyBluez [2]. For incoming events notifications, you need "
 "dbus-python [3]."
 msgstr ""
+"Vous avez besoin de python-gammu et wxPython [1] (version avec Unicode "
+"activé) installés pour exécuter et installer ce programme. Si vous souhaitez "
+"utiliser des périphériques Bluetooth de numérisation, vous avez besoin "
+"PyBluez [2]. Pour les notifications d'événements entrants, vous avez besoin "
+"de dbus-python [3]."
 
 #. type: Plain text
 #: INSTALL:27
 msgid "For Windows you also have to install Pywin32 [4]."
-msgstr ""
+msgstr "Pour Windows vous devrez également installer Pywin32 [4]."
 
 #. type: Plain text
 #: INSTALL:30
@@ -471,6 +478,8 @@ msgid ""
 "If you want to obey dependency checking at build time for any reason, you "
 "can use --skip-deps option."
 msgstr ""
+"Si vous voulez désactiver la vérification des dépendances à la compilation "
+"pour une raison quelconque, vous pouvez utiliser l'option --skip-deps."
 
 #. type: Plain text
 #: INSTALL:32
@@ -496,7 +505,7 @@ msgstr "[4]: https://sourceforge.net/projects/pywin32/"
 #: INSTALL:41
 #, no-wrap
 msgid "Cross compilation for Windows on Linux"
-msgstr ""
+msgstr "Compilation croisée pour Windows depuis Linux"
 
 #. type: Plain text
 #: INSTALL:45
@@ -504,17 +513,19 @@ msgid ""
 "You need Wine with installed all dependencies (see above section where to "
 "get them)."
 msgstr ""
+"Vous avez besoin de Wine installé avec toutes ses dépendances (voir ci-"
+"dessus où les obtenir)."
 
 #. type: Plain text
 #: INSTALL:47
 msgid "Building installer for wammu for Python is easy:"
-msgstr ""
+msgstr "Construire l'installateur pour wammu pour Python est facile :"
 
 #. type: Plain text
 #: INSTALL:49
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
-msgstr ""
+msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 
 #. type: Plain text
 #: INSTALL:52
@@ -522,12 +533,15 @@ msgid ""
 "However this way user needs to also install all dependencies, what is really "
 "not comfortable. This should be solved using py2exe [5]:"
 msgstr ""
+"Cependant, de cette façon, l'utilisateur doit installer également toutes les "
+"dépendances, ce qui n'est vraiment pas confortable. Cela devrait être "
+"résolu par l'utilisation de py2exe [5] :"
 
 #. type: Plain text
 #: INSTALL:54
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
-msgstr ""
+msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 
 #. type: Plain text
 #: INSTALL:60
@@ -538,17 +552,25 @@ msgid ""
 "directory (python25.dll and libraries from wxPython). See script admin/make-"
 "release which automates this copying."
 msgstr ""
+"Mais, en dehors de cela, vous devez faire un peu de réglage manuel. Pour "
+"faire fonctionner les py2exe sous Wine, vous devez modifier son image "
+"binaire au moyen des PE Tools (description disponible dans le rapport de "
+"bogue de Wine [w1]) et copier quelques bibliothèques additionnelles manquant "
+"dans le répertoire dist (python25.dll et les bibliothèques de wxPython). "
+"Référez-vous au script admin/make-release qui automatise cette copie."
 
 #. type: Plain text
 #: INSTALL:62
 msgid "Then you can use InnoSetup[6] to build installer for Wammu:"
 msgstr ""
+"Ensuite, vous pouvez utiliser InnoSetup [6] pour construire le programme "
+"d'installation pour Wammu :"
 
 #. type: Plain text
 #: INSTALL:64
 #, no-wrap
 msgid "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
-msgstr ""
+msgstr "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 
 #. type: Plain text
 #: INSTALL:66
