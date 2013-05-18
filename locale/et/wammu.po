@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-10 11:43+0200\n"
-"PO-Revision-Date: 2013-05-06 22:23+0200\n"
+"PO-Revision-Date: 2013-05-18 09:03+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/gammu/wammu/et/>\n"
 "Language: et\n"
@@ -2551,29 +2551,31 @@ msgstr "Kuva ikoon tegumiribal."
 
 #: Wammu/Settings.py:371
 msgid "Default time to be used for newly created time fields."
-msgstr ""
+msgstr "Vaikimisi kellaaeg, mida kasutatakse äsjaloodud ajaväljadega."
 
 #: Wammu/Settings.py:372
 msgid "Default time"
-msgstr ""
+msgstr "Vaikimisi kellaaeg"
 
 #: Wammu/Settings.py:378
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1 = tommorow)."
 msgstr ""
+"Vaikimisi kuupäev, mida kasutatakse äsjaloodud ajaväljadel. Sisesta päevade "
+"arv alates tänasest (1 = homme)."
 
 #: Wammu/Settings.py:379
 msgid "Default date = now + x days"
-msgstr ""
+msgstr "Vaikimisi kuupäev = täna + X päeva"
 
 #: Wammu/Settings.py:385
 msgid "How many entries will be shown in newly created item."
-msgstr ""
+msgstr "Uues kirjes kuvatavate elementide arv."
 
 #: Wammu/Settings.py:386
 msgid "Entries for new item"
-msgstr ""
+msgstr "Kirjed uues elemendis"
 
 #: Wammu/Settings.py:393
 msgid "Prefix for non international phone numbers."
@@ -2589,10 +2591,12 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
+"Rakendub ainult siis, kui Wammu ei suuda leida õiget loetavate kirjete arvu. "
+"Lugemine lõpetatakse, kui on leotud nii mitu tühja kirjet."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
-msgstr ""
+msgstr "Maksimaalne tühjade kirjete arv, kui kõigi kirjete arv on oletatud"
 
 #: Wammu/Settings.py:423
 msgid ""
@@ -2600,10 +2604,13 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
+"Juhul kui telefon raporteerib kirjete arvu valesti proovib Wammu lugeda "
+"lõputult või veani. See number määrab maksimaalse tühjade kirjete arvu, "
+"milleni jõudmisel lugemine lõpetatakse."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
-msgstr ""
+msgstr "Maksimaalne tühjade kirjete arv, kui kõigi kirjete arv on teada"
 
 #: Wammu/Settings.py:437
 msgid "Gammu"
@@ -2619,13 +2626,15 @@ msgstr "Muu"
 
 #: Wammu/Settings.py:442
 msgid "Hacks"
-msgstr ""
+msgstr "Häkid"
 
 #: Wammu/Settings.py:525
 msgid ""
 "You don't have any phone connection configured. Wammu will not be able to "
 "conect to your phone!"
 msgstr ""
+"Sul ei ole mitte ühtegi telefoni ühendust seadistatud. Wammu ei saa "
+"telefoniga ühenduda!"
 
 #: Wammu/Settings.py:526
 msgid "No phone configured!"
@@ -2649,75 +2658,75 @@ msgstr "Symbianil põhinev telefon"
 
 #: Wammu/SettingsStorage.py:102
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
-msgstr ""
+msgstr "Jätka, kui su telefon kasutab Symbiani (tootjast sõltumatu)."
 
 #: Wammu/SettingsStorage.py:105
 msgid "Alcatel phone"
-msgstr ""
+msgstr "Alcateli telefon"
 
 #: Wammu/SettingsStorage.py:106
 msgid "Alcatel phone not running Symbian."
-msgstr ""
+msgstr "Alcateli telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:109
 msgid "BenQ/Siemens phone"
-msgstr ""
+msgstr "BenQ/Siemens telefon"
 
 #: Wammu/SettingsStorage.py:110
 msgid "BenQ or Siemens phone not running Symbian."
-msgstr ""
+msgstr "BenQ või Siemens telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:113
 msgid "Motorola phone"
-msgstr ""
+msgstr "Motorola telefon"
 
 #: Wammu/SettingsStorage.py:114
 msgid "Motorola phone not running Symbian."
-msgstr ""
+msgstr "Motorola telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:117
 msgid "Nokia phone"
-msgstr ""
+msgstr "Nokia telefon"
 
 #: Wammu/SettingsStorage.py:118
 msgid "Nokia phone not running Symbian."
-msgstr ""
+msgstr "Nokia telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:121
 msgid "Samsung phone"
-msgstr ""
+msgstr "Samsungi telefon"
 
 #: Wammu/SettingsStorage.py:122
 msgid "Samsung phone not running Symbian."
-msgstr ""
+msgstr "Samsungi telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:125
 msgid "Sharp phone"
-msgstr ""
+msgstr "Sharpi telefon"
 
 #: Wammu/SettingsStorage.py:126
 msgid "Sharp phone not running Symbian."
-msgstr ""
+msgstr "Sharpi telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:129
 msgid "Sony Ericsson phone"
-msgstr ""
+msgstr "Sony Ericssoni telefon"
 
 #: Wammu/SettingsStorage.py:130
 msgid "Sony Ericsson phone not running Symbian."
-msgstr ""
+msgstr "Sony Ericssoni telefon, milles ei tööta Symbian."
 
 #: Wammu/SettingsStorage.py:133
 msgid "None of the above"
-msgstr ""
+msgstr "Mitte ükski ülalmainitutest"
 
 #: Wammu/SettingsStorage.py:134
 msgid "Select this option if nothing above matches."
-msgstr ""
+msgstr "Vali see, kui mitte ükski ülalmainitutest ei sobi."
 
 #: Wammu/SettingsStorage.py:140
 msgid "OBEX and IrMC protocols"
-msgstr ""
+msgstr "OBEX ja IrMC protokollid"
 
 #: Wammu/SettingsStorage.py:142
 msgid ""
