@@ -5,7 +5,7 @@ LOCS=`ls locale/*/wammu.po | sed 's@.*/\(.*\)/[^/]*@\1@'`
 ver=`python -c 'import Wammu; print Wammu.__version__'`
 
 po4a \
-    --msgid-bugs-address michal@cihar.com \
+    --msgid-bugs-address gammu-users@lists.sourceforge.net \
     --copyright-holder "Michal Čihař <michal@cihar.com>" \
     --package-name Wammu-docs \
     --package-version $ver \

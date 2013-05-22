@@ -3,7 +3,7 @@
 LOCS=`ls locale/*/wammu.po | sed 's@.*/\(.*\)/[^/]*@\1@'`
 xgettext \
     -d wammu \
-    --msgid-bugs-address=michal@cihar.com \
+    --msgid-bugs-address=gammu-users@lists.sourceforge.net \
     -o locale/wammu.pot \
     --language=Python \
     --add-comments=l10n \
