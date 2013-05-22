@@ -15,8 +15,8 @@ Aus den Quellen übersetzen
 
 Es werden die üblichen distutils verwendet, deshalb:
 
-python setup.py build
-sudo python setup.py install
+    python setup.py build
+    sudo python setup.py install
 
 Es werden python-gammu und wxPython [1] (mit eingeschalteter Unicode
 Unterstützung) benötigt, um dieses Programm zu installieren und
@@ -46,13 +46,13 @@ Informationen, wo diese zu finden sind).
 
 Einen Installer für Wammu für Python zu übersetzen ist einfach:
 
-wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
+    wine c:\\python25\\python setup.py build --skip-deps bdist_wininst
 
 Allerdings muss der Benutzer für diesen Weg alle Abhängigkeiten
 installieren, was nicht sehr komfortabel ist. Die sollte gelöst werden durch
 das Benutzen von py2exe [5]:
 
-wine c:\\python25\\python setup.py build --skip-deps py2exe
+    wine c:\\python25\\python setup.py build --skip-deps py2exe
 
 Allerdings muss ausserdem noch ein wenig per Hand eingestellt werden. Damit
 py2exe unter Wine funktioniert, muss diese noch mit den PE Tools repariert
@@ -64,7 +64,7 @@ Skript, welches das Kopieren der Dateien automatisiert.
 Nun kann InnoSetup[6] benutzt werden, um den Installer für Wammu zu
 generieren:
 
-wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
+    wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
 
 [5]: http://www.py2exe.org/
 
