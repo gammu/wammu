@@ -92,6 +92,8 @@ rm -rf %buildroot
 %lang(de) %doc %{_mandir}/de
 %lang(en_GB) %doc %{_mandir}/en_GB
 %lang(es) %doc %{_mandir}/es
+%lang(et) %doc %{_mandir}/et
+%lang(da) %doc %{_mandir}/da
 %lang(fr) %doc %{_mandir}/fr
 %lang(hu) %doc %{_mandir}/hu
 %lang(id) %doc %{_mandir}/id
