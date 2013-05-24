@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-22 14:35+0200\n"
-"PO-Revision-Date: 2013-05-18 09:03+0200\n"
+"PO-Revision-Date: 2013-05-24 21:37+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/gammu/wammu/et/>\n"
 "Language: et\n"
@@ -2733,78 +2733,90 @@ msgid ""
 "Standard access to filesystem. Not a good choice for Nokia if you want to "
 "access data."
 msgstr ""
+"Harilik failisüsteemi kasutamine. Halb valik Nokia telefoniga, kui soovid "
+"andmeid kasutada."
 
 #: Wammu/SettingsStorage.py:144
 msgid ""
 "Standard access to filesystem and sometimes also to phone data. Good choice "
 "for recent phones."
 msgstr ""
+"Harilik failisüsteemi kasutamine ja võib-olla ka telefoni andmetele. Hea "
+"valik uuemate telefonidega."
 
 #: Wammu/SettingsStorage.py:148
 msgid "Symbian using Gnapplet"
-msgstr ""
+msgstr "Symbian kasutades programmi Gnapplet"
 
 #: Wammu/SettingsStorage.py:149
 msgid ""
 "You have to install Gnapplet into phone before using this connection. You "
 "can find it in Gammu sources."
 msgstr ""
+"Enne selle ühenduse kasutamist pead paigaldama telefoni programmi Gnapplet. "
+"Selle leiad Gammu lähtekoodist."
 
 #: Wammu/SettingsStorage.py:153
 msgid "Nokia proprietary protocol"
-msgstr ""
+msgstr "Nokia firmasisene protokoll"
 
 #: Wammu/SettingsStorage.py:154
 msgid "Nokia proprietary protocol FBUS."
-msgstr ""
+msgstr "Nokia firmasisene FBUS protokoll."
 
 #: Wammu/SettingsStorage.py:157
 msgid "Nokia proprietary service protocol"
-msgstr ""
+msgstr "Nokia firmasisene teenuse protokoll"
 
 #: Wammu/SettingsStorage.py:158
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
 msgstr ""
+"Nokia firmasisene MBUS protokoll. Vanem versioon, kui võimalik, siis kasuta "
+"FBUSi."
 
 #: Wammu/SettingsStorage.py:162
 msgid "AT based"
-msgstr ""
+msgstr "AT põhine"
 
 #: Wammu/SettingsStorage.py:164
 msgid ""
 "This provides minimal access to phone features. It is recommended to use "
 "other connection type."
 msgstr ""
+"See lubab minimaalse ligipääsu telefoni võimalustele. On soovitatav kasutada "
+"muud ühenduse tüüpi."
 
 #: Wammu/SettingsStorage.py:166
 msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
 msgstr ""
+"Hea valik enamiku telefonide korral v.a. Nokia ja Symbiani põhised. "
+"Võimaldab ligipääsu enamikule telefoni võimalustest."
 
 #: Wammu/SettingsStorage.py:277 Wammu/SettingsStorage.py:309
 msgid "Enter device name of serial port."
-msgstr ""
+msgstr "Siseta jadavärati seadme nimi."
 
 #: Wammu/SettingsStorage.py:279 Wammu/SettingsStorage.py:311
 msgid "Enter device name of emulated serial port."
-msgstr ""
+msgstr "Sisesta emuleeritud jadavärati seadme nimi."
 
 #: Wammu/SettingsStorage.py:281 Wammu/SettingsStorage.py:313
 msgid "Enter Bluetooth address of your phone."
-msgstr ""
+msgstr "Sisesta oma telefoni Buletooth aadress."
 
 #: Wammu/SettingsStorage.py:283 Wammu/SettingsStorage.py:317
 msgid "You don't have to enter anything for this settings."
-msgstr ""
+msgstr "Sellise seadistusega ei pea midagi sisestama."
 
 #: Wammu/SettingsStorage.py:315
 msgid "Enter device name of USB port."
-msgstr ""
+msgstr "Sisesta USB värati seadme nimi."
 
 #: Wammu/SettingsStorage.py:336 Wammu/SettingsStorage.py:351
 msgid "Generic AT over serial line or it's emulation"
-msgstr ""
+msgstr "Geneeriline AT käsustik kasutades (enuleeritud) jadaliini"
 
 #: Wammu/SettingsStorage.py:337 Wammu/SettingsStorage.py:352
 #: Wammu/SettingsStorage.py:371
@@ -2812,20 +2824,22 @@ msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
 msgstr ""
+"Vali see, kui kasutad reaalset jadaväratit või seda emuleerib telefoni ajur "
+"(nt. virtuaalne jadavärat, /dev/rfcomm, /dev/ircomm, jne.)."
 
 #: Wammu/SettingsStorage.py:342
 #, python-format
 msgid "Generic AT at %d bps"
-msgstr ""
+msgstr "Geneeriline AT kiirusel %d bitti/s"
 
 #: Wammu/SettingsStorage.py:343
 #, python-format
 msgid "Select this if your phone requires transfer speed %d bps."
-msgstr ""
+msgstr "Vali see, kui su telefon nõuab edastuskiiruest %d bitti/s."
 
 #: Wammu/SettingsStorage.py:347
 msgid "AT over Bluetooth"
-msgstr ""
+msgstr "AT kasutades Bluetoothi"
 
 #: Wammu/SettingsStorage.py:348 Wammu/SettingsStorage.py:376
 #: Wammu/SettingsStorage.py:391
@@ -2833,10 +2847,12 @@ msgid ""
 "Select this if your phone is connected over Bluetooth and you want to use "
 "native Bluetooth connection."
 msgstr ""
+"Vali see, kui su telefon on ühendatav Bluetoothi abil ja soovid kasutada "
+"Bluetooth ühendust."
 
 #: Wammu/SettingsStorage.py:355
 msgid "AT over Bluetooth with RF searching"
-msgstr ""
+msgstr "AT kasutades Bluetoothi koos RF otsinguga"
 
 #: Wammu/SettingsStorage.py:356 Wammu/SettingsStorage.py:380
 msgid ""
@@ -2847,7 +2863,7 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
-msgstr ""
+msgstr "AT kasutades IrDA"
 
 #: Wammu/SettingsStorage.py:361 Wammu/SettingsStorage.py:385
 #: Wammu/SettingsStorage.py:396
@@ -2855,30 +2871,32 @@ msgid ""
 "Select this if your phone is connected over IrDA and you want to use native "
 "IrDA connection."
 msgstr ""
+"Vali see, kui su telefon on ühendatav IrDA abil ja soovid kasutada IrDA "
+"ühendust."
 
 #: Wammu/SettingsStorage.py:365
 msgid "AT over DKU2"
-msgstr ""
+msgstr "AT kasutades DKU2"
 
 #: Wammu/SettingsStorage.py:366
 msgid "Select this if your phone is connected using DKU2 cable."
-msgstr ""
+msgstr "Vali see, kui su telefoni ühendamiseks kasutad DKU2 kaablit."
 
 #: Wammu/SettingsStorage.py:370
 msgid "Generic OBEX over serial line or it's emulation"
-msgstr ""
+msgstr "Geneeriline OBEX kasutades (emuleeritud) jadaliini"
 
 #: Wammu/SettingsStorage.py:375
 msgid "OBEX over Bluetooth"
-msgstr ""
+msgstr "OBEX kasutades Bluetoothi"
 
 #: Wammu/SettingsStorage.py:379
 msgid "OBEX over Bluetooth with RF searching"
-msgstr ""
+msgstr "OBEX kasutades Bluetoothi ja RF otsingut"
 
 #: Wammu/SettingsStorage.py:384
 msgid "OBEX over IrDA"
-msgstr ""
+msgstr "OBEX kasutades IrDA"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
@@ -2886,11 +2904,11 @@ msgstr ""
 
 #: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
-msgstr ""
+msgstr "Gnapplet kasutades IrDAt"
 
 #: Wammu/SettingsStorage.py:401
 msgid "MBUS proprietary protocol"
-msgstr ""
+msgstr "Firmasisene MBUS protokoll"
 
 #: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
