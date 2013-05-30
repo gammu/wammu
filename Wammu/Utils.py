@@ -493,8 +493,9 @@ def FixupMaskedEdit(edit):
 def GetWebsiteLang():
     (loc, charset) = locale.getdefaultlocale()
     try:
-        if loc[:2].lower() == 'cs':
-            return 'cs.'
+        lang = loc[:2].lower()
+        if lang in ('cs', 'de', 'es', 'fr', 'sk'):
+            return '%s.' % lang
         return ''
     except TypeError:
         return ''
