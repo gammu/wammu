@@ -75,7 +75,7 @@ def Handler(errtype, value, tback):
         traceid = md5(traceidtext).hexdigest()
         tracetext = '\n%s\n' % (
                 _('Before submiting please try searching for simmilar bugs on %s')
-                % ('http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s\n'
+                % ('https://github.com/search?l=&q=%s+%%40gammu&ref=advsearch&type=Issues'
                     % traceid))
     except:
         traceid = 'N/A'

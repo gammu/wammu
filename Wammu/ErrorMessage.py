@@ -31,13 +31,13 @@ import Wammu.Paths
 import Wammu.ErrorLog
 
 
-BUG_SEARCH_URL = 'http://bugs.cihar.com/view_all_set.php?f=3&type=1&search=%s'
-BUG_REPORT_URL = 'http://bugs.cihar.com/set_project.php?ref=bug_report_page.php&project_id=1'
+BUG_SEARCH_URL = 'https://github.com/search?l=&q=%s+%%40gammu&ref=advsearch&type=Issues'
+BUG_REPORT_URL = 'https://github.com/gammu/gammu/issues/new'
 
 class ErrorMessage(wx.Dialog):
     '''
     Error message box with support for saving debug log and reporting
-    bug to http://bugs.cihar.com/.
+    bug to https://github.com/gammu/gammu/issues.
     '''
     def __init__(self, parent, message, title, traceid=None,
             autolog=None, exception=None):
@@ -58,7 +58,7 @@ class ErrorMessage(wx.Dialog):
         if autolog is not None:
             message += '\n\n'
             message += (
-                    _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.') 
+                    _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.')
                     % autolog)
         msg = wx.StaticText(self, -1, message)
         msg.Wrap(400)
