@@ -2246,10 +2246,13 @@ class WammuFrame(wx.Frame):
         Performs D-Bus notification if available.
         '''
         if self.dbus_notify is not None:
-            self.last_dbus_id = self.dbus_notify.Notify(
-                    'Wammu', self.last_dbus_id, 'wammu',
-                    title, message, actions, {}, -1)
-
+            try:
+                self.last_dbus_id = self.dbus_notify.Notify(
+                        'Wammu', self.last_dbus_id, 'wammu',
+                        title, message, actions, {}, -1)
+            except dbus.DBusException:
+                self.dbus_notify = None
+                self.last_dbus_id = 0
 
     def IncomingEvent(self, sm, type, data):
         '''
