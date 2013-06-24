@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-22 14:35+0200\n"
-"PO-Revision-Date: 2013-05-24 21:37+0200\n"
+"PO-Revision-Date: 2013-06-24 17:32+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/gammu/wammu/et/>\n"
 "Language: et\n"
@@ -2860,6 +2860,8 @@ msgid ""
 "about Bluetooth services correctly (6310, 6310i with firmware lower than "
 "5.50, 8910,..)"
 msgstr ""
+"Kasuta Bluetoothi ja 6210 / DCT4 Nokia mudelitega, mis ei teavita BLuetoothi "
+"teenustest korrektselt (6310, 6310i tarkvaraga 5.50 ja vanem, 8910, ...)"
 
 #: Wammu/SettingsStorage.py:360
 msgid "AT over IrDA"
@@ -2900,7 +2902,7 @@ msgstr "OBEX kasutades IrDA"
 
 #: Wammu/SettingsStorage.py:390
 msgid "Gnapplet over Bluetooth"
-msgstr ""
+msgstr "Gnapplet Kasutades Bluetoothi"
 
 #: Wammu/SettingsStorage.py:395
 msgid "Gnapplet over IrDA"
@@ -2912,107 +2914,121 @@ msgstr "Firmasisene MBUS protokoll"
 
 #: Wammu/SettingsStorage.py:402
 msgid "Protocol used in older Nokia phones."
-msgstr ""
+msgstr "Protokoll, mida kasutavad vanemad Nokia telefonid."
 
 #: Wammu/SettingsStorage.py:407
 msgid "FBUS proprietary protocol"
-msgstr ""
+msgstr "Suletud FBUS protokoll"
 
 #: Wammu/SettingsStorage.py:408
 msgid ""
 "Protocol used in Nokia phones. Please try selecting more specific options "
 "first."
 msgstr ""
+"Nokia telefonides kasutatav protokoll. Palun proovi alguses täpsemaid "
+"valikuid."
 
 #: Wammu/SettingsStorage.py:413
 msgid "DKU5 cable"
-msgstr ""
+msgstr "DKU5 kaabel"
 
 #: Wammu/SettingsStorage.py:414
 msgid ""
 "Nokia Connectivity Adapter Cable DKU-5 (original cable or compatible), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"Nokia Connectivity Adapter Cable DKU-5 (originaal kaabel või ühilduv), USB "
+"toega telefonidele nagu Nokia 5100."
 
 #: Wammu/SettingsStorage.py:417
 msgid "PL2303 cable"
-msgstr ""
+msgstr "PL2303 kaabel"
 
 #: Wammu/SettingsStorage.py:418
 msgid ""
 "New Nokia protocol for PL2303 USB cable (usually third party cables), for "
 "phones with USB chip like Nokia 5100."
 msgstr ""
+"Uus Nokia protokoll PL2303 USB kaablile (harilikult kolmanda osapoole "
+"kaablid); USB toega telefonidele nagu Nokia 5100."
 
 #: Wammu/SettingsStorage.py:421
 msgid "DKU2 cable"
-msgstr ""
+msgstr "DKU2 kaabel"
 
 #: Wammu/SettingsStorage.py:422
 msgid ""
 "Nokia Connectivity Cable DKU-2 (original cable or compatible), for phones "
 "without USB chip like Nokia 6230."
 msgstr ""
+"Nokia Connectivity Cable DKU-2 (originaal kaabel või ühilduv), USB toeta "
+"telefonidele nagu Nokia 6230."
 
 #: Wammu/SettingsStorage.py:425
 msgid "DLR3-3P/CA-42 cable"
-msgstr ""
+msgstr "DLR3-3P/CA-42 kaabel"
 
 #: Wammu/SettingsStorage.py:426
 msgid ""
 "Nokia RS-232 Adapter Cable DLR-3P (original cable or compatible), usually "
 "with phones like Nokia 7110/6210/6310."
 msgstr ""
+"Nokia RS-232 Adapter Cable DLR-3P (originaal kaabel või ühildub), tavaliselt "
+"telefonidele nagu Nokia 7110/6210/6310."
 
 #: Wammu/SettingsStorage.py:429
 msgid "FBUS proprietary protocol using ARK cable"
-msgstr ""
+msgstr "Suletud FBUS protokoll kasutades ARK kaablit"
 
 #: Wammu/SettingsStorage.py:430
 msgid ""
 "ARK cable (third party cable) for phones not supporting AT commands like "
 "Nokia 6020."
 msgstr ""
+"ARK kaabel (kolmanda osapoole kaabel) telefonidele, mis ei toeta AT käske "
+"nagu Nokia 6020."
 
 #: Wammu/SettingsStorage.py:433
 msgid "DKU5 phone with ARK cable"
-msgstr ""
+msgstr "DKU5 telefon ARK kaabliga"
 
 #: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
 msgstr ""
+"ARK kaabel (kolmanda osapoole kaabel) USB toega telefonidele nagu Nokia "
+"5100."
 
 #: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
-msgstr ""
+msgstr "PhoNet kasutades Bluetoothi"
 
 #: Wammu/SettingsStorage.py:439 Wammu/SettingsStorage.py:450
 msgid "Nokia protocol for Bluetooth stack with other DCT4 Nokia models."
-msgstr ""
+msgstr "Nokia protokoll kasutades Bluetoothi teistele DCT4 Nokia mudelitele."
 
 #: Wammu/SettingsStorage.py:442
 msgid "FBUS over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "FBUS kasutades Bluetoothi (emuleeritud jadavärat)"
 
 #: Wammu/SettingsStorage.py:443 Wammu/SettingsStorage.py:457
 msgid "Nokia protocol for Bluetooth stack with Nokia 6210."
-msgstr ""
+msgstr "Nokia protokoll kasutades Bluetoothi Nokia 6210 telefonile."
 
 #: Wammu/SettingsStorage.py:445 Wammu/SettingsStorage.py:452
 msgid "Using emulated serial port."
-msgstr ""
+msgstr "Kasuta emuleeritud jadaväratit."
 
 #: Wammu/SettingsStorage.py:449
 msgid "Phonet over Bluetooth (emulated serial port)"
-msgstr ""
+msgstr "PhoNet kasutades Bluetoothi (emuleeritud jadavärat)"
 
 #: Wammu/SettingsStorage.py:456
 msgid "FBUS over Bluetooth"
-msgstr ""
+msgstr "FBUS kasutades Bluetoothi"
 
 #: Wammu/SettingsStorage.py:460
 msgid "Phonet over Bluetooth with RF searching"
-msgstr ""
+msgstr "PhoNet kasutades Bluetoothi ja RF otsinguga"
 
 #: Wammu/SettingsStorage.py:461
 msgid ""
@@ -3020,48 +3036,51 @@ msgid ""
 "inform about services correctly (6310, 6310i with firmware lower than 5.50, "
 "8910,..)."
 msgstr ""
+"Nokia protokoll Bluetoothiga DCT4 Nokia mudelitele, mis raporteerivad "
+"toetatud teenustest vigaselt (6310, 6310i tarkvaraga 5.50 ja vanem, 8910, "
+"...)."
 
 #: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
-msgstr ""
+msgstr "PhoNet kasutades IrDAt"
 
 #: Wammu/SettingsStorage.py:466
 msgid "Nokia protocol for infrared with other Nokia models."
-msgstr ""
+msgstr "Nokia protokoll infrapunasele sidele muude Nokia mudelitega."
 
 #: Wammu/SettingsStorage.py:469
 msgid "FBUS over IrDA"
-msgstr ""
+msgstr "FBUS kasutades IrDAt"
 
 #: Wammu/SettingsStorage.py:470
 msgid "Nokia protocol for infrared with Nokia 6110/6130/6150."
-msgstr ""
+msgstr "Nokia protokoll infrapunasele sidele Nokia mudelitega 6110/6130/6150."
 
 #: Wammu/SMSExport.py:38
 msgid "Mailboxes"
-msgstr ""
+msgstr "Postkastid"
 
 #: Wammu/SMSExport.py:41
 msgid "Select mailbox file..."
-msgstr ""
+msgstr "Vali postksati fail..."
 
 #: Wammu/SMSExport.py:54
 msgid "Saving messages to mailbox"
-msgstr ""
+msgstr "Sõnumeid salvestatakse postkasti"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSExport.py:157 Wammu/SMSExport.py:327
 #: Wammu/SMSXML.py:137
 #, python-format
 msgid "%(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr ""
+msgstr "%(count)d sõnumit eksporditi \"%(path)s\" (%(type)s)"
 
 #: Wammu/SMSExport.py:82 Wammu/SMSXML.py:137
 msgid "mailbox"
-msgstr ""
+msgstr "postkast"
 
 #: Wammu/SMSExport.py:86
 msgid "Select maildir directory where to save files"
-msgstr ""
+msgstr "Vali postikataloog, kuhu salvestada failid"
 
 #: Wammu/SMSExport.py:97
 msgid ""
@@ -3070,18 +3089,22 @@ msgid ""
 "\n"
 "Do you want to create new subfolder and export to it?"
 msgstr ""
+"Valitud kataloog ei sisalda uut alamkataloogi ja ei ole seetõttu ilmselt "
+"postikataloog.\n"
+"\n"
+"Kas sa soovid luua uue alamkataloogi ja sellesse eksportida?"
 
 #: Wammu/SMSExport.py:98
 msgid "Folder doesn't look like maildir!"
-msgstr ""
+msgstr "Kataloog ei meenuta postikataloogi!"
 
 #: Wammu/SMSExport.py:110
 msgid "Creating of folder failed, bailing out."
-msgstr ""
+msgstr "Kataloogi loomine ebaõnnestus, hüljatud."
 
 #: Wammu/SMSExport.py:111
 msgid "Can not create folder!"
-msgstr ""
+msgstr "Kataloogi ei saa luua!"
 
 #: Wammu/SMSExport.py:117
 msgid "Saving messages to maildir"
