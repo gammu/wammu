@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-05-22 14:35+0200\n"
-"PO-Revision-Date: 2013-06-24 17:32+0200\n"
+"PO-Revision-Date: 2013-06-26 22:39+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/gammu/wammu/et/>\n"
 "Language: et\n"
@@ -3108,7 +3108,7 @@ msgstr "Kataloogi ei saa luua!"
 
 #: Wammu/SMSExport.py:117
 msgid "Saving messages to maildir"
-msgstr ""
+msgstr "Sõnumeid salvestatakse postikataloogi"
 
 #: Wammu/SMSExport.py:130
 #, python-format
@@ -3118,191 +3118,199 @@ msgid ""
 "\n"
 "Do you wish to overwrite file %s?"
 msgstr ""
+"Väljundfail on juba olemas. Harilikult tähendab see seda, et antud sõnum on "
+"juba sinna salvestatud.\n"
+"\n"
+"Kas sa soovid faili %s üle kirjutada?"
 
 #: Wammu/SMSExport.py:131
 msgid "File already exists!"
-msgstr ""
+msgstr "Fail on juba olemas!"
 
 #: Wammu/SMSExport.py:157
 msgid "maildir"
-msgstr ""
+msgstr "postikataloog"
 
 #: Wammu/SMSExport.py:181
 msgid "Connecting to IMAP server..."
-msgstr ""
+msgstr "Ühendutakse IMAP serverisse..."
 
 #: Wammu/SMSExport.py:197
 msgid ""
 "Can not login, you probably entered invalid login information. Do you want "
 "to retry?"
 msgstr ""
+"Sisselogimine ebaõnnestus; oled ilmselt sisestanud vigase logigimisinfo. Kas "
+"sa soovid proovida uuesti?"
 
 #: Wammu/SMSExport.py:198
 msgid "Login failed!"
-msgstr ""
+msgstr "Sisselogimine ebaõnnestus!"
 
 #: Wammu/SMSExport.py:202
 msgid "Listing folders on IMAP server..."
-msgstr ""
+msgstr "Kuvatakse kaustad IMAP serveris..."
 
 #: Wammu/SMSExport.py:210
 msgid "Can not list folders on server, bailing out."
-msgstr ""
+msgstr "Ei saa kuvada kaustasid serveris, katkestatakse."
 
 #: Wammu/SMSExport.py:211
 msgid "Listing failed!"
-msgstr ""
+msgstr "Kuvamine ebaõnnestus!"
 
 #: Wammu/SMSExport.py:243
 #, python-format
 msgid "Please select folder on server %s where messages will be stored"
-msgstr ""
+msgstr "Palun vali serveril %s kaust, kuhu salvestatakse sõnumid"
 
 #: Wammu/SMSExport.py:244
 msgid "Select folder"
-msgstr ""
+msgstr "Vali kaust"
 
 #: Wammu/SMSExport.py:259
 msgid "Selecting folder on IMAP server..."
-msgstr ""
+msgstr "Kausta valimine IMAP serveris..."
 
 #: Wammu/SMSExport.py:267
 #, python-format
 msgid "Can not select folder %s on server, bailing out."
-msgstr ""
+msgstr "Kausta %s ei saa valida serveris, katkestatakse."
 
 #: Wammu/SMSExport.py:268
 msgid "Selecting failed!"
-msgstr ""
+msgstr "Valimine ebaõnnesus!"
 
 #: Wammu/SMSExport.py:283
 msgid "Saving messages to IMAP"
-msgstr ""
+msgstr "Sõnumeid salvestatakse IMAP serverisse"
 
 #: Wammu/SMSExport.py:310
 #, python-format
 msgid "Can not save message to folder %s on server, bailing out."
-msgstr ""
+msgstr "Ei saa salvestada sõnumit serveril kausta %s, katkestatakse."
 
 #: Wammu/SMSExport.py:311
 msgid "Saving failed!"
-msgstr ""
+msgstr "Salvestamine ebaõnnestus!"
 
 #: Wammu/SMSExport.py:327 Wammu/SMSExport.py:329
 msgid "IMAP server"
-msgstr ""
+msgstr "IMAP server"
 
 #: Wammu/SMSExport.py:329
 #, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr ""
+msgstr "%(new)d uut sõnumit %(count)d-st eksporditi kohta \"%(path)s\" (%(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
-msgstr ""
+msgstr "Kuhu sa soovid eksportida e-mailid, mis loodi su sõnumitest?"
 
 #: Wammu/SMSExport.py:333
 msgid "Select export type"
-msgstr ""
+msgstr "Vali ekspordi tüüp"
 
 #: Wammu/SMSExport.py:334
 msgid "Mailbox file"
-msgstr ""
+msgstr "Postifail"
 
 #: Wammu/SMSExport.py:334
 msgid "Maildir folder"
-msgstr ""
+msgstr "Postikataloog"
 
 #: Wammu/SMSExport.py:334
 msgid "IMAP account"
-msgstr ""
+msgstr "IMAP konto"
 
 #: Wammu/SMSExport.py:422
 msgid "IMAP Settings"
-msgstr ""
+msgstr "IMAP seaded"
 
 #: Wammu/SMSExport.py:424
 msgid "Connection Details"
-msgstr ""
+msgstr "Ühenduse detailid"
 
 #: Wammu/SMSExport.py:425
 msgid "Preferences"
-msgstr ""
+msgstr "Eelistused"
 
 #: Wammu/SMSExport.py:426
 msgid "Message State Selection"
-msgstr ""
+msgstr "Sõnumi oleku valimine"
 
 #: Wammu/SMSExport.py:427
 msgid "From Address"
-msgstr ""
+msgstr "Saatja aadress"
 
 #: Wammu/SMSExport.py:429
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: Wammu/SMSExport.py:431
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: Wammu/SMSExport.py:433
 msgid "Login"
-msgstr ""
+msgstr "Konto"
 
 #: Wammu/SMSExport.py:435
 msgid "Password"
-msgstr ""
+msgstr "Salasõna"
 
 #: Wammu/SMSExport.py:437
 msgid "Remember password (insecure)"
-msgstr ""
+msgstr "Jäta salasõna meelde (ebaturvaline)"
 
 #: Wammu/SMSExport.py:438
 msgid "Use SSL"
-msgstr ""
+msgstr "Kasuta SSL ühendust"
 
 #: Wammu/SMSExport.py:439
 msgid "Only back-up new messages"
-msgstr ""
+msgstr "Varunda ainult uued sõnumid"
 
 #: Wammu/SMSExport.py:550
 #, python-format
 msgid "%d. From Address invalid\n"
-msgstr ""
+msgstr "%d. Saatja aadress on vigane\n"
 
 #: Wammu/SMSExport.py:553
 #, python-format
 msgid "%d. Server incomplete\n"
-msgstr ""
+msgstr "%d. Server puudulik\n"
 
 #: Wammu/SMSExport.py:556
 #, python-format
 msgid "%d. Port invalid\n"
-msgstr ""
+msgstr "%d. Port puudulik\n"
 
 #: Wammu/SMSExport.py:559
 #, python-format
 msgid "%d. Login incomplete\n"
-msgstr ""
+msgstr "%d. Konto puudulik\n"
 
 #: Wammu/SMSExport.py:562
 #, python-format
 msgid "%d. Password incomplete\n"
-msgstr ""
+msgstr "%d. Salasõna puudulik\n"
 
 #: Wammu/SMSExport.py:568
 #, python-format
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
+"%d. Varundatavaid sõnumeid ei ole valitud. Palun vali vähemalt üls "
+"olekutest."
 
 #: Wammu/SMSExport.py:573
 msgid "Incomplete"
-msgstr ""
+msgstr "Puudulik"
 
 #: Wammu/SMSXML.py:102
 msgid "Saving messages to XML"
-msgstr ""
+msgstr "Sõnumeid salvestatakse XML faili"
 
 #: Wammu/TalkbackDialog.py:52
 msgid ""
@@ -3311,98 +3319,105 @@ msgid ""
 "experiences in Gammu Phone Database. Only information you see here will be "
 "submited."
 msgstr ""
+"Palun jaga oma kogemusi Wammu ja Gammu, mis on taustal töötav teek, "
+"kasutamisest. Kui sa täidad järgmise vormi, võivad teised kasutajad saada "
+"kasu su kogemustest Gammu telefonide andmebaasis. Salvestatakse ainult "
+"informatsioon, mida sa näed siin."
 
 #: Wammu/TalkbackDialog.py:54
 msgid "Manufacturer:"
-msgstr ""
+msgstr "Tootja:"
 
 #: Wammu/TalkbackDialog.py:56
 msgid "Phone model:"
-msgstr ""
+msgstr "Telefoni mudel:"
 
 #: Wammu/TalkbackDialog.py:58
 msgid "Connection type:"
-msgstr ""
+msgstr "Ühenduse tüüp:"
 
 #: Wammu/TalkbackDialog.py:60
 msgid "Model in gammu configuration:"
-msgstr ""
+msgstr "Mudel Gammu konfiguratsioonis:"
 
 #: Wammu/TalkbackDialog.py:62
 msgid "Working features:"
-msgstr ""
+msgstr "Töötavad omadused:"
 
 #: Wammu/TalkbackDialog.py:63
 msgid "Please select features..."
-msgstr ""
+msgstr "Palun vali omadused..."
 
 #: Wammu/TalkbackDialog.py:64
 msgid "Gammu version:"
-msgstr ""
+msgstr "Gammu versioon:"
 
 #: Wammu/TalkbackDialog.py:66
 msgid "Note:"
-msgstr ""
+msgstr "Märkused:"
 
 #: Wammu/TalkbackDialog.py:68
 msgid "Your name:"
-msgstr ""
+msgstr "Sinu nimi:"
 
 #: Wammu/TalkbackDialog.py:70
 msgid "Your email:"
-msgstr ""
+msgstr "Su e-mail:"
 
 #: Wammu/TalkbackDialog.py:72
 msgid "Email displaying:"
-msgstr ""
+msgstr "E-maili kuvamine:"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Use [at] and [dot]"
-msgstr ""
+msgstr "Kasuta [at] ja [dot]"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Insert NOSPAM text at random position"
-msgstr ""
+msgstr "Lisa tekst NOSPAM juhuslikku kohta"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Display it normally"
-msgstr ""
+msgstr "Normaalne kuvamine"
 
 #: Wammu/TalkbackDialog.py:73
 msgid "Don't show email at all"
-msgstr ""
+msgstr "Ära kuva e-maili"
 
 #: Wammu/TalkbackDialog.py:81
 msgid "Not supported"
-msgstr ""
+msgstr "Ei ole toetatud"
 
 #: Wammu/TalkbackDialog.py:110
 msgid "Gammu Phone Database Talkback"
-msgstr ""
+msgstr "Gammu telefonide andmebaase tagasiside"
 
 #: Wammu/TalkbackDialog.py:111
 msgid "Select which features work correctly with your phone"
-msgstr ""
+msgstr "Vali omadused, mis töötavad su telefoniga korralikult"
 
 #: Wammu/TalkbackDialog.py:112
 msgid "This information is automatically included in report."
-msgstr ""
+msgstr "See informatsioon lisatakse rapordile automaatselt."
 
 #: Wammu/TalkbackDialog.py:113
 msgid "Describe some glitches of this phone or other experiences with Gammu."
-msgstr ""
+msgstr "Kirjelda mõnda probleemi selle telefoniga või muid kogemusi Gammuga."
 
 #: Wammu/TalkbackDialog.py:114
 msgid ""
 "Please enter valid mail here, choose display options below. Your email won't "
 "be given or sold to anybody."
 msgstr ""
+"Palun sisesta siia tegelik e-mail ja vali alt kuvamise valikud. Su e-maili "
+"ei anta või müüda mitte kellelegi."
 
 #: Wammu/TalkbackDialog.py:115
 msgid ""
 "If you don't want to display email clear text, please select one mangling "
 "option."
 msgstr ""
+"Kui sa ei soovi kuvada e-maili otse, siis vali üks segamise võimalustest."
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 #: Wammu/TalkbackDialog.py:199 Wammu/TalkbackDialog.py:208
@@ -3413,21 +3428,23 @@ msgid ""
 "invalid:\n"
 "%s"
 msgstr ""
+"Gammu telefonide andmebaasi ei lisatud kirjet. Järgmised väljad on vigased:\n"
+"%s"
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
 msgid "Supported features"
-msgstr ""
+msgstr "Toetatud omadused"
 
 #: Wammu/TalkbackDialog.py:185 Wammu/TalkbackDialog.py:191
 #: Wammu/TalkbackDialog.py:200 Wammu/TalkbackDialog.py:209
 #: Wammu/TalkbackDialog.py:258 Wammu/TalkbackDialog.py:272
 #: Wammu/TalkbackDialog.py:319
 msgid "Entry not created!"
-msgstr ""
+msgstr "Kirjet ei loodud!"
 
 #: Wammu/TalkbackDialog.py:208 Wammu/TalkbackDialog.py:311
 msgid "Email displaying"
-msgstr ""
+msgstr "E-maili kuvamine"
 
 #: Wammu/TalkbackDialog.py:254
 #, python-format
@@ -3435,6 +3452,8 @@ msgid ""
 "HTTP request failed with status %(code)d (%(text)s), please retry later or "
 "create entry manually."
 msgstr ""
+"HTTP päring ebaõnnetus olekuga %(code)d (%(text)s), palun proovi hiljem "
+"uuesti või loo kirje manuaalselt."
 
 #: Wammu/TalkbackDialog.py:269
 #, python-format
@@ -3443,6 +3462,9 @@ msgid ""
 "%(exception)s\n"
 "Please retry later or create entry manually."
 msgstr ""
+"HTTP päring ebaõnnestus järgmise erindiga:\n"
+"%(exception)s\n"
+"Palun proovi hiljem uuesti või loo kirje manuaalselt."
 
 #: Wammu/TalkbackDialog.py:283
 #, python-format
@@ -3450,57 +3472,61 @@ msgid ""
 "Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\n"
 "Do you want to open it in browser now?"
 msgstr ""
+"Gammu telefonide andmebaasi on kirje lisatud; see asub aadressil <%s>.\n"
+"Kas sa soovid selle nüüd avada lehitsejas?"
 
 #: Wammu/TalkbackDialog.py:284
 msgid "Entry created!"
-msgstr ""
+msgstr "Kirje loodud!"
 
 #: Wammu/TalkbackDialog.py:299
 msgid "Phone model"
-msgstr ""
+msgstr "Telefoni mudel"
 
 #: Wammu/TalkbackDialog.py:301
 msgid "Model in gammu configuration"
-msgstr ""
+msgstr "Mudel Gammu seadistustes"
 
 #: Wammu/TalkbackDialog.py:305
 msgid "Note"
-msgstr ""
+msgstr "Märkus"
 
 #: Wammu/TalkbackDialog.py:307
 msgid "Your name"
-msgstr ""
+msgstr "Sinu nimi"
 
 #: Wammu/TalkbackDialog.py:309
 msgid "Your email"
-msgstr ""
+msgstr "Sinu e-mail"
 
 #: Wammu/TalkbackDialog.py:315
 #, python-format
 msgid "Field: %s"
-msgstr ""
+msgstr "Väli: %s"
 
 #: Wammu/TalkbackFeaturesDialog.py:37
 msgid ""
 "Select which functionality works without problems on your phone (either in "
 "Wammu or in some other tool using Gammu library)."
 msgstr ""
+"Vali funktsionaalsus, mis töötab su telefoniga probleemideta (kas Wammuga "
+"või mõne muu programmiga Gammu teegist)."
 
 #: Wammu/TalkbackFeaturesDialog.py:39
 msgid "Phone information"
-msgstr ""
+msgstr "Telefoni informatsioon"
 
 #: Wammu/TalkbackFeaturesDialog.py:40
 msgid "Sending and saving SMS"
-msgstr ""
+msgstr "Sõnumi saatmine ja salvestamine"
 
 #: Wammu/TalkbackFeaturesDialog.py:41
 msgid "Multimedia messaging"
-msgstr ""
+msgstr "Multimeedia sõnumid"
 
 #: Wammu/TalkbackFeaturesDialog.py:42
 msgid "Basic phonebook functions"
-msgstr ""
+msgstr "Telefoniraamatu põhifunktsioonid"
 
 #: Wammu/TalkbackFeaturesDialog.py:43
 msgid "Enhanced phonebook entries"
@@ -3512,131 +3538,135 @@ msgstr "Kalendri kirjed"
 
 #: Wammu/TalkbackFeaturesDialog.py:46
 msgid "Filesystem manipulation"
-msgstr ""
+msgstr "Failisüsteemi manupuleerimine"
 
 #: Wammu/TalkbackFeaturesDialog.py:47
 msgid "Reading and making calls"
-msgstr ""
+msgstr "Kõnede lugemine ja tegemine"
 
 #: Wammu/TalkbackFeaturesDialog.py:48
 msgid "Logos"
-msgstr ""
+msgstr "Logod"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
 msgid "Ringtones"
-msgstr ""
+msgstr "Helinad"
 
 #: Wammu/TalkbackFeaturesDialog.py:60
 msgid "Select features"
-msgstr ""
+msgstr "Vali omadused"
 
 #: Wammu/TalkbackFeaturesDialog.py:61
 msgid "You can access name and phone number."
-msgstr ""
+msgstr "Sa saad kasutada nime ja telefoni numbrit."
 
 #: Wammu/TalkbackFeaturesDialog.py:62
 msgid ""
 "You have access to more phone numbers per entry or additional fields as "
 "email."
 msgstr ""
+"Sa saad kasutada enam kui ühte telefoni numbrit kirjes või täiendavaid välju "
+"kui e-mail."
 
 #: Wammu/Thread.py:93
 msgid "Action canceled by user!"
-msgstr ""
+msgstr "Kasutaja tühistas tegevuse!"
 
 #: Wammu/Thread.py:94
 msgid "Action canceled"
-msgstr ""
+msgstr "Tegevus tühistatud"
 
 #: Wammu/Utils.py:305
 msgid "Yes"
-msgstr ""
+msgstr "Jah"
 
 #: Wammu/Utils.py:307
 msgid "No"
-msgstr ""
+msgstr "Ei"
 
 #: Wammu/Utils.py:328
 msgid "enabled (tone)"
-msgstr ""
+msgstr "lubatud (tooniga)"
 
 #: Wammu/Utils.py:330
 msgid "enabled (silent)"
-msgstr ""
+msgstr "lubatud (vaikne)"
 
 #: Wammu/Utils.py:336
 msgid "yearly"
-msgstr ""
+msgstr "iga aastaselt"
 
 #: Wammu/Utils.py:338
 msgid "monthly"
-msgstr ""
+msgstr "iga kuu"
 
 #: Wammu/Utils.py:341
 msgid "daily"
-msgstr ""
+msgstr "iga päev"
 
 #: Wammu/Utils.py:343
 msgid "biweekly"
-msgstr ""
+msgstr "üle kahe nädala"
 
 #: Wammu/Utils.py:346
 msgid "weekly on monday"
-msgstr ""
+msgstr "iga nädal esmaspäeviti"
 
 #: Wammu/Utils.py:348
 msgid "weekly on tuesday"
-msgstr ""
+msgstr "iga nädal teisipäeviti"
 
 #: Wammu/Utils.py:350
 msgid "weekly on wednesday"
-msgstr ""
+msgstr "iga nädal kolmapäeviti"
 
 #: Wammu/Utils.py:352
 msgid "weekly on thursday"
-msgstr ""
+msgstr "iga nädal neljapäeviti"
 
 #: Wammu/Utils.py:354
 msgid "weekly on friday"
-msgstr ""
+msgstr "iga nädal reedeti"
 
 #: Wammu/Utils.py:356
 msgid "weekly on saturday"
-msgstr ""
+msgstr "iga nädal laupäeviti"
 
 #: Wammu/Utils.py:358
 msgid "weekly on sunday"
-msgstr ""
+msgstr "iga nädal pühapäeviti"
 
 #: Wammu/Utils.py:365
 msgid "disabled"
-msgstr ""
+msgstr "keelatud"
 
 #: Wammu/Utils.py:368
 msgid "nonrecurring"
-msgstr ""
+msgstr "ei kordu"
 
 #: Wammu/Utils.py:444
 msgid "Your phone doesn't support this function."
-msgstr ""
+msgstr "Su telefon ei toeta seda funktsiooni."
 
 #: Wammu/Utils.py:446
 msgid ""
 "This function is not implemented for your phone. If you want help with "
 "implementation please contact authors."
 msgstr ""
+"See funktsioon ei ole sinu telefoni jaoks teostatud. Palun võta programmi "
+"autoritega ühendust, kui soovid teostamisele kaasa aidata."
 
 #: Wammu/Utils.py:448
 msgid "Your phone asks for PIN."
-msgstr ""
+msgstr "Su telefon küsib PIN koodi."
 
 #: Wammu/Utils.py:450
 msgid "Memory is full, try deleting some entries."
-msgstr ""
+msgstr "Mälu on täis, proovi kustutada mõned kirjed."
 
 #: Wammu/Utils.py:452
 msgid "Communication canceled by phone, did you press cancel on phone?"
-msgstr ""
+msgstr "Telefon katkestas ühenduse. Kas sa vajutasid telefonis klahvi tühista?"
 
 #: Wammu/Utils.py:454
 msgid ""
@@ -3645,24 +3675,35 @@ msgid ""
 "\n"
 "If you miss some entry, please contact Gammu/Wammu authors."
 msgstr ""
+"Laaditi tühi kirje. Seda ei tohiks tavaliselt juhtuda ja tähendab tavaliselt "
+"viga kas telefoni tarkvaras või Gammus/Wammus.\n"
+"\n"
+"Kui mõni kirje on puudu, siis võta ühendust Gammu/Wammu autoritega."
 
 #: Wammu/Utils.py:456
 msgid ""
 "Please close opened menu in phone and retry, data can not be accessed while "
 "you have opened them."
 msgstr ""
+"Palun sule avatud menüü telefonis ja proovi uuesti. Andmeid ei saa kasutada "
+"kuni nad on avatud."
 
 #: Wammu/Utils.py:458
 msgid ""
 "Timeout while trying to communicate with phone. Maybe phone is not connected "
 "(for cable) or out of range (for Bluetooth or IrDA)."
 msgstr ""
+"Telefoniga ühenduse loomine võtab liiga palju aega. Võib-olla ei ole telefon "
+"ühendatud (ühendus kaabliga) või on ta leviulatusest väljas (Bluetooth, "
+"IrDA)."
 
 #: Wammu/Utils.py:461
 msgid ""
 "Device for communication with phone does not exist. Maybe you don't have "
 "phone plugged or your configuration is wrong."
 msgstr ""
+"Puudub seadmefail telefoniga suhtlemiseks. Võib-olla ei ole telefon "
+"ühendatud või on seadistus vale."
 
 #: Wammu/Utils.py:463
 #, python-format
@@ -3670,139 +3711,143 @@ msgid ""
 "Device \"%s\" for communication with phone does not exist. Maybe you don't "
 "have phone plugged or your configuration is wrong."
 msgstr ""
+"Telefoniga suhtlemiseks mõeldud seadet \"%s\" ei ole olemas. Võib-olla ei ole "
+"telefon ühendatud või on su seadistus vale."
 
 #: Wammu/Utils.py:466
 msgid "Maybe you need to be member of some group to have acces to device."
-msgstr ""
+msgstr "Võib-olla pead olema mõne grupi liige, et seadet kasutada."
 
 #: Wammu/Utils.py:470
 msgid "Can not access device for communication with phone."
-msgstr ""
+msgstr "Ei saa kasutada telefoniga suhtlemiseks mõeldud seadet."
 
 #: Wammu/Utils.py:477
 #, python-format
 msgid "Can not access device \"%s\" for communication with phone."
-msgstr ""
+msgstr "Ei saa kasutada seadet \"%s\" suhtlemiseks telefoniga."
 
 #: Wammu/Utils.py:481
 msgid ""
 "Can not access SIM card. Please check whether it is properly inserted in "
 "phone and/or try to reboot the phone by removing battery."
 msgstr ""
+"Ei saa kasutada SIM kaarti. Palun kontrolli, kas see on telefoni korralikult "
+"sisestatud ja/või proovi telefoni taaskäivitamist koos aku eemaldamisega."
 
 #: Wammu/Utils.py:483
 msgid "Description:"
-msgstr ""
+msgstr "Kirjeldus:"
 
 #: Wammu/Utils.py:483
 msgid "Function:"
-msgstr ""
+msgstr "Funktsioon:"
 
 #: Wammu/Utils.py:483
 msgid "Error code:"
-msgstr ""
+msgstr "Veakood:"
 
 #: Wammu/Utils.py:538 Wammu/Utils.py:540 Wammu/Utils.py:546 Wammu/Utils.py:548
 #, python-format
 msgid "Device %s does not exist!"
-msgstr ""
+msgstr "Seade %s ei leitud!"
 
 #: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
 msgid "Error opening device"
-msgstr ""
+msgstr "Viga seadme avamisel"
 
 #: Wammu/Utils.py:557 Wammu/Utils.py:559
 #, python-format
 msgid "You don't have permissions for %s device!"
-msgstr ""
+msgstr "Sul puuduvad seadme %s kasutamiseks õigused!"
 
 #: Wammu/Utils.py:561
 #, python-format
 msgid "Maybe you need to be member of %s group."
-msgstr ""
+msgstr "Võib-olla pead olema grupi %s liige."
 
 #: wammu-configure.py:46
 #, python-format
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
-msgstr ""
+msgstr "Wammu Seadistaja - Wammu ja Gammu seadistaja versioon %s"
 
 #: wammu-configure.py:54 wammu.py:58
 #, python-format
 msgid "Usage: %s [OPTION...]"
-msgstr ""
+msgstr "Kasutamine: %s [parameeter...]"
 
 #: wammu-configure.py:56 wammu.py:60
 msgid "Options:"
-msgstr ""
+msgstr "Parameetrid:"
 
 #: wammu-configure.py:59 wammu.py:63
 msgid "show this help"
-msgstr ""
+msgstr "kuva see abiinfo"
 
 #: wammu-configure.py:62 wammu.py:66
 msgid "show program version"
-msgstr ""
+msgstr "kuva programmi versioon"
 
 #: wammu-configure.py:65 wammu.py:69
 msgid "force using of locales from current directory rather than system ones"
-msgstr ""
+msgstr "Kasuta jooksva kataloogi lokaati süsteemse asemel"
 
 #: wammu-configure.py:78 wammu.py:142
 msgid "Command line parsing failed with error:"
-msgstr ""
+msgstr "Käsurea parsimine ebaõnnestus veaga:"
 
 #: wammu-configure.py:84 wammu.py:148
 msgid "Extra unrecognized parameters passed to program"
-msgstr ""
+msgstr "Programmile edastati täiendav tundmatu parameeter"
 
 #: wammu-configure.py:90 wammu.py:156
 msgid "Using local built locales!"
-msgstr ""
+msgstr "Kasutatakse sisse ehitatud lokaate!"
 
 #: wammu-configure.py:115
 msgid "Updating gammu configuration..."
-msgstr ""
+msgstr "Uuendatakse Gammu seadistust..."
 
 #: wammu.py:51
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
-msgstr ""
+msgstr "Wammu - Akendatud Gammu versiooni %s"
 
 #: wammu.py:72
 msgid "prints connection settings and tries to connect the phone"
-msgstr ""
+msgstr "kuvab ühenduse seaded ja proovib telefoniga ühenduda"
 
 #: wammu.py:75
 msgid "enables debug output to stderr"
-msgstr ""
+msgstr "lubab silumisväljundi veavoogu"
 
 #: wammu.py:90
 msgid "Wammu is not configured!"
-msgstr ""
+msgstr "Wammu ei ole seadistatud!"
 
 #: wammu.py:107
 msgid "Wammu configuration:"
-msgstr ""
+msgstr "Wammu seadistus:"
 
 #: wammu.py:111
 msgid "Connecting..."
-msgstr ""
+msgstr "Ühendun..."
 
 #: wammu.py:118
 msgid "Getting phone information..."
-msgstr ""
+msgstr "Telefoni informatsiooni laadimine..."
 
 #: wammu.py:124
 msgid "Phone infomation:"
-msgstr ""
+msgstr "Telefoni informatsioon:"
 
 #: wammu.py:127
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #: wammu.py:130
 msgid "Requested code"
-msgstr ""
+msgstr "Nõutud kood"
 
 #. l10n: Name of program shown in desktop file
 #: wammu_setup/msgfmt.py:44
@@ -3812,7 +3857,7 @@ msgstr "Wammu"
 #. l10n: Generic name of program shown in desktop file
 #: wammu_setup/msgfmt.py:46
 msgid "Mobile Phone Manager"
-msgstr ""
+msgstr "Mobiiltelefoni haldur"
 
 #. l10n: Comment about program shown in desktop file
 #: wammu_setup/msgfmt.py:48
