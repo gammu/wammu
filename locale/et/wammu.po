@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-05-22 14:35+0200\n"
+"POT-Creation-Date: 2013-08-05 10:27+0200\n"
 "PO-Revision-Date: 2013-06-26 22:39+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/gammu/wammu/et/>\n"
@@ -648,7 +648,7 @@ msgstr "Otsi sarnaseid raporteid"
 msgid "Report bug"
 msgstr "Raporteeri viga"
 
-#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2338
+#: Wammu/ErrorMessage.py:96 Wammu/Main.py:2341
 msgid "Save debug log as..."
 msgstr "Salvesta silumislogi nimega..."
 
@@ -1866,32 +1866,32 @@ msgstr "Palun sisesta %s kood:"
 msgid "Phone asks for security code"
 msgstr "Telefon küsib turvakoodi"
 
-#: Wammu/Main.py:2264
+#: Wammu/Main.py:2267
 msgid "Your phone has just received incoming call"
 msgstr "Telefon vastas sissetulevale kõnele"
 
-#: Wammu/Main.py:2266
+#: Wammu/Main.py:2269
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Telefon võttis vasti sissetuleva kõne numbrilt %s"
 
-#: Wammu/Main.py:2267
+#: Wammu/Main.py:2270
 msgid "Incoming call"
 msgstr "Sissetulev kõne"
 
-#: Wammu/Main.py:2268
+#: Wammu/Main.py:2271
 msgid "Reject"
 msgstr "Keeldu"
 
-#: Wammu/Main.py:2268
+#: Wammu/Main.py:2271
 msgid "Accept"
 msgstr "Vasta"
 
-#: Wammu/Main.py:2271
+#: Wammu/Main.py:2274
 msgid "One moment please, disconnecting from phone..."
 msgstr "Üks hetk, ühendust telefoniga lõpetatakse..."
 
-#: Wammu/Main.py:2301
+#: Wammu/Main.py:2304
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
@@ -1899,7 +1899,7 @@ msgstr ""
 "Telefoni ei saa otsida kuni ühendus telefoniga on aktiivne. Palun katkesta "
 "esmalt ühendus."
 
-#: Wammu/Main.py:2302
+#: Wammu/Main.py:2305
 msgid "You are connected to phone!"
 msgstr "Telefoniga on ühendus!"
 
@@ -2995,8 +2995,7 @@ msgstr "DKU5 telefon ARK kaabliga"
 #: Wammu/SettingsStorage.py:434
 msgid "ARK cable (third party cable) for phones with USB chip like Nokia 5100."
 msgstr ""
-"ARK kaabel (kolmanda osapoole kaabel) USB toega telefonidele nagu Nokia "
-"5100."
+"ARK kaabel (kolmanda osapoole kaabel) USB toega telefonidele nagu Nokia 5100."
 
 #: Wammu/SettingsStorage.py:438
 msgid "Phonet over Bluetooth"
@@ -3037,8 +3036,8 @@ msgid ""
 "8910,..)."
 msgstr ""
 "Nokia protokoll Bluetoothiga DCT4 Nokia mudelitele, mis raporteerivad "
-"toetatud teenustest vigaselt (6310, 6310i tarkvaraga 5.50 ja vanem, 8910, "
-"...)."
+"toetatud teenustest vigaselt (6310, 6310i tarkvaraga 5.50 ja vanem, "
+"8910, ...)."
 
 #: Wammu/SettingsStorage.py:465
 msgid "Phonet over IrDA"
@@ -3201,7 +3200,8 @@ msgstr "IMAP server"
 #: Wammu/SMSExport.py:329
 #, python-format
 msgid "%(new)d new of %(count)d messages exported to \"%(path)s\" (%(type)s)"
-msgstr "%(new)d uut sõnumit %(count)d-st eksporditi kohta \"%(path)s\" (%(type)s)"
+msgstr ""
+"%(new)d uut sõnumit %(count)d-st eksporditi kohta \"%(path)s\" (%(type)s)"
 
 #: Wammu/SMSExport.py:333
 msgid "Where do you want to export emails created from your messages?"
@@ -3301,8 +3301,7 @@ msgstr "%d. Salasõna puudulik\n"
 msgid ""
 "%d. No messages to back-up selected. Please tick at least one of the states."
 msgstr ""
-"%d. Varundatavaid sõnumeid ei ole valitud. Palun vali vähemalt üls "
-"olekutest."
+"%d. Varundatavaid sõnumeid ei ole valitud. Palun vali vähemalt üls olekutest."
 
 #: Wammu/SMSExport.py:573
 msgid "Incomplete"
@@ -3711,8 +3710,8 @@ msgid ""
 "Device \"%s\" for communication with phone does not exist. Maybe you don't "
 "have phone plugged or your configuration is wrong."
 msgstr ""
-"Telefoniga suhtlemiseks mõeldud seadet \"%s\" ei ole olemas. Võib-olla ei ole "
-"telefon ühendatud või on su seadistus vale."
+"Telefoniga suhtlemiseks mõeldud seadet \"%s\" ei ole olemas. Võib-olla ei "
+"ole telefon ühendatud või on su seadistus vale."
 
 #: Wammu/Utils.py:466
 msgid "Maybe you need to be member of some group to have acces to device."
@@ -3747,21 +3746,21 @@ msgstr "Funktsioon:"
 msgid "Error code:"
 msgstr "Veakood:"
 
-#: Wammu/Utils.py:538 Wammu/Utils.py:540 Wammu/Utils.py:546 Wammu/Utils.py:548
+#: Wammu/Utils.py:539 Wammu/Utils.py:541 Wammu/Utils.py:547 Wammu/Utils.py:549
 #, python-format
 msgid "Device %s does not exist!"
 msgstr "Seade %s ei leitud!"
 
-#: Wammu/Utils.py:539 Wammu/Utils.py:547 Wammu/Utils.py:558
+#: Wammu/Utils.py:540 Wammu/Utils.py:548 Wammu/Utils.py:559
 msgid "Error opening device"
 msgstr "Viga seadme avamisel"
 
-#: Wammu/Utils.py:557 Wammu/Utils.py:559
+#: Wammu/Utils.py:558 Wammu/Utils.py:560
 #, python-format
 msgid "You don't have permissions for %s device!"
 msgstr "Sul puuduvad seadme %s kasutamiseks õigused!"
 
-#: Wammu/Utils.py:561
+#: Wammu/Utils.py:562
 #, python-format
 msgid "Maybe you need to be member of %s group."
 msgstr "Võib-olla pead olema grupi %s liige."
