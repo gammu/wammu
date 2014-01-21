@@ -188,6 +188,11 @@ class build_wammu(distutils.command.build.build, object):
                 for loc in desktop_translations.keys():
                     if desktop_translations[loc].has_key('Comment'):
                         out_desktop.write('Comment[%s]=%s\n' % (loc, desktop_translations[loc]['Comment']))
+            elif line.startswith('_Keywords'):
+                out_desktop.write('Keywords=%s\n' % msgfmt.DESKTOP_KEYWORDS)
+                for loc in desktop_translations.keys():
+                    if desktop_translations[loc].has_key('Keywords'):
+                        out_desktop.write('Keywords[%s]=%s\n' % (loc, desktop_translations[loc]['Keywords']))
             else:
                 out_desktop.write(line)
 

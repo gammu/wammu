@@ -46,6 +46,8 @@ DESKTOP_NAME = _('Wammu')
 DESKTOP_GENERIC_NAME = _('Mobile Phone Manager')
 # l10n: Comment about program shown in desktop file
 DESKTOP_COMMENT = _('Application for mobile phones - frontend for Gammu')
+# l10n: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+DESKTOP_KEYWORDS = _('phone;mobile;sms;contact;calendar;todo;')
 
 DESKTOP_TRANSLATIONS = { }
 
@@ -72,6 +74,8 @@ def add(id, str, fuzzy):
             DESKTOP_TRANSLATIONS['GenericName'] = str
         elif id == DESKTOP_COMMENT:
             DESKTOP_TRANSLATIONS['Comment'] = str
+        elif id == DESKTOP_KEYWORDS:
+            DESKTOP_TRANSLATIONS['Keywords'] = str
 
 def generate():
     "Return the generated output."
