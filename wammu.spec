@@ -103,6 +103,7 @@ rm -rf %buildroot
 %lang(ru) %doc %{_mandir}/ru
 %lang(sk) %doc %{_mandir}/sk
 %lang(tr) %doc %{_mandir}/tr
+%lang(uk) %doc %{_mandir}/uk
 
 %{_bindir}/%{name}
 %{_bindir}/%{name}-configure

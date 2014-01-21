@@ -367,6 +367,7 @@ data_files.append((os.path.join('share','man','pt_BR','man1'), ['man/pt_BR/wammu
 data_files.append((os.path.join('share','man','ru','man1'), ['man/ru/wammu.1', 'man/ru/wammu-configure.1']))
 data_files.append((os.path.join('share','man','sk','man1'), ['man/sk/wammu.1', 'man/sk/wammu-configure.1']))
 data_files.append((os.path.join('share','man','tr','man1'), ['man/sk/wammu.1', 'man/tr/wammu-configure.1']))
+data_files.append((os.path.join('share','man','uk','man1'), ['man/sk/wammu.1', 'man/uk/wammu-configure.1']))
 
 distutils.core.setup(name="wammu",
     version = Wammu.__version__,
