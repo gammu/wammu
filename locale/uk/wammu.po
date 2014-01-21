@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.37\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-08-05 10:27+0200\n"
+"POT-Creation-Date: 2014-01-21 10:10+0100\n"
 "PO-Revision-Date: 2013-12-01 22:12+0200\n"
 "Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/gammu/wammu/uk/>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: Wammu/About.py:43
@@ -2522,8 +2522,8 @@ msgid ""
 "Format string for name displaying. You can use %%(value)s format marks. "
 "Currently available values are: %s."
 msgstr ""
-"Рядок форматування для відображення імені. Ви можете використовувати мітки %"
-"%(value)s. В даний час такі значення: %s."
+"Рядок форматування для відображення імені. Ви можете використовувати мітки "
+"%%(value)s. В даний час такі значення: %s."
 
 #: Wammu/Settings.py:319
 msgid "Name format string"
@@ -2534,8 +2534,8 @@ msgid ""
 "How often refresh phone state in application status bar. Enter value in "
 "miliseconds, 0 to disable."
 msgstr ""
-"Як часто оновлювати стан телефону в \"Області сповіщення\". Введіть значення в "
-"мілісекундах (0 - \"відключити\")."
+"Як часто оновлювати стан телефону в \"Області сповіщення\". Введіть значення "
+"в мілісекундах (0 - \"відключити\")."
 
 #: Wammu/Settings.py:342
 msgid "Refresh phone state"
@@ -3091,7 +3091,8 @@ msgid ""
 "\n"
 "Do you want to create new subfolder and export to it?"
 msgstr ""
-"Вибрана тека не містить підтек, а значить насправді не є поштовим каталогом.\n"
+"Вибрана тека не містить підтек, а значить насправді не є поштовим "
+"каталогом.\n"
 "\n"
 "Хочете створити нову теку і експортувати файли туди?"
 
@@ -3437,7 +3438,8 @@ msgid ""
 "invalid:\n"
 "%s"
 msgstr ""
-"Запис не був доданий у Gammu Phone Database, дані у наступних полях невірні:\n"
+"Запис не був доданий у Gammu Phone Database, дані у наступних полях "
+"невірні:\n"
 "%s"
 
 #: Wammu/TalkbackDialog.py:184 Wammu/TalkbackDialog.py:190
@@ -3688,8 +3690,7 @@ msgstr ""
 "найімовірніше це викликано помилкою у програмному забезпеченні телефону або "
 "в Gammu/Wammu.\n"
 "\n"
-"Якщо ви втратили якийсь запис, будь ласка, зверніться до авторів "
-"Gammu/Wammu."
+"Якщо ви втратили якийсь запис, будь ласка, зверніться до авторів Gammu/Wammu."
 
 #: Wammu/Utils.py:456
 msgid ""
@@ -3737,7 +3738,8 @@ msgstr "Неможливо отримати доступ до пристрою �
 #: Wammu/Utils.py:477
 #, python-format
 msgid "Can not access device \"%s\" for communication with phone."
-msgstr "Неможливо отримати доступ до пристрою \"%s\" для з'єднання з телефоном."
+msgstr ""
+"Неможливо отримати доступ до пристрою \"%s\" для з'єднання з телефоном."
 
 #: Wammu/Utils.py:481
 msgid ""
@@ -3876,3 +3878,8 @@ msgstr "Керування мобільними телефонами"
 #: wammu_setup/msgfmt.py:48
 msgid "Application for mobile phones - frontend for Gammu"
 msgstr "Керування мобільними телефонами (графічний інтерфейс для Gammu)"
+
+#. l10n: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: wammu_setup/msgfmt.py:50
+msgid "phone;mobile;sms;contact;calendar;todo;"
+msgstr ""
