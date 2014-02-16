@@ -2,7 +2,7 @@ Instalace Wammu
 ===============
 
 Balíčky pro Linux
-===================
+=================
 
 Mnoho distribucí obsahuje balíčku pro Wammu, takže pokud je můžete použít,
 je to určitě nejsnadnější cesta. Aktuální verzi zabalenou pro mnoho
@@ -11,7 +11,7 @@ distribucí naleznete na stránkách Wammu
 
 
 Kompilace ze zdrojových kódů
-===============================
+============================
 
 Wammu používá standardní distutils, takže instalace proběhne:
 
@@ -38,7 +38,7 @@ použít parametr --skip-deps.
 
 
 Křížová kompilace pro Windows na Linuxu
-===========================================
+=======================================
 
 Potřebujete mít nainstalovaný Wine a všechny závislosti Wammu (viz výše).
 

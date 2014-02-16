@@ -3,8 +3,15 @@ Wammu
 
 GUI para la biblioteca Gammu.
 
+.. image:: https://l10n.cihar.com/widgets/gammu-status-badge.png
+    :alt: Translation status :target:
+    https://l10n.cihar.com/engage/gammu/?utm_source=widget
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/gammu/wammu/trend.png
+   :alt: Bitdeli badge :target: https://bitdeli.com/free
+
 Página web
-===========
+==========
 
 <http://wammu.eu/>
 
@@ -46,7 +53,7 @@ Puede ayudar a traducir Wammu a su idioma en el servidor de traducciones -
 <https://l10n.cihar.com/projects/gammu/wammu/>.
 
 Control de versión
-===================
+==================
 
 El desarrollo ocurre en Git, la ramificación principal es
 <git://github.com/gammu/wammu.git>, puede examinarla usando

@@ -1,5 +1,5 @@
 Instalación de Wammu
-=====================
+====================
 
 Paquetes para Linux
 ===================
@@ -11,7 +11,7 @@ la última versión disponibles desde el sitio web de Wammu
 
 
 Compilando desde código fuente
-===============================
+==============================
 
 Utiliza distutils estándar, por lo que:
 
@@ -38,7 +38,7 @@ alguna razón, puedes utilizar la opción --skip-deps.
 
 
 Compilación cruzada para Windows en Linux
-==========================================
+=========================================
 
 Necesita Wine con todas las dependencias instaladas (vea la sección anterior
 donde obtenerlas).
