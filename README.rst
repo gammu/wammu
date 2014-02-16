@@ -3,6 +3,10 @@ Wammu
 
 GUI for Gammu library.
 
+.. image:: http://l10n.cihar.com/widgets/gammu-status-badge.png
+    :alt: Translation status
+    :target: http://l10n.cihar.com/engage/gammu/?utm_source=widget
+
 Homepage
 ========
 
