@@ -7,6 +7,10 @@ GUI for Gammu library.
     :alt: Translation status
     :target: http://l10n.cihar.com/engage/gammu/?utm_source=widget
 
+.. image:: https://d2weczhvl823v0.cloudfront.net/gammu/wammu/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
 Homepage
 ========
 
@@ -54,9 +58,3 @@ Version control
 The development goes on in Git, main development branch is
 <git://github.com/gammu/wammu.git>, you can browse it using
 <https://github.com/gammu/wammu>.
-
-
-.. image:: https://d2weczhvl823v0.cloudfront.net/gammu/wammu/trend.png
-   :alt: Bitdeli badge
-   :target: https://bitdeli.com/free
-
