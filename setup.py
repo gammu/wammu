@@ -152,6 +152,38 @@ class build_wammu(distutils.command.build.build, object):
     Custom build command with locales support.
     """
 
+    def build_desktop_file(self, translations):
+        """
+        Builds translated desktop files.
+        """
+        desktop = os.path.join(self.build_base, 'wammu.desktop')
+        distutils.log.info('generating %s -> %s', 'wammu.desktop.in', desktop)
+        in_desktop = file('wammu.desktop.in', 'r')
+        out_desktop = file(desktop, 'w')
+        for line in in_desktop:
+            if line.startswith('_Name'):
+                out_desktop.write('Name=%s\n' % msgfmt.DESKTOP_NAME)
+                for loc in translations.keys():
+                    if translations[loc].has_key('Name'):
+                        out_desktop.write('Name[%s]=%s\n' % (loc, translations[loc]['Name']))
+            elif line.startswith('_GenericName'):
+                out_desktop.write('GenericName=%s\n' % msgfmt.DESKTOP_GENERIC_NAME)
+                for loc in translations.keys():
+                    if translations[loc].has_key('GenericName'):
+                        out_desktop.write('GenericName[%s]=%s\n' % (loc, translations[loc]['GenericName']))
+            elif line.startswith('_Comment'):
+                out_desktop.write('Comment=%s\n' % msgfmt.DESKTOP_COMMENT)
+                for loc in translations.keys():
+                    if translations[loc].has_key('Comment'):
+                        out_desktop.write('Comment[%s]=%s\n' % (loc, translations[loc]['Comment']))
+            elif line.startswith('_Keywords'):
+                out_desktop.write('Keywords=%s\n' % msgfmt.DESKTOP_KEYWORDS)
+                for loc in translations.keys():
+                    if translations[loc].has_key('Keywords'):
+                        out_desktop.write('Keywords[%s]=%s\n' % (loc, translations[loc]['Keywords']))
+            else:
+                out_desktop.write(line)
+
     def build_message_files (self):
         """
         For each locale/*.po, build .mo file in target locale directory.
@@ -159,7 +191,7 @@ class build_wammu(distutils.command.build.build, object):
         As a side effect we build wammu.desktop file with updated
         translations here.
         """
-        desktop_translations = {}
+        translations = {}
         for (_locale, _src, _dst) in list_message_files():
             _build_dst = os.path.join(self.build_base, _dst)
             destdir = os.path.dirname(_build_dst)
@@ -167,34 +199,9 @@ class build_wammu(distutils.command.build.build, object):
                 self.mkpath(destdir)
             distutils.log.info('compiling %s -> %s' % (_src, _build_dst))
             msgfmt.make(_src, _build_dst)
-            desktop_translations[_locale] = msgfmt.DESKTOP_TRANSLATIONS
+            translations[_locale] = msgfmt.DESKTOP_TRANSLATIONS
 
-        desktop = os.path.join(self.build_base, 'wammu.desktop')
-        in_desktop = file('wammu.desktop.in', 'r')
-        out_desktop = file(desktop, 'w')
-        for line in in_desktop:
-            if line.startswith('_Name'):
-                out_desktop.write('Name=%s\n' % msgfmt.DESKTOP_NAME)
-                for loc in desktop_translations.keys():
-                    if desktop_translations[loc].has_key('Name'):
-                        out_desktop.write('Name[%s]=%s\n' % (loc, desktop_translations[loc]['Name']))
-            elif line.startswith('_GenericName'):
-                out_desktop.write('GenericName=%s\n' % msgfmt.DESKTOP_GENERIC_NAME)
-                for loc in desktop_translations.keys():
-                    if desktop_translations[loc].has_key('GenericName'):
-                        out_desktop.write('GenericName[%s]=%s\n' % (loc, desktop_translations[loc]['GenericName']))
-            elif line.startswith('_Comment'):
-                out_desktop.write('Comment=%s\n' % msgfmt.DESKTOP_COMMENT)
-                for loc in desktop_translations.keys():
-                    if desktop_translations[loc].has_key('Comment'):
-                        out_desktop.write('Comment[%s]=%s\n' % (loc, desktop_translations[loc]['Comment']))
-            elif line.startswith('_Keywords'):
-                out_desktop.write('Keywords=%s\n' % msgfmt.DESKTOP_KEYWORDS)
-                for loc in desktop_translations.keys():
-                    if desktop_translations[loc].has_key('Keywords'):
-                        out_desktop.write('Keywords[%s]=%s\n' % (loc, desktop_translations[loc]['Keywords']))
-            else:
-                out_desktop.write(line)
+        self.build_desktop_file(translations)
 
 
     def check_requirements(self):
