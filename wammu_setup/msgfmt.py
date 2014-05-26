@@ -49,6 +49,20 @@ DESKTOP_COMMENT = _('Application for mobile phones - frontend for Gammu')
 # l10n: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 DESKTOP_KEYWORDS = _('phone;mobile;sms;contact;calendar;todo;')
 
+DESKTOP_DESCRIPTION_1 = _(
+    'Wammu is a mobile phone manager that uses Gammu as its backend. It works '
+    'with any phone that Gammu supports, including many models from Nokia, '
+    'Siemens, and Alcatel.'
+)
+DESKTOP_DESCRIPTION_2 = _(
+    'It has complete support (read, edit, delete, copy) for contacts, todo, '
+    'and calendar. It can read, save, and send SMS. It includes an SMS '
+    'composer for multi-part SMS messages, and it can display SMS messages '
+    'that include pictures. Currently, only text and predefined bitmaps or '
+    'sounds can be edited in the SMS composer. It can export messages to an '
+    'IMAP4 server (or other email storage).'
+)
+
 DESKTOP_TRANSLATIONS = { }
 
 def usage(code, msg=''):
@@ -66,6 +80,8 @@ def add(id, str, fuzzy):
     global DESKTOP_GENERIC_NAME
     global DESKTOP_COMMENT
     global DESKTOP_TRANSLATIONS
+    global DESKTOP_DESCRIPTION_1
+    global DESKTOP_DESCRIPTION_2
     if not fuzzy and str and not str.startswith('\0'):
         MESSAGES[id] = str
         if id == DESKTOP_NAME:
@@ -76,6 +92,10 @@ def add(id, str, fuzzy):
             DESKTOP_TRANSLATIONS['Comment'] = str
         elif id == DESKTOP_KEYWORDS:
             DESKTOP_TRANSLATIONS['Keywords'] = str
+        elif id == DESKTOP_DESCRIPTION_1:
+            DESKTOP_TRANSLATIONS['Description_1'] = str
+        elif id == DESKTOP_DESCRIPTION_2:
+            DESKTOP_TRANSLATIONS['Description_2'] = str
 
 def generate():
     "Return the generated output."

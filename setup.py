@@ -30,6 +30,7 @@ import distutils.command.build_scripts
 import distutils.command.clean
 import distutils.command.install
 import distutils.command.install_data
+from xml.etree import cElementTree as ElementTree
 from stat import ST_MODE
 from wammu_setup import msgfmt
 import sys
@@ -184,6 +185,31 @@ class build_wammu(distutils.command.build.build, object):
             else:
                 out_desktop.write(line)
 
+    def build_appdata_file(self, translations):
+        """
+        Builds translated appdata files.
+        """
+        appdata = os.path.join(self.build_base, 'wammu.appdata.xml')
+        distutils.log.info('generating %s -> %s', 'wammu.appdata.xml.in', appdata)
+        in_appdata = file('wammu.appdata.xml.in', 'r')
+        out_appdata = file(appdata, 'w')
+        tree = ElementTree.parse(in_appdata)
+        description = tree.find('description')
+        p1 = ElementTree.SubElement(description, 'p')
+        p1.text = msgfmt.DESKTOP_DESCRIPTION_1
+        p2 = ElementTree.SubElement(description, 'p')
+        p2.text = msgfmt.DESKTOP_DESCRIPTION_2
+        for loc in translations.keys():
+            translation = translations[loc]
+            if translation.has_key('Description_1') and translation.has_key('Description_2'):
+                p1 = ElementTree.SubElement(description, 'p')
+                p1.set('xml:lang', loc)
+                p1.text = translation['Description_1']
+                p2 = ElementTree.SubElement(description, 'p')
+                p2.set('xml:lang', loc)
+                p2.text = translation['Description_2']
+        tree.write(out_appdata)
+
     def build_message_files (self):
         """
         For each locale/*.po, build .mo file in target locale directory.
@@ -202,6 +228,7 @@ class build_wammu(distutils.command.build.build, object):
             translations[_locale] = msgfmt.DESKTOP_TRANSLATIONS
 
         self.build_desktop_file(translations)
+        self.build_appdata_file(translations)
 
 
     def check_requirements(self):
@@ -310,6 +337,7 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         # desktop file
         if sys.platform != 'win32':
             self.data_files.append((os.path.join('share','applications'), [os.path.join('build', 'wammu.desktop')]))
+            self.data_files.append((os.path.join('share','appdata'), [os.path.join('build', 'wammu.appdata.xml')]))
 
         # install data files
         super(install_data_wammu, self).run()
