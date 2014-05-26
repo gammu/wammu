@@ -192,7 +192,6 @@ class build_wammu(distutils.command.build.build, object):
         appdata = os.path.join(self.build_base, 'wammu.appdata.xml')
         distutils.log.info('generating %s -> %s', 'wammu.appdata.xml.in', appdata)
         in_appdata = file('wammu.appdata.xml.in', 'r')
-        out_appdata = file(appdata, 'w')
         tree = ElementTree.parse(in_appdata)
         description = tree.find('description')
         p1 = ElementTree.SubElement(description, 'p')
@@ -204,11 +203,11 @@ class build_wammu(distutils.command.build.build, object):
             if translation.has_key('Description_1') and translation.has_key('Description_2'):
                 p1 = ElementTree.SubElement(description, 'p')
                 p1.set('xml:lang', loc)
-                p1.text = translation['Description_1']
+                p1.text = translation['Description_1'].decode('utf-8')
                 p2 = ElementTree.SubElement(description, 'p')
                 p2.set('xml:lang', loc)
-                p2.text = translation['Description_2']
-        tree.write(out_appdata)
+                p2.text = translation['Description_2'].decode('utf-8')
+        tree.write(appdata, 'utf-8')
 
     def build_message_files (self):
         """
