@@ -3,9 +3,9 @@ Wammu
 
 Графический интерфейс для Gammu.
 
-.. image:: https://l10n.cihar.com/widgets/gammu-status-badge.png
+.. image:: https://hosted.weblate.org/widgets/gammu-status-badge.png
     :alt: Translation status :target:
-    https://l10n.cihar.com/engage/gammu/?utm_source=widget
+    https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
 Домашняя страница
 =================
@@ -47,7 +47,7 @@ Delete для удаления.
 =======
 
 Вы можете помочь перевести Wammu на Ваш язык на сервере перевода -
-<https://l10n.cihar.com/projects/wammu/>.
+<https://hosted.weblate.org/projects/wammu/>.
 
 Контроль версий
 ===============

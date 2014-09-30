@@ -3,9 +3,9 @@ Wammu
 
 GUI para la biblioteca Gammu.
 
-.. image:: https://l10n.cihar.com/widgets/gammu-status-badge.png
+.. image:: https://hosted.weblate.org/widgets/gammu-status-badge.png
     :alt: Estado de la traducción :target:
-    https://l10n.cihar.com/engage/gammu/?utm_source=widget
+    https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
 Página web
 ==========
@@ -47,7 +47,7 @@ Traducciones
 ============
 
 Puede ayudar a traducir Wammu a su idioma en el servidor de traducciones -
-<https://l10n.cihar.com/projects/gammu/wammu/>.
+<https://hosted.weblate.org/projects/gammu/wammu/>.
 
 Control de versión
 ==================

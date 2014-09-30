@@ -3,9 +3,9 @@ Wammu
 
 GUI pro Gammu.
 
-.. image:: https://l10n.cihar.com/widgets/gammu-status-badge.png
+.. image:: https://hosted.weblate.org/widgets/gammu-status-badge.png
     :alt: Stav překladu :target:
-    https://l10n.cihar.com/engage/gammu/?utm_source=widget
+    https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
 Domovská stránka
 ================
@@ -46,7 +46,7 @@ Překládání
 ==========
 
 Můžete pomoci přeložit Wammu do jazyka, který umíte -
-<https://l10n.cihar.com/projects/wammu/>.
+<https://hosted.weblate.org/projects/wammu/>.
 
 Správa revizí
 =============
