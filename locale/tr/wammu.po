@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 13:46+0200\n"
-"PO-Revision-Date: 2014-08-01 23:22+0200\n"
+"PO-Revision-Date: 2014-10-02 19:39+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/gammu/wammu/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/gammu/wammu/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
 #: Wammu/About.py:43
@@ -212,6 +213,7 @@ msgstr "Stil"
 msgid "%d char"
 msgid_plural "%d chars"
 msgstr[0] "%d karakter"
+msgstr[1] "%d karakter"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
@@ -1527,12 +1529,12 @@ msgid ""
 "It was not possible to read saved entry! It might be different than one "
 "saved in phone untill you reread all entries."
 msgstr ""
-"Kaydedilmiş girdiyi okumak mümkün değil! Tüm girdileri yeniden okuyana kadar "
+"Kaydedilmiş girişi okumak mümkün değil! Tüm girişleri yeniden okuyana kadar "
 "telefonunuzda birden farklı yere kaydedilmiş olabilir."
 
 #: Wammu/Main.py:1143 Wammu/Main.py:1202 Wammu/Main.py:1253
 msgid "Could not read saved entry!"
-msgstr "Kaydedilmiş girdi okunamadı!"
+msgstr "Kaydedilmiş giriş okunamadı!"
 
 #: Wammu/Main.py:1172
 msgid "Writing calendar..."
@@ -1663,22 +1665,22 @@ msgstr "Yedeklemeyi içe aktarma başarısız oldu"
 #: Wammu/Main.py:1561
 #, python-format
 msgid "%d phone contact entries"
-msgstr "%d telefon kişi girdileri"
+msgstr "%d telefon kişi girişi"
 
 #: Wammu/Main.py:1564
 #, python-format
 msgid "%d SIM contact entries"
-msgstr "%d SIM kişi girdileri"
+msgstr "%d SIM kişi girişi"
 
 #: Wammu/Main.py:1567
 #, python-format
 msgid "%d to do entries"
-msgstr "%d yapılacak girdileri"
+msgstr "%d yapılacak girişi"
 
 #: Wammu/Main.py:1570
 #, python-format
 msgid "%d calendar entries"
-msgstr "%d takvim girdileri"
+msgstr "%d takvim girişi"
 
 #: Wammu/Main.py:1581
 #, python-format
@@ -1742,42 +1744,47 @@ msgstr "\"%s\" kişisinden gelen mesajı silmek istediğinize emin misiniz?"
 #: Wammu/Main.py:1797
 #, python-format
 msgid "Are you sure you want to delete todo entry \"%s\"?"
-msgstr "\"%s\" yapılacak girdisini silmek istediğinize emin misiniz?"
+msgstr "\"%s\" yapılacak girişini silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1799
 #, python-format
 msgid "Are you sure you want to delete calendar entry \"%s\"?"
-msgstr "\"%s\" takvim girdisini silmek istediğinize emin misiniz?"
+msgstr "\"%s\" takvim girişini silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1803
 #, python-format
 msgid "Are you sure you want to delete %d contact?"
 msgid_plural "Are you sure you want to delete %d contacts?"
 msgstr[0] "%d kişiyi silmek istediğinize emin misiniz?"
+msgstr[1] "%d kişiyi silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1808
 #, python-format
 msgid "Are you sure you want to delete %d call?"
 msgid_plural "Are you sure you want to delete %d calls?"
 msgstr[0] "%d çağrıyı silmek istediğinize emin misiniz?"
+msgstr[1] "%d çağrıyı silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1813
 #, python-format
 msgid "Are you sure you want to delete %d message?"
 msgid_plural "Are you sure you want to delete %d messages?"
 msgstr[0] "%d mesajı silmek istediğinize emin misiniz?"
+msgstr[1] "%d mesajı silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1818
 #, python-format
 msgid "Are you sure you want to delete %d todo entry?"
 msgid_plural "Are you sure you want to delete %d todo entries?"
-msgstr[0] "%d yapılacak girdiyi silmek istediğinize emin misiniz?"
+msgstr[0] "%d yapılacak girişini silmek istediğinize emin misiniz?"
+msgstr[1] "%d yapılacak girişini silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1823
 #, python-format
 msgid "Are you sure you want to delete %d calendar entry?"
 msgid_plural "Are you sure you want to delete %d calendar entries?"
-msgstr[0] "%d takvim girdisini silmek istediğinize emin misiniz?"
+msgstr[0] "%d takvim girişini silmek istediğinize emin misiniz?"
+msgstr[1] "%d takvim girişini silmek istediğinize emin misiniz?"
 
 #: Wammu/Main.py:1828 Wammu/Settings.py:346
 msgid "Confirm deleting"
@@ -2275,7 +2282,7 @@ msgstr ""
 
 #: Wammu/PhoneWizard.py:493
 msgid "Welcome"
-msgstr "Hoşgeldiniz"
+msgstr "Hoş Geldiniz"
 
 #: Wammu/PhoneWizard.py:494
 msgid "This wizard will help you with configuring phone connection in Wammu."
@@ -2295,7 +2302,7 @@ msgstr "Kablo bağlandı."
 
 #: Wammu/PhoneWizard.py:501
 msgid "You have enabled IrDA and phone is in visible range."
-msgstr "IrdA (kızılötesi) açtınız ve telefonunuz uygun mesafede."
+msgstr "IrdA (kızılötesi) etkinleştirdiniz ve telefonunuz görünür mesafede."
 
 #: Wammu/PhoneWizard.py:503
 msgid "You have paired Bluetooth with computer."
@@ -2311,23 +2318,22 @@ msgstr "Wammu Telefon Yapılandırma Sihirbazı"
 
 #: Wammu/Reader.py:136 Wammu/Reader.py:187
 msgid "Ignoring unknown"
-msgstr "Bilinmeyeni yoksay"
+msgstr "Bilinmeyen yoksayılıyor"
 
 #: Wammu/Reader.py:137 Wammu/Reader.py:188
 #, python-format
 msgid ""
 "While reading, entry on location %d reported unknown error, ignoring it!"
-msgstr ""
-"Okuma esnasında, yerel %d girdide bilinmeyen hata rapor edildi, yoksay!"
+msgstr "Okunurken, %d konuma girişte bilinmeyen hata bildirildi, yoksayılıyor!"
 
 #: Wammu/Reader.py:141 Wammu/Reader.py:182
 msgid "Ignoring corrupted"
-msgstr "Hataları yoksay"
+msgstr "Bozulma yoksayılıyor"
 
 #: Wammu/Reader.py:142 Wammu/Reader.py:183
 #, python-format
 msgid "While reading, entry on location %d seems to be corrupted, ignoring it!"
-msgstr "Okuma esnasında, yerel %d girdi hasarlı gibi görünüyor, yoksay!"
+msgstr "Okunurken, %d konuma giriş bozulmuş olarak görünüyor, yoksayılıyor!"
 
 #: Wammu/Ringtone.py:48
 msgid "Could not find timidity, melody can not be played"
@@ -2541,7 +2547,7 @@ msgstr "Telefon durumunu yenile"
 
 #: Wammu/Settings.py:347
 msgid "Whether to ask for confirmation when deleting entries."
-msgstr "Girdiler silindiği zaman onay sor/sorma."
+msgstr "Girişler silindiği zaman onay için sorup sormayacağı."
 
 #: Wammu/Settings.py:352
 msgid "Task bar icon"
@@ -2573,11 +2579,11 @@ msgstr "Öntanımlı tarih = now + x days"
 
 #: Wammu/Settings.py:385
 msgid "How many entries will be shown in newly created item."
-msgstr "Yeni oluşturulan öğede kaç tane girdi gösterilecek."
+msgstr "Yeni oluşturulan öğede kaç tane giriş gösterilecek."
 
 #: Wammu/Settings.py:386
 msgid "Entries for new item"
-msgstr "Yeni madde için girdiler"
+msgstr "Yeni öğe için girişler"
 
 #: Wammu/Settings.py:393
 msgid "Prefix for non international phone numbers."
@@ -2593,13 +2599,13 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
-"Sadece Wammu uygun miktarda okuyacak girdi bulamadığı zaman uygular. Bu "
-"numara kaç tane okunacak boş girdi girildiğiyle sınırlıdır, okumadan önce "
-"duracaktır."
+"Sadece Wammu okumak için uygun sayıda giriş bulamadığı zaman uygular. Bu "
+"numara, okumadan önce durdurulacak olan kaç tane boş giriş okunacağını "
+"sınırlar."
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
-msgstr "Toplam tahmin edilebiliyorsa azami boş girdi"
+msgstr "Toplam tahmin edilirse en fazla boş giriş"
 
 #: Wammu/Settings.py:423
 msgid ""
