@@ -23,7 +23,7 @@ EOT
 #put wammu-$REL.win32.exe
 #put wammu-$REL-setup.exe
 
-sftp mort <<EOT
+sftp web  <<EOT
 cd /srv/http/dl.cihar.com/wammu/v0/
 put wammu-$REL.tar.bz2
 put wammu-$REL.tar.gz
