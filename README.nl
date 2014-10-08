@@ -3,9 +3,9 @@ Wammu
 
 Grafische gebruikersinterface voor Gammu bibliotheek.
 
-.. image:: https://l10n.cihar.com/widgets/gammu-status-badge.png
+.. image:: https://hosted.weblate.org/widgets/gammu-status-badge.png
     :alt: Status van de vertaling :target:
-    https://l10n.cihar.com/engage/gammu/?utm_source=widget
+    https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
 Website
 =======
@@ -47,7 +47,7 @@ Vertalen
 ========
 
 Je kunt helpen Wammu naar jouw taal te vertalen op de vertaal server -
-<https://l10n.cihar.com/projects/gammu/wammu/>.
+<https://hosted.weblate.org/projects/gammu/wammu/>.
 
 Versie beheer
 =============
