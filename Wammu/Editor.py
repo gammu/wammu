@@ -243,6 +243,7 @@ class GenericEditor(wx.Dialog):
         self.internalname = internalname
         self.itemtypes = itemtypes
         self.sizer = wx.GridBagSizer(5, 5)
+        self.sizer.SetCols(6)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableCol(5)
         if self.wasempty:
