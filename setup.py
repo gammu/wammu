@@ -207,7 +207,7 @@ class build_wammu(distutils.command.build.build, object):
                 p2 = ElementTree.SubElement(description, 'p')
                 p2.set('xml:lang', loc)
                 p2.text = translation['Description_2'].decode('utf-8')
-        tree.write(appdata, 'utf-8')
+        tree.write(appdata, 'utf-8', True)
 
     def build_message_files (self):
         """
