@@ -407,6 +407,7 @@ class SMSComposer(wx.Dialog):
 
 
         row = row + 2
+        self.sizer.SetRows(row + 1)
         self.sizer.AddGrowableRow(row)
 
         self.current = AutoSizeList(self, _('Parts of current message'))
@@ -436,6 +437,7 @@ class SMSComposer(wx.Dialog):
         self.Bind(wx.EVT_BUTTON, self.DnPressed, self.dnbut)
 
         row = row + 2
+        self.sizer.SetRows(row + 1)
         self.sizer.AddGrowableRow(row)
         self.editorrow = row
 
