@@ -600,7 +600,5 @@ class WizardApp(wx.App):
             vendor = 'Michal Čihař'
         self.SetVendorName(vendor)
 
-        wx.InitAllImageHandlers()
-
         # Return a success flag
         return True
