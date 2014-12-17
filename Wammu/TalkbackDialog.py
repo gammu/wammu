@@ -122,8 +122,8 @@ class TalkbackDialog(wx.Dialog):
         self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.info_label.Wrap(400)
         # begin wxGlade: TalkbackDialog.__do_layout
-        window_grid_sizer = wx.FlexGridSizer(3, 1, 0, 0)
-        main_grid_sizer = wx.FlexGridSizer(8, 2, 5, 5)
+        window_grid_sizer = wx.FlexGridSizer(5, 1, 0, 0)
+        main_grid_sizer = wx.FlexGridSizer(10, 2, 5, 5)
         window_grid_sizer.Add(self.info_label, 2, wx.ALL|wx.EXPAND, 5)
         window_grid_sizer.Add(self.top_static_line, 0, wx.ALL|wx.EXPAND, 5)
         main_grid_sizer.Add(self.manufacturer_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ADJUST_MINSIZE, 0)
