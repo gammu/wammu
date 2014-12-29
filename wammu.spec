@@ -11,7 +11,7 @@ Release:        1
 
 Summary:        Mobile phone manager
 Source:         http://dl.cihar.com/%{name}/latest/%{name}-%{version}.tar.%{extension}
-License:        GPLv2
+License:        GPL-2.0
 %if 0%{?suse_version}
 Group:          Hardware/Mobile
 %else
@@ -22,6 +22,7 @@ Vendor:         Michal Čihař <michal@cihar.com>
 Requires:       wxPython >= 2.6, python-gammu >= %{python_gammu_req}
 BuildRequires:  python-devel
 %if 0%{?suse_version}
+BuildRequires:  python-xml
 BuildRequires:  update-desktop-files
 %endif
 %if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel}
@@ -109,20 +110,9 @@ rm -rf %buildroot
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
 %{_datadir}/pixmaps/*
+%dir %{_datadir}/appdata
 %{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{wammu_python_sitelib}/*
 
 %changelog
-* Fri Apr  3 2009 Michal Čihař <michal@cihar.com> - 0.31-1
-- do not define own %version, %name, %rel
-- do not delete build root on SUSE
-
-* Fri Oct 24 2008 Michal Čihař <michal@cihar.com> - 0.29-1
-- fixed according to Fedora policy
-
-* Wed Oct  8 2008 michal@cihar.com
-- do not make it noarch package because it is sometimes in lib64 dir
-* Mon Jan 05 2004 michal@cihar.com
-- initial packaging
-- see Git log for changelog
