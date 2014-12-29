@@ -109,6 +109,7 @@ rm -rf %buildroot
 %{_bindir}/%{name}-configure
 %{_datadir}/Wammu
 %{_datadir}/pixmaps/*
+%{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{wammu_python_sitelib}/*
 
