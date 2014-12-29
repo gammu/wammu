@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-05-26 13:46+0200\n"
-"PO-Revision-Date: 2013-05-30 13:23+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <http://hosted.weblate.org/projects/gammu/wammu/hu/>\n"
+"PO-Revision-Date: 2014-12-20 15:41+0100\n"
+"Last-Translator: Miklós Márton <martonmiklosqdev@gmail.com>\n"
+"Language-Team: Hungarian <http://hosted.weblate.org/projects/gammu/wammu/hu/"
+">\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -390,7 +391,7 @@ msgstr "Az exportálás megszakadt"
 
 #: Wammu/ContactsXML.py:187
 msgid "phone"
-msgstr ""
+msgstr "telefon"
 
 #: Wammu/ContactsXML.py:196 Wammu/SMSExport.py:73 Wammu/SMSExport.py:147
 #: Wammu/SMSXML.py:128
@@ -769,15 +770,15 @@ msgstr "Modell (valódi)"
 
 #: Wammu/Info.py:71 wammu.py:128
 msgid "Firmware"
-msgstr "Förmver"
+msgstr "Firmware"
 
 #: Wammu/Info.py:73
 msgid "Firmware date"
-msgstr "Förmver dátum"
+msgstr "Firmware dátum"
 
 #: Wammu/Info.py:75
 msgid "Firmware (numeric)"
-msgstr "Förmver (verzió)"
+msgstr "Firmware-verzió"
 
 #: Wammu/Info.py:88
 msgid "Serial number (IMEI)"
@@ -1145,11 +1146,11 @@ msgstr "Naptár megjelenítése."
 
 #: Wammu/Main.py:320
 msgid "A&ll"
-msgstr ""
+msgstr "M&ind"
 
 #: Wammu/Main.py:320
 msgid "Retrieve everything above."
-msgstr ""
+msgstr "Mindegyik fentebbi letöltése."
 
 #: Wammu/Main.py:322
 msgid "&Retrieve"
@@ -2392,7 +2393,6 @@ msgid "Could not find timidity, melody can not be played"
 msgstr "A Timidity nem található, ezért nem lehet a zenét lejátszani"
 
 #: Wammu/Ringtone.py:49
-#, fuzzy
 msgid "Timidity not found"
 msgstr "Timidity nem található"
 
@@ -2657,6 +2657,9 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
+"Csak akkor használatos, ha a Wammu nem tudja lekérdezni, a bejegyzések "
+"számát. Ez a szám limitálja azt, hogy maximum hány bejegyzés kerül "
+"olvasására mielőtt az olvasási folyamat leállításra kerül. "
 
 #: Wammu/Settings.py:417
 msgid "Maximal empty entries if total is guessed"
@@ -2668,6 +2671,9 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
+"Ha a telefon nem megfelelően adja vissza a bejegyzések számát a Wammu "
+"megpróbálhatja a végtelenségig vagy az első hibáig olvasni. Ez a szám adja "
+"meg a maximális olvasási próbálkozási számát."
 
 #: Wammu/Settings.py:424
 msgid "Maximal empty entries if total is known"
@@ -3978,7 +3984,7 @@ msgstr ""
 #. l10n: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: wammu_setup/msgfmt.py:50
 msgid "phone;mobile;sms;contact;calendar;todo;"
-msgstr ""
+msgstr "telefon;mobli;sms;névjegyzék;naptár;teendők;"
 
 #: wammu_setup/msgfmt.py:53
 msgid ""
@@ -3986,6 +3992,9 @@ msgid ""
 "with any phone that Gammu supports, including many models from Nokia, "
 "Siemens, and Alcatel."
 msgstr ""
+"A Wammu egy mobiltelefonkezelő alkalmazás ami a Gammu-t használja a "
+"háttérben. Minden Gammu által támogatott modellt ismer többek közt Nokia, "
+"SIemens és Alcatel telefonokat."
 
 #: wammu_setup/msgfmt.py:58
 msgid ""
@@ -3996,6 +4005,11 @@ msgid ""
 "edited in the SMS composer. It can export messages to an IMAP4 server (or "
 "other email storage)."
 msgstr ""
+"A névjegyzék és a naptár teljesen támogatott (olvasás, szerkesztés, törlés, "
+"másolás). SMS küldése és fogadása támogatott ideértve a multi-part SMS-eket "
+"illetve a képet tartalmazóak megjelenítését. Jelenleg csak szövegek és előre "
+"definiált bitképek vagy hangok szerkeszthetőek az SMS szerkesztőben. Képes "
+"üzeneteket exportálni IMAP4 és egyéb e-mail szerverekre. "
 
 #~ msgid "&Import"
 #~ msgstr "&Importálás"
