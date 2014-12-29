@@ -10,36 +10,6 @@ repo=wammu
 version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
 
 srcdir=`pwd`
-if false ; then
-if [ -f ~/.id/codesigning.spc -a "x$NO_SIGN" = "x" ] ; then
-    sign_passwd=`gk-get --user=nijel --object=codesign || true`
-    if [ -z "$sign_passwd" ] ; then
-        echo -n "Enter sign password: "
-        read sign_passwd
-    fi
-fi
-fi
-
-signexe() {
-    if [ ! -f ~/.id/codesigning.spc ] ; then 
-        echo 'Skipping signing, no certificates!'
-        return 0
-    fi
-    if [ "x$NO_SIGN" != "x" ] ; then
-        echo 'Skipping signing, disabled!'
-        return 0
-    fi
-    echo "$sign_passwd" | signcode \
-        -spc ~/.id/codesigning.spc \
-        -v ~/.id/codesigning.pvk \
-        -a sha1 \
-        -$ individual \
-        -n "$2" \
-        -t http://timestamp.verisign.com/scripts/timstamp.dll \
-        -i http://cihar.com/ \
-        "$1"
-    rm "$1.bak"
-}
 
 dotag=0
 if [ "x$1" = "xbranch" ] ; then
@@ -74,36 +44,6 @@ echo 'Creating source tarballs...'
 # Build source package
 ./setup.py sdist --formats=gztar,bztar,zip
 mv dist/* ../
-
-if false ; then
-
-# Build Windows Python installer
-wine c:\\python25\\python setup.py bdist_wininst
-mv dist/* ../
-
-rm -rf dist
-
-# Build py2exe module
-wine c:\\python25\\python setup.py py2exe
-
-# py2exe does not catch these for some reason
-cp ~/.wine/drive_c/windows/system32/python25.dll dist/
-cp ~/.wine/drive_c/Python25/Lib/site-packages/wx-2.8-msw-unicode/wx/*.dll dist/
-cp ~/.wine/drive_c/Python25/Lib/site-packages/gammu/*.dll dist/
-
-# Sign main binary
-signexe dist/wammu.exe "Wammu"
-
-# Build Windows installer
-wine c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss
-mv Output/$repo-$version-setup.exe ../
-
-# Sign binaries
-for bin in $tmp/*-setup.exe ; do
-    signexe $bin "Wammu installer"
-done
-
-fi
 
 # We're done
 echo "Release is in $tmp directory"
