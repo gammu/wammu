@@ -5,7 +5,7 @@
 
 #define MyAppDosName "wammu"
 #define MyAppName "Wammu"
-#define MyAppVersion "0.38"
+#define MyAppVersion "0.39"
 #define MyAppPublisher "Micha Èihaø"
 #define MyAppURL "http://wammu.eu/"
 #define MyAppPublisherURL "http://cihar.com/"
