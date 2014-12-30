@@ -42,7 +42,8 @@ echo 'Creating source tarballs...'
 
 
 # Build source package
-./setup.py sdist --formats=gztar,bztar,zip
+./setup.py sdist --formats=gztar,bztar,tar,zip
+xz dist/*.tar
 mv dist/* ../
 
 # We're done

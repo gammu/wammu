@@ -15,6 +15,7 @@ sftp nijel,gammu@frs.sourceforge.net <<EOT
 cd /home/frs/project/g/ga/gammu/wammu
 mkdir $REL
 cd $REL
+put wammu-$REL.tar.xz
 put wammu-$REL.tar.bz2
 put wammu-$REL.tar.gz
 put wammu-$REL.zip
@@ -23,6 +24,7 @@ EOT
 
 sftp web  <<EOT
 cd /srv/http/dl.cihar.com/wammu/v0/
+put wammu-$REL.tar.xz
 put wammu-$REL.tar.bz2
 put wammu-$REL.tar.gz
 put wammu-$REL.zip
