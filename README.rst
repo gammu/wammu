@@ -3,7 +3,7 @@ Wammu
 
 GUI for Gammu library.
 
-.. image:: https://hosted.weblate.org/widgets/gammu-status-badge.png
+.. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
