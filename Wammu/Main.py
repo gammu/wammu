@@ -2322,7 +2322,7 @@ class WammuFrame(wx.Frame):
         Wammu.Webbrowser.Open("http://%swammu.eu/support/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def ReportBug(self, evt = None):
-        Wammu.Webbrowser.Open("https://github.com/gammu/gammu/issues")
+        Wammu.Webbrowser.Open("https://github.com/gammu/wammu/issues")
 
     def PhoneDB(self, evt = None):
         Wammu.Webbrowser.Open("http://%swammu.eu/phones/" % Wammu.Utils.GetWebsiteLang())

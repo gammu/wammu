@@ -32,12 +32,12 @@ import Wammu.ErrorLog
 
 
 BUG_SEARCH_URL = 'https://github.com/search?l=&q=%s+%%40gammu&ref=advsearch&type=Issues'
-BUG_REPORT_URL = 'https://github.com/gammu/gammu/issues/new'
+BUG_REPORT_URL = 'https://github.com/gammu/wammu/issues/new'
 
 class ErrorMessage(wx.Dialog):
     '''
     Error message box with support for saving debug log and reporting
-    bug to https://github.com/gammu/gammu/issues.
+    bug to https://github.com/gammu/wammu/issues.
     '''
     def __init__(self, parent, message, title, traceid=None,
             autolog=None, exception=None):
