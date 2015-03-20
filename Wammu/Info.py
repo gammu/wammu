@@ -140,10 +140,10 @@ class GetInfo(Wammu.Thread.Thread):
         self.ShowProgress(7*100/progress)
         try:
             try:
-                SMSC = self.sm.GetSMSC()
+                SMSC = self.sm.GetSMSC()['Number']
             except (gammu.ERR_SECURITYERROR):
                 SMSC = _('N/A')
-            data.append({'Name': _('SMSC'), 'Value': SMSC['Number'], 'Synced': True})
+            data.append({'Name': _('SMSC'), 'Value': SMSC, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED, gammu.ERR_EMPTY):
             pass
         except gammu.GSMError, val:
