@@ -45,7 +45,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -59,7 +59,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -76,7 +76,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -89,7 +89,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -102,7 +102,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -115,7 +115,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -131,7 +131,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -147,7 +147,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED, gammu.ERR_EMPTY):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -160,7 +160,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -173,7 +173,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()
@@ -186,7 +186,7 @@ class GetInfo(Wammu.Thread.Thread):
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
         if self.canceled:
             self.Canceled()

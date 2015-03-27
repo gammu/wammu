@@ -175,7 +175,7 @@ class Reader(Wammu.Thread.Thread):
                         break
                     # If we didn't read anything for long time, we bail out (workaround bad count reported by phone)
                     if empty >= Wammu.configuration.ReadInt('/Hacks/MaxEmptyKnown') and remain < 10:
-                        self.ShowError(val[0])
+                        self.ShowError(val.args[0])
                         remain = 0
                 except gammu.ERR_CORRUPTED:
                     self.ShowMessage(
@@ -188,16 +188,16 @@ class Reader(Wammu.Thread.Thread):
                             _('While reading, entry on location %d reported unknown error, ignoring it!') % location)
                     remain = remain - 1
                 except gammu.GSMError, val:
-                    self.ShowError(val[0], True)
+                    self.ShowError(val.args[0], True)
                     return
                 location = location + 1
         except gammu.ERR_INVALIDLOCATION, val:
             # if we reached end with guess, it is okay
             if not guess:
-                self.ShowError(val[0], True)
+                self.ShowError(val.args[0], True)
                 return
         except gammu.GSMError, val:
-            self.ShowError(val[0], True)
+            self.ShowError(val.args[0], True)
             return
 
         self.Send(data)

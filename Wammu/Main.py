@@ -1089,7 +1089,7 @@ class WammuFrame(wx.Frame):
 
                 except gammu.GSMError, val:
                     del busy
-                    self.ShowError(val[0])
+                    self.ShowError(val.args[0])
 
             if v['Save']:
                 try:
@@ -1149,7 +1149,7 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError, val:
                 del busy
                 v = backup
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
 
             if (self.type[0] == 'contact' and self.type[1] == '  ') or not v.has_key('MemoryType'):
                 self.ActivateView('contact', '  ')
@@ -1208,7 +1208,7 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError, val:
                 del busy
                 v = backup
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
 
             self.ActivateView('calendar', '  ')
             try:
@@ -1258,7 +1258,7 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError, val:
                 del busy
                 v = backup
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
 
             self.ActivateView('todo', '  ')
             try:
@@ -1298,12 +1298,12 @@ class WammuFrame(wx.Frame):
             try:
                 self.sm.DialVoice(num)
             except gammu.GSMError, val:
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
         elif self.type[0] == 'message':
             try:
                 self.sm.DialVoice(evt.data['Number'])
             except gammu.GSMError, val:
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
         else:
             print 'Call not yet implemented (type = %s)!' % self.type[0]
 
@@ -1353,7 +1353,7 @@ class WammuFrame(wx.Frame):
                     for msg in v['SMS']:
                         self.sm.SendSMS(msg)
             except gammu.GSMError, val:
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
 
     def SMSToMails(self, evt):
         messages = self.values['message']['Read'] + \
@@ -1439,7 +1439,7 @@ class WammuFrame(wx.Frame):
             else:
                 backup = gammu.ReadBackup(filename)
         except gammu.GSMError, val:
-            info = val[0]
+            info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
                 message = Wammu.Utils.FormatError(_('Error while reading backup'), info),
                 title = _('Error Occured'),
@@ -1543,7 +1543,7 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
             wx.MessageDialog(self,
                 _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % StrConv(filename),
@@ -1656,7 +1656,7 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
         except gammu.GSMError, val:
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
             wx.MessageDialog(self,
                 _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % StrConv(filename),
@@ -1698,7 +1698,7 @@ class WammuFrame(wx.Frame):
             else:
                 self.SetStatusText(_('Data has been saved to file "%s"') % StrConv(filename))
         except gammu.GSMError, val:
-            info = val[0]
+            info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
                 message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
                 title = _('Error Occured'),
@@ -1706,7 +1706,7 @@ class WammuFrame(wx.Frame):
                 type = wx.ICON_ERROR)
             wx.PostEvent(self, evt)
         except MemoryError, val:
-            info = val[0]
+            info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
                     message = _('Error while saving backup, probably some limit inside of Gammu exceeded.\n%s') % str(info),
                     title = _('Error Occured'),
@@ -1877,7 +1877,7 @@ class WammuFrame(wx.Frame):
             try:
                 del busy
             finally:
-                self.ShowError(val[0])
+                self.ShowError(val.args[0])
 
         self.ActivateView(self.type[0], self.type[1])
 
@@ -2087,7 +2087,7 @@ class WammuFrame(wx.Frame):
             self.sm.SetDateTime(datetime.datetime.now())
         except gammu.GSMError, val:
             del busy
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
 
     #
     # Files
@@ -2133,7 +2133,7 @@ class WammuFrame(wx.Frame):
                         wx.OK | wx.ICON_ERROR).ShowModal()
                 except gammu.GSMError, val:
                     del busy
-                    self.ShowError(val[0])
+                    self.ShowError(val.args[0])
             except IOError:
                 wx.MessageDialog(self,
                     _('Selected file "%s" was not found, no data read.') % path,
@@ -2209,7 +2209,7 @@ class WammuFrame(wx.Frame):
 
         except gammu.GSMError, val:
             del busy
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
             try:
                 self.sm.Terminate()
             except gammu.GSMError, val:
@@ -2280,7 +2280,7 @@ class WammuFrame(wx.Frame):
             pass
         except gammu.GSMError, val:
             del busy
-            self.ShowError(val[0])
+            self.ShowError(val.args[0])
         self.TogglePhoneMenus(False)
 
     def SearchMessage(self, text):

@@ -336,7 +336,7 @@ class PhoneInfoThread(threading.Thread):
             evt = Wammu.Events.DataEvent(data = self.result)
             wx.PostEvent(self.win, evt)
         except gammu.GSMError, val:
-            info = val[0]
+            info = val.args[0]
             evt = Wammu.Events.DataEvent(
                 data = None,
                 error = (_('Failed to connect to phone'),
