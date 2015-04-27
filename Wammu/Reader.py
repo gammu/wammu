@@ -71,7 +71,7 @@ class Reader(Wammu.Thread.Thread):
         '''
         raise Exception('Not implemented!')
 
-    def Parse(self):
+    def Parse(self, value):
         '''
         Parses entry.
 
@@ -79,7 +79,7 @@ class Reader(Wammu.Thread.Thread):
         '''
         raise Exception('Not implemented!')
 
-    def Send(self):
+    def Send(self, data):
         '''
         Sends entries to parent.
 
