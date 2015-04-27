@@ -36,48 +36,48 @@ XMLheader = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\
 
 
 def SMSToXML(cfg, sms, contact = None):
-	'''
-	Convert a sms to XML
-	'''
+    '''
+    Convert a sms to XML
+    '''
 
 
-	text = SmsTextFormat(cfg, sms['Text'], doxml = True)
+    text = SmsTextFormat(cfg, sms['Text'], doxml = True)
 
-	smsxml = "    <message>\n"
+    smsxml = "    <message>\n"
 
-	if sms['DateTime'] is not None:
+    if sms['DateTime'] is not None:
 
-		smsxml += "        <date>"
-		smsxml += sms['DateTime'].strftime("%d.%m.%Y %H:%M:%S")
-		smsxml += "</date>\n"
+        smsxml += "        <date>"
+        smsxml += sms['DateTime'].strftime("%d.%m.%Y %H:%M:%S")
+        smsxml += "</date>\n"
 
-		smsxml += "        <dateenc>"
-		smsxml += sms['DateTime'].strftime("%Y%m%d%H%M%S")
-		smsxml += "</dateenc>\n"
+        smsxml += "        <dateenc>"
+        smsxml += sms['DateTime'].strftime("%Y%m%d%H%M%S")
+        smsxml += "</dateenc>\n"
 
-	smsxml += "        <text>"
-	smsxml += text.encode('utf-8')
-	smsxml += "</text>\n"
+    smsxml += "        <text>"
+    smsxml += text.encode('utf-8')
+    smsxml += "</text>\n"
 
-	smsxml += "        <telephone>"
-	smsxml += sms['Number'].encode('utf-8')
-	smsxml += "</telephone>\n"
+    smsxml += "        <telephone>"
+    smsxml += sms['Number'].encode('utf-8')
+    smsxml += "</telephone>\n"
 
-	smsxml += "        <contact>"
-	smsxml += contact.encode('utf-8')
-	smsxml += "</contact>\n"
+    smsxml += "        <contact>"
+    smsxml += contact.encode('utf-8')
+    smsxml += "</contact>\n"
 
-	smsxml += "        <folder>"
-	smsxml += str(sms['Folder'])
-	smsxml += "</folder>\n"
+    smsxml += "        <folder>"
+    smsxml += str(sms['Folder'])
+    smsxml += "</folder>\n"
 
-	smsxml += "        <stat>"
-	smsxml += sms['State']
-	smsxml += "</stat>\n"
+    smsxml += "        <stat>"
+    smsxml += sms['State']
+    smsxml += "</stat>\n"
 
-	smsxml += "    </message>\n"
+    smsxml += "    </message>\n"
 
-	return smsxml;
+    return smsxml;
 
 def SMSExportXML(parent, messages, contacts):
     count = len(messages)
@@ -100,8 +100,8 @@ def SMSExportXML(parent, messages, contacts):
     parent.ShowProgress(_('Saving messages to XML'))
     try:
         f = file(path, 'w')
-	f.write(XMLheader)
-	f.write("<messages>\n")
+        f.write(XMLheader)
+        f.write("<messages>\n")
         for i in range(count):
             if not parent.progress.Update(i * 100 / count):
                 del parent.progress
@@ -118,7 +118,7 @@ def SMSExportXML(parent, messages, contacts):
 
             f.write(data)
 
-	f.write("</messages>\n")
+        f.write("</messages>\n")
         f.close()
     except IOError:
         del parent.progress
