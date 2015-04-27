@@ -7,8 +7,8 @@ Module for writing contacts to XML.
 __author__ = 'Andriy Grytsenko'
 __email__ = 'andrej@rep.kiev.ua'
 __license__ = '''
-Copyright ¿ 2008 Florent Kaisser
-Copyright ¿ 2012 Andriy Grytsenko
+Copyright Â© 2008 Florent Kaisser
+Copyright Â© 2012 Andriy Grytsenko
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License version 2 as published by
