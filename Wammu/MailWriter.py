@@ -36,7 +36,7 @@ import tempfile
 import os
 import wx
 import Wammu.Data
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 
 HEADER_FORMAT = 'X-Wammu-%s'
@@ -101,7 +101,7 @@ def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
     msg = MIMEMultipart('related', None, None, type='text/html')
     prepend = ''
     name = ''
-    if lookuplist != None:
+    if lookuplist is not None:
         i = SearchNumber(lookuplist, sms['Number'])
         if i != -1:
             msg.add_header(HEADER_FORMAT % 'ContactID', str(i))

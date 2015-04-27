@@ -26,7 +26,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import wx
 import Wammu.Data
 import Wammu
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 import os
 import thread

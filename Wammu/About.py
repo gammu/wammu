@@ -28,7 +28,7 @@ import wx.html
 import wx.lib.wxpTag
 import sys
 import Wammu
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 import Wammu.Utils
 import Wammu.Paths
@@ -116,7 +116,7 @@ GNU General Public License for more details.
         html = wx.html.HtmlWindow(self, -1, size = (500, -1))
         html.SetPage(text)
         btn = html.FindWindowById(wx.ID_OK)
-        if btn != None:
+        if btn is not None:
             btn.SetDefault()
         representation = html.GetInternalRepresentation()
         html.SetSize( (representation.GetWidth()+25, representation.GetHeight()+25) )

@@ -27,7 +27,7 @@ import wx
 import threading
 import sys
 import Wammu
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 import Wammu.Data
 import Wammu.Events
@@ -81,7 +81,7 @@ class AllSearchThread(threading.Thread):
                 self.lock,
                 self.level)
         newthread.setName(name)
-        if self.msgcallback != None:
+        if self.msgcallback is not None:
             self.msgcallback(
                     _('Checking %s') %
                     StrConv(name)
@@ -121,9 +121,9 @@ class AllSearchThread(threading.Thread):
             return True
         if res[0] == -1:
             return False
-        if res[1] != '' and self.msgcallback != None:
+        if res[1] != '' and self.msgcallback is not None:
             self.msgcallback(res[1])
-        if res[2] != '' and self.noticecallback != None:
+        if res[2] != '' and self.noticecallback is not None:
             self.noticecallback(res[2], res[3])
         return False
 
@@ -159,7 +159,7 @@ class AllSearchThread(threading.Thread):
         Initiates searching for Bluetooth devices using PyBluez stack.
         '''
         # read devices list
-        if self.msgcallback != None:
+        if self.msgcallback is not None:
             self.msgcallback(_('Discovering Bluetooth devices using %s') %
                     'PyBluez')
 
@@ -167,12 +167,12 @@ class AllSearchThread(threading.Thread):
             discovery = Wammu.BluezDiscovery.Discovery(self)
             discovery.find_devices()
             discovery.process_inquiry()
-            if len(discovery.names_found) == 0 and self.msgcallback != None:
+            if len(discovery.names_found) == 0 and self.msgcallback is not None:
                 self.msgcallback(_('No Bluetooth device found'))
-            if self.msgcallback != None:
+            if self.msgcallback is not None:
                 self.msgcallback(_('All Bluetooth devices discovered, connection tests still in progress...'))
         except bluetooth.BluetoothError, txt:
-            if self.msgcallback != None:
+            if self.msgcallback is not None:
                 self.msgcallback(
                         _('Could not access Bluetooth subsystem (%s)') %
                         StrConv(txt))
@@ -186,9 +186,9 @@ class AllSearchThread(threading.Thread):
         if BLUETOOTH == 'bluez':
             self.bluetooth_device_search_bluez()
         else:
-            if self.msgcallback != None:
+            if self.msgcallback is not None:
                 self.msgcallback(_('PyBluez not found, it is not possible to scan for Bluetooth devices.'))
-            if self.noticecallback != None:
+            if self.noticecallback is not None:
                 self.noticecallback(
                         _('No Bluetooth searching'),
                         _('PyBluez not found, it is not possible to scan for Bluetooth devices.'))
@@ -203,16 +203,16 @@ class AllSearchThread(threading.Thread):
                 if self.threads[i].isAlive():
                     i += 1
                 else:
-                    if self.msgcallback != None:
+                    if self.msgcallback is not None:
                         self.msgcallback(_('Finished %s') %
                                 StrConv(self.threads[i].getName()))
                     del self.threads[i]
                 if i >= len(self.threads):
                     i = 0
-            if self.msgcallback != None:
+            if self.msgcallback is not None:
                 self.msgcallback(_('All finished, found %d phones') %
                         len(self.list))
-            if self.callback != None:
+            if self.callback is not None:
                 self.callback(self.list)
         except:
             evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())

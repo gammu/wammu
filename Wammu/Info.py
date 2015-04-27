@@ -25,7 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import Wammu.Thread
 from Wammu.Locales import ugettext as _
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 
 class GetInfo(Wammu.Thread.Thread):

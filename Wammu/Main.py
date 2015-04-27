@@ -111,7 +111,7 @@ displaydata['calendar'] = {}
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [
     {'Name':_('Wammu version'), 'Value':Wammu.__version__, 'Synced': True},
     ])
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     displaydata['info']['  '][4].append({'Name':_('Gammu version'), 'Value':gammu.Version()[0], 'Synced': True})
     displaydata['info']['  '][4].append({'Name':_('python-gammu version'), 'Value':gammu.Version()[1], 'Synced': True})
 
@@ -412,7 +412,7 @@ class WammuFrame(wx.Frame):
 
         self.TimerId = wx.NewId()
 
-        if Wammu.gammu_error == None:
+        if Wammu.gammu_error is None:
             # create state machine
             self.sm = gammu.StateMachine()
 
@@ -550,7 +550,7 @@ class WammuFrame(wx.Frame):
         self.ActivateView('info', '  ')
         self.appparent = appparent
 
-        if Wammu.gammu_error != None:
+        if Wammu.gammu_error is not None:
             self.HandleGammuError()
 
         if not self.cfg.HasEntry('/Gammu/Section') and self.cfg.HasEntry('/Gammu/Connection'):
@@ -760,7 +760,7 @@ class WammuFrame(wx.Frame):
         self.connected = enable
         if enable:
             self.SetStatusText(_('Connected'), 1)
-            if self.timer != None:
+            if self.timer is not None:
                 self.OnTimer()
         else:
             self.SetStatusText(_('Disconnected'), 1)
@@ -1080,9 +1080,9 @@ class WammuFrame(wx.Frame):
 
                     if v['Save']:
                         info = gammu.DecodeSMS(result['SMS'])
-                        if info != None:
+                        if info is not None:
                             result['SMSInfo'] = info
-                        Wammu.Utils.ParseMessage(result, (info != None))
+                        Wammu.Utils.ParseMessage(result, (info is not None))
                         result['Synced'] = True
                         self.values['message'][result['State']].append(result)
 
@@ -1291,7 +1291,7 @@ class WammuFrame(wx.Frame):
     def OnCall(self, evt):
         if self.type[0] in ['call', 'contact']:
             num = Wammu.Select.SelectContactNumber(self, evt.data)
-            if num == None:
+            if num is None:
                 return
 
             try:
@@ -1310,7 +1310,7 @@ class WammuFrame(wx.Frame):
         if self.type[0] in ['call', 'contact']:
 
             num = Wammu.Select.SelectContactNumber(self, evt.data)
-            if num == None:
+            if num is None:
                 return
             self.ComposeMessage({'Number': num}, action = 'send')
         elif self.type[0] == 'message':
@@ -1430,7 +1430,7 @@ class WammuFrame(wx.Frame):
 
     def ReadBackup(self, type, data = False):
         filename = self.SelectBackupFile(type, save = False, data = data)
-        if filename == None:
+        if filename is None:
             return (None, None)
         try:
             if type == 'message':
@@ -1450,7 +1450,7 @@ class WammuFrame(wx.Frame):
 
     def ReadData(self, evt):
         (filename, backup) = self.ReadBackup('all', True)
-        if backup == None:
+        if backup is None:
             return
 
         if len(backup['PhonePhonebook']) > 0:
@@ -1468,7 +1468,7 @@ class WammuFrame(wx.Frame):
 
     def ReadSMSData(self, evt):
         (filename, backup) = self.ReadBackup('message', True)
-        if backup == None:
+        if backup is None:
             return
 
         res = Wammu.Utils.ProcessMessages(map(lambda x:[x], backup), False)
@@ -1484,7 +1484,7 @@ class WammuFrame(wx.Frame):
 
     def ImportSMS(self, evt):
         (filename, backup) = self.ReadBackup('message')
-        if backup == None:
+        if backup is None:
             return
         choices = []
         values = []
@@ -1551,7 +1551,7 @@ class WammuFrame(wx.Frame):
 
     def Import(self, evt):
         (filename, backup) = self.ReadBackup('all')
-        if backup == None:
+        if backup is None:
             return
         choices = []
         values = []
@@ -1582,7 +1582,7 @@ class WammuFrame(wx.Frame):
                 msg += _(', serial number %s') % backup['IMEI']
         if backup['Creator'] != '':
             msg += '\n \n' + _('Backup was created by %s') % backup['Creator']
-        if backup['DateTime'] != None:
+        if backup['DateTime'] is not None:
             msg += '\n \n' + _('Backup saved on %s') % str(backup['DateTime'])
 
         dlg = wx.lib.dialogs.MultipleChoiceDialog(self, _('Following data was found in backup, select which of these do you want to be added into phone.') + msg, _('Select what to import'),
@@ -1714,7 +1714,7 @@ class WammuFrame(wx.Frame):
 
     def DoBackup(self, data, type):
         filename = self.SelectBackupFile(type, data = data)
-        if filename == None:
+        if filename is None:
             return
         ext = os.path.splitext(filename)[1].lower()
 
@@ -1736,7 +1736,7 @@ class WammuFrame(wx.Frame):
 
     def OnBackup(self, evt):
         filename = self.SelectBackupFile(self.type[0])
-        if filename == None:
+        if filename is None:
             return
         ext = os.path.splitext(filename)[1].lower()
         lst = evt.lst

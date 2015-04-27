@@ -40,7 +40,7 @@ from Wammu.Locales import StrConv
 from Wammu.Locales import ugettext as _
 
 import Wammu
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 
 
@@ -71,7 +71,7 @@ def GetItemType(txt):
 def SearchLocation(lst, loc, second = None):
     result = -1
     for i in range(len(lst)):
-        if second != None:
+        if second is not None:
             if not lst[i][second[0]] == second[1]:
                 continue
         if type(lst[i]['Location']) == type(loc):
@@ -92,7 +92,7 @@ def MatchesText(item, match, num):
         else:
             val = x
         if type(val) in (str, unicode):
-            if match.search(val) != None:
+            if match.search(val) is not None:
                 return True
         elif num is not None and type(val) == int and num == val:
             return True
@@ -102,7 +102,7 @@ def MatchesText(item, match, num):
                     try:
                         val2 = val[i][key]
                         if type(val2) in (str, unicode):
-                            if match.search(val2) != None:
+                            if match.search(val2) is not None:
                                 return True
                         elif num is not None and type(val2) == int and num == val2:
                             return True
@@ -391,7 +391,7 @@ def ParseMessage(msg, parseinfo = False):
     msg['DateTime'] = msg['SMS'][0]['DateTime']
     if parseinfo:
         for i in msg['SMSInfo']['Entries']:
-            if i['Buffer'] != None:
+            if i['Buffer'] is not None:
                 txt = txt + i['Buffer']
     else:
         for i in msg['SMS']:
@@ -424,9 +424,9 @@ def ProcessMessages(list, synced):
         i = {}
         v = gammu.DecodeSMS(x)
         i['SMS'] = x
-        if v != None:
+        if v is not None:
             i['SMSInfo'] = v
-        ParseMessage(i, (v != None))
+        ParseMessage(i, (v is not None))
         i['Synced'] = synced
         if i['State'] == 'Read':
             read.append(i)

@@ -318,7 +318,7 @@ class GenericEditor(wx.Dialog):
         type = Wammu.Utils.GetItemType(value['Type'])
         self.fulltypes[row] = value['Type']
         self.types[row] = type
-        if type == 'text' or type == None:
+        if type == 'text' or type is None:
             # text editor
             edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))

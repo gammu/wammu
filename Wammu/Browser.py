@@ -338,9 +338,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             return self.sortorder * cmp(
                 int(item1[self.sortkey].split(',')[0]),
                 int(item2[self.sortkey].split(', ')[0]))
-        elif item1[self.sortkey] == None:
+        elif item1[self.sortkey] is None:
             return -self.sortorder
-        elif item2[self.sortkey] == None:
+        elif item2[self.sortkey] is None:
             return self.sortorder
         return self.sortorder * cmp(item1[self.sortkey], item2[self.sortkey])
 
@@ -433,7 +433,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.SetColumnImage(col, image)
         self.RefreshView()
 
-        if item != None:
+        if item is not None:
             self.ShowRow(self.values.index(item))
 
     def RefreshView(self):

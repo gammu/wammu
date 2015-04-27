@@ -29,7 +29,7 @@ import wx
 import sys
 import os
 import locale
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 
 # set later in Wammu.Main to have correct debug filename

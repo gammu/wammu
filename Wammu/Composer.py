@@ -33,7 +33,7 @@ import Wammu.Utils
 import Wammu.PhoneValidator
 import Wammu.Select
 import Wammu.EditContactList
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 import Wammu.Locales
 from Wammu.Locales import ugettext as _
@@ -485,7 +485,7 @@ class SMSComposer(wx.Dialog):
 
     def ContactPressed(self, evt):
         v = Wammu.Select.SelectNumber(self, [] + self.values['contact']['ME'] + self.values['contact']['SM'])
-        if v != None:
+        if v is not None:
             self.number.SetValue(self.number.GetValue() + ' ' + v)
 
     def EditContactPressed(self, evt):
@@ -646,9 +646,9 @@ class SMSComposer(wx.Dialog):
             info = gammu.DecodeSMS(msg)
             result = {}
             result['SMS'] = msg
-            if info != None:
+            if info is not None:
                 result['SMSInfo'] = info
-            Wammu.Utils.ParseMessage(result, (info != None))
+            Wammu.Utils.ParseMessage(result, (info is not None))
             dlg = MessagePreview(self, ('<i>%s</i><hr>' % (_('Message will fit into %d SMSes') % len(msg))) + Wammu.MessageDisplay.SmsToHtml(self.cfg, result))
 
         dlg.ShowModal()

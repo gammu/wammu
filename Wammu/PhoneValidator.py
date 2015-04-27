@@ -77,9 +77,9 @@ class PhoneValidator(wx.PyValidator):
                     continue
                 else:
                     return False
-            elif self.pause and MATCHER_PAUSE.match(val) == None:
+            elif self.pause and MATCHER_PAUSE.match(val) is None:
                 return False
-            elif not self.pause and MATCHER_NORMAL.match(val) == None:
+            elif not self.pause and MATCHER_NORMAL.match(val) is None:
                 return False
             elif immediate and val == '+':
                 continue
@@ -91,7 +91,7 @@ class PhoneValidator(wx.PyValidator):
 
         result = self.CheckText(val)
 
-        if not result and win != None:
+        if not result and win is not None:
             wx.MessageDialog(win,
                 _('You did not specify valid phone number.'),
                 _('Invalid phone number'),

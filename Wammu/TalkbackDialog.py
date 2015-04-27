@@ -35,7 +35,7 @@ import Wammu.Utils
 import Wammu.Data
 from Wammu.Locales import StrConv
 from Wammu.Locales import ugettext as _
-if Wammu.gammu_error == None:
+if Wammu.gammu_error is None:
     import gammu
 
 OK_MATCHER = re.compile('Entry created, id=(\d*), url=(.*)')

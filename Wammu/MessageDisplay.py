@@ -38,7 +38,7 @@ def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
         parts = []
         arr = txt.split(' ')
         for a in arr:
-            if re.match('^([a-z]+[^ ]*)?[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) != None:
+            if re.match('^([a-z]+[^ ]*)?[A-Z].*[a-z]{2,}[A-Z]{2,}.*$', a) is not None:
                 prevtype = 'p'
                 if UnicodeConv(string.lowercase).find(a[0]) != -1:
                     curtype = 'l'
