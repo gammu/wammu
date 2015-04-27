@@ -25,6 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 from Wammu.Utils import SearchNumber
 from Wammu.MessageDisplay import SmsTextFormat
+from Wammu.Locales import ugettext as _
 import tempfile
 import Wammu.Data
 import wx

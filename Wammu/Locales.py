@@ -30,6 +30,9 @@ import codecs
 import __builtin__
 import wx
 import sys
+from gettext import bindtextdomain
+
+_TRANSLATION = None
 
 
 LOCAL_LOCALE_PATH = os.path.join('build', 'share', 'locale')
@@ -139,29 +142,6 @@ def UnicodeConv(txt):
     except UnicodeEncodeError:
         return unicode('???')
 
-class WammuTranslations(gettext.GNUTranslations):
-    '''
-    Wrapper for gettext returning always "correct" charset.
-    '''
-    def ngettext(self, msgid1, msgid2, n):
-        result = gettext.GNUTranslations.ngettext(self, msgid1, msgid2, n)
-        if type(result) == type(''):
-            return unicode(result, 'utf-8')
-        else:
-            return result
-
-    def ugettext(self, message):
-        result = gettext.GNUTranslations.gettext(self, message)
-        if type(result) == type(''):
-            return unicode(result, 'utf-8')
-        else:
-            return result
-
-    def gettext(self, message):
-        return self.ugettext(message)
-
-    def hgettext(self, message):
-        return self.ugettext(message)
 
 def Init():
     '''
@@ -179,7 +159,8 @@ def Init():
         switch = True
     Install()
     if switch:
-        print ConsoleStrConv(_('Automatically switched to local locales.'))
+        print ConsoleStrConv(ugettext('Automatically switched to local locales.'))
+
 
 def UseLocal():
     '''
@@ -189,33 +170,28 @@ def UseLocal():
     LOCALE_PATH = LOCAL_LOCALE_PATH
     Install()
 
+
 def ngettext(msgid1, msgid2, n):
+    if _TRANSLATION:
+        return _TRANSLATION.ungettext(msgid1, msgid2, n)
     if n == 1:
         return msgid1
     else:
         return msgid2
 
+
 def ugettext(message):
+    if _TRANSLATION:
+        return _TRANSLATION.ugettext(message)
     return message
 
-def lgettext(message):
-    return message
-
-def hgettext(message):
-    return message
 
 def Install():
-    global LOCALE_PATH, ngettext, ugettext, lgettext, hgettext
+    global _TRANSLATION
     try:
-        trans = gettext.translation('wammu',
-            class_ = WammuTranslations,
-            localedir = LOCALE_PATH)
-        __builtin__.__dict__['_'] = trans.gettext
-        ngettext = trans.ngettext
-        ugettext = trans.ugettext
-        lgettext = trans.lgettext
-        hgettext = trans.hgettext
+        _TRANSLATION = gettext.translation(
+            'wammu',
+            localedir=LOCALE_PATH
+        )
     except IOError:
-        # No translation found for current locale
-        __builtin__.__dict__['_'] = ugettext
-        pass
+        print ConsoleStrConv('Failed to load translation!')

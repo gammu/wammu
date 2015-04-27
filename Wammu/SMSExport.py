@@ -29,6 +29,8 @@ import wx
 import Wammu.MailWriter
 import Wammu.IMAP
 import re
+from Wammu.Locales import ugettext as _
+
 
 MAILBOX_RE = re.compile(r'\((?P<flags>(\s*\\\w*)*)\)\s+(?P<delim>[^ ]*)\s+(?P<name>.*)')
 POSSIBLY_QUOTED_RE = re.compile(r'"?([^"]*)"?')

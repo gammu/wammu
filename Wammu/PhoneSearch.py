@@ -33,6 +33,7 @@ import Wammu.Data
 import Wammu.Events
 import wx.lib.layoutf
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
 import Wammu.Utils
 
 try:

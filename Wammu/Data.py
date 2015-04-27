@@ -25,6 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import sys
+from Wammu.Locales import ugettext as _
 try:
     from gammu.data import Connections, MemoryValueTypes, CalendarTypes, CalendarValueTypes, TodoPriorities, TodoValueTypes, InternationalPrefixes
 except ImportError:

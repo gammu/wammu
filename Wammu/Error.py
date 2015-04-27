@@ -31,6 +31,7 @@ except ImportError:
 import Wammu.ErrorLog
 import Wammu.ErrorMessage
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
 
 # set later in Wammu.App to have correct parent here
 HANDLER_PARENT = None

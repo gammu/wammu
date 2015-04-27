@@ -38,6 +38,7 @@ except ImportError:
     HAVE_GRP = False
 import Wammu.Locales
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
 
 import Wammu
 if Wammu.gammu_error == None:

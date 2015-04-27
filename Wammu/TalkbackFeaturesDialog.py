@@ -25,6 +25,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import wx
+from Wammu.Locales import ugettext as _
 
 # begin wxGlade: dependencies
 # end wxGlade

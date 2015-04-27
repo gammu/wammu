@@ -32,7 +32,7 @@ if Wammu.gammu_error == None:
     import gammu
 import Wammu.Utils
 import Wammu.Paths
-from Wammu.Locales import hgettext as _, HtmlStrConv
+from Wammu.Locales import ugettext as _, HtmlStrConv
 
 class AboutBox(wx.Dialog):
     '''

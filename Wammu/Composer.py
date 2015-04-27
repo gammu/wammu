@@ -37,6 +37,7 @@ if Wammu.gammu_error == None:
     import gammu
 import locale
 import Wammu.Locales
+from Wammu.Locales import ugettext as _
 
 class MessagePreview(wx.Dialog):
     text = '''

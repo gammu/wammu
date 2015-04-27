@@ -29,6 +29,7 @@ import Wammu
 import Wammu.Webbrowser
 import Wammu.Paths
 import Wammu.ErrorLog
+from Wammu.Locales import ugettext as _
 
 
 BUG_SEARCH_URL = 'https://github.com/search?l=&q=%s+%%40gammu&ref=advsearch&type=Issues'

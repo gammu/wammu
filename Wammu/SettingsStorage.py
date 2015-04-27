@@ -28,6 +28,7 @@ import os
 import Wammu.Paths
 import Wammu.Data
 import Wammu.Utils
+from Wammu.Locales import ugettext as _
 
 COM_PORTS = 16
 UNX_DEVICES = 4

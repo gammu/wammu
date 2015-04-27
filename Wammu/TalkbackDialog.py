@@ -34,6 +34,7 @@ import Wammu.TalkbackFeaturesDialog
 import Wammu.Utils
 import Wammu.Data
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
 if Wammu.gammu_error == None:
     import gammu
 

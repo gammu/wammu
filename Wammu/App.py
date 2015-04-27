@@ -28,6 +28,8 @@ import sys
 import Wammu.Main
 import Wammu.Error
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
+
 
 class WammuApp(wx.App):
     '''

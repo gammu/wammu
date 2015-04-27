@@ -26,6 +26,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
 import wx
 import Wammu.Utils
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
 
 def SortName(item1, item2):
     '''

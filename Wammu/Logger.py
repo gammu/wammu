@@ -29,6 +29,8 @@ import os
 import sys
 import time
 import Wammu.Events
+from Wammu.Locales import ugettext as _
+
 
 class LoggerDebug(threading.Thread):
     '''

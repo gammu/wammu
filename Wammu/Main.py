@@ -79,7 +79,7 @@ import Wammu.WammuSettings
 import Wammu.SMSExport
 import Wammu.SMSXML
 import Wammu.ContactsXML
-from Wammu.Locales import StrConv, ConsoleStrConv
+from Wammu.Locales import StrConv, ConsoleStrConv, ugettext as _
 
 TALKBACK_COUNT = 30
 TALKBACK_DAYS = 30

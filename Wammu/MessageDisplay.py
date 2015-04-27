@@ -29,7 +29,7 @@ import Wammu.Ringtone
 import string
 import re
 import xml.sax.saxutils
-from Wammu.Locales import UnicodeConv, HtmlStrConv, hgettext as _
+from Wammu.Locales import UnicodeConv, HtmlStrConv, ugettext as _
 
 def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
     if txt is None:

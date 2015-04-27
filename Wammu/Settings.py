@@ -32,6 +32,8 @@ import sys
 import Wammu
 import Wammu.GammuSettings
 import Wammu.PhoneWizard
+from Wammu.Locales import ugettext as _
+
 
 class Settings(wx.Dialog):
     def __init__(self, parent, config):

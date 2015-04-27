@@ -27,6 +27,8 @@ import sys
 import threading
 import wx
 import Wammu.Events
+from Wammu.Locales import ugettext as _
+
 
 class Thread(threading.Thread):
     def __init__(self, win, sm):

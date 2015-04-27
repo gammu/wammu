@@ -25,6 +25,8 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import wx
 import re
+from Wammu.Locales import ugettext as _
+
 
 class GammuSettings:
     '''

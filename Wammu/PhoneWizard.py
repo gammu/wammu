@@ -34,6 +34,8 @@ import Wammu.Events
 import Wammu.Utils
 import wx.lib.hyperlink
 from Wammu.Locales import StrConv
+from Wammu.Locales import ugettext as _
+
 
 class FinalPage(Wammu.Wizard.InputPage):
     """
