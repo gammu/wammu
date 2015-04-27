@@ -58,7 +58,9 @@ class MemoryInputStream(wx.InputStream):
         wx.InputStream.__init__(self,cStringIO.StringIO(data))
 
 class EncodedBitmap(wx.StaticBitmap):
-    def __init__(self, parent, tooltip = 'Image', image = defaultbmp, size = None, scale = 1):
+    def __init__(self, parent, tooltip='Image', image=None, size=None, scale=1):
+        if image is None:
+            image = defaultbmp
         image = wx.ImageFromStream(MemoryInputStream(base64.b64decode(image)))
         if scale > 1:
             bitmap = wx.BitmapFromImage(image.Scale(image.GetWidth() * scale, image.GetHeight() * scale))
@@ -68,7 +70,9 @@ class EncodedBitmap(wx.StaticBitmap):
         self.SetToolTipString(tooltip)
 
 class Bitmap(wx.StaticBitmap):
-    def __init__(self, parent, tooltip = 'Image', image = defaultbmp, size = None, scale = 1):
+    def __init__(self, parent, tooltip='Image', image=None, size=None, scale=1):
+        if image is None:
+            image = defaultbmp
         bitmap = wx.BitmapFromXPMData(image)
         if scale > 1:
             img = wx.ImageFromBitmap(bitmap)
@@ -77,7 +81,9 @@ class Bitmap(wx.StaticBitmap):
         self.SetToolTipString(tooltip)
 
 class Throbber(wx.lib.throbber.Throbber):
-    def __init__(self, parent, tooltip = 'Animation', images = [defaultbmp], size = None, scale = 1, delay = 0.1):
+    def __init__(self, parent, tooltip='Animation', images=None, size=None, scale=1, delay=0.1):
+        if images is None:
+            images = [defaultbmp]
         bitmaps = []
         for im in images:
             bitmap = wx.BitmapFromXPMData(im)

@@ -303,7 +303,9 @@ class GenericEditor(wx.Dialog):
     def RemoveButtons(self):
         self.sizer.Detach(self.button_sizer)
 
-    def AddEdit(self, row, value = {'Type':'', 'Value':''}):
+    def AddEdit(self, row, value=None):
+        if value is None:
+            value = {'Type':'', 'Value':''}
         self.rows += 1
         self.sizer.Add(wx.StaticText(self, -1, '%d.' % (row + 1), size = (20, -1)), (row + self.rowoffset, 0))
         combo = wx.ComboBox(self, -1, value['Type'], choices = self.itemtypes + [''], style = wx.CB_READONLY, size = (180, -1))
