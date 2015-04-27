@@ -24,7 +24,6 @@ this program; if not, write to the Free Software Foundation, Inc.,
 '''
 
 import sys
-import os
 import Wammu.Paths
 import Wammu.Data
 import Wammu.Utils

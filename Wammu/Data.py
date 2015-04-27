@@ -26,10 +26,21 @@ this program; if not, write to the Free Software Foundation, Inc.,
 
 import sys
 from Wammu.Locales import ugettext as _
-try:
-    from gammu.data import Connections, MemoryValueTypes, CalendarTypes, CalendarValueTypes, TodoPriorities, TodoValueTypes, InternationalPrefixes
-except ImportError:
-    from gammu.Data import Connections, MemoryValueTypes, CalendarTypes, CalendarValueTypes, TodoPriorities, TodoValueTypes, InternationalPrefixes
+from gammu.data import (
+    Connections, MemoryValueTypes, CalendarTypes, CalendarValueTypes,
+    TodoPriorities, TodoValueTypes, InternationalPrefixes
+)
+
+
+__all__ = (
+    'Connections',
+    'MemoryValueTypes',
+    'CalendarTypes',
+    'CalendarValueTypes',
+    'TodoPriorities',
+    'TodoValueTypes',
+    'InternationalPrefixes',
+)
 
 
 # When support for sound will be implemented, here should be sounds

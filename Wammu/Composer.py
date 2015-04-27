@@ -35,7 +35,6 @@ import Wammu.Select
 import Wammu.EditContactList
 if Wammu.gammu_error == None:
     import gammu
-import locale
 import Wammu.Locales
 from Wammu.Locales import ugettext as _
 

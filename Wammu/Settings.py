@@ -81,7 +81,8 @@ class Settings(wx.Dialog):
         self.sizer_gammu.AddSpacer(1, 1, pos = (0, 0))
         r = 1
 
-        self.editcfgpath = wx.lib.filebrowsebutton.FileBrowseButton(self.notebook_gammu,
+        self.editcfgpath = FileBrowseButton(
+            self.notebook_gammu,
             size = (250, -1),
             labelText = '',
             initialValue = config.Read('/Gammu/Gammurc', False),

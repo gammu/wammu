@@ -28,7 +28,7 @@ from wx import DateTimeFromDMY, DateTime_Today
 import wx.calendar
 import wx.lib.masked.timectrl
 from wx.lib.masked import Ctrl as maskedCtrl
-from Wammu.Paths import *
+from Wammu.Paths import MiscPath
 import datetime
 import time
 import Wammu
@@ -36,7 +36,7 @@ import Wammu.Data
 import Wammu.Utils
 import Wammu.Select
 import Wammu.PhoneValidator
-from Wammu.Locales import StrConv, UnicodeConv
+from Wammu.Locales import StrConv, UnicodeConv, ugettext as _
 
 
 def TextToTime(txt, config):

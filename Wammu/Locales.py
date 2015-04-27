@@ -27,10 +27,7 @@ import os
 import gettext
 import locale
 import codecs
-import __builtin__
-import wx
 import sys
-from gettext import bindtextdomain
 
 _TRANSLATION = None
 

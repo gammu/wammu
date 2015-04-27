@@ -26,12 +26,9 @@ this program; if not, write to the Free Software Foundation, Inc.,
 from Wammu.Utils import SearchNumber
 from Wammu.MessageDisplay import SmsTextFormat
 from Wammu.Locales import ugettext as _
-import tempfile
 import Wammu.Data
 import wx
 import os
-if Wammu.gammu_error == None:
-    import gammu
 
 XMLheader = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"sms.xsl\"?>\n'
 

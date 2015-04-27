@@ -33,7 +33,6 @@ import time
 import copy
 import tempfile
 import Wammu.Webbrowser
-import locale
 import Wammu
 import re
 
@@ -65,7 +64,7 @@ import Wammu.Memory
 import Wammu.Todo
 import Wammu.Calendar
 import Wammu.Settings
-from Wammu.Paths import *
+from Wammu.Paths import AppIconPath, IconPath
 import wx.lib.wxpTag
 import wx.lib.dialogs
 import Wammu.Data
