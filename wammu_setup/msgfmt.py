@@ -158,6 +158,7 @@ def make(filename, outfile):
 
     section = None
     fuzzy = 0
+    msgid = msgstr = ''
 
     # Parse the catalog
     lno = 0
