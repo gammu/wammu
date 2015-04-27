@@ -31,12 +31,6 @@ import Wammu
 import Wammu.Locales
 from Wammu.Locales import ugettext as _
 
-# Try to import iconv_codec to allow working on chinese windows
-try:
-    import iconv_codec
-except ImportError:
-    pass
-
 # Disable warning about missing files
 # This can be caused by attempt to import Python modules, which don't
 # have all DLLs satisfied.

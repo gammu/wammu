@@ -34,12 +34,6 @@ import Wammu.GammuSettings
 import Wammu.Locales
 from Wammu.Locales import ugettext as _
 
-# Try to import iconv_codec to allow working on chinese windows
-try:
-    import iconv_codec
-except ImportError:
-    pass
-
 def version():
     '''
     Displays version information.
