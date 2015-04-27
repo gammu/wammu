@@ -45,7 +45,7 @@ class Reader(Wammu.Thread.Thread):
 
         Should be implemented in subclases.
         '''
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def GetNext(self, location):
         '''
@@ -53,7 +53,7 @@ class Reader(Wammu.Thread.Thread):
 
         Should be implemented in subclases.
         '''
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def Get(self, location):
         '''
@@ -61,7 +61,7 @@ class Reader(Wammu.Thread.Thread):
 
         Should be implemented in subclases.
         '''
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def GetStatus(self):
         '''
@@ -69,7 +69,7 @@ class Reader(Wammu.Thread.Thread):
 
         Should be implemented in subclases.
         '''
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def Parse(self, value):
         '''
@@ -77,7 +77,7 @@ class Reader(Wammu.Thread.Thread):
 
         Should be implemented in subclases.
         '''
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def Send(self, data):
         '''
@@ -85,7 +85,7 @@ class Reader(Wammu.Thread.Thread):
 
         Should be implemented in subclases.
         '''
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def Run(self):
         '''
