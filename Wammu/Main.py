@@ -921,7 +921,7 @@ class WammuFrame(wx.Frame):
         try:
             gammu_config = self.gammu_config
         except AttributeError:
-            gammu_config = Noe
+            gammu_config = None
         evt = Wammu.Events.ShowMessageEvent(
             message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info, gammu_config = gammu_config),
             title = _('Error Occured'),
@@ -1494,7 +1494,7 @@ class WammuFrame(wx.Frame):
 
         if len(values) == 0:
             wx.MessageDialog(self,
-                _('No importable data were found in file "%s"') % strconv(filename),
+                _('No importable data were found in file "%s"') % StrConv(filename),
                 _('No data to import'),
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
             return
