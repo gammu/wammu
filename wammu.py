@@ -29,6 +29,7 @@ import sys
 import getopt
 import Wammu
 import Wammu.Locales
+from Wammu.Locales import ugettext as _
 
 # Try to import iconv_codec to allow working on chinese windows
 try:

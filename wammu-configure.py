@@ -32,6 +32,7 @@ import time
 import Wammu
 import Wammu.GammuSettings
 import Wammu.Locales
+from Wammu.Locales import ugettext as _
 
 # Try to import iconv_codec to allow working on chinese windows
 try:
@@ -43,7 +44,7 @@ def version():
     '''
     Displays version information.
     '''
-    print (_('Wammu Configurator - Wammu and Gammu configurator version %s') 
+    print (_('Wammu Configurator - Wammu and Gammu configurator version %s')
             % Wammu.__version__)
 
 def usage():
@@ -70,8 +71,8 @@ def parse_options():
     Processes program options.
     '''
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 
-                'hvl', 
+        opts, args = getopt.getopt(sys.argv[1:],
+                'hvl',
                 ['help', 'version', 'local-locales'])
     except getopt.GetoptError, val:
         usage()
@@ -115,9 +116,9 @@ def do_wizard():
         busy = wx.BusyInfo(_('Updating gammu configuration...'))
         time.sleep(0.1)
         wx.Yield()
-        config.SetConfig(result['Position'], 
-                result['Device'], 
-                result['Connection'], 
+        config.SetConfig(result['Position'],
+                result['Device'],
+                result['Connection'],
                 result['Name'])
         del busy
     app.Destroy()
