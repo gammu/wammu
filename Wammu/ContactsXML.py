@@ -35,107 +35,107 @@ XMLheader = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\
 
 
 def ContactToXML(cfg, folder, contact):
-	'''
-	Convert a contact to XML
-	'''
+    '''
+    Convert a contact to XML
+    '''
 
-	addr_zip = ''
-	addr_street = ''
-	addr_city = ''
-	addr_state = ''
-	addr_country = ''
+    addr_zip = ''
+    addr_street = ''
+    addr_city = ''
+    addr_state = ''
+    addr_country = ''
 
-	contactxml = "    <contact>\n"
+    contactxml = "    <contact>\n"
 
-	contactxml += "        <name>"
-	contactxml += contact['Name'].encode('utf-8')
-	contactxml += "</name>\n"
+    contactxml += "        <name>"
+    contactxml += contact['Name'].encode('utf-8')
+    contactxml += "</name>\n"
 
-	for i in contact['Entries']:
-		if i['Type'] == 'Text_Zip':
-			addr_zip = i['Value']
-		elif i['Type'] == 'Text_StreetAddress':
-			addr_street = i['Value']
-		elif i['Type'] == 'Text_City':
-			addr_city = i['Value']
-		elif i['Type'] == 'Text_State':
-			addr_state = i['Value']
-		elif i['Type'] == 'Text_Country':
-			addr_country = i['Value']
-		elif i['Type'] == 'Text_Note':
-			contactxml += "        <note>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</note>\n"
-		elif i['Type'] == 'Text_URL':
-			contactxml += "        <url>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</url>\n"
-		elif i['Type'] == 'Text_Email':
-			if (i['Value'] != ''):
-				contactxml += "        <email>"
-				contactxml += i['Value'].encode('utf-8')
-				contactxml += "</email>\n"
-		elif i['Type'] == 'Text_Email2':
-			if (i['Value'] != ''):
-				contactxml += "        <email>"
-				contactxml += i['Value'].encode('utf-8')
-				contactxml += "</email>\n"
-		elif i['Type'] == 'Number_Mobile':
-			contactxml += "        <mobile>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</mobile>\n"
-		elif i['Type'] == 'Number_Work':
-			contactxml += "        <work>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</work>\n"
-		elif i['Type'] == 'Number_Fax':
-			contactxml += "        <fax>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</fax>\n"
-		elif i['Type'] == 'Number_Home':
-			contactxml += "        <home>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</home>\n"
-		elif i['Type'][:7] == 'Number_':
-			contactxml += "        <phone>"
-			contactxml += i['Value'].encode('utf-8')
-			contactxml += "</phone>\n"
+    for i in contact['Entries']:
+        if i['Type'] == 'Text_Zip':
+            addr_zip = i['Value']
+        elif i['Type'] == 'Text_StreetAddress':
+            addr_street = i['Value']
+        elif i['Type'] == 'Text_City':
+            addr_city = i['Value']
+        elif i['Type'] == 'Text_State':
+            addr_state = i['Value']
+        elif i['Type'] == 'Text_Country':
+            addr_country = i['Value']
+        elif i['Type'] == 'Text_Note':
+            contactxml += "        <note>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</note>\n"
+        elif i['Type'] == 'Text_URL':
+            contactxml += "        <url>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</url>\n"
+        elif i['Type'] == 'Text_Email':
+            if (i['Value'] != ''):
+                contactxml += "        <email>"
+                contactxml += i['Value'].encode('utf-8')
+                contactxml += "</email>\n"
+        elif i['Type'] == 'Text_Email2':
+            if (i['Value'] != ''):
+                contactxml += "        <email>"
+                contactxml += i['Value'].encode('utf-8')
+                contactxml += "</email>\n"
+        elif i['Type'] == 'Number_Mobile':
+            contactxml += "        <mobile>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</mobile>\n"
+        elif i['Type'] == 'Number_Work':
+            contactxml += "        <work>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</work>\n"
+        elif i['Type'] == 'Number_Fax':
+            contactxml += "        <fax>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</fax>\n"
+        elif i['Type'] == 'Number_Home':
+            contactxml += "        <home>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</home>\n"
+        elif i['Type'][:7] == 'Number_':
+            contactxml += "        <phone>"
+            contactxml += i['Value'].encode('utf-8')
+            contactxml += "</phone>\n"
 
-	addr_full = addr_zip
-	if (addr_street != ''):
-		if (addr_full != ''):
-			addr_full += ','
-		addr_full += addr_street
-	if (addr_city != ''):
-		if (addr_full != ''):
-			addr_full += ','
-		addr_full += addr_city
-	if (addr_state != ''):
-		if (addr_full != ''):
-			addr_full += ','
-		addr_full += addr_state
-	if (addr_country != ''):
-		if (addr_full != ''):
-			addr_full += ','
-		addr_full += addr_country
-	if (addr_full != ''):
-		contactxml += "        <address>"
-		contactxml += addr_full.encode('utf-8')
-		contactxml += "</address>\n"
+    addr_full = addr_zip
+    if (addr_street != ''):
+        if (addr_full != ''):
+            addr_full += ','
+        addr_full += addr_street
+    if (addr_city != ''):
+        if (addr_full != ''):
+            addr_full += ','
+        addr_full += addr_city
+    if (addr_state != ''):
+        if (addr_full != ''):
+            addr_full += ','
+        addr_full += addr_state
+    if (addr_country != ''):
+        if (addr_full != ''):
+            addr_full += ','
+        addr_full += addr_country
+    if (addr_full != ''):
+        contactxml += "        <address>"
+        contactxml += addr_full.encode('utf-8')
+        contactxml += "</address>\n"
 
-	if contact['Date'] is not None:
+    if contact['Date'] is not None:
 
-		contactxml += "        <birthday>"
-		contactxml += contact['Date'].strftime("%d.%m.%Y")
-		contactxml += "</birthday>\n"
+        contactxml += "        <birthday>"
+        contactxml += contact['Date'].strftime("%d.%m.%Y")
+        contactxml += "</birthday>\n"
 
-	contactxml += "        <folder>"
-	contactxml += folder.encode('utf-8')
-	contactxml += "</folder>\n"
+    contactxml += "        <folder>"
+    contactxml += folder.encode('utf-8')
+    contactxml += "</folder>\n"
 
-	contactxml += "    </contact>\n"
+    contactxml += "    </contact>\n"
 
-	return contactxml;
+    return contactxml;
 
 def ContactsExportXML(parent, contactsSM, contactsME):
     countSM = len(contactsSM)
@@ -160,8 +160,8 @@ def ContactsExportXML(parent, contactsSM, contactsME):
     parent.ShowProgress(_('Saving contacts to XML'))
     try:
         f = file(path, 'w')
-	f.write(XMLheader)
-	f.write("<contacts>\n")
+        f.write(XMLheader)
+        f.write("<contacts>\n")
         for i in range(countSM):
             if not parent.progress.Update(i * 100 / count):
                 del parent.progress
@@ -184,7 +184,7 @@ def ContactsExportXML(parent, contactsSM, contactsME):
 
             f.write(data)
 
-	f.write("</contacts>\n")
+        f.write("</contacts>\n")
         f.close()
     except IOError:
         del parent.progress
