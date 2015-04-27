@@ -61,7 +61,7 @@ class EncodedBitmap(wx.StaticBitmap):
     def __init__(self, parent, tooltip = 'Image', image = defaultbmp, size = None, scale = 1):
         image = wx.ImageFromStream(MemoryInputStream(base64.b64decode(image)))
         if scale > 1:
-            bitmap = wx.BitmapFromImage(image.Scale(bitmap.GetWidth() * scale, bitmap.GetHeight() * scale))
+            bitmap = wx.BitmapFromImage(image.Scale(image.GetWidth() * scale, image.GetHeight() * scale))
         else:
             bitmap = wx.BitmapFromImage(image)
         wx.StaticBitmap.__init__(self, parent, -1, bitmap, (0,0))
