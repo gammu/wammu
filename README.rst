@@ -7,6 +7,18 @@ GUI for Gammu library.
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
+.. image:: https://landscape.io/github/gammu/wammu/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/gammu/wammu/master
+    :alt: Code Health
+
+.. image:: https://img.shields.io/gratipay/Gammu.svg
+    :alt: Gratipay
+    :target: https://gratipay.com/Gammu/
+
+.. image:: https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received
+    :alt: Bountysource
+    :target: https://www.bountysource.com/teams/gammu/issues?utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received
+
 Homepage
 ========
 
