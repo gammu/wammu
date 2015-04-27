@@ -76,7 +76,6 @@ def usage(code, msg=''):
 
 def add(id, str, fuzzy):
     "Add a non-fuzzy translation to the dictionary."
-    global MESSAGES
     if not fuzzy and str and not str.startswith('\0'):
         MESSAGES[id] = str
         if id == DESKTOP_NAME:
