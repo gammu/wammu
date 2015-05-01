@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Wammu 0.38\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-12-29 11:47+0100\n"
-"PO-Revision-Date: 2012-03-14 14:41+0200\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <he@li.org>\n"
+"PO-Revision-Date: 2015-05-01 14:46+0200\n"
+"Last-Translator: Rafi Yehezak-el <rafi3456@gmail.com>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/gammu/wammu/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.3-dev\n"
 
 #: Wammu/About.py:43
 msgid "About Wammu"
@@ -48,6 +48,9 @@ msgid ""
 "it under the terms of the GNU General Public License version 2 as\n"
 "published by the Free Software Foundation.\n"
 msgstr ""
+"התוכנה הזאת היא תוכנה חופשית.אתה יכול להפיץ אותה הלאה וגם\\או לשנות אותה ,כל "
+"עוד אתה עומד בתנאי GMU 2 (רשיון ציבורי גרסה 2) ,שפורסם על ידי עמותת תוכנה "
+"חופשית."
 
 #: Wammu/About.py:109
 msgid ""
@@ -57,6 +60,10 @@ msgid ""
 "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
 "GNU General Public License for more details.\n"
 msgstr ""
+"התוכנה הזאת מופצת תוך מחשבה שהיא תהיה שימושית עבור המשתמשים, אולם ללא כל "
+"נשיאה בשום אחריות כלשהיא, מרומזת ,ישירה או עקיפה בנוגע ליכולת הסחירות בה או "
+"ההתאמה שלה למטרה או אופן כלשהו.\n"
+"עבור פרטים נוספים בנושא ,אנא ראה את תנאי ה- GNU (רשיון ציבורי)"
 
 #: Wammu/App.py:66
 msgid "Failed to set exception handler."
@@ -206,27 +213,27 @@ msgstr "סגנון"
 msgid "%d char"
 msgid_plural "%d chars"
 msgstr[0] "תו אחד (%d)"
-msgstr[1] "%d תווים"
+msgstr[1] "%d תווים אחרים"
 
 #: Wammu/Composer.py:260
 msgid "Select predefined animation:"
-msgstr "בחירת הנפשה שנוצרה מראש:"
+msgstr "בחירת הנפשה שהוגדרה מראש:"
 
 #: Wammu/Composer.py:297
 msgid "Select predefined sound:"
-msgstr "בחירת צליל שנוצר מראש:"
+msgstr "בחר צליל שהוגדר מראש:"
 
 #: Wammu/Composer.py:313
 msgid "Predefined animation"
-msgstr "הנפשה שנוצרה מראש"
+msgstr "הנפשה שהוגדרה מראש"
 
 #: Wammu/Composer.py:314
 msgid "Predefined sound"
-msgstr "צליל שנוצר מראש"
+msgstr "צליל שהוגדר מראש"
 
 #: Wammu/Composer.py:319
 msgid "Composing SMS"
-msgstr "חיבור מסרון"
+msgstr "כתיבת מסרון"
 
 #: Wammu/Composer.py:349
 msgid "When checked, message is sent to recipient."
@@ -238,15 +245,15 @@ msgstr "שמירה לתיקייה"
 
 #: Wammu/Composer.py:353
 msgid "When checked, message is saved to phone."
-msgstr "כשמסומן, ההודעה נשמרת לטלפון."
+msgstr "כאשר מסומן, ההודעה נשמרת בטלפון."
 
 #: Wammu/Composer.py:368
 msgid "Add"
-msgstr "הוספה"
+msgstr "הוסף"
 
 #: Wammu/Composer.py:369
 msgid "Add number of recipient from contacts."
-msgstr "הוספת מספר של נמען מאנשי הקשר."
+msgstr "הוסף מספר של נמען מאנשי הקשר."
 
 #: Wammu/Composer.py:372
 msgid "Edit recipients list."
@@ -258,7 +265,7 @@ msgstr "מספרי הנמענים:"
 
 #: Wammu/Composer.py:384
 msgid "Unicode"
-msgstr "יוניקוד"
+msgstr "יוניקוד (קוד אחיד)"
 
 #: Wammu/Composer.py:385 Wammu/Settings.py:246
 msgid ""
@@ -266,85 +273,90 @@ msgid ""
 "this if you use non latin-1 characters. Your messages will require more "
 "space, so you can write less characters into single message."
 msgstr ""
+"הודעות המכילות יוניקוד (קוד אחיד) יכולות להכיל תווי כיתוב מקומיים ויחודיים, "
+"סמן כאן אם אתה משתמש בתווים שאינם לטינים-1 . ההודעה שלך תהיה בעלת נפח גדול "
+"יותר , לכן אתה יכול לכתוב פחות תווים בהודעה יחידה."
 
 #: Wammu/Composer.py:395
 msgid "Delivery report"
-msgstr ""
+msgstr "דו\"ח מסירה"
 
 #: Wammu/Composer.py:396 Wammu/Settings.py:252
 msgid "Check to request delivery report for message."
-msgstr ""
+msgstr "סמן כאן אם ברצונך לבקש הודעת דו\"ח מסירה."
 
 #: Wammu/Composer.py:400 Wammu/Main.py:134 Wammu/SMSExport.py:441
 msgid "Sent"
-msgstr ""
+msgstr "נשלח"
 
 #: Wammu/Composer.py:401
+#, fuzzy
 msgid ""
 "Check to save message as sent (has only effect when only saving message)."
 msgstr ""
+"סמן כאן בכדי לשמור את ההודעה באופן שהיא נשלחה (פעיל רק כאשר שומרים את ההודעה)"
 
 #: Wammu/Composer.py:404
 msgid "Flash"
-msgstr ""
+msgstr "בזק"
 
 #: Wammu/Composer.py:405
 msgid ""
 "Send flash message - it will be just displayed on display, but not saved in "
 "phone."
-msgstr ""
+msgstr "שלח הודעת בזק - היא תהיה מוצגת רק על התצוגה ,אולם לא תשמר בטלפון."
 
 #: Wammu/Composer.py:413
 msgid "Parts of current message"
-msgstr ""
+msgstr "חלק מההודעה הנוכחית"
 
 #: Wammu/Composer.py:414
 msgid "Available message parts"
-msgstr ""
+msgstr "חלקים מההודעה זמינים"
 
 #: Wammu/Composer.py:444 Wammu/Composer.py:533
 msgid "Create new message by adding part to left list..."
-msgstr ""
+msgstr "צור הודעה חדשה על ידי הוספת חלק אל הרשימה השמאלית..."
 
 #: Wammu/Composer.py:449
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מוקדמת"
 
 #: Wammu/Composer.py:519
 #, python-format
 msgid "Not supported id: %s"
-msgstr ""
+msgstr "זהות : %s  לא נתמכת"
 
 #: Wammu/Composer.py:560
 #, python-format
 msgid "No editor available for type %s"
-msgstr ""
+msgstr "אין עורך זמין עבור סוג : %s"
 
 #: Wammu/Composer.py:641
 msgid "Nothing to preview, message is empty."
-msgstr ""
+msgstr "אין תצוגה מוקדמת , ההודעה ריקה."
 
 #: Wammu/Composer.py:642
 msgid "Message empty!"
-msgstr ""
+msgstr "הודעה ריקה!"
 
 #: Wammu/Composer.py:652
 #, python-format
 msgid "Message will fit into %d SMSes"
-msgstr ""
+msgstr "ההודעה תתאים להודעות מסוג  %d"
 
 #: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:86
 msgid "XML File"
-msgstr ""
+msgstr "קובץ XML"
 
 #: Wammu/ContactsXML.py:148 Wammu/EditContactList.py:92 Wammu/Main.py:1407
 #: Wammu/Main.py:2102 Wammu/SMSExport.py:38 Wammu/SMSXML.py:86
 msgid "All files"
-msgstr ""
+msgstr "כל הקבצים"
 
 #: Wammu/ContactsXML.py:151 Wammu/SMSXML.py:89
 msgid "Select XML file..."
-msgstr ""
+msgstr "בחר קובץ XML ..."
 
 #: Wammu/ContactsXML.py:164
 msgid "Saving contacts to XML"
