@@ -283,13 +283,13 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         for i in range(cnt):
             size = self.GetTextExtent(StrConv(self.columns[i]))[0]
             # 16 bellow is for sort arrrow
-            if (size + 16 > maxval[i]):
+            if size + 16 > maxval[i]:
                 maxval[i] = size + 16
 
         for current in self.values:
             for i in range(cnt):
                 size = self.GetTextExtent(StrConv(current[self.keys[i]]))
-                if (size[0] > maxval[i]):
+                if size[0] > maxval[i]:
                     maxval[i] = size[0]
         for i in range(cnt - 1):
             self.SetColumnWidth(i, maxval[i] + spc)

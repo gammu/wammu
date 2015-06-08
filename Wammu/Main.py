@@ -558,7 +558,7 @@ class WammuFrame(wx.Frame):
 
         self.DoDebug(self.cfg.Read('/Debug/Show'))
 
-        if (self.cfg.Read('/Wammu/AutoConnect') == 'yes'):
+        if self.cfg.Read('/Wammu/AutoConnect') == 'yes':
             self.PhoneConnect()
 
         self.TalkbackCheck()
@@ -942,7 +942,7 @@ class WammuFrame(wx.Frame):
                     evt.cancel()
                 except:
                     pass
-            if (evt.progress == 100):
+            if evt.progress == 100:
                 del self.progress
         if hasattr(evt, 'lock'):
             evt.lock.release()
@@ -1420,8 +1420,7 @@ class WammuFrame(wx.Frame):
                 ext = exts[dlg.GetFilterIndex()]
                 # Add automatic extension if we know one and file does not
                 # have any
-                if (os.path.splitext(path)[1] == '' and
-                        ext is not None):
+                if os.path.splitext(path)[1] == '' and ext is not None:
                     path += '.' + ext
             return Wammu.Locales.ConsoleStrConv(path)
         return None

@@ -70,12 +70,12 @@ def ContactToXML(cfg, folder, contact):
             contactxml += i['Value'].encode('utf-8')
             contactxml += "</url>\n"
         elif i['Type'] == 'Text_Email':
-            if (i['Value'] != ''):
+            if i['Value']:
                 contactxml += "        <email>"
                 contactxml += i['Value'].encode('utf-8')
                 contactxml += "</email>\n"
         elif i['Type'] == 'Text_Email2':
-            if (i['Value'] != ''):
+            if i['Value']:
                 contactxml += "        <email>"
                 contactxml += i['Value'].encode('utf-8')
                 contactxml += "</email>\n"
@@ -101,23 +101,23 @@ def ContactToXML(cfg, folder, contact):
             contactxml += "</phone>\n"
 
     addr_full = addr_zip
-    if (addr_street != ''):
-        if (addr_full != ''):
+    if addr_street:
+        if addr_full:
             addr_full += ','
         addr_full += addr_street
-    if (addr_city != ''):
-        if (addr_full != ''):
+    if addr_city:
+        if addr_full:
             addr_full += ','
         addr_full += addr_city
-    if (addr_state != ''):
-        if (addr_full != ''):
+    if addr_state:
+        if addr_full:
             addr_full += ','
         addr_full += addr_state
-    if (addr_country != ''):
-        if (addr_full != ''):
+    if addr_country:
+        if addr_full:
             addr_full += ','
         addr_full += addr_country
-    if (addr_full != ''):
+    if addr_full:
         contactxml += "        <address>"
         contactxml += addr_full.encode('utf-8')
         contactxml += "</address>\n"
@@ -152,8 +152,7 @@ def ContactsExportXML(parent, contactsSM, contactsME):
     ext = exts[dlg.GetFilterIndex()]
     # Add automatic extension if we know one and file does not
     # have any
-    if (os.path.splitext(path)[1] == '' and
-            ext is not None):
+    if os.path.splitext(path)[1] == '' and ext is not None:
         path += '.' + ext
 
     parent.ShowProgress(_('Saving contacts to XML'))
