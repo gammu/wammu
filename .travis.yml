@@ -1,0 +1,18 @@
+language: python
+python:
+  - "2.7"
+  - "2.6"
+before_install:
+  - sudo add-apt-repository ppa:nijel/ppa -y
+  - sudo apt-get update
+  - sudo apt-get install libgtk2.0-dev libgammu-dev
+install:
+  - pip install codecov gammu
+  - pip install --upgrade --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix 
+script:
+  - ./setup.py install
+after_script:
+  - if [ -f ".coverage" ] ; then codecov ; fi
+notifications:
+  webhooks:
+    - https://buildtimetrend.herokuapp.com/travis
