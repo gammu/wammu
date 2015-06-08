@@ -281,14 +281,6 @@ class build_wammu(distutils.command.build.build, object):
             print 'WARNING: PyBluez not found, without it you can not search for bluetooth devices'
             print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
 
-        print 'Checking for xml stack ...',
-        try:
-            import xml
-            print 'OK'
-        except ImportError:
-            print
-            print 'python-xml not found!'
-
         if sys.platform == 'win32':
             print 'Checking for PyWin32 ...',
             try:
