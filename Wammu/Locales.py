@@ -65,9 +65,9 @@ def ConsoleStrConv(txt):
     This function coverts something (txt) to string form usable on console.
     """
     try:
-        if type(txt) == type(''):
+        if isinstance(txt, str):
             return txt
-        if type(txt) == type(u''):
+        elif isinstance(txt, unicode):
             return str(CONSOLE_ENCODER(txt, 'replace')[0])
         return str(txt)
     except UnicodeEncodeError:
@@ -85,9 +85,9 @@ def StrConv(txt):
     dependant text.
     """
     try:
-        if type(txt) == type(u''):
+        if isinstance(txt, unicode):
             return txt
-        if type(txt) == type(''):
+        elif isinstance(txt, str):
             return unicode(txt, LOCALE_CHARSET)
         return str(txt)
     except UnicodeEncodeError:
@@ -111,9 +111,9 @@ def HtmlStrConv(txt):
     dependant text.
     """
     try:
-        if type(txt) == type(u''):
+        if isinstance(txt, unicode):
             return txt
-        if type(txt) == type(''):
+        elif isinstance(txt, str):
             return unicode(txt, LOCALE_CHARSET)
         return str(txt)
     except UnicodeEncodeError:
@@ -131,9 +131,9 @@ def UnicodeConv(txt):
     dependant text.
     """
     try:
-        if type(txt) == type(u''):
+        if isinstance(txt, unicode):
             return txt
-        if type(txt) == type(''):
+        elif isinstance(txt, str):
             return unicode(txt, LOCALE_CHARSET)
         return unicode(str(txt), LOCALE_CHARSET)
     except UnicodeEncodeError:

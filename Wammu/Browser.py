@@ -334,7 +334,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         '''
         Compare function for internal list of values.
         '''
-        if self.sortkey == 'Location' and type(item1[self.sortkey]) == type(''):
+        if self.sortkey == 'Location' and isinstance(item1[self.sortkey], str):
             return self.sortorder * cmp(
                 int(item1[self.sortkey].split(',')[0]),
                 int(item2[self.sortkey].split(', ')[0]))
