@@ -37,11 +37,13 @@ if sys.platform.startswith('win'):
     import win32con
     win32api.SetErrorMode(win32con.SEM_NOOPENFILEERRORBOX)
 
+
 def version():
     '''
     Displays version information.
     '''
     print _('Wammu - Windowed Gammu version %s') % Wammu.__version__
+
 
 def usage():
     '''
@@ -52,21 +54,27 @@ def usage():
     print
     print _('Options:')
     print '%-20s ... %s' % (
-            '-h/--help',
-            _('show this help'))
+        '-h/--help',
+        _('show this help')
+    )
     print '%-20s ... %s' % (
-            '-v/--version',
-            _('show program version'))
+        '-v/--version',
+        _('show program version')
+    )
     print '%-20s ... %s' % (
-            '-l/--local-locales',
-            _('force using of locales from current directory rather than system ones'))
+        '-l/--local-locales',
+        _('force using of locales from current directory rather than system ones')
+    )
     print '%-20s ... %s' % (
-            '-i/--info',
-            _('prints connection settings and tries to connect the phone'))
+        '-i/--info',
+        _('prints connection settings and tries to connect the phone')
+    )
     print '%-20s ... %s' % (
-            '-d/--debug',
-            _('enables debug output to stderr'))
+        '-d/--debug',
+        _('enables debug output to stderr')
+    )
     print
+
 
 def info():
     '''
@@ -85,14 +93,14 @@ def info():
     cfg = {
         'StartInfo': settings.ReadBool('/Gammu/StartInfo'),
         'UseGlobalDebugFile': True,
-        'DebugFile': None, # Set on other place
+        'DebugFile': None,  # Set on other place
         'SyncTime': settings.ReadBool('/Gammu/SyncTime'),
         'Connection': config['Connection'],
         'LockDevice': settings.ReadBool('/Gammu/LockDevice'),
-        'DebugLevel': 'textalldate', # Set on other place
+        'DebugLevel': 'textalldate',  # Set on other place
         'Device': config['Device'],
         'Model': config['Model'],
-        }
+    }
 
     # Compatibility with old Gammu versions
     cfg = Wammu.Utils.CompatConfig(cfg)
@@ -122,14 +130,17 @@ def info():
     if Code is not None:
         print '%-15s: %s' % (_('Requested code'), Code)
 
+
 def parse_options():
     '''
     Processes program options.
     '''
     try:
-        opts, args = getopt.getopt(sys.argv[1:],
-                'hvlid',
-                ['help', 'version', 'local-locales', 'info', 'debug'])
+        opts, args = getopt.getopt(
+            sys.argv[1:],
+            'hvlid',
+            ['help', 'version', 'local-locales', 'info', 'debug']
+        )
     except getopt.GetoptError, val:
         usage()
         print _('Command line parsing failed with error:')
@@ -161,6 +172,7 @@ def parse_options():
     if do_info:
         info()
         sys.exit()
+
 
 if __name__ == '__main__':
     Wammu.Locales.Init()

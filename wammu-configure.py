@@ -32,12 +32,14 @@ import Wammu.GammuSettings
 import Wammu.Locales
 from Wammu.Locales import ugettext as _
 
+
 def version():
     '''
     Displays version information.
     '''
     print (_('Wammu Configurator - Wammu and Gammu configurator version %s')
-            % Wammu.__version__)
+           % Wammu.__version__)
+
 
 def usage():
     '''
@@ -48,24 +50,30 @@ def usage():
     print
     print _('Options:')
     print '%-20s ... %s' % (
-            '-h/--help',
-            _('show this help'))
+        '-h/--help',
+        _('show this help')
+    )
     print '%-20s ... %s' % (
-            '-v/--version',
-            _('show program version'))
+        '-v/--version',
+        _('show program version')
+    )
     print '%-20s ... %s' % (
-            '-l/--local-locales',
-            _('force using of locales from current directory rather than system ones'))
+        '-l/--local-locales',
+        _('force using of locales from current directory rather than system ones')
+    )
     print
+
 
 def parse_options():
     '''
     Processes program options.
     '''
     try:
-        opts, args = getopt.getopt(sys.argv[1:],
-                'hvl',
-                ['help', 'version', 'local-locales'])
+        opts, args = getopt.getopt(
+            sys.argv[1:],
+            'hvl',
+            ['help', 'version', 'local-locales']
+        )
     except getopt.GetoptError, val:
         usage()
         print _('Command line parsing failed with error:')
@@ -88,6 +96,7 @@ def parse_options():
             version()
             sys.exit()
 
+
 def do_wizard():
     '''
     Runs configuration wizard.
@@ -98,7 +107,7 @@ def do_wizard():
 
     config = Wammu.GammuSettings.GammuSettings(wammu_cfg)
 
-    position = config.SelectConfig(new = True)
+    position = config.SelectConfig(new=True)
 
     if position is None:
         sys.exit()
@@ -108,12 +117,15 @@ def do_wizard():
         busy = wx.BusyInfo(_('Updating gammu configuration...'))
         time.sleep(0.1)
         wx.Yield()
-        config.SetConfig(result['Position'],
-                result['Device'],
-                result['Connection'],
-                result['Name'])
+        config.SetConfig(
+            result['Position'],
+            result['Device'],
+            result['Connection'],
+            result['Name']
+        )
         del busy
     app.Destroy()
+
 
 if __name__ == '__main__':
     Wammu.Locales.Init()

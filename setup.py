@@ -51,12 +51,13 @@ WXPYTHON_REQUIRED = (2, 6, 2, 0)
 # check if Python is called on the first line with this expression
 first_line_re = re.compile('^#!.*python[0-9.]*([ \t].*)?$')
 
+
 class build_scripts_wammu(distutils.command.build_scripts.build_scripts, object):
     '''
     This is mostly distutils copy, it just renames script according
     to platform (.pyw for Windows, without extension for others)
     '''
-    def copy_scripts (self):
+    def copy_scripts(self):
         """Copy each script listed in 'self.scripts'; if it's marked as a
         Python script in the Unix way (first line matches 'first_line_re',
         ie. starts with "\#!" and contains "python"), then adjust the first
@@ -97,8 +98,9 @@ class build_scripts_wammu(distutils.command.build_scripts.build_scripts, object)
                     post_interp = match.group(1) or ''
 
             if adjust:
-                distutils.log.info("copying and adjusting %s -> %s", script,
-                         self.build_dir)
+                distutils.log.info(
+                    "copying and adjusting %s -> %s", script, self.build_dir
+                )
                 if not self.dry_run:
                     outf = open(outfile, "w")
                     if not distutils.sysconfig.python_build:
@@ -106,11 +108,13 @@ class build_scripts_wammu(distutils.command.build_scripts.build_scripts, object)
                                    (os.path.normpath(sys.executable),
                                     post_interp))
                     else:
-                        outf.write("#!%s%s\n" %
-                                   (os.path.join(
-                            distutils.sysconfig.get_config_var("BINDIR"),
-                            "python" + distutils.sysconfig.get_config_var("EXE")),
-                                    post_interp))
+                        outf.write("#!%s%s\n" % (
+                            os.path.join(
+                                distutils.sysconfig.get_config_var("BINDIR"),
+                                "python" + distutils.sysconfig.get_config_var("EXE")
+                            ),
+                            post_interp
+                        ))
                     outf.writelines(f.readlines())
                     outf.close()
                 if f:
@@ -127,13 +131,14 @@ class build_scripts_wammu(distutils.command.build_scripts.build_scripts, object)
                     oldmode = os.stat(file)[ST_MODE] & 07777
                     newmode = (oldmode | 0555) & 07777
                     if newmode != oldmode:
-                        distutils.log.info("changing mode of %s from %o to %o",
-                                 file, oldmode, newmode)
+                        distutils.log.info(
+                            "changing mode of %s from %o to %o",
+                            file, oldmode, newmode
+                        )
                         os.chmod(file, newmode)
 
-    # copy_scripts ()
 
-def list_message_files(package = 'wammu', suffix = '.po'):
+def list_message_files(package='wammu', suffix='.po'):
     """
     Return list of all found message files and their installation paths.
     """
@@ -145,6 +150,7 @@ def list_message_files(package = 'wammu', suffix = '.po'):
         _list.append((_locale, _file, os.path.join(
             'share', 'locale', _locale, 'LC_MESSAGES', '%s.mo' % package)))
     return _list
+
 
 class build_wammu(distutils.command.build.build, object):
     """
@@ -163,22 +169,22 @@ class build_wammu(distutils.command.build.build, object):
             if line.startswith('_Name'):
                 out_desktop.write('Name=%s\n' % msgfmt.DESKTOP_NAME)
                 for loc in translations.keys():
-                    if translations[loc].has_key('Name'):
+                    if 'Name' in translations[loc]:
                         out_desktop.write('Name[%s]=%s\n' % (loc, translations[loc]['Name']))
             elif line.startswith('_GenericName'):
                 out_desktop.write('GenericName=%s\n' % msgfmt.DESKTOP_GENERIC_NAME)
                 for loc in translations.keys():
-                    if translations[loc].has_key('GenericName'):
+                    if 'GenericName' in translations[loc]:
                         out_desktop.write('GenericName[%s]=%s\n' % (loc, translations[loc]['GenericName']))
             elif line.startswith('_Comment'):
                 out_desktop.write('Comment=%s\n' % msgfmt.DESKTOP_COMMENT)
                 for loc in translations.keys():
-                    if translations[loc].has_key('Comment'):
+                    if 'Comment' in translations[loc]:
                         out_desktop.write('Comment[%s]=%s\n' % (loc, translations[loc]['Comment']))
             elif line.startswith('_Keywords'):
                 out_desktop.write('Keywords=%s\n' % msgfmt.DESKTOP_KEYWORDS)
                 for loc in translations.keys():
-                    if translations[loc].has_key('Keywords'):
+                    if 'Keywords' in translations[loc]:
                         out_desktop.write('Keywords[%s]=%s\n' % (loc, translations[loc]['Keywords']))
             else:
                 out_desktop.write(line)
@@ -198,7 +204,7 @@ class build_wammu(distutils.command.build.build, object):
         p2.text = msgfmt.DESKTOP_DESCRIPTION_2
         for loc in translations.keys():
             translation = translations[loc]
-            if translation.has_key('Description_1') and translation.has_key('Description_2'):
+            if 'Description_1' in translation and 'Description_2' in translation:
                 p1 = ElementTree.SubElement(description, 'p')
                 p1.set('xml:lang', loc)
                 p1.text = translation['Description_1'].decode('utf-8')
@@ -207,7 +213,7 @@ class build_wammu(distutils.command.build.build, object):
                 p2.text = translation['Description_2'].decode('utf-8')
         tree.write(appdata, 'utf-8', True)
 
-    def build_message_files (self):
+    def build_message_files(self):
         """
         For each locale/*.po, build .mo file in target locale directory.
 
@@ -226,7 +232,6 @@ class build_wammu(distutils.command.build.build, object):
 
         self.build_desktop_file(translations)
         self.build_appdata_file(translations)
-
 
     def check_requirements(self):
         print 'Checking for python-gammu ...',
@@ -287,7 +292,9 @@ class build_wammu(distutils.command.build.build, object):
         if sys.platform == 'win32':
             print 'Checking for PyWin32 ...',
             try:
-                import win32file, win32com, win32api
+                import win32file
+                import win32com
+                import win32api
                 print 'found'
             except ImportError:
                 print 'not found!'
@@ -295,17 +302,18 @@ class build_wammu(distutils.command.build.build, object):
                 print 'PyWin32 can be downloaded from <https://sourceforge.net/projects/pywin32/>'
                 sys.exit(1)
 
-    def run (self):
+    def run(self):
         self.build_message_files()
         self.check_requirements()
         super(build_wammu, self).run()
+
 
 class clean_wammu(distutils.command.clean.clean, object):
     """
     Custom clean command.
     """
 
-    def run (self):
+    def run(self):
         if self.all:
             # remove share directory
             directory = os.path.join(self.build_base, 'share')
@@ -316,12 +324,13 @@ class clean_wammu(distutils.command.clean.clean, object):
                                    directory)
         super(clean_wammu, self).run()
 
+
 class install_data_wammu(distutils.command.install_data.install_data, object):
     """
     Install locales in addition to regullar data.
     """
 
-    def run (self):
+    def run(self):
         """
         Install also .mo files.
         """
@@ -333,11 +342,12 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
 
         # desktop file
         if sys.platform != 'win32':
-            self.data_files.append((os.path.join('share','applications'), [os.path.join('build', 'wammu.desktop')]))
-            self.data_files.append((os.path.join('share','appdata'), [os.path.join('build', 'wammu.appdata.xml')]))
+            self.data_files.append((os.path.join('share', 'applications'), [os.path.join('build', 'wammu.desktop')]))
+            self.data_files.append((os.path.join('share', 'appdata'), [os.path.join('build', 'wammu.appdata.xml')]))
 
         # install data files
         super(install_data_wammu, self).run()
+
 
 py2exepackages = ['Wammu']
 if sys.version_info >= (2, 5):
@@ -352,7 +362,7 @@ try:
     import win32com
     for p in win32com.__path__[1:]:
         modulefinder.AddPackagePath("win32com", p)
-    for extra in ["win32com.shell"]: #,"win32com.mapi"
+    for extra in ["win32com.shell"]:
         __import__(extra)
         m = sys.modules[extra]
         for p in m.__path__[1:]:
@@ -373,48 +383,49 @@ if HAVE_PY2EXE:
     addparams['zipfile'] = 'shared.lib'
 
 data_files = [
-    (os.path.join('share','Wammu','images','icons'), glob.glob('images/icons/*.png')),
-    (os.path.join('share','Wammu','images','misc'), glob.glob('images/misc/*.png')),
+    (os.path.join('share', 'Wammu', 'images', 'icons'), glob.glob('images/icons/*.png')),
+    (os.path.join('share', 'Wammu', 'images', 'misc'), glob.glob('images/misc/*.png')),
     ]
 
-data_files.append((os.path.join('share','pixmaps'), [
+data_files.append((os.path.join('share', 'pixmaps'), [
     'icon/wammu.png',
     'icon/wammu.xpm',
     'icon/wammu.ico',
     'icon/wammu.svg',
     ]))
-data_files.append((os.path.join('share','man','man1'), ['wammu.1', 'wammu-configure.1']))
-data_files.append((os.path.join('share','man','cs','man1'), ['man/cs/wammu.1', 'man/cs/wammu-configure.1']))
-data_files.append((os.path.join('share','man','de','man1'), ['man/de/wammu.1', 'man/de/wammu-configure.1']))
-data_files.append((os.path.join('share','man','en_GB','man1'), ['man/en_GB/wammu.1', 'man/en_GB/wammu-configure.1']))
-data_files.append((os.path.join('share','man','es','man1'), ['man/es/wammu.1', 'man/es/wammu-configure.1']))
-data_files.append((os.path.join('share','man','et','man1'), ['man/et/wammu.1', 'man/et/wammu-configure.1']))
-data_files.append((os.path.join('share','man','da','man1'), ['man/da/wammu.1', 'man/da/wammu-configure.1']))
-data_files.append((os.path.join('share','man','fr','man1'), ['man/fr/wammu.1', 'man/fr/wammu-configure.1']))
-data_files.append((os.path.join('share','man','hu','man1'), ['man/hu/wammu.1']))
-data_files.append((os.path.join('share','man','id','man1'), ['man/id/wammu.1', 'man/id/wammu-configure.1']))
-data_files.append((os.path.join('share','man','it','man1'), ['man/it/wammu.1', 'man/it/wammu-configure.1']))
-data_files.append((os.path.join('share','man','nl','man1'), ['man/nl/wammu.1', 'man/nl/wammu-configure.1']))
-data_files.append((os.path.join('share','man','pt_BR','man1'), ['man/pt_BR/wammu.1', 'man/pt_BR/wammu-configure.1']))
-data_files.append((os.path.join('share','man','ru','man1'), ['man/ru/wammu.1', 'man/ru/wammu-configure.1']))
-data_files.append((os.path.join('share','man','sk','man1'), ['man/sk/wammu.1', 'man/sk/wammu-configure.1']))
-data_files.append((os.path.join('share','man','tr','man1'), ['man/sk/wammu.1', 'man/tr/wammu-configure.1']))
-data_files.append((os.path.join('share','man','uk','man1'), ['man/sk/wammu.1', 'man/uk/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'man1'), ['wammu.1', 'wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'cs', 'man1'), ['man/cs/wammu.1', 'man/cs/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'de', 'man1'), ['man/de/wammu.1', 'man/de/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'en_GB', 'man1'), ['man/en_GB/wammu.1', 'man/en_GB/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'es', 'man1'), ['man/es/wammu.1', 'man/es/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'et', 'man1'), ['man/et/wammu.1', 'man/et/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'da', 'man1'), ['man/da/wammu.1', 'man/da/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'fr', 'man1'), ['man/fr/wammu.1', 'man/fr/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'hu', 'man1'), ['man/hu/wammu.1']))
+data_files.append((os.path.join('share', 'man', 'id', 'man1'), ['man/id/wammu.1', 'man/id/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'it', 'man1'), ['man/it/wammu.1', 'man/it/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'nl', 'man1'), ['man/nl/wammu.1', 'man/nl/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'pt_BR', 'man1'), ['man/pt_BR/wammu.1', 'man/pt_BR/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'ru', 'man1'), ['man/ru/wammu.1', 'man/ru/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'sk', 'man1'), ['man/sk/wammu.1', 'man/sk/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'tr', 'man1'), ['man/sk/wammu.1', 'man/tr/wammu-configure.1']))
+data_files.append((os.path.join('share', 'man', 'uk', 'man1'), ['man/sk/wammu.1', 'man/uk/wammu-configure.1']))
 
-distutils.core.setup(name="wammu",
-    version = Wammu.__version__,
-    description = "Wammu Mobile Phone Manager",
-    long_description = "Phone manager built on top of python-gammu. Supports many phones.",
-    author = u"Michal Cihar",
-    author_email = "michal@cihar.com",
-    maintainer = u"Michal Cihar",
-    maintainer_email = "michal@cihar.com",
-    platforms = ['Linux','Mac OSX','Windows XP/2000/NT','Windows 95/98/ME'],
-    keywords = ['mobile', 'phone', 'SMS', 'contact', 'gammu', 'calendar', 'todo'],
-    url = "http://wammu.eu/wammu/",
-    download_url = 'http://wammu.eu/download/wammu/',
-    license = "GPL",
-    classifiers = [
+distutils.core.setup(
+    name="wammu",
+    version=Wammu.__version__,
+    description="Wammu Mobile Phone Manager",
+    long_description="Phone manager built on top of python-gammu. Supports many phones.",
+    author=u"Michal Cihar",
+    author_email="michal@cihar.com",
+    maintainer=u"Michal Cihar",
+    maintainer_email="michal@cihar.com",
+    platforms=['Linux', 'Mac OSX', 'Windows XP/2000/NT', 'Windows 95/98/ME'],
+    keywords=['mobile', 'phone', 'SMS', 'contact', 'gammu', 'calendar', 'todo'],
+    url="http://wammu.eu/wammu/",
+    download_url='http://wammu.eu/download/wammu/',
+    license="GPL",
+    classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Win32 (MS Windows)',
         'Environment :: X11 Applications :: GTK',
@@ -435,10 +446,10 @@ distutils.core.setup(name="wammu",
         'Natural Language :: German',
         'Natural Language :: Greek',
         'Natural Language :: Spanish',
-#        'Natural Language :: Estonian',
+        'Natural Language :: Estonian',
         'Natural Language :: Finnish',
         'Natural Language :: French',
-#        'Natural Language :: Galician',
+        'Natural Language :: Galician',
         'Natural Language :: Hebrew',
         'Natural Language :: Hungarian',
         'Natural Language :: Indonesian',
@@ -453,18 +464,18 @@ distutils.core.setup(name="wammu",
         'Natural Language :: Chinese (Simplified)',
         'Natural Language :: Chinese (Traditional)',
     ],
-    packages = ['Wammu'],
-    scripts = ['wammu.py', 'wammu-configure.py'],
-    data_files = data_files,
+    packages=['Wammu'],
+    scripts=['wammu.py', 'wammu-configure.py'],
+    data_files=data_files,
     # Override certain command classes with our own ones
-    cmdclass = {
+    cmdclass={
         'build': build_wammu,
         'build_scripts': build_scripts_wammu,
         'clean': clean_wammu,
         'install_data': install_data_wammu,
         },
     # py2exe options
-    options = {'py2exe': {
+    options={'py2exe': {
             'optimize': 2,
             'packages': py2exepackages,
         }},
