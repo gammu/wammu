@@ -118,6 +118,7 @@ def SearchItem(lst, item):
             return i
     return -1
 
+
 def GrabNumberPrefix(number, prefixes):
     l = len(number)
     if l == 0 or number[0] != '+':
