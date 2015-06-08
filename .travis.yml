@@ -11,7 +11,7 @@ script:
   - py.test --cov=.
   - coverage run --source . --append ./setup.py install
 after_script:
-  - if [ -f ".coverage" ] ; then codecov ; fi
+  - codecov
 notifications:
   webhooks:
     - https://buildtimetrend.herokuapp.com/travis
