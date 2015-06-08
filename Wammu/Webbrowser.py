@@ -24,6 +24,7 @@ webbrowser wrapper
 import webbrowser
 import threading
 
+
 class BrowserThread(threading.Thread):
     '''
     Thread which opens URL in browser.
@@ -43,6 +44,7 @@ class BrowserThread(threading.Thread):
         Actually opens browser.
         '''
         webbrowser.open(self._url)
+
 
 def Open(url):
     '''
