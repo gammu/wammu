@@ -14,3 +14,5 @@ after_script:
 notifications:
   webhooks:
     - https://buildtimetrend.herokuapp.com/travis
+virtualenv:
+  system_site_packages: true
