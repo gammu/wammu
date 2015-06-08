@@ -6,9 +6,10 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install libgammu-dev python-wxgtk2.8 python-bluez
 install:
-  - pip install codecov python-gammu
+  - pip install codecov python-gammu pytest
 script:
   - coverage run --source . --append ./setup.py install
+  - coverage run --source . --append py.test
 after_script:
   - if [ -f ".coverage" ] ; then codecov ; fi
 notifications:
