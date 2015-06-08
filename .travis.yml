@@ -5,7 +5,7 @@ python:
 before_install:
   - sudo add-apt-repository ppa:nijel/ppa -y
   - sudo apt-get update
-  - sudo apt-get install libgtk2.0-dev libgammu-dev
+  - sudo apt-get install libgtk2.0-dev libgammu-dev libbluetooth-dev
 install:
   - pip install codecov python-gammu PyBluez
   - pip install --upgrade --pre -f http://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix 
