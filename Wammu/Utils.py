@@ -66,6 +66,7 @@ def GetItemType(txt):
     else:
         return 'number'
 
+
 def SearchLocation(lst, loc, second = None):
     result = -1
     for i in range(len(lst)):
@@ -81,6 +82,7 @@ def SearchLocation(lst, loc, second = None):
                 result = i
                 break
     return result
+
 
 def MatchesText(item, match, num):
     testkeys = ['Value', 'Text', 'Number']
@@ -132,6 +134,7 @@ NumberPrefix = ''
 
 NumberStrip = re.compile('^([#*]\d+[#*])?(\\+?.*)$')
 
+
 def NormalizeNumber(number):
     '''
     Attempts to create international number from anything it receives.
@@ -157,6 +160,7 @@ def NormalizeNumber(number):
         resnumber = NumberPrefix + resnumber
     return resnumber
 
+
 def SearchNumber(lst, number):
     for i in range(len(lst)):
         for x in lst[i]['Entries']:
@@ -164,14 +168,17 @@ def SearchNumber(lst, number):
                 return i
     return -1
 
+
 def GetContactLink(lst, i, txt):
     return StrConv('<a href="memory://%s/%d">%s</a> (%s)' % (lst[i]['MemoryType'], lst[i]['Location'], lst[i]['Name'], txt))
+
 
 def GetNumberLink(lst, number):
     i = SearchNumber(lst, number)
     if i == -1:
         return StrConv(number)
     return GetContactLink(lst, i, number)
+
 
 def GetTypeString(type, value, values, linkphone = True):
     '''
@@ -200,6 +207,7 @@ def GetTypeString(type, value, values, linkphone = True):
                     '</wxp>'
     else:
         return StrConv(value)
+
 
 def ParseMemoryEntry(entry, config = None):
     first = ''
@@ -289,6 +297,7 @@ def ParseMemoryEntry(entry, config = None):
 
     return entry
 
+
 def ParseTodo(entry):
     dt = ''
     text = ''
@@ -308,6 +317,7 @@ def ParseTodo(entry):
     entry['Date'] = dt
     entry['Synced'] = False
     return entry
+
 
 def ParseCalendar(entry):
     start = ''
@@ -379,6 +389,7 @@ def ParseCalendar(entry):
     entry['Synced'] = False
     return entry
 
+
 def ParseMessage(msg, parseinfo = False):
     txt = ''
     loc = ''
@@ -411,6 +422,7 @@ def ParseMessage(msg, parseinfo = False):
     msg['Synced'] = False
     return msg
 
+
 def ProcessMessages(list, synced):
     read = []
     unread = []
@@ -436,6 +448,7 @@ def ProcessMessages(list, synced):
             unsent.append(i)
 
     return {'read':read, 'unread':unread, 'sent':sent, 'unsent':unsent}
+
 
 def FormatError(txt, info, gammu_config = None):
     if info['Code'] == gammu.Errors['ERR_NOTSUPPORTED']:
@@ -481,12 +494,14 @@ def FormatError(txt, info, gammu_config = None):
         message = '%s %s\n%s %s\n%s %d' % (_('Description:'), StrConv(info['Text']), _('Function:'), info['Where'], _('Error code:'), info['Code'])
     return StrConv(txt + '\n\n' + message)
 
+
 def FixupMaskedEdit(edit):
-        # XXX: this is not clean way of reseting to system colour, but I don't know better.
-        bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_LISTBOX)
-        fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
-        setattr(edit, '_validBackgroundColour', bgc)
-        setattr(edit, '_foregroundColour', fgc)
+    # XXX: this is not clean way of reseting to system colour, but I don't know better.
+    bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_LISTBOX)
+    fgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOWTEXT)
+    setattr(edit, '_validBackgroundColour', bgc)
+    setattr(edit, '_foregroundColour', fgc)
+
 
 def GetWebsiteLang():
     (loc, charset) = locale.getdefaultlocale()
@@ -497,6 +512,7 @@ def GetWebsiteLang():
         return ''
     except TypeError:
         return ''
+
 
 def DBUSServiceAvailable(bus, interface, try_start_service=False):
     try:
@@ -560,6 +576,7 @@ def CheckDeviceNode(curdev):
                 (_('Maybe you need to be member of %s group.') % group)
                 )
     return (0, '', '', '')
+
 
 def CompatConfig(cfg):
     '''
