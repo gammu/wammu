@@ -8,7 +8,7 @@ before_install:
 install:
   - pip install codecov python-gammu
 script:
-  - ./setup.py install
+  - coverage run --source . --append ./setup.py install
 after_script:
   - if [ -f ".coverage" ] ; then codecov ; fi
 notifications:
