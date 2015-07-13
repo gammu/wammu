@@ -160,7 +160,7 @@ class WammuFrame(wx.Frame):
         if self.cfg.HasEntry('/Main/X') and self.cfg.HasEntry('/Main/Y'):
             pos = wx.Point(self.cfg.ReadInt('/Main/X'), self.cfg.ReadInt('/Main/Y'))
         else:
-            pos =wx.DefaultPosition
+            pos = wx.DefaultPosition
         size = wx.Size(self.cfg.ReadInt('/Main/Width'), self.cfg.ReadInt('/Main/Height'))
 
         wx.Frame.__init__(self, parent, id, 'Wammu', pos, size, wx.DEFAULT_FRAME_STYLE)
@@ -247,7 +247,12 @@ class WammuFrame(wx.Frame):
 
         # title text
         self.righttitle = wx.StaticText(self.rightwin, -1, 'Wammu')
-        self.rightwin.sizer.Add(self.righttitle, 0, wx.LEFT|wx.ALL|wx.EXPAND, self.separatorNormal)
+        self.rightwin.sizer.Add(
+            self.righttitle,
+            0,
+            wx.LEFT | wx.ALL | wx.EXPAND,
+            self.separatorNormal
+        )
 
         # line
         self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0, wx.EXPAND)
@@ -1454,14 +1459,42 @@ class WammuFrame(wx.Frame):
 
         if data:
             if save:
-                dlg = wx.FileDialog(self, _('Save data as...'), os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+                dlg = wx.FileDialog(
+                    self,
+                    _('Save data as...'),
+                    os.getcwd(),
+                    "",
+                    wildcard,
+                    wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR
+                )
             else:
-                dlg = wx.FileDialog(self, _('Read data'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
+                dlg = wx.FileDialog(
+                    self,
+                    _('Read data'),
+                    os.getcwd(),
+                    "",
+                    wildcard,
+                    wx.OPEN | wx.CHANGE_DIR
+                )
         else:
             if save:
-                dlg = wx.FileDialog(self, _('Save backup as...'), os.getcwd(), "", wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+                dlg = wx.FileDialog(
+                    self,
+                    _('Save backup as...'),
+                    os.getcwd(),
+                    "",
+                    wildcard,
+                    wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR
+                )
             else:
-                dlg = wx.FileDialog(self, _('Import backup'), os.getcwd(), "", wildcard, wx.OPEN|wx.CHANGE_DIR)
+                dlg = wx.FileDialog(
+                    self,
+                    _('Import backup'),
+                    os.getcwd(),
+                    "",
+                    wildcard,
+                    wx.OPEN | wx.CHANGE_DIR
+                )
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             if save:
@@ -2166,7 +2199,14 @@ class WammuFrame(wx.Frame):
 
         @todo: Maybe we could add some wildcards for commonly used file types.
         '''
-        dlg = wx.FileDialog(self, _('Send file to phone'), os.getcwd(), '', _('All files') + ' (*.*)|*.*', wx.OPEN|wx.CHANGE_DIR)
+        dlg = wx.FileDialog(
+            self,
+            _('Send file to phone'),
+            os.getcwd(),
+            '',
+            _('All files') + ' (*.*)|*.*',
+            wx.OPEN | wx.CHANGE_DIR
+        )
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             try:

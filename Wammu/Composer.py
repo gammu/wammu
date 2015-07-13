@@ -354,7 +354,7 @@ class SMSComposer(wx.Dialog):
         self.Bind(wx.EVT_CHECKBOX, self.OnSave, self.save)
         self.Bind(wx.EVT_CHECKBOX, self.OnSend, self.send)
 
-        self.folder = wx.SpinCtrl(self, -1, '2', style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=100, initial=2)
+        self.folder = wx.SpinCtrl(self, -1, '2', style=wx.SP_WRAP | wx.SP_ARROW_KEYS, min=0, max=100, initial=2)
 
         self.sizer.Add(self.send, pos=(row,1), flag=wx.ALIGN_LEFT)
         self.sizer.Add(self.save, pos=(row,6), flag=wx.ALIGN_LEFT)

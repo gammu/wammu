@@ -38,7 +38,7 @@ class Settings(wx.Dialog):
         wx.Dialog.__init__(self, parent, -1, _('Settings'), style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         # notebook
-        self.notebook= wx.Notebook(self, -1)
+        self.notebook = wx.Notebook(self, -1)
         self.notebook_gammu = wx.Panel(self.notebook, -1)
         self.notebook_connection = wx.Panel(self.notebook, -1)
         self.notebook_messages = wx.Panel(self.notebook, -1)
@@ -211,7 +211,15 @@ class Settings(wx.Dialog):
         r = 1
 
         v = config.ReadInt('/Message/ScaleImage')
-        self.editscale = wx.SpinCtrl(self.notebook_messages, -1, str(v), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=1, max=20, initial=v, size=(150, -1))
+        self.editscale = wx.SpinCtrl(
+            self.notebook_messages,
+            -1,
+            str(v),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=1, max=20,
+            initial=v,
+            size=(150, -1)
+        )
         self.editscale.SetToolTipString(_('Whether images in messages should be scaled when displayed. This is usually good idea as they are pretty small.'))
         self.sizer_messages.Add(wx.StaticText(self.notebook_messages, -1, _('Scale images')), pos=(r, 1))
         self.sizer_messages.Add(self.editscale, pos=(r, 2))
@@ -343,7 +351,15 @@ class Settings(wx.Dialog):
         r = 1
 
         v = config.ReadInt('/Wammu/RefreshState')
-        self.editrefresh = wx.SpinCtrl(self.notebook_other, -1, str(v), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000000, initial=v, size=(150, -1))
+        self.editrefresh = wx.SpinCtrl(
+            self.notebook_other,
+            -1,
+            str(v),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=0, max=10000000,
+            initial=v,
+            size=(150, -1)
+        )
         self.editrefresh.SetToolTipString(_('How often refresh phone state in application status bar. Enter value in miliseconds, 0 to disable.'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Refresh phone state')), pos=(r, 1))
         self.sizer_other.Add(self.editrefresh, pos=(r, 2))
@@ -380,14 +396,30 @@ class Settings(wx.Dialog):
         r += 1
 
         v = config.ReadInt('/Wammu/DefaultDateOffset')
-        self.editdate = wx.SpinCtrl(self.notebook_other, -1, str(v), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=-10000000, max=10000000, initial=v, size=(150, -1))
+        self.editdate = wx.SpinCtrl(
+            self.notebook_other,
+            -1,
+            str(v),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=-10000000, max=10000000,
+            initial=v,
+            size=(150, -1)
+        )
         self.editdate.SetToolTipString(_('Default date to be used for newly created time fields. Enter amount of days from today (1=tommorow).'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default date=now + x days')), pos=(r, 1))
         self.sizer_other.Add(self.editdate, pos=(r, 2))
         r += 1
 
         v = config.ReadInt('/Wammu/DefaultEntries')
-        self.editentries = wx.SpinCtrl(self.notebook_other, -1, str(v), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=20, initial=v, size=(150, -1))
+        self.editentries = wx.SpinCtrl(
+            self.notebook_other,
+            -1,
+            str(v),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=0, max=20,
+            initial=v,
+            size=(150, -1)
+        )
         self.editentries.SetToolTipString(_('How many entries will be shown in newly created item.'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Entries for new item')), pos=(r, 1))
         self.sizer_other.Add(self.editentries, pos=(r, 2))
@@ -418,14 +450,30 @@ class Settings(wx.Dialog):
         r = 1
 
         v = config.ReadInt('/Hacks/MaxEmptyGuess')
-        self.editmaxemptyguess = wx.SpinCtrl(self.notebook_hacks, -1, str(v), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000000, initial=v, size=(150, -1))
+        self.editmaxemptyguess = wx.SpinCtrl(
+            self.notebook_hacks,
+            -1,
+            str(v),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=0, max=10000000,
+            initial=v,
+            size=(150, -1)
+        )
         self.editmaxemptyguess.SetToolTipString(_('Applies only when Wammu can not find proper count of entries to read. This number limits how many empty entries will be read before reading will be stopped.'))
         self.sizer_hacks.Add(wx.StaticText(self.notebook_hacks, -1, _('Maximal empty entries if total is guessed')), pos=(r, 1))
         self.sizer_hacks.Add(self.editmaxemptyguess, pos=(r, 2))
         r += 1
 
         v = config.ReadInt('/Hacks/MaxEmptyKnown')
-        self.editmaxemptyknown = wx.SpinCtrl(self.notebook_hacks, -1, str(v), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000000, initial=v, size=(150, -1))
+        self.editmaxemptyknown = wx.SpinCtrl(
+            self.notebook_hacks,
+            -1,
+            str(v),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=0, max=10000000,
+            initial=v,
+            size=(150, -1)
+        )
         self.editmaxemptyknown.SetToolTipString(_('In case phone reports wrongly number of entries, Wammu would try to read infinitely or till error. This number limits how many empty entries will be read before reading will be stopped.'))
         self.sizer_hacks.Add(wx.StaticText(self.notebook_hacks, -1, _('Maximal empty entries if total is known')), pos=(r, 1))
         self.sizer_hacks.Add(self.editmaxemptyknown, pos=(r, 2))

@@ -114,7 +114,7 @@ def SmsToHtml(cfg, v):
                 else:
                     text = text + \
                         '<wxp module="Wammu.Image" class="Bitmap">' + \
-                        '<param name="tooltip" value="' + Wammu.Data.PredefinedAnimations[i['Number']][0]+ '">' + \
+                        '<param name="tooltip" value="' + Wammu.Data.PredefinedAnimations[i['Number']][0] + '">' + \
                         '<param name="image" value="' + "['" + string.join(Wammu.Data.PredefinedAnimations[i['Number']][1], "', '") + "']" + '">' + \
                         '</wxp>'
 

@@ -89,8 +89,12 @@ def SMSToMailbox(parent, messages, contacts):
 
 def SMSToMaildir(parent, messages, contacts):
     count = len(messages)
-    dlg = wx.DirDialog(parent, _('Select maildir directory where to save files'), os.getcwd(),
-              style=wx.DD_DEFAULT_STYLE|wx.DD_NEW_DIR_BUTTON)
+    dlg = wx.DirDialog(
+        parent,
+        _('Select maildir directory where to save files'),
+        os.getcwd(),
+        style=wx.DD_DEFAULT_STYLE | wx.DD_NEW_DIR_BUTTON
+    )
 
     if dlg.ShowModal() != wx.ID_OK:
         return
@@ -529,7 +533,7 @@ class IMAPSettingsDialog(wx.Dialog):
         connectionGridSizer.Add(self.passwordTextCtrl, 0, wx.EXPAND, 0)
         connectionGridSizer.AddGrowableCol(1)
         connectionFrameSizer.Add(connectionGridSizer, 1, wx.EXPAND, 0)
-        mainSizer.Add(connectionFrameSizer, 0, wx.ALL|wx.EXPAND, 2)
+        mainSizer.Add(connectionFrameSizer, 0, wx.ALL | wx.EXPAND, 2)
         preferenciesGridSizer.Add((90, 20), 0, 0, 0)
         preferenciesGridSizer.Add(self.rememberCheckBox, 0, 0, 0)
         preferenciesGridSizer.Add((20, 20), 0, 0, 0)
@@ -538,17 +542,17 @@ class IMAPSettingsDialog(wx.Dialog):
         preferenciesGridSizer.Add(self.newMessagesCheckBox, 0, 0, 0)
         preferenciesGridSizer.AddGrowableCol(1)
         preferenciesFrameSizer.Add(preferenciesGridSizer, 1, wx.EXPAND, 0)
-        mainSizer.Add(preferenciesFrameSizer, 0, wx.ALL|wx.EXPAND, 2)
+        mainSizer.Add(preferenciesFrameSizer, 0, wx.ALL | wx.EXPAND, 2)
         stateFrameSizer.Add(self.readCheckBox, 1, wx.EXPAND, 0)
         stateFrameSizer.Add(self.sentCheckBox, 1, wx.EXPAND, 0)
         stateFrameSizer.Add(self.unreadCheckBox, 1, wx.EXPAND, 0)
         stateFrameSizer.Add(self.unsentCheckBox, 1, wx.EXPAND, 0)
-        mainSizer.Add(stateFrameSizer, 0, wx.ALL|wx.EXPAND, 2)
+        mainSizer.Add(stateFrameSizer, 0, wx.ALL | wx.EXPAND, 2)
         buttonRowSizer.Add((20, 20), 1, wx.EXPAND, 0)
         buttonRowSizer.Add(self.applyButton, 0, wx.ALIGN_BOTTOM, 0)
         buttonRowSizer.Add(self.cancelButton, 0, wx.ALIGN_BOTTOM, 0)
         buttonRowSizer.Add(self.okButton, 0, wx.ALIGN_BOTTOM, 0)
-        mainSizer.Add(buttonRowSizer, 1, wx.ALL|wx.EXPAND, 2)
+        mainSizer.Add(buttonRowSizer, 1, wx.ALL | wx.EXPAND, 2)
         self.SetSizer(mainSizer)
         mainSizer.Fit(self)
         self.Layout()

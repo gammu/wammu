@@ -179,7 +179,15 @@ class ContactEdit(wx.Panel):
         self.values = values
         self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
         self.sizer.AddGrowableCol(1)
-        self.edit = wx.SpinCtrl(self, -1, str(val), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000, initial=val, size=(200, -1))
+        self.edit = wx.SpinCtrl(
+            self,
+            -1,
+            str(val),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=0, max=10000,
+            initial=val,
+            size=(200, -1)
+        )
         self.txt = wx.StaticText(self, -1, self.GetText(val))
         self.btn = wx.Button(self, -1, '...', style=wx.BU_EXACTFIT)
         self.sizer.AddMany([
@@ -253,7 +261,14 @@ class GenericEditor(wx.Dialog):
 
         self.sizer.Add(wx.StaticText(self, -1, _('Location (0=auto):')), (0, 0), (1, 4))
         # there used to be sys.maxint on following line, but it's too large on amd64 (or there is bug in wxPython)
-        self.locationedit = wx.SpinCtrl(self, -1, str(entry['Location']), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=2147483647, initial=entry['Location'])
+        self.locationedit = wx.SpinCtrl(
+            self,
+            -1,
+            str(entry['Location']),
+            style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+            min=0, max=2147483647,
+            initial=entry['Location']
+        )
         self.sizer.Add(self.locationedit, (0, 4), (1, 4))
 
         self.sizer.Add(wx.StaticText(self, -1, typename), (1, 0), (1, 4))
@@ -356,7 +371,15 @@ class GenericEditor(wx.Dialog):
                 val = int(value['Value'])
             except:
                 val = 0
-            edit = wx.SpinCtrl(self, -1, str(val), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000, initial=val, size=(50, -1))
+            edit = wx.SpinCtrl(
+                self,
+                -1,
+                str(val),
+                style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+                min=0, max=10000,
+                initial=val,
+                size=(50, -1)
+            )
             edit.row = row
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 1))
             edit2 = wx.Button(self, -1, self.GetContactText(val), style=wx.BU_EXACTFIT, size=(150, -1))
@@ -383,7 +406,15 @@ class GenericEditor(wx.Dialog):
                 val = int(value['Value'])
             except:
                 val = 0
-            edit = wx.SpinCtrl(self, -1, str(val), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=-10000, max=10000, initial=val, size=(200, -1))
+            edit = wx.SpinCtrl(
+                self,
+                -1,
+                str(val),
+                style=wx.SP_WRAP | wx.SP_ARROW_KEYS,
+                min=-10000, max=10000,
+                initial=val,
+                size=(200, -1)
+            )
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         elif type == 'datetime':

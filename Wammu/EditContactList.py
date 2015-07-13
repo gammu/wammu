@@ -36,7 +36,7 @@ class EditContactList(wx.Dialog):
     def __init__(self, parent, contacts, current, *args, **kwds):
         self.contacts = contacts
         self.current = current
-        kwds['style'] = wx.DEFAULT_DIALOG_STYLE|wx.RESIZE_BORDER
+        kwds['style'] = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER
         wx.Dialog.__init__(self, parent, *args, **kwds)
         self.__init_data()
         self.all_label = wx.StaticText(self, -1, _('Available contacts:'))
@@ -147,7 +147,14 @@ class EditContactList(wx.Dialog):
             self.current_contacts.Delete(i)
 
     def Save(self, evt=None):
-        dlg = wx.FileDialog(self, _('Load contacts from file'), os.getcwd(), '', self.wildcard, wx.SAVE|wx.OVERWRITE_PROMPT|wx.CHANGE_DIR)
+        dlg = wx.FileDialog(
+            self,
+            _('Load contacts from file'),
+            os.getcwd(),
+            '',
+            self.wildcard,
+            wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR
+        )
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             try:
@@ -162,7 +169,14 @@ class EditContactList(wx.Dialog):
                     wx.OK | wx.ICON_ERROR).ShowModal()
 
     def Load(self, evt=None):
-        dlg = wx.FileDialog(self, _('Load contacts from file'), os.getcwd(), '', self.wildcard, wx.OPEN|wx.CHANGE_DIR)
+        dlg = wx.FileDialog(
+            self,
+            _('Load contacts from file'),
+            os.getcwd(),
+            '',
+            self.wildcard,
+            wx.OPEN | wx.CHANGE_DIR
+        )
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             try:
