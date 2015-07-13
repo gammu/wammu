@@ -143,7 +143,7 @@ class AllSearchThread(threading.Thread):
         Initiates searching of devices defined in Wammu.Data.AllDevices.
         '''
         for dev in Wammu.Data.AllDevices:
-            if not (self.limit == 'all' or self.limit in dev[3]):
+            if self.limit != 'all' and self.limit not in dev[3]:
                 continue
             if dev[1].find('%d') >= 0:
                 for i in range(*dev[2]):
@@ -179,7 +179,7 @@ class AllSearchThread(threading.Thread):
         '''
         Initiates searching for Bluetooth devices.
         '''
-        if not self.limit in ['all', 'bluetooth']:
+        if self.limit not in ['all', 'bluetooth']:
             return
         if BLUETOOTH == 'bluez':
             self.bluetooth_device_search_bluez()

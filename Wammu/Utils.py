@@ -124,7 +124,7 @@ def GrabNumberPrefix(number, prefixes):
     if l == 0 or number[0] != '+':
         return None
     i = 2
-    while not number[:i] in prefixes:
+    while number[:i] not in prefixes:
         i += 1
         if i > l:
             return None

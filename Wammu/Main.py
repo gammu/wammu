@@ -1178,7 +1178,7 @@ class WammuFrame(wx.Frame):
                 v = backup
                 self.ShowError(val.args[0])
 
-            if (self.type[0] == 'contact' and self.type[1] == '  ') or not 'MemoryType' in v:
+            if (self.type[0] == 'contact' and self.type[1] == '  ') or 'MemoryType' not in v:
                 self.ActivateView('contact', '  ')
                 try:
                     self.browser.ShowLocation(v['Location'], ('MemoryType', v['MemoryType']))
@@ -1811,7 +1811,7 @@ class WammuFrame(wx.Frame):
 
     def OnDelete(self, evt):
         # first check on supported types
-        if not self.type[0] in ['contact', 'call', 'message', 'todo', 'calendar']:
+        if self.type[0] not in ['contact', 'call', 'message', 'todo', 'calendar']:
             print 'Delete not yet implemented! (items to delete=%s, type=%s)' % (str(evt.lst), self.type[0])
             return
 

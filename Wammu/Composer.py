@@ -340,7 +340,7 @@ class SMSComposer(wx.Dialog):
 
         row = 1
 
-        if not action in ['send', 'save']:
+        if action not in ['send', 'save']:
             action = 'save'
 
         self.send = wx.CheckBox(self, -1, _('Send message'))
