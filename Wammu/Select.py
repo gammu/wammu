@@ -53,7 +53,7 @@ def SelectContact(parent, contactlist, index=False):
     if dlg.ShowModal() == wx.ID_OK and len(choices) > 0:
         result = dlg.GetSelection()
         if not index:
-            result =  contactlist[result]['Location']
+            result = contactlist[result]['Location']
     else:
         result = -1
     del dlg

@@ -245,7 +245,7 @@ def ParseMemoryEntry(entry, config=None):
         if i['Type'] == 'Number_General':
             number_result = i['Value']
         elif i['Type'][:7] == 'Number_':
-            number =  i['Value']
+            number = i['Value']
 
     if config is None:
         format = 'auto'
@@ -569,7 +569,7 @@ def CheckDeviceNode(curdev):
                 _('Device %s does not exist!') % curdev
                 )
     if not os.access(curdev, os.R_OK) or not os.access(curdev, os.W_OK):
-        gid =  os.stat(curdev).st_gid
+        gid = os.stat(curdev).st_gid
         try:
             group = grp.getgrgid(gid)[0]
         except:

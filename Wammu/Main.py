@@ -473,7 +473,7 @@ class WammuFrame(wx.Frame):
         Show error about gammu import failure. Try to help user with various
         situation which could happened, so that he can solve this problem.
         '''
-        error =  str(Wammu.gammu_error)
+        error = str(Wammu.gammu_error)
         if error.find('Runtime libGammu version does not match compile time version') != -1:
             result = re.match('Runtime libGammu version does not match compile time version \(runtime: (\S+), compiletime: (\S+)\)', error)
 
@@ -1410,7 +1410,7 @@ class WammuFrame(wx.Frame):
             self.values['message']['UnRead'] + \
             self.values['message']['Sent'] + \
             self.values['message']['UnSent']
-        contacts =  self.values['contact']['ME'] + \
+        contacts = self.values['contact']['ME'] + \
             self.values['contact']['SM']
         Wammu.SMSExport.SMSExport(self, messages, contacts)
 
@@ -1419,7 +1419,7 @@ class WammuFrame(wx.Frame):
             self.values['message']['UnRead'] + \
             self.values['message']['Sent'] + \
             self.values['message']['UnSent']
-        contacts =  self.values['contact']['ME'] + \
+        contacts = self.values['contact']['ME'] + \
             self.values['contact']['SM']
         Wammu.SMSXML.SMSExportXML(self, messages, contacts)
 
@@ -1429,13 +1429,13 @@ class WammuFrame(wx.Frame):
     def SelectBackupFile(self, type, save=True, data=False):
         wildcard = ''
         if type == 'message':
-            wildcard +=  _('Gammu messages backup') + ' (*.smsbackup)|*.smsbackup|'
+            wildcard += _('Gammu messages backup') + ' (*.smsbackup)|*.smsbackup|'
             exts = ['smsbackup']
         else:
             if not save:
                 wildcard += _('All backup formats') + '|*.backup;*.lmb;*.vcf;*.ldif;*.vcs;*.ics|'
 
-            wildcard +=  _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
+            wildcard += _('Gammu backup [all data]') + ' (*.backup)|*.backup|'
             exts = ['backup']
 
             if type in ['contact', 'all']:
@@ -1612,10 +1612,10 @@ class WammuFrame(wx.Frame):
 
                     res = Wammu.Utils.ProcessMessages(smsl, True)
 
-                    self.values['message']['Sent'] +=  res['sent']
-                    self.values['message']['UnSent'] +=  res['unsent']
-                    self.values['message']['Read'] +=  res['read']
-                    self.values['message']['UnRead'] +=  res['unread']
+                    self.values['message']['Sent'] += res['sent']
+                    self.values['message']['UnSent'] += res['unsent']
+                    self.values['message']['Read'] += res['read']
+                    self.values['message']['UnRead'] += res['unread']
 
                     self.ActivateView('message', '  ')
 
@@ -1822,7 +1822,12 @@ class WammuFrame(wx.Frame):
         ext = os.path.splitext(filename)[1].lower()
 
         if type == 'message':
-            backup = self.values['message']['Read'] + self.values['message']['UnRead'] + self.values['message']['Sent'] +  self.values['message']['UnSent']
+            backup = (
+                self.values['message']['Read'] +
+                self.values['message']['UnRead'] +
+                self.values['message']['Sent'] +
+                self.values['message']['UnSent']
+            )
         else:
             backup = self.PrepareBackup()
             if ext in ['.vcf', '.ldif']:

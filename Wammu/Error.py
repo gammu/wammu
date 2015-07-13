@@ -50,7 +50,7 @@ def Handler(errtype, value, tback):
     outf, logname = Wammu.ErrorLog.SaveLog()
     if outf is not None:
         print 'Created debug log copy in %s for error reporting.' % logname
-        logtext =  '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % logname
+        logtext = '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % logname
 
 
     # detection of same errors
@@ -82,8 +82,9 @@ def Handler(errtype, value, tback):
 
     # unicode warning
     if errtype == UnicodeEncodeError or errtype == UnicodeDecodeError:
-        unicodewarning =  ('\n%s\n' %
-                _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.'))
+        unicodewarning = ('\n%s\n' %
+            _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.')
+        )
     else:
         unicodewarning = ''
 
