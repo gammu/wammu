@@ -18,7 +18,8 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 '''
 Wammu - Phone manager
-Config handler wrapper with various defaults, which might be platform dependant.
+Config handler wrapper with various defaults, which might be platform
+dependant.
 
 @var DEFAULT_CONFIG: Dictionary of default values.
 @var EXPANDABLE_CONFIGS: List of variables where path expansion should happen.
@@ -96,6 +97,7 @@ DEFAULT_CONFIG = {
 EXPANDABLE_CONFIGS = [
     '/Gammu/Gammurc',
 ]
+
 
 class WammuConfig:
     '''

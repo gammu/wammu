@@ -25,6 +25,7 @@ import Wammu.Reader
 import Wammu.Utils
 import Wammu
 
+
 class GetTodo(Wammu.Reader.Reader):
     def GetStatus(self):
         status = self.sm.GetToDoStatus()

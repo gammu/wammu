@@ -28,6 +28,7 @@ if sys.platform == 'win32':
     import win32api
     import pywintypes
 
+
 def GetUserFullName():
     '''
     Detects full user name from system information.
@@ -44,6 +45,7 @@ def GetUserFullName():
         if ',' in name:
             name = name[:name.index(',')]
         return name
+
 
 def ExpandPath(orig):
     '''
