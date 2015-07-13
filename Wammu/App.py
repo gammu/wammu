@@ -66,4 +66,3 @@ def Run():
         print _('Failed to set exception handler.')
     app = WammuApp()
     app.MainLoop()
-

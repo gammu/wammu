@@ -91,4 +91,3 @@ class Throbber(wx.lib.throbber.Throbber):
             bitmaps.append(bitmap)
         wx.lib.throbber.Throbber.__init__(self, parent, -1, bitmaps, frameDelay=delay)
         self.SetToolTipString(tooltip)
-

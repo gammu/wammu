@@ -97,4 +97,3 @@ class Thread(threading.Thread):
         wx.PostEvent(self.win, evt)
         lck.acquire()
         self.ShowProgress(100)
-

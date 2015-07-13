@@ -200,4 +200,3 @@ def ContactsExportXML(parent, contactsSM, contactsME):
         'count': count,
         'path': path
     })
-

@@ -111,5 +111,3 @@ class TalkbackFeaturesDialog(wx.Dialog):
             getattr(self, 'feature_%s_checkbox' % x).SetValue(True)
 
 # end of class TalkbackFeaturesDialog
-
-

@@ -170,4 +170,3 @@ class GammuSettings:
             return lst[dlg.GetSelection()]['Id']
         else:
             return None
-

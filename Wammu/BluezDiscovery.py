@@ -49,4 +49,3 @@ class Discovery(bluetooth.DeviceDiscoverer):
         Called when discovery is completed, does nothing.
         '''
         return
-

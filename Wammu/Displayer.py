@@ -56,5 +56,3 @@ class Displayer(wx.html.HtmlWindow):
             link=linkinfo.GetHref()
         )
         wx.PostEvent(self.win, evt)
-
-

@@ -131,4 +131,3 @@ class PhoneValidator(wx.PyValidator):
         # Returning without calling even.Skip eats the event before it
         # gets to the text control
         return
-

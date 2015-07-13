@@ -219,4 +219,3 @@ def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
         prepend = ('From wammu@wammu.sms %s\n' % timestamp) + prepend
 
     return filename, prepend + msg.as_string(), msgid
-

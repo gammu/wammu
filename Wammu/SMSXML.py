@@ -138,7 +138,3 @@ def SMSExportXML(parent, messages, contacts):
             'type': _('mailbox')
         }
     )
-
-
-
-

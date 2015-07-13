@@ -2452,4 +2452,3 @@ class WammuFrame(wx.Frame):
                 wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             Wammu.ErrorLog.SaveLog(filename=dlg.GetPath())
-
