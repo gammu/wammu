@@ -43,7 +43,7 @@ FAIL_MATCHER = re.compile('Invalid values: (.*)')
 # end wxGlade
 
 class TalkbackDialog(wx.Dialog):
-    def __init__(self, parent, config, phoneid = 0, *args, **kwds):
+    def __init__(self, parent, config, phoneid=0, *args, **kwds):
         # begin wxGlade: TalkbackDialog.__init__
         kwds["style"] = wx.DEFAULT_DIALOG_STYLE|wx.RESIZE_BORDER|wx.THICK_FRAME
         wx.Dialog.__init__(self, parent, *args, **kwds)
@@ -321,6 +321,6 @@ class TalkbackDialog(wx.Dialog):
 
 # end of class TalkbackDialog
 
-def DoTalkback(parent, config, phoneid = 0):
+def DoTalkback(parent, config, phoneid=0):
     dlg = TalkbackDialog(parent, config, phoneid)
     dlg.Show()

@@ -34,7 +34,7 @@ from Wammu.Locales import ugettext as _
 ringtones = {}
 
 class Ringtone(wx.BitmapButton):
-    def __init__(self, parent, tooltip = 'Melody', ringno = 0, size = None, scale = 1):
+    def __init__(self, parent, tooltip='Melody', ringno=0, size=None, scale=1):
         bitmap = wx.BitmapFromXPMData(Wammu.Data.Note)
         wx.BitmapButton.__init__(self, parent, -1, bitmap, (0,0))
         self.SetToolTipString(tooltip)

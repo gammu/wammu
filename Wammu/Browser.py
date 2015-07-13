@@ -342,7 +342,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             return self.sortorder
         return self.sortorder * cmp(item1[self.sortkey], item2[self.sortkey])
 
-    def ShowLocation(self, loc, second = None):
+    def ShowLocation(self, loc, second=None):
         '''
         Shows row which is stored on defined location. Search can be extended
         by specifiyng second tupe of search attribute and value.
@@ -368,7 +368,7 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                     wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
             self.EnsureVisible(index)
         else:
-            evt = Wammu.Events.ShowEvent(data = None)
+            evt = Wammu.Events.ShowEvent(data=None)
             wx.PostEvent(self.win, evt)
 
     def Change(self, newtype, values):
@@ -475,21 +475,21 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         '''
         Send delete event to parent.
         '''
-        evt = Wammu.Events.DeleteEvent(lst = lst)
+        evt = Wammu.Events.DeleteEvent(lst=lst)
         wx.PostEvent(self.win, evt)
 
     def DoBackup(self, lst):
         '''
         Send backup event to parent.
         '''
-        evt = Wammu.Events.BackupEvent(lst = lst)
+        evt = Wammu.Events.BackupEvent(lst=lst)
         wx.PostEvent(self.win, evt)
 
     def DoReply(self):
         '''
         Send reply event to parent.
         '''
-        evt = Wammu.Events.ReplyEvent(data = self.values[self.GetFocusedItem()])
+        evt = Wammu.Events.ReplyEvent(data=self.values[self.GetFocusedItem()])
         wx.PostEvent(self.win, evt)
 
     def OnRightClick(self, evt):
@@ -545,34 +545,34 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.PopupMenu(menu, evt.GetPoint())
 
     def OnPopupDuplicate(self, event):
-        evt = Wammu.Events.DuplicateEvent(data = self.values[self.popup_index])
+        evt = Wammu.Events.DuplicateEvent(data=self.values[self.popup_index])
         wx.PostEvent(self.win, evt)
 
     def OnPopupReply(self, event):
-        evt = Wammu.Events.ReplyEvent(data = self.values[self.popup_index])
+        evt = Wammu.Events.ReplyEvent(data=self.values[self.popup_index])
         wx.PostEvent(self.win, evt)
 
     def OnPopupSend(self, event):
-        evt = Wammu.Events.SendEvent(data = self.values[self.popup_index])
+        evt = Wammu.Events.SendEvent(data=self.values[self.popup_index])
         wx.PostEvent(self.win, evt)
 
     def OnPopupCall(self, event):
-        evt = Wammu.Events.CallEvent(data = self.values[self.popup_index])
+        evt = Wammu.Events.CallEvent(data=self.values[self.popup_index])
         wx.PostEvent(self.win, evt)
 
     def OnPopupMessage(self, event):
-        evt = Wammu.Events.MessageEvent(data = self.values[self.popup_index])
+        evt = Wammu.Events.MessageEvent(data=self.values[self.popup_index])
         wx.PostEvent(self.win, evt)
 
     def OnPopupContact(self, event):
         data = self.values[self.popup_index]
         data['Location'] = 0
         data['MemoryType'] = 'ME'
-        evt = Wammu.Events.EditEvent(data = data)
+        evt = Wammu.Events.EditEvent(data=data)
         wx.PostEvent(self.win, evt)
 
     def OnPopupEdit(self, event):
-        evt = Wammu.Events.EditEvent(data = self.values[self.popup_index])
+        evt = Wammu.Events.EditEvent(data=self.values[self.popup_index])
         wx.PostEvent(self.win, evt)
 
     def OnPopupDelete(self, event):
@@ -600,11 +600,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
 
     def OnItemSelected(self, event):
         self.itemno = event.m_itemIndex
-        evt = Wammu.Events.ShowEvent(data = self.values[event.m_itemIndex])
+        evt = Wammu.Events.ShowEvent(data=self.values[event.m_itemIndex])
         wx.PostEvent(self.win, evt)
 
     def OnItemActivated(self, event):
-        evt = Wammu.Events.EditEvent(data = self.values[event.m_itemIndex])
+        evt = Wammu.Events.EditEvent(data=self.values[event.m_itemIndex])
         wx.PostEvent(self.win, evt)
 
     def getColumnText(self, index, col):

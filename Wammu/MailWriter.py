@@ -90,7 +90,7 @@ def DateToString(date):
     '''
     return email.Utils.formatdate(time.mktime(date.timetuple()), True)
 
-def SMSToMail(cfg, sms, lookuplist = None, mailbox = False):
+def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
     '''
     Converts SMS to formated mail. It will contain all images and sounds from
     message and predefined animations. Also text formatting is preserved in

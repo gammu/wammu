@@ -61,7 +61,7 @@ class PhoneValidator(wx.PyValidator):
     def TransferFromWindow(self):
         return True
 
-    def CheckText(self, text, immediate = False):
+    def CheckText(self, text, immediate=False):
         '''
         Verifies whether enterd text is correct.
         '''
@@ -83,7 +83,7 @@ class PhoneValidator(wx.PyValidator):
                 continue
         return True
 
-    def Validate(self, win = None):
+    def Validate(self, win=None):
         textcontrol = self.GetWindow()
         val = textcontrol.GetValue()
 
@@ -118,7 +118,7 @@ class PhoneValidator(wx.PyValidator):
             pos = textcontrol.GetInsertionPoint()
             val = textcontrol.GetValue()
             newval = val[0:pos] + char + val[pos:len(val)]
-            if self.CheckText(newval, immediate = True):
+            if self.CheckText(newval, immediate=True):
                 event.Skip()
                 return
         except UnicodeDecodeError:

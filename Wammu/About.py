@@ -111,7 +111,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 '''))
 
-        html = wx.html.HtmlWindow(self, -1, size = (500, -1))
+        html = wx.html.HtmlWindow(self, -1, size=(500, -1))
         html.SetPage(text)
         btn = html.FindWindowById(wx.ID_OK)
         if btn is not None:

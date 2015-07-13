@@ -31,13 +31,13 @@ class GetTodo(Wammu.Reader.Reader):
         return status['Used']
 
     def GetNextStart(self):
-        return self.sm.GetNextToDo(Start = True)
+        return self.sm.GetNextToDo(Start=True)
 
     def GetNext(self, location):
-        return self.sm.GetNextToDo(Location = location)
+        return self.sm.GetNextToDo(Location=location)
 
     def Get(self, location):
-        return self.sm.GetToDo(Location = location)
+        return self.sm.GetToDo(Location=location)
 
     def Parse(self, value):
         Wammu.Utils.ParseTodo(value)

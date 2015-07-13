@@ -100,7 +100,7 @@ class Logger(threading.Thread):
                 else:
                     self.file_descriptor = open(self.filename, 'r')
             else:
-                evt = Wammu.Events.LogEvent(txt = ''.join(txt))
+                evt = Wammu.Events.LogEvent(txt=''.join(txt))
                 wx.PostEvent(self.win, evt)
         self.file_descriptor.close()
 

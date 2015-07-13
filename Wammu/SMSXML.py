@@ -34,13 +34,13 @@ XMLheader = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\
 
 
 
-def SMSToXML(cfg, sms, contact = None):
+def SMSToXML(cfg, sms, contact=None):
     '''
     Convert a sms to XML
     '''
 
 
-    text = SmsTextFormat(cfg, sms['Text'], doxml = True)
+    text = SmsTextFormat(cfg, sms['Text'], doxml=True)
 
     smsxml = "    <message>\n"
 

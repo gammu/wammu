@@ -67,7 +67,7 @@ def GetItemType(txt):
         return 'number'
 
 
-def SearchLocation(lst, loc, second = None):
+def SearchLocation(lst, loc, second=None):
     result = -1
     for i in range(len(lst)):
         if second is not None:
@@ -181,7 +181,7 @@ def GetNumberLink(lst, number):
     return GetContactLink(lst, i, number)
 
 
-def GetTypeString(type, value, values, linkphone = True):
+def GetTypeString(type, value, values, linkphone=True):
     '''
     Returns string for entry in data dictionary. Formats it according to
     knowledge of format types.
@@ -210,7 +210,7 @@ def GetTypeString(type, value, values, linkphone = True):
         return StrConv(value)
 
 
-def ParseMemoryEntry(entry, config = None):
+def ParseMemoryEntry(entry, config=None):
     first = ''
     last = ''
     name = ''
@@ -391,7 +391,7 @@ def ParseCalendar(entry):
     return entry
 
 
-def ParseMessage(msg, parseinfo = False):
+def ParseMessage(msg, parseinfo=False):
     txt = ''
     loc = ''
     msg['Folder'] = msg['SMS'][0]['Folder']
@@ -451,7 +451,7 @@ def ProcessMessages(list, synced):
     return {'read':read, 'unread':unread, 'sent':sent, 'unsent':unsent}
 
 
-def FormatError(txt, info, gammu_config = None):
+def FormatError(txt, info, gammu_config=None):
     if info['Code'] == gammu.Errors['ERR_NOTSUPPORTED']:
         message = _('Your phone doesn\'t support this function.')
     elif info['Code'] == gammu.Errors['ERR_NOTIMPLEMENTED']:
@@ -505,7 +505,7 @@ def FixupMaskedEdit(edit):
 
 
 def GetWebsiteLang():
-    (loc, charset) = locale.getdefaultlocale()
+    loc, charset = locale.getdefaultlocale()
     try:
         lang = loc[:2].lower()
         if lang in ('cs', 'de', 'es', 'fr', 'sk'):

@@ -30,7 +30,7 @@ class GammuSettings:
     '''
     Class wrapping gammu configuration file for reading and writing.
     '''
-    def __init__(self, wammu_cfg, path = None):
+    def __init__(self, wammu_cfg, path=None):
         '''
         Reads gammu configuration and prepares it for use.
         '''
@@ -132,7 +132,7 @@ class GammuSettings:
             raise Exception('Could not find free configuration entry!')
         return first_free
 
-    def GetConfigList(self, new = False):
+    def GetConfigList(self, new=False):
         '''
         Returns list of available configurations as tuple of (details, verbose).
         '''
@@ -153,11 +153,11 @@ class GammuSettings:
                     {'name': config['Name'], 'position': config['Id']})
         return lst, choices
 
-    def SelectConfig(self, parent = None, force = False, new = False):
+    def SelectConfig(self, parent=None, force=False, new=False):
         '''
         Shows dialog (if needed) to select configuration.
         '''
-        lst, choices = self.GetConfigList(new = new)
+        lst, choices = self.GetConfigList(new=new)
 
         if len(choices) == 1 and not force:
             return lst[0]['Id']

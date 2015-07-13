@@ -419,7 +419,7 @@ class IMAPConfigHelper:
 
 class IMAPSettingsDialog(wx.Dialog):
     def __init__(self, parent, imapConfig):
-        wx.Dialog.__init__(self, parent, -1, _("IMAP Settings"), style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+        wx.Dialog.__init__(self, parent, -1, _("IMAP Settings"), style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.cfg = imapConfig
         self.connectionFrameSizer_staticbox = wx.StaticBox(self, -1, _("Connection Details"))
         self.preferenciesFrameSizer_staticbox = wx.StaticBox(self, -1, _("Preferences"))

@@ -237,7 +237,7 @@ class WammuFrame(wx.Frame):
         self.rightwin.sizer.Add(self.righttitle, 0, wx.LEFT|wx.ALL|wx.EXPAND, self.separatorNormal)
 
         # line
-        self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0 , wx.EXPAND)
+        self.rightwin.sizer.Add(wx.StaticLine(self.rightwin, -1), 0, wx.EXPAND)
 
         # search input
         self.searchpanel = wx.Panel(self.rightwin, -1)
@@ -246,7 +246,7 @@ class WammuFrame(wx.Frame):
         self.searchinput = wx.TextCtrl(self.searchpanel, -1)
         self.searchinput.SetToolTipString(_('Enter text to search for, please note that search type is selected next to this field. Matching is done over all fields.'))
         self.searchpanel.sizer.Add(self.searchinput, 1, wx.CENTER | wx.ALIGN_CENTER_VERTICAL)
-        self.searchchoice = wx.Choice(self.searchpanel, choices = [_('Text'), _('Regexp'), _('Wildcard')])
+        self.searchchoice = wx.Choice(self.searchpanel, choices=[_('Text'), _('Regexp'), _('Wildcard')])
         self.searchchoice.SetToolTipString(_('Select search type'))
         self.searchchoice.SetSelection(self.cfg.ReadInt('/Defaults/SearchType'))
         self.searchpanel.sizer.Add(self.searchchoice, 0, wx.LEFT | wx.CENTER | wx.EXPAND, self.separatorNormal)
@@ -579,7 +579,7 @@ class WammuFrame(wx.Frame):
         self.last_dbus_id = 0
         if HAVE_DBUS:
             try:
-                bus = dbus.SessionBus() #mainloop = self.appparent.MainLoop)
+                bus = dbus.SessionBus() #mainloop=self.appparent.MainLoop)
                 interface = 'org.freedesktop.Notifications'
                 path = '/org/freedesktop/Notifications'
                 if Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
@@ -639,7 +639,7 @@ class WammuFrame(wx.Frame):
     def OnTaskBarClose(self, evt):
         self.CloseWindow(evt)
 
-    def OnTimer(self, evt = None):
+    def OnTimer(self, evt=None):
         if self.connected:
             try:
                 s = self.sm.GetSignalQuality()
@@ -690,7 +690,7 @@ class WammuFrame(wx.Frame):
             if self.connected:
                 self.prefix = None
                 try:
-                    on = Wammu.Utils.ParseMemoryEntry(self.sm.GetMemory(Location = 1, Type = 'ON'), self.cfg)['Number']
+                    on = Wammu.Utils.ParseMemoryEntry(self.sm.GetMemory(Location=1, Type='ON'), self.cfg)['Number']
                     self.prefix = Wammu.Utils.GrabNumberPrefix(on, Wammu.Data.InternationalPrefixes)
                 except gammu.GSMError:
                     pass
@@ -750,7 +750,7 @@ class WammuFrame(wx.Frame):
             del self.logwin
 
 
-    def LogClose(self, evt = None):
+    def LogClose(self, evt=None):
         self.cfg.Write('/Debug/Show', 'no')
         self.CloseLogWindow()
 
@@ -839,10 +839,10 @@ class WammuFrame(wx.Frame):
         except Wammu.Browser.FilterException:
             self.searchinput.SetBackgroundColour(wx.RED)
 
-    def ClearSearch(self, event = None):
+    def ClearSearch(self, event=None):
         self.searchinput.SetValue('')
 
-    def Settings(self, event = None):
+    def Settings(self, event=None):
         if self.connected:
             connection_settings = {
                 'Connection': self.cfg.Read('/Gammu/Connection'),
@@ -921,7 +921,7 @@ class WammuFrame(wx.Frame):
         except AttributeError:
             gammu_config = None
         evt = Wammu.Events.ShowMessageEvent(
-            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info, gammu_config = gammu_config),
+            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info, gammu_config=gammu_config),
             title = _('Error Occured'),
             errortype = 'gammu',
             type = wx.ICON_ERROR)
@@ -985,7 +985,7 @@ class WammuFrame(wx.Frame):
                 (_('Location'), str(v['Location'])),
                 (_('Memory type'), v['MemoryType'])]
             for i in v['Entries']:
-                s = Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone = False)
+                s = Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values, linkphone=False)
                 try:
                     if i['VoiceTag']:
                         s += ', ' + (_('voice tag %x') % i['VoiceTag'])
@@ -1020,7 +1020,7 @@ class WammuFrame(wx.Frame):
             for i in v['Entries']:
                 data.append((i['Type'], Wammu.Utils.GetTypeString(i['Type'], i['Value'], self.values)))
         else:
-            data = [('Show not yet implemented! (type = %s)' % self.type[0])]
+            data = [('Show not yet implemented! (type=%s)' % self.type[0])]
         self.ShowData(data)
 
     def NewContact(self, evt):
@@ -1035,7 +1035,7 @@ class WammuFrame(wx.Frame):
     def NewMessage(self, evt):
         self.ComposeMessage({})
 
-    def ComposeMessage(self, v, action = 'save'):
+    def ComposeMessage(self, v, action='save'):
         if Wammu.Composer.SMSComposer(self, self.cfg, v, self.values, action).ShowModal() == wx.ID_OK:
 
             if len(v['Numbers']) == 0:
@@ -1062,7 +1062,7 @@ class WammuFrame(wx.Frame):
                         msg['State'] = v['State']
 
                         if v['Save']:
-                            (msg['Location'], msg['Folder']) = self.sm.AddSMS(msg)
+                            (msg['Location'], msg['Folder'])=self.sm.AddSMS(msg)
                             if v['Send']:
                                 # When sending of saved message fails, send it directly:
                                 try:
@@ -1277,11 +1277,11 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'todo':
             self.EditTodo(evt.data)
         else:
-            print 'Edit not yet implemented (type = %s)!' % self.type[0]
+            print 'Edit not yet implemented (type=%s)!' % self.type[0]
 
     def OnReply(self, evt):
         if self.type[0] == 'message':
-            self.ComposeMessage({'Number': evt.data['Number']}, action = 'send')
+            self.ComposeMessage({'Number': evt.data['Number']}, action='send')
         else:
             print 'Reply not yet implemented!'
             print evt.index
@@ -1302,7 +1302,7 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError, val:
                 self.ShowError(val.args[0])
         else:
-            print 'Call not yet implemented (type = %s)!' % self.type[0]
+            print 'Call not yet implemented (type=%s)!' % self.type[0]
 
     def OnMessage(self, evt):
         if self.type[0] in ['call', 'contact']:
@@ -1310,11 +1310,11 @@ class WammuFrame(wx.Frame):
             num = Wammu.Select.SelectContactNumber(self, evt.data)
             if num is None:
                 return
-            self.ComposeMessage({'Number': num}, action = 'send')
+            self.ComposeMessage({'Number': num}, action='send')
         elif self.type[0] == 'message':
-            self.ComposeMessage({'Number': evt.data['Number']}, action = 'send')
+            self.ComposeMessage({'Number': evt.data['Number']}, action='send')
         else:
-            print 'Message send not yet implemented (type = %s)!' % self.type[0]
+            print 'Message send not yet implemented (type=%s)!' % self.type[0]
 
     def OnDuplicate(self, evt):
         if evt.data != {} and not evt.data['Synced']:
@@ -1333,7 +1333,7 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'message':
             self.ComposeMessage(v)
         else:
-            print 'Duplicate not yet implemented (type = %s)!' % self.type[0]
+            print 'Duplicate not yet implemented (type=%s)!' % self.type[0]
 
 
     def OnSend(self, evt):
@@ -1373,7 +1373,7 @@ class WammuFrame(wx.Frame):
     def ContactsToXML(self, evt):
         Wammu.ContactsXML.ContactsExportXML(self, self.values['contact']['SM'], self.values['contact']['ME'])
 
-    def SelectBackupFile(self, type, save = True, data = False):
+    def SelectBackupFile(self, type, save=True, data=False):
         wildcard = ''
         if type == 'message':
             wildcard +=  _('Gammu messages backup') + ' (*.smsbackup)|*.smsbackup|'
@@ -1425,8 +1425,8 @@ class WammuFrame(wx.Frame):
             return Wammu.Locales.ConsoleStrConv(path)
         return None
 
-    def ReadBackup(self, type, data = False):
-        filename = self.SelectBackupFile(type, save = False, data = data)
+    def ReadBackup(self, type, data=False):
+        filename = self.SelectBackupFile(type, save=False, data=data)
         if filename is None:
             return (None, None)
         try:
@@ -1446,7 +1446,7 @@ class WammuFrame(wx.Frame):
         return (filename, backup)
 
     def ReadData(self, evt):
-        (filename, backup) = self.ReadBackup('all', True)
+        (filename, backup)=self.ReadBackup('all', True)
         if backup is None:
             return
 
@@ -1464,7 +1464,7 @@ class WammuFrame(wx.Frame):
         self.SetStatusText(_('Data has been read from file "%s"') % StrConv(filename))
 
     def ReadSMSData(self, evt):
-        (filename, backup) = self.ReadBackup('message', True)
+        (filename, backup)=self.ReadBackup('message', True)
         if backup is None:
             return
 
@@ -1480,7 +1480,7 @@ class WammuFrame(wx.Frame):
         self.SetStatusText(_('Data has been read from file "%s"') % StrConv(filename))
 
     def ImportSMS(self, evt):
-        (filename, backup) = self.ReadBackup('message')
+        (filename, backup)=self.ReadBackup('message')
         if backup is None:
             return
         choices = []
@@ -1516,7 +1516,7 @@ class WammuFrame(wx.Frame):
                     smsl = []
                     for v in backup:
                         v['SMSC']['Location'] = 1
-                        (v['Location'], v['Folder']) = self.sm.AddSMS(v)
+                        (v['Location'], v['Folder'])=self.sm.AddSMS(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetSMS(0, v['Location'])
                         smsl.append(v)
@@ -1547,7 +1547,7 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
     def Import(self, evt):
-        (filename, backup) = self.ReadBackup('all')
+        (filename, backup)=self.ReadBackup('all')
         if backup is None:
             return
         choices = []
@@ -1678,7 +1678,7 @@ class WammuFrame(wx.Frame):
         backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
         return backup
 
-    def WriteBackup(self, filename, type, backup, data = False):
+    def WriteBackup(self, filename, type, backup, data=False):
         try:
             if type == 'message':
                 # Backup is here our internal SMS list: [{'SMS':[{sms1}, {sms2}]}, ...]
@@ -1710,7 +1710,7 @@ class WammuFrame(wx.Frame):
             wx.PostEvent(self, evt)
 
     def DoBackup(self, data, type):
-        filename = self.SelectBackupFile(type, data = data)
+        filename = self.SelectBackupFile(type, data=data)
         if filename is None:
             return
         ext = os.path.splitext(filename)[1].lower()
@@ -1765,7 +1765,7 @@ class WammuFrame(wx.Frame):
     def OnDelete(self, evt):
         # first check on supported types
         if not self.type[0] in ['contact', 'call', 'message', 'todo', 'calendar']:
-            print 'Delete not yet implemented! (items to delete = %s, type = %s)' % (str(evt.lst), self.type[0])
+            print 'Delete not yet implemented! (items to delete=%s, type=%s)' % (str(evt.lst), self.type[0])
             return
 
         lst = evt.lst
@@ -2140,7 +2140,7 @@ class WammuFrame(wx.Frame):
     # Connecting / Disconnecting
     #
 
-    def PhoneConnect(self, event = None):
+    def PhoneConnect(self, event=None):
         busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
         time.sleep(0.1)
         wx.Yield()
@@ -2266,7 +2266,7 @@ class WammuFrame(wx.Frame):
             self.DBUSNotify(_('Incoming call'), msg,
                     ['reject-call', _('Reject'), 'accept-call', _('Accept')])
 
-    def PhoneDisconnect(self, event = None):
+    def PhoneDisconnect(self, event=None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
         time.sleep(0.1)
         wx.Yield()
@@ -2283,7 +2283,7 @@ class WammuFrame(wx.Frame):
         """
         This has to send message as it is called from different thread.
         """
-        evt = Wammu.Events.TextEvent(text = text + '\n')
+        evt = Wammu.Events.TextEvent(text=text + '\n')
         wx.PostEvent(self.searchlog, evt)
 
     def SearchDone(self, lst):
@@ -2294,7 +2294,7 @@ class WammuFrame(wx.Frame):
         evt = Wammu.Events.DoneEvent()
         wx.PostEvent(self.searchlog, evt)
 
-    def SearchPhone(self, evt = None):
+    def SearchPhone(self, evt=None):
         if self.connected:
             wx.MessageDialog(self,
                 _('Searching for phone can not be performed while you are connected to phone, please disconnect first.'),
@@ -2308,28 +2308,28 @@ class WammuFrame(wx.Frame):
             self.cfg.gammu.SetConfig(result['Position'], result['Device'], result['Connection'], result['Name'])
             self.cfg.WriteInt('/Gammu/Section', index)
 
-    def About(self, evt = None):
+    def About(self, evt=None):
         Wammu.About.AboutBox(self).ShowModal()
 
-    def Website(self, evt = None):
+    def Website(self, evt=None):
         Wammu.Webbrowser.Open("http://%swammu.eu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
-    def Support(self, evt = None):
+    def Support(self, evt=None):
         Wammu.Webbrowser.Open("http://%swammu.eu/support/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
-    def ReportBug(self, evt = None):
+    def ReportBug(self, evt=None):
         Wammu.Webbrowser.Open("https://github.com/gammu/wammu/issues")
 
-    def PhoneDB(self, evt = None):
+    def PhoneDB(self, evt=None):
         Wammu.Webbrowser.Open("http://%swammu.eu/phones/" % Wammu.Utils.GetWebsiteLang())
 
-    def Talkback(self, evt = None):
+    def Talkback(self, evt=None):
         Wammu.TalkbackDialog.DoTalkback(self, self.cfg, 0)
 
-    def Donate(self, evt = None):
+    def Donate(self, evt=None):
         Wammu.Webbrowser.Open("http://%swammu.eu/donate/?src=wammu" % Wammu.Utils.GetWebsiteLang())
 
-    def SaveLog(self, evt = None):
+    def SaveLog(self, evt=None):
         '''
         Saves debug log to file.
         '''
@@ -2340,5 +2340,5 @@ class WammuFrame(wx.Frame):
                 '',
                 wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
-            Wammu.ErrorLog.SaveLog(filename = dlg.GetPath())
+            Wammu.ErrorLog.SaveLog(filename=dlg.GetPath())
 

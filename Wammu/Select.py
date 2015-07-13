@@ -32,7 +32,7 @@ def SortName(item1, item2):
     '''
     return cmp(item1['Name'], item2['Name'])
 
-def SelectContact(parent, contactlist, index = False):
+def SelectContact(parent, contactlist, index=False):
     '''
     Dialog for selecting contact.
     '''

@@ -81,7 +81,7 @@ class ErrorMessage(wx.Dialog):
         self.Bind(wx.EVT_BUTTON, self.OnReport, self.reportbutton)
 
         buttonsizer.Realize()
-        sizer.Add(buttonsizer, flag = wx.ALIGN_RIGHT | wx.ALL, border = 10)
+        sizer.Add(buttonsizer, flag=wx.ALIGN_RIGHT | wx.ALL, border=10)
 
         sizer.Fit(self)
         self.SetAutoLayout(True)
@@ -98,7 +98,7 @@ class ErrorMessage(wx.Dialog):
                 '',
                 wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
-            Wammu.ErrorLog.SaveLog(filename = dlg.GetPath())
+            Wammu.ErrorLog.SaveLog(filename=dlg.GetPath())
 
     def OnSearch(self, evt):
         '''

@@ -105,21 +105,23 @@ class WammuConfig:
     '''
     def __init__(self):
         # We don't want to subclass from wx.Config to hide it's API
-        self.cfg = wx.Config(appName = 'Wammu',
-                style = wx.CONFIG_USE_LOCAL_FILE)
+        self.cfg = wx.Config(
+            appName='Wammu',
+            style=wx.CONFIG_USE_LOCAL_FILE
+        )
         self.gammu = None
         self.InitGammu()
 
     def Flush(self):
         self.cfg.Flush()
 
-    def InitGammu(self, path = None):
+    def InitGammu(self, path=None):
         '''
         Initializes gammu configuration as sub part of this class.
         '''
         self.gammu = Wammu.GammuSettings.GammuSettings(self, path)
 
-    def Read(self, path, expand = True):
+    def Read(self, path, expand=True):
         '''
         Reads string option from configuration.
         '''

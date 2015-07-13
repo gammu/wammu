@@ -200,7 +200,7 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
         """
         This has to send message as it is called from different thread.
         """
-        evt = Wammu.Events.TextEvent(text = text + '\n')
+        evt = Wammu.Events.TextEvent(text=text + '\n')
         wx.PostEvent(self, evt)
 
     def SearchDone(self, lst):
@@ -413,7 +413,7 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
     """
     Selects phone connection type.
     """
-    def __init__(self, parent, search = True):
+    def __init__(self, parent, search=True):
         self.names = []
         self.search = search
         connections = []
@@ -506,7 +506,7 @@ class WelcomePage(Wammu.Wizard.SimplePage):
             ])
 
 class ConfigureWizard:
-    def __init__(self, parent, position = 0):
+    def __init__(self, parent, position=0):
         bmp = wx.Bitmap(Wammu.Paths.MiscPath('phonewizard'))
         self.wiz = wx.wizard.Wizard(
                 parent,
@@ -585,7 +585,7 @@ class ConfigureWizard:
             return None
 
 
-def RunConfigureWizard(parent, position = 0):
+def RunConfigureWizard(parent, position=0):
     """
     Executes wizard for configuring phone
     """

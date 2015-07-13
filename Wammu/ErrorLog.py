@@ -54,13 +54,13 @@ def GetSystemInfo():
     wxver = wx.VERSION_STRING
     wammuver = Wammu.__version__
     try:
-        (gammuver, pgammuver) = gammu.Version()
+        gammuver, pgammuver = gammu.Version()
     except:
         try:
-            (gammuver, pgammuver, ignore) = gammu.Version()
+            gammuver, pgammuver, ignore = gammu.Version()
         except:
-            (gammuver, pgammuver) = ('Unknown', 'Unknown')
-    (loc, charset) = locale.getdefaultlocale()
+            gammuver, pgammuver = ('Unknown', 'Unknown')
+    loc, charset = locale.getdefaultlocale()
     bluez = 'None'
     try:
         import bluetooth
@@ -87,7 +87,7 @@ def GetSystemInfo():
         result += 'model        %s\n' % config['Model']
     return result
 
-def SaveLog(outf = None, filename = None):
+def SaveLog(outf=None, filename=None):
     """
     Saves debug log to filename or handle. If none specified
     """

@@ -89,6 +89,6 @@ class Throbber(wx.lib.throbber.Throbber):
                 img = wx.ImageFromBitmap(bitmap)
                 bitmap = wx.BitmapFromImage(img.Scale(bitmap.GetWidth() * scale, bitmap.GetHeight() * scale))
             bitmaps.append(bitmap)
-        wx.lib.throbber.Throbber.__init__(self, parent, -1, bitmaps, frameDelay = delay)
+        wx.lib.throbber.Throbber.__init__(self, parent, -1, bitmaps, frameDelay=delay)
         self.SetToolTipString(tooltip)
 

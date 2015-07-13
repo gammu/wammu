@@ -39,17 +39,17 @@ class GetMemory(Wammu.Reader.Reader):
             return Wammu.Reader.Reader.FallBackStatus(self)
 
     def GetStatus(self):
-        status = self.sm.GetMemoryStatus(Type = self.type)
+        status = self.sm.GetMemoryStatus(Type=self.type)
         return status['Used']
 
     def GetNextStart(self):
-        return self.sm.GetNextMemory(Start = True, Type = self.type)
+        return self.sm.GetNextMemory(Start=True, Type=self.type)
 
     def GetNext(self, location):
-        return self.sm.GetNextMemory(Location = location, Type = self.type)
+        return self.sm.GetNextMemory(Location=location, Type=self.type)
 
     def Get(self, location):
-        return self.sm.GetMemory(Location = location, Type = self.type)
+        return self.sm.GetMemory(Location=location, Type=self.type)
 
     def Parse(self, value):
         Wammu.Utils.ParseMemoryEntry(value, self.win.cfg)

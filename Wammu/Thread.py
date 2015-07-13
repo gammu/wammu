@@ -39,14 +39,14 @@ class Thread(threading.Thread):
         try:
             self.Run()
         except:
-            evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
+            evt = Wammu.Events.ExceptionEvent(data=sys.exc_info())
             wx.PostEvent(self.win, evt)
             self.ShowProgress(100)
 
     def Cancel(self):
         self.canceled = True
 
-    def ShowError(self, info, finish = False):
+    def ShowError(self, info, finish=False):
         if finish:
             self.ShowProgress(100)
         lck = threading.Lock()
@@ -79,7 +79,7 @@ class Thread(threading.Thread):
             cancel = self.Cancel)
         wx.PostEvent(self.win, evt)
 
-    def SendData(self, datatype, data, last = True):
+    def SendData(self, datatype, data, last=True):
         evt = Wammu.Events.DataEvent(
             type = datatype,
             data = data,

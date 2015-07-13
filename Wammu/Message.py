@@ -31,13 +31,13 @@ class GetMessage(Wammu.Reader.Reader):
         return status['SIMUsed'] + status['PhoneUsed'] + status['TemplatesUsed']
 
     def GetNextStart(self):
-        return self.sm.GetNextSMS(Start = True, Folder = 0)
+        return self.sm.GetNextSMS(Start=True, Folder=0)
 
     def GetNext(self, location):
-        return self.sm.GetNextSMS(Location = location, Folder = 0)
+        return self.sm.GetNextSMS(Location=location, Folder=0)
 
     def Get(self, location):
-        return self.sm.GetSMS(Location = location, Folder = 0)
+        return self.sm.GetSMS(Location=location, Folder=0)
 
     def Parse(self, value):
         return

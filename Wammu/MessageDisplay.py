@@ -29,7 +29,7 @@ import re
 import xml.sax.saxutils
 from Wammu.Locales import UnicodeConv, HtmlStrConv, ugettext as _
 
-def SmsTextFormat(cfg, txt, dohtml = True, doxml = False):
+def SmsTextFormat(cfg, txt, dohtml=True, doxml=False):
     if txt is None:
         return ''
     if cfg.Read('/Message/Format') == 'yes':

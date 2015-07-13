@@ -32,13 +32,13 @@ class GetCalendar(Wammu.Reader.Reader):
         return status['Used']
 
     def GetNextStart(self):
-        return self.sm.GetNextCalendar(Start = True)
+        return self.sm.GetNextCalendar(Start=True)
 
     def GetNext(self, location):
-        return self.sm.GetNextCalendar(Location = location)
+        return self.sm.GetNextCalendar(Location=location)
 
     def Get(self, location):
-        return self.sm.GetCalendar(Location = location)
+        return self.sm.GetCalendar(Location=location)
 
     def Parse(self, value):
         Wammu.Utils.ParseCalendar(value)

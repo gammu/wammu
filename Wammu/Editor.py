@@ -79,7 +79,7 @@ class TimeCtrl(wx.lib.masked.timectrl.TimeCtrl):
 class CalendarPopup(wx.PopupTransientWindow):
     def __init__(self, parent):
         wx.PopupTransientWindow.__init__(self, parent, wx.SIMPLE_BORDER)
-        self.cal = wx.calendar.CalendarCtrl(self, -1, pos = (0, 0), style = wx.calendar.CAL_SEQUENTIAL_MONTH_SELECTION)
+        self.cal = wx.calendar.CalendarCtrl(self, -1, pos=(0, 0), style=wx.calendar.CAL_SEQUENTIAL_MONTH_SELECTION)
         sz = self.cal.GetBestSize()
         self.SetSize(sz)
 
@@ -89,7 +89,7 @@ class DateControl(wx.Panel):
 
         self.sizer = wx.FlexGridSizer(1, 2)
         self.sizer.AddGrowableCol(0)
-        self.textCtrl = maskedCtrl(self, -1, autoformat = 'EUDATEDDMMYYYY.', validRequired=True, emptyInvalid=True)
+        self.textCtrl = maskedCtrl(self, -1, autoformat='EUDATEDDMMYYYY.', validRequired=True, emptyInvalid=True)
         Wammu.Utils.FixupMaskedEdit(self.textCtrl)
         self.textCtrl.SetValue(value)
         self.bCtrl = wx.BitmapButton(self, -1, wx.Bitmap(MiscPath('downarrow')))
@@ -179,9 +179,9 @@ class ContactEdit(wx.Panel):
         self.values = values
         self.sizer = wx.FlexGridSizer(1, 3, 2, 2)
         self.sizer.AddGrowableCol(1)
-        self.edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000, initial = val, size = (200, -1))
+        self.edit = wx.SpinCtrl(self, -1, str(val), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000, initial=val, size=(200, -1))
         self.txt = wx.StaticText(self, -1, self.GetText(val))
-        self.btn = wx.Button(self, -1, '...', style = wx.BU_EXACTFIT)
+        self.btn = wx.Button(self, -1, '...', style=wx.BU_EXACTFIT)
         self.sizer.AddMany([
             (self.edit,                     0, wx.EXPAND),
             (self.txt,                      1, wx.EXPAND),
@@ -232,7 +232,7 @@ class GenericEditor(wx.Dialog):
             title = _('Editing %(name)s %(location)s') % {'name':name, 'location':location}
             self.wasempty = False
 
-        wx.Dialog.__init__(self, parent, -1, title, style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+        wx.Dialog.__init__(self, parent, -1, title, style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
         self.rows = 0
         self.entry = entry
         self.values = values
@@ -248,13 +248,13 @@ class GenericEditor(wx.Dialog):
             entry['Location'] = 0
             entry[type] = self.cfg.Read('/Defaults/Type-%s-%s' % (internalname, type))
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Location (0 = auto):')), (0, 0), (1, 4))
+        self.sizer.Add(wx.StaticText(self, -1, _('Location (0=auto):')), (0, 0), (1, 4))
         # there used to be sys.maxint on following line, but it's too large on amd64 (or there is bug in wxPython)
-        self.locationedit = wx.SpinCtrl(self, -1, str(entry['Location']), style = wx.SP_WRAP|wx.SP_ARROW_KEYS , min = 0, max = 2147483647, initial = entry['Location'])
+        self.locationedit = wx.SpinCtrl(self, -1, str(entry['Location']), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=2147483647, initial=entry['Location'])
         self.sizer.Add(self.locationedit, (0, 4), (1, 4))
 
         self.sizer.Add(wx.StaticText(self, -1, typename), (1, 0), (1, 4))
-        self.typeedit = wx.ComboBox(self, -1, entry[type], choices = typevalues, style = wx.CB_READONLY)
+        self.typeedit = wx.ComboBox(self, -1, entry[type], choices=typevalues, style=wx.CB_READONLY)
         self.sizer.Add(self.typeedit, (1, 4), (1, 4))
 
         self.rowoffset = 2
@@ -283,7 +283,7 @@ class GenericEditor(wx.Dialog):
         self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.button_sizer.SetNegativeButton(self.more)
         self.button_sizer.Realize()
-        self.Bind(wx.EVT_BUTTON, self.Okay, id = wx.ID_OK)
+        self.Bind(wx.EVT_BUTTON, self.Okay, id=wx.ID_OK)
         self.Bind(wx.EVT_BUTTON, self.More, self.more)
 
         self.SetAutoLayout(True)
@@ -293,7 +293,7 @@ class GenericEditor(wx.Dialog):
 
     def AddButtons(self):
         row = self.rowoffset + self.rows + 1
-        self.sizer.Add(self.button_sizer, pos = (row, 1), span = wx.GBSpan(colspan = 7), flag = wx.ALIGN_RIGHT)
+        self.sizer.Add(self.button_sizer, pos=(row, 1), span=wx.GBSpan(colspan=7), flag=wx.ALIGN_RIGHT)
         self.sizer.Fit(self)
         self.sizer.SetSizeHints(self)
         self.sizer.Layout()
@@ -305,8 +305,8 @@ class GenericEditor(wx.Dialog):
         if value is None:
             value = {'Type':'', 'Value':''}
         self.rows += 1
-        self.sizer.Add(wx.StaticText(self, -1, '%d.' % (row + 1), size = (20, -1)), (row + self.rowoffset, 0))
-        combo = wx.ComboBox(self, -1, value['Type'], choices = self.itemtypes + [''], style = wx.CB_READONLY, size = (180, -1))
+        self.sizer.Add(wx.StaticText(self, -1, '%d.' % (row + 1), size=(20, -1)), (row + self.rowoffset, 0))
+        combo = wx.ComboBox(self, -1, value['Type'], choices=self.itemtypes + [''], style=wx.CB_READONLY, size=(180, -1))
         combo.row = row
         self.sizer.Add(combo, (row + self.rowoffset, 1), (1, 3))
         self.Bind(wx.EVT_TEXT, self.OnItemTypeChange, combo)
@@ -318,12 +318,12 @@ class GenericEditor(wx.Dialog):
         self.types[row] = type
         if type == 'text' or type is None:
             # text editor
-            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (200, -1))
+            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size=(200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         elif type == 'phone':
             # phone editor with voice tag
-            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (150, -1), validator = Wammu.PhoneValidator.PhoneValidator(pause = True))
+            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size=(150, -1), validator=Wammu.PhoneValidator.PhoneValidator(pause=True))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 3))
             try:
                 v = hex(value['VoiceTag'])
@@ -331,7 +331,7 @@ class GenericEditor(wx.Dialog):
                 v = '0x0'
             if v[-1] == 'L':
                 v = v[:-1]
-            edit2 = wx.TextCtrl(self, -1, v, size = (50, -1))
+            edit2 = wx.TextCtrl(self, -1, v, size=(50, -1))
             self.sizer.Add(edit2, (row + self.rowoffset, 7), (1, 1))
             self.edits[row] = [edit, edit2]
         elif type == 'bool':
@@ -340,7 +340,7 @@ class GenericEditor(wx.Dialog):
                 val = bool(value['Value'])
             except:
                 val = False
-            edit = wx.CheckBox(self, -1, '', size = (200, -1))
+            edit = wx.CheckBox(self, -1, '', size=(200, -1))
             edit.SetValue(val)
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
@@ -350,10 +350,10 @@ class GenericEditor(wx.Dialog):
                 val = int(value['Value'])
             except:
                 val = 0
-            edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = 0, max = 10000, initial = val, size = (50, -1))
+            edit = wx.SpinCtrl(self, -1, str(val), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=0, max=10000, initial=val, size=(50, -1))
             edit.row = row
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 1))
-            edit2 = wx.Button(self, -1, self.GetContactText(val), style = wx.BU_EXACTFIT, size = (150, -1))
+            edit2 = wx.Button(self, -1, self.GetContactText(val), style=wx.BU_EXACTFIT, size=(150, -1))
             edit2.row = row
             self.sizer.Add(edit2, (row + self.rowoffset, 5), (1, 3))
             self.edits[row] = [edit, edit2]
@@ -367,7 +367,7 @@ class GenericEditor(wx.Dialog):
                 v = '0x0'
             if v[-1] == 'L':
                 v = v[:-1]
-            edit = wx.TextCtrl(self, -1, StrConv(v), size = (200, -1))
+            edit = wx.TextCtrl(self, -1, StrConv(v), size=(200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         elif type == 'category' or type == 'number':
@@ -377,7 +377,7 @@ class GenericEditor(wx.Dialog):
                 val = int(value['Value'])
             except:
                 val = 0
-            edit = wx.SpinCtrl(self, -1, str(val), style = wx.SP_WRAP|wx.SP_ARROW_KEYS, min = -10000, max = 10000, initial = val, size = (200, -1))
+            edit = wx.SpinCtrl(self, -1, str(val), style=wx.SP_WRAP|wx.SP_ARROW_KEYS, min=-10000, max=10000, initial=val, size=(200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         elif type == 'datetime':
@@ -396,7 +396,7 @@ class GenericEditor(wx.Dialog):
             self.edits[row] = [edit]
         else:
             print 'warning: creating TextCtrl for %s' % type
-            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size = (200, -1))
+            edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size=(200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         self.sizer.Fit(self)

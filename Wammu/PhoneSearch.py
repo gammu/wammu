@@ -213,7 +213,7 @@ class AllSearchThread(threading.Thread):
             if self.callback is not None:
                 self.callback(self.list)
         except:
-            evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
+            evt = Wammu.Events.ExceptionEvent(data=sys.exc_info())
             wx.PostEvent(self.win, evt)
 
 class SearchThread(threading.Thread):
@@ -289,7 +289,7 @@ class SearchThread(threading.Thread):
             for conn in self.connections:
                 self.try_connection(conn)
         except:
-            evt = Wammu.Events.ExceptionEvent(data = sys.exc_info())
+            evt = Wammu.Events.ExceptionEvent(data=sys.exc_info())
             wx.PostEvent(self.win, evt)
 
 class PhoneInfoThread(threading.Thread):
@@ -332,7 +332,7 @@ class PhoneInfoThread(threading.Thread):
                     'Model': sm.GetModel(),
                     'Manufacturer': sm.GetManufacturer(),
                     }
-            evt = Wammu.Events.DataEvent(data = self.result)
+            evt = Wammu.Events.DataEvent(data=self.result)
             wx.PostEvent(self.win, evt)
         except gammu.GSMError, val:
             info = val.args[0]
