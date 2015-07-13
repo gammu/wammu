@@ -330,7 +330,7 @@ def SMSToIMAP(parent, messages, contacts):
 
         filename, data, msgid = Wammu.MailWriter.SMSToMail(parent.cfg, sms, contacts)
 
-        if imapConfig.newMessages == True:
+        if imapConfig.newMessages:
             res, msgnums = m.search(None, 'HEADER', '"Message-ID" "' + msgid + '"')
             if len(msgnums[0].split()) != 0:
                 continue
@@ -361,7 +361,7 @@ def SMSToIMAP(parent, messages, contacts):
     except:
         pass
 
-    if imapConfig.newMessages == False:
+    if not imapConfig.newMessages:
         parent.SetStatusText(
             _('%(count)d messages exported to "%(path)s" (%(type)s)') % {
                 'count': count,
