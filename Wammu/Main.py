@@ -799,42 +799,42 @@ class WammuFrame(wx.Frame):
             self.SetStatusText(_('Disconnected'), 1)
         mb = self.menuBar
 
-        mb.Enable(201, not enable);
-        mb.Enable(202, enable);
+        mb.Enable(201, not enable)
+        mb.Enable(202, enable)
 
-        mb.Enable(210, enable);
+        mb.Enable(210, enable)
 
-        mb.Enable(250, enable);
+        mb.Enable(250, enable)
 
-        mb.Enable(301, enable);
+        mb.Enable(301, enable)
 
-        mb.Enable(310, enable);
-        mb.Enable(311, enable);
-        mb.Enable(312, enable);
+        mb.Enable(310, enable)
+        mb.Enable(311, enable)
+        mb.Enable(312, enable)
 
-        mb.Enable(320, enable);
+        mb.Enable(320, enable)
 
-        mb.Enable(330, enable);
+        mb.Enable(330, enable)
 
-        mb.Enable(340, enable);
+        mb.Enable(340, enable)
 
-        mb.Enable(350, enable);
+        mb.Enable(350, enable)
 
-        mb.Enable(399, enable);
+        mb.Enable(399, enable)
 
-        mb.Enable(401, enable);
-        mb.Enable(402, enable);
-        mb.Enable(403, enable);
-        mb.Enable(404, enable);
+        mb.Enable(401, enable)
+        mb.Enable(402, enable)
+        mb.Enable(403, enable)
+        mb.Enable(404, enable)
 
-        mb.Enable(501, enable);
-        mb.Enable(502, enable);
-        mb.Enable(503, enable);
-        mb.Enable(504, enable);
+        mb.Enable(501, enable)
+        mb.Enable(502, enable)
+        mb.Enable(503, enable)
+        mb.Enable(504, enable)
 
-        mb.Enable(510, enable);
-        mb.Enable(511, enable);
-        mb.Enable(512, enable);
+        mb.Enable(510, enable)
+        mb.Enable(511, enable)
+        mb.Enable(512, enable)
 
     def ActivateView(self, k1, k2):
         self.tree.SelectItem(self.treei[k1][k2])

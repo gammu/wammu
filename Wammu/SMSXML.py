@@ -76,7 +76,7 @@ def SMSToXML(cfg, sms, contact=None):
 
     smsxml += "    </message>\n"
 
-    return smsxml;
+    return smsxml
 
 def SMSExportXML(parent, messages, contacts):
     count = len(messages)

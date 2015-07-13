@@ -134,7 +134,7 @@ def ContactToXML(cfg, folder, contact):
 
     contactxml += "    </contact>\n"
 
-    return contactxml;
+    return contactxml
 
 def ContactsExportXML(parent, contactsSM, contactsME):
     countSM = len(contactsSM)
