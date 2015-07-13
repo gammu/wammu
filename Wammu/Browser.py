@@ -563,9 +563,9 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 menu.Append(self.popup_id_contact,    _('Store as new contact'))
             menu.AppendSeparator()
 
-        if self.popup_index != -1 and not self.type in ['call', 'message']:
+        if self.popup_index != -1 and self.type not in ['call', 'message']:
             menu.Append(self.popup_id_edit,       _('Edit'))
-        if self.popup_index != -1 and not self.type in ['call']:
+        if self.popup_index != -1 and self.type not in ['call']:
             menu.Append(self.popup_id_duplicate,  _('Duplicate'))
             menu.AppendSeparator()
 
