@@ -40,9 +40,9 @@ class GammuSettings:
         else:
             self.filename = self.wammu_cfg.Read('/Gammu/Gammurc')
         self.config = wx.FileConfig(
-                localFilename = self.filename,
-                style = wx.CONFIG_USE_LOCAL_FILE
-                )
+            localFilename=self.filename,
+            style=wx.CONFIG_USE_LOCAL_FILE
+        )
         self.list = []
 
         cont, val, idx = self.config.GetFirstGroup()
@@ -88,10 +88,10 @@ class GammuSettings:
             'Device': device,
             'Connection': connection,
             'Model': model
-            }
+        }
 
     def SetConfig(self, position, device, connection,
-            name = None, model = None):
+            name=None, model=None):
         '''
         Set configuration at defined position.
         '''

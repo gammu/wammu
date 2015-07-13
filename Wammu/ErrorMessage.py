@@ -47,8 +47,10 @@ class ErrorMessage(wx.Dialog):
         sizer.Add(textsizer, flag=wx.ALL, border=10)
 
         bitmap = wx.Bitmap(Wammu.Paths.MiscPath('error'))
-        icon = wx.StaticBitmap(self, -1, bitmap,
-                size = (bitmap.GetWidth(), bitmap.GetHeight()))
+        icon = wx.StaticBitmap(
+            self, -1, bitmap,
+            size=(bitmap.GetWidth(), bitmap.GetHeight())
+        )
         textsizer.Add(icon, flag=wx.RIGHT, border=10)
 
         if exception is not None:

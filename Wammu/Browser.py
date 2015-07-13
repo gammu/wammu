@@ -145,12 +145,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     '''
     def __init__(self, parent, win, cfg):
         wx.ListCtrl.__init__(self,
-                parent,
-                -1,
-                style = wx.LC_REPORT |
-                    wx.LC_VIRTUAL |
-                    wx.LC_HRULES |
-                    wx.LC_VRULES)
+            parent,
+            -1,
+            style=wx.LC_REPORT | wx.LC_VIRTUAL | wx.LC_HRULES | wx.LC_VRULES
+        )
         self.win = win
         self.cfg = cfg
 
@@ -227,40 +225,40 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 self)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupSend,
-                id = self.popup_id_send)
+                id=self.popup_id_send)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupEdit,
-                id = self.popup_id_edit)
+                id=self.popup_id_edit)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupMessage,
-                id = self.popup_id_message)
+                id=self.popup_id_message)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupContact,
-                id = self.popup_id_contact)
+                id=self.popup_id_contact)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupCall,
-                id = self.popup_id_call)
+                id=self.popup_id_call)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupDelete,
-                id = self.popup_id_delete)
+                id=self.popup_id_delete)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupDeleteSel,
-                id = self.popup_id_delete_selection)
+                id=self.popup_id_delete_selection)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupDuplicate,
-                id = self.popup_id_duplicate)
+                id=self.popup_id_duplicate)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupReply,
-                id = self.popup_id_reply)
+                id=self.popup_id_reply)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupBackupOne,
-                id = self.popup_id_backup_one)
+                id=self.popup_id_backup_one)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupBackupSel,
-                id = self.popup_id_backup_selection)
+                id=self.popup_id_backup_selection)
         self.Bind(wx.EVT_MENU,
                 self.OnPopupBackupAll,
-                id = self.popup_id_backup_all)
+                id=self.popup_id_backup_all)
 
     def ShowHeaders(self):
         '''

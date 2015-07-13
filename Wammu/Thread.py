@@ -52,13 +52,13 @@ class Thread(threading.Thread):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = Wammu.Utils.FormatError(
+            message=Wammu.Utils.FormatError(
                 _('Error while communicating with phone'),
                 info),
-            title = _('Error Occured'),
-            type = wx.ICON_ERROR,
-            errortype = 'gammu',
-            lock = lck)
+            title=_('Error Occured'),
+            type=wx.ICON_ERROR,
+            errortype='gammu',
+            lock=lck)
         wx.PostEvent(self.win, evt)
         lck.acquire()
 
@@ -66,34 +66,34 @@ class Thread(threading.Thread):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = text,
-            title = title,
-            type = wx.ICON_INFORMATION,
-            lock = lck)
+            message=text,
+            title=title,
+            type=wx.ICON_INFORMATION,
+            lock=lck)
         wx.PostEvent(self.win, evt)
         lck.acquire()
 
     def ShowProgress(self, progress):
         evt = Wammu.Events.ProgressEvent(
-            progress = progress,
-            cancel = self.Cancel)
+            progress=progress,
+            cancel=self.Cancel)
         wx.PostEvent(self.win, evt)
 
     def SendData(self, datatype, data, last=True):
         evt = Wammu.Events.DataEvent(
-            type = datatype,
-            data = data,
-            last = last)
+            type=datatype,
+            data=data,
+            last=last)
         wx.PostEvent(self.win, evt)
 
     def Canceled(self):
         lck = threading.Lock()
         lck.acquire()
         evt = Wammu.Events.ShowMessageEvent(
-            message = _('Action canceled by user!'),
-            title = _('Action canceled'),
-            type = wx.ICON_WARNING,
-            lock = lck)
+            message=_('Action canceled by user!'),
+            title=_('Action canceled'),
+            type=wx.ICON_WARNING,
+            lock=lck)
         wx.PostEvent(self.win, evt)
         lck.acquire()
         self.ShowProgress(100)

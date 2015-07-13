@@ -180,20 +180,22 @@ class PhoneSearchPage(Wammu.Wizard.TextPage):
             self.edit.Clear()
             self.edit.AppendText(_('Wammu is now searching for phone:') + '\n')
             self.thread = Wammu.PhoneSearch.AllSearchThread(
-                    lock = False,
-                    callback = self.SearchDone,
-                    msgcallback = self.SearchMessage,
-                    noticecallback = self.SearchNotice,
-                    limit = self.parent.settings.GetConnection(),
-                    win = self)
+                lock=False,
+                callback=self.SearchDone,
+                msgcallback=self.SearchMessage,
+                noticecallback=self.SearchNotice,
+                limit=self.parent.settings.GetConnection(),
+                win=self
+            )
             self.thread.start()
             self.results = []
 
     def SearchNotice(self, title, text):
         evt = Wammu.Events.ShowMessageEvent(
-            message = text,
-            title = title,
-            type = wx.ICON_WARNING)
+            message=text,
+            title=title,
+            type=wx.ICON_WARNING
+        )
         wx.PostEvent(self, evt)
 
     def SearchMessage(self, text):
@@ -348,7 +350,7 @@ class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
                     _('Driver to use'),
                     _('Driver to use'),
                     connections, helps,
-                    extratext = _('Please select which driver you want to use. Follow the help text shown below to select the best one.')
+                    extratext=_('Please select which driver you want to use. Follow the help text shown below to select the best one.')
                     )
 
     def GetNext(self):
@@ -362,6 +364,7 @@ class PhoneGammuDriverPage(Wammu.Wizard.ChoicePage):
         next.SetPrev(self)
         return next
 
+
 class PhoneDriverPage(Wammu.Wizard.ChoicePage):
     """
     Selects Gammu phone driver type.
@@ -369,13 +372,14 @@ class PhoneDriverPage(Wammu.Wizard.ChoicePage):
     def __init__(self, parent):
         self.names, connections, helps = parent.settings.GetDrivers()
 
-        Wammu.Wizard.ChoicePage.__init__(self, parent,
-                _('Connection type'),
-                _('Connection type'),
-                connections, helps,
-                extratext = _('Please select connection type, default choice should be best in most cases.')
-                )
-
+        Wammu.Wizard.ChoicePage.__init__(
+            self,
+            parent,
+            _('Connection type'),
+            _('Connection type'),
+            connections, helps,
+            extratext=_('Please select connection type, default choice should be best in most cases.')
+        )
 
     def GetNext(self):
         """
@@ -385,6 +389,7 @@ class PhoneDriverPage(Wammu.Wizard.ChoicePage):
         next = PhoneGammuDriverPage(self.parent)
         next.SetPrev(self)
         return next
+
 
 class PhoneManufacturerPage(Wammu.Wizard.ChoicePage):
     """
@@ -397,7 +402,7 @@ class PhoneManufacturerPage(Wammu.Wizard.ChoicePage):
                 _('Phone type'),
                 _('Phone type'),
                 connections, helps,
-                extratext = _('Please select phone manufacturer or type. Try to be as specific as possible.'),
+                extratext=_('Please select phone manufacturer or type. Try to be as specific as possible.'),
                 )
 
     def GetNext(self):
@@ -444,7 +449,7 @@ class PhoneConnectionPage(Wammu.Wizard.ChoicePage):
                 _('Connection type'),
                 _('Connection type'),
                 connections, helps,
-                extratext = _('How is your phone connected?'),
+                extratext=_('How is your phone connected?'),
                 )
 
     def GetNext(self):
@@ -471,7 +476,7 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                     _('You know what you are doing and know exact parameters you need for connecting to phone.'),
                 ],
                 [ pg0, pg1, pg2],
-                extratext = _('How do you want to configure your phone connection?'),
+                extratext=_('How do you want to configure your phone connection?'),
                 )
         self.info = wx.StaticText(
             self,

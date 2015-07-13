@@ -81,12 +81,13 @@ class Settings(wx.Dialog):
 
         self.editcfgpath = FileBrowseButton(
             self.notebook_gammu,
-            size = (250, -1),
-            labelText = '',
-            initialValue = config.Read('/Gammu/Gammurc', False),
-            toolTip = _('Please enter here path to gammu configuration file you want to use.'),
-            changeCallback = self.OnConfigChange,
-            fileMode = wx.OPEN)
+            size=(250, -1),
+            labelText='',
+            initialValue=config.Read('/Gammu/Gammurc', False),
+            toolTip=_('Please enter here path to gammu configuration file you want to use.'),
+            changeCallback=self.OnConfigChange,
+            fileMode=wx.OPEN
+        )
         self.sizer_gammu.Add(wx.StaticText(self.notebook_gammu, -1, _('Gammurc path')), pos=(r, 1), flag=wx.ALIGN_CENTER_VERTICAL)
         self.sizer_gammu.Add(self.editcfgpath, pos=(r, 2), flag=wx.EXPAND)
         r += 1
@@ -288,12 +289,16 @@ class Settings(wx.Dialog):
         r = 1
 
         v = config.Read('/Wammu/NameFormat')
-        self.editnameformat = wx.Choice(self.notebook_view, choices=[
-            _('Automatic'),
-            _('Automatic starting with first name'),
-            _('Automatic starting with last name'),
-            _('Custom, use format string below')
-            ], size = (250, -1))
+        self.editnameformat = wx.Choice(
+            self.notebook_view,
+            choices=[
+                _('Automatic'),
+                _('Automatic starting with first name'),
+                _('Automatic starting with last name'),
+                _('Custom, use format string below')
+            ],
+            size=(250, -1)
+        )
         if v == 'auto':
             self.editnameformat.SetSelection(0)
         elif v == 'auto-first-last':

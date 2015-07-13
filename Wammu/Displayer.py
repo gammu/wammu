@@ -53,8 +53,8 @@ class Displayer(wx.html.HtmlWindow):
 
     def OnLinkClicked(self, linkinfo):
         evt = Wammu.Events.LinkEvent(
-            link = linkinfo.GetHref()
-            )
+            link=linkinfo.GetHref()
+        )
         wx.PostEvent(self.win, evt)
 
 

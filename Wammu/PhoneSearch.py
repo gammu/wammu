@@ -47,13 +47,13 @@ class AllSearchThread(threading.Thread):
     device.
     '''
     def __init__(self,
-            lock = False,
-            level = 'nothing',
-            msgcallback = None,
-            callback = None,
-            win = None,
-            noticecallback = None,
-            limit = None):
+            lock=False,
+            level='nothing',
+            msgcallback=None,
+            callback=None,
+            win=None,
+            noticecallback=None,
+            limit=None):
         threading.Thread.__init__(self)
         self.lock = lock
         self.list = []
@@ -222,9 +222,9 @@ class SearchThread(threading.Thread):
             connections,
             lst,
             listlock,
-            lock = False,
-            level = 'nothing',
-            win = None):
+            lock=False,
+            level='nothing',
+            win=None):
         threading.Thread.__init__(self)
         self.device = device
         self.connections = connections
@@ -305,8 +305,8 @@ class PhoneInfoThread(threading.Thread):
             res = Wammu.Utils.CheckDeviceNode(self.device)
             if res[0] != 0:
                 evt = Wammu.Events.DataEvent(
-                        data = None,
-                        error = (res[2], res[3]))
+                        data=None,
+                        error=(res[2], res[3]))
                 wx.PostEvent(self.win, evt)
                 return
         try:
@@ -337,8 +337,10 @@ class PhoneInfoThread(threading.Thread):
         except gammu.GSMError, val:
             info = val.args[0]
             evt = Wammu.Events.DataEvent(
-                data = None,
-                error = (_('Failed to connect to phone'),
+                data=None,
+                error=(
+                    _('Failed to connect to phone'),
                     Wammu.Utils.FormatError('', info)
-                    ))
+                )
+            )
             wx.PostEvent(self.win, evt)

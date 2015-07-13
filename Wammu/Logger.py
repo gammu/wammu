@@ -121,21 +121,24 @@ class LogFrame(wx.Frame):
         else:
             pos = wx.DefaultPosition
         size = wx.Size(
-                cfg.ReadInt('/Debug/Width'),
-                cfg.ReadInt('/Debug/Height'))
+            cfg.ReadInt('/Debug/Width'),
+            cfg.ReadInt('/Debug/Height')
+        )
         wx.Frame.__init__(
-                self,
-                parent,
-                -1,
-                _('Wammu debug log'),
-                pos,
-                size,
-                wx.DEFAULT_FRAME_STYLE | wx.RESIZE_BORDER)
+            self,
+            parent,
+            -1,
+            _('Wammu debug log'),
+            pos,
+            size,
+            wx.DEFAULT_FRAME_STYLE | wx.RESIZE_BORDER
+        )
         self.txt = wx.TextCtrl(
-                self,
-                -1,
-                _('Here will appear debug messages from Gammu...\n'),
-                style = wx.TE_MULTILINE | wx.TE_READONLY)
+            self,
+            -1,
+            _('Here will appear debug messages from Gammu...\n'),
+            style=wx.TE_MULTILINE | wx.TE_READONLY
+        )
         self.txt.SetFont(wx.Font(9, wx.MODERN, wx.NORMAL, wx.NORMAL))
         Wammu.Events.EVT_LOG(self, self.OnLog)
         wx.EVT_SIZE(self, self.OnSize)

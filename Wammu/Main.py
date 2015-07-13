@@ -953,10 +953,11 @@ class WammuFrame(wx.Frame):
         except AttributeError:
             gammu_config = None
         evt = Wammu.Events.ShowMessageEvent(
-            message = Wammu.Utils.FormatError(_('Error while communicating with phone'), info, gammu_config=gammu_config),
-            title = _('Error Occured'),
-            errortype = 'gammu',
-            type = wx.ICON_ERROR)
+            message=Wammu.Utils.FormatError(_('Error while communicating with phone'), info, gammu_config=gammu_config),
+            title=_('Error Occured'),
+            errortype='gammu',
+            type=wx.ICON_ERROR
+        )
         wx.PostEvent(self, evt)
 
     def ShowProgress(self, text):
@@ -1484,10 +1485,11 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
-                message = Wammu.Utils.FormatError(_('Error while reading backup'), info),
-                title = _('Error Occured'),
-                errortype = 'gammu',
-                type = wx.ICON_ERROR)
+                message=Wammu.Utils.FormatError(_('Error while reading backup'), info),
+                title=_('Error Occured'),
+                errortype='gammu',
+                type=wx.ICON_ERROR
+            )
             wx.PostEvent(self, evt)
             return (None, None)
         return (filename, backup)
@@ -1545,9 +1547,13 @@ class WammuFrame(wx.Frame):
             ).ShowModal()
             return
 
-        dlg = wx.lib.dialogs.MultipleChoiceDialog(self, _('Following data was found in backup, select which of these do you want to be added into phone.'), _('Select what to import'),
-                                    choices,style = wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
-                                    size = (600, 200))
+        dlg = wx.lib.dialogs.MultipleChoiceDialog(
+            self,
+            _('Following data was found in backup, select which of these do you want to be added into phone.'),
+            _('Select what to import'),
+            choices,style=wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
+            size=(600, 200)
+        )
         if dlg.ShowModal() != wx.ID_OK:
             return
 
@@ -1637,9 +1643,13 @@ class WammuFrame(wx.Frame):
         if backup['DateTime'] is not None:
             msg += '\n \n' + _('Backup saved on %s') % str(backup['DateTime'])
 
-        dlg = wx.lib.dialogs.MultipleChoiceDialog(self, _('Following data was found in backup, select which of these do you want to be added into phone.') + msg, _('Select what to import'),
-                                    choices,style = wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
-                                    size = (600, 200))
+        dlg = wx.lib.dialogs.MultipleChoiceDialog(
+            self,
+            _('Following data was found in backup, select which of these do you want to be added into phone.') + msg,
+            _('Select what to import'),
+            choices,style=wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
+            size=(600, 200)
+        )
         if dlg.ShowModal() != wx.ID_OK:
             return
 
@@ -1755,17 +1765,19 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError, val:
             info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
-                message = Wammu.Utils.FormatError(_('Error while saving backup'), info),
-                title = _('Error Occured'),
-                errortype = 'gammu',
-                type = wx.ICON_ERROR)
+                message=Wammu.Utils.FormatError(_('Error while saving backup'), info),
+                title=_('Error Occured'),
+                errortype='gammu',
+                type=wx.ICON_ERROR
+            )
             wx.PostEvent(self, evt)
         except MemoryError, val:
             info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
-                    message = _('Error while saving backup, probably some limit inside of Gammu exceeded.\n%s') % str(info),
-                    title = _('Error Occured'),
-                    type = wx.ICON_ERROR)
+                message=_('Error while saving backup, probably some limit inside of Gammu exceeded.\n%s') % str(info),
+                title=_('Error Occured'),
+                type=wx.ICON_ERROR
+            )
             wx.PostEvent(self, evt)
 
     def DoBackup(self, data, type):
