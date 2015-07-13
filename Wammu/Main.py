@@ -1503,7 +1503,7 @@ class WammuFrame(wx.Frame):
         if backup is None:
             return
 
-        res = Wammu.Utils.ProcessMessages(map(lambda x:[x], backup), False)
+        res = Wammu.Utils.ProcessMessages([[x] for x in backup], False)
 
         self.values['message']['Sent'] = res['sent']
         self.values['message']['UnSent'] = res['unsent']
@@ -1729,7 +1729,7 @@ class WammuFrame(wx.Frame):
         try:
             if type == 'message':
                 # Backup is here our internal SMS list: [{'SMS':[{sms1}, {sms2}]}, ...]
-                data = map(lambda x:x['SMS'], backup)
+                data = [x['SMS'] for x in backup]
                 backup = []
                 for x in data:
                     backup += x
