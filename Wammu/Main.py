@@ -535,7 +535,7 @@ class WammuFrame(wx.Frame):
         self.cfg.WriteInt('/Wammu/RunCounter', runs + 1)
         if self.cfg.Read('/Wammu/TalkbackDone') == 'no':
             if (firstrun + (3600 * 24 * TALKBACK_DAYS) < time.time()
-                and runs > TALKBACK_COUNT):
+                    and runs > TALKBACK_COUNT):
                 dlg = wx.MessageDialog(
                     self,
                     _('You are using Wammu for more than a month. We would like to hear from you how your phone is supported. Do you want to participate in this survey?') +
