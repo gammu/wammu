@@ -57,7 +57,7 @@ class MessagePreview(wx.Dialog):
         btn = html.FindWindowById(wx.ID_OK)
         btn.SetDefault()
         ir = html.GetInternalRepresentation()
-        html.SetSize( (ir.GetWidth()+25, ir.GetHeight()+25) )
+        html.SetSize((ir.GetWidth() + 25, ir.GetHeight() + 25))
         self.SetClientSize(html.GetSize())
         self.CentreOnParent(wx.BOTH)
 

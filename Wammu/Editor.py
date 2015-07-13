@@ -130,7 +130,7 @@ class DateControl(wx.Panel):
         if not didSet:
             self.pop.cal.SetDate(DateTime_Today())
 
-        pos = self.ClientToScreen( (0,0) )
+        pos = self.ClientToScreen((0,0))
         display_size = wx.GetDisplaySize()
         popup_size = self.pop.GetSize()
         control_size = self.GetSize()

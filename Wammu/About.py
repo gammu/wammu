@@ -117,6 +117,8 @@ GNU General Public License for more details.
         if btn is not None:
             btn.SetDefault()
         representation = html.GetInternalRepresentation()
-        html.SetSize( (representation.GetWidth()+25, representation.GetHeight()+25) )
+        html.SetSize(
+            (representation.GetWidth() + 25, representation.GetHeight() + 25)
+        )
         self.SetClientSize(html.GetSize())
         self.CentreOnParent(wx.BOTH)
