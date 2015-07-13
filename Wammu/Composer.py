@@ -365,8 +365,7 @@ class SMSComposer(wx.Dialog):
         self.number = wx.TextCtrl(self, -1, entry['Number'], validator=Wammu.PhoneValidator.PhoneValidator(multi=True), size=(150, -1))
         self.contbut = wx.Button(self, -1, _('Add'))
         self.contbut.SetToolTipString(_('Add number of recipient from contacts.'))
-        # TODO: when switching to wx 2.8, use wx.ID_EDIT
-        self.editlistbut = wx.Button(self, -1, _('Edit'))
+        self.editlistbut = wx.Button(self, wx.ID_EDIT, _('Edit'))
         self.editlistbut.SetToolTipString(_('Edit recipients list.'))
 
         self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos=(row,1), flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
