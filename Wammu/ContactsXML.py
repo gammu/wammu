@@ -196,5 +196,8 @@ def ContactsExportXML(parent, contactsSM, contactsME):
 
     parent.progress.Update(100)
     del parent.progress
-    parent.SetStatusText(_('%(count)d contacts exported to "%(path)s"') % {'count':count, 'path':path})
+    parent.SetStatusText(_('%(count)d contacts exported to "%(path)s"') % {
+        'count': count,
+        'path': path
+    })
 

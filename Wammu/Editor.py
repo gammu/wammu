@@ -229,7 +229,10 @@ class GenericEditor(wx.Dialog):
             title = _('Creating new %s') % name
             self.wasempty = True
         else:
-            title = _('Editing %(name)s %(location)s') % {'name':name, 'location':location}
+            title = _('Editing %(name)s %(location)s') % {
+                'name': name,
+                'location': location
+            }
             self.wasempty = False
 
         wx.Dialog.__init__(self, parent, -1, title, style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
@@ -303,7 +306,10 @@ class GenericEditor(wx.Dialog):
 
     def AddEdit(self, row, value=None):
         if value is None:
-            value = {'Type':'', 'Value':''}
+            value = {
+                'Type': '',
+                'Value': ''
+            }
         self.rows += 1
         self.sizer.Add(wx.StaticText(self, -1, '%d.' % (row + 1), size=(20, -1)), (row + self.rowoffset, 0))
         combo = wx.ComboBox(self, -1, value['Type'], choices=self.itemtypes + [''], style=wx.CB_READONLY, size=(180, -1))
@@ -452,10 +458,10 @@ class GenericEditor(wx.Dialog):
 
     def OnItemTypeChange(self, evt):
         row = evt.GetEventObject().row
-        type = evt.GetString()
+        typestring = evt.GetString()
         val = self.GetTypeEditValue(row)
         self.DelTypeEdit(row)
-        self.AddTypeEdit(row, {'Type': type, 'Value':val})
+        self.AddTypeEdit(row, {'Type': typestring, 'Value': val})
 
     def OnTypeChange(self, evt):
         self.locationedit.SetValue(0)
@@ -473,7 +479,11 @@ class GenericEditor(wx.Dialog):
         for row in range(self.rows):
             t = self.fulltypes[row]
             if t != '':
-                v.append({'Type' : t, 'Value' : self.GetTypeEditValue(row), 'VoiceTag' : self.GetTypeEditVoiceTag(row)})
+                v.append({
+                    'Type': t,
+                    'Value': self.GetTypeEditValue(row),
+                    'VoiceTag': self.GetTypeEditVoiceTag(row)
+                })
 
         self.entry['Entries'] = v
         self.entry[self.type] = self.typeedit.GetValue()

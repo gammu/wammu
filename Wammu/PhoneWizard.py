@@ -103,7 +103,7 @@ class TestPage(Wammu.Wizard.SimplePage):
             self.detail.SetLabel(
                     _('Phone has been found.') +
                     (_('Manufacturer: %(manufacturer)s\nModel: %(model)s') %
-                    { 'manufacturer' : manuf, 'model' : model}))
+                    { 'manufacturer': manuf, 'model': model}))
             self.detail.Wrap(400)
 
     def Blocked(self, evt):

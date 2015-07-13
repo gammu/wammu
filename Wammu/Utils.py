@@ -254,13 +254,13 @@ def ParseMemoryEntry(entry, config=None):
 
     if format == 'custom':
         name_result = config.Read('/Wammu/NameFormatString') % {
-                'Name' : name,
-                'FirstName' : first,
-                'LastName' : last,
-                'NickName' : nickname,
-                'FormalName' : formalname,
-                'Company' : company,
-                }
+            'Name': name,
+            'FirstName': first,
+            'LastName': last,
+            'NickName': nickname,
+            'FormalName': formalname,
+            'Company': company,
+        }
     else:
         if name != '':
             name_result = name
@@ -448,7 +448,12 @@ def ProcessMessages(list, synced):
         elif i['State'] == 'UnSent':
             unsent.append(i)
 
-    return {'read':read, 'unread':unread, 'sent':sent, 'unsent':unsent}
+    return {
+        'read': read,
+        'unread': unread,
+        'sent': sent,
+        'unsent': unsent
+    }
 
 
 def FormatError(txt, info, gammu_config=None):

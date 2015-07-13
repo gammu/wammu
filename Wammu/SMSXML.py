@@ -131,7 +131,13 @@ def SMSExportXML(parent, messages, contacts):
 
     parent.progress.Update(100)
     del parent.progress
-    parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('mailbox')})
+    parent.SetStatusText(
+        _('%(count)d messages exported to "%(path)s" (%(type)s)') % {
+            'count': count,
+            'path': path,
+            'type': _('mailbox')
+        }
+    )
 
 
 

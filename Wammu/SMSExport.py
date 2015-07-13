@@ -79,7 +79,13 @@ def SMSToMailbox(parent, messages, contacts):
 
     parent.progress.Update(100)
     del parent.progress
-    parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('mailbox')})
+    parent.SetStatusText(
+        _('%(count)d messages exported to "%(path)s" (%(type)s)') % {
+            'count': count,
+            'path': path,
+            'type': _('mailbox')
+        }
+    )
 
 def SMSToMaildir(parent, messages, contacts):
     count = len(messages)
@@ -154,7 +160,13 @@ def SMSToMaildir(parent, messages, contacts):
     parent.progress.Update(100)
     del parent.progress
 
-    parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('maildir')})
+    parent.SetStatusText(
+        _('%(count)d messages exported to "%(path)s" (%(type)s)') % {
+            'count': count,
+            'path': path,
+            'type': _('maildir')
+        }
+    )
 
 def ParseIMAPFolder(item):
     '''
@@ -324,9 +336,22 @@ def SMSToIMAP(parent, messages, contacts):
         pass
 
     if imapConfig.newMessages == False:
-        parent.SetStatusText(_('%(count)d messages exported to "%(path)s" (%(type)s)') % {'count':count, 'path':path, 'type': _('IMAP server')})
+        parent.SetStatusText(
+            _('%(count)d messages exported to "%(path)s" (%(type)s)') % {
+                'count': count,
+                'path': path,
+                'type': _('IMAP server')
+            }
+        )
     else:
-        parent.SetStatusText(_('%(new)d new of %(count)d messages exported to "%(path)s" (%(type)s)') % {'new':new_messages_num, 'count':count, 'path':path, 'type': _('IMAP server')})
+        parent.SetStatusText(
+            _('%(new)d new of %(count)d messages exported to "%(path)s" (%(type)s)') % {
+                'new': new_messages_num,
+                'count': count,
+                'path': path,
+                'type': _('IMAP server')
+            }
+        )
 
 def SMSExport(parent, messages, contacts):
     # Select where to export
@@ -551,7 +576,7 @@ class IMAPSettingsDialog(wx.Dialog):
         if self.serverTextCtrl.GetValue() == "":
             counter += 1
             error += _('%d. Server incomplete\n') % counter
-        if self.portTextCtrl.GetValue() == "" or re.search('\D', self.portTextCtrl.GetValue()) :
+        if self.portTextCtrl.GetValue() == "" or re.search('\D', self.portTextCtrl.GetValue()):
             counter += 1
             error += _('%d. Port invalid\n') % counter
         if self.loginTextCtrl.GetValue() == "":

@@ -116,12 +116,15 @@ def Handler(errtype, value, tback):
 
     # display error
     try:
-        Wammu.ErrorMessage.ErrorMessage(HANDLER_PARENT,
+        Wammu.ErrorMessage.ErrorMessage(
+            HANDLER_PARENT,
             _('Unhandled exception appeared. If you want to help improving this program, please report this together with description how this situation has happened. Please report in english, otherwise you will be most likely told to translate you report to english later.'),
             _('Unhandled exception'),
             traceid = traceid, autolog = logname,
             exception = _('Traceback:\n%(traceback)s\nException: %(exception)s') % {
-                    'traceback': StrConv(texttrace),
-                    'exception' : StrConv(textexc) }).ShowModal()
+                'traceback': StrConv(texttrace),
+                'exception': StrConv(textexc)
+            }
+        ).ShowModal()
     except:
         print text

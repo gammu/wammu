@@ -124,7 +124,7 @@ def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
         prepend = ('Received: from %s via GSM\n' %
                 unicode(sms['SMS'][0]['SMSC']['Number'])) + prepend
 
-    if len(sms['Name']) > 0 :
+    if len(sms['Name']) > 0:
         msg['Subject'] = SmsTextFormat(cfg, sms['Name'], False)
     else:
         msg['Subject'] = SmsTextFormat(cfg, sms['Text'], False)[:50] + '...'

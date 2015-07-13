@@ -43,17 +43,17 @@ __all__ = (
 
 # When support for sound will be implemented, here should be sounds
 PredefinedSounds = [
-        (_('Chimes high'),''),
-        (_('Chimes low'),''),
-        (_('Ding'),''),
-        (_('TaDa'),''),
-        (_('Notify'),''),
-        (_('Drum'),''),
-        (_('Claps'),''),
-        (_('Fanfare'),''),
-        (_('Chord high'),''),
-        (_('Chord low'),''),
-        ]
+    (_('Chimes high'), ''),
+    (_('Chimes low'), ''),
+    (_('Ding'), ''),
+    (_('TaDa'), ''),
+    (_('Notify'), ''),
+    (_('Drum'), ''),
+    (_('Claps'), ''),
+    (_('Fanfare'), ''),
+    (_('Chord high'), ''),
+    (_('Chord low'), ''),
+]
 
 # Wanted somebody who will draw nicer icons :-)
 
@@ -456,15 +456,15 @@ Conn_Bluetooth_Standard = [
     'bluerfgnapbus',
     ]
 Conn_Bluetooth = {
-    'Sony-Ericsson' : Conn_Bluetooth_Standard,
-    'Siemens' : Conn_Bluetooth_Standard,
-    'BenQ' : Conn_Bluetooth_Standard,
-    'Samsung' : Conn_Bluetooth_Standard,
-    'LG' : Conn_Bluetooth_Standard,
-    'Motorola' : Conn_Bluetooth_Standard,
-    'Nokia' : Conn_Bluetooth_Nokia,
-    'Alcatel' : Conn_Bluetooth_Standard,
-    }
+    'Sony-Ericsson': Conn_Bluetooth_Standard,
+    'Siemens': Conn_Bluetooth_Standard,
+    'BenQ': Conn_Bluetooth_Standard,
+    'Samsung': Conn_Bluetooth_Standard,
+    'LG': Conn_Bluetooth_Standard,
+    'Motorola': Conn_Bluetooth_Standard,
+    'Nokia': Conn_Bluetooth_Nokia,
+    'Alcatel': Conn_Bluetooth_Standard,
+}
 if sys.platform == 'win32':
     Devices = [
         '',
@@ -633,7 +633,7 @@ GarbleMap = {
 
 # Generated from http://standards.ieee.org/regauth/oui/oui.txt
 MAC_Prefixes = {
-        'Sony-Ericsson' : [
+        'Sony-Ericsson': [
             '00:01:EC',
             '00:0A:D9',
             '00:0E:07',
@@ -670,7 +670,7 @@ MAC_Prefixes = {
             'C8:35:B8',
             'D0:F0:DB',
             ],
-        'Nokia' : [
+        'Nokia': [
             '00:02:EE',
             '00:0B:E1',
             '00:0E:ED',
@@ -774,7 +774,7 @@ MAC_Prefixes = {
             'EC:9B:5B',
             'FC:E5:57',
             ],
-        'Siemens' : [
+        'Siemens': [
             '00:01:E3',
             '00:05:19',
             '00:0B:23',
@@ -803,7 +803,7 @@ MAC_Prefixes = {
             '40:EC:F8',
             '88:4B:39',
             ],
-        'Samsung' : [
+        'Samsung': [
             '00:00:F0',
             '00:02:78',
             '00:09:18',
@@ -879,7 +879,7 @@ MAC_Prefixes = {
             'F4:9F:54',
             'FC:A1:3E',
             ],
-        'LG' : [
+        'LG': [
             '00:1C:62',
             '00:1E:75',
             '00:1F:6B',
@@ -894,12 +894,12 @@ MAC_Prefixes = {
             '6C:D6:8A',
             'E8:5B:5B',
             ],
-        'BenQ' : [
+        'BenQ': [
             '00:03:9D',
             '00:17:CA',
             '00:1E:21',
             ],
-        'Motorola' : [
+        'Motorola': [
             '00:03:E0',
             '00:04:56',
             '00:04:BD',
@@ -1007,7 +1007,7 @@ MAC_Prefixes = {
             'E4:83:99',
             'F8:7B:7A',
             ],
-        'Alcatel' : [
+        'Alcatel': [
             '00:07:72',
             '00:08:9A',
             '00:0E:86',

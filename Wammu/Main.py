@@ -108,11 +108,23 @@ displaydata['calendar'] = {}
 
 #information
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [
-    {'Name':_('Wammu version'), 'Value':Wammu.__version__, 'Synced': True},
-    ])
+    {
+        'Name': _('Wammu version'),
+        'Value': Wammu.__version__,
+        'Synced': True
+    },
+])
 if Wammu.gammu_error is None:
-    displaydata['info']['  '][4].append({'Name':_('Gammu version'), 'Value':gammu.Version()[0], 'Synced': True})
-    displaydata['info']['  '][4].append({'Name':_('python-gammu version'), 'Value':gammu.Version()[1], 'Synced': True})
+    displaydata['info']['  '][4].append({
+        'Name': _('Gammu version'),
+        'Value': gammu.Version()[0],
+        'Synced': True
+    })
+    displaydata['info']['  '][4].append({
+        'Name': _('python-gammu version'),
+        'Value': gammu.Version()[1],
+        'Synced': True
+    })
 
 # calls
 displaydata['call']['  '] = ('info', _('Calls'), _('All Calls'), 'call', [])
@@ -694,9 +706,9 @@ class WammuFrame(wx.Frame):
 
                 self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: %(time)s') %
                     {
-                        'battery_percent':b['BatteryPercent'],
-                        'power_source':power,
-                        'signal_level':signal,
+                        'battery_percent': b['BatteryPercent'],
+                        'power_source': power,
+                        'signal_level': signal,
                         'time': time
                     }, 1)
             except gammu.GSMError:

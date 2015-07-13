@@ -94,7 +94,7 @@ cellpadding="0" border="1">
             _('Using wxPython %s') % wx.VERSION_STRING,
             _('Using python-gammu %(python_gammu_version)s and Gammu %(gammu_version)s') %
                 {
-                    'python_gammu_version':gammu.Version()[1],
+                    'python_gammu_version': gammu.Version()[1],
                     'gammu_version': gammu.Version()[0]
                 }),
             _('<b>Wammu</b> is a wxPython based GUI for Gammu.'),
