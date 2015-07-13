@@ -129,7 +129,7 @@ class WammuConfig:
             result = self.cfg.Read(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            #print 'Warning: no default value for %s' % path
+            # print 'Warning: no default value for %s' % path
             result = self.cfg.Read(path, '')
         if expand and path in EXPANDABLE_CONFIGS:
             result = Wammu.OSUtils.ExpandPath(result)
@@ -143,7 +143,7 @@ class WammuConfig:
             result = self.cfg.ReadInt(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            #print 'Warning: no default value for %s' % path
+            # print 'Warning: no default value for %s' % path
             result = self.cfg.ReadInt(path, 0)
         return result
 
@@ -155,7 +155,7 @@ class WammuConfig:
             result = self.cfg.ReadFloat(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            #print 'Warning: no default value for %s' % path
+            # print 'Warning: no default value for %s' % path
             result = self.cfg.ReadFloat(path, 0)
         return result
 
@@ -167,7 +167,7 @@ class WammuConfig:
             result = self.cfg.ReadBool(path, DEFAULT_CONFIG[path])
         except KeyError:
             # Following line is for debugging purposes only
-            #print 'Warning: no default value for %s' % path
+            # print 'Warning: no default value for %s' % path
             result = self.cfg.ReadBool(path, 0)
         return result
 

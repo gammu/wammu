@@ -106,7 +106,7 @@ displaydata['message'] = {}
 displaydata['todo'] = {}
 displaydata['calendar'] = {}
 
-#information
+# information
 displaydata['info']['  '] = ('', _('Phone'), _('Phone Information'), 'phone', [
     {
         'Name': _('Wammu version'),
@@ -144,10 +144,10 @@ displaydata['message']['UnRead'] = ('message', _('Unread'), _('Unread Messages')
 displaydata['message']['Sent'] = ('message', _('Sent'), _('Sent Messages'), 'message-sent', [])
 displaydata['message']['UnSent'] = ('message', _('Unsent'), _('Unsent Messages'), 'message-unsent', [])
 
-#todos
+# todos
 displaydata['todo']['  '] = ('info', _('Todos'), _('All Todo Items'), 'todo', [])
 
-#calendar
+# calendar
 displaydata['calendar']['  '] = ('info', _('Calendar'), _('All Calendar Events'), 'calendar', [])
 
 
@@ -614,7 +614,7 @@ class WammuFrame(wx.Frame):
         self.last_dbus_id = 0
         if HAVE_DBUS:
             try:
-                bus = dbus.SessionBus() #mainloop=self.appparent.MainLoop)
+                bus = dbus.SessionBus() # mainloop=self.appparent.MainLoop)
                 interface = 'org.freedesktop.Notifications'
                 path = '/org/freedesktop/Notifications'
                 if Wammu.Utils.DBUSServiceAvailable(bus, interface, True):
