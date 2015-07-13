@@ -144,7 +144,8 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     Generic class for browsing values.
     '''
     def __init__(self, parent, win, cfg):
-        wx.ListCtrl.__init__(self,
+        wx.ListCtrl.__init__(
+            self,
             parent,
             -1,
             style=wx.LC_REPORT | wx.LC_VIRTUAL | wx.LC_HRULES | wx.LC_VRULES
@@ -208,57 +209,91 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         '''
         Bind various event handlers to events we need.
         '''
-        self.Bind(wx.EVT_LIST_ITEM_SELECTED,
-                self.OnItemSelected,
-                self)
-        self.Bind(wx.EVT_LIST_ITEM_ACTIVATED,
-                self.OnItemActivated,
-                self)
-        self.Bind(wx.EVT_LIST_KEY_DOWN,
-                self.OnKey,
-                self)
-        self.Bind(wx.EVT_LIST_COL_CLICK,
-                self.OnColClick,
-                self)
-        self.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK,
-                self.OnRightClick,
-                self)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupSend,
-                id=self.popup_id_send)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupEdit,
-                id=self.popup_id_edit)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupMessage,
-                id=self.popup_id_message)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupContact,
-                id=self.popup_id_contact)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupCall,
-                id=self.popup_id_call)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupDelete,
-                id=self.popup_id_delete)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupDeleteSel,
-                id=self.popup_id_delete_selection)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupDuplicate,
-                id=self.popup_id_duplicate)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupReply,
-                id=self.popup_id_reply)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupBackupOne,
-                id=self.popup_id_backup_one)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupBackupSel,
-                id=self.popup_id_backup_selection)
-        self.Bind(wx.EVT_MENU,
-                self.OnPopupBackupAll,
-                id=self.popup_id_backup_all)
+        self.Bind(
+            wx.EVT_LIST_ITEM_SELECTED,
+            self.OnItemSelected,
+            self
+        )
+        self.Bind(
+            wx.EVT_LIST_ITEM_ACTIVATED,
+            self.OnItemActivated,
+            self
+        )
+        self.Bind(
+            wx.EVT_LIST_KEY_DOWN,
+            self.OnKey,
+            self
+        )
+        self.Bind(
+            wx.EVT_LIST_COL_CLICK,
+            self.OnColClick,
+            self
+        )
+        self.Bind(
+            wx.EVT_LIST_ITEM_RIGHT_CLICK,
+            self.OnRightClick,
+            self
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupSend,
+            id=self.popup_id_send
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupEdit,
+            id=self.popup_id_edit
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupMessage,
+            id=self.popup_id_message
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupContact,
+            id=self.popup_id_contact
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupCall,
+            id=self.popup_id_call
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupDelete,
+            id=self.popup_id_delete
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupDeleteSel,
+            id=self.popup_id_delete_selection
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupDuplicate,
+            id=self.popup_id_duplicate
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupReply,
+            id=self.popup_id_reply
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupBackupOne,
+            id=self.popup_id_backup_one
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupBackupSel,
+            id=self.popup_id_backup_selection
+        )
+        self.Bind(
+            wx.EVT_MENU,
+            self.OnPopupBackupAll,
+            id=self.popup_id_backup_all
+        )
 
     def ShowHeaders(self):
         '''
@@ -320,8 +355,10 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
                 match = re.compile('.*%s.*' % text, re.I)
             else:
                 raise Exception('Unsupported filter type %s!' % filter_type)
-            self.values = [item for item in self.allvalues
-                    if Wammu.Utils.MatchesText(item, match, num)]
+            self.values = [
+                item for item in self.allvalues
+                if Wammu.Utils.MatchesText(item, match, num)
+            ]
         self.SetItemCount(len(self.values))
         self.RefreshView()
         self.ShowRow(0)
@@ -361,9 +398,11 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             while self.GetFirstSelected() != -1:
                 self.SetItemState(self.GetFirstSelected(), 0, wx.LIST_STATE_SELECTED)
 
-            self.SetItemState(index,
-                    wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED,
-                    wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED)
+            self.SetItemState(
+                index,
+                wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED,
+                wx.LIST_STATE_FOCUSED | wx.LIST_STATE_SELECTED
+            )
             self.EnsureVisible(index)
         else:
             evt = Wammu.Events.ShowEvent(data=None)
@@ -374,10 +413,12 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         Change type of browser component.
         '''
         if self.type != '':
-            self.cfg.Write('/BrowserSortKey/%s' % self.type,
-                    self.sortkey)
-            self.cfg.WriteInt('/BrowserSortOrder/%s' % self.type,
-                    self.sortorder)
+            self.cfg.Write(
+                '/BrowserSortKey/%s' % self.type, self.sortkey
+            )
+            self.cfg.WriteInt(
+                '/BrowserSortOrder/%s' % self.type, self.sortorder
+            )
         self.type = newtype
         self.values = values
         self.allvalues = values
