@@ -141,15 +141,15 @@ class GenericEditor(wx.Panel):
     """
     Generic class for static text with some edit control.
     """
-    def __init__(self, parent, part, cfg, unicode):
+    def __init__(self, parent, part, cfg, use_unicode):
         wx.Panel.__init__(self, parent, -1, style=wx.RAISED_BORDER)
         self.part = part
         self.cfg = cfg
-        self.unicode = unicode
+        self.use_unicode = use_unicode
 
 class TextEditor(GenericEditor):
-    def __init__(self, parent, cfg, part, unicode):
-        GenericEditor.__init__(self, parent, cfg, part, unicode)
+    def __init__(self, parent, cfg, part, use_unicode):
+        GenericEditor.__init__(self, parent, cfg, part, use_unicode)
 
         self.backuptext = ''
 
@@ -187,7 +187,7 @@ class TextEditor(GenericEditor):
         self.TextChanged()
 
     def OnUnicode(self, newu):
-        self.unicode = newu
+        self.use_unicode = newu
         self.CheckTextLen()
 
     def OnConcatChange(self, evt=None):
@@ -196,7 +196,7 @@ class TextEditor(GenericEditor):
 
     def CheckTextLen(self, evt=None):
         if not self.concat.GetValue():
-            if self.unicode:
+            if self.use_unicode:
                 self.edit.SetValue(self.edit.GetValue()[:70])
             else:
                 self.edit.SetValue(self.edit.GetValue()[:160])
@@ -209,7 +209,7 @@ class TextEditor(GenericEditor):
     def TextChanged(self, evt=None):
         txt = self.edit.GetValue()
         length = len(txt)
-        if not self.concat.GetValue() and ((self.unicode and length > 70) or (not self.unicode and length > 160)):
+        if not self.concat.GetValue() and ((self.use_unicode and length > 70) or (not self.use_unicode and length > 160)):
             self.edit.SetValue(self.backuptext)
             return
         length = len(self.edit.GetValue())
@@ -229,8 +229,8 @@ class TextEditor(GenericEditor):
         return self.part
 
 class PredefinedAnimEditor(GenericEditor):
-    def __init__(self, parent, part, cfg, unicode):
-        GenericEditor.__init__(self, parent, part, cfg, unicode)
+    def __init__(self, parent, part, cfg, use_unicode):
+        GenericEditor.__init__(self, parent, part, cfg, use_unicode)
         self.sizer = wx.GridBagSizer()
 
         values = []
@@ -273,8 +273,8 @@ class PredefinedAnimEditor(GenericEditor):
         return self.part
 
 class PredefinedSoundEditor(GenericEditor):
-    def __init__(self, parent, part, cfg, unicode):
-        GenericEditor.__init__(self, parent, part, cfg, unicode)
+    def __init__(self, parent, part, cfg, use_unicode):
+        GenericEditor.__init__(self, parent, part, cfg, use_unicode)
         self.sizer = wx.GridBagSizer()
 
         values = []
