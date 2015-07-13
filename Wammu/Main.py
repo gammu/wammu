@@ -1178,7 +1178,7 @@ class WammuFrame(wx.Frame):
                 v = backup
                 self.ShowError(val.args[0])
 
-            if (self.type[0] == 'contact' and self.type[1] == '  ') or not v.has_key('MemoryType'):
+            if (self.type[0] == 'contact' and self.type[1] == '  ') or not 'MemoryType' in v:
                 self.ActivateView('contact', '  ')
                 try:
                     self.browser.ShowLocation(v['Location'], ('MemoryType', v['MemoryType']))

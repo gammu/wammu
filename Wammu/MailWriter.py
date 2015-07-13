@@ -132,7 +132,7 @@ def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
     if sms['DateTime'] is not None:
         msg['Date'] = DateToString(sms['DateTime'])
 
-    if sms.has_key('SMSInfo'):
+    if 'SMSInfo' in sms:
         text = ''
         cid = 0
         for i in sms['SMSInfo']['Entries']:
@@ -167,7 +167,7 @@ def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
                 fmt = '%s'
                 for format_data in Wammu.Data.TextFormats:
                     for name, dummy, style in format_data[1:]:
-                        if i.has_key(name) and i[name]:
+                        if name in i and i[name]:
                             fmt = style % fmt
                 text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
 

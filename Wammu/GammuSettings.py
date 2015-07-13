@@ -125,7 +125,7 @@ class GammuSettings:
         for config in self.list:
             idxmap[config['Id']] = 1
         for i in range(1000):
-            if not idxmap.has_key(i):
+            if i not in idxmap:
                 first_free = i
                 break
         if first_free is None:

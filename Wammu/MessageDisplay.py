@@ -99,7 +99,7 @@ def SmsTextFormat(cfg, txt, dohtml=True, doxml=False):
         return ret.replace('\n', ' ')
 
 def SmsToHtml(cfg, v):
-    if v.has_key('SMSInfo'):
+    if 'SMSInfo' in v:
         text = ''
         ringno = 0
         Wammu.Ringtone.ringtones = {}
@@ -141,7 +141,7 @@ def SmsToHtml(cfg, v):
                 fmt = '%s'
                 for x in Wammu.Data.TextFormats:
                     for name, txt, style in x[1:]:
-                        if i.has_key(name) and i[name]:
+                        if name in i and i[name]:
                             fmt = style % fmt
                 text = text + (fmt % SmsTextFormat(cfg, i['Buffer']))
 
@@ -162,7 +162,7 @@ def SmsToHtml(cfg, v):
                     '<param name="scale" value="(' + str(cfg.ReadInt('/Message/ScaleImage')) + ')">' + \
                     '<param name="images" value="' + "[" + string.join(data, ", ") + "]" + '">' + \
                     '</wxp>'
-        if v['SMSInfo'].has_key('Unknown') and v['SMSInfo']['Unknown']:
+        if 'Unknown' in v['SMSInfo'] and v['SMSInfo']['Unknown']:
             text = ('<table border="1" bgcolor="#dd7777" color="#000000"><tr><td>%s</td></tr></table>' % _('Some parts of this message were not decoded correctly, probably due to missing support for it in Gammu.')) + text
     else:
         text = SmsTextFormat(cfg, v['Text'])

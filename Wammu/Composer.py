@@ -81,7 +81,7 @@ class StyleEdit(wx.Dialog):
                 name = x[1][0]
                 text = x[1][1]
                 self.fmt[name] = wx.CheckBox(self, -1, text)
-                if self.entry.has_key(name):
+                if name in self.entry:
                     self.fmt[name].SetValue(self.entry[name])
                 self.sizer.Add(self.fmt[name], pos=(row, col))
                 col = col + 2
@@ -100,7 +100,7 @@ class StyleEdit(wx.Dialog):
                 col = col + 2
                 for name, text, fmt in x[1:]:
                     self.fmt[name] = wx.RadioButton(self, -1, text)
-                    if self.entry.has_key(name):
+                    if name in self.entry:
                         self.fmt[name].SetValue(self.entry[name])
                     self.sizer.Add(self.fmt[name], pos=(row, col))
                     col = col + 2
@@ -178,7 +178,7 @@ class TextEditor(GenericEditor):
         self.OnConcatChange()
 
         wx.EVT_TEXT(self.edit, self.edit.GetId(), self.TextChanged)
-        if self.part.has_key('Buffer'):
+        if 'Buffer' in self.part:
             self.edit.SetValue(self.part['Buffer'])
 
         self.sizer.Fit(self)
@@ -249,7 +249,7 @@ class PredefinedAnimEditor(GenericEditor):
 
         wx.EVT_CHOICE(self.edit, self.edit.GetId(), self.OnChange)
 
-        if not self.part.has_key('Number'):
+        if 'Number' not in self.part:
             self.part['Number'] = 0
 
         self.edit.SetSelection(self.part['Number'])
@@ -287,7 +287,7 @@ class PredefinedSoundEditor(GenericEditor):
 
         self.edit = wx.Choice(self, -1, choices=values)
 
-        if not self.part.has_key('Number'):
+        if 'Number' not in self.part:
             self.part['Number'] = 0
 
         self.edit.SetSelection(self.part['Number'])
@@ -318,7 +318,7 @@ class SMSComposer(wx.Dialog):
         self.entry = entry
         self.cfg = cfg
         self.values = values
-        if not entry.has_key('SMSInfo'):
+        if 'SMSInfo' not in entry:
             entry['SMSInfo'] = {}
             entry['SMSInfo']['Entries'] = []
             if self.cfg.Read('/Message/Concatenated') == 'yes':
@@ -328,11 +328,11 @@ class SMSComposer(wx.Dialog):
                     typ = 'ConcatenatedTextLong'
             else:
                 typ = 'Text'
-            if entry.has_key('Text'):
+            if 'Text' in entry:
                 entry['SMSInfo']['Entries'].append({'ID': typ, 'Buffer': entry['Text']})
             elif addtext:
                 entry['SMSInfo']['Entries'].append({'ID': typ, 'Buffer': ''})
-        if not entry.has_key('Number'):
+        if 'Number' not in entry:
             entry['Number'] = ''
 
         self.sizer = wx.GridBagSizer()
@@ -380,7 +380,7 @@ class SMSComposer(wx.Dialog):
 
         self.unicode = wx.CheckBox(self, -1, _('Unicode'))
         self.unicode.SetToolTipString(_('Unicode messages can contain national and other special characters, check this if you use non latin-1 characters. Your messages will require more space, so you can write less characters into single message.'))
-        if self.entry.has_key('Unicode'):
+        if 'Unicode' in self.entry:
             self.unicode.SetValue(self.entry['Unicode'])
         else:
             self.unicode.SetValue(self.cfg.Read('/Message/Unicode') == 'yes')
