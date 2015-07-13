@@ -101,9 +101,10 @@ class TestPage(Wammu.Wizard.SimplePage):
             self.name = '%s %s' % (manuf, model)
             self.parent.settings.SetName(self.name)
             self.detail.SetLabel(
-                    _('Phone has been found.') +
-                    (_('Manufacturer: %(manufacturer)s\nModel: %(model)s') %
-                    { 'manufacturer': manuf, 'model': model}))
+                _('Phone has been found.') +
+                (_('Manufacturer: %(manufacturer)s\nModel: %(model)s') %
+                {'manufacturer': manuf, 'model': model})
+            )
             self.detail.Wrap(400)
 
     def Blocked(self, evt):
@@ -475,7 +476,7 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
                     _('Wizard will attempt to search phone on usual ports.'),
                     _('You know what you are doing and know exact parameters you need for connecting to phone.'),
                 ],
-                [ pg0, pg1, pg2],
+                [pg0, pg1, pg2],
                 extratext=_('How do you want to configure your phone connection?'),
                 )
         self.info = wx.StaticText(

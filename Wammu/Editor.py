@@ -419,7 +419,7 @@ class GenericEditor(wx.Dialog):
             self.edits[row] = [edit]
         elif type == 'datetime':
             # date + time editor
-            edit = TimeCtrl( self, -1, fmt24hr=True)
+            edit = TimeCtrl(self, -1, fmt24hr=True)
             Wammu.Utils.FixupMaskedEdit(edit)
             edit.SetValue(TimeToText(value['Value'], self.cfg))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 2))

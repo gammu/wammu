@@ -38,7 +38,7 @@ class Discovery(bluetooth.DeviceDiscoverer):
         Called when device is iscovered, checks device class and if it is
         phone, it calls search_bt_device method of parent.
         '''
-        major_class = ( device_class & 0xf00 ) >> 8
+        major_class = (device_class & 0xf00) >> 8
         # We want only devices with phone class
         # See https://www.bluetooth.org/apps/content/?doc_id=49706
         if major_class == 2:

@@ -1779,7 +1779,9 @@ class WammuFrame(wx.Frame):
         backup = {}
         backup['Creator'] = 'Wammu ' + Wammu.__version__
         backup['IMEI'] = self.IMEI
-        backup['Model'] = '%s %s %s' % ( self.Manufacturer, self.Model, self.Version)
+        backup['Model'] = '%s %s %s' % (
+            self.Manufacturer, self.Model, self.Version
+        )
         return backup
 
     def WriteBackup(self, filename, type, backup, data=False):
