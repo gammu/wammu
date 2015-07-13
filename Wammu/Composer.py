@@ -498,7 +498,7 @@ class SMSComposer(wx.Dialog):
 
     def OnSend(self, evt=None):
         self.save.Enable(self.send.GetValue())
-        self.number.GetValidator().empty=not self.send.GetValue()
+        self.number.GetValidator().empty = not self.send.GetValue()
 
     def OnSave(self, evt=None):
         self.send.Enable(self.save.GetValue())

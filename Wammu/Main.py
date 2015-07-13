@@ -1062,7 +1062,7 @@ class WammuFrame(wx.Frame):
                         msg['State'] = v['State']
 
                         if v['Save']:
-                            (msg['Location'], msg['Folder'])=self.sm.AddSMS(msg)
+                            msg['Location'], msg['Folder'] = self.sm.AddSMS(msg)
                             if v['Send']:
                                 # When sending of saved message fails, send it directly:
                                 try:
@@ -1446,7 +1446,7 @@ class WammuFrame(wx.Frame):
         return (filename, backup)
 
     def ReadData(self, evt):
-        (filename, backup)=self.ReadBackup('all', True)
+        filename, backup = self.ReadBackup('all', True)
         if backup is None:
             return
 
@@ -1464,7 +1464,7 @@ class WammuFrame(wx.Frame):
         self.SetStatusText(_('Data has been read from file "%s"') % StrConv(filename))
 
     def ReadSMSData(self, evt):
-        (filename, backup)=self.ReadBackup('message', True)
+        filename, backup = self.ReadBackup('message', True)
         if backup is None:
             return
 
@@ -1480,7 +1480,7 @@ class WammuFrame(wx.Frame):
         self.SetStatusText(_('Data has been read from file "%s"') % StrConv(filename))
 
     def ImportSMS(self, evt):
-        (filename, backup)=self.ReadBackup('message')
+        filename, backup = self.ReadBackup('message')
         if backup is None:
             return
         choices = []
@@ -1516,7 +1516,7 @@ class WammuFrame(wx.Frame):
                     smsl = []
                     for v in backup:
                         v['SMSC']['Location'] = 1
-                        (v['Location'], v['Folder'])=self.sm.AddSMS(v)
+                        v['Location'], v['Folder'] = self.sm.AddSMS(v)
                         # reread entry (it doesn't have to contain exactly same data as entered, it depends on phone features)
                         v = self.sm.GetSMS(0, v['Location'])
                         smsl.append(v)
@@ -1547,7 +1547,7 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_INFORMATION).ShowModal()
 
     def Import(self, evt):
-        (filename, backup)=self.ReadBackup('all')
+        filename, backup = self.ReadBackup('all')
         if backup is None:
             return
         choices = []
