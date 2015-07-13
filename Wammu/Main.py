@@ -443,6 +443,14 @@ class WammuFrame(wx.Frame):
         self.Version = ''
         self.tbicon = None
 
+    def OutdatedData(self):
+        wx.MessageDialog(
+            self,
+            _('You can not work on this data, please retrieve it first from phone'),
+            _('Data not up to date'),
+            wx.OK | wx.ICON_ERROR
+        ).ShowModal()
+
     def HandleGammuError(self):
         '''
         Show error about gammu import failure. Try to help user with various
@@ -1293,7 +1301,7 @@ class WammuFrame(wx.Frame):
 
     def OnEdit(self, evt):
         if evt.data != {} and not evt.data['Synced']:
-            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            self.OutdatedData()
             return
         if self.type[0] == 'contact':
             self.EditContact(evt.data)
@@ -1345,7 +1353,7 @@ class WammuFrame(wx.Frame):
 
     def OnDuplicate(self, evt):
         if evt.data != {} and not evt.data['Synced']:
-            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            self.OutdatedData()
             return
         v = copy.deepcopy(evt.data)
         if self.type[0] == 'contact':
@@ -1365,7 +1373,7 @@ class WammuFrame(wx.Frame):
 
     def OnSend(self, evt):
         if evt.data != {} and not evt.data['Synced']:
-            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            self.OutdatedData()
             return
         if self.type[0] == 'message':
             v = evt.data
@@ -1814,7 +1822,7 @@ class WammuFrame(wx.Frame):
             return
 
         if not lst[0]['Synced']:
-            wx.MessageDialog(self, _('You can not work on this data, please retrieve it first from phone'), _('Data not up to date'), wx.OK | wx.ICON_ERROR).ShowModal()
+            self.OutdatedData()
             return
 
         # check for confirmation
