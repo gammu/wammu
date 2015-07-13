@@ -192,4 +192,4 @@ class GetInfo(Wammu.Thread.Thread):
             return
 
         self.ShowProgress(100)
-        self.SendData(['info','phone'], data)
+        self.SendData(['info', 'phone'], data)

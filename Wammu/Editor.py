@@ -100,8 +100,8 @@ class DateControl(wx.Panel):
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
         self.SetSizer(self.sizer)
-        wx.EVT_BUTTON(self.bCtrl,self.bCtrl.GetId(),self.OnButton)
-        wx.EVT_SET_FOCUS(self,self.OnFocus)
+        wx.EVT_BUTTON(self.bCtrl, self.bCtrl.GetId(), self.OnButton)
+        wx.EVT_SET_FOCUS(self, self.OnFocus)
 
     def GetValidator(self):
         return self.textCtrl.GetValidator()
@@ -109,11 +109,11 @@ class DateControl(wx.Panel):
     def Validate(self):
         return self.textCtrl.Validate()
 
-    def OnFocus(self,evt):
+    def OnFocus(self, evt):
         self.textCtrl.SetFocus()
         evt.Skip()
 
-    def OnButton(self,evt):
+    def OnButton(self, evt):
         self.pop = CalendarPopup(self)
         txtValue = self.GetValue()
         dmy = txtValue.split('.')
@@ -125,12 +125,12 @@ class DateControl(wx.Panel):
             if d > 0 and d < 31:
                 if m >= 0 and m < 12:
                     if y > 1000:
-                        self.pop.cal.SetDate(DateTimeFromDMY(d,m,y))
+                        self.pop.cal.SetDate(DateTimeFromDMY(d, m, y))
                         didSet = True
         if not didSet:
             self.pop.cal.SetDate(DateTime_Today())
 
-        pos = self.ClientToScreen((0,0))
+        pos = self.ClientToScreen((0, 0))
         display_size = wx.GetDisplaySize()
         popup_size = self.pop.GetSize()
         control_size = self.GetSize()
@@ -146,8 +146,8 @@ class DateControl(wx.Panel):
             pos.y = display_size.y - popup_size.y
         if pos.y < 0:
             pos.y = 0
-        self.pop.MoveXY(pos.x,pos.y)
-        wx.calendar.EVT_CALENDAR_DAY(self, self.pop.cal.GetId(),self.OnCalSelected)
+        self.pop.MoveXY(pos.x, pos.y)
+        wx.calendar.EVT_CALENDAR_DAY(self, self.pop.cal.GetId(), self.OnCalSelected)
         self.pop.Popup()
 
     def Enable(self, flag):
@@ -155,13 +155,13 @@ class DateControl(wx.Panel):
         self.textCtrl.Enable(flag)
         self.bCtrl.Enable(flag)
 
-    def SetValue(self,value):
+    def SetValue(self, value):
         self.textCtrl.SetValue(value)
 
     def GetValue(self):
         return self.textCtrl.GetValue()
 
-    def OnCalSelected(self,evt):
+    def OnCalSelected(self, evt):
         date = self.pop.cal.GetDate()
         self.SetValue('%02d.%02d.%04d' % (
             date.GetDay(),

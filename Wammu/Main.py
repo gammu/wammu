@@ -183,7 +183,7 @@ class WammuFrame(wx.Frame):
         self.SetIcon(self.icon)
 
         self.CreateStatusBar(2)
-        self.SetStatusWidths([-1,400])
+        self.SetStatusWidths([-1, 400])
 
         # Associate some events with methods of this class
         wx.EVT_CLOSE(self, self.CloseWindow)
@@ -424,7 +424,7 @@ class WammuFrame(wx.Frame):
         self.timer = None
         self.TogglePhoneMenus(False)
 
-        self.type = ['info','  ']
+        self.type = ['info', '  ']
 
         self.TimerId = wx.NewId()
 
@@ -766,8 +766,8 @@ class WammuFrame(wx.Frame):
                 self.CloseLogWindow()
 
     def SaveWinSize(self, win, key):
-        x,y = win.GetPositionTuple()
-        w,h = win.GetSizeTuple()
+        x, y = win.GetPositionTuple()
+        w, h = win.GetSizeTuple()
 
         self.cfg.WriteInt('/%s/X' % key, x)
         self.cfg.WriteInt('/%s/Y' % key, y)
@@ -1016,7 +1016,7 @@ class WammuFrame(wx.Frame):
         data = v = evt.data
         if data is None:
             pass
-        elif self.type == ['info','  ']:
+        elif self.type == ['info', '  ']:
             data = [(evt.data['Name'], evt.data['Value'])]
         elif self.type[0] == 'contact' or self.type[0] == 'call':
             data = [
@@ -1584,7 +1584,8 @@ class WammuFrame(wx.Frame):
             self,
             _('Following data was found in backup, select which of these do you want to be added into phone.'),
             _('Select what to import'),
-            choices,style=wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
+            choices,
+            style=wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
             size=(600, 200)
         )
         if dlg.ShowModal() != wx.ID_OK:
@@ -1680,7 +1681,8 @@ class WammuFrame(wx.Frame):
             self,
             _('Following data was found in backup, select which of these do you want to be added into phone.') + msg,
             _('Select what to import'),
-            choices,style=wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
+            choices,
+            style=wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER,
             size=(600, 200)
         )
         if dlg.ShowModal() != wx.ID_OK:

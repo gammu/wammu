@@ -117,7 +117,7 @@ class StyleEdit(wx.Dialog):
         self.sizer.Add(self.ok, pos=(row, 1), span=wx.GBSpan(colspan=maxcol), flag=wx.ALIGN_CENTER)
         wx.EVT_BUTTON(self, wx.ID_OK, self.Okay)
 
-        self.sizer.AddSpacer((5,5), pos=(row + 1, maxcol + 1))
+        self.sizer.AddSpacer((5, 5), pos=(row + 1, maxcol + 1))
 
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
@@ -157,7 +157,7 @@ class TextEditor(GenericEditor):
 
         self.edit = wx.TextCtrl(self, -1, style=wx.TE_MULTILINE)
 
-        self.sizer.Add(self.edit, pos=(0,0), flag=wx.EXPAND, span=wx.GBSpan(colspan=4))
+        self.sizer.Add(self.edit, pos=(0, 0), flag=wx.EXPAND, span=wx.GBSpan(colspan=4))
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableRow(0)
@@ -245,7 +245,7 @@ class PredefinedAnimEditor(GenericEditor):
         self.edit = wx.Choice(self, -1, choices=values)
 
         bitmap = wx.BitmapFromXPMData(Wammu.Data.UnknownPredefined)
-        self.bitmap = wx.StaticBitmap(self, -1, bitmap, (0,0))
+        self.bitmap = wx.StaticBitmap(self, -1, bitmap, (0, 0))
 
         wx.EVT_CHOICE(self.edit, self.edit.GetId(), self.OnChange)
 
@@ -255,9 +255,9 @@ class PredefinedAnimEditor(GenericEditor):
         self.edit.SetSelection(self.part['Number'])
         self.OnChange()
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos=(0,0), flag=wx.ALIGN_CENTER_VERTICAL)
-        self.sizer.Add(self.edit, pos=(0,1), flag=wx.ALIGN_CENTER)
-        self.sizer.Add(self.bitmap, pos=(0,2), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined animation:')), pos=(0, 0), flag=wx.ALIGN_CENTER_VERTICAL)
+        self.sizer.Add(self.edit, pos=(0, 1), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(self.bitmap, pos=(0, 2), flag=wx.ALIGN_CENTER)
 
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
@@ -292,8 +292,8 @@ class PredefinedSoundEditor(GenericEditor):
 
         self.edit.SetSelection(self.part['Number'])
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined sound:')), pos=(0,0), flag=wx.ALIGN_CENTER_VERTICAL)
-        self.sizer.Add(self.edit, pos=(0,1), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(wx.StaticText(self, -1, _('Select predefined sound:')), pos=(0, 0), flag=wx.ALIGN_CENTER_VERTICAL)
+        self.sizer.Add(self.edit, pos=(0, 1), flag=wx.ALIGN_CENTER)
 
         self.sizer.Fit(self)
         self.SetAutoLayout(True)
@@ -356,9 +356,9 @@ class SMSComposer(wx.Dialog):
 
         self.folder = wx.SpinCtrl(self, -1, '2', style=wx.SP_WRAP | wx.SP_ARROW_KEYS, min=0, max=100, initial=2)
 
-        self.sizer.Add(self.send, pos=(row,1), flag=wx.ALIGN_LEFT)
-        self.sizer.Add(self.save, pos=(row,6), flag=wx.ALIGN_LEFT)
-        self.sizer.Add(self.folder, pos=(row,7), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.send, pos=(row, 1), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.save, pos=(row, 6), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.folder, pos=(row, 7), flag=wx.ALIGN_LEFT)
 
         row = row + 2
 
@@ -368,10 +368,10 @@ class SMSComposer(wx.Dialog):
         self.editlistbut = wx.Button(self, wx.ID_EDIT, _('Edit'))
         self.editlistbut.SetToolTipString(_('Edit recipients list.'))
 
-        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos=(row,1), flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
-        self.sizer.Add(self.number, pos=(row,2), flag=wx.ALIGN_CENTER_VERTICAL | wx.EXPAND, span=wx.GBSpan(colspan=4))
-        self.sizer.Add(self.editlistbut, pos=(row,6), flag=wx.ALIGN_CENTER)
-        self.sizer.Add(self.contbut, pos=(row,7), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(wx.StaticText(self, -1, _('Recipient\'s numbers:')), pos=(row, 1), flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL)
+        self.sizer.Add(self.number, pos=(row, 2), flag=wx.ALIGN_CENTER_VERTICAL | wx.EXPAND, span=wx.GBSpan(colspan=4))
+        self.sizer.Add(self.editlistbut, pos=(row, 6), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(self.contbut, pos=(row, 7), flag=wx.ALIGN_CENTER)
 
         self.Bind(wx.EVT_BUTTON, self.ContactPressed, self.contbut)
         self.Bind(wx.EVT_BUTTON, self.EditContactPressed, self.editlistbut)
@@ -385,22 +385,22 @@ class SMSComposer(wx.Dialog):
         else:
             self.unicode.SetValue(self.cfg.Read('/Message/Unicode') == 'yes')
 
-        self.sizer.Add(self.unicode, pos=(row,1), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.unicode, pos=(row, 1), flag=wx.ALIGN_LEFT)
 
         self.Bind(wx.EVT_CHECKBOX, self.OnUnicode, self.unicode)
 
         self.report = wx.CheckBox(self, -1, _('Delivery report'))
         self.report.SetToolTipString(_('Check to request delivery report for message.'))
         self.report.SetValue(self.cfg.Read('/Message/DeliveryReport') == 'yes')
-        self.sizer.Add(self.report, pos=(row,2), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.report, pos=(row, 2), flag=wx.ALIGN_LEFT)
 
         self.sent = wx.CheckBox(self, -1, _('Sent'))
         self.sent.SetToolTipString(_('Check to save message as sent (has only effect when only saving message).'))
-        self.sizer.Add(self.sent, pos=(row,4), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.sent, pos=(row, 4), flag=wx.ALIGN_LEFT)
 
         self.flash = wx.CheckBox(self, -1, _('Flash'))
         self.flash.SetToolTipString(_('Send flash message - it will be just displayed on display, but not saved in phone.'))
-        self.sizer.Add(self.flash, pos=(row,6), flag=wx.ALIGN_LEFT)
+        self.sizer.Add(self.flash, pos=(row, 6), flag=wx.ALIGN_LEFT)
 
 
         row = row + 2
@@ -417,18 +417,18 @@ class SMSComposer(wx.Dialog):
         self.Bind(wx.EVT_BUTTON, self.AddPressed, self.addbut)
         self.Bind(wx.EVT_BUTTON, self.DeletePressed, self.delbut)
 
-        self.sizer.Add(self.current, pos=(row,1), flag=wx.EXPAND, span=wx.GBSpan(colspan=2, rowspan=2))
-        self.sizer.Add(self.addbut, pos=(row,4), flag=wx.ALIGN_CENTER)
-        self.sizer.Add(self.delbut, pos=(row + 1,4), flag=wx.ALIGN_CENTER)
-        self.sizer.Add(self.available, pos=(row,6), flag=wx.EXPAND, span=wx.GBSpan(colspan=2, rowspan=2))
+        self.sizer.Add(self.current, pos=(row, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=2, rowspan=2))
+        self.sizer.Add(self.addbut, pos=(row, 4), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(self.delbut, pos=(row + 1, 4), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(self.available, pos=(row, 6), flag=wx.EXPAND, span=wx.GBSpan(colspan=2, rowspan=2))
 
         row = row + 3
 
         self.upbut = wx.Button(self, wx.ID_UP)
         self.dnbut = wx.Button(self, wx.ID_DOWN)
 
-        self.sizer.Add(self.upbut, pos=(row,1), flag=wx.ALIGN_CENTER)
-        self.sizer.Add(self.dnbut, pos=(row,2), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(self.upbut, pos=(row, 1), flag=wx.ALIGN_CENTER)
+        self.sizer.Add(self.dnbut, pos=(row, 2), flag=wx.ALIGN_CENTER)
 
         self.Bind(wx.EVT_BUTTON, self.UpPressed, self.upbut)
         self.Bind(wx.EVT_BUTTON, self.DnPressed, self.dnbut)
@@ -439,7 +439,7 @@ class SMSComposer(wx.Dialog):
         self.editorrow = row
 
         self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list...'), size=(-1, 150))
-        self.sizer.Add(self.editor, pos=(row,1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
+        self.sizer.Add(self.editor, pos=(row, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
 
         row = row + 2
 
@@ -454,7 +454,7 @@ class SMSComposer(wx.Dialog):
         self.Bind(wx.EVT_BUTTON, self.Okay, id=wx.ID_OK)
         self.Bind(wx.EVT_BUTTON, self.Preview, self.preview)
 
-        self.sizer.AddSpacer((5,5), pos=(row + 1,8))
+        self.sizer.AddSpacer((5, 5), pos=(row + 1, 8))
         self.sizer.AddGrowableCol(1)
         self.sizer.AddGrowableCol(2)
         self.sizer.AddGrowableCol(6)
@@ -528,7 +528,7 @@ class SMSComposer(wx.Dialog):
                 self.editor.Destroy()
                 del self.editor
             self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list...'), size=(-1, 150))
-            self.sizer.Add(self.editor, pos=(self.editorrow,1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
+            self.sizer.Add(self.editor, pos=(self.editorrow, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
             self.sizer.Layout()
 
     def AvailableSelected(self, event):
@@ -550,12 +550,12 @@ class SMSComposer(wx.Dialog):
         for p in SMSParts:
             if self.entry['SMSInfo']['Entries'][event.m_itemIndex]['ID'] in p[2]:
                 self.editor = p[3](self, self.entry['SMSInfo']['Entries'][event.m_itemIndex], self.cfg, self.unicode.GetValue())
-                self.sizer.Add(self.editor, pos=(self.editorrow,1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
+                self.sizer.Add(self.editor, pos=(self.editorrow, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
                 found = True
                 break
         if not found:
             self.editor = wx.StaticText(self, -1, _('No editor available for type %s') % self.entry['SMSInfo']['Entries'][event.m_itemIndex]['ID'])
-            self.sizer.Add(self.editor, pos=(self.editorrow,1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
+            self.sizer.Add(self.editor, pos=(self.editorrow, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
             self.prevedit = -1
         else:
             self.prevedit = event.m_itemIndex

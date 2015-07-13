@@ -474,11 +474,11 @@ if sys.platform == 'win32':
         'com4:',
         'com5:',
         'com6:',
-        ]
+    ]
     AllDevices = [
         (Conn_IrDA_Win, '', None, ['irda']),
-        (Conn_Cable, 'com%d:', (1,6), ['irda', 'usb', 'serial', 'bluetooth']),
-        ]
+        (Conn_Cable, 'com%d:', (1, 6), ['irda', 'usb', 'serial', 'bluetooth']),
+    ]
 # FIXME: support more platforms?
 else:
     Devices = [

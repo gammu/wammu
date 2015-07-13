@@ -36,7 +36,7 @@ ringtones = {}
 class Ringtone(wx.BitmapButton):
     def __init__(self, parent, tooltip='Melody', ringno=0, size=None, scale=1):
         bitmap = wx.BitmapFromXPMData(Wammu.Data.Note)
-        wx.BitmapButton.__init__(self, parent, -1, bitmap, (0,0))
+        wx.BitmapButton.__init__(self, parent, -1, bitmap, (0, 0))
         self.SetToolTipString(tooltip)
         self.ringtone = ringtones[int(ringno)]
         wx.EVT_BUTTON(self, self.GetId(), self.OnClick)
