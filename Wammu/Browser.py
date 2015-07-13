@@ -132,12 +132,14 @@ COLUMN_INFO = {
         )
 }
 
+
 class FilterException(Exception):
     '''
     Exception which occurs when there is something wrong in filtering
     expression.
     '''
     pass
+
 
 class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
     '''
@@ -203,7 +205,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         self.popup_id_backup_all = wx.NewId()
 
         self.BindEvents()
-
 
     def BindEvents(self):
         '''
@@ -390,13 +391,14 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         '''
         Activates id-th row.
         '''
-        if (self.GetItemCount() > index
-                and index >= 0
-                and self.GetCountPerPage() > 0):
+        if (self.GetItemCount() > index and index >= 0 and
+                self.GetCountPerPage() > 0):
             self.itemno = index
 
             while self.GetFirstSelected() != -1:
-                self.SetItemState(self.GetFirstSelected(), 0, wx.LIST_STATE_SELECTED)
+                self.SetItemState(
+                    self.GetFirstSelected(), 0, wx.LIST_STATE_SELECTED
+                )
 
             self.SetItemState(
                 index,
@@ -488,7 +490,6 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
             last = min(totalcount - 1, top + count)
             self.RefreshItems(top, last)
 
-
     def OnKey(self, evt):
         '''
         Key handler which catches delete key for deletion of current item and
@@ -546,38 +547,37 @@ class Browser(wx.ListCtrl, wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin):
         # add some items
         if self.popup_index != -1 and self.type == 'message':
             if self.values[evt.m_itemIndex]['State'] == 'Sent':
-                menu.Append(self.popup_id_send,       _('Resend'))
+                menu.Append(self.popup_id_send, _('Resend'))
             if self.values[evt.m_itemIndex]['State'] == 'UnSent':
-                menu.Append(self.popup_id_send,       _('Send'))
-            if (self.values[evt.m_itemIndex]['State'] == 'Read'
-                    or self.values[evt.m_itemIndex]['State'] == 'UnRead'):
-                menu.Append(self.popup_id_reply,      _('Reply'))
+                menu.Append(self.popup_id_send, _('Send'))
+            if self.values[evt.m_itemIndex]['State'] in ('Read', 'UnRead'):
+                menu.Append(self.popup_id_reply, _('Reply'))
             if self.values[evt.m_itemIndex]['Number'] != '':
-                menu.Append(self.popup_id_call,       _('Call'))
+                menu.Append(self.popup_id_call, _('Call'))
             menu.AppendSeparator()
 
         if self.popup_index != -1 and self.type in ['contact', 'call']:
-            menu.Append(self.popup_id_message,    _('Send message'))
-            menu.Append(self.popup_id_call,       _('Call'))
+            menu.Append(self.popup_id_message, _('Send message'))
+            menu.Append(self.popup_id_call, _('Call'))
             if self.popup_index != -1 and self.type in ['call']:
-                menu.Append(self.popup_id_contact,    _('Store as new contact'))
+                menu.Append(self.popup_id_contact, _('Store as new contact'))
             menu.AppendSeparator()
 
         if self.popup_index != -1 and self.type not in ['call', 'message']:
-            menu.Append(self.popup_id_edit,       _('Edit'))
+            menu.Append(self.popup_id_edit, _('Edit'))
         if self.popup_index != -1 and self.type not in ['call']:
-            menu.Append(self.popup_id_duplicate,  _('Duplicate'))
+            menu.Append(self.popup_id_duplicate, _('Duplicate'))
             menu.AppendSeparator()
 
         if self.popup_index != -1:
-            menu.Append(self.popup_id_delete,     _('Delete current'))
-        menu.Append(self.popup_id_delete_selection,  _('Delete selected'))
+            menu.Append(self.popup_id_delete, _('Delete current'))
+        menu.Append(self.popup_id_delete_selection, _('Delete selected'))
 
         menu.AppendSeparator()
         if self.popup_index != -1:
-            menu.Append(self.popup_id_backup_one,  _('Backup current'))
-        menu.Append(self.popup_id_backup_selection,  _('Backup selected'))
-        menu.Append(self.popup_id_backup_all,  _('Backup all'))
+            menu.Append(self.popup_id_backup_one, _('Backup current'))
+        menu.Append(self.popup_id_backup_selection, _('Backup selected'))
+        menu.Append(self.popup_id_backup_all, _('Backup all'))
 
         # Popup the menu.  If an item is selected then its handler
         # will be called before PopupMenu returns.
