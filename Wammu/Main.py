@@ -452,24 +452,29 @@ class WammuFrame(wx.Frame):
         if error.find('Runtime libGammu version does not match compile time version') != -1:
             result = re.match('Runtime libGammu version does not match compile time version \(runtime: (\S+), compiletime: (\S+)\)', error)
 
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
                 _('The import failed because python-gammu is compiled with different version of Gammu than it is now using (it was compiled with version %(compile)s and now it is using version %(runtime)s).') % {'compile': result.group(2), 'runtime': result.group(1)} + '\n\n' +
                 _('You can fix it by recompiling python-gammu against gammu library you are currently using.'),
                 _('Gammu module not working!'),
                 wx.OK | wx.ICON_ERROR).ShowModal()
         elif error.find('No module named gammu') != -1:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
                 _('Gammu module was not found, you probably don\'t have properly installed python-gammu for current python version.'),
                 _('Gammu module not working!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
         else:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Wammu could not import gammu module, program will be terminated.') + '\n\n' +
                 _('The import failed with following error:') + '\n\n%s' % error,
                 _('Gammu module not working!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
         sys.exit()
 
     def InitConfiguration(self):
@@ -480,11 +485,13 @@ class WammuFrame(wx.Frame):
         '''
         gammucfg = self.cfg.gammu.GetConfigs()
         if len(gammucfg) == 0:
-            dlg = wx.MessageDialog(self,
+            dlg = wx.MessageDialog(
+                self,
                 _('Wammu configuration was not found and Gammu settings couldn\'t be read.') + '\n\n' +
                 _('Do you want to configure phone connection now?') + '\n',
                 _('Configuration not found'),
-                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_WARNING)
+                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_WARNING
+            )
             if dlg.ShowModal() == wx.ID_YES:
                 self.SearchPhone()
         elif not self.cfg.HasEntry('/Gammu/Section'):
@@ -504,11 +511,13 @@ class WammuFrame(wx.Frame):
         if self.cfg.Read('/Wammu/TalkbackDone') == 'no':
             if (firstrun + (3600 * 24 * TALKBACK_DAYS) < time.time()
                 and runs > TALKBACK_COUNT):
-                dlg = wx.MessageDialog(self,
+                dlg = wx.MessageDialog(
+                    self,
                     _('You are using Wammu for more than a month. We would like to hear from you how your phone is supported. Do you want to participate in this survey?') +
                     '\n\n' + _('Press Cancel to never show this question again.'),
                     _('Thanks for using Wammu'),
-                    wx.YES_NO | wx.CANCEL | wx.ICON_INFORMATION)
+                    wx.YES_NO | wx.CANCEL | wx.ICON_INFORMATION
+                )
                 ret = dlg.ShowModal()
                 if ret == wx.ID_YES:
                     self.Talkback()
@@ -863,10 +872,12 @@ class WammuFrame(wx.Frame):
                 }
 
                 if connection_settings != connection_settings_new:
-                    wx.MessageDialog(self,
+                    wx.MessageDialog(
+                        self,
                         _('You changed parameters affecting phone connection, they will be used next time you connect to phone.'),
                         _('Notice'),
-                        wx.OK | wx.ICON_INFORMATION).ShowModal()
+                        wx.OK | wx.ICON_INFORMATION
+                    ).ShowModal()
             self.DoDebug(self.cfg.Read('/Debug/Show'))
             self.SetupNumberPrefix()
             self.SetupStatusRefresh()
@@ -1073,7 +1084,12 @@ class WammuFrame(wx.Frame):
                             try:
                                 result['SMS'].append(self.sm.GetSMS(0, msg['Location'])[0])
                             except gammu.ERR_EMPTY:
-                                wx.MessageDialog(self, _('It was not possible to read saved message! There is most likely some bug in Gammu, please contact author with debug log of this operation. To see message in Wammu you need to reread all messsages.'), _('Could not read saved message!'), wx.OK | wx.ICON_ERROR).ShowModal()
+                                wx.MessageDialog(
+                                    self,
+                                    _('It was not possible to read saved message! There is most likely some bug in Gammu, please contact author with debug log of this operation. To see message in Wammu you need to reread all messsages.'),
+                                    _('Could not read saved message!'),
+                                    wx.OK | wx.ICON_ERROR
+                                ).ShowModal()
                         elif v['Send']:
                             msg['MessageReference'] = self.sm.SendSMS(msg)
 
@@ -1138,7 +1154,12 @@ class WammuFrame(wx.Frame):
                             attempts = attempts + 1
                             time.sleep(0.2)
                 except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-                    wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
+                    wx.MessageDialog(
+                        self,
+                        _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'),
+                        _('Could not read saved entry!'),
+                        wx.OK | wx.ICON_WARNING
+                    ).ShowModal()
                 Wammu.Utils.ParseMemoryEntry(v, self.cfg)
                 v['Synced'] = True
                 # append new value to list
@@ -1197,7 +1218,12 @@ class WammuFrame(wx.Frame):
                 try:
                     v = self.sm.GetCalendar(v['Location'])
                 except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
-                    wx.MessageDialog(self, _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'), _('Could not read saved entry!'), wx.OK | wx.ICON_WARNING).ShowModal()
+                    wx.MessageDialog(
+                        self,
+                        _('It was not possible to read saved entry! It might be different than one saved in phone untill you reread all entries.'),
+                        _('Could not read saved entry!'),
+                        wx.OK | wx.ICON_WARNING
+                    ).ShowModal()
                 Wammu.Utils.ParseCalendar(v)
                 v['Synced'] = True
                 # append new value to list
@@ -1491,10 +1517,12 @@ class WammuFrame(wx.Frame):
             choices.append(_('%d messages') % len(backup))
 
         if len(values) == 0:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('No importable data were found in file "%s"') % StrConv(filename),
                 _('No data to import'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+                wx.OK | wx.ICON_INFORMATION
+            ).ShowModal()
             return
 
         dlg = wx.lib.dialogs.MultipleChoiceDialog(self, _('Following data was found in backup, select which of these do you want to be added into phone.'), _('Select what to import'),
@@ -1534,18 +1562,22 @@ class WammuFrame(wx.Frame):
             del busy
             wx.Yield()
 
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Backup has been imported from file "%s"') % StrConv(filename),
                 _('Backup imported'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+                wx.OK | wx.ICON_INFORMATION
+            ).ShowModal()
 
         except gammu.GSMError, val:
             self.ShowError(val.args[0])
 
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % StrConv(filename),
                 _('Backup import failed'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+                wx.OK | wx.ICON_INFORMATION
+            ).ShowModal()
 
     def Import(self, evt):
         filename, backup = self.ReadBackup('all')
@@ -1567,10 +1599,12 @@ class WammuFrame(wx.Frame):
             choices.append(_('%d calendar entries') % len(backup['Calendar']))
 
         if len(values) == 0:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('No importable data were found in file "%s"') % StrConv(filename),
                 _('No data to import'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+                wx.OK | wx.ICON_INFORMATION
+            ).ShowModal()
             return
 
         msg = ''
@@ -1647,18 +1681,22 @@ class WammuFrame(wx.Frame):
             del busy
             wx.Yield()
 
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Backup has been imported from file "%s"') % StrConv(filename),
                 _('Backup imported'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+                wx.OK | wx.ICON_INFORMATION
+            ).ShowModal()
 
         except gammu.GSMError, val:
             self.ShowError(val.args[0])
 
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Restoring from file "%s" has failed, some parts of backup might have been stored to phone and some were not.') % StrConv(filename),
                 _('Backup import failed'),
-                wx.OK | wx.ICON_INFORMATION).ShowModal()
+                wx.OK | wx.ICON_INFORMATION
+            ).ShowModal()
 
     def WriteData(self, evt):
         self.DoBackup(True, 'all')
