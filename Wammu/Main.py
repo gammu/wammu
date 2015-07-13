@@ -81,21 +81,22 @@ from Wammu.Locales import StrConv, ConsoleStrConv, ugettext as _
 TALKBACK_COUNT = 30
 TALKBACK_DAYS = 30
 
-def SortDataKeys(a, b):
-    if a == 'info':
-        return -1
-    elif b == 'info':
-        return 1
-    else:
-        return cmp(a,b)
 
-def SortDataSubKeys(a, b):
-    if a == '  ':
+def SortDataKeys(first, second):
+    if first == 'info':
         return -1
-    elif b == '  ':
+    elif second == 'info':
         return 1
-    else:
-        return cmp(a,b)
+    return cmp(first, second)
+
+
+def SortDataSubKeys(first, second):
+    if first == '  ':
+        return -1
+    elif second == '  ':
+        return 1
+    return cmp(first, second)
+
 
 displaydata = {}
 displaydata['info'] = {}
