@@ -304,13 +304,13 @@ class PredefinedSoundEditor(GenericEditor):
         self.part['Number'] = self.edit.GetSelection()
         return self.part
 
-SMSParts = [
-# FIXME: should support more types...
+# We should support more types...
 #   ID, display text, match types, editor, init type
+SMSParts = [
     (0, _('Text'), Wammu.Data.SMSIDs['Text'], TextEditor, 'ConcatenatedTextLong16bit'),
     (1, _('Predefined animation'), Wammu.Data.SMSIDs['PredefinedAnimation'], PredefinedAnimEditor, 'EMSPredefinedAnimation'),
     (2, _('Predefined sound'), Wammu.Data.SMSIDs['PredefinedSound'], PredefinedSoundEditor, 'EMSPredefinedSound'),
-    ]
+]
 
 class SMSComposer(wx.Dialog):
     def __init__(self, parent, cfg, entry, values, action='save', addtext=True):
@@ -635,8 +635,12 @@ class SMSComposer(wx.Dialog):
 
     def Preview(self, evt):
         if len(self.entry['SMSInfo']['Entries']) == 0:
-            dlg = wx.MessageDialog(self, _('Nothing to preview, message is empty.'),
-                                  _('Message empty!'), wx.OK | wx.ICON_WARNING)
+            dlg = wx.MessageDialog(
+                self,
+                _('Nothing to preview, message is empty.'),
+                _('Message empty!'),
+                wx.OK | wx.ICON_WARNING
+            )
         else:
             self.StoreEdited()
             msg = gammu.EncodeSMS(self.entry['SMSInfo'])

@@ -39,7 +39,7 @@ class ErrorMessage(wx.Dialog):
     bug to https://github.com/gammu/wammu/issues.
     '''
     def __init__(self, parent, message, title, traceid=None,
-            autolog=None, exception=None):
+                 autolog=None, exception=None):
         wx.Dialog.__init__(self, parent, -1, title)
 
         sizer = wx.BoxSizer(wx.VERTICAL)
@@ -93,12 +93,14 @@ class ErrorMessage(wx.Dialog):
         '''
         Saves debug log to file.
         '''
-        dlg = wx.FileDialog(self,
-                _('Save debug log as...'),
-                os.getcwd(),
-                'wammu.log',
-                '',
-                wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
+        dlg = wx.FileDialog(
+            self,
+            _('Save debug log as...'),
+            os.getcwd(),
+            'wammu.log',
+            '',
+            wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR
+        )
         if dlg.ShowModal() == wx.ID_OK:
             Wammu.ErrorLog.SaveLog(filename=dlg.GetPath())
 

@@ -163,10 +163,12 @@ class EditContactList(wx.Dialog):
                     data.write('%s\n' % line)
                 data.close()
             except IOError:
-                wx.MessageDialog(self,
+                wx.MessageDialog(
+                    self,
                     _('Selected file "%s" could not be written.') % path,
                     _('File can not be created!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
+                    wx.OK | wx.ICON_ERROR
+                ).ShowModal()
 
     def Load(self, evt=None):
         dlg = wx.FileDialog(
@@ -188,7 +190,9 @@ class EditContactList(wx.Dialog):
                 self.currentlist = newlist
                 self.current_contacts.Set(newlist)
             except IOError:
-                wx.MessageDialog(self,
+                wx.MessageDialog(
+                    self,
                     _('Selected file "%s" was not found, no data read.') % path,
                     _('File not found!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
+                    wx.OK | wx.ICON_ERROR
+                ).ShowModal()

@@ -43,10 +43,12 @@ class Ringtone(wx.BitmapButton):
 
     def OnClick(self, evt):
         if commands.getstatusoutput('which timidity')[0] != 0:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Could not find timidity, melody can not be played'),
                 _('Timidity not found'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
             return
         f = os.popen('timidity -', 'w')
         thread.start_new_thread(gammu.SaveRingtone, (f, self.ringtone, "mid"))

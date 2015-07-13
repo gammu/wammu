@@ -46,14 +46,8 @@ class AllSearchThread(threading.Thread):
     Root thread for phone searching. It spawns other threads for testing each
     device.
     '''
-    def __init__(self,
-            lock=False,
-            level='nothing',
-            msgcallback=None,
-            callback=None,
-            win=None,
-            noticecallback=None,
-            limit=None):
+    def __init__(self, lock=False, level='nothing', msgcallback=None,
+                 callback=None, win=None, noticecallback=None, limit=None):
         threading.Thread.__init__(self)
         self.lock = lock
         self.list = []
@@ -158,8 +152,9 @@ class AllSearchThread(threading.Thread):
         '''
         # read devices list
         if self.msgcallback is not None:
-            self.msgcallback(_('Discovering Bluetooth devices using %s') %
-                    'PyBluez')
+            self.msgcallback(
+                _('Discovering Bluetooth devices using %s') % 'PyBluez'
+            )
 
         try:
             discovery = Wammu.BluezDiscovery.Discovery(self)
@@ -202,14 +197,16 @@ class AllSearchThread(threading.Thread):
                     i += 1
                 else:
                     if self.msgcallback is not None:
-                        self.msgcallback(_('Finished %s') %
-                                StrConv(self.threads[i].getName()))
+                        self.msgcallback(
+                            _('Finished %s') % StrConv(self.threads[i].getName())
+                        )
                     del self.threads[i]
                 if i >= len(self.threads):
                     i = 0
             if self.msgcallback is not None:
-                self.msgcallback(_('All finished, found %d phones') %
-                        len(self.list))
+                self.msgcallback(
+                    _('All finished, found %d phones') % len(self.list)
+                )
             if self.callback is not None:
                 self.callback(self.list)
         except:
@@ -217,14 +214,8 @@ class AllSearchThread(threading.Thread):
             wx.PostEvent(self.win, evt)
 
 class SearchThread(threading.Thread):
-    def __init__(self,
-            device,
-            connections,
-            lst,
-            listlock,
-            lock=False,
-            level='nothing',
-            win=None):
+    def __init__(self, device, connections, lst, listlock, lock=False,
+                 level='nothing', win=None):
         threading.Thread.__init__(self)
         self.device = device
         self.connections = connections
@@ -241,14 +232,14 @@ class SearchThread(threading.Thread):
         gsm = gammu.StateMachine()
         cfg = {
             'StartInfo': False,
-             'UseGlobalDebugFile': True,
-             'DebugFile': '',
-             'SyncTime': False,
-             'Connection': connection,
-             'LockDevice': self.lock,
-             'DebugLevel': self.level,
-             'Device': self.device,
-             'Model': ''
+            'UseGlobalDebugFile': True,
+            'DebugFile': '',
+            'SyncTime': False,
+            'Connection': connection,
+            'LockDevice': self.lock,
+            'DebugLevel': self.level,
+            'Device': self.device,
+            'Model': ''
         }
 
         # Compatibility with old Gammu versions

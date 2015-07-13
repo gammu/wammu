@@ -522,8 +522,10 @@ class GenericEditor(wx.Dialog):
 
         # Remember default type
         if self.wasempty:
-            self.cfg.Write('/Defaults/Type-%s-%s' % (self.internalname, self.type),
-                    self.entry[self.type])
+            self.cfg.Write(
+                '/Defaults/Type-%s-%s' % (self.internalname, self.type),
+                self.entry[self.type]
+            )
 
         self.EndModal(wx.ID_OK)
 

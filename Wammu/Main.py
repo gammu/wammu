@@ -709,8 +709,7 @@ class WammuFrame(wx.Frame):
                     # l10n: Formatting of signal percentage, usually you can keep this as it is.
                     signal = _('%d %%') % s['SignalPercent']
 
-                self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: %(time)s') %
-                    {
+                self.SetStatusText(_('Bat: %(battery_percent)d %% (%(power_source)s), Sig: %(signal_level)s, Time: %(time)s') % {
                         'battery_percent': b['BatteryPercent'],
                         'power_source': power,
                         'signal_level': signal,
@@ -1932,10 +1931,12 @@ class WammuFrame(wx.Frame):
                             'Are you sure you want to delete %d calendar entry?',
                             'Are you sure you want to delete %d calendar entries?',
                             count) % count
-            dlg = wx.MessageDialog(self,
+            dlg = wx.MessageDialog(
+                self,
                 txt,
                 _('Confirm deleting'),
-                wx.OK | wx.CANCEL | wx.ICON_WARNING)
+                wx.OK | wx.CANCEL | wx.ICON_WARNING
+            )
             if dlg.ShowModal() != wx.ID_OK:
                 return
 
@@ -2032,14 +2033,18 @@ class WammuFrame(wx.Frame):
 
         # Is is Gammu error?
         if hasattr(evt, 'errortype') and evt.errortype == 'gammu':
-            Wammu.ErrorMessage.ErrorMessage(parent,
+            Wammu.ErrorMessage.ErrorMessage(
+                parent,
                 StrConv(evt.message),
-                StrConv(evt.title)).ShowModal()
+                StrConv(evt.title)
+            ).ShowModal()
         else:
-            wx.MessageDialog(parent,
+            wx.MessageDialog(
+                parent,
                 StrConv(evt.message),
                 StrConv(evt.title),
-                wx.OK | evt.type).ShowModal()
+                wx.OK | evt.type
+            ).ShowModal()
 
         if hasattr(evt, 'lock'):
             evt.lock.release()
@@ -2243,18 +2248,22 @@ class WammuFrame(wx.Frame):
                     while (not file_f['Finished']):
                         file_f = self.sm.SendFilePart(file_f)
                 except gammu.ERR_PERMISSION:
-                    wx.MessageDialog(self,
+                    wx.MessageDialog(
+                        self,
                         _('Transfer has been rejected by phone.'),
                         _('Transfer rejected!'),
-                        wx.OK | wx.ICON_ERROR).ShowModal()
+                        wx.OK | wx.ICON_ERROR
+                    ).ShowModal()
                 except gammu.GSMError, val:
                     del busy
                     self.ShowError(val.args[0])
             except IOError:
-                wx.MessageDialog(self,
+                wx.MessageDialog(
+                    self,
                     _('Selected file "%s" was not found, no data read.') % path,
                     _('File not found!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
+                    wx.OK | wx.ICON_ERROR
+                ).ShowModal()
 
     #
     # Connecting / Disconnecting
@@ -2267,10 +2276,12 @@ class WammuFrame(wx.Frame):
         section = self.cfg.ReadInt('/Gammu/Section')
         config = self.cfg.gammu.GetConfig(section)
         if config['Connection'] == '' or config['Device'] == '':
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Phone connection is not properly configured, can not connect to phone.'),
                 _('Connection not configured!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
             return
         cfg = {
             'StartInfo': self.cfg.ReadBool('/Gammu/StartInfo'),
@@ -2338,9 +2349,11 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError:
                 code = None
             if code is not None:
-                dlg = wx.PasswordEntryDialog(self,
+                dlg = wx.PasswordEntryDialog(
+                    self,
                     _('Please enter %s code:') % code,
-                    _('Phone asks for security code'))
+                    _('Phone asks for security code')
+                )
                 if dlg.ShowModal() == wx.ID_OK:
                     self.sm.EnterSecurityCode(code, dlg.GetValue())
 
@@ -2383,8 +2396,11 @@ class WammuFrame(wx.Frame):
                 msg = _('Your phone has just received incoming call')
             else:
                 msg = _('Your phone has just received incoming call from %s') % data['Number']
-            self.DBUSNotify(_('Incoming call'), msg,
-                    ['reject-call', _('Reject'), 'accept-call', _('Accept')])
+            self.DBUSNotify(
+                _('Incoming call'),
+                msg,
+                ['reject-call', _('Reject'), 'accept-call', _('Accept')]
+            )
 
     def PhoneDisconnect(self, event=None):
         busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
@@ -2416,10 +2432,12 @@ class WammuFrame(wx.Frame):
 
     def SearchPhone(self, evt=None):
         if self.connected:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('Searching for phone can not be performed while you are connected to phone, please disconnect first.'),
                 _('You are connected to phone!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
             return
 
         index = self.cfg.gammu.FirstFree()
@@ -2453,11 +2471,13 @@ class WammuFrame(wx.Frame):
         '''
         Saves debug log to file.
         '''
-        dlg = wx.FileDialog(self,
-                _('Save debug log as...'),
-                os.getcwd(),
-                'wammu.log',
-                '',
-                wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
+        dlg = wx.FileDialog(
+            self,
+            _('Save debug log as...'),
+            os.getcwd(),
+            'wammu.log',
+            '',
+            wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR
+        )
         if dlg.ShowModal() == wx.ID_OK:
             Wammu.ErrorLog.SaveLog(filename=dlg.GetPath())

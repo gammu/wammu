@@ -69,10 +69,12 @@ def SMSToMailbox(parent, messages, contacts):
         f.close()
     except IOError:
         del parent.progress
-        wx.MessageDialog(parent,
+        wx.MessageDialog(
+            parent,
             _('Creating of file %s failed, bailing out.') % path,
             _('Can not create file!'),
-            wx.OK | wx.ICON_ERROR).ShowModal()
+            wx.OK | wx.ICON_ERROR
+        ).ShowModal()
         del parent.progress
         parent.SetStatusText(_('Export terminated'))
         return
@@ -103,10 +105,12 @@ def SMSToMaildir(parent, messages, contacts):
     outpath = path
 
     if not os.path.isdir(os.path.join(outpath, 'new')):
-        res = wx.MessageDialog(parent,
+        res = wx.MessageDialog(
+            parent,
             _('Selected folder does not contain new subfolder and thus probably is not valid maildir.\n\nDo you want to create new subfolder and export to it?'),
             _('Folder doesn\'t look like maildir!'),
-            wx.YES_NO | wx.YES_DEFAULT | wx.CANCEL | wx.ICON_WARNING).ShowModal()
+            wx.YES_NO | wx.YES_DEFAULT | wx.CANCEL | wx.ICON_WARNING
+        ).ShowModal()
 
         if res == wx.ID_CANCEL:
             return
@@ -116,10 +120,12 @@ def SMSToMaildir(parent, messages, contacts):
             try:
                 os.mkdir(outpath)
             except OSError:
-                wx.MessageDialog(parent,
+                wx.MessageDialog(
+                    parent,
                     _('Creating of folder failed, bailing out.'),
                     _('Can not create folder!'),
-                    wx.OK | wx.ICON_ERROR).ShowModal()
+                    wx.OK | wx.ICON_ERROR
+                ).ShowModal()
                 return
     else:
         outpath = os.path.join(outpath, 'new')
@@ -136,10 +142,12 @@ def SMSToMaildir(parent, messages, contacts):
 
         outfile = os.path.join(outpath, filename)
         if os.path.exists(outfile):
-            res = wx.MessageDialog(parent,
+            res = wx.MessageDialog(
+                parent,
                 _('Output file already exists, this usually means that this message was already saved there.\n\nDo you wish to overwrite file %s?') % outfile,
                 _('File already exists!'),
-                wx.YES_NO | wx.NO_DEFAULT | wx.CANCEL | wx.ICON_WARNING).ShowModal()
+                wx.YES_NO | wx.NO_DEFAULT | wx.CANCEL | wx.ICON_WARNING
+            ).ShowModal()
 
             if res == wx.ID_CANCEL:
                 del parent.progress
@@ -153,10 +161,12 @@ def SMSToMaildir(parent, messages, contacts):
             f.write(data)
             f.close()
         except IOError:
-            wx.MessageDialog(parent,
+            wx.MessageDialog(
+                parent,
                 _('Creating of file %s failed, bailing out.') % outfile,
                 _('Can not create file!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
             del parent.progress
             parent.SetStatusText(_('Export terminated'))
             return
@@ -209,10 +219,13 @@ def SMSToIMAP(parent, messages, contacts):
         if res[0] == 'OK':
             break
         else:
-            if wx.MessageDialog(parent,
+            dialog = wx.MessageDialog(
+                parent,
                 _('Can not login, you probably entered invalid login information. Do you want to retry?'),
                 _('Login failed!'),
-                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR).ShowModal() == wx.ID_NO:
+                wx.YES_NO | wx.YES_DEFAULT | wx.ICON_ERROR
+            )
+            if dialog.ShowModal() == wx.ID_NO:
                 return
 
     busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
@@ -222,10 +235,12 @@ def SMSToIMAP(parent, messages, contacts):
         res = 'FAIL'
     del busy
     if res != 'OK':
-        wx.MessageDialog(parent,
+        wx.MessageDialog(
+            parent,
             _('Can not list folders on server, bailing out.'),
             _('Listing failed!'),
-            wx.OK | wx.ICON_ERROR).ShowModal()
+            wx.OK | wx.ICON_ERROR
+        ).ShowModal()
         parent.SetStatusText(_('Export terminated'))
         return
 
@@ -255,10 +270,12 @@ def SMSToIMAP(parent, messages, contacts):
         except:
             pass
 
-    dlg = wx.SingleChoiceDialog(parent,
+    dlg = wx.SingleChoiceDialog(
+        parent,
         _('Please select folder on server %s where messages will be stored') % imapConfig.server,
         _('Select folder'),
-        folders, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
+        folders, wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER
+    )
     if folderIndex > 0:
         dlg.SetSelection(folderIndex)
     if dlg.ShowModal() == wx.ID_CANCEL:
@@ -279,19 +296,22 @@ def SMSToIMAP(parent, messages, contacts):
         res = ['FAIL']
     del busy
     if res[0] != 'OK':
-        wx.MessageDialog(parent,
+        wx.MessageDialog(
+            parent,
             _('Can not select folder %s on server, bailing out.') % folder,
             _('Selecting failed!'),
-            wx.OK | wx.ICON_ERROR).ShowModal()
+            wx.OK | wx.ICON_ERROR
+        ).ShowModal()
         parent.SetStatusText(_('Export terminated'))
         return
 
     def msgFilter(sms):
-        return \
-               (imapConfig.backupRead   and sms['SMS'][0]['State'] == 'Read') \
-            or (imapConfig.backupSent   and sms['SMS'][0]['State'] == 'Sent') \
-            or (imapConfig.backupUnread and sms['SMS'][0]['State'] == 'UnRead') \
-            or (imapConfig.backupUnsent and sms['SMS'][0]['State'] == 'UnSent')
+        return (
+            (imapConfig.backupRead and sms['SMS'][0]['State'] == 'Read') or
+            (imapConfig.backupSent and sms['SMS'][0]['State'] == 'Sent') or
+            (imapConfig.backupUnread and sms['SMS'][0]['State'] == 'UnRead')or
+            (imapConfig.backupUnsent and sms['SMS'][0]['State'] == 'UnSent')
+        )
 
     messages = filter(msgFilter, messages)
     count = len(messages)
@@ -322,10 +342,12 @@ def SMSToIMAP(parent, messages, contacts):
         except:
             res = ['FAIL']
         if res[0] != 'OK':
-            wx.MessageDialog(parent,
+            wx.MessageDialog(
+                parent,
                 _('Can not save message to folder %s on server, bailing out.') % folder,
                 _('Saving failed!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
             parent.progress.Update(100)
             del parent.progress
             parent.SetStatusText(_('Export terminated'))
@@ -359,8 +381,13 @@ def SMSToIMAP(parent, messages, contacts):
 
 def SMSExport(parent, messages, contacts):
     # Select where to export
-    dlg = wx.SingleChoiceDialog(parent, _('Where do you want to export emails created from your messages?'), _('Select export type'),
-                                [_('Mailbox file'), _('Maildir folder'), _('IMAP account')], wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER)
+    dlg = wx.SingleChoiceDialog(
+        parent,
+        _('Where do you want to export emails created from your messages?'),
+        _('Select export type'),
+        [_('Mailbox file'), _('Maildir folder'), _('IMAP account')],
+        wx.CHOICEDLG_STYLE | wx.RESIZE_BORDER
+    )
     if dlg.ShowModal() != wx.ID_OK:
         return
 
@@ -589,18 +616,20 @@ class IMAPSettingsDialog(wx.Dialog):
         if self.passwordTextCtrl.GetValue() == "":
             counter += 1
             error += _('%d. Password incomplete\n') % counter
-        if  not self.readCheckBox.GetValue() and \
-            not self.sentCheckBox.GetValue() and \
-            not self.unreadCheckBox.GetValue() and \
-            not self.unsentCheckBox.GetValue():
+        if  (not self.readCheckBox.GetValue() and
+                not self.sentCheckBox.GetValue() and
+                not self.unreadCheckBox.GetValue() and
+                not self.unsentCheckBox.GetValue()):
             counter += 1
             error += _('%d. No messages to back-up selected. Please tick at least one of the states.') % counter
 
         if counter != 0:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 error,
                 _('Incomplete'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
         else:
             self.__copy_config()
             event.Skip()

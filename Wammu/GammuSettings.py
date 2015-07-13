@@ -90,8 +90,7 @@ class GammuSettings:
             'Model': model
         }
 
-    def SetConfig(self, position, device, connection,
-            name=None, model=None):
+    def SetConfig(self, position, device, connection, name=None, model=None):
         '''
         Set configuration at defined position.
         '''
@@ -149,8 +148,11 @@ class GammuSettings:
         for config in lst:
             # l10n: %(name)s is name of current configuration or 'Create new
             # configuration', %(position) d is position of this config in .gammurc
-            choices.append(_('%(name)s (position %(position)d)') %
-                    {'name': config['Name'], 'position': config['Id']})
+            choices.append(
+                _('%(name)s (position %(position)d)') % {
+                    'name': config['Name'], 'position': config['Id']
+                }
+            )
         return lst, choices
 
     def SelectConfig(self, parent=None, force=False, new=False):
@@ -162,10 +164,12 @@ class GammuSettings:
         if len(choices) == 1 and not force:
             return lst[0]['Id']
 
-        dlg = wx.SingleChoiceDialog(parent,
-                _('Select which configration you want to modify.'),
-                _('Select configuration section'),
-                choices)
+        dlg = wx.SingleChoiceDialog(
+            parent,
+            _('Select which configration you want to modify.'),
+            _('Select configuration section'),
+            choices
+        )
         if dlg.ShowModal() == wx.ID_OK:
             return lst[dlg.GetSelection()]['Id']
         else:

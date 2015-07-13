@@ -121,10 +121,12 @@ def SMSExportXML(parent, messages, contacts):
         f.close()
     except IOError:
         del parent.progress
-        wx.MessageDialog(parent,
+        wx.MessageDialog(
+            parent,
             _('Creating of file %s failed, bailing out.') % path,
             _('Can not create file!'),
-            wx.OK | wx.ICON_ERROR).ShowModal()
+            wx.OK | wx.ICON_ERROR
+        ).ShowModal()
         del parent.progress
         parent.SetStatusText(_('Export terminated'))
         return

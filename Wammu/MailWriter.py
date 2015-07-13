@@ -109,8 +109,9 @@ def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
         msg.add_header(HEADER_FORMAT % header, unicode(sms['SMS'][0][header]))
     msg.add_header(HEADER_FORMAT % 'SMSC', sms['SMS'][0]['SMSC']['Number'])
     if sms['SMS'][0]['SMSCDateTime'] is not None:
-        msg.add_header(HEADER_FORMAT % 'SMSCDate',
-                DateToString(sms['SMS'][0]['SMSCDateTime']))
+        msg.add_header(
+            HEADER_FORMAT % 'SMSCDate', DateToString(sms['SMS'][0]['SMSCDateTime'])
+        )
 
     remote = '%s<%s@wammu.sms>' % (name, sms['Number'].replace(' ', '_'))
     local = cfg.Read('/MessageExport/From')
@@ -121,8 +122,9 @@ def SMSToMail(cfg, sms, lookuplist=None, mailbox=False):
     else:
         msg['To'] = local
         msg['From'] = remote
-        prepend = ('Received: from %s via GSM\n' %
-                unicode(sms['SMS'][0]['SMSC']['Number'])) + prepend
+        prepend = (
+            'Received: from %s via GSM\n' % unicode(sms['SMS'][0]['SMSC']['Number'])
+        ) + prepend
 
     if len(sms['Name']) > 0:
         msg['Subject'] = SmsTextFormat(cfg, sms['Name'], False)

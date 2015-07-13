@@ -328,8 +328,10 @@ class Settings(wx.Dialog):
             '%(LastName)s, %(FirstName)s (%(NickName)s)',
             ])
         # l10n: The %s will be replaced by list of currently supported tags, %%(value)s should be kept intact (you can translate word value).
-        self.editnamestring.SetToolTipString(_('Format string for name displaying. You can use %%(value)s format marks. Currently available values are: %s.') %
-                'Name, FirstName, LastName, NickName, FormalName, Company')
+        self.editnamestring.SetToolTipString(
+            _('Format string for name displaying. You can use %%(value)s format marks. Currently available values are: %s.') %
+            'Name, FirstName, LastName, NickName, FormalName, Company'
+        )
         self.sizer_view.Add(wx.StaticText(self.notebook_view, -1, _('Name format string')), pos=(r, 1), flag=wx.ALIGN_CENTER_VERTICAL)
         self.sizer_view.Add(self.editnamestring, pos=(r, 2), flag=wx.ALIGN_RIGHT | wx.EXPAND)
         r += 1
@@ -575,18 +577,22 @@ class Settings(wx.Dialog):
 
         # Check whether we have some configuration
         if len(lst) == 0:
-            wx.MessageDialog(self,
+            wx.MessageDialog(
+                self,
                 _('You don\'t have any phone connection configured. Wammu will not be able to conect to your phone!'),
                 _('No phone configured!'),
-                wx.OK | wx.ICON_ERROR).ShowModal()
+                wx.OK | wx.ICON_ERROR
+            ).ShowModal()
         else:
             current = lst[self.editsection.GetSelection()]
             self.config.gammu = self.gammu_config
-            self.config.gammu.SetConfig(current['Id'],
+            self.config.gammu.SetConfig(
+                current['Id'],
                 self.editdev.GetValue(),
                 self.editconn.GetValue(),
                 self.editname.GetValue(),
-                self.editmodel.GetValue())
+                self.editmodel.GetValue()
+            )
             self.config.Write('/Gammu/Gammurc', self.editcfgpath.GetValue())
             self.config.WriteInt('/Gammu/Section', current['Id'])
 

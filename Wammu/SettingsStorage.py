@@ -438,17 +438,19 @@ class Settings:
 
                 names.append('fbusblue')
                 connections.append(_('FBUS over Bluetooth (emulated serial port)'))
-                helps.append(_('Nokia protocol for Bluetooth stack with Nokia 6210.') +
+                helps.append(
+                    _('Nokia protocol for Bluetooth stack with Nokia 6210.') +
                     ' ' +
                     _('Using emulated serial port.')
-                    )
+                )
 
                 names.append('phonetblue')
                 connections.append(_('Phonet over Bluetooth (emulated serial port)'))
-                helps.append(_('Nokia protocol for Bluetooth stack with other DCT4 Nokia models.') +
+                helps.append(
+                    _('Nokia protocol for Bluetooth stack with other DCT4 Nokia models.') +
                     ' ' +
                     _('Using emulated serial port.')
-                    )
+                )
 
                 names.append('bluerffbus')
                 connections.append(_('FBUS over Bluetooth'))

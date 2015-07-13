@@ -82,7 +82,7 @@ def Handler(errtype, value, tback):
 
     # unicode warning
     if errtype == UnicodeEncodeError or errtype == UnicodeDecodeError:
-        unicodewarning = ('\n%s\n' %
+        unicodewarning = '\n%s\n' % (
             _('Unicode encoding error appeared, see question 1 in FAQ, how to solve this.')
         )
     else:
@@ -100,15 +100,16 @@ def Handler(errtype, value, tback):
 %s-------------------- Exception --------------------
 %s---------------------------------------------------
 """ % (
-    _('Unhandled exception appeared.'),
-    _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.wammu.eu/',
-    logtext,
-    tracetext,
-    unicodewarning,
-    Wammu.ErrorLog.GetSystemInfo(),
-    traceid,
-    StrConv(texttrace),
-    StrConv(textexc))
+        _('Unhandled exception appeared.'),
+        _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.wammu.eu/',
+        logtext,
+        tracetext,
+        unicodewarning,
+        Wammu.ErrorLog.GetSystemInfo(),
+        traceid,
+        StrConv(texttrace),
+        StrConv(textexc)
+    )
 
     # Include exception info in crash file
     if outf is not None:

@@ -90,10 +90,12 @@ class PhoneValidator(wx.PyValidator):
         result = self.CheckText(val)
 
         if not result and win is not None:
-            wx.MessageDialog(win,
+            wx.MessageDialog(
+                win,
                 _('You did not specify valid phone number.'),
                 _('Invalid phone number'),
-                wx.OK | wx.ICON_WARNING).ShowModal()
+                wx.OK | wx.ICON_WARNING
+            ).ShowModal()
             textcontrol.SetFocus()
 
         return result
