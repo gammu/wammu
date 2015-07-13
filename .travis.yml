@@ -1,12 +1,12 @@
 language: python
 python:
   - "2.7"
+sudo: false
 before_install:
   - sudo add-apt-repository ppa:nijel/ppa -y
   - sudo apt-get update
-  - sudo apt-get install libgammu-dev python-wxgtk2.8 python-bluez
 install:
-  - pip install codecov python-gammu pytest pytest-cov
+  - pip install codecov python-gammu pytest pytest-cov PyBluez
 script:
   - py.test --cov=.
   - coverage run --source . --append ./setup.py install
@@ -17,3 +17,11 @@ notifications:
     - https://buildtimetrend.herokuapp.com/travis
 virtualenv:
   system_site_packages: true
+addons:
+  apt:
+    sources:
+    - gammu
+    packages:
+    - libgammu-dev
+    - python-wxgtk2.8
+    - libbluetooth-dev
