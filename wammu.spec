@@ -1,5 +1,5 @@
 Name:           wammu
-Version:        0.39
+Version:        0.40
 Release:        1
 
 %define extension   bz2
