@@ -438,7 +438,6 @@ distutils.core.setup(
         'Natural Language :: German',
         'Natural Language :: Greek',
         'Natural Language :: Spanish',
-        'Natural Language :: Estonian',
         'Natural Language :: Finnish',
         'Natural Language :: French',
         'Natural Language :: Galician',
