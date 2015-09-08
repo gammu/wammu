@@ -25,6 +25,7 @@ Module for writing contacts to XML.
 
 from Wammu.Locales import ugettext as _
 import Wammu.Data
+from xml.sax.saxutils import escape
 import wx
 import os
 
@@ -47,7 +48,7 @@ def ContactToXML(cfg, folder, contact):
     contactxml = "    <contact>\n"
 
     contactxml += "        <name>"
-    contactxml += contact['Name'].encode('utf-8')
+    contactxml += escape(contact['Name'].encode('utf-8'))
     contactxml += "</name>\n"
 
     for i in contact['Entries']:
@@ -63,41 +64,41 @@ def ContactToXML(cfg, folder, contact):
             addr_country = i['Value']
         elif i['Type'] == 'Text_Note':
             contactxml += "        <note>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</note>\n"
         elif i['Type'] == 'Text_URL':
             contactxml += "        <url>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</url>\n"
         elif i['Type'] == 'Text_Email':
             if i['Value']:
                 contactxml += "        <email>"
-                contactxml += i['Value'].encode('utf-8')
+                contactxml += escape(i['Value'].encode('utf-8'))
                 contactxml += "</email>\n"
         elif i['Type'] == 'Text_Email2':
             if i['Value']:
                 contactxml += "        <email>"
-                contactxml += i['Value'].encode('utf-8')
+                contactxml += escape(i['Value'].encode('utf-8'))
                 contactxml += "</email>\n"
         elif i['Type'] == 'Number_Mobile':
             contactxml += "        <mobile>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</mobile>\n"
         elif i['Type'] == 'Number_Work':
             contactxml += "        <work>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</work>\n"
         elif i['Type'] == 'Number_Fax':
             contactxml += "        <fax>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</fax>\n"
         elif i['Type'] == 'Number_Home':
             contactxml += "        <home>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</home>\n"
         elif i['Type'][:7] == 'Number_':
             contactxml += "        <phone>"
-            contactxml += i['Value'].encode('utf-8')
+            contactxml += escape(i['Value'].encode('utf-8'))
             contactxml += "</phone>\n"
 
     addr_full = addr_zip
@@ -119,7 +120,7 @@ def ContactToXML(cfg, folder, contact):
         addr_full += addr_country
     if addr_full:
         contactxml += "        <address>"
-        contactxml += addr_full.encode('utf-8')
+        contactxml += escape(addr_full.encode('utf-8'))
         contactxml += "</address>\n"
 
     if contact['Date'] is not None:
@@ -129,7 +130,7 @@ def ContactToXML(cfg, folder, contact):
         contactxml += "</birthday>\n"
 
     contactxml += "        <folder>"
-    contactxml += folder.encode('utf-8')
+    contactxml += escape(folder.encode('utf-8'))
     contactxml += "</folder>\n"
 
     contactxml += "    </contact>\n"

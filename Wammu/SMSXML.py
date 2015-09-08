@@ -26,6 +26,7 @@ from Wammu.Utils import SearchNumber
 from Wammu.MessageDisplay import SmsTextFormat
 from Wammu.Locales import ugettext as _
 import Wammu.Data
+from xml.sax.saxutils import escape
 import wx
 import os
 
@@ -55,15 +56,15 @@ def SMSToXML(cfg, sms, contact=None):
         smsxml += "</dateenc>\n"
 
     smsxml += "        <text>"
-    smsxml += text.encode('utf-8')
+    smsxml += escape(text.encode('utf-8'))
     smsxml += "</text>\n"
 
     smsxml += "        <telephone>"
-    smsxml += sms['Number'].encode('utf-8')
+    smsxml += escape(sms['Number'].encode('utf-8'))
     smsxml += "</telephone>\n"
 
     smsxml += "        <contact>"
-    smsxml += contact.encode('utf-8')
+    smsxml += escape(contact.encode('utf-8'))
     smsxml += "</contact>\n"
 
     smsxml += "        <folder>"
