@@ -186,7 +186,6 @@ def ContactsExportXML(parent, contactsSM, contactsME):
         f.write("</contacts>\n")
         f.close()
     except IOError:
-        del parent.progress
         wx.MessageDialog(
             parent,
             _('Creating of file %s failed, bailing out.') % path,
