@@ -44,7 +44,7 @@ echo 'Creating source tarballs...'
 # Build source package
 ./setup.py sdist --formats=gztar,bztar,tar,zip
 xz dist/*.tar
-mv dist/* ../
+cp dist/* ../
 
 # We're done
 echo "Release is in $tmp directory"
@@ -55,8 +55,10 @@ cd "$srcdir"
 if [ $dotag -eq 1 ] ; then
     # Tag the release
     git tag -s -m "Tag release $version" "$version"
-    # Submit to PyPi
-    $tmp/$repo-$version/setup.py register
     # Upload to sf.net
     ./admin/upload-release $version $tmp
+    # Submit to PyPi
+    cd $tmp/$repo-$version
+    python setup.py register
+    python setup.py sdist upload --formats=gztar,bztar,zip
 fi
