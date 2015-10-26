@@ -525,14 +525,15 @@ def DBUSServiceAvailable(bus, interface, try_start_service=False):
         import dbus
     except ImportError:
         return False
-    if try_start_service:
-        try:
-            bus.start_service_by_name(interface)
-        except dbus.exceptions.DBusException:
-            print 'Failed to start DBus service %s' % interface
     obj = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
     dbus_iface = dbus.Interface(obj, 'org.freedesktop.DBus')
     avail = dbus_iface.ListNames()
+    if interface not in avail and try_start_service:
+        try:
+            bus.start_service_by_name(interface)
+            avail = dbus_iface.ListNames()
+        except dbus.exceptions.DBusException:
+            print 'Failed to start DBus service %s' % interface
     return interface in avail
 
 
