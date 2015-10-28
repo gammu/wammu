@@ -61,8 +61,9 @@ class ErrorMessage(wx.Dialog):
             message += (
                     _('Debug log has been automatically saved to %s, you are strongly encouraged to include it in bugreport.')
                     % autolog)
-        msg = wx.StaticText(self, -1, message)
-        msg.Wrap(400)
+        msg = wx.TextCtrl(self, style=wx.TE_BESTWRAP|wx.TE_MULTILINE|wx.TE_READONLY|wx.BORDER_NONE, size=(500, 400))
+        msg.SetValue(message)
+        msg.SetBackgroundColour(wx.SystemSettings.GetColour(4))
         textsizer.Add(msg)
 
         buttonsizer = wx.StdDialogButtonSizer()
