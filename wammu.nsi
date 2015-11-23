@@ -5,7 +5,7 @@
 !define PRODUCT_NAME "Wammu"
 !define PRODUCT_INST_NAME "wammu"
 !define PRODUCT_EXE_NAME "wammu.exe"
-!define PRODUCT_VERSION "0.40"
+!define PRODUCT_VERSION "0.41"
 !define PRODUCT_PUBLISHER "Michal Čihař"
 !define PRODUCT_WEB_SITE "http://wammu.eu/"
 !define PRODUCT_SUPPORT_SITE "http://wammu.eu/support/"
