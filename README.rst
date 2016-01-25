@@ -19,6 +19,9 @@ GUI for Gammu library.
     :alt: Bountysource
     :target: https://www.bountysource.com/teams/gammu/issues?utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received
 
+.. image:: https://todofy.org/b/gammu/wammu
+    :target: https://todofy.org/r/gammu/wammu
+
 Homepage
 ========
 
