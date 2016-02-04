@@ -242,10 +242,10 @@ class Settings:
             import bluetooth
             return bluetooth.discover_devices()
         except ImportError:
+            # Module does not exist
             return []
-        except bluetooth.BluetoothError:
-            return []
-        except IOError:
+        except (bluetooth.BluetoothError, IOError, OSError):
+            # Failed to scan
             return []
 
     def CheckDev(self, dev):
