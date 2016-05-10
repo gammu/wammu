@@ -1129,6 +1129,9 @@ class WammuFrame(wx.Frame):
                 except gammu.GSMError as val:
                     del busy
                     self.ShowError(val.args[0])
+                except:
+                    del busy
+                    raise
 
             if v['Save']:
                 try:
@@ -1194,6 +1197,9 @@ class WammuFrame(wx.Frame):
                 del busy
                 v = backup
                 self.ShowError(val.args[0])
+            except:
+                del busy
+                raise
 
             if (self.type[0] == 'contact' and self.type[1] == '  ') or 'MemoryType' not in v:
                 self.ActivateView('contact', '  ')
@@ -1258,6 +1264,9 @@ class WammuFrame(wx.Frame):
                 del busy
                 v = backup
                 self.ShowError(val.args[0])
+            except:
+                del busy
+                raise
 
             self.ActivateView('calendar', '  ')
             try:
@@ -1308,6 +1317,9 @@ class WammuFrame(wx.Frame):
                 del busy
                 v = backup
                 self.ShowError(val.args[0])
+            except:
+                del busy
+                raise
 
             self.ActivateView('todo', '  ')
             try:
@@ -1988,6 +2000,9 @@ class WammuFrame(wx.Frame):
                 del busy
             finally:
                 self.ShowError(val.args[0])
+        except:
+            del busy
+            raise
 
         self.ActivateView(self.type[0], self.type[1])
 
@@ -2202,6 +2217,9 @@ class WammuFrame(wx.Frame):
         except gammu.GSMError as val:
             del busy
             self.ShowError(val.args[0])
+        except:
+            del busy
+            raise
 
     #
     # Files
@@ -2257,6 +2275,9 @@ class WammuFrame(wx.Frame):
                 except gammu.GSMError as val:
                     del busy
                     self.ShowError(val.args[0])
+                except:
+                    del busy
+                    raise
             except IOError:
                 wx.MessageDialog(
                     self,
@@ -2341,6 +2362,9 @@ class WammuFrame(wx.Frame):
                 self.sm.Terminate()
             except gammu.GSMError as val:
                 pass
+        except:
+            del busy
+            raise
 
         # Check for PIN
         if self.connected:
@@ -2409,10 +2433,14 @@ class WammuFrame(wx.Frame):
         try:
             self.sm.Terminate()
         except gammu.ERR_NOTCONNECTED:
+            del busy
             pass
         except gammu.GSMError as val:
             del busy
             self.ShowError(val.args[0])
+        except:
+            del busy
+            raise
         self.TogglePhoneMenus(False)
 
     def SearchMessage(self, text):
