@@ -44,9 +44,9 @@ except ImportError:
 
 try:
     import gammu
-except SystemError, err:
+except SystemError as err:
     Wammu.gammu_error = err
-except ImportError, err:
+except ImportError as err:
     Wammu.gammu_error = err
 
 import Wammu.Events
@@ -1126,7 +1126,7 @@ class WammuFrame(wx.Frame):
                         result['Synced'] = True
                         self.values['message'][result['State']].append(result)
 
-                except gammu.GSMError, val:
+                except gammu.GSMError as val:
                     del busy
                     self.ShowError(val.args[0])
 
@@ -1190,7 +1190,7 @@ class WammuFrame(wx.Frame):
                 # append new value to list
                 self.values['contact'][v['MemoryType']].append(v)
 
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 del busy
                 v = backup
                 self.ShowError(val.args[0])
@@ -1254,7 +1254,7 @@ class WammuFrame(wx.Frame):
                 # append new value to list
                 self.values['calendar']['  '].append(v)
 
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 del busy
                 v = backup
                 self.ShowError(val.args[0])
@@ -1304,7 +1304,7 @@ class WammuFrame(wx.Frame):
                 v['Synced'] = True
                 # append new value to list
                 self.values['todo']['  '].append(v)
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 del busy
                 v = backup
                 self.ShowError(val.args[0])
@@ -1346,12 +1346,12 @@ class WammuFrame(wx.Frame):
 
             try:
                 self.sm.DialVoice(num)
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 self.ShowError(val.args[0])
         elif self.type[0] == 'message':
             try:
                 self.sm.DialVoice(evt.data['Number'])
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 self.ShowError(val.args[0])
         else:
             print 'Call not yet implemented (type=%s)!' % self.type[0]
@@ -1401,7 +1401,7 @@ class WammuFrame(wx.Frame):
                 except gammu.ERR_NOTSUPPORTED:
                     for msg in v['SMS']:
                         self.sm.SendSMS(msg)
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 self.ShowError(val.args[0])
 
     def SMSToMails(self, evt):
@@ -1514,7 +1514,7 @@ class WammuFrame(wx.Frame):
                 backup = gammu.ReadSMSBackup(filename)
             else:
                 backup = gammu.ReadBackup(filename)
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
                 message=Wammu.Utils.FormatError(_('Error while reading backup'), info),
@@ -1628,7 +1628,7 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_INFORMATION
             ).ShowModal()
 
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
             wx.MessageDialog(
@@ -1752,7 +1752,7 @@ class WammuFrame(wx.Frame):
                 wx.OK | wx.ICON_INFORMATION
             ).ShowModal()
 
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
             wx.MessageDialog(
@@ -1798,7 +1798,7 @@ class WammuFrame(wx.Frame):
                 self.SetStatusText(_('Backup has been saved to file "%s"') % StrConv(filename))
             else:
                 self.SetStatusText(_('Data has been saved to file "%s"') % StrConv(filename))
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
                 message=Wammu.Utils.FormatError(_('Error while saving backup'), info),
@@ -1807,7 +1807,7 @@ class WammuFrame(wx.Frame):
                 type=wx.ICON_ERROR
             )
             wx.PostEvent(self, evt)
-        except MemoryError, val:
+        except MemoryError as val:
             info = val.args[0]
             evt = Wammu.Events.ShowMessageEvent(
                 message=_('Error while saving backup, probably some limit inside of Gammu exceeded.\n%s') % str(info),
@@ -1983,7 +1983,7 @@ class WammuFrame(wx.Frame):
                         if self.values[self.type[0]]['  '][idx] == v:
                             del self.values[self.type[0]]['  '][idx]
                             break
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             try:
                 del busy
             finally:
@@ -2199,7 +2199,7 @@ class WammuFrame(wx.Frame):
         wx.Yield()
         try:
             self.sm.SetDateTime(datetime.datetime.now())
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             del busy
             self.ShowError(val.args[0])
 
@@ -2254,7 +2254,7 @@ class WammuFrame(wx.Frame):
                         _('Transfer rejected!'),
                         wx.OK | wx.ICON_ERROR
                     ).ShowModal()
-                except gammu.GSMError, val:
+                except gammu.GSMError as val:
                     del busy
                     self.ShowError(val.args[0])
             except IOError:
@@ -2334,12 +2334,12 @@ class WammuFrame(wx.Frame):
             except:
                 pass
 
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             del busy
             self.ShowError(val.args[0])
             try:
                 self.sm.Terminate()
-            except gammu.GSMError, val:
+            except gammu.GSMError as val:
                 pass
 
         # Check for PIN
@@ -2410,7 +2410,7 @@ class WammuFrame(wx.Frame):
             self.sm.Terminate()
         except gammu.ERR_NOTCONNECTED:
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             del busy
             self.ShowError(val.args[0])
         self.TogglePhoneMenus(False)
