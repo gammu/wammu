@@ -979,7 +979,7 @@ class WammuFrame(wx.Frame):
                     evt.cancel()
                 except:
                     pass
-            if evt.progress == 100:
+            if evt.progress == 100 and hasattr(self, 'progress'):
                 del self.progress
         if hasattr(evt, 'lock'):
             evt.lock.release()
