@@ -550,7 +550,9 @@ class Settings(wx.Dialog):
     def OnConfigChange(self, evt=None):
         # temporarily change gammu config data
         newpath = self.editcfgpath.GetValue()
-        self.gammu_config = Wammu.GammuSettings.GammuSettings(self.config, os.path.expanduser(newpath))
+        self.gammu_config = Wammu.GammuSettings.GammuSettings(
+            self.config, os.path.expanduser(newpath.encode('utf-8'))
+        )
         self.RereadConfig()
 
     def RereadConfig(self):
