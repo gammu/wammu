@@ -407,7 +407,7 @@ class Settings(wx.Dialog):
             initial=v,
             size=(150, -1)
         )
-        self.editdate.SetToolTipString(_('Default date to be used for newly created time fields. Enter amount of days from today (1=tommorow).'))
+        self.editdate.SetToolTipString(_('Default date to be used for newly created time fields. Enter amount of days from today (1=tomorrow).'))
         self.sizer_other.Add(wx.StaticText(self.notebook_other, -1, _('Default date=now + x days')), pos=(r, 1))
         self.sizer_other.Add(self.editdate, pos=(r, 2))
         r += 1
