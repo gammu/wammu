@@ -202,6 +202,12 @@ class build_wammu(distutils.command.build.build, object):
         p1.text = msgfmt.DESKTOP_DESCRIPTION_1
         p2 = ElementTree.SubElement(description, 'p')
         p2.text = msgfmt.DESKTOP_DESCRIPTION_2
+        name = tree.find('name')
+        name.text = msgfmt.DESKTOP_NAME
+        summary = tree.find('summary')
+        summary.text = msgfmt.DESKTOP_GENERIC_NAME
+        component = tree.getroot()
+
         for loc in translations.keys():
             translation = translations[loc]
             if 'Description_1' in translation and 'Description_2' in translation:
@@ -211,6 +217,20 @@ class build_wammu(distutils.command.build.build, object):
                 p2 = ElementTree.SubElement(description, 'p')
                 p2.set('xml:lang', loc)
                 p2.text = translation['Description_2'].decode('utf-8')
+            if 'Name' in translation:
+                element = ElementTree.Element('name')
+                element.set('xml:lang', loc)
+                element.text = translation['Name'].decode('utf-8')
+                component.append(
+                    element
+                )
+            if 'GenericName' in translation:
+                element = ElementTree.Element('summary')
+                element.set('xml:lang', loc)
+                element.text = translation['GenericName'].decode('utf-8')
+                component.append(
+                    element
+                )
         tree.write(appdata, 'utf-8', True)
 
     def build_message_files(self):
