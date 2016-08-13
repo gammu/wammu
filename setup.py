@@ -200,8 +200,10 @@ class build_wammu(distutils.command.build.build, object):
         description = tree.find('description')
         p1 = ElementTree.SubElement(description, 'p')
         p1.text = msgfmt.DESKTOP_DESCRIPTION_1
+        p1.tail = '\n    '
         p2 = ElementTree.SubElement(description, 'p')
         p2.text = msgfmt.DESKTOP_DESCRIPTION_2
+        p2.tail = '\n    '
         name = tree.find('name')
         name.text = msgfmt.DESKTOP_NAME
         summary = tree.find('summary')
@@ -214,13 +216,16 @@ class build_wammu(distutils.command.build.build, object):
                 p1 = ElementTree.SubElement(description, 'p')
                 p1.set('xml:lang', loc)
                 p1.text = translation['Description_1'].decode('utf-8')
+                p1.tail = '\n    '
                 p2 = ElementTree.SubElement(description, 'p')
                 p2.set('xml:lang', loc)
                 p2.text = translation['Description_2'].decode('utf-8')
+                p2.tail = '\n    '
             if 'Name' in translation:
                 element = ElementTree.Element('name')
                 element.set('xml:lang', loc)
                 element.text = translation['Name'].decode('utf-8')
+                element.tail = '\n  '
                 component.append(
                     element
                 )
@@ -228,6 +233,7 @@ class build_wammu(distutils.command.build.build, object):
                 element = ElementTree.Element('summary')
                 element.set('xml:lang', loc)
                 element.text = translation['GenericName'].decode('utf-8')
+                element.tail = '\n  '
                 component.append(
                     element
                 )
