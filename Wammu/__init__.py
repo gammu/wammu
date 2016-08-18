@@ -21,7 +21,7 @@ Wammu - Phone manager
 Wammu top level module
 '''
 
-__version__ = '0.42'
+__version__ = '0.43'
 
 gammu_error = None
 configuration = None
