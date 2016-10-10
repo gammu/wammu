@@ -1118,7 +1118,7 @@ class WammuFrame(wx.Frame):
                         elif v['Send']:
                             msg['MessageReference'] = self.sm.SendSMS(msg)
 
-                    if v['Save']:
+                    if v['Save'] and result['SMS']:
                         info = gammu.DecodeSMS(result['SMS'])
                         if info is not None:
                             result['SMSInfo'] = info
@@ -1133,7 +1133,7 @@ class WammuFrame(wx.Frame):
                     del busy
                     raise
 
-            if v['Save']:
+            if v['Save'] and result['SMS']:
                 try:
                     self.ActivateView('message', result['State'])
                     self.browser.ShowLocation(result['Location'])
