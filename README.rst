@@ -19,6 +19,9 @@ GUI for Gammu library.
     :alt: Bountysource
     :target: https://www.bountysource.com/teams/gammu/issues?utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received
 
+.. image:: https://travis-ci.org/gammu/wammu.svg?branch=master
+    :target: https://travis-ci.org/gammu/wammu
+
 Homepage
 ========
 
