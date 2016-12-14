@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2016-08-17 10:13+0200\n"
+"POT-Creation-Date: 2016-12-14 10:08+0100\n"
 "PO-Revision-Date: 2016-08-01 15:54+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gammu/wammu/tr/"
@@ -735,7 +735,7 @@ msgid "Select configuration section"
 msgstr "Yapılandırma bölümünü seçin"
 
 #: Wammu/Info.py:43 Wammu/TalkbackDialog.py:204 Wammu/TalkbackDialog.py:314
-#: wammu.py:126
+#: wammu.py:142
 msgid "Manufacturer"
 msgstr "Üretici"
 
@@ -747,7 +747,7 @@ msgstr "Model (Gammu kimliği)"
 msgid "Model (real)"
 msgstr "Model (gerçek)"
 
-#: Wammu/Info.py:70 wammu.py:129
+#: Wammu/Info.py:70 wammu.py:145
 msgid "Firmware"
 msgstr "Donanım Yazılımı"
 
@@ -2427,7 +2427,7 @@ msgstr "Bu yapılandırmanın ismi."
 msgid "Device, where your phone is connected."
 msgstr "Telefonunuzun bağlandığı cihaz."
 
-#: Wammu/Settings.py:176 wammu.py:111
+#: Wammu/Settings.py:176 wammu.py:127
 msgid "Device"
 msgstr "Cihaz"
 
@@ -2439,7 +2439,7 @@ msgstr ""
 "Telefonunuzun kabul ettiği bağlantı, bağlantı detayları için Gammu "
 "belgelerini kontrol edin."
 
-#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:109
+#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:125
 msgid "Connection"
 msgstr "Bağlantı"
 
@@ -2449,7 +2449,7 @@ msgid ""
 msgstr ""
 "Telefon modeli, bir problem yaşamadıkça genellikle buraya kaydedebilirsiniz."
 
-#: Wammu/Settings.py:190 wammu.py:110 wammu.py:127
+#: Wammu/Settings.py:190 wammu.py:126 wammu.py:143
 msgid "Model"
 msgstr "Model"
 
@@ -3780,36 +3780,36 @@ msgstr "%s grubunun üyesi olmanız gerekebilir."
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Wammu Yapılandırıcısı - Wammu ve Gammu yapılandırıcısı sürümü %s"
 
-#: wammu-configure.py:49 wammu.py:53
+#: wammu-configure.py:49 wammu.py:69
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr "Kullanım: %s [OPTION...]"
 
-#: wammu-configure.py:51 wammu.py:55
+#: wammu-configure.py:51 wammu.py:71
 msgid "Options:"
 msgstr "Seçenekler:"
 
-#: wammu-configure.py:54 wammu.py:58
+#: wammu-configure.py:54 wammu.py:74
 msgid "show this help"
 msgstr "bu yardımı göster"
 
-#: wammu-configure.py:58 wammu.py:62
+#: wammu-configure.py:58 wammu.py:78
 msgid "show program version"
 msgstr "program sürümünü göster"
 
-#: wammu-configure.py:62 wammu.py:66
+#: wammu-configure.py:62 wammu.py:82
 msgid "force using of locales from current directory rather than system ones"
 msgstr "sistemdeki yerine mevcut dizinden yerelleri kullanmayı zorla"
 
-#: wammu-configure.py:79 wammu.py:146
+#: wammu-configure.py:79 wammu.py:162
 msgid "Command line parsing failed with error:"
 msgstr "Komut satırı ayrıştırma hata ile başarısız oldu:"
 
-#: wammu-configure.py:85 wammu.py:152
+#: wammu-configure.py:85 wammu.py:168
 msgid "Extra unrecognized parameters passed to program"
 msgstr "İlave tanınmamış parametreler programa geçti"
 
-#: wammu-configure.py:91 wammu.py:160
+#: wammu-configure.py:91 wammu.py:176
 msgid "Using local built locales!"
 msgstr "Yereli kullanarak yerelleri inşa et!"
 
@@ -3817,44 +3817,44 @@ msgstr "Yereli kullanarak yerelleri inşa et!"
 msgid "Updating gammu configuration..."
 msgstr "Gammu yapılandırması güncelleniyor..."
 
-#: wammu.py:45
+#: wammu.py:61
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - Pencerelendirilmiş Gammu sürümü %s"
 
-#: wammu.py:70
+#: wammu.py:86
 msgid "prints connection settings and tries to connect the phone"
 msgstr "bağlantı ayarlarını yazar ve telefona bağlanmaya çalışır"
 
-#: wammu.py:74
+#: wammu.py:90
 msgid "enables debug output to stderr"
 msgstr "stderr'e hata ayıklama çıktısını etkinleştirir"
 
-#: wammu.py:91
+#: wammu.py:107
 msgid "Wammu is not configured!"
 msgstr "Wammu yapılandırılmadı!"
 
-#: wammu.py:108
+#: wammu.py:124
 msgid "Wammu configuration:"
 msgstr "Wammu yapılandırması:"
 
-#: wammu.py:112
+#: wammu.py:128
 msgid "Connecting..."
 msgstr "Bağlanıyor..."
 
-#: wammu.py:119
+#: wammu.py:135
 msgid "Getting phone information..."
 msgstr "Telefon bilgisi alınıyor..."
 
-#: wammu.py:125
+#: wammu.py:141
 msgid "Phone infomation:"
 msgstr "Telefon bilgisi:"
 
-#: wammu.py:128
+#: wammu.py:144
 msgid "IMEI"
 msgstr "IMEI"
 
-#: wammu.py:131
+#: wammu.py:147
 msgid "Requested code"
 msgstr "İstenen kod"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2016-08-17 10:13+0200\n"
+"POT-Creation-Date: 2016-12-14 10:08+0100\n"
 "PO-Revision-Date: 2014-12-29 11:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gammu/wammu/hu/"
@@ -756,7 +756,7 @@ msgid "Select configuration section"
 msgstr "Válassza ki a konfigurációs részt"
 
 #: Wammu/Info.py:43 Wammu/TalkbackDialog.py:204 Wammu/TalkbackDialog.py:314
-#: wammu.py:126
+#: wammu.py:142
 msgid "Manufacturer"
 msgstr "Gyártó"
 
@@ -768,7 +768,7 @@ msgstr "Modell (Gammu azonosítás)"
 msgid "Model (real)"
 msgstr "Modell (valódi)"
 
-#: Wammu/Info.py:70 wammu.py:129
+#: Wammu/Info.py:70 wammu.py:145
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -2484,7 +2484,7 @@ msgstr "A konfiguráció neve."
 msgid "Device, where your phone is connected."
 msgstr "Az eszköz, amelyhez a telefonja kapcsolódik."
 
-#: Wammu/Settings.py:176 wammu.py:111
+#: Wammu/Settings.py:176 wammu.py:127
 msgid "Device"
 msgstr "Eszköz"
 
@@ -2496,7 +2496,7 @@ msgstr ""
 "Kapcsolódás a telefon által lehetséges kapcsolódási móddal. Tekintse át a "
 "Gammu dokumentációját a részletekért."
 
-#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:109
+#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:125
 msgid "Connection"
 msgstr "Kapcsolat"
 
@@ -2507,7 +2507,7 @@ msgstr ""
 "Telefonmodell megadása. Általában az automatikus beállítás megfelelő, ha "
 "csak nincs valami probléma."
 
-#: Wammu/Settings.py:190 wammu.py:110 wammu.py:127
+#: Wammu/Settings.py:190 wammu.py:126 wammu.py:143
 msgid "Model"
 msgstr "Modell"
 
@@ -3877,38 +3877,38 @@ msgstr ""
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Wammu Beállító – Wammu és Gammu konfiguráló %s verzió"
 
-#: wammu-configure.py:49 wammu.py:53
+#: wammu-configure.py:49 wammu.py:69
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr "Használata: %s [BEÁLLÍTÁS...]"
 
-#: wammu-configure.py:51 wammu.py:55
+#: wammu-configure.py:51 wammu.py:71
 msgid "Options:"
 msgstr "Beállítások:"
 
-#: wammu-configure.py:54 wammu.py:58
+#: wammu-configure.py:54 wammu.py:74
 msgid "show this help"
 msgstr "e súgó megjelenítése"
 
-#: wammu-configure.py:58 wammu.py:62
+#: wammu-configure.py:58 wammu.py:78
 msgid "show program version"
 msgstr "Programverzió megjelenítése"
 
-#: wammu-configure.py:62 wammu.py:66
+#: wammu-configure.py:62 wammu.py:82
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 "az aktuális mappából elérhető fordítás használata a rendszer által "
 "biztosított helyett"
 
-#: wammu-configure.py:79 wammu.py:146
+#: wammu-configure.py:79 wammu.py:162
 msgid "Command line parsing failed with error:"
 msgstr "Parancssor feldolgozási hiba:"
 
-#: wammu-configure.py:85 wammu.py:152
+#: wammu-configure.py:85 wammu.py:168
 msgid "Extra unrecognized parameters passed to program"
 msgstr "További ismeretlen parancssori opciót adott meg a programnak"
 
-#: wammu-configure.py:91 wammu.py:160
+#: wammu-configure.py:91 wammu.py:176
 msgid "Using local built locales!"
 msgstr "Helyileg fordított fordítás használata!"
 
@@ -3916,7 +3916,7 @@ msgstr "Helyileg fordított fordítás használata!"
 msgid "Updating gammu configuration..."
 msgstr "Gammu beállítások frissítése..."
 
-#: wammu.py:45
+#: wammu.py:61
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu – Ablakba zárt Gammu – verzió %s"
@@ -3924,13 +3924,13 @@ msgstr "Wammu – Ablakba zárt Gammu – verzió %s"
 #  msgid "Phone connection test is still active, you can not continue."
 #  msgid ""
 #  "Phone connection is not properly configured, can not connect to phone."
-#: wammu.py:70
+#: wammu.py:86
 msgid "prints connection settings and tries to connect the phone"
 msgstr ""
 "Megjeleníti a telefonkapcsolat beállításait és megpróbál kapcsolódni a "
 "mobiltelefonhoz"
 
-#: wammu.py:74
+#: wammu.py:90
 msgid "enables debug output to stderr"
 msgstr ""
 "Hibakeresési kimenet engedélyezése az alapértelmezett hibajelző kimenetre "
@@ -3938,34 +3938,34 @@ msgstr ""
 
 #  msgid "No phone configured!"
 #  msgid "Connection not configured!"
-#: wammu.py:91
+#: wammu.py:107
 msgid "Wammu is not configured!"
 msgstr "A Wammu program nincs beállítva!"
 
 #  msgid "Manual configuration"
-#: wammu.py:108
+#: wammu.py:124
 msgid "Wammu configuration:"
 msgstr "Wammu beállításai:"
 
-#: wammu.py:112
+#: wammu.py:128
 msgid "Connecting..."
 msgstr "Kapcsolódás..."
 
 #  msgid "Reading phone information"
-#: wammu.py:119
+#: wammu.py:135
 msgid "Getting phone information..."
 msgstr "Telefoninformációk olvasása..."
 
 #  msgid "Phone information"
-#: wammu.py:125
+#: wammu.py:141
 msgid "Phone infomation:"
 msgstr "Telefoninformáció:"
 
-#: wammu.py:128
+#: wammu.py:144
 msgid "IMEI"
 msgstr "IMEI"
 
-#: wammu.py:131
+#: wammu.py:147
 msgid "Requested code"
 msgstr "Igényelt kód"
 

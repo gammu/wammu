@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu.sk\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2016-08-17 10:13+0200\n"
+"POT-Creation-Date: 2016-12-14 10:08+0100\n"
 "PO-Revision-Date: 2013-11-25 13:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovak <http://hosted.weblate.org/projects/gammu/wammu/sk/>\n"
@@ -740,7 +740,7 @@ msgid "Select configuration section"
 msgstr "Vyberte časť konfigurácie"
 
 #: Wammu/Info.py:43 Wammu/TalkbackDialog.py:204 Wammu/TalkbackDialog.py:314
-#: wammu.py:126
+#: wammu.py:142
 msgid "Manufacturer"
 msgstr "Výrobca"
 
@@ -752,7 +752,7 @@ msgstr "Model (identifikácia pre Gammu)"
 msgid "Model (real)"
 msgstr "Model (skutočný)"
 
-#: Wammu/Info.py:70 wammu.py:129
+#: Wammu/Info.py:70 wammu.py:145
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -2444,7 +2444,7 @@ msgstr "Pomenujte túto konfiguráciu."
 msgid "Device, where your phone is connected."
 msgstr "Zariadenie, ku ktorému je pripojený telefón."
 
-#: Wammu/Settings.py:176 wammu.py:111
+#: Wammu/Settings.py:176 wammu.py:127
 msgid "Device"
 msgstr "Zariadenie"
 
@@ -2456,7 +2456,7 @@ msgstr ""
 "Pripojenie, s ktorým váš telefónu dokáže pracovať. Detaily pripojenia si "
 "pozrite v dokumentácií Gammu."
 
-#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:109
+#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:125
 msgid "Connection"
 msgstr "Pripojenie"
 
@@ -2467,7 +2467,7 @@ msgstr ""
 "Model telefónu. Tu môžete obvykle ponechať auto, pokiaľ nemáte žiadne "
 "problémy."
 
-#: Wammu/Settings.py:190 wammu.py:110 wammu.py:127
+#: Wammu/Settings.py:190 wammu.py:126 wammu.py:143
 msgid "Model"
 msgstr "Model"
 
@@ -3816,37 +3816,37 @@ msgstr "Možno musíte byť členom skupiny %s."
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Nastavenie Wammu - verzia nastavenia Wammu a Gammu %s"
 
-#: wammu-configure.py:49 wammu.py:53
+#: wammu-configure.py:49 wammu.py:69
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr "Použitie: %s [VOĽBA...]"
 
-#: wammu-configure.py:51 wammu.py:55
+#: wammu-configure.py:51 wammu.py:71
 msgid "Options:"
 msgstr "Voľby:"
 
-#: wammu-configure.py:54 wammu.py:58
+#: wammu-configure.py:54 wammu.py:74
 msgid "show this help"
 msgstr "ukázať tohto pomocníka"
 
-#: wammu-configure.py:58 wammu.py:62
+#: wammu-configure.py:58 wammu.py:78
 msgid "show program version"
 msgstr "ukázať verziu programu"
 
-#: wammu-configure.py:62 wammu.py:66
+#: wammu-configure.py:62 wammu.py:82
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 "uprednostniť jazykové nastavenia z aktuálneho adresára pred systémovými"
 
-#: wammu-configure.py:79 wammu.py:146
+#: wammu-configure.py:79 wammu.py:162
 msgid "Command line parsing failed with error:"
 msgstr "Spracovanie príkazového riadku skončilo s chybou:"
 
-#: wammu-configure.py:85 wammu.py:152
+#: wammu-configure.py:85 wammu.py:168
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Program dostal na vstupe neznáme parametry navyše"
 
-#: wammu-configure.py:91 wammu.py:160
+#: wammu-configure.py:91 wammu.py:176
 msgid "Using local built locales!"
 msgstr "Používam miestne jazykové nastavenia!"
 
@@ -3854,44 +3854,44 @@ msgstr "Používam miestne jazykové nastavenia!"
 msgid "Updating gammu configuration..."
 msgstr "Aktualizujem konfiguráciu Gammu..."
 
-#: wammu.py:45
+#: wammu.py:61
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - Grafické Gammu vo verzii %s"
 
-#: wammu.py:70
+#: wammu.py:86
 msgid "prints connection settings and tries to connect the phone"
 msgstr "vypíše nastavenie pripojenia a pokúsi sa pripojiť k telefónu"
 
-#: wammu.py:74
+#: wammu.py:90
 msgid "enables debug output to stderr"
 msgstr "umožní vypisovanie ladiaceho záznamu na štandartný chybový výstup"
 
-#: wammu.py:91
+#: wammu.py:107
 msgid "Wammu is not configured!"
 msgstr "Wammu nie je nakonfigurované!"
 
-#: wammu.py:108
+#: wammu.py:124
 msgid "Wammu configuration:"
 msgstr "Konfigurácia Wammu:"
 
-#: wammu.py:112
+#: wammu.py:128
 msgid "Connecting..."
 msgstr "Pripájam sa..."
 
-#: wammu.py:119
+#: wammu.py:135
 msgid "Getting phone information..."
 msgstr "Získavam informácie o telefóne..."
 
-#: wammu.py:125
+#: wammu.py:141
 msgid "Phone infomation:"
 msgstr "Informácie o telefóne:"
 
-#: wammu.py:128
+#: wammu.py:144
 msgid "IMEI"
 msgstr "IMEI"
 
-#: wammu.py:131
+#: wammu.py:147
 msgid "Requested code"
 msgstr "Požadovaný kód"
 

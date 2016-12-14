@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.43\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2016-08-17 10:13+0200\n"
+"POT-Creation-Date: 2016-12-14 10:08+0100\n"
 "PO-Revision-Date: 2014-12-29 11:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Simplified Chinese <https://hosted.weblate.org/projects/gammu/"
@@ -726,7 +726,7 @@ msgid "Select configuration section"
 msgstr "选择配置部分"
 
 #: Wammu/Info.py:43 Wammu/TalkbackDialog.py:204 Wammu/TalkbackDialog.py:314
-#: wammu.py:126
+#: wammu.py:142
 msgid "Manufacturer"
 msgstr "制造商"
 
@@ -738,7 +738,7 @@ msgstr "型号(由Gammu识别)"
 msgid "Model (real)"
 msgstr "型号(实际)"
 
-#: Wammu/Info.py:70 wammu.py:129
+#: Wammu/Info.py:70 wammu.py:145
 msgid "Firmware"
 msgstr "固件"
 
@@ -2395,7 +2395,7 @@ msgstr "此配置的名称。"
 msgid "Device, where your phone is connected."
 msgstr "设备,即你手机连接到位置。"
 
-#: Wammu/Settings.py:176 wammu.py:111
+#: Wammu/Settings.py:176 wammu.py:127
 msgid "Device"
 msgstr "设备"
 
@@ -2405,7 +2405,7 @@ msgid ""
 "connection details."
 msgstr "你手机接受的连接类型,请参考Gammu文档以得到详情。"
 
-#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:109
+#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:125
 msgid "Connection"
 msgstr "连接"
 
@@ -2414,7 +2414,7 @@ msgid ""
 "Phone model, you can usually keep here auto unless you have any problems."
 msgstr "手机型号，通常可以自动识别除非出现问题。"
 
-#: Wammu/Settings.py:190 wammu.py:110 wammu.py:127
+#: Wammu/Settings.py:190 wammu.py:126 wammu.py:143
 msgid "Model"
 msgstr "型号"
 
@@ -3685,36 +3685,36 @@ msgstr "您可能需要成为 %s 组的成员。"
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Wammu配置器-Wammu和Gammu的配置器  版本%s"
 
-#: wammu-configure.py:49 wammu.py:53
+#: wammu-configure.py:49 wammu.py:69
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr "用法:%s [选项...]"
 
-#: wammu-configure.py:51 wammu.py:55
+#: wammu-configure.py:51 wammu.py:71
 msgid "Options:"
 msgstr "选项："
 
-#: wammu-configure.py:54 wammu.py:58
+#: wammu-configure.py:54 wammu.py:74
 msgid "show this help"
 msgstr "显示此帮助信息"
 
-#: wammu-configure.py:58 wammu.py:62
+#: wammu-configure.py:58 wammu.py:78
 msgid "show program version"
 msgstr "显示程序版本信息"
 
-#: wammu-configure.py:62 wammu.py:66
+#: wammu-configure.py:62 wammu.py:82
 msgid "force using of locales from current directory rather than system ones"
 msgstr "强制使用当前目录下的locale文件而不使用系统设置的"
 
-#: wammu-configure.py:79 wammu.py:146
+#: wammu-configure.py:79 wammu.py:162
 msgid "Command line parsing failed with error:"
 msgstr "命令行分析因出现下列错误而失败："
 
-#: wammu-configure.py:85 wammu.py:152
+#: wammu-configure.py:85 wammu.py:168
 msgid "Extra unrecognized parameters passed to program"
 msgstr "额外的未识别参数已传递给程序"
 
-#: wammu-configure.py:91 wammu.py:160
+#: wammu-configure.py:91 wammu.py:176
 msgid "Using local built locales!"
 msgstr "正在使用本地编译的locale文件！"
 
@@ -3722,44 +3722,44 @@ msgstr "正在使用本地编译的locale文件！"
 msgid "Updating gammu configuration..."
 msgstr "正在更新gammu配置..."
 
-#: wammu.py:45
+#: wammu.py:61
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu-窗口化的Gammu 版本号%s"
 
-#: wammu.py:70
+#: wammu.py:86
 msgid "prints connection settings and tries to connect the phone"
 msgstr "打印连接设置并尝试连接到手机"
 
-#: wammu.py:74
+#: wammu.py:90
 msgid "enables debug output to stderr"
 msgstr "输出调试信息到标准错误"
 
-#: wammu.py:91
+#: wammu.py:107
 msgid "Wammu is not configured!"
 msgstr "Wammu 未配置！"
 
-#: wammu.py:108
+#: wammu.py:124
 msgid "Wammu configuration:"
 msgstr "Wammu 配置："
 
-#: wammu.py:112
+#: wammu.py:128
 msgid "Connecting..."
 msgstr "连接..."
 
-#: wammu.py:119
+#: wammu.py:135
 msgid "Getting phone information..."
 msgstr "正在获取手机信息..."
 
-#: wammu.py:125
+#: wammu.py:141
 msgid "Phone infomation:"
 msgstr "手机信息："
 
-#: wammu.py:128
+#: wammu.py:144
 msgid "IMEI"
 msgstr "IMEI"
 
-#: wammu.py:131
+#: wammu.py:147
 msgid "Requested code"
 msgstr "请求的代码"
 

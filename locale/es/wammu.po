@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2016-08-17 10:13+0200\n"
+"POT-Creation-Date: 2016-12-14 10:08+0100\n"
 "PO-Revision-Date: 2014-05-27 00:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gammu/wammu/es/"
@@ -746,7 +746,7 @@ msgid "Select configuration section"
 msgstr "Seleccionar una sección de la configuración"
 
 #: Wammu/Info.py:43 Wammu/TalkbackDialog.py:204 Wammu/TalkbackDialog.py:314
-#: wammu.py:126
+#: wammu.py:142
 msgid "Manufacturer"
 msgstr "Fabricante"
 
@@ -758,7 +758,7 @@ msgstr "Modelo (identificación de Gammu)"
 msgid "Model (real)"
 msgstr "Modelo (real)"
 
-#: Wammu/Info.py:70 wammu.py:129
+#: Wammu/Info.py:70 wammu.py:145
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -2468,7 +2468,7 @@ msgstr "Nombre para esta configuración."
 msgid "Device, where your phone is connected."
 msgstr "Dispositivo al cual está conectado el teléfono."
 
-#: Wammu/Settings.py:176 wammu.py:111
+#: Wammu/Settings.py:176 wammu.py:127
 msgid "Device"
 msgstr "Dispositivo"
 
@@ -2480,7 +2480,7 @@ msgstr ""
 "Conexión que su teléfono puede utilizar, mire en la documentación de Gammu "
 "para detalles sobre las conexiones."
 
-#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:109
+#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:125
 msgid "Connection"
 msgstr "Conexión"
 
@@ -2490,7 +2490,7 @@ msgid ""
 msgstr ""
 "Modelo de teléfono, puede dejarlo en modo auto salvo si le da algún problema."
 
-#: Wammu/Settings.py:190 wammu.py:110 wammu.py:127
+#: Wammu/Settings.py:190 wammu.py:126 wammu.py:143
 msgid "Model"
 msgstr "Modelo"
 
@@ -3845,38 +3845,38 @@ msgstr "Tal vez sea necesario pertenecer al grupo %s."
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Configurador Wammu - versión configurador Wammu y Gammu %s"
 
-#: wammu-configure.py:49 wammu.py:53
+#: wammu-configure.py:49 wammu.py:69
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr "Uso: %s [OPCIÓN...]"
 
-#: wammu-configure.py:51 wammu.py:55
+#: wammu-configure.py:51 wammu.py:71
 msgid "Options:"
 msgstr "Opciones:"
 
-#: wammu-configure.py:54 wammu.py:58
+#: wammu-configure.py:54 wammu.py:74
 msgid "show this help"
 msgstr "mostrar esta ayuda"
 
-#: wammu-configure.py:58 wammu.py:62
+#: wammu-configure.py:58 wammu.py:78
 msgid "show program version"
 msgstr "mostrar versión del programa"
 
-#: wammu-configure.py:62 wammu.py:66
+#: wammu-configure.py:62 wammu.py:82
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 "forzar el uso de configuraciones de región del directorio actual en lugar de "
 "las del sistema"
 
-#: wammu-configure.py:79 wammu.py:146
+#: wammu-configure.py:79 wammu.py:162
 msgid "Command line parsing failed with error:"
 msgstr "Falló al analizar la línea de órdenes con el error:"
 
-#: wammu-configure.py:85 wammu.py:152
+#: wammu-configure.py:85 wammu.py:168
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Se pasaron al programa parámetros adicionales no reconocidos"
 
-#: wammu-configure.py:91 wammu.py:160
+#: wammu-configure.py:91 wammu.py:176
 msgid "Using local built locales!"
 msgstr "¡Usando las configuraciones de región compiladas localmente!"
 
@@ -3884,44 +3884,44 @@ msgstr "¡Usando las configuraciones de región compiladas localmente!"
 msgid "Updating gammu configuration..."
 msgstr "Actualizando la configuración de gammu..."
 
-#: wammu.py:45
+#: wammu.py:61
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - Versión gráfica de Gammu %s"
 
-#: wammu.py:70
+#: wammu.py:86
 msgid "prints connection settings and tries to connect the phone"
 msgstr "muestra la configuración de la conexión e intenta conectar el teléfono"
 
-#: wammu.py:74
+#: wammu.py:90
 msgid "enables debug output to stderr"
 msgstr "activa la salida de depuración a stderr"
 
-#: wammu.py:91
+#: wammu.py:107
 msgid "Wammu is not configured!"
 msgstr "¡Wammu no está configurado!"
 
-#: wammu.py:108
+#: wammu.py:124
 msgid "Wammu configuration:"
 msgstr "Configuración de Wammu:"
 
-#: wammu.py:112
+#: wammu.py:128
 msgid "Connecting..."
 msgstr "Conectando..."
 
-#: wammu.py:119
+#: wammu.py:135
 msgid "Getting phone information..."
 msgstr "Obteniendo información del teléfono..."
 
-#: wammu.py:125
+#: wammu.py:141
 msgid "Phone infomation:"
 msgstr "Información del teléfono:"
 
-#: wammu.py:128
+#: wammu.py:144
 msgid "IMEI"
 msgstr "IMEI"
 
-#: wammu.py:131
+#: wammu.py:147
 msgid "Requested code"
 msgstr "Código solicitado"
 

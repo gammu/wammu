@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.43\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2016-08-17 10:13+0200\n"
+"POT-Creation-Date: 2016-12-14 10:08+0100\n"
 "PO-Revision-Date: 2014-04-30 12:08+0200\n"
 "Last-Translator: Fattah Rizki Hizama L <galamarv@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gammu/wammu/"
@@ -745,7 +745,7 @@ msgid "Select configuration section"
 msgstr "Pilih bagian konfigurasi"
 
 #: Wammu/Info.py:43 Wammu/TalkbackDialog.py:204 Wammu/TalkbackDialog.py:314
-#: wammu.py:126
+#: wammu.py:142
 msgid "Manufacturer"
 msgstr "Pabrikan"
 
@@ -757,7 +757,7 @@ msgstr "Model (identifikasi Gammu)"
 msgid "Model (real)"
 msgstr "Model (aslinya)"
 
-#: Wammu/Info.py:70 wammu.py:129
+#: Wammu/Info.py:70 wammu.py:145
 msgid "Firmware"
 msgstr "Firmware"
 
@@ -2442,7 +2442,7 @@ msgstr "Nama untuk konfigurasi ini."
 msgid "Device, where your phone is connected."
 msgstr "Perangkat, di mana telepon anda terhubung."
 
-#: Wammu/Settings.py:176 wammu.py:111
+#: Wammu/Settings.py:176 wammu.py:127
 msgid "Device"
 msgstr "Perangkat"
 
@@ -2454,7 +2454,7 @@ msgstr ""
 "Koneksi yang dikenali oleh telepon anda, periksa dokumentasi Gammu untuk "
 "rincian koneksinya."
 
-#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:109
+#: Wammu/Settings.py:182 Wammu/Settings.py:494 wammu.py:125
 msgid "Connection"
 msgstr "Koneksi"
 
@@ -2465,7 +2465,7 @@ msgstr ""
 "Model telepon, biasanya akan disimpan di sini secara otomatos kecuali bila "
 "anda mengalami masalah."
 
-#: Wammu/Settings.py:190 wammu.py:110 wammu.py:127
+#: Wammu/Settings.py:190 wammu.py:126 wammu.py:143
 msgid "Model"
 msgstr "Model"
 
@@ -3817,38 +3817,38 @@ msgstr "Mungkin anda perlu menjadi anggota kelompok %s."
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Konfigurator Wammu - konfigurator Wammu dan Gammu versi %s"
 
-#: wammu-configure.py:49 wammu.py:53
+#: wammu-configure.py:49 wammu.py:69
 #, python-format
 msgid "Usage: %s [OPTION...]"
 msgstr "Penggunaan: %s [OPTION...]"
 
-#: wammu-configure.py:51 wammu.py:55
+#: wammu-configure.py:51 wammu.py:71
 msgid "Options:"
 msgstr "Pilihan:"
 
-#: wammu-configure.py:54 wammu.py:58
+#: wammu-configure.py:54 wammu.py:74
 msgid "show this help"
 msgstr "tampilkan bantuan ini"
 
-#: wammu-configure.py:58 wammu.py:62
+#: wammu-configure.py:58 wammu.py:78
 msgid "show program version"
 msgstr "tampilkan versi program"
 
-#: wammu-configure.py:62 wammu.py:66
+#: wammu-configure.py:62 wammu.py:82
 msgid "force using of locales from current directory rather than system ones"
 msgstr ""
 "menekankan penggunaan lokal dari direktori saat ini dibandingkan sistem yang "
 "ada"
 
-#: wammu-configure.py:79 wammu.py:146
+#: wammu-configure.py:79 wammu.py:162
 msgid "Command line parsing failed with error:"
 msgstr "Penguraian baris perintah gagal dengan eror:"
 
-#: wammu-configure.py:85 wammu.py:152
+#: wammu-configure.py:85 wammu.py:168
 msgid "Extra unrecognized parameters passed to program"
 msgstr "Tambahan parameter tidak dikenal dilewatkan pada program"
 
-#: wammu-configure.py:91 wammu.py:160
+#: wammu-configure.py:91 wammu.py:176
 msgid "Using local built locales!"
 msgstr "Menggunakan lokal yang ada!"
 
@@ -3856,44 +3856,44 @@ msgstr "Menggunakan lokal yang ada!"
 msgid "Updating gammu configuration..."
 msgstr "Memperbarui konfigurasi gammu..."
 
-#: wammu.py:45
+#: wammu.py:61
 #, python-format
 msgid "Wammu - Windowed Gammu version %s"
 msgstr "Wammu - versi Windowed Gammu %s"
 
-#: wammu.py:70
+#: wammu.py:86
 msgid "prints connection settings and tries to connect the phone"
 msgstr "cetak pengaturan koneksi dan mencoba terhubung dengan telepon"
 
-#: wammu.py:74
+#: wammu.py:90
 msgid "enables debug output to stderr"
 msgstr "aktifkan keluaran debug ke stderr"
 
-#: wammu.py:91
+#: wammu.py:107
 msgid "Wammu is not configured!"
 msgstr "Wammu tidak dikonfigurasi!"
 
-#: wammu.py:108
+#: wammu.py:124
 msgid "Wammu configuration:"
 msgstr "Konfigurasi wammu:"
 
-#: wammu.py:112
+#: wammu.py:128
 msgid "Connecting..."
 msgstr "Menghubungkan..."
 
-#: wammu.py:119
+#: wammu.py:135
 msgid "Getting phone information..."
 msgstr "Mendapatkan informasi telepon..."
 
-#: wammu.py:125
+#: wammu.py:141
 msgid "Phone infomation:"
 msgstr "Informasi ponsel:"
 
-#: wammu.py:128
+#: wammu.py:144
 msgid "IMEI"
 msgstr "IMEI"
 
-#: wammu.py:131
+#: wammu.py:147
 msgid "Requested code"
 msgstr "Permintaan kode"
 
