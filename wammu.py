@@ -25,7 +25,23 @@ Execution script
 import os
 import sys
 import getopt
-import Wammu
+try:
+    import Wammu
+except ImportError:
+    print 'Failed to import Wammu module, trying to fix sys.path!'
+    sys.path.append(
+        os.path.join(
+            os.path.dirname(__file__),
+            '..', 'lib', 'python2.7', 'site-packages'
+        )
+    )
+    sys.path.append(
+        os.path.join(
+            os.path.dirname(__file__),
+            '..', 'lib', 'python2.7', 'dist-packages'
+        )
+    )
+    import Wammu
 import Wammu.Locales
 from Wammu.Locales import ugettext as _
 
