@@ -26,20 +26,31 @@ import os.path
 import sys
 
 POSSIBLE_PATHS = [
-    os.path.join(sys.exec_prefix, 'share', 'Wammu'), # systemwide
-    os.path.join(sys.exec_prefix, 'local', 'share', 'Wammu'), # systemwide, default distutils
-    os.path.join(os.path.dirname(__file__), '..'), # Local directory
+    # systemwide in default prefix
+    os.path.join(sys.exec_prefix, 'share', 'Wammu'),
+    # systemwide, default distutils
+    os.path.join(sys.exec_prefix, 'local', 'share', 'Wammu'),
+    # systemwide installation in custom prefix
+    os.path.join(os.path.dirname(__file__).replace('lib/python2.7/site-packages/Wammu', ''), 'share', 'Wammu'),
+    # systemwide installation in custom prefix on Debian
+    os.path.join(os.path.dirname(__file__).replace('lib/python2.7/dist-packages/Wammu', ''), 'share', 'Wammu'),
+     # Local directory
+    os.path.join(os.path.dirname(__file__), '..'),
 ]
 
 def CheckImagesPath(path):
-    return os.path.exists(os.path.join(path, 'images'))
+    return (
+        os.path.exists(os.path.join(path, 'images')) and
+        os.path.exists(os.path.join(path, 'images', 'icons', 'message.png'))
+    )
 
 for DATAPATH in POSSIBLE_PATHS:
     if CheckImagesPath(DATAPATH):
         break
 
 if not CheckImagesPath(DATAPATH):
-    print 'Could not find images, you will not see them, check your installation!'
+    print 'Could not find images, check your installation!'
+    sys.exit(1)
 
 def AppIconPath(*args):
     if sys.platform == 'win32':
