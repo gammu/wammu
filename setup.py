@@ -237,7 +237,10 @@ class build_wammu(distutils.command.build.build, object):
                 component.append(
                     element
                 )
-        tree.write(appdata, 'utf-8', True)
+        if sys.version_info >= (2, 7):
+            tree.write(appdata, 'utf-8', True)
+        else:
+            tree.write(appdata, 'utf-8')
 
     def build_message_files(self):
         """
