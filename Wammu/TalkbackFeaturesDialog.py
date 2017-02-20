@@ -67,7 +67,7 @@ class TalkbackFeaturesDialog(wx.Dialog):
         self.button_sizer.AddButton(wx.Button(self, wx.ID_CANCEL))
         self.top_label.Wrap(400)
         # begin wxGlade: TalkbackFeaturesDialog.__do_layout
-        window_grid_sizer = wx.FlexGridSizer(3, 1, 0, 0)
+        window_grid_sizer = wx.FlexGridSizer(11, 1, 0, 0)
         features_sizer = wx.BoxSizer(wx.VERTICAL)
         window_grid_sizer.Add(self.top_label, 0, wx.EXPAND, 0)
         window_grid_sizer.Add(self.top_static_line, 0, wx.ALL | wx.EXPAND, 5)
