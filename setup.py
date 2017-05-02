@@ -144,7 +144,7 @@ def list_message_files(package='wammu', suffix='.po'):
     """
     _files = glob.glob('locale/*/' + package + suffix)
     _list = []
-    for _file in _files:
+    for _file in sorted(_files):
         # basename (without extension) is a locale name
         _locale = os.path.basename(os.path.dirname(_file))
         _list.append((_locale, _file, os.path.join(
@@ -210,7 +210,7 @@ class build_wammu(distutils.command.build.build, object):
         summary.text = msgfmt.DESKTOP_GENERIC_NAME
         component = tree.getroot()
 
-        for loc in translations.keys():
+        for loc in sorted(translations.keys()):
             translation = translations[loc]
             if 'Description_1' in translation and 'Description_2' in translation:
                 p1 = ElementTree.SubElement(description, 'p')
