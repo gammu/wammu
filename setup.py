@@ -149,6 +149,7 @@ def list_message_files(package='wammu', suffix='.po'):
         _locale = os.path.basename(os.path.dirname(_file))
         _list.append((_locale, _file, os.path.join(
             'share', 'locale', _locale, 'LC_MESSAGES', '%s.mo' % package)))
+    _list.sort()
     return _list
 
 
