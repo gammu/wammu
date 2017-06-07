@@ -28,7 +28,7 @@ Domovská stránka
 Licence
 =======
 
-GNU GPL verze 2.
+GNU GPL version 3 or later.
 
 První spuštění
 ==============
