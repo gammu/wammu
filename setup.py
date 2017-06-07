@@ -3,20 +3,20 @@
 #
 # Copyright © 2003 - 2017 Michal Čihař <michal@cihar.com>
 #
-# This program is free software; you can redistribute it and/or modify it
-# under the terms of the GNU General Public License version 2 as published by
-# the Free Software Foundation.
+# This file is part of Wammu <https://wammu.eu/>
 #
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-# more details.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-# You should have received a copy of the GNU General Public License along with
-# this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-# vim: expandtab sw=4 ts=4 sts=4:
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 Wammu - Phone manager
 Setup script for installation using distutils
@@ -446,13 +446,14 @@ distutils.core.setup(
     keywords=['mobile', 'phone', 'SMS', 'contact', 'gammu', 'calendar', 'todo'],
     url="http://wammu.eu/wammu/",
     download_url='http://wammu.eu/download/wammu/',
-    license="GPL",
+    license='GPLv3+',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Win32 (MS Windows)',
         'Environment :: X11 Applications :: GTK',
         'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'License :: OSI Approved :: '
+        'GNU General Public License v3 or later (GPLv3+)',
         'Operating System :: Microsoft :: Windows :: Windows 95/98/2000',
         'Operating System :: Microsoft :: Windows :: Windows NT/2000',
         'Operating System :: POSIX',

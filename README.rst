@@ -30,7 +30,7 @@ Homepage
 License
 =======
 
-GNU GPL version 2.
+GNU GPL version 3 or later.
 
 First start
 ===========
