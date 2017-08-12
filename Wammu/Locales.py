@@ -21,11 +21,14 @@ Wammu - Phone manager
 Locales initialisation and gettext wrapper
 '''
 
+from __future__ import print_function
+
 import os
 import gettext
 import locale
 import codecs
 import sys
+import six
 
 _TRANSLATION = None
 
@@ -154,7 +157,7 @@ def Init():
         switch = True
     Install()
     if switch:
-        print ConsoleStrConv(ugettext('Automatically switched to local locales.'))
+        print(ConsoleStrConv(ugettext('Automatically switched to local locales.')))
 
 
 def UseLocal():
@@ -177,7 +180,9 @@ def ngettext(msgid1, msgid2, n):
 
 def ugettext(message):
     if _TRANSLATION:
-        return _TRANSLATION.ugettext(message)
+        if six.PY2:
+            return _TRANSLATION.ugettext(message)
+        return _TRANSLATION.gettext(message)
     return message
 
 
@@ -189,4 +194,4 @@ def Install():
             localedir=LOCALE_PATH
         )
     except IOError:
-        print ConsoleStrConv('Failed to load translation!')
+        print(ConsoleStrConv('Failed to load translation!'))

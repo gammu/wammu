@@ -20,6 +20,7 @@
 Wammu - Phone manager
 Contact and phone number select dialogs
 '''
+from __future__ import unicode_literals
 
 import wx
 import Wammu.Utils
@@ -79,7 +80,7 @@ def SelectContactNumber(parent, item):
     for i in range(len(item['Entries'])):
         if Wammu.Utils.GetItemType(item['Entries'][i]['Type']) == 'phone':
             numbers.append(item['Entries'][i]['Value'])
-            texts.append(StrConv(u'%s : %s' % (
+            texts.append(StrConv('%s : %s' % (
                 item['Entries'][i]['Type'],
                 item['Entries'][i]['Value'])))
 

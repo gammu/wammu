@@ -21,6 +21,7 @@
 Wammu - Phone manager
 HTML displayer with custom link handling
 '''
+from __future__ import unicode_literals
 
 import wx
 import wx.html
@@ -45,7 +46,7 @@ class Displayer(wx.html.HtmlWindow):
             bgc.Red(), bgc.Green(), bgc.Blue(),
             hfgc.Red(), hfgc.Green(), hfgc.Blue())
 
-        pagefmt = u'<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body %s>%s</body></html>'
+        pagefmt = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=%s"></head><body %s>%s</body></html>'
 
         charset = 'ucs-2'
         text = StrConv(text)

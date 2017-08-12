@@ -24,6 +24,7 @@ dependant.
 @var DEFAULT_CONFIG: Dictionary of default values.
 @var EXPANDABLE_CONFIGS: List of variables where path expansion should happen.
 '''
+from __future__ import unicode_literals
 
 import os
 import wx
@@ -88,7 +89,7 @@ DEFAULT_CONFIG = {
     '/MessageExport/From': 'Wammu <wammu@wammu.sms>',
     '/Gammu/Section': 0,
     '/User/Name': Wammu.OSUtils.GetUserFullName(),
-    '/Gammu/Gammurc': os.path.join(u'~', u'.gammurc'),
+    '/Gammu/Gammurc': os.path.join('~', '.gammurc'),
     '/Hacks/MaxEmptyGuess': 50,
     '/Hacks/MaxEmptyKnown': 100,
     }

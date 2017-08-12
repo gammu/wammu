@@ -44,7 +44,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Manufacturer'), 'Value': Manufacturer, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -58,7 +58,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Model (real)'), 'Value': Model[1], 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -75,7 +75,7 @@ class GetInfo(Wammu.Thread.Thread):
                 data.append({'Name': _('Firmware (numeric)'), 'Value': str(Firmware[2]), 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -88,7 +88,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Serial number (IMEI)'), 'Value': IMEI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -101,7 +101,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Original IMEI'), 'Value': OriginalIMEI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -114,7 +114,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Product code'), 'Value': ProductCode, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -130,7 +130,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('SIM IMSI'), 'Value': SIMIMSI, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -146,7 +146,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('SMSC'), 'Value': SMSC, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED, gammu.ERR_EMPTY):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -159,7 +159,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Hardware'), 'Value': info, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -172,7 +172,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Manufacture month'), 'Value': info, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:
@@ -185,7 +185,7 @@ class GetInfo(Wammu.Thread.Thread):
             data.append({'Name': _('Language packs in phone'), 'Value': info, 'Synced': True})
         except (gammu.ERR_NOTSUPPORTED, gammu.ERR_NOTIMPLEMENTED):
             pass
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0])
 
         if self.canceled:

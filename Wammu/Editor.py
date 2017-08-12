@@ -21,6 +21,8 @@
 Wammu - Phone manager
 Item editors
 '''
+from __future__ import unicode_literals
+from __future__ import print_function
 
 import wx
 from wx import DateTimeFromDMY, DateTime_Today
@@ -433,7 +435,7 @@ class GenericEditor(wx.Dialog):
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]
         else:
-            print 'warning: creating TextCtrl for %s' % type
+            print('warning: creating TextCtrl for %s' % type)
             edit = wx.TextCtrl(self, -1, StrConv(value['Value']), size=(200, -1))
             self.sizer.Add(edit, (row + self.rowoffset, 4), (1, 4))
             self.edits[row] = [edit]

@@ -20,6 +20,7 @@
 Wammu - Phone manager
 Phone configuration wizard
 '''
+from __future__ import unicode_literals
 
 import wx
 import wx.wizard
@@ -639,7 +640,7 @@ class WizardApp(wx.App):
     def OnInit(self):
 
         self.SetAppName('Wammu Phone Configuration Wizard')
-        vendor = StrConv(u'Michal Čihař')
+        vendor = StrConv('Michal Čihař')
         if vendor.find('?') != -1:
             vendor = 'Michal Čihař'
         self.SetVendorName(vendor)

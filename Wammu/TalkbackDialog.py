@@ -271,7 +271,7 @@ class TalkbackDialog(wx.Dialog):
                     wx.OK | wx.ICON_ERROR
                 ).ShowModal()
                 return
-        except Exception, e:
+        except Exception as e:
             if hasattr(e, 'message') and e.message != '':
                 msg = e.message
             elif hasattr(e, 'args') and len(e.args) > 0:

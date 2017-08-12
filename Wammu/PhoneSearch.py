@@ -20,6 +20,7 @@
 Wammu - Phone manager
 Searching for phone
 '''
+from __future__ import print_function
 
 import wx
 import threading
@@ -88,7 +89,7 @@ class AllSearchThread(threading.Thread):
         connections = Wammu.Data.Conn_Bluetooth_All
         vendorguess = _('Could not guess vendor')
         # Use better connection list for some known manufacturers
-        for vendor in Wammu.Data.MAC_Prefixes.keys():
+        for vendor in list(Wammu.Data.MAC_Prefixes.keys()):
             if address[:8].upper() in Wammu.Data.MAC_Prefixes[vendor]:
                 connections = Wammu.Data.Conn_Bluetooth[vendor]
                 vendorguess = _('Guessed as %s') % vendor
@@ -164,7 +165,7 @@ class AllSearchThread(threading.Thread):
                 self.msgcallback(_('No Bluetooth device found'))
             if self.msgcallback is not None:
                 self.msgcallback(_('All Bluetooth devices discovered, connection tests still in progress...'))
-        except bluetooth.BluetoothError, txt:
+        except bluetooth.BluetoothError as txt:
             if self.msgcallback is not None:
                 self.msgcallback(
                         _('Could not access Bluetooth subsystem (%s)') %
@@ -252,7 +253,7 @@ class SearchThread(threading.Thread):
 
         try:
             if self.level == 'textall':
-                print 'Trying at %s using %s' % (self.device, connection)
+                print('Trying at %s using %s' % (self.device, connection))
             gsm.Init()
             self.listlock.acquire()
             self.list.append((
@@ -263,14 +264,14 @@ class SearchThread(threading.Thread):
                 ))
             self.listlock.release()
             if self.level != 'nothing':
-                print '!!Found model %s at %s using %s' % (
+                print('!!Found model %s at %s using %s' % (
                         gsm.GetModel(),
                         self.device,
-                        connection)
+                        connection))
             return
         except gammu.GSMError:
             if self.level == 'textall':
-                print 'Failed at %s using %s' % (self.device, connection)
+                print('Failed at %s using %s' % (self.device, connection))
 
     def run(self):
         '''
@@ -325,7 +326,7 @@ class PhoneInfoThread(threading.Thread):
                     }
             evt = Wammu.Events.DataEvent(data=self.result)
             wx.PostEvent(self.win, evt)
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             info = val.args[0]
             evt = Wammu.Events.DataEvent(
                 data=None,

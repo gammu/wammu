@@ -22,6 +22,8 @@ Wammu - Phone manager
 About dialog
 '''
 
+from __future__ import unicode_literals
+
 import wx
 import wx.html
 import wx.lib.wxpTag
@@ -41,7 +43,7 @@ class AboutBox(wx.Dialog):
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent, -1, _('About Wammu'))
 
-        copyrightline = u'Copyright &copy; 2003 - 2011 Michal Čihař'
+        copyrightline = 'Copyright &copy; 2003 - 2011 Michal Čihař'
 
         # default system colours
         bgc = wx.SystemSettings.GetColour(wx.SYS_COLOUR_BTNFACE)

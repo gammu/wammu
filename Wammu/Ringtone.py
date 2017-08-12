@@ -28,7 +28,7 @@ if Wammu.gammu_error is None:
     import gammu
 import os
 import thread
-import commands
+import subprocess
 from Wammu.Locales import ugettext as _
 
 ringtones = {}
@@ -42,7 +42,7 @@ class Ringtone(wx.BitmapButton):
         wx.EVT_BUTTON(self, self.GetId(), self.OnClick)
 
     def OnClick(self, evt):
-        if commands.getstatusoutput('which timidity')[0] != 0:
+        if subprocess.call('which timidity') != 0:
             wx.MessageDialog(
                 self,
                 _('Could not find timidity, melody can not be played'),

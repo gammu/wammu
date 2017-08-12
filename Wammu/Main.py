@@ -20,6 +20,8 @@
 Wammu - Phone manager
 Main Wammu window
 '''
+from __future__ import unicode_literals
+from __future__ import print_function
 
 import wx
 import wx.html
@@ -211,12 +213,12 @@ class WammuFrame(wx.Frame):
         self.treei = {}
         self.values = {}
 
-        keys = displaydata.keys()
+        keys = list(displaydata.keys())
         keys.sort(SortDataKeys)
         for type in keys:
             self.treei[type] = {}
             self.values[type] = {}
-            subkeys = displaydata[type].keys()
+            subkeys = list(displaydata[type].keys())
             subkeys.sort(SortDataSubKeys)
             for subtype in subkeys:
                 self.values[type][subtype] = displaydata[type][subtype][4]
@@ -439,9 +441,9 @@ class WammuFrame(wx.Frame):
             Wammu.ErrorLog.DEBUG_LOG_FILENAME = self.logfilename
 
             if sys.platform != 'win32':
-                print ConsoleStrConv(
+                print(ConsoleStrConv(
                     _('Debug log created in temporary file <%s>. In case of crash please include it in bugreport!') % self.logfilename
-                    )
+                    ))
 
             self.logfilefd = os.fdopen(fd, 'w+')
             # use temporary file for logs
@@ -847,7 +849,7 @@ class WammuFrame(wx.Frame):
         self.type = [k1, k2]
         if k2 == '  ':
             data = []
-            for k3, v3 in self.values[k1].iteritems():
+            for k3, v3 in self.values[k1].items():
                 if k3 != '__':
                     data = data + v3
             self.values[k1]['__'] = data
@@ -858,8 +860,8 @@ class WammuFrame(wx.Frame):
 
     def OnTreeSel(self, event):
         item = event.GetItem()
-        for k1, v1 in self.treei.iteritems():
-            for k2, v2 in v1.iteritems():
+        for k1, v1 in self.treei.items():
+            for k2, v2 in v1.items():
                 if v2 == item:
                     self.ChangeView(k1, k2)
         self.ClearSearch()
@@ -932,18 +934,18 @@ class WammuFrame(wx.Frame):
             self.tbicon.Destroy()
 
         if sys.platform != 'win32':
-            print ConsoleStrConv(
+            print(ConsoleStrConv(
                 _('Looks like normal program termination, deleting log file.')
-                )
+                ))
         try:
             os.unlink(self.logfilename)
         except:
-            print ConsoleStrConv(
+            print(ConsoleStrConv(
                 _('Failed to unlink temporary log file, please delete it yourself.')
-                )
-            print ConsoleStrConv(
+                ))
+            print(ConsoleStrConv(
                 _('Filename: %s') % self.logfilename
-                )
+                ))
 
         # Forcibily save configuration
         self.cfg.Flush()
@@ -1002,13 +1004,13 @@ class WammuFrame(wx.Frame):
                 f (*a)
 
     def ShowData(self, data):
-        text = u''
+        text = ''
         if data is not None:
             for d in data:
                 if len(d) == 2:
-                    text += u'<b>%s</b>: %s<br>' % (d[0], d[1])
+                    text += '<b>%s</b>: %s<br>' % (d[0], d[1])
                 else:
-                    text += u'<p>%s</p>' % d[0]
+                    text += '<p>%s</p>' % d[0]
         self.content.SetContent(text)
 
     def OnShow(self, evt):
@@ -1341,14 +1343,14 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'todo':
             self.EditTodo(evt.data)
         else:
-            print 'Edit not yet implemented (type=%s)!' % self.type[0]
+            print('Edit not yet implemented (type=%s)!' % self.type[0])
 
     def OnReply(self, evt):
         if self.type[0] == 'message':
             self.ComposeMessage({'Number': evt.data['Number']}, action='send')
         else:
-            print 'Reply not yet implemented!'
-            print evt.index
+            print('Reply not yet implemented!')
+            print(evt.index)
 
     def OnCall(self, evt):
         if self.type[0] in ['call', 'contact']:
@@ -1366,7 +1368,7 @@ class WammuFrame(wx.Frame):
             except gammu.GSMError as val:
                 self.ShowError(val.args[0])
         else:
-            print 'Call not yet implemented (type=%s)!' % self.type[0]
+            print('Call not yet implemented (type=%s)!' % self.type[0])
 
     def OnMessage(self, evt):
         if self.type[0] in ['call', 'contact']:
@@ -1378,7 +1380,7 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'message':
             self.ComposeMessage({'Number': evt.data['Number']}, action='send')
         else:
-            print 'Message send not yet implemented (type=%s)!' % self.type[0]
+            print('Message send not yet implemented (type=%s)!' % self.type[0])
 
     def OnDuplicate(self, evt):
         if evt.data != {} and not evt.data['Synced']:
@@ -1397,7 +1399,7 @@ class WammuFrame(wx.Frame):
         elif self.type[0] == 'message':
             self.ComposeMessage(v)
         else:
-            print 'Duplicate not yet implemented (type=%s)!' % self.type[0]
+            print('Duplicate not yet implemented (type=%s)!' % self.type[0])
 
 
     def OnSend(self, evt):
@@ -1544,13 +1546,13 @@ class WammuFrame(wx.Frame):
             return
 
         if len(backup['PhonePhonebook']) > 0:
-            self.values['contact']['ME'] = map(Wammu.Utils.ParseMemoryEntry, backup['PhonePhonebook'], [self.cfg] * len(backup['PhonePhonebook']))
+            self.values['contact']['ME'] = list(map(Wammu.Utils.ParseMemoryEntry, backup['PhonePhonebook'], [self.cfg] * len(backup['PhonePhonebook'])))
         if len(backup['SIMPhonebook']) > 0:
-            self.values['contact']['SM'] = map(Wammu.Utils.ParseMemoryEntry, backup['SIMPhonebook'], [self.cfg] * len(backup['SIMPhonebook']))
+            self.values['contact']['SM'] = list(map(Wammu.Utils.ParseMemoryEntry, backup['SIMPhonebook'], [self.cfg] * len(backup['SIMPhonebook'])))
         if len(backup['ToDo']) > 0:
-            self.values['todo']['  '] = map(Wammu.Utils.ParseTodo, backup['ToDo'])
+            self.values['todo']['  '] = list(map(Wammu.Utils.ParseTodo, backup['ToDo']))
         if len(backup['Calendar']) > 0:
-            self.values['calendar']['  '] = map(Wammu.Utils.ParseCalendar, backup['Calendar'])
+            self.values['calendar']['  '] = list(map(Wammu.Utils.ParseCalendar, backup['Calendar']))
 
         self.ActivateView('contact', '  ')
 
@@ -1889,7 +1891,7 @@ class WammuFrame(wx.Frame):
     def OnDelete(self, evt):
         # first check on supported types
         if self.type[0] not in ['contact', 'call', 'message', 'todo', 'calendar']:
-            print 'Delete not yet implemented! (items to delete=%s, type=%s)' % (str(evt.lst), self.type[0])
+            print('Delete not yet implemented! (items to delete=%s, type=%s)' % (str(evt.lst), self.type[0]))
             return
 
         lst = evt.lst
@@ -2009,12 +2011,12 @@ class WammuFrame(wx.Frame):
     def OnLink(self, evt):
         v = evt.link.split('://')
         if len(v) != 2:
-            print 'Bad URL!'
+            print('Bad URL!')
             return
         if v[0] == 'memory':
             t = v[1].split('/')
             if len(t) != 2:
-                print 'Bad URL!'
+                print('Bad URL!')
                 return
 
             if t[0] in ['ME', 'SM']:
@@ -2032,10 +2034,10 @@ class WammuFrame(wx.Frame):
                     pass
 
             else:
-                print 'Not supported memory type "%s"' % t[0]
+                print('Not supported memory type "%s"' % t[0])
                 return
         else:
-            print 'This link not yet implemented: "%s"' % evt.link
+            print('This link not yet implemented: "%s"' % evt.link)
 
     def OnShowMessage(self, evt):
         try:
@@ -2392,7 +2394,7 @@ class WammuFrame(wx.Frame):
         elif action == 'reject-call':
             self.sm.CancelCall(0, True)
         else:
-            print 'Unknown DBUS event: %s' % action
+            print('Unknown DBUS event: %s' % action)
 
     def DBUSNotify(self, title, message, actions):
         '''

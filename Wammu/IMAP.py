@@ -21,6 +21,7 @@
 Wammu - Phone manager
 IMAP UTF-7 codec
 '''
+from __future__ import unicode_literals
 
 import codecs
 
@@ -36,7 +37,7 @@ def encoder(s):
     r = []
     _in = []
     for c in s:
-        if ord(c) in (range(0x20, 0x26) + range(0x27, 0x7f)):
+        if ord(c) in (list(range(0x20, 0x26)) + list(range(0x27, 0x7f))):
             if _in:
                 r.extend(['&', modified_base64(''.join(_in)), '-'])
                 del _in[:]
@@ -70,7 +71,7 @@ def decoder(s):
             r.append(c)
     if decode:
         r.append(modified_unbase64(''.join(decode[1:])))
-    return (u''.join(r), len(s))
+    return (''.join(r), len(s))
 
 class StreamReader(codecs.StreamReader):
     def decode(self, s, errors='strict'):

@@ -21,6 +21,8 @@
 Wammu - Phone manager
 Main Wammu application
 '''
+from __future__ import unicode_literals
+from __future__ import print_function
 
 import wx
 import sys
@@ -41,7 +43,7 @@ class WammuApp(wx.App):
         '''
 
         self.SetAppName('Wammu')
-        vendor = StrConv(u'Michal Čihař')
+        vendor = StrConv('Michal Čihař')
         if vendor.find('?') != -1:
             vendor = 'Michal Čihař'
         self.SetVendorName(vendor)
@@ -64,6 +66,6 @@ def Run():
     try:
         sys.excepthook = Wammu.Error.Handler
     except:
-        print _('Failed to set exception handler.')
+        print(_('Failed to set exception handler.'))
     app = WammuApp()
     app.MainLoop()

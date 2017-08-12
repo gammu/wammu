@@ -22,6 +22,7 @@ Wammu - Phone manager
 Image displaying classes to be embdeded inside wxHTML
 '''
 
+import io
 import wx
 import wx.lib.throbber
 import base64
@@ -53,8 +54,7 @@ defaultbmp = [
 
 class MemoryInputStream(wx.InputStream):
     def __init__(self, data):
-        import cStringIO
-        wx.InputStream.__init__(self, cStringIO.StringIO(data))
+        wx.InputStream.__init__(self, io.StringIO(data))
 
 class EncodedBitmap(wx.StaticBitmap):
     def __init__(self, parent, tooltip='Image', image=None, size=None, scale=1):

@@ -21,6 +21,8 @@
 Wammu - Phone manager
 Execution script
 '''
+from __future__ import unicode_literals
+from __future__ import print_function
 
 import os
 import sys
@@ -28,7 +30,7 @@ import getopt
 try:
     import Wammu
 except ImportError:
-    print 'Failed to import Wammu module, trying to fix sys.path!'
+    print('Failed to import Wammu module, trying to fix sys.path!')
     sys.path.append(
         os.path.join(
             os.path.dirname(__file__),
@@ -58,7 +60,7 @@ def version():
     '''
     Displays version information.
     '''
-    print _('Wammu - Windowed Gammu version %s') % Wammu.__version__
+    print(_('Wammu - Windowed Gammu version %s') % Wammu.__version__)
 
 
 def usage():
@@ -66,30 +68,30 @@ def usage():
     Shows program usage.
     '''
     version()
-    print _('Usage: %s [OPTION...]' % os.path.basename(__file__))
-    print
-    print _('Options:')
-    print '%-20s ... %s' % (
+    print(_('Usage: %s [OPTION...]' % os.path.basename(__file__)))
+    print()
+    print(_('Options:'))
+    print('%-20s ... %s' % (
         '-h/--help',
         _('show this help')
-    )
-    print '%-20s ... %s' % (
+    ))
+    print('%-20s ... %s' % (
         '-v/--version',
         _('show program version')
-    )
-    print '%-20s ... %s' % (
+    ))
+    print('%-20s ... %s' % (
         '-l/--local-locales',
         _('force using of locales from current directory rather than system ones')
-    )
-    print '%-20s ... %s' % (
+    ))
+    print('%-20s ... %s' % (
         '-i/--info',
         _('prints connection settings and tries to connect the phone')
-    )
-    print '%-20s ... %s' % (
+    ))
+    print('%-20s ... %s' % (
         '-d/--debug',
         _('enables debug output to stderr')
-    )
-    print
+    ))
+    print()
 
 
 def info():
@@ -104,7 +106,7 @@ def info():
     section = settings.ReadInt('/Gammu/Section')
     config = settings.gammu.GetConfig(section)
     if config['Connection'] == '' or config['Device'] == '':
-        print _('Wammu is not configured!')
+        print(_('Wammu is not configured!'))
 
     cfg = {
         'StartInfo': settings.ReadBool('/Gammu/StartInfo'),
@@ -121,30 +123,30 @@ def info():
     # Compatibility with old Gammu versions
     cfg = Wammu.Utils.CompatConfig(cfg)
 
-    print _('Wammu configuration:')
-    print '%-15s: %s' % (_('Connection'), cfg['Connection'])
-    print '%-15s: %s' % (_('Model'), cfg['Model'])
-    print '%-15s: %s' % (_('Device'), cfg['Device'])
-    print _('Connecting...')
+    print(_('Wammu configuration:'))
+    print('%-15s: %s' % (_('Connection'), cfg['Connection']))
+    print('%-15s: %s' % (_('Model'), cfg['Model']))
+    print('%-15s: %s' % (_('Device'), cfg['Device']))
+    print(_('Connecting...'))
     if Wammu.debug:
         gammu.SetDebugFile(sys.stderr)
         gammu.SetDebugLevel('textalldate')
     sm = gammu.StateMachine()
     sm.SetConfig(0, cfg)
     sm.Init()
-    print _('Getting phone information...')
+    print(_('Getting phone information...'))
     Manufacturer = sm.GetManufacturer()
     Model = sm.GetModel()
     IMEI = sm.GetIMEI()
     Firmware = sm.GetFirmware()
     Code = sm.GetSecurityStatus()
-    print _('Phone infomation:')
-    print '%-15s: %s' % (_('Manufacturer'), Manufacturer)
-    print '%-15s: %s (%s)' % (_('Model'), Model[0], Model[1])
-    print '%-15s: %s' % (_('IMEI'), IMEI)
-    print '%-15s: %s' % (_('Firmware'), Firmware[0])
+    print(_('Phone infomation:'))
+    print('%-15s: %s' % (_('Manufacturer'), Manufacturer))
+    print('%-15s: %s (%s)' % (_('Model'), Model[0], Model[1]))
+    print('%-15s: %s' % (_('IMEI'), IMEI))
+    print('%-15s: %s' % (_('Firmware'), Firmware[0]))
     if Code is not None:
-        print '%-15s: %s' % (_('Requested code'), Code)
+        print('%-15s: %s' % (_('Requested code'), Code))
 
 
 def parse_options():
@@ -157,15 +159,15 @@ def parse_options():
             'hvlid',
             ['help', 'version', 'local-locales', 'info', 'debug']
         )
-    except getopt.GetoptError, val:
+    except getopt.GetoptError as val:
         usage()
-        print _('Command line parsing failed with error:')
-        print val
+        print(_('Command line parsing failed with error:'))
+        print(val)
         sys.exit(2)
 
     if len(args) != 0:
         usage()
-        print _('Extra unrecognized parameters passed to program')
+        print(_('Extra unrecognized parameters passed to program'))
         sys.exit(3)
 
     do_info = False
@@ -173,7 +175,7 @@ def parse_options():
     for opt, dummy in opts:
         if opt in ('-l', '--local-locales'):
             Wammu.Locales.UseLocal()
-            print _('Using local built locales!')
+            print(_('Using local built locales!'))
         if opt in ('-h', '--help'):
             usage()
             sys.exit()

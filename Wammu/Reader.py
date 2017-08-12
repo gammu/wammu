@@ -94,7 +94,7 @@ class Reader(Wammu.Thread.Thread):
         guess = False
         try:
             total = self.GetStatus()
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             guess = True
             total = self.FallBackStatus()
 
@@ -167,7 +167,7 @@ class Reader(Wammu.Thread.Thread):
                         remain = 20
                         total = total + 20
                     empty = 0
-                except gammu.ERR_EMPTY, val:
+                except gammu.ERR_EMPTY as val:
                     empty = empty + 1
                     # If we didn't know count and saw many empty entries, stop right now
                     if empty >= Wammu.configuration.ReadInt('/Hacks/MaxEmptyGuess') and guess:
@@ -186,16 +186,16 @@ class Reader(Wammu.Thread.Thread):
                             _('Ignoring unknown'),
                             _('While reading, entry on location %d reported unknown error, ignoring it!') % location)
                     remain = remain - 1
-                except gammu.GSMError, val:
+                except gammu.GSMError as val:
                     self.ShowError(val.args[0], True)
                     return
                 location = location + 1
-        except gammu.ERR_INVALIDLOCATION, val:
+        except gammu.ERR_INVALIDLOCATION as val:
             # if we reached end with guess, it is okay
             if not guess:
                 self.ShowError(val.args[0], True)
                 return
-        except gammu.GSMError, val:
+        except gammu.GSMError as val:
             self.ShowError(val.args[0], True)
             return
 

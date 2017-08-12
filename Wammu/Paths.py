@@ -20,6 +20,7 @@
 Wammu - Phone manager
 Data path definition and misc path functions
 '''
+from __future__ import print_function
 
 import os
 import os.path
@@ -49,7 +50,7 @@ for DATAPATH in POSSIBLE_PATHS:
         break
 
 if not CheckImagesPath(DATAPATH):
-    print 'Could not find images, check your installation!'
+    print('Could not find images, check your installation!')
     sys.exit(1)
 
 def AppIconPath(*args):

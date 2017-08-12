@@ -50,16 +50,16 @@ def Handler(errtype, value, tback):
     logtext = ''
     outf, logname = Wammu.ErrorLog.SaveLog()
     if outf is not None:
-        print 'Created debug log copy in %s for error reporting.' % logname
+        print('Created debug log copy in %s for error reporting.' % logname)
         logtext = '\n%s\n' % _('Debug log was saved for phone communication, if this error appeared during communicating with phone, you are strongly encouraged to include it in bugreport. Debug log is saved in file %s.') % logname
 
 
     # detection of same errors
     tracehash = md5('%s,%s' % (textexc, texttrace)).hexdigest()
     if tracehash in ERROR_HISTORY:
-        print 'Same error already detected, not showing dialog!'
-        print texttrace
-        print 'Exception: %s' % textexc
+        print('Same error already detected, not showing dialog!')
+        print(texttrace)
+        print('Exception: %s' % textexc)
         return
     ERROR_HISTORY.append(tracehash)
 
@@ -90,7 +90,7 @@ def Handler(errtype, value, tback):
         unicodewarning = ''
 
     # prepare message
-    text = u"""%s
+    text = """%s
 
 %s
 %s%s%s
@@ -131,4 +131,4 @@ def Handler(errtype, value, tback):
             }
         ).ShowModal()
     except:
-        print text
+        print(text)
