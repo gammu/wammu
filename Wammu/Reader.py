@@ -113,12 +113,12 @@ class Reader(Wammu.Thread.Thread):
                     if start:
                         loc = 0
                         value = self.GetNextStart()
-                        if guess and remain == 1:
-                            # Read more things if there are some
-                            remain = 2
                         start = False
                     else:
                         value = self.GetNext(loc)
+                    if guess and remain == 1:
+                        # Read more things if there are some
+                        remain = 2
                     try:
                         loc = value['Location']
                     except TypeError:
