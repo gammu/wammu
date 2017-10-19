@@ -4,7 +4,7 @@ Wammu
 GUI pro Gammu.
 
 .. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
-    :alt: Stav překladu :target:
+    :alt: Překlady status :target:
     https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
 .. image:: https://landscape.io/github/gammu/wammu/master/landscape.svg?style=flat
