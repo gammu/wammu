@@ -1,7 +1,13 @@
 Wammu
 =====
 
-GUI for Gammu library.
+GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
+
+.. image:: https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu.svg
+   :width: 888
+   :height: 68
+   :target: https://app.codesponsor.io/link/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu
+
 
 .. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
     :alt: Translation status
@@ -25,7 +31,7 @@ GUI for Gammu library.
 Homepage
 ========
 
-<http://wammu.eu/>
+<https://wammu.eu/>
 
 License
 =======
@@ -55,7 +61,7 @@ from phone.
 Bug reporting
 =============
 
-Please report found bugs to <http://bugs.wammu.eu>.
+Please report found bugs to <https://github.com/gammu/wammu/issues/>.
 
 Translating
 ===========
