@@ -527,7 +527,7 @@ class ConfigTypePage(Wammu.Wizard.ChoicePage):
         self.link = wx.lib.hyperlink.HyperLinkCtrl(
                 self,
                 -1,
-                'http://%scihar.com/gammu/phonedb' % Wammu.Utils.GetWebsiteLang())
+                'https://%swammu.eu/phones/' % Wammu.Utils.GetWebsiteLang())
         self.sizer.Add(self.link, 0, wx.ALL, 5)
 
 class WelcomePage(Wammu.Wizard.SimplePage):
