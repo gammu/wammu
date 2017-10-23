@@ -4,9 +4,9 @@ Wammu installatie
 Pakketten voor Linux
 ====================
 
-Veel distibuties hebben kant en klare Wammu-software. Als je die kunt
-gebruiken is dat zeker de eenvoudigste methode. Er zijn ook binaire
-pakketten van de laatse officiële versie beschikbaar op de Wammu-website
+Many distributions come with prebuilt Wammu binaries, if you can use them,
+it is definitely the easiest thing. There are also binary packages of latest
+release built for many distributions available on Wammu web site
 <https://wammu.eu/download/wammu/>.
 
 

@@ -4,9 +4,9 @@
 Пакеты для Linux
 ================
 
-Многие дистрибутивы включают в себя бинарные пакеты Wammu, это наиболее
-легкий способ, чтобы использовать программу. Бинарные пакеты последнего
-релиза для многих дистрибутивов доступны на сайте
+Many distributions come with prebuilt Wammu binaries, if you can use them,
+it is definitely the easiest thing. There are also binary packages of latest
+release built for many distributions available on Wammu web site
 <https://wammu.eu/download/wammu/>.
 
 

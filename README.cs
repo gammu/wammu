@@ -1,7 +1,12 @@
 Wammu
 =====
 
-GUI pro Gammu.
+GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
+
+.. image:: https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu.svg
+   :width: 888 :height: 68 :target:
+   https://app.codesponsor.io/link/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu
+
 
 .. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
     :alt: Překlady status :target:
@@ -53,7 +58,7 @@ Zálohování uloží všechny položky, který jste již načetli z telefonu.
 Hlášení chyb
 ============
 
-Nalezené chyby prosím nahlašte na <https://github.com/gammu/wammu/issues>.
+Please report found bugs to <https://github.com/gammu/wammu/issues/>.
 
 Překládání
 ==========
