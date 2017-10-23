@@ -274,13 +274,13 @@ class build_wammu(distutils.command.build.build, object):
             if pygver < PYTHONGAMMU_REQUIRED:
                 print 'too old!'
                 print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
-                print 'You can get it from <http://wammu.eu/python-gammu/>'
+                print 'You can get it from <https://wammu.eu/python-gammu/>'
             else:
                 print 'OK'
         except ImportError, message:
             print
             print 'Could not import python-gammu!'
-            print 'You can get it from <http://wammu.eu/python-gammu/>'
+            print 'You can get it from <https://wammu.eu/python-gammu/>'
             print 'Import failed with following error: %s' % message
 
         print 'Checking for wxPython ...',
@@ -444,8 +444,8 @@ distutils.core.setup(
     maintainer_email="michal@cihar.com",
     platforms=['Linux', 'Mac OSX', 'Windows XP/2000/NT', 'Windows 95/98/ME'],
     keywords=['mobile', 'phone', 'SMS', 'contact', 'gammu', 'calendar', 'todo'],
-    url="http://wammu.eu/wammu/",
-    download_url='http://wammu.eu/download/wammu/',
+    url="https://wammu.eu/wammu/",
+    download_url='https://wammu.eu/download/wammu/',
     license='GPLv3+',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
