@@ -23,7 +23,7 @@ GUI pro Gammu.
 Domovská stránka
 ================
 
-<http://cs.wammu.eu/>
+<https://cs.wammu.eu/>
 
 Licence
 =======
@@ -53,7 +53,7 @@ Zálohování uloží všechny položky, který jste již načetli z telefonu.
 Hlášení chyb
 ============
 
-Nalezené chyby prosím nahlašte na <http://bugs.wammu.eu>.
+Nalezené chyby prosím nahlašte na <https://github.com/gammu/wammu/issues>.
 
 Překládání
 ==========

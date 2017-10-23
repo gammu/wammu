@@ -7,7 +7,7 @@ Balíčky pro Linux
 Mnoho distribucí obsahuje balíčku pro Wammu, takže pokud je můžete použít,
 je to určitě nejsnadnější cesta. Aktuální verzi zabalenou pro mnoho
 distribucí naleznete na stránkách Wammu
-<http://cs.wammu.eu/download/wammu/>.
+<https://cs.wammu.eu/download/wammu/>.
 
 
 Kompilace ze zdrojových kódů

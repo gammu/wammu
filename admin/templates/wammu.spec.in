@@ -10,7 +10,7 @@ Release:        1
 %define wammu_python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(0)")
 
 Summary:        Mobile phone manager
-Source:         http://dl.cihar.com/%{name}/latest/%{name}-%{version}.tar.%{extension}
+Source:         https://dl.cihar.com/%{name}/latest/%{name}-%{version}.tar.%{extension}
 License:        GPL-2.0
 %if 0%{?suse_version}
 Group:          Hardware/Mobile
@@ -30,7 +30,7 @@ BuildRequires:  desktop-file-utils
 %endif
 %{?py_requires}
 
-Url:        http://wammu.eu/
+Url:        https://wammu.eu/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 # These distributions use /usr/lib for python on all architectures
 %if 0%{?fedora_version} || 0%{?centos_version} || 0%{?rhel_version} || 0%{?fedora} || 0%{?rhel} || 0%{?mandriva_version} || 0%{?suse_version} > 1110

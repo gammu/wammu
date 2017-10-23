@@ -102,7 +102,7 @@ def Handler(errtype, value, tback):
 %s---------------------------------------------------
 """ % (
         _('Unhandled exception appeared.'),
-        _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'http://bugs.wammu.eu/',
+        _('If you want to help improving this program, please submit following infomation and description how did it happen to %s. Please report in english, otherwise you will be most likely told to translate you report to english later.') % 'https://github.com/gammu/wammu/issues/',
         logtext,
         tracetext,
         unicodewarning,

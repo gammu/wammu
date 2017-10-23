@@ -2480,22 +2480,22 @@ class WammuFrame(wx.Frame):
         Wammu.About.AboutBox(self).ShowModal()
 
     def Website(self, evt=None):
-        Wammu.Webbrowser.Open("http://%swammu.eu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
+        Wammu.Webbrowser.Open("https://%swammu.eu/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def Support(self, evt=None):
-        Wammu.Webbrowser.Open("http://%swammu.eu/support/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
+        Wammu.Webbrowser.Open("https://%swammu.eu/support/?version=%s" % (Wammu.Utils.GetWebsiteLang(), Wammu.__version__))
 
     def ReportBug(self, evt=None):
         Wammu.Webbrowser.Open("https://github.com/gammu/wammu/issues")
 
     def PhoneDB(self, evt=None):
-        Wammu.Webbrowser.Open("http://%swammu.eu/phones/" % Wammu.Utils.GetWebsiteLang())
+        Wammu.Webbrowser.Open("https://%swammu.eu/phones/" % Wammu.Utils.GetWebsiteLang())
 
     def Talkback(self, evt=None):
         Wammu.TalkbackDialog.DoTalkback(self, self.cfg, 0)
 
     def Donate(self, evt=None):
-        Wammu.Webbrowser.Open("http://%swammu.eu/donate/?src=wammu" % Wammu.Utils.GetWebsiteLang())
+        Wammu.Webbrowser.Open("https://%swammu.eu/donate/?src=wammu" % Wammu.Utils.GetWebsiteLang())
 
     def SaveLog(self, evt=None):
         '''

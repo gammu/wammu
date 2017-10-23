@@ -7,7 +7,7 @@ Pakketten voor Linux
 Veel distibuties hebben kant en klare Wammu-software. Als je die kunt
 gebruiken is dat zeker de eenvoudigste methode. Er zijn ook binaire
 pakketten van de laatse officiële versie beschikbaar op de Wammu-website
-<http://wammu.eu/download/wammu/>.
+<https://wammu.eu/download/wammu/>.
 
 
 Bouwen vanaf de broncode

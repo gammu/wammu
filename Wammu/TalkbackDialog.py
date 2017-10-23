@@ -293,7 +293,7 @@ class TalkbackDialog(wx.Dialog):
         conn.close()
         ok_test = OK_MATCHER.match(data)
         if ok_test is not None:
-            url = 'http://%swammu.eu%s' % (Wammu.Utils.GetWebsiteLang(), ok_test.groups()[1])
+            url = 'https://%swammu.eu%s' % (Wammu.Utils.GetWebsiteLang(), ok_test.groups()[1])
             result = wx.MessageDialog(
                 self,
                 _('Entry in Gammu Phone Database has been created, you can see it on <%s> URL.\nDo you want to open it in browser now?') % url,

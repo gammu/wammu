@@ -7,7 +7,7 @@ Paquetes para Linux
 Muchas distribuciones ya vienen con binarios de Wammu, si puede usarlos
 definitivamente representan lo más fácil. También hay paquetes binarios de
 la última versión disponibles desde el sitio web de Wammu
-<http://wammu.eu/download/wammu/>.
+<https://wammu.eu/download/wammu/>.
 
 
 Compilando desde código fuente
