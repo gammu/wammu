@@ -1,12 +1,12 @@
 ; Inno Setup Script for Wammu installation
-; Copyright (c) 2006 Michal Èihaø
+; Copyright (c) 2006 Michal ÄŒihaÅ™
 ; Language selection code based on GTK+ 2 installation script
 ; made by Jernej Simoncic, <jernej.simoncic@guest.arnes.si>
 
 #define MyAppDosName "wammu"
 #define MyAppName "Wammu"
 #define MyAppVersion "0.44"
-#define MyAppPublisher "Micha Èihaø"
+#define MyAppPublisher "Micha ÄŒihaÅ™"
 #define MyAppURL "https://wammu.eu/"
 #define MyAppPublisherURL "https://cihar.com/"
 #define MyAppBugsURL "https://github.com/gammu/wammu/issues/"
@@ -61,7 +61,7 @@ Name: nl; MessagesFile: compiler:Languages\Dutch.isl
 Name: pl; MessagesFile: compiler:Languages\Polish.isl
 Name: pt_BR; MessagesFile: compiler:Languages\BrazilianPortuguese.isl
 Name: ru; MessagesFile: compiler:Languages\Russian.isl
-Name: sk; MessagesFile: compiler:Languages\Slovak.isl
+;Name: sk; MessagesFile: compiler:Languages\Slovak.isl
 ;Name: sv; MessagesFile: compiler:Languages\Swedish.isl
 ;Name: zh_tw; MessagesFile: compiler:Languages\SimpChinese.isl
 ;Name: zh_cz; MessagesFile: compiler:Languages\TradChinese.isl
@@ -99,13 +99,13 @@ Type: files; Name: {app}\{#MyAppBugsUrlName}
 
 [CustomMessages]
 en.ReportBug=Report bug in application %1
-cs.ReportBug=Nahlásit chybu v aplikaci %1
+cs.ReportBug=NahlÃ¡sit chybu v aplikaci %1
 en.SelectLanguage=Select application language
 cs.SelectLanguage=Zvolit jazyk aplikace
 en.Translations=Translations
 en.TranslationsDesc=Translations of user interface
-cs.Translations=Pøeklady
-cs.TranslationsDesc=Pøeklady uživatelského rozhraní
+cs.Translations=PÅ™eklady
+cs.TranslationsDesc=PÅ™eklady uÅ¾ivatelskÃ©ho rozhranÃ­
 
 [Registry]
 Root: HKCU; Subkey: Environment; ValueType: string; ValueName: LANG; ValueData: {language}; Check: UsingWinNT
