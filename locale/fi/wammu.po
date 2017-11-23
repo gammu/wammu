@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2017-11-23 09:45+0100\n"
-"PO-Revision-Date: 2017-11-23 12:51+0000\n"
+"PO-Revision-Date: 2017-11-23 16:24+0000\n"
 "Last-Translator: Tuomas Harju <tuomas@rtj-group.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/wammu/fi/>"
 "\n"
@@ -2509,7 +2509,7 @@ msgstr "Käytä formaattia alapuolella"
 
 #: Wammu/Settings.py:318
 msgid "Name display format"
-msgstr "Nimen muoto"
+msgstr "Nimen esitysmuoto"
 
 #: Wammu/Settings.py:332
 #, python-format
@@ -2517,12 +2517,12 @@ msgid ""
 "Format string for name displaying. You can use %%(value)s format marks. "
 "Currently available values are: %s."
 msgstr ""
-"Nimen muotoilumerkkijono. Voit käyttää %%(value)s muotoilumerkkejä. "
-"Tällähetkellä käytettävissä olevat arvot ovat: %s."
+"Muoto nimen esittämiseen. Voit käyttää %%(value)s muotoiluja. Tällä hetkellä "
+"saatavilla olevat arvot ovat: %s."
 
 #: Wammu/Settings.py:335
 msgid "Name format string"
-msgstr "Nimen muotoilumerkkijono"
+msgstr "Nimen muotoilu"
 
 #: Wammu/Settings.py:365
 msgid ""
@@ -2590,13 +2590,13 @@ msgid ""
 "number limits how many empty entries will be read before reading will be "
 "stopped."
 msgstr ""
-"Sovelletaan vain silloin, kun Wammu ei voi lukea oikeaa määrä merkintöjä. "
-"Tämä määrä rajoittaa sitä, miten paljon tyhjiä merkintöjä luetaan ennen kuin "
-"lukeminen lopetetaan."
+"Käytetään vain, jos Wammu ei löydä oikeaa määrää merkintöjä luettavaksi. "
+"Tämä luku rajoittaa, kuinka monta tyhjää merkintää luetaan ennen lukemisen "
+"lopettamista."
 
 #: Wammu/Settings.py:465
 msgid "Maximal empty entries if total is guessed"
-msgstr "Maksimi määrä tyhjiä merkintöjä jos kokonaismäärä on arvio"
+msgstr "Suurin määrä tyhjiä merkintöjä, jos kokonaismäärä on arvio"
 
 #: Wammu/Settings.py:479
 msgid ""
@@ -2604,9 +2604,9 @@ msgid ""
 "infinitely or till error. This number limits how many empty entries will be "
 "read before reading will be stopped."
 msgstr ""
-"Jos puhelin raportoi väärän määrän merkintöjä, Wammu yrittää lukea niitä "
-"äärettömän määrän tai kunnes tapahtuu virhe. Tämä määrä rajoittaa sitä, "
-"miten paljon tyhjiä merkintöjä luetaan ennen kuin lukeminen lopetetaan."
+"Jos puhelin kertoo merkintöjen määrän väärin, Wammu yrittää lukea "
+"äärettömästi tai kunnes virhe tapahtuu. Tämä luku rajoittaa, kuinka monta "
+"tyhjää arvoa luetaan ennen kuin lukeminen lopetetaan."
 
 #: Wammu/Settings.py:480
 msgid "Maximal empty entries if total is known"
@@ -2659,7 +2659,7 @@ msgstr "Symbian pohjainen puhelin"
 #: Wammu/SettingsStorage.py:100
 msgid "Go on if your phone uses Symbian OS (regardless of manufacturer)."
 msgstr ""
-"Jatka, jos puhelimesi käyttää Symbian-käyttöjärjestelmää (valmistajasta "
+"Jatka, jos puhelimesi käyttää Symbian-käyttöjärjestelmää (laitevalmistajasta "
 "riippumatta)."
 
 #: Wammu/SettingsStorage.py:103
@@ -2743,78 +2743,78 @@ msgid ""
 "Standard access to filesystem and sometimes also to phone data. Good choice "
 "for recent phones."
 msgstr ""
-"Standardin mukainen pääsy tiedostojärjestelmään ja joskus myös puhelimen "
-"tietoihin. Hyvä valinta useimmille puhelimille."
+"Tavallinen pääsy tiedostojärjestelmään ja joskus myös puhelimen tietoihin. "
+"Hyvä valinta useimmille puhelimille."
 
 #: Wammu/SettingsStorage.py:146
 msgid "Symbian using Gnapplet"
-msgstr "Symbian käyttäen Gnappletia"
+msgstr "Symbian käyttäen Gnapplet:ia"
 
 #: Wammu/SettingsStorage.py:147
 msgid ""
 "You have to install Gnapplet into phone before using this connection. You "
 "can find it in Gammu sources."
 msgstr ""
-"Sinun täytyy asentaa Gnapplet puhelimeen ennen kuin voit käyttää tätä "
-"yhteyttä. Löydät sen Gammu:n lähdekoodeista."
+"Sinun täytyy asentaa Gnapplet puhelimeesi ennen kuin käytät tätä yhteyttä. "
+"Löydät sen Gammun lähdekoodista."
 
 #: Wammu/SettingsStorage.py:151
 msgid "Nokia proprietary protocol"
-msgstr "Nokian oma protokolla"
+msgstr "Nokian omistama protokolla"
 
 #: Wammu/SettingsStorage.py:152
 msgid "Nokia proprietary protocol FBUS."
-msgstr "Nokian oma FBUS -protokolla."
+msgstr "Nokian omistama FBUS -protokolla."
 
 #: Wammu/SettingsStorage.py:155
 msgid "Nokia proprietary service protocol"
-msgstr "Nokian oma palveluprotokolla"
+msgstr "Nokian omistama palveluprotokolla"
 
 #: Wammu/SettingsStorage.py:156
 msgid "Nokia proprietary protocol MBUS. Older version, use FBUS if possible."
 msgstr ""
-"Nokian oma MBUS -protokolla. Vanhemmissa versioissa käytä FBUS -protokollaa "
-"jos mahdollista."
+"Nokian omistama MBUS -protokolla. Vanhemmissa versioissa käytä FBUS -"
+"protokollaa jos mahdollista."
 
 #: Wammu/SettingsStorage.py:160
 msgid "AT based"
-msgstr "AT -pohjainen"
+msgstr "AT-pohjainen"
 
 #: Wammu/SettingsStorage.py:162
 msgid ""
 "This provides minimal access to phone features. It is recommended to use "
 "other connection type."
 msgstr ""
-"Tämä tarjoaa minimaalisen pääsyn puhelimen toimintoihin. On suositeltavaa "
-"käyttää muita yhteystyyppejä."
+"Tämän avulla saat minimaalisen pääsyn puhelimen toimintoihin. Suosittelemme "
+"käyttämään toista yhteystyyppiä."
 
 #: Wammu/SettingsStorage.py:164
 msgid ""
 "Good choice for most phones except Nokia and Symbian based. Provides access "
 "to most phone features."
 msgstr ""
-"Hyvä valinta useimmille puhelimille paitsi Nokia ja Symbian. Tarjoaa pääsyn "
-"useimpiin puhelimen ominaisuuksiin."
+"Hyvä valinta useimmille muille kuin Nokia ja Symbian -puhelimille. Tarjoaa "
+"pääsyn suurimpaan osaan puhelimen toiminnoista."
 
 #: Wammu/SettingsStorage.py:275 Wammu/SettingsStorage.py:307
 msgid "Enter device name of serial port."
-msgstr "Anna sarjaportin laitenimi."
+msgstr "Syötä sarjaportin laitenimi."
 
 #: Wammu/SettingsStorage.py:277 Wammu/SettingsStorage.py:309
 msgid "Enter device name of emulated serial port."
-msgstr "Anna emuloidun sarjaportin laitenimi."
+msgstr "Syötä emuloidun sarjaportin laitenimi."
 
 #: Wammu/SettingsStorage.py:279 Wammu/SettingsStorage.py:311
 msgid "Enter Bluetooth address of your phone."
-msgstr "Anna puhelimesi Bluetooth -osoite."
+msgstr "Syötä puhelimesi Bluetooth-osoite."
 
 #: Wammu/SettingsStorage.py:281 Wammu/SettingsStorage.py:315
 msgid "You don't have to enter anything for this settings."
-msgstr "Sinun ei tarvitse syöttää mitään tähän asetukseen."
+msgstr "Sinun ei tarvitse syöttää tähän asetukseen mitään."
 
 #: Wammu/SettingsStorage.py:313
 msgid "Enter device name of USB port."
-msgstr "Anna USB -portin laitenimi."
+msgstr "Syötä USB-portin laitenimi."
 
 #: Wammu/SettingsStorage.py:334 Wammu/SettingsStorage.py:349
 msgid "Generic AT over serial line or it's emulation"
@@ -2826,9 +2826,8 @@ msgid ""
 "Select this if you have real serial port or it is emulated by phone driver "
 "(eg. virtual COM port, /dev/rfcomm, /dev/ircomm, etc.)."
 msgstr ""
-"Valitse tämä, jos sinulla on fyysinen sarjaportti tai se on emuloitu "
-"puhelimen ajurilla (esim. virtuaalinen COM -portti, /dev/rfcomm, /dev/"
-"ircomm, jne.)."
+"Valitse tämä, jos sinulla on oikea sarjaportti tai puhelinajuri emuloi sen ("
+"esim. virtuaalinen COM-portti, /dev/rfcomm, /dev/ircomm jne.)."
 
 #: Wammu/SettingsStorage.py:340
 #, python-format
