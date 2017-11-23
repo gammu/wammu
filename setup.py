@@ -501,6 +501,7 @@ setup(
     options={'py2exe': {
             'optimize': 2,
             'packages': py2exepackages,
+            'dll_excludes': ['MSVCP90.dll', 'wbtapi.dll']
         }},
     **addparams
     )
