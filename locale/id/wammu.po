@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.44\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2017-10-18 09:46+0000\n"
 "Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gammu/wammu/"
@@ -212,8 +212,10 @@ msgstr "Gaya teks"
 msgid "Concatenated"
 msgstr "Digabungkan"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr ""
 "Buat pesan yang bersambung, memungkinkan untuk mengirim pesan yang lebih "
 "panjang."
@@ -303,8 +305,11 @@ msgid "Sent"
 msgstr "Terkirim"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Centang bagian ini untuk menyimpan pesan sebagai pesan terkirim (hanya "
 "berpengaruh saat menyimpan pesan)."
@@ -337,8 +342,9 @@ msgid "Preview"
 msgstr "Pratinjau"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Id tidak dikenal: %s"
 
 #: Wammu/Composer.py:558
@@ -1190,7 +1196,9 @@ msgid "&Save"
 msgstr "&Save"
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "Simpan data yang diterima (kecuali pesan) untuk dicadangkan."
 
 #: Wammu/Main.py:351
@@ -1198,7 +1206,9 @@ msgid "S&ave messages"
 msgstr "S&ave messages"
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Menyimpan pesan yang diterima untuk dicadangkan."
 
 #: Wammu/Main.py:352
@@ -2503,6 +2513,12 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Pilihan standar untuk pesan baru"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr ""
+"Buat pesan yang bersambung, memungkinkan untuk mengirim pesan yang lebih "
+"panjang."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

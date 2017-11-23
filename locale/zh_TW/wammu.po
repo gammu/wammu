@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.44\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2013-05-30 13:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Traditional Chinese <http://hosted.weblate.org/projects/gammu/"
@@ -212,8 +212,10 @@ msgstr "文字樣式"
 msgid "Concatenated"
 msgstr "簡訊連結"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr "建立連結簡訊，可以發送更長的簡訊。"
 
 #: Wammu/Composer.py:175
@@ -300,8 +302,11 @@ msgid "Sent"
 msgstr "標記為已發送"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr "勾選此項，使簡訊以已發送狀態儲存(僅在儲存簡訊時有效)。"
 
 #: Wammu/Composer.py:402
@@ -336,8 +341,9 @@ msgid "Preview"
 msgstr "預覽"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "不被支援的 id:%s"
 
 #: Wammu/Composer.py:558
@@ -1210,7 +1216,9 @@ msgstr "儲存(&S)"
 
 #  msgid "Saves currently retrieved data (except messages) to backup"
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "儲存當前已取得的資料（不包括簡訊）到備份檔案。"
 
 #: Wammu/Main.py:351
@@ -1219,7 +1227,9 @@ msgstr "儲存簡訊(&a)"
 
 #  msgid "Saves currently retrieved messages to backup"
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "儲存當前已取得的簡訊到備份檔案。"
 
 #  msgid "Imports data from backup to phone"
@@ -2491,6 +2501,10 @@ msgstr "如果您收到的信息的文字擠壓到一起，可以選擇這個選
 #, fuzzy
 msgid "Default options for new message"
 msgstr "建立新的簡訊"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr "建立連結簡訊，可以發送更長的簡訊。"
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

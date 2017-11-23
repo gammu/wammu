@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2012-08-27 13:00+0200\n"
 "Last-Translator: Damian Majchrzak <damiax.m@gmail.com>\n"
 "Language-Team: Polish <http://hosted.weblate.org/projects/gammu/wammu/pl/>\n"
@@ -215,8 +215,10 @@ msgstr "Styl tekstu"
 msgid "Concatenated"
 msgstr "Powiązany"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr ""
 "Utwórz wiadomość powiązaną, pozwalającą na wysłanie dłuższej wiadomości."
 
@@ -312,8 +314,11 @@ msgid "Sent"
 msgstr "Wysłane"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Zaznacz, aby zachować wiadomość jako wysłaną (działa tylko wtedy, gdy "
 "jedynie zapisujesz wiadomość)."
@@ -347,8 +352,9 @@ msgid "Preview"
 msgstr "Podgląd"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Nie obsługiwane id: %s"
 
 #: Wammu/Composer.py:558
@@ -1207,7 +1213,9 @@ msgid "&Save"
 msgstr "&Zapisz"
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "Zapisz obecnie pobrane dane (oprócz wiadomości) do kopii zapasowej."
 
 #: Wammu/Main.py:351
@@ -1216,7 +1224,9 @@ msgstr "Z&apisz wiadomości"
 
 # "otrzymane" is received in Polish
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Zapisz obecnie pobrane wiadomości do kopii zapasowej."
 
 #: Wammu/Main.py:352
@@ -2538,6 +2548,11 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Domyślne opcje dla nowej wiadomości"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr ""
+"Utwórz wiadomość powiązaną, pozwalającą na wysłanie dłuższej wiadomości."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

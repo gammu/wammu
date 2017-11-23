@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2017-09-16 06:59+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/gammu/wammu/et/"
@@ -204,8 +204,10 @@ msgstr "Teksti stiil"
 msgid "Concatenated"
 msgstr "Liidetud"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr "Loo sidurdatud sõnum, mis lubab saata pikemaid sõnumeid."
 
 #: Wammu/Composer.py:175
@@ -295,8 +297,11 @@ msgid "Sent"
 msgstr "Saadetud"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Märgi, kui soovid sõnumi salvestada saadetud sõnumina (mõjub ainult sõnumi "
 "salvestamisel)."
@@ -329,8 +334,9 @@ msgid "Preview"
 msgstr "Eelvaade"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Toetuseta id: %s"
 
 #: Wammu/Composer.py:558
@@ -1177,7 +1183,9 @@ msgid "&Save"
 msgstr "&Salvesta"
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "Varunda laaditud andmed (välja arvatud sõnumid)."
 
 #: Wammu/Main.py:351
@@ -1185,7 +1193,9 @@ msgid "S&ave messages"
 msgstr "S&alvesta sõnumid"
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Varunda laaditud sõnumid."
 
 #: Wammu/Main.py:352
@@ -2474,6 +2484,10 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Uue sõnumi vaikimisi parameetrid"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr "Loo sidurdatud sõnum, mis lubab saata pikemaid sõnumeid."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

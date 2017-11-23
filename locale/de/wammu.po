@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2016-07-10 18:04+0000\n"
 "Last-Translator: armagetron <armagetron@live.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gammu/wammu/de/>\n"
@@ -214,8 +214,10 @@ msgstr "Textdarstellung"
 msgid "Concatenated"
 msgstr "Zusammengesetzt"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr ""
 "Zusammengesetzte Nachricht erstellen, die es Ihnen erlaubt, längere "
 "Nachrichten zu versenden."
@@ -307,8 +309,11 @@ msgid "Sent"
 msgstr "Gesendet"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Auswählen um Nachricht als gesendet zu speichern (hat nur beim Speichern "
 "Effekt)."
@@ -344,8 +349,9 @@ msgid "Preview"
 msgstr "Vorschau"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Nicht unterstützte ID: %s"
 
 #: Wammu/Composer.py:558
@@ -1240,7 +1246,9 @@ msgstr "&Speichern"
 
 #  msgid "Saves currently retrieved data (except messages) to backup"
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr ""
 "Speichere die vom Telefon heruntergeladenen Daten (außer Nachrichten) in "
 "einer Datei."
@@ -1251,7 +1259,9 @@ msgstr "Speichern von N&achrichten"
 
 #  msgid "Saves currently retrieved messages to backup"
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr ""
 "Speichere die vom Telefon heruntergeladenen Nachrichten in einer Datei."
 
@@ -2646,6 +2656,12 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Voreinstellungen für neue Nachrichten"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr ""
+"Zusammengesetzte Nachricht erstellen, die es Ihnen erlaubt, längere "
+"Nachrichten zu versenden."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

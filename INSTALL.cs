@@ -4,10 +4,10 @@ Instalace Wammu
 Balíčky pro Linux
 =================
 
-Many distributions come with prebuilt Wammu binaries, if you can use them,
-it is definitely the easiest thing. There are also binary packages of latest
-release built for many distributions available on Wammu web site
-<https://wammu.eu/download/wammu/>.
+Mnoho distribucí obsahuje balíčku pro Wammu, takže pokud je můžete použít,
+je to určitě nejsnadnější cesta. Aktuální verzi zabalenou pro mnoho
+distribucí naleznete na stránkách Wammu
+<https://cs.wammu.eu/download/wammu/>.
 
 
 Kompilace ze zdrojových kódů

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.44\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2012-08-27 11:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <http://hosted.weblate.org/projects/gammu/wammu/gl/"
@@ -205,8 +205,10 @@ msgstr "Estilo do texto"
 msgid "Concatenated"
 msgstr "Concatenado"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr "Crear mensaxes concatenadas, que permite enviar mensaxes máis longas."
 
 #: Wammu/Composer.py:175
@@ -296,8 +298,11 @@ msgid "Sent"
 msgstr "Envío"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Márqueo para gardar a mensaxe como se envía (só ten efecto cando só se salva "
 "a mensaxe)."
@@ -331,8 +336,9 @@ msgid "Preview"
 msgstr "Vista previa"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Id non soportado: %s"
 
 #: Wammu/Composer.py:558
@@ -1171,7 +1177,7 @@ msgid "&Save"
 msgstr ""
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr ""
 
 #: Wammu/Main.py:351
@@ -1179,7 +1185,7 @@ msgid "S&ave messages"
 msgstr ""
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr ""
 
 #: Wammu/Main.py:352
@@ -2404,6 +2410,10 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr ""
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr "Crear mensaxes concatenadas, que permite enviar mensaxes máis longas."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

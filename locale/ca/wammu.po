@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2014-11-16 20:36+0200\n"
 "Last-Translator: josep constanti <jconstanti@ovi.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gammu/wammu/ca/"
@@ -211,8 +211,10 @@ msgstr "Estil del text"
 msgid "Concatenated"
 msgstr "Concatenat"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr ""
 "Crea els missatges concatenats, el que et permet enviar missatges més llargs."
 
@@ -303,8 +305,11 @@ msgid "Sent"
 msgstr "Enviat"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Selecciona per desar el missatge com a enviat (només té efecte quan s'està "
 "guardant el missatge)."
@@ -338,8 +343,9 @@ msgid "Preview"
 msgstr "Previsualització"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Id no suportada: %s"
 
 #: Wammu/Composer.py:558
@@ -1182,7 +1188,9 @@ msgid "&Save"
 msgstr "&Desa"
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr ""
 "Desa les dades recuperades (exepte els missatges) en una còpia de seguretat."
 
@@ -1191,7 +1199,9 @@ msgid "S&ave messages"
 msgstr "&Desa els missatges"
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Desa els missatges recuperats en una còpia de seguretat."
 
 #: Wammu/Main.py:352
@@ -2487,6 +2497,11 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Opcions per defecte a un nou missatge"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr ""
+"Crea els missatges concatenats, el que et permet enviar missatges més llargs."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

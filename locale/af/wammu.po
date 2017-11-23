@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.44\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2014-12-29 11:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/gammu/wammu/af/"
@@ -196,8 +196,10 @@ msgstr "Teksstyl"
 msgid "Concatenated"
 msgstr "Saamgevoeg"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr "Skep saamgevoegde boodskap, wat langer boodskappe moontlik maak."
 
 #: Wammu/Composer.py:175
@@ -286,8 +288,11 @@ msgid "Sent"
 msgstr "Gestuur"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Merk om boodskap te stoor soos dit gestuur is (het slegs effek met stoor)."
 
@@ -318,9 +323,9 @@ msgid "Preview"
 msgstr "Voorskou"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
-msgstr ""
+#, fuzzy, python-format
+msgid "Not supported ID: %s"
+msgstr "Geen poort gekies nie!"
 
 #: Wammu/Composer.py:558
 #, python-format
@@ -1192,7 +1197,7 @@ msgstr "&Stoor"
 
 #: Wammu/Main.py:350
 #, fuzzy
-msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "Rugsteun data wat reeds gekry is (behalwe boodskappe)"
 
 #: Wammu/Main.py:351
@@ -1201,7 +1206,7 @@ msgstr "&Stoor boodskappe"
 
 #: Wammu/Main.py:351
 #, fuzzy
-msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Rugsteun boodskappe wat reeds gekry is"
 
 #: Wammu/Main.py:352
@@ -2497,6 +2502,10 @@ msgstr ""
 #, fuzzy
 msgid "Default options for new message"
 msgstr "Skep unicode-boodskap"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr "Skep saamgevoegde boodskap, wat langer boodskappe moontlik maak."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

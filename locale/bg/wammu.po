@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2014-12-29 11:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/gammu/wammu/bg/"
@@ -200,8 +200,10 @@ msgstr "Стил на текста"
 msgid "Concatenated"
 msgstr "Свързано съобщение"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr ""
 "Създаване на свързано съобщение, позволяващо изпращане на по-дълги съобщения."
 
@@ -292,8 +294,11 @@ msgid "Sent"
 msgstr "Изпратено"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Отметнете за да запазите съобщенията като изпратени (има ефекти само при "
 "запазване на съобщение)."
@@ -327,8 +332,9 @@ msgid "Preview"
 msgstr "Предварителен преглед"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Неподдържан ID: %s"
 
 #: Wammu/Composer.py:558
@@ -1164,7 +1170,9 @@ msgid "&Save"
 msgstr "&Запазване"
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "Запис на текущо получените данни (без съобщенията) в резервно копие."
 
 #: Wammu/Main.py:351
@@ -1172,7 +1180,9 @@ msgid "S&ave messages"
 msgstr "З&апазване на съобщения"
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Запис на получените съобщения в резервно копие."
 
 #: Wammu/Main.py:352
@@ -2479,6 +2489,11 @@ msgstr ""
 #, fuzzy
 msgid "Default options for new message"
 msgstr "Създаване на ново съобщение."
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr ""
+"Създаване на свързано съобщение, позволяващо изпращане на по-дълги съобщения."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

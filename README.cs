@@ -1,7 +1,7 @@
 Wammu
 =====
 
-GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
+Grafické rozhraní pro `knihovnu Gammu <https://cs.wammu.eu/gammu/>`_.
 
 .. image:: https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu.svg
    :width: 888 :height: 68 :target:
@@ -33,7 +33,7 @@ Domovská stránka
 Licence
 =======
 
-GNU GPL version 3 or later.
+GNU GPL verze 3 nebo novější.
 
 První spuštění
 ==============
@@ -58,7 +58,7 @@ Zálohování uloží všechny položky, který jste již načetli z telefonu.
 Hlášení chyb
 ============
 
-Please report found bugs to <https://github.com/gammu/wammu/issues/>.
+Nalezené chyby prosím nahlaste na <https://github.com/gammu/wammu/issues/>.
 
 Překládání
 ==========

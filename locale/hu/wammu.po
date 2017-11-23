@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2014-12-29 11:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gammu/wammu/hu/"
@@ -214,8 +214,10 @@ msgstr "Szövegstílus"
 msgid "Concatenated"
 msgstr "Összefűzött"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr "Összefűzött üzenetek segítségével hosszabb üzeneteket küldhet el."
 
 #: Wammu/Composer.py:175
@@ -312,8 +314,11 @@ msgid "Sent"
 msgstr "Elküldve"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Jelölje be ez a lehetőséget, ha elszeretné menteni az üzenetet küldéskor "
 "(csak az üzenet mentésekor van hatása)."
@@ -347,8 +352,9 @@ msgid "Preview"
 msgstr "Előnézet"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Nem támogatott azonosító: %s"
 
 #: Wammu/Composer.py:558
@@ -1204,7 +1210,9 @@ msgid "&Save"
 msgstr "&Mentés"
 
 #: Wammu/Main.py:350
-msgid "Save currently retrieved data (except messages) to backup."
+#, fuzzy
+#| msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr ""
 "Biztonsági másolat készítése az éppen letöltött adatokról (az üzenetek "
 "kivételével)."
@@ -1214,7 +1222,9 @@ msgid "S&ave messages"
 msgstr "Üzenetek &mentése"
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
+#, fuzzy
+#| msgid "Save currently retrieved messages to backup."
+msgid "Backup currently retrieved messages."
 msgstr "Biztonsági másolat készítése az éppen letöltött üzenetekről."
 
 #: Wammu/Main.py:352
@@ -2545,6 +2555,10 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Alapértelmezett beállítások új üzenethez"
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr "Összefűzött üzenetek segítségével hosszabb üzeneteket küldhet el."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wammu 0.44\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2017-10-19 13:14+0200\n"
+"POT-Creation-Date: 2017-11-23 09:45+0100\n"
 "PO-Revision-Date: 2017-11-18 23:48+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål "
-"<https://hosted.weblate.org/projects/gammu/wammu/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gammu/"
+"wammu/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -209,8 +209,10 @@ msgstr "Tekststil"
 msgid "Concatenated"
 msgstr "Sammenlenket"
 
-#: Wammu/Composer.py:167 Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
+#: Wammu/Composer.py:167
+#, fuzzy
+#| msgid "Create concatenated message, what allows to send longer messages."
+msgid "Create concatenated message, which allows to send longer messages."
 msgstr ""
 "Opprett sammenlenket melding, hvilket tillater forsendelser av lengre "
 "meldinger."
@@ -301,8 +303,11 @@ msgid "Sent"
 msgstr "Sendt"
 
 #: Wammu/Composer.py:399
+#, fuzzy
+#| msgid ""
+#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
-"Check to save message as sent (has only effect when only saving message)."
+"Check to save message as sent (only has effect when saving the message)."
 msgstr ""
 "Kryss av for å lagre melding som sendt (har bare innvirkning når du lagrer "
 "melding)."
@@ -336,8 +341,9 @@ msgid "Preview"
 msgstr "Forhåndsvis"
 
 #: Wammu/Composer.py:517
-#, python-format
-msgid "Not supported id: %s"
+#, fuzzy, python-format
+#| msgid "Not supported id: %s"
+msgid "Not supported ID: %s"
 msgstr "Ustøttet ID: %s"
 
 #: Wammu/Composer.py:558
@@ -1182,7 +1188,7 @@ msgstr "&Lagre"
 
 #: Wammu/Main.py:350
 #, fuzzy
-msgid "Save currently retrieved data (except messages) to backup."
+msgid "Backup currently retrieved data (except messages)."
 msgstr "Lagre aktuell innhentet data (unntatt meldinger) som sikkerhetskopi."
 
 #: Wammu/Main.py:351
@@ -1190,8 +1196,9 @@ msgid "S&ave messages"
 msgstr "L&agre meldinger"
 
 #: Wammu/Main.py:351
-msgid "Save currently retrieved messages to backup."
-msgstr ""
+#, fuzzy
+msgid "Backup currently retrieved messages."
+msgstr "Lagre aktuell innhentet data (unntatt meldinger) som sikkerhetskopi."
 
 #: Wammu/Main.py:352
 msgid "&Import to phone"
@@ -2418,6 +2425,12 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr ""
+
+#: Wammu/Settings.py:250
+msgid "Create concatenated message, what allows to send longer messages."
+msgstr ""
+"Opprett sammenlenket melding, hvilket tillater forsendelser av lengre "
+"meldinger."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"
