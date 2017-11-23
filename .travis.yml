@@ -6,6 +6,7 @@ install:
   - pip install codecov pytest pytest-cov -r requirements.txt
 script:
   - py.test --cov=.
+  - coverage run --source . --append ./setup.py build
   - coverage run --source . --append ./setup.py install
 after_script:
   - codecov
