@@ -17,14 +17,13 @@ install:
   # not already installed.
   - ps: if (-not(Test-Path($env:PYTHON))) { & appveyor\install.ps1 }
   - "pip install wheel"
-  - "pip install py2exe_py2"
   #  Install python-gammu
   - appveyor DownloadFile %GAMMU_URL%
   - "pip install python_gammu-2.11-cp27-cp27m-win32.whl"
   - appveyor DownloadFile https://dl.cihar.com/ci/wxPython3.0-win32-3.0.2.0-py27.exe
   - wxPython3.0-win32-3.0.2.0-py27.exe /VERYSILENT
   - "pip install -r requirements.txt"
-  - "pip install pypiwin32"
+  - "pip install pypiwin32 py2exe_py2 pytest"
 
 build_script:
   # Build the compiled extension
@@ -32,7 +31,7 @@ build_script:
 
 test_script:
   # Run the project tests
-- "python setup.py test"
+- "py.test"
 
 
 after_test:
