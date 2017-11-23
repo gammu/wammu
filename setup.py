@@ -22,6 +22,7 @@ Wammu - Phone manager
 Setup script for installation using distutils
 '''
 
+from setuptools import setup
 import distutils
 import distutils.command.build
 import distutils.command.build_scripts
@@ -433,7 +434,7 @@ data_files.append((os.path.join('share', 'man', 'sk', 'man1'), ['man/sk/wammu.1'
 data_files.append((os.path.join('share', 'man', 'tr', 'man1'), ['man/sk/wammu.1', 'man/tr/wammu-configure.1']))
 data_files.append((os.path.join('share', 'man', 'uk', 'man1'), ['man/sk/wammu.1', 'man/uk/wammu-configure.1']))
 
-distutils.core.setup(
+setup(
     name="wammu",
     version=Wammu.__version__,
     description="Wammu Mobile Phone Manager",
