@@ -12,6 +12,7 @@ environment:
       GAMMU_URL: https://tmp.cihar.com/python_gammu-2.11-cp27-cp27m-win32.whl
 
 install:
+  - appveyor-retry choco install -y InnoSetup
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Install Python (from the official .msi of http://python.org) and pip when
   # not already installed.
@@ -39,7 +40,7 @@ after_test:
   - "python setup.py bdist_wheel"
   - "python setup.py bdist_wininst"
   - "python setup.py py2exe"
-  - "c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe wammu.iss"
+  - "c:\\Program\ Files\\Inno\ Setup\ 5/\\ISCC.exe" wammu.iss
 
 artifacts:
   # Archive the generated packages in the ci.appveyor.com build report.
