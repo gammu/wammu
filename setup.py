@@ -372,12 +372,6 @@ class install_data_wammu(distutils.command.install_data.install_data, object):
         super(install_data_wammu, self).run()
 
 
-py2exepackages = ['Wammu']
-if sys.version_info >= (2, 5):
-    # Email module changed a lot in python 2.5 and we can not yet use new API
-    py2exepackages.append('email')
-    py2exepackages.append('email.mime')
-
 # ModuleFinder can't handle runtime changes to __path__, but win32com uses them
 try:
     # if this doesn't work, try import modulefinder
@@ -500,7 +494,7 @@ setup(
     # py2exe options
     options={'py2exe': {
             'optimize': 2,
-            'packages': py2exepackages,
+            'packages': ['Wammu'],
             'dll_excludes': ['MSVCP90.dll', 'wbtapi.dll']
         }},
     **addparams
