@@ -21,6 +21,10 @@ install:
   #  Install python-gammu
   - appveyor DownloadFile %GAMMU_URL%
   - "pip install python_gammu-2.11-cp27-cp27m-win32.whl"
+  - appveyor DownloadFile https://dl.cihar.com/ci/pywin32-221-cp27-none-win32.whl
+  - pip install pywin32-221-cp27-none-win32.whl
+  - appveyor DownloadFile https://dl.cihar.com/ci/wxPython3.0-win32-3.0.2.0-py27.exe
+  - wxPython3.0-win32-3.0.2.0-py27.exe /SILENT
   - "pip install -r requirements.txt"
   - "pip install pywin32"
 
