@@ -108,7 +108,7 @@ class ErrorMessage(wx.Dialog):
 
     def OnSearch(self, evt):
         '''
-        Opens search for simmilar problems in browser.
+        Opens search for similar problems in browser.
         '''
         Wammu.Webbrowser.Open(BUG_SEARCH_URL % self.traceid)
 

@@ -164,7 +164,7 @@ class TextEditor(GenericEditor):
         self.sizer.AddGrowableRow(0)
 
         self.concat = wx.CheckBox(self, -1, _('Concatenated'))
-        self.concat.SetToolTipString(_('Create concatenated message, what allows to send longer messages.'))
+        self.concat.SetToolTipString(_('Create concatenated message, which allows to send longer messages.'))
         self.concat.SetValue(self.part['ID'] != 'Text')
         wx.EVT_CHECKBOX(self.concat, self.concat.GetId(), self.OnConcatChange)
         self.sizer.Add(self.concat, pos=(1, 0), flag=wx.ALIGN_CENTER_VERTICAL)
@@ -396,7 +396,7 @@ class SMSComposer(wx.Dialog):
         self.sizer.Add(self.report, pos=(row, 2), flag=wx.ALIGN_LEFT)
 
         self.sent = wx.CheckBox(self, -1, _('Sent'))
-        self.sent.SetToolTipString(_('Check to save message as sent (has only effect when only saving message).'))
+        self.sent.SetToolTipString(_('Check to save message as sent (only has effect when saving the message).'))
         self.sizer.Add(self.sent, pos=(row, 4), flag=wx.ALIGN_LEFT)
 
         self.flash = wx.CheckBox(self, -1, _('Flash'))
@@ -514,8 +514,8 @@ class SMSComposer(wx.Dialog):
                     found = True
                     break
             if not found:
-                self.current.InsertImageStringItem(i, _('Not supported id: %s') % x['ID'], -1)
-                print 'Not supported id: %s' % x['ID']
+                self.current.InsertImageStringItem(i, _('Not supported ID: %s') % x['ID'], -1)
+                print 'Not supported ID: %s' % x['ID']
 
         count = self.current.GetItemCount()
 

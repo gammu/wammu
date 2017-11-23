@@ -347,8 +347,8 @@ class WammuFrame(wx.Frame):
         self.menuBar.Append(menu4, _('&Create'))
 
         menu5 = wx.Menu()
-        menu5.Append(501, _('&Save'), _('Save currently retrieved data (except messages) to backup.'))
-        menu5.Append(502, _('S&ave messages'), _('Save currently retrieved messages to backup.'))
+        menu5.Append(501, _('&Save'), _('Backup currently retrieved data (except messages).'))
+        menu5.Append(502, _('S&ave messages'), _('Backup currently retrieved messages.'))
         menu5.Append(503, _('&Import to phone'), _('Import data from backup to phone.'))
         menu5.Append(504, _('I&mport messages to phone'), _('Import messages from backup to phone.'))
         menu5.AppendSeparator()

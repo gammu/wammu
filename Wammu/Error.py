@@ -74,7 +74,7 @@ def Handler(errtype, value, tback):
                 lasttrace[3])
         traceid = md5(traceidtext).hexdigest()
         tracetext = '\n%s\n' % (
-                _('Before submiting please try searching for simmilar bugs on %s')
+                _('Before submiting please try searching for similar bugs on %s')
                 % ('https://github.com/search?l=&q=%s+%%40gammu&ref=advsearch&type=Issues'
                     % traceid))
     except:
