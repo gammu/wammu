@@ -494,7 +494,7 @@ setup(
     # py2exe options
     options={'py2exe': {
             'optimize': 2,
-            'packages': ['Wammu'],
+            'packages': ['Wammu', 'gammu', 'email', 'email.mime', 'wx'],
             'dll_excludes': ['MSVCP90.dll', 'wbtapi.dll', 'irprops.cpl']
         }},
     **addparams
