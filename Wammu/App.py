@@ -42,6 +42,7 @@ class WammuApp(wx.App):
         wxWindows call this method to initialize the application.
         '''
 
+        self.locale = wx.Locale(wx.LANGUAGE_DEFAULT)
         self.SetAppName('Wammu')
         vendor = StrConv('Michal Čihař')
         if vendor.find('?') != -1:
