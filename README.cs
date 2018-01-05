@@ -3,11 +3,6 @@ Wammu
 
 Grafické rozhraní pro `knihovnu Gammu <https://cs.wammu.eu/gammu/>`_.
 
-.. image:: https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu.svg
-   :width: 888 :height: 68 :target:
-   https://app.codesponsor.io/link/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu
-
-
 .. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
     :alt: Překlady status :target:
     https://hosted.weblate.org/engage/gammu/?utm_source=widget
