@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 #
-# Copyright © 2003 - 2017 Michal Čihař <michal@cihar.com>
+# Copyright © 2003 - 2018 Michal Čihař <michal@cihar.com>
 #
 # This file is part of Wammu <https://wammu.eu/>
 #

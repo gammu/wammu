@@ -2,7 +2,7 @@
 #
 # Copyright © 2008 Florent Kaisser <florent.kaisser@free.fr>
 # Copyright © 2012 Andriy Grytsenko <andrej@rep.kiev.ua>
-# Copyright © 2015 - 2017 Michal Čihař <michal@cihar.com>
+# Copyright © 2015 - 2018 Michal Čihař <michal@cihar.com>
 #
 # This file is part of Wammu <https://wammu.eu/>
 #
