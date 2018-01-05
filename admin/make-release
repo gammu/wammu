@@ -53,12 +53,11 @@ ls -lh $tmp
 cd "$srcdir"
 
 if [ $dotag -eq 1 ] ; then
+    cp $tmp/$repo-$version/dist/* dist/
     # Tag the release
     git tag -s -m "Tag release $version" "$version"
     # Upload to sf.net
     ./admin/upload-release $version $tmp
     # Submit to PyPi
-    cd $tmp/$repo-$version
-    python setup.py register
-    twine upload dist/Wammu-$version.tar.gz
+    twine upload dist/wammu-$version.tar.gz
 fi
