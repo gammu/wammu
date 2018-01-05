@@ -12,8 +12,8 @@ GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
     :alt: Code Health
 
 .. image:: https://img.shields.io/gratipay/Gammu.svg
-    :alt: Gratipay
-    :target: https://gratipay.com/Gammu/
+    :alt: Liberapay
+    :target: https://liberapay.com/Gammu/donate
 
 .. image:: https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received
     :alt: Bountysource
