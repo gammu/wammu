@@ -9,7 +9,6 @@ environment:
     - PYTHON: "C:\\Python27"
       PYTHON_VERSION: "2.7.x"
       PYTHON_ARCH: "32"
-      GAMMU_URL: https://tmp.cihar.com/python_gammu-2.11-cp27-cp27m-win32.whl
 
 install:
   - appveyor-retry choco install -y InnoSetup
@@ -19,8 +18,7 @@ install:
   - ps: if (-not(Test-Path($env:PYTHON))) { & appveyor\install.ps1 }
   - "pip install wheel"
   #  Install python-gammu
-  - appveyor DownloadFile %GAMMU_URL%
-  - "pip install python_gammu-2.11-cp27-cp27m-win32.whl"
+  - "pip install python-gammu"
   - appveyor DownloadFile https://dl.cihar.com/ci/wxPython3.0-win32-3.0.2.0-py27.exe
   - wxPython3.0-win32-3.0.2.0-py27.exe /VERYSILENT
   - "pip install -r requirements.txt"
