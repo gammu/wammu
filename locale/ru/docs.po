@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2017-10-23 09:31+0200\n"
-"PO-Revision-Date: 2012-05-14 09:28+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-12-15 09:08+0000\n"
+"Last-Translator: Victor K <ktrace@yandex.ru>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/gammu/wammu-doc/"
+"ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 1.0\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #. type: TH
 #: wammu.1:1
@@ -164,10 +165,8 @@ msgstr "ЛИЦЕНЗИЯ"
 
 #. type: Plain text
 #: wammu.1:42 wammu-configure.1:34
-#, fuzzy
-#| msgid "This program is licensed under GNU/GPL version 2."
 msgid "This program is licensed under GNU/GPL version 3 or later."
-msgstr "Эта программа лицензирована под GNU/GPL версии 2."
+msgstr "Эта программа лицензирована под GNU/GPL версии 3 или последующей."
 
 #. type: SH
 #: wammu.1:43 wammu-configure.1:35
@@ -177,21 +176,15 @@ msgstr "ОТЧЕТ ОБ ОШИБКАХ"
 
 #. type: Plain text
 #: wammu.1:47 wammu-configure.1:39
-#, fuzzy
-#| msgid ""
-#| "There are definitely many bugs, reporting to author is welcome. Please "
-#| "include some useful information when sending bug reports (eg. exception "
-#| "you received and debug output). Please submit your reports to E<lt>http://"
-#| "bugs.wammu.eu/E<gt>."
 msgid ""
 "There are definitely many bugs, reporting to author is welcome. Please "
 "include some useful information when sending bug reports (eg. exception you "
 "received and debug output). Please submit your reports to E<lt>https://"
 "github.com/gammu/wammu/issues/E<gt>."
 msgstr ""
-"Существует довольно много ошибок, сообщение о них автору приветствуется. "
-"Пожалуйста включайте немного полезной информации, когда отсылаете отчет об "
-"ошибках (например полученное исключение или лог отладки). Пожалуйста "
+"Существует довольно много ошибок, приветствуется сообщать о них  автору. "
+"Пожалуйста,  когда отсылаете отчет об ошибках, дополните его полезной "
+"информацией, например полученным исключение или логом отладки. Пожалуйста "
 "отсылайте отчеты на E<lt>https://github.com/gammu/wammu/issues/E<gt>."
 
 #. type: SH
@@ -310,10 +303,8 @@ msgstr ""
 
 #. type: Plain text
 #: README.rst:13
-#, fuzzy
-#| msgid "https://hosted.weblate.org/widgets/gammu-status-badge.png"
 msgid "https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg"
-msgstr "https://hosted.weblate.org/widgets/gammu-status-badge.png"
+msgstr "https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg"
 
 #. type: Plain text
 #: README.rst:15
@@ -345,7 +336,7 @@ msgstr ""
 #, fuzzy
 #| msgid ":alt: Bitdeli badge :target: https://bitdeli.com/free"
 msgid ":alt: Gratipay :target: https://gratipay.com/Gammu/"
-msgstr ":alt: Bitdeli badge :target: https://bitdeli.com/free"
+msgstr ":alt: Gratipay :target: https://gratipay.com/Gammu/"
 
 #. type: Plain text
 #: README.rst:25
@@ -370,7 +361,7 @@ msgstr ""
 #, fuzzy
 #| msgid ":alt: Bitdeli badge :target: https://bitdeli.com/free"
 msgid ":target: https://travis-ci.org/gammu/wammu"
-msgstr ":alt: Bitdeli badge :target: https://bitdeli.com/free"
+msgstr ":target: https://travis-ci.org/gammu/wammu"
 
 #. type: Title =
 #: README.rst:32
@@ -391,10 +382,8 @@ msgstr "Лицензия"
 
 #. type: Plain text
 #: README.rst:40
-#, fuzzy
-#| msgid "GNU GPL version 2."
 msgid "GNU GPL version 3 or later."
-msgstr "GNU GPL version 2."
+msgstr "GNU GPL version 3 или последующей."
 
 #. type: Title =
 #: README.rst:42
@@ -457,12 +446,10 @@ msgstr "Отчеты об ошибках"
 
 #. type: Plain text
 #: README.rst:65
-#, fuzzy
-#| msgid "Please report found bugs to <https://github.com/gammu/wammu/issues>."
 msgid "Please report found bugs to <https://github.com/gammu/wammu/issues/>."
 msgstr ""
 "Пожалуйста присылайте найденные ошибки на <https://github.com/gammu/wammu/"
-"issues>."
+"issues/>."
 
 #. type: Title =
 #: README.rst:67
@@ -508,20 +495,14 @@ msgstr "Пакеты для Linux"
 
 #. type: Plain text
 #: INSTALL:11
-#, fuzzy
-#| msgid ""
-#| "Many distributions come with prebuilt Wammu binaries, if you can use "
-#| "them, it is definitely the easiest thing. There are also binary packages "
-#| "of latest release built for many distributions available on Wammu web "
-#| "site <http://wammu.eu/download/wammu/>."
 msgid ""
 "Many distributions come with prebuilt Wammu binaries, if you can use them, "
 "it is definitely the easiest thing. There are also binary packages of latest "
 "release built for many distributions available on Wammu web site <https://"
 "wammu.eu/download/wammu/>."
 msgstr ""
-"Многие дистрибутивы включают в себя бинарные пакеты Wammu, это наиболее "
-"легкий способ, чтобы использовать программу. Бинарные пакеты последнего "
+"Многие дистрибутивы включают в себя бинарные пакеты Wammu, вы можете "
+"установить их, это наиболее простой способ. Бинарные пакеты последнего "
 "релиза для многих дистрибутивов доступны на сайте <https://wammu.eu/download/"
 "wammu/>."
 
