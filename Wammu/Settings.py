@@ -247,7 +247,7 @@ class Settings(wx.Dialog):
         r2 = 0
 
         self.editconcat = wx.CheckBox(self.new_message_panel_2, -1, _('Concatenated'))
-        self.editconcat.SetToolTipString(_('Create concatenated message, what allows to send longer messages.'))
+        self.editconcat.SetToolTipString(_('Create concatenated message, which allows to send longer messages.'))
         self.editconcat.SetValue(config.Read('/Message/Concatenated') == 'yes')
         self.sizer_message_new_2.Add(self.editconcat, pos=(r2, 0), colspan=2)
         r2 += 1
