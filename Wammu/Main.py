@@ -1081,7 +1081,7 @@ class WammuFrame(wx.Frame):
                 v['Numbers'] = ['Wammu']
 
             for number in v['Numbers']:
-                busy = wx.BusyInfo(_('Writing message(s)...'))
+                busy = wx.BusyInfo(_('Writing message(s)…'))
                 time.sleep(0.1)
                 wx.Yield()
                 v['Number'] = number
@@ -1147,7 +1147,7 @@ class WammuFrame(wx.Frame):
         shoulddelete = (v == {} or v['Location'] == 0)
         if Wammu.Editor.ContactEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
-                busy = wx.BusyInfo(_('Writing contact...'))
+                busy = wx.BusyInfo(_('Writing contact…'))
                 time.sleep(0.1)
                 wx.Yield()
                 # was entry moved => delete it from internal list
@@ -1221,7 +1221,7 @@ class WammuFrame(wx.Frame):
         shoulddelete = (v == {} or v['Location'] == 0)
         if Wammu.Editor.CalendarEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
-                busy = wx.BusyInfo(_('Writing calendar...'))
+                busy = wx.BusyInfo(_('Writing calendar…'))
                 time.sleep(0.1)
                 wx.Yield()
                 # was entry moved => delete it from internal list
@@ -1281,7 +1281,7 @@ class WammuFrame(wx.Frame):
         shoulddelete = (v == {} or v['Location'] == 0)
         if Wammu.Editor.TodoEditor(self, self.cfg, self.values, v).ShowModal() == wx.ID_OK:
             try:
-                busy = wx.BusyInfo(_('Writing todo...'))
+                busy = wx.BusyInfo(_('Writing todo…'))
                 time.sleep(0.1)
                 wx.Yield()
                 # was entry moved => delete it from internal list
@@ -1474,7 +1474,7 @@ class WammuFrame(wx.Frame):
             if save:
                 dlg = wx.FileDialog(
                     self,
-                    _('Save data as...'),
+                    _('Save data as…'),
                     os.getcwd(),
                     "",
                     wildcard,
@@ -1493,7 +1493,7 @@ class WammuFrame(wx.Frame):
             if save:
                 dlg = wx.FileDialog(
                     self,
-                    _('Save backup as...'),
+                    _('Save backup as…'),
                     os.getcwd(),
                     "",
                     wildcard,
@@ -1609,7 +1609,7 @@ class WammuFrame(wx.Frame):
             return
 
         try:
-            busy = wx.BusyInfo(_('Importing data...'))
+            busy = wx.BusyInfo(_('Importing data…'))
             time.sleep(0.1)
             wx.Yield()
             for i in lst:
@@ -1706,7 +1706,7 @@ class WammuFrame(wx.Frame):
             return
 
         try:
-            busy = wx.BusyInfo(_('Importing data...'))
+            busy = wx.BusyInfo(_('Importing data…'))
             time.sleep(0.1)
             wx.Yield()
             for i in lst:
@@ -1957,7 +1957,7 @@ class WammuFrame(wx.Frame):
         # do real delete
         try:
             if self.type[0] == 'contact' or self.type[0] == 'call':
-                busy = wx.BusyInfo(_('Deleting contact(s)...'))
+                busy = wx.BusyInfo(_('Deleting contact(s)…'))
                 time.sleep(0.1)
                 wx.Yield()
                 for v in lst:
@@ -1967,7 +1967,7 @@ class WammuFrame(wx.Frame):
                             del self.values[self.type[0]][v['MemoryType']][idx]
                             break
             elif self.type[0] == 'message':
-                busy = wx.BusyInfo(_('Deleting message(s)...'))
+                busy = wx.BusyInfo(_('Deleting message(s)…'))
                 time.sleep(0.1)
                 wx.Yield()
                 for v in lst:
@@ -1978,7 +1978,7 @@ class WammuFrame(wx.Frame):
                             del self.values[self.type[0]][v['State']][idx]
                             break
             elif self.type[0] == 'todo':
-                busy = wx.BusyInfo(_('Deleting todo(s)...'))
+                busy = wx.BusyInfo(_('Deleting todo(s)…'))
                 time.sleep(0.1)
                 wx.Yield()
                 for v in lst:
@@ -1988,7 +1988,7 @@ class WammuFrame(wx.Frame):
                             del self.values[self.type[0]]['  '][idx]
                             break
             elif self.type[0] == 'calendar':
-                busy = wx.BusyInfo(_('Deleting calendar event(s)...'))
+                busy = wx.BusyInfo(_('Deleting calendar event(s)…'))
                 time.sleep(0.1)
                 wx.Yield()
                 for v in lst:
@@ -2211,7 +2211,7 @@ class WammuFrame(wx.Frame):
     #
 
     def SyncTime(self, event):
-        busy = wx.BusyInfo(_('Setting time in phone...'))
+        busy = wx.BusyInfo(_('Setting time in phone…'))
         time.sleep(0.1)
         wx.Yield()
         try:
@@ -2261,7 +2261,7 @@ class WammuFrame(wx.Frame):
                     'Pos': 0,
                     'Finished': 0
                 }
-                busy = wx.BusyInfo(_('Sending file to phone...'))
+                busy = wx.BusyInfo(_('Sending file to phone…'))
                 time.sleep(0.1)
                 wx.Yield()
                 try:
@@ -2293,7 +2293,7 @@ class WammuFrame(wx.Frame):
     #
 
     def PhoneConnect(self, event=None):
-        busy = wx.BusyInfo(_('One moment please, connecting to phone...'))
+        busy = wx.BusyInfo(_('One moment please, connecting to phone…'))
         time.sleep(0.1)
         wx.Yield()
         section = self.cfg.ReadInt('/Gammu/Section')
@@ -2429,7 +2429,7 @@ class WammuFrame(wx.Frame):
             )
 
     def PhoneDisconnect(self, event=None):
-        busy = wx.BusyInfo(_('One moment please, disconnecting from phone...'))
+        busy = wx.BusyInfo(_('One moment please, disconnecting from phone…'))
         time.sleep(0.1)
         wx.Yield()
         try:
@@ -2503,7 +2503,7 @@ class WammuFrame(wx.Frame):
         '''
         dlg = wx.FileDialog(
             self,
-            _('Save debug log as...'),
+            _('Save debug log as…'),
             os.getcwd(),
             'wammu.log',
             '',
