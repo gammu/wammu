@@ -71,7 +71,7 @@ class ErrorMessage(wx.Dialog):
         buttonsizer.AddButton(wx.Button(self, wx.ID_OK))
 
         if traceid is None:
-            savebutton = wx.Button(self, -1, _('Save debug log...'))
+            savebutton = wx.Button(self, -1, _('Save debug log…'))
             buttonsizer.SetCancelButton(savebutton)
             self.Bind(wx.EVT_BUTTON, self.OnSave, savebutton)
         else:
@@ -97,7 +97,7 @@ class ErrorMessage(wx.Dialog):
         '''
         dlg = wx.FileDialog(
             self,
-            _('Save debug log as...'),
+            _('Save debug log as…'),
             os.getcwd(),
             'wammu.log',
             '',
