@@ -38,7 +38,7 @@ def SMSToMailbox(parent, messages, contacts):
     wildcard = _('Mailboxes') + ' (*.mbox)|*.mbox|' + _('All files') + ' (*.*)|*.*;*'
     exts = ['mbox']
     exts.append(None)
-    dlg = wx.FileDialog(parent, _('Select mailbox file...'), os.getcwd(), "", wildcard, wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
+    dlg = wx.FileDialog(parent, _('Select mailbox file…'), os.getcwd(), "", wildcard, wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
 
     if dlg.ShowModal() != wx.ID_OK:
         return
@@ -203,7 +203,7 @@ def SMSToIMAP(parent, messages, contacts):
         if value == wx.ID_CANCEL:
              return
 
-        busy = wx.BusyInfo(_('Connecting to IMAP server...'))
+        busy = wx.BusyInfo(_('Connecting to IMAP server…'))
 
         if imapConfig.useSSL:
             m = imaplib.IMAP4_SSL(imapConfig.server, int(imapConfig.port))
@@ -227,7 +227,7 @@ def SMSToIMAP(parent, messages, contacts):
             if dialog.ShowModal() == wx.ID_NO:
                 return
 
-    busy = wx.BusyInfo(_('Listing folders on IMAP server...'))
+    busy = wx.BusyInfo(_('Listing folders on IMAP server…'))
     try:
         res, list = m.list()
     except:
@@ -288,7 +288,7 @@ def SMSToIMAP(parent, messages, contacts):
 
     parent.cfg.Write('/IMAP/LastUsedFolder', folders[dlg.GetSelection()])
 
-    busy = wx.BusyInfo(_('Selecting folder on IMAP server...'))
+    busy = wx.BusyInfo(_('Selecting folder on IMAP server…'))
     try:
         res = m.select(folder)
     except:
