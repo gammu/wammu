@@ -68,7 +68,7 @@ def usage():
     Shows program usage.
     '''
     version()
-    print(_('Usage: %s [OPTION...]' % os.path.basename(__file__)))
+    print(_('Usage: %s [OPTION…]' % os.path.basename(__file__)))
     print()
     print(_('Options:'))
     print('%-20s ... %s' % (
