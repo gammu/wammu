@@ -7,11 +7,7 @@ GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/gammu/?utm_source=widget
 
-.. image:: https://landscape.io/github/gammu/wammu/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/gammu/wammu/master
-    :alt: Code Health
-
-.. image:: https://img.shields.io/gratipay/Gammu.svg
+.. image:: http://img.shields.io/liberapay/receives/Gammu.svg?logo=liberapay
     :alt: Liberapay
     :target: https://liberapay.com/Gammu/donate
 
