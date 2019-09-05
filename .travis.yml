@@ -9,9 +9,11 @@ script:
   - coverage run --source . --append ./setup.py install
 after_script:
   - codecov
+virtualenv:
+  system_site_packages: true
 addons:
   apt:
     packages:
     - libgammu-dev
-    - python-wxgtk2.8
+    - python-wxgtk3.0
     - libbluetooth-dev
