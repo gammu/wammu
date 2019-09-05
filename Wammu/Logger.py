@@ -136,7 +136,7 @@ class LogFrame(wx.Frame):
         self.txt = wx.TextCtrl(
             self,
             -1,
-            _('Here will appear debug messages from Gammu...\n'),
+            _('Here will appear debug messages from Gammu…\n'),
             style=wx.TE_MULTILINE | wx.TE_READONLY
         )
         self.txt.SetFont(wx.Font(9, wx.MODERN, wx.NORMAL, wx.NORMAL))

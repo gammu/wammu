@@ -46,7 +46,7 @@ def usage():
     Shows program usage.
     '''
     version()
-    print _('Usage: %s [OPTION...]' % os.path.basename(__file__))
+    print _('Usage: %s [OPTION…]' % os.path.basename(__file__))
     print
     print _('Options:')
     print '%-20s ... %s' % (
@@ -114,7 +114,7 @@ def do_wizard():
 
     result = Wammu.PhoneWizard.RunConfigureWizard(None, position)
     if result is not None:
-        busy = wx.BusyInfo(_('Updating gammu configuration...'))
+        busy = wx.BusyInfo(_('Updating gammu configuration…'))
         time.sleep(0.1)
         wx.Yield()
         config.SetConfig(

@@ -68,7 +68,7 @@ def usage():
     Shows program usage.
     '''
     version()
-    print(_('Usage: %s [OPTION...]' % os.path.basename(__file__)))
+    print(_('Usage: %s [OPTION…]' % os.path.basename(__file__)))
     print()
     print(_('Options:'))
     print('%-20s ... %s' % (
@@ -127,14 +127,14 @@ def info():
     print('%-15s: %s' % (_('Connection'), cfg['Connection']))
     print('%-15s: %s' % (_('Model'), cfg['Model']))
     print('%-15s: %s' % (_('Device'), cfg['Device']))
-    print(_('Connecting...'))
+    print(_('Connecting…'))
     if Wammu.debug:
         gammu.SetDebugFile(sys.stderr)
         gammu.SetDebugLevel('textalldate')
     sm = gammu.StateMachine()
     sm.SetConfig(0, cfg)
     sm.Init()
-    print(_('Getting phone information...'))
+    print(_('Getting phone information…'))
     Manufacturer = sm.GetManufacturer()
     Model = sm.GetModel()
     IMEI = sm.GetIMEI()

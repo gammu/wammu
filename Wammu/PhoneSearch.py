@@ -164,7 +164,7 @@ class AllSearchThread(threading.Thread):
             if len(discovery.names_found) == 0 and self.msgcallback is not None:
                 self.msgcallback(_('No Bluetooth device found'))
             if self.msgcallback is not None:
-                self.msgcallback(_('All Bluetooth devices discovered, connection tests still in progress...'))
+                self.msgcallback(_('All Bluetooth devices discovered, connection tests still in progress…'))
         except bluetooth.BluetoothError as txt:
             if self.msgcallback is not None:
                 self.msgcallback(

@@ -61,7 +61,7 @@ class TalkbackDialog(wx.Dialog):
         self.gammu_model_label = wx.StaticText(self.main_panel, -1, _("Model in gammu configuration:"))
         self.model_combo_box = wx.ComboBox(self.main_panel, -1, choices=[], style=wx.CB_DROPDOWN)
         self.features_label = wx.StaticText(self.main_panel, -1, _("Working features:"))
-        self.features_button = wx.Button(self.main_panel, -1, _("Please select features..."))
+        self.features_button = wx.Button(self.main_panel, -1, _("Please select features…"))
         self.gammu_version_text_label = wx.StaticText(self.main_panel, -1, _("Gammu version:"))
         self.gammu_version_label = wx.StaticText(self.main_panel, -1, "")
         self.note_label = wx.StaticText(self.main_panel, -1, _("Note:"))

@@ -439,7 +439,7 @@ class SMSComposer(wx.Dialog):
         self.sizer.AddGrowableRow(row)
         self.editorrow = row
 
-        self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list...'), size=(-1, 150))
+        self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list…'), size=(-1, 150))
         self.sizer.Add(self.editor, pos=(row, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
 
         row = row + 2
@@ -528,7 +528,7 @@ class SMSComposer(wx.Dialog):
                 self.sizer.Detach(self.editor)
                 self.editor.Destroy()
                 del self.editor
-            self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list...'), size=(-1, 150))
+            self.editor = wx.StaticText(self, -1, _('Create new message by adding part to left list…'), size=(-1, 150))
             self.sizer.Add(self.editor, pos=(self.editorrow, 1), flag=wx.EXPAND, span=wx.GBSpan(colspan=7))
             self.sizer.Layout()
 
