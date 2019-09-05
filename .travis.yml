@@ -1,7 +1,6 @@
 language: python
 python:
   - "2.7"
-sudo: false
 install:
   - pip install codecov pytest pytest-cov -r requirements.txt
 script:
@@ -10,12 +9,8 @@ script:
   - coverage run --source . --append ./setup.py install
 after_script:
   - codecov
-virtualenv:
-  system_site_packages: true
 addons:
   apt:
-    sources:
-    - gammu
     packages:
     - libgammu-dev
     - python-wxgtk2.8
