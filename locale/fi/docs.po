@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Wammu-docs 0.31\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2017-10-23 09:31+0200\n"
-"PO-Revision-Date: 2017-10-24 08:45+0000\n"
-"Last-Translator: Tuomas Harju <tuomas@rtj-group.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/wammu-"
-"doc/fi/>\n"
+"PO-Revision-Date: 2019-11-19 09:04+0000\n"
+"Last-Translator: Tuomas Lähteenmäki <lahtis@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/wammu-doc/"
+"fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #. type: TH
 #: wammu.1:1
@@ -35,7 +35,7 @@ msgstr "24-01-2005"
 #: wammu.1:1
 #, no-wrap
 msgid "Mobile phone manager"
-msgstr "Puhelinmanageri"
+msgstr "Matkapuhelinmanageri"
 
 #. type: SH
 #: wammu.1:3 wammu-configure.1:3
@@ -46,7 +46,7 @@ msgstr "NIMI"
 #. type: Plain text
 #: wammu.1:5
 msgid "wammu - program for managing entries in your mobile phone"
-msgstr "wammu - ohjelma hallinoimaan puhelintasi"
+msgstr "wammu - matkapuhelimen merkintöjen hallintaohjelma"
 
 #. type: SH
 #: wammu.1:6 wammu-configure.1:6
@@ -71,6 +71,8 @@ msgid ""
 "This manual page explains the B<wammu> program. This program is graphical "
 "interface for gammu."
 msgstr ""
+"Tämä manuaalin sivu selittää B <wammu>-ohjelman. Tämä ohjelma on gammun "
+"graafinen käyttöliittymä."
 
 #. type: SH
 #: wammu.1:16 wammu-configure.1:16
@@ -84,12 +86,15 @@ msgid ""
 "These programs follow the usual GNU command line syntax, with long options "
 "starting with two dashes (`-').  A summary of options is included below."
 msgstr ""
+"Nämä ohjelmat seuraavat tavanomaista GNU komentorivin syntaksia, jossa "
+"pitkät valinnat alkavat kahdesta viivasta (`-'). Alla on yhteenveto "
+"vaihtoehdoista."
 
 #. type: TP
 #: wammu.1:20 wammu-configure.1:20
 #, no-wrap
 msgid "B<-h, --help>"
-msgstr ""
+msgstr "B<-h, --help>"
 
 #. type: Plain text
 #: wammu.1:23 wammu-configure.1:23
@@ -100,7 +105,7 @@ msgstr "Näytä yhteenveto asetuksista."
 #: wammu.1:23 wammu-configure.1:23
 #, no-wrap
 msgid "B<-v, --version>"
-msgstr ""
+msgstr "B<-v, --version>"
 
 #. type: Plain text
 #: wammu.1:26 wammu-configure.1:26
@@ -111,7 +116,7 @@ msgstr "Näytä ohjelman versio."
 #: wammu.1:26 wammu-configure.1:26
 #, no-wrap
 msgid "B<-l, --local-locales>"
-msgstr ""
+msgstr "B<-l, --local-locales>"
 
 #. type: Plain text
 #: wammu.1:31 wammu-configure.1:31
@@ -120,12 +125,15 @@ msgid ""
 "useful for development or when running from unpacked tarball without "
 "installation."
 msgstr ""
+"Käytä kieli versioiden sijasta nykyistä hakemistoa. Tästä on hyötyä "
+"enimmäkseen kehittämisessä tai ajaessa pakkaamattomasta tarballista ilman "
+"asennusta."
 
 #. type: TP
 #: wammu.1:31
 #, no-wrap
 msgid "B<-i, --info>"
-msgstr ""
+msgstr "B<-i, --info>"
 
 #. type: Plain text
 #: wammu.1:35
@@ -133,12 +141,14 @@ msgid ""
 "Prints connection settings and tries to connect the phone and display some "
 "basic information about it. This does not use GUI."
 msgstr ""
+"Tulostaa yhteyden asetukset ja yrittää yhdistää puhelimen, sekä näyttää "
+"joitakin perustietoja siitä. Tämä ei käytä käyttöliittymää."
 
 #. type: TP
 #: wammu.1:35
 #, no-wrap
 msgid "B<-d, --debug>"
-msgstr ""
+msgstr "B<-d, --debug>"
 
 #. type: Plain text
 #: wammu.1:39
@@ -146,6 +156,8 @@ msgid ""
 "Enables printing of debug information to stderr. Work for both GUI and --"
 "info."
 msgstr ""
+"Mahdollistaa virheenkorjaustietojen tulostamisen stderr-tiedostoon. Toimii "
+"käyttöliittymällä ja --info komennolla."
 
 #. type: SH
 #: wammu.1:40 wammu-configure.1:32
@@ -156,7 +168,7 @@ msgstr "LISENSSI"
 #. type: Plain text
 #: wammu.1:42 wammu-configure.1:34
 msgid "This program is licensed under GNU/GPL version 3 or later."
-msgstr ""
+msgstr "Tämä ohjelma on lisensoitu GNU/GPL-versiolla 3 tai uudemmalla."
 
 #. type: SH
 #: wammu.1:43 wammu-configure.1:35
@@ -172,12 +184,16 @@ msgid ""
 "received and debug output). Please submit your reports to E<lt>https://"
 "github.com/gammu/wammu/issues/E<gt>."
 msgstr ""
+"On ehdottomasti monia vikoja, joista raportointi kehittäjälle on "
+"tervetullutta. Ole hyvä ja lisää hyödyllisiä tietoja lähetessäsi "
+"vikaraporttia (esim. poikkeus jonka sait ja debug- ulostulo). Ole hyvä ja "
+"lähetä virheraportit E<lt>https://github.com/gammu/wammu/issues/E<gt>."
 
 #. type: SH
 #: wammu.1:48 wammu-configure.1:40
 #, no-wrap
 msgid "SEE ALSO"
-msgstr ""
+msgstr "KATSO MYÖS"
 
 #. type: Plain text
 #: wammu.1:51 wammu-configure.1:43
@@ -185,60 +201,65 @@ msgid ""
 "More information is available on program website: E<lt>I<https://wammu.eu/"
 ">E<gt>."
 msgstr ""
+"Lisätietoja on saatavilla ohjelman verkkosivuilta E<lt>I<https://wammu.eu/"
+">E<gt>."
 
 #. type: Plain text
 #: wammu.1:53 wammu-configure.1:45
 msgid "gammu(1)"
-msgstr ""
+msgstr "gammu(1)"
 
 #. type: Plain text
 #: wammu.1:55
 msgid "wammu-configure(1)"
-msgstr ""
+msgstr "wammu-configure(1)"
 
 #. type: SH
 #: wammu.1:56 wammu-configure.1:48
 #, no-wrap
 msgid "AUTHOR"
-msgstr ""
+msgstr "TEKIJÄ"
 
 #. type: Plain text
 #: wammu.1:58 wammu-configure.1:50
 msgid "Michal Cihar E<lt>I<michal@cihar.com>E<gt>"
-msgstr ""
+msgstr "Michal Cihar E<lt>I<michal@cihar.com>E<gt>"
 
 #. type: SH
 #: wammu.1:58 wammu-configure.1:50
 #, no-wrap
 msgid "COPYRIGHT"
-msgstr ""
+msgstr "TEKIJÄNOIKEUDET"
 
 #. type: Plain text
 #: wammu.1:59 wammu-configure.1:51
 msgid "Copyright \\(co 2003 - 2008 Michal Cihar E<lt>I<michal@cihar.com>E<gt>"
 msgstr ""
+"Tekijänoikeus \\(co 2003 - 2008 Michal Cihar E<lt>I<michal@cihar.com>E<gt>"
 
 #. type: TH
 #: wammu-configure.1:1
 #, no-wrap
 msgid "wammu-configure"
-msgstr ""
+msgstr "wammu-configure"
 
 #. type: TH
 #: wammu-configure.1:1
 #, no-wrap
 msgid "Mobile phone manager configuration"
-msgstr ""
+msgstr "Matkapuhelimen hallintamanageri"
 
 #. type: Plain text
 #: wammu-configure.1:5
 msgid "wammu-configurator - program to configure Gammu engine (used by Wammu)"
 msgstr ""
+"wammu-configurator - ohjelma määrittää Gammu moottorin (wammu-ohjelman "
+"käyttämä))"
 
 #. type: Plain text
 #: wammu-configure.1:9
 msgid "B<wammu-configure> [I<options>]"
-msgstr ""
+msgstr "B<wammu-configure> [I<options>]"
 
 #. type: Plain text
 #: wammu-configure.1:15
@@ -246,11 +267,13 @@ msgid ""
 "This manual page explains the B<wammu-configure> program. This program is "
 "graphical configuration manager for gammu."
 msgstr ""
+"Tämä käsikirjan sivu selittää B<wammu-configure> -ohjelman. Tämä ohjelma on "
+"graafinen konfiguraatiomanageri gammulle."
 
 #. type: Plain text
 #: wammu-configure.1:47
 msgid "wammu(1)"
-msgstr ""
+msgstr "wammu(1)"
 
 #. type: Title =
 #: README.rst:2
@@ -261,7 +284,7 @@ msgstr "Wammu"
 #. type: Plain text
 #: README.rst:5
 msgid "GUI for the `Gammu library <https://wammu.eu/gammu/>`_."
-msgstr ""
+msgstr "Käyttöliittymä `Gammu kirjastoon <https://wammu.eu/gammu/>`_."
 
 #. type: Labeled list
 #: README.rst:6 README.rst:12 README.rst:16 README.rst:20 README.rst:24
@@ -275,6 +298,7 @@ msgstr ".. image"
 msgid ""
 "https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu.svg"
 msgstr ""
+"https://app.codesponsor.io/embed/e9cresCoq9fvHq4ya92dgNSj/gammu/wammu.svg"
 
 #. type: Plain text
 #: README.rst:10
@@ -282,6 +306,8 @@ msgid ""
 ":width: 888 :height: 68 :target: https://app.codesponsor.io/link/"
 "e9cresCoq9fvHq4ya92dgNSj/gammu/wammu"
 msgstr ""
+":width: 888 :height: 68 :target: https://app.codesponsor.io/link/"
+"e9cresCoq9fvHq4ya92dgNSj/gammu/wammu"
 
 #. type: Plain text
 #: README.rst:13
@@ -294,19 +320,20 @@ msgid ""
 ":alt: Translation status :target: https://hosted.weblate.org/engage/gammu/?"
 "utm_source=widget"
 msgstr ""
-":alt: Translation status :target: https://hosted.weblate.org/engage/gammu/?"
-"utm_source=widget"
+":alt: Käännöstila :target: https://hosted.weblate.org/engage/gammu/"
+"?utm_source=widget"
 
 #. type: Plain text
 #: README.rst:17
 msgid "https://landscape.io/github/gammu/wammu/master/landscape.svg?style=flat"
-msgstr ""
+msgstr "https://landscape.io/github/gammu/wammu/master/landscape.svg?style=flat"
 
 #. type: Plain text
 #: README.rst:19
 msgid ""
 ":target: https://landscape.io/github/gammu/wammu/master :alt: Code Health"
 msgstr ""
+":target: https://landscape.io/github/gammu/wammu/master :alt: Code Health"
 
 #. type: Plain text
 #: README.rst:21
@@ -337,42 +364,40 @@ msgstr ""
 #. type: Plain text
 #: README.rst:29
 msgid "https://travis-ci.org/gammu/wammu.svg?branch=master"
-msgstr ""
+msgstr "https://travis-ci.org/gammu/wammu.svg?branch=master"
 
 #. type: Plain text
 #: README.rst:30
-#, fuzzy
-#| msgid ":alt: Bitdeli badge :target: https://bitdeli.com/free"
 msgid ":target: https://travis-ci.org/gammu/wammu"
-msgstr ":alt: Bitdeli badge :target: https://bitdeli.com/free"
+msgstr ":target: https://travis-ci.org/gammu/wammu"
 
 #. type: Title =
 #: README.rst:32
 #, no-wrap
 msgid "Homepage"
-msgstr ""
+msgstr "Kotisivu"
 
 #. type: Plain text
 #: README.rst:35
 msgid "<https://wammu.eu/>"
-msgstr ""
+msgstr "<https://wammu.eu/>"
 
 #. type: Title =
 #: README.rst:37
 #, no-wrap
 msgid "License"
-msgstr ""
+msgstr "Lisenssi"
 
 #. type: Plain text
 #: README.rst:40
 msgid "GNU GPL version 3 or later."
-msgstr ""
+msgstr "GNU GPL versio 3 tai uudempi."
 
 #. type: Title =
 #: README.rst:42
 #, no-wrap
 msgid "First start"
-msgstr ""
+msgstr "Ensimmäinen aloitus"
 
 #. type: Plain text
 #: README.rst:47
@@ -381,12 +406,16 @@ msgid ""
 "never used Gammu/Wammu before, phone searching will be suggested, which "
 "should do the job for you."
 msgstr ""
+"Ensimmäisen aloituksen yhteydessä sinua pyydetään asettamaan "
+"puhelinparametri. Jos et ole koskaan käyttänyt Gammua tai Wammua "
+"aikaisemmin, suositellaan puhelinhakua, jonka pitäisi tehdä parametrien halu "
+"sinulle helposti."
 
 #. type: Title =
 #: README.rst:49
 #, no-wrap
 msgid "Usage"
-msgstr ""
+msgstr "Käyttö"
 
 #. type: Plain text
 #: README.rst:54
@@ -395,6 +424,9 @@ msgid ""
 "with it. For creating entries and importing you do not need to read things "
 "from phone, for others you have to (surprising? :-))."
 msgstr ""
+"Ensin sinun on muodostettava yhteys puhelimeen, niin voit suorittaa joitain "
+"toimintoja sen kanssa. Merkintöjen luomiseen ja tuontiin ei tarvitse lukea "
+"asioita puhelimesta, muille sinun täytyy (yllättävää?:-))."
 
 #. type: Plain text
 #: README.rst:57
@@ -402,6 +434,9 @@ msgid ""
 "All actions with current list are accessible from context menu on each item, "
 "you can also use keys: Enter for editing and Delete for deleting."
 msgstr ""
+"Kaikki toiminnot, joilla on nykyinen luettelo, ovat käytettävissä kunkin "
+"kohteen konteksti valikosta, voit myös käyttää näppäimiä: ENTER muokkaamista "
+"varten ja POISTA poistettaessa."
 
 #. type: Plain text
 #: README.rst:60
@@ -409,23 +444,25 @@ msgid ""
 "Backup from main menu creates backup of entries you have already retrieved "
 "from phone."
 msgstr ""
+"Varmuuskopiointi päävalikosta luo varmuuskopion tapahtumista, jotka on jo "
+"haettu puhelimeen."
 
 #. type: Title =
 #: README.rst:62
 #, no-wrap
 msgid "Bug reporting"
-msgstr ""
+msgstr "Ohjelmavirheiden raportointi"
 
 #. type: Plain text
 #: README.rst:65
 msgid "Please report found bugs to <https://github.com/gammu/wammu/issues/>."
-msgstr ""
+msgstr "Ilmoita löytyneistä virheistä <https://github.com/gammu/wammu/issues/>."
 
 #. type: Title =
 #: README.rst:67
 #, no-wrap
 msgid "Translating"
-msgstr ""
+msgstr "Kotoistus"
 
 #. type: Plain text
 #: README.rst:71
@@ -433,12 +470,14 @@ msgid ""
 "You can help translating Wammu to your language on translation server - "
 "<https://hosted.weblate.org/projects/gammu/wammu/>."
 msgstr ""
+"Voit auttaa kääntämään Wammun kielellesi käännöspalvelimella - "
+"<https://hosted.weblate.org/projects/gammu/wammu/>."
 
 #. type: Title =
 #: README.rst:73
 #, no-wrap
 msgid "Version control"
-msgstr ""
+msgstr "Version hallinta"
 
 #. type: Plain text
 #: README.rst:77
@@ -446,18 +485,21 @@ msgid ""
 "The development goes on in Git, main development branch is <git://github.com/"
 "gammu/wammu.git>, you can browse it using <https://github.com/gammu/wammu>."
 msgstr ""
+"Kehitys tapahtuu Gitissä, pääkehityshaara löytyy osoitteesta <git://github."
+"com/gammu/wammu.git>, voit selata sitä käyttämällä osoitetta <https://github."
+"com/gammu/wammu>."
 
 #. type: Title =
 #: INSTALL:2
 #, no-wrap
 msgid "Wammu installation"
-msgstr ""
+msgstr "Wammun asennus"
 
 #. type: Title =
 #: INSTALL:5
 #, no-wrap
 msgid "Packages for Linux"
-msgstr ""
+msgstr "Paketit Linuxille"
 
 #. type: Plain text
 #: INSTALL:11
@@ -467,17 +509,21 @@ msgid ""
 "release built for many distributions available on Wammu web site <https://"
 "wammu.eu/download/wammu/>."
 msgstr ""
+"Monet jakelut tukevat ennalta esikäännetyistä Wammu-binääreistä, jos voit "
+"käyttää niitä, käytä niitä sillä se on ehdottomasti helpoin asia. On myös "
+"olemassa binääri-paketteja uusimmista julkaisuista monille jakeluille, jotka "
+"ovat saatavilla Wammun kotisivulta <https://wammu.eu/download/wammu/>."
 
 #. type: Title =
 #: INSTALL:14
 #, no-wrap
 msgid "Building from Sources"
-msgstr ""
+msgstr "Lähdekoodista kääntäminen"
 
 #. type: Plain text
 #: INSTALL:17
 msgid "It uses standard distutils, so:"
-msgstr ""
+msgstr "Se käyttää vakio jakelu välineitä (distutils), joten:"
 
 #. type: Plain text
 #: INSTALL:20
@@ -486,6 +532,8 @@ msgid ""
 "    python setup.py build\n"
 "    sudo python setup.py install\n"
 msgstr ""
+"    python setup.py build\n"
+"    sudo python setup.py install\n"
 
 #. type: Plain text
 #: INSTALL:25
@@ -495,11 +543,15 @@ msgid ""
 "devices, you need PyBluez [2]. For incoming events notifications, you need "
 "dbus-python [3]."
 msgstr ""
+"Tämän ohjelman suorittamiseen ja asentamiseen tarvitaan python-gammu ja "
+"wxPython [1] (Unicode-yhteensopiva koonti versio). Jos haluat tukea "
+"Bluetooth-laitteiden skannaukseen, tarvitset PyBluez [2]. Saapuvien "
+"tapahtumien ilmoituksia varten tarvitaan dbus-python [3]."
 
 #. type: Plain text
 #: INSTALL:27
 msgid "For Windows you also have to install Pywin32 [4]."
-msgstr ""
+msgstr "Windowsin osalta sinun on myös asennettava Pywin32 [4]."
 
 #. type: Plain text
 #: INSTALL:30
@@ -507,6 +559,8 @@ msgid ""
 "If you want to obey dependency checking at build time for any reason, you "
 "can use --skip-deps option."
 msgstr ""
+"Jos haluat mistä tahansa syystä noudattaa riippuvuuden tarkistusta ohjelman "
+"rakennusaikana, voit käyttää --skip-deps vaihtoehtoa."
 
 #. type: Plain text
 #: INSTALL:32
@@ -532,7 +586,7 @@ msgstr "[4]: https://sourceforge.net/projects/pywin32/"
 #: INSTALL:41
 #, no-wrap
 msgid "Cross compilation for Windows on Linux"
-msgstr ""
+msgstr "Ristikäännös Windows-käyttöjärjestelmälle Linuxissa"
 
 #. type: Plain text
 #: INSTALL:45
@@ -540,17 +594,20 @@ msgid ""
 "You need Wine with installed all dependencies (see above section where to "
 "get them)."
 msgstr ""
+"Tarvitset Winen, johon on asennettu kaikki riippuvuudet (ks. edellä oleva "
+"kohta, mistä ne saadaan)."
 
 #. type: Plain text
 #: INSTALL:47
 msgid "Building installer for wammu for Python is easy:"
-msgstr ""
+msgstr "Wammun asennus Pythonille on helppoa:"
 
 #. type: Plain text
 #: INSTALL:49
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 msgstr ""
+"    wine c:\\\\python25\\\\python setup.py build --skip-deps bdist_wininst\n"
 
 #. type: Plain text
 #: INSTALL:52
@@ -558,12 +615,15 @@ msgid ""
 "However this way user needs to also install all dependencies, what is really "
 "not comfortable. This should be solved using py2exe [5]:"
 msgstr ""
+"Tällä tavalla käyttäjän on kuitenkin asennettava myös kaikki riippuvuudet, "
+"mikä ei todellakaan ole mukavaa. Tämä pitäisi ratkaista käyttämällä py2exe "
+"[5]:"
 
 #. type: Plain text
 #: INSTALL:54
 #, no-wrap
 msgid "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
-msgstr ""
+msgstr "    wine c:\\\\python25\\\\python setup.py build --skip-deps py2exe\n"
 
 #. type: Plain text
 #: INSTALL:60
@@ -574,17 +634,25 @@ msgid ""
 "directory (python25.dll and libraries from wxPython). See script admin/make-"
 "release which automates this copying."
 msgstr ""
+"Mutta tätä lukuun ottamatta, sinun täytyy tehdä hieman manuaalista säätöä. "
+"Py2exe toimii Winessä, sinun on korjattava sen binääri käyttäen PE Toolsia ("
+"kuvattu Winen virheraportissa [w1]) ja kopioida joitakin ylimääräisiä "
+"kirjastoja, jotka puuttuvat jakelun hakemistosta (python25.dll ja kirjasto "
+"wxPython). Katso tämän kopioinnin automatisoiva skripti admin/make- request."
 
 #. type: Plain text
 #: INSTALL:62
 msgid "Then you can use InnoSetup[6] to build installer for Wammu:"
 msgstr ""
+"Sitten voit käyttää InnoSetup [6] -sovellusta Wammun asennusohjelman "
+"rakentamiseen:"
 
 #. type: Plain text
 #: INSTALL:64
 #, no-wrap
 msgid "    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 msgstr ""
+"    wine c:\\\\Program\\ Files\\\\Inno\\ Setup\\ 5/\\\\ISCC.exe wammu.iss\n"
 
 #. type: Plain text
 #: INSTALL:66
