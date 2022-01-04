@@ -1,14 +1,15 @@
 # Italian translation for wammu
 # This file is distributed under the same license as the wammu package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+# ALBANO BATTISTELLA <ALBANO_BATTISTELLA@HOTMAIL.COM>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-01-05 15:34+0100\n"
-"PO-Revision-Date: 2013-11-25 16:30+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2022-01-03 20:30+0100\n"
+"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <http://hosted.weblate.org/projects/gammu/wammu/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +42,6 @@ msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> è un'interfaccia grafica per Gammu basata su wxPython."
 
 #: Wammu/About.py:104
-#, fuzzy
 #| msgid ""
 #| "\n"
 #| "This program is free software; you can redistribute it and/or modify\n"
@@ -58,6 +58,12 @@ msgstr ""
 "Questo programma è software libero; può essere distribuito e/o modificato\n"
 "secondo i termini della GNU General Public License versione 2\n"
 "pubblicata dalla Free Software Foundation.\n"
+msgstr "
+"\n"
+"Questo programma è un software gratuito: puoi ridistribuirlo e/o modificarlo\n"
+"in base ai termini della GNU General Public License come pubblicata da\n"
+"la Free Software Foundation, versione 3 della licenza o\n"
+"(a tua scelta) qualsiasi versione successiva.\n"
 
 #: Wammu/About.py:110
 msgid ""
@@ -209,12 +215,9 @@ msgid "Concatenated"
 msgstr "Concatenati"
 
 #: Wammu/Composer.py:167
-#, fuzzy
 #| msgid "Create concatenated message, what allows to send longer messages."
 msgid "Create concatenated message, which allows to send longer messages."
-msgstr ""
-"Creare messaggi concatenati, quello che permette di inviare messaggi più "
-"lunghi."
+msgstr "Crea messaggio concatenato, che consente di inviare messaggi più lunghi."
 
 #: Wammu/Composer.py:175
 msgid "Style"
@@ -303,14 +306,12 @@ msgid "Sent"
 msgstr "Inviati"
 
 #: Wammu/Composer.py:399
-#, fuzzy
 #| msgid ""
 #| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
 "Check to save message as sent (only has effect when saving the message)."
 msgstr ""
-"Selezionare per salvare i messaggi come inviati (ha effetto solo nel "
-"salvataggio di messaggi)."
+"Selezionare per salvare il messaggio come inviato (ha effetto solo quando si salva il messaggio).
 
 #: Wammu/Composer.py:402
 msgid "Flash"
@@ -431,7 +432,7 @@ msgstr "Notifica"
 
 #: Wammu/Data.py:52
 msgid "Drum"
-msgstr ""
+msgstr "Tamburo"
 
 #: Wammu/Data.py:53
 msgid "Claps"
@@ -615,7 +616,6 @@ msgid "Editing %(name)s %(location)s"
 msgstr "Modifica %(name)s %(location)s"
 
 #: Wammu/Editor.py:265
-#, fuzzy
 #| msgid "Location (0 = auto):"
 msgid "Location (0=auto):"
 msgstr "Posizione (0 = auto):"
@@ -791,7 +791,7 @@ msgstr "Codice prodotto"
 
 #: Wammu/Info.py:129 Wammu/Info.py:145
 msgid "N/A"
-msgstr "non disponibile"
+msgstr "Non disponibile"
 
 #: Wammu/Info.py:130
 msgid "SIM IMSI"
@@ -1140,11 +1140,11 @@ msgstr "Acquisisci eventi calendario."
 
 #: Wammu/Main.py:337
 msgid "A&ll"
-msgstr ""
+msgstr "Tutti"
 
 #: Wammu/Main.py:337
 msgid "Retrieve everything above."
-msgstr ""
+msgstr "Recupera tutto sopra."
 
 #: Wammu/Main.py:339
 msgid "&Retrieve"
@@ -1191,21 +1191,19 @@ msgid "&Save"
 msgstr "&Salva"
 
 #: Wammu/Main.py:350
-#, fuzzy
 #| msgid "Save currently retrieved data (except messages) to backup."
 msgid "Backup currently retrieved data (except messages)."
 msgstr ""
-"Salva le informazioni acquisite finora (eccetto i messaggi) nel backup."
+"Backup dei dati attualmente recuperati (eccetto i messaggi)."
 
 #: Wammu/Main.py:351
 msgid "S&ave messages"
 msgstr "S&alva messaggi"
 
 #: Wammu/Main.py:351
-#, fuzzy
 #| msgid "Save currently retrieved messages to backup."
 msgid "Backup currently retrieved messages."
-msgstr "Salva i messaggi acquisiti finora nel backup."
+msgstr "Backup dei messaggi attualmente recuperati."
 
 #: Wammu/Main.py:352
 msgid "&Import to phone"
@@ -2617,7 +2615,6 @@ msgid "Default time"
 msgstr "Orario predefinito"
 
 #: Wammu/Settings.py:410
-#, fuzzy
 #| msgid ""
 #| "Default date to be used for newly created time fields. Enter amount of "
 #| "days from today (1 = tomorrow)."
@@ -2625,14 +2622,13 @@ msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1=tomorrow)."
 msgstr ""
-"Data predefinita da usare per la creazione di nuovi campi di tipo orario. "
-"Inserire la somma di giorni a partire da oggi (1 = oggi)."
+"Data predefinita da utilizzare per i campi dell'ora appena creati. Inserisci il numero di giorni "
+"da oggi (1=domani)."
 
 #: Wammu/Settings.py:411
-#, fuzzy
 #| msgid "Default date = now + x days"
 msgid "Default date=now + x days"
-msgstr "Orario predefinito = ora + x giorni"
+msgstr "Data predefinita=ora + x giorni""
 
 #: Wammu/Settings.py:425
 msgid "How many entries will be shown in newly created item."
@@ -3398,9 +3394,8 @@ msgstr ""
 "informazioni che vedrai qui verranno inviate."
 
 #: Wammu/TalkbackDialog.py:55
-#, fuzzy
 msgid "Manufacturer:"
-msgstr "Produttore"
+msgstr "Produttore:"
 
 #: Wammu/TalkbackDialog.py:57
 msgid "Phone model:"
@@ -3423,9 +3418,8 @@ msgid "Please select features..."
 msgstr "Seleziona le funzionalità..."
 
 #: Wammu/TalkbackDialog.py:65
-#, fuzzy
 msgid "Gammu version:"
-msgstr "Versione di Gammu"
+msgstr "Versione di Gammu:"
 
 #: Wammu/TalkbackDialog.py:67
 msgid "Note:"
@@ -3534,14 +3528,14 @@ msgstr ""
 "più tardi o di creare l'elemento manualmente."
 
 #: Wammu/TalkbackDialog.py:283
-#, fuzzy, python-format
 msgid ""
 "HTTP request failed with exception:\n"
 "%(exception)s\n"
 "Please retry later or create entry manually."
 msgstr ""
-"Richiesta HTTP fallita con stato %(code)d (%(text)s), si prega di riprovare "
-"più tardi o di creare l'elemento manualmente."
+"Richiesta HTTP non riuscita con eccezione:\n"
+"%(eccezione)s\n"
+"Riprova più tardi o crea la voce manualmente."
 
 #: Wammu/TalkbackDialog.py:299
 #, python-format
@@ -3627,9 +3621,8 @@ msgid "Logos"
 msgstr "Logo"
 
 #: Wammu/TalkbackFeaturesDialog.py:49
-#, fuzzy
 msgid "Ringtones"
-msgstr "Toni suoneria"
+msgstr "Suonerie"
 
 #: Wammu/TalkbackFeaturesDialog.py:60
 msgid "Select features"
@@ -3952,7 +3945,7 @@ msgstr "Applicazione per telefoni cellulari - interfaccia per Gammu"
 #. l10n: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: wammu_setup/msgfmt.py:52
 msgid "phone;mobile;sms;contact;calendar;todo;"
-msgstr ""
+msgstr "telefono;cellulare;sms;contatto;calendario;da fare;"
 
 #: wammu_setup/msgfmt.py:55
 msgid ""
@@ -3960,6 +3953,9 @@ msgid ""
 "with any phone that Gammu supports, including many models from Nokia, "
 "Siemens, and Alcatel."
 msgstr ""
+Wammu è un gestore di telefoni cellulari che utilizza Gammu come backend. Funziona "
+"con qualsiasi telefono supportato da Gammu, inclusi molti modelli Nokia, "
+"Siemens e Alcatel".
 
 #: wammu_setup/msgfmt.py:60
 msgid ""
@@ -3970,6 +3966,12 @@ msgid ""
 "edited in the SMS composer. It can export messages to an IMAP4 server (or "
 "other email storage)."
 msgstr ""
+"Ha un supporto completo (legge, modifica, elimina, copia) per contatti, cose da fare e "
+"calendario. Può leggere, salvare e inviare SMS. Include un compositore di SMS per "
+"messaggi SMS in più parti e può visualizzare messaggi SMS che includono "
+"immagini. Attualmente, solo testo e bitmap o suoni predefiniti possono essere "
+"modificato nel compositore SMS. Può esportare i messaggi su un server IMAP4 (o "
+"altro spazio di archiviazione e-mail)."
 
 #~ msgid "&Import"
 #~ msgstr "&Importa"
