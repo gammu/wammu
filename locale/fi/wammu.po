@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-01-05 15:34+0100\n"
+"POT-Creation-Date: 2022-01-05 08:58+0100\n"
 "PO-Revision-Date: 2019-11-20 10:04+0000\n"
 "Last-Translator: Tuomas Lähteenmäki <lahtis@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/wammu/fi/>"
-"\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/wammu/fi/"
+">\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -206,7 +206,7 @@ msgstr "Tekstin tyyli"
 msgid "Concatenated"
 msgstr "Yhteenliitetty"
 
-#: Wammu/Composer.py:167
+#: Wammu/Composer.py:167 Wammu/Settings.py:250
 msgid "Create concatenated message, which allows to send longer messages."
 msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
 
@@ -320,7 +320,9 @@ msgid "Available message parts"
 msgstr "Saatavilla olevat viestin osat"
 
 #: Wammu/Composer.py:442 Wammu/Composer.py:531
-msgid "Create new message by adding part to left list..."
+#, fuzzy
+#| msgid "Create new message by adding part to left list..."
+msgid "Create new message by adding part to left list…"
 msgstr "Luo uusi viesti lisäämällä osa vasemmasta listasta..."
 
 #: Wammu/Composer.py:447
@@ -355,12 +357,14 @@ msgid "XML File"
 msgstr "XML Tiedosto"
 
 #: Wammu/ContactsXML.py:145 Wammu/EditContactList.py:92 Wammu/Main.py:1470
-#: Wammu/Main.py:2241 Wammu/SMSExport.py:38 Wammu/SMSXML.py:84
+#: Wammu/Main.py:2242 Wammu/SMSExport.py:38 Wammu/SMSXML.py:84
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
 #: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:87
-msgid "Select XML file..."
+#, fuzzy
+#| msgid "Select XML file..."
+msgid "Select XML file…"
 msgstr "Valitse XML tiedosto..."
 
 #: Wammu/ContactsXML.py:160
@@ -577,12 +581,12 @@ msgid "File can not be created!"
 msgstr "Kansiota ei voi luoda!"
 
 # It is unclear if file doesn't exists at all or if it's just empty
-#: Wammu/EditContactList.py:196 Wammu/Main.py:2286
+#: Wammu/EditContactList.py:196 Wammu/Main.py:2287
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr "Valittua tiedostoa \"%s\" ei löytynyt, ei tietoa luettavana."
 
-#: Wammu/EditContactList.py:197 Wammu/Main.py:2287
+#: Wammu/EditContactList.py:197 Wammu/Main.py:2288
 msgid "File not found!"
 msgstr "Tiedostoa ei löytynyt!"
 
@@ -639,8 +643,10 @@ msgstr ""
 "sisällyttää se virheraporttiin."
 
 #: Wammu/ErrorMessage.py:74
-msgid "Save debug log..."
-msgstr "Tallennetaan virhelokia..."
+#, fuzzy
+#| msgid "&Save debug log"
+msgid "Save debug log…"
+msgstr "Tallenna debuggaus loki"
 
 #: Wammu/ErrorMessage.py:79
 msgid "Search for similar reports"
@@ -650,8 +656,10 @@ msgstr "Etsi vastaavia raportteja"
 msgid "Report bug"
 msgstr "Ilmoita virheestä"
 
-#: Wammu/ErrorMessage.py:100 Wammu/Main.py:2506
-msgid "Save debug log as..."
+#: Wammu/ErrorMessage.py:100 Wammu/Main.py:2507
+#, fuzzy
+#| msgid "Save debug log as..."
+msgid "Save debug log as…"
 msgstr "Tallenna virheloki nimellä..."
 
 #: Wammu/Error.py:54
@@ -807,7 +815,9 @@ msgid "Wammu debug log"
 msgstr "Wammu virheloki"
 
 #: Wammu/Logger.py:139
-msgid "Here will appear debug messages from Gammu...\n"
+#, fuzzy
+#| msgid "Here will appear debug messages from Gammu...\n"
+msgid "Here will appear debug messages from Gammu…\n"
 msgstr "Tänne ilmestyy debug ilmoitukset Gammusta...\n"
 
 #: Wammu/Main.py:112 Wammu/Main.py:140
@@ -1508,7 +1518,9 @@ msgid "Folder"
 msgstr "Hakemisto"
 
 #: Wammu/Main.py:1084
-msgid "Writing message(s)..."
+#, fuzzy
+#| msgid "Writing message(s)..."
+msgid "Writing message(s)…"
 msgstr "Kirjoitetaan viesti(t)..."
 
 #: Wammu/Main.py:1116
@@ -1526,7 +1538,9 @@ msgid "Could not read saved message!"
 msgstr "Tallennettua viestiä ei pysty avaamaan!"
 
 #: Wammu/Main.py:1150
-msgid "Writing contact..."
+#, fuzzy
+#| msgid "Writing contact..."
+msgid "Writing contact…"
 msgstr "Kirjoitetaan yhteystietoja..."
 
 #: Wammu/Main.py:1189 Wammu/Main.py:1256 Wammu/Main.py:1313
@@ -1542,11 +1556,15 @@ msgid "Could not read saved entry!"
 msgstr "Ei voitu lukea talletettua tietoa!"
 
 #: Wammu/Main.py:1224
-msgid "Writing calendar..."
+#, fuzzy
+#| msgid "Writing calendar..."
+msgid "Writing calendar…"
 msgstr "Kirjoitetaan kalenteria..."
 
 #: Wammu/Main.py:1284
-msgid "Writing todo..."
+#, fuzzy
+#| msgid "Writing todo..."
+msgid "Writing todo…"
 msgstr "Kirjoitetaan tehtävää..."
 
 #: Wammu/Main.py:1445
@@ -1582,7 +1600,9 @@ msgid "iCalendar [todo,calendar]"
 msgstr "iKalenteri [tehtävä,kalenteri]"
 
 #: Wammu/Main.py:1477
-msgid "Save data as..."
+#, fuzzy
+#| msgid "Save data as..."
+msgid "Save data as…"
 msgstr "Talleta tieto nimellä..."
 
 #: Wammu/Main.py:1486
@@ -1590,7 +1610,9 @@ msgid "Read data"
 msgstr "Lue tietoja"
 
 #: Wammu/Main.py:1496
-msgid "Save backup as..."
+#, fuzzy
+#| msgid "Save backup as..."
+msgid "Save backup as…"
 msgstr "Tallenna varmuuskopio nimellä..."
 
 #: Wammu/Main.py:1505
@@ -1633,7 +1655,9 @@ msgid "Select what to import"
 msgstr "Valitse mitä tuodaan"
 
 #: Wammu/Main.py:1612 Wammu/Main.py:1709
-msgid "Importing data..."
+#, fuzzy
+#| msgid "Importing data..."
+msgid "Importing data…"
 msgstr "Tuodaan tietoa..."
 
 #: Wammu/Main.py:1640 Wammu/Main.py:1764
@@ -1786,115 +1810,131 @@ msgstr[1] "Haluatko varmasti poistaa %d kalenterimerkintää?"
 msgid "Confirm deleting"
 msgstr "Vahvista poisto"
 
-#: Wammu/Main.py:1960
-msgid "Deleting contact(s)..."
+#: Wammu/Main.py:1961
+#, fuzzy
+#| msgid "Deleting contact(s)..."
+msgid "Deleting contact(s)…"
 msgstr "Poistetaan yhteystietoja..."
 
-#: Wammu/Main.py:1970
-msgid "Deleting message(s)..."
+#: Wammu/Main.py:1971
+#, fuzzy
+#| msgid "Deleting message(s)..."
+msgid "Deleting message(s)…"
 msgstr "Tuhoa viesti(t)..."
 
-#: Wammu/Main.py:1981
-msgid "Deleting todo(s)..."
+#: Wammu/Main.py:1982
+#, fuzzy
+#| msgid "Deleting todo(s)..."
+msgid "Deleting todo(s)…"
 msgstr "Poistetaan tehtävä(iä)..."
 
-#: Wammu/Main.py:1991
-msgid "Deleting calendar event(s)..."
+#: Wammu/Main.py:1992
+#, fuzzy
+#| msgid "Deleting calendar event(s)..."
+msgid "Deleting calendar event(s)…"
 msgstr "Poistetaan kalenterimerkintää(töjä)..."
 
-#: Wammu/Main.py:2070 Wammu/Main.py:2161
+#: Wammu/Main.py:2071 Wammu/Main.py:2162
 msgid "Reading phone information"
 msgstr "Luetaan puhelimen tietoja"
 
-#: Wammu/Main.py:2095
+#: Wammu/Main.py:2096
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Luetaan %s tyyppisiä puheluita"
 
-#: Wammu/Main.py:2123
+#: Wammu/Main.py:2124
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Luetaan yhteystietoja %s :tä"
 
-#: Wammu/Main.py:2131 Wammu/Main.py:2192
+#: Wammu/Main.py:2132 Wammu/Main.py:2193
 msgid "Reading messages"
 msgstr "Luetaan viestejä"
 
-#: Wammu/Main.py:2141 Wammu/Main.py:2198
+#: Wammu/Main.py:2142 Wammu/Main.py:2199
 msgid "Reading todos"
 msgstr "Luetaan tehtäviä"
 
-#: Wammu/Main.py:2151 Wammu/Main.py:2204
+#: Wammu/Main.py:2152 Wammu/Main.py:2205
 msgid "Reading calendar"
 msgstr "Luetaan kalenteria"
 
-#: Wammu/Main.py:2214
-msgid "Setting time in phone..."
+#: Wammu/Main.py:2215
+#, fuzzy
+#| msgid "Setting time in phone..."
+msgid "Setting time in phone…"
 msgstr "Asettaa puhelimen aikaa..."
 
-#: Wammu/Main.py:2238
+#: Wammu/Main.py:2239
 msgid "Send file to phone"
 msgstr "Lähetä tiedosto puhelimeen"
 
-#: Wammu/Main.py:2264
-msgid "Sending file to phone..."
+#: Wammu/Main.py:2265
+#, fuzzy
+#| msgid "Sending file to phone..."
+msgid "Sending file to phone…"
 msgstr "Lähetetään tiedostoa puhelimeen..."
 
-#: Wammu/Main.py:2273
+#: Wammu/Main.py:2274
 msgid "Transfer has been rejected by phone."
 msgstr "Puhelin hylkäsi siirron."
 
-#: Wammu/Main.py:2274
+#: Wammu/Main.py:2275
 msgid "Transfer rejected!"
 msgstr "Siirto hylätty!"
 
-#: Wammu/Main.py:2296
-msgid "One moment please, connecting to phone..."
+#: Wammu/Main.py:2297
+#, fuzzy
+#| msgid "One moment please, connecting to phone..."
+msgid "One moment please, connecting to phone…"
 msgstr "Hetkinen, yhdistetään puhelimeen..."
 
-#: Wammu/Main.py:2304
+#: Wammu/Main.py:2305
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr "Puhelinyhteys ei ole oikein määritelty, et voi kytkeytyä puhelimeen."
 
-#: Wammu/Main.py:2305
+#: Wammu/Main.py:2306
 msgid "Connection not configured!"
 msgstr "Yhteyttä ei ole määritetty!"
 
-#: Wammu/Main.py:2380
+#: Wammu/Main.py:2381
 #, python-format
 msgid "Please enter %s code:"
 msgstr "Anna %s koodi:"
 
-#: Wammu/Main.py:2381
+#: Wammu/Main.py:2382
 msgid "Phone asks for security code"
 msgstr "Puhelin pyytää turvakoodia"
 
-#: Wammu/Main.py:2422
+#: Wammu/Main.py:2423
 msgid "Your phone has just received incoming call"
 msgstr "Puhelimesi vastaanotti juuri puhelun"
 
-#: Wammu/Main.py:2424
+#: Wammu/Main.py:2425
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr "Puhelimesi vastaanotti juuri puhelun numerosta %s"
 
-#: Wammu/Main.py:2426
+#: Wammu/Main.py:2427
 msgid "Incoming call"
 msgstr "Tuleva puhelu"
 
-#: Wammu/Main.py:2428
+#: Wammu/Main.py:2429
 msgid "Reject"
 msgstr "Hylkää"
 
-#: Wammu/Main.py:2428
+#: Wammu/Main.py:2429
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: Wammu/Main.py:2432
-msgid "One moment please, disconnecting from phone..."
+#: Wammu/Main.py:2433
+#, fuzzy
+#| msgid "One moment please, disconnecting from phone..."
+msgid "One moment please, disconnecting from phone…"
 msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen..."
 
-#: Wammu/Main.py:2467
+#: Wammu/Main.py:2468
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
@@ -1902,7 +1942,7 @@ msgstr ""
 "Puhelimen etsintää ei voida toteuttaa, kun olet yhteydessä puhelimeen. "
 "Katkaise yhteys puhelimeen ensin."
 
-#: Wammu/Main.py:2468
+#: Wammu/Main.py:2469
 msgid "You are connected to phone!"
 msgstr "Yhdistetty phelimeen!"
 
@@ -1948,7 +1988,10 @@ msgid "No Bluetooth device found"
 msgstr "Bluetooth-laitetta ei löydetty"
 
 #: Wammu/PhoneSearch.py:167
-msgid "All Bluetooth devices discovered, connection tests still in progress..."
+#, fuzzy
+#| msgid ""
+#| "All Bluetooth devices discovered, connection tests still in progress..."
+msgid "All Bluetooth devices discovered, connection tests still in progress…"
 msgstr "Kaikki Bluetooth-laitteet löydetty, yhteystestit vielä käynnissä..."
 
 #: Wammu/PhoneSearch.py:171
@@ -2003,7 +2046,9 @@ msgid "Connection test"
 msgstr "Yhteyden testaus"
 
 #: Wammu/PhoneWizard.py:71 Wammu/PhoneWizard.py:85
-msgid "Wammu is now testing phone connection, please wait..."
+#, fuzzy
+#| msgid "Wammu is now testing phone connection, please wait..."
+msgid "Wammu is now testing phone connection, please wait…"
 msgstr "Wammu testaa yhteyttä puhelimeen, oottele ihan rauhassa..."
 
 #: Wammu/PhoneWizard.py:106
@@ -2470,10 +2515,6 @@ msgstr ""
 #: Wammu/Settings.py:239
 msgid "Default options for new message"
 msgstr "Oletusasetukset uusille viesteille"
-
-#: Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
-msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"
@@ -3062,7 +3103,9 @@ msgid "Mailboxes"
 msgstr "Postilaatikot"
 
 #: Wammu/SMSExport.py:41
-msgid "Select mailbox file..."
+#, fuzzy
+#| msgid "Select mailbox file..."
+msgid "Select mailbox file…"
 msgstr "Valitse postilaatikkotiedosto..."
 
 #: Wammu/SMSExport.py:54
@@ -3133,7 +3176,9 @@ msgid "maildir"
 msgstr "postihakemisto"
 
 #: Wammu/SMSExport.py:206
-msgid "Connecting to IMAP server..."
+#, fuzzy
+#| msgid "Connecting to IMAP server..."
+msgid "Connecting to IMAP server…"
 msgstr "Yhdistetään IMAP palvelimeen..."
 
 #: Wammu/SMSExport.py:223
@@ -3149,7 +3194,9 @@ msgid "Login failed!"
 msgstr "Kirjautuminen epäonnistui!"
 
 #: Wammu/SMSExport.py:230
-msgid "Listing folders on IMAP server..."
+#, fuzzy
+#| msgid "Listing folders on IMAP server..."
+msgid "Listing folders on IMAP server…"
 msgstr "Listataan IMAP palvelimen kansioita..."
 
 #: Wammu/SMSExport.py:239
@@ -3170,7 +3217,9 @@ msgid "Select folder"
 msgstr "Valitse kansio"
 
 #: Wammu/SMSExport.py:291
-msgid "Selecting folder on IMAP server..."
+#, fuzzy
+#| msgid "Selecting folder on IMAP server..."
+msgid "Selecting folder on IMAP server…"
 msgstr "Valitaan kansio IMAP palvelimella..."
 
 #: Wammu/SMSExport.py:300
@@ -3345,7 +3394,9 @@ msgid "Working features:"
 msgstr "Toimivat ominaisuudet:"
 
 #: Wammu/TalkbackDialog.py:64
-msgid "Please select features..."
+#, fuzzy
+#| msgid "Please select features..."
+msgid "Please select features…"
 msgstr "Valitse ominaisuudet..."
 
 #: Wammu/TalkbackDialog.py:65
@@ -3775,8 +3826,9 @@ msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Wammu Configurator - Wammu ja Gammu asetusohjelman versio %s"
 
 #: wammu-configure.py:49 wammu.py:71
-#, python-format
-msgid "Usage: %s [OPTION...]"
+#, fuzzy, python-format
+#| msgid "Usage: %s [OPTION...]"
+msgid "Usage: %s [OPTION…]"
 msgstr "Käyttö: %s [OPTION...]"
 
 #: wammu-configure.py:51 wammu.py:73
@@ -3810,7 +3862,9 @@ msgid "Using local built locales!"
 msgstr "Käytetään paikallisesti käännettyjä lokalisointitietoja!"
 
 #: wammu-configure.py:117
-msgid "Updating gammu configuration..."
+#, fuzzy
+#| msgid "Updating gammu configuration..."
+msgid "Updating gammu configuration…"
 msgstr "Lähetetään gammu-konfiguraatiota..."
 
 #: wammu.py:63
@@ -3835,12 +3889,16 @@ msgid "Wammu configuration:"
 msgstr "Wammu-konfiguraatio:"
 
 #: wammu.py:130
-msgid "Connecting..."
-msgstr "Yhdistetään..."
+#, fuzzy
+#| msgid "Connection"
+msgid "Connecting…"
+msgstr "Yhteys"
 
 #: wammu.py:137
-msgid "Getting phone information..."
-msgstr "Luetaan puhelimen tietoja..."
+#, fuzzy
+#| msgid "Getting phone information"
+msgid "Getting phone information…"
+msgstr "Puhelimen tiedot"
 
 #: wammu.py:143
 msgid "Phone infomation:"
@@ -3900,6 +3958,18 @@ msgstr ""
 "muokkaimella voi muokata tekstiä ja ohjelman mukana tulevia kuvia ja ääniä. "
 "Wammusta voi viedä tekstiviestejä IMAP4-palvelimelle (tai jokin muuhun "
 "sähköposti varastoon)."
+
+#~ msgid "Save debug log..."
+#~ msgstr "Tallennetaan virhelokia..."
+
+#~ msgid "Create concatenated message, what allows to send longer messages."
+#~ msgstr "Luo yhdistetty viesti, joka sallii pidempien viestien lähetyksen."
+
+#~ msgid "Connecting..."
+#~ msgstr "Yhdistetään..."
+
+#~ msgid "Getting phone information..."
+#~ msgstr "Luetaan puhelimen tietoja..."
 
 #~ msgid "&Import"
 #~ msgstr "T&uo"
