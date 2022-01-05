@@ -11,12 +11,9 @@ GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
     :alt: Liberapay
     :target: https://liberapay.com/Gammu/donate
 
-.. image:: https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received
-    :alt: Bountysource
-    :target: https://www.bountysource.com/teams/gammu/issues?utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received
-
-.. image:: https://travis-ci.org/gammu/wammu.svg?branch=master
-    :target: https://travis-ci.org/gammu/wammu
+.. image:: https://github.com/gammu/wammu/actions/workflows/python-package.yml/badge.svg
+    :alt: Python package CI
+    :target: https://github.com/gammu/wammu/actions/workflows/python-package.yml
 
 Homepage
 ========
