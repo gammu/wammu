@@ -1955,6 +1955,7 @@ class WammuFrame(wx.Frame):
                 return
 
         # do real delete
+        busy = None
         try:
             if self.type[0] == 'contact' or self.type[0] == 'call':
                 busy = wx.BusyInfo(_('Deleting contact(s)…'))
