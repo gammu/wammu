@@ -3,6 +3,9 @@ Wammu
 
 GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
 
+This package is `looking for a new maintainer <https://github.com/gammu/wammu/issues/83>`_
+and `lacks support for Python 3 <https://github.com/gammu/wammu/issues/78>`_.
+
 .. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/gammu/?utm_source=widget
@@ -11,12 +14,9 @@ GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
     :alt: Liberapay
     :target: https://liberapay.com/Gammu/donate
 
-.. image:: https://www.bountysource.com/badge/team?team_id=23177&style=bounties_received
-    :alt: Bountysource
-    :target: https://www.bountysource.com/teams/gammu/issues?utm_source=Gammu&utm_medium=shield&utm_campaign=bounties_received
-
-.. image:: https://travis-ci.org/gammu/wammu.svg?branch=master
-    :target: https://travis-ci.org/gammu/wammu
+.. image:: https://github.com/gammu/wammu/actions/workflows/python-package.yml/badge.svg
+    :alt: Python package CI
+    :target: https://github.com/gammu/wammu/actions/workflows/python-package.yml
 
 Homepage
 ========

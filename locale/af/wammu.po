@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Wammu 0.44\n"
+"Project-Id-Version: Wammu \n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-01-05 15:34+0100\n"
+"POT-Creation-Date: 2022-01-05 08:58+0100\n"
 "PO-Revision-Date: 2014-12-29 11:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/gammu/wammu/af/"
@@ -196,7 +196,7 @@ msgstr "Teksstyl"
 msgid "Concatenated"
 msgstr "Saamgevoeg"
 
-#: Wammu/Composer.py:167
+#: Wammu/Composer.py:167 Wammu/Settings.py:250
 #, fuzzy
 #| msgid "Create concatenated message, what allows to send longer messages."
 msgid "Create concatenated message, which allows to send longer messages."
@@ -315,7 +315,9 @@ msgid "Available message parts"
 msgstr "Beskikbare boodskapdele"
 
 #: Wammu/Composer.py:442 Wammu/Composer.py:531
-msgid "Create new message by adding part to left list..."
+#, fuzzy
+#| msgid "Create new message by adding part to left list..."
+msgid "Create new message by adding part to left list…"
 msgstr "Skep nuwe boodskap deur deel by linkerliys te voeg..."
 
 #: Wammu/Composer.py:447
@@ -350,13 +352,13 @@ msgid "XML File"
 msgstr ""
 
 #: Wammu/ContactsXML.py:145 Wammu/EditContactList.py:92 Wammu/Main.py:1470
-#: Wammu/Main.py:2241 Wammu/SMSExport.py:38 Wammu/SMSXML.py:84
+#: Wammu/Main.py:2242 Wammu/SMSExport.py:38 Wammu/SMSXML.py:84
 msgid "All files"
 msgstr "Alle lêers"
 
 #: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:87
 #, fuzzy
-msgid "Select XML file..."
+msgid "Select XML file…"
 msgstr "Kies mailbox-lêer"
 
 #: Wammu/ContactsXML.py:160
@@ -578,12 +580,12 @@ msgstr ""
 msgid "File can not be created!"
 msgstr "Kan nie gids skep nie!"
 
-#: Wammu/EditContactList.py:196 Wammu/Main.py:2286
+#: Wammu/EditContactList.py:196 Wammu/Main.py:2287
 #, python-format
 msgid "Selected file \"%s\" was not found, no data read."
 msgstr ""
 
-#: Wammu/EditContactList.py:197 Wammu/Main.py:2287
+#: Wammu/EditContactList.py:197 Wammu/Main.py:2288
 #, fuzzy
 msgid "File not found!"
 msgstr "Foon nie gevind nie!"
@@ -641,7 +643,7 @@ msgid ""
 msgstr ""
 
 #: Wammu/ErrorMessage.py:74
-msgid "Save debug log..."
+msgid "Save debug log…"
 msgstr ""
 
 #: Wammu/ErrorMessage.py:79
@@ -652,8 +654,8 @@ msgstr "Soek vir soortgelyke verslae"
 msgid "Report bug"
 msgstr "Raporteer fout"
 
-#: Wammu/ErrorMessage.py:100 Wammu/Main.py:2506
-msgid "Save debug log as..."
+#: Wammu/ErrorMessage.py:100 Wammu/Main.py:2507
+msgid "Save debug log as…"
 msgstr ""
 
 #: Wammu/Error.py:54
@@ -799,7 +801,7 @@ msgid "Wammu debug log"
 msgstr ""
 
 #: Wammu/Logger.py:139
-msgid "Here will appear debug messages from Gammu...\n"
+msgid "Here will appear debug messages from Gammu…\n"
 msgstr ""
 
 #: Wammu/Main.py:112 Wammu/Main.py:140
@@ -1540,7 +1542,9 @@ msgid "Folder"
 msgstr "Gids"
 
 #: Wammu/Main.py:1084
-msgid "Writing message(s)..."
+#, fuzzy
+#| msgid "Writing message(s)..."
+msgid "Writing message(s)…"
 msgstr "Skryf boodskap(pe)..."
 
 #: Wammu/Main.py:1116
@@ -1555,7 +1559,9 @@ msgid "Could not read saved message!"
 msgstr "Kon nie gestoorde boodskap lees nie!"
 
 #: Wammu/Main.py:1150
-msgid "Writing contact..."
+#, fuzzy
+#| msgid "Writing contact..."
+msgid "Writing contact…"
 msgstr "Skryf nou kontak..."
 
 #: Wammu/Main.py:1189 Wammu/Main.py:1256 Wammu/Main.py:1313
@@ -1569,11 +1575,15 @@ msgid "Could not read saved entry!"
 msgstr "Kon nie gestoorde inskrywing lees nie!"
 
 #: Wammu/Main.py:1224
-msgid "Writing calendar..."
+#, fuzzy
+#| msgid "Writing calendar..."
+msgid "Writing calendar…"
 msgstr "Skryf nou kalender..."
 
 #: Wammu/Main.py:1284
-msgid "Writing todo..."
+#, fuzzy
+#| msgid "Writing todo..."
+msgid "Writing todo…"
 msgstr "Skryf nou doending..."
 
 #: Wammu/Main.py:1445
@@ -1609,7 +1619,9 @@ msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [doendinge,kalender]"
 
 #: Wammu/Main.py:1477
-msgid "Save data as..."
+#, fuzzy
+#| msgid "Save data as..."
+msgid "Save data as…"
 msgstr "Stoor data as..."
 
 #: Wammu/Main.py:1486
@@ -1617,7 +1629,9 @@ msgid "Read data"
 msgstr "Lees data"
 
 #: Wammu/Main.py:1496
-msgid "Save backup as..."
+#, fuzzy
+#| msgid "Save backup as..."
+msgid "Save backup as…"
 msgstr "Stoor rugsteun as..."
 
 #: Wammu/Main.py:1505
@@ -1660,7 +1674,9 @@ msgid "Select what to import"
 msgstr ""
 
 #: Wammu/Main.py:1612 Wammu/Main.py:1709
-msgid "Importing data..."
+#, fuzzy
+#| msgid "Importing data..."
+msgid "Importing data…"
 msgstr "Voer nou data in..."
 
 #: Wammu/Main.py:1640 Wammu/Main.py:1764
@@ -1809,125 +1825,139 @@ msgstr[1] "Is u seker u wil %s uitvee?"
 msgid "Confirm deleting"
 msgstr "Bevestig skrapping"
 
-#: Wammu/Main.py:1960
-msgid "Deleting contact(s)..."
+#: Wammu/Main.py:1961
+#, fuzzy
+#| msgid "Deleting contact(s)..."
+msgid "Deleting contact(s)…"
 msgstr "Skrap nou kontak(te)..."
 
-#: Wammu/Main.py:1970
-msgid "Deleting message(s)..."
+#: Wammu/Main.py:1971
+#, fuzzy
+#| msgid "Deleting message(s)..."
+msgid "Deleting message(s)…"
 msgstr "Skrap nou boodkap(pe)..."
 
-#: Wammu/Main.py:1981
-msgid "Deleting todo(s)..."
+#: Wammu/Main.py:1982
+#, fuzzy
+#| msgid "Deleting todo(s)..."
+msgid "Deleting todo(s)…"
 msgstr "Skrap nou doenitem(s)..."
 
-#: Wammu/Main.py:1991
-msgid "Deleting calendar event(s)..."
+#: Wammu/Main.py:1992
+#, fuzzy
+#| msgid "Deleting calendar event(s)..."
+msgid "Deleting calendar event(s)…"
 msgstr "Skrap nou kalenderinskrywing(s)..."
 
-#: Wammu/Main.py:2070 Wammu/Main.py:2161
+#: Wammu/Main.py:2071 Wammu/Main.py:2162
 msgid "Reading phone information"
 msgstr "Lees nou fooninligting"
 
-#: Wammu/Main.py:2095
+#: Wammu/Main.py:2096
 #, python-format
 msgid "Reading calls of type %s"
 msgstr "Lees nou oproepe van tipe %s"
 
-#: Wammu/Main.py:2123
+#: Wammu/Main.py:2124
 #, python-format
 msgid "Reading contacts from %s"
 msgstr "Lees nou kontakte vanaf %s"
 
-#: Wammu/Main.py:2131 Wammu/Main.py:2192
+#: Wammu/Main.py:2132 Wammu/Main.py:2193
 msgid "Reading messages"
 msgstr "Lees nou boodskappe"
 
-#: Wammu/Main.py:2141 Wammu/Main.py:2198
+#: Wammu/Main.py:2142 Wammu/Main.py:2199
 msgid "Reading todos"
 msgstr "Lees nou doendinge"
 
-#: Wammu/Main.py:2151 Wammu/Main.py:2204
+#: Wammu/Main.py:2152 Wammu/Main.py:2205
 msgid "Reading calendar"
 msgstr "Lees nou kalender"
 
-#: Wammu/Main.py:2214
-msgid "Setting time in phone..."
+#: Wammu/Main.py:2215
+#, fuzzy
+#| msgid "Setting time in phone..."
+msgid "Setting time in phone…"
 msgstr "Stel nou foon se tyd..."
 
-#: Wammu/Main.py:2238
+#: Wammu/Main.py:2239
 #, fuzzy
 msgid "Send file to phone"
 msgstr "Kies foon"
 
-#: Wammu/Main.py:2264
+#: Wammu/Main.py:2265
 #, fuzzy
-msgid "Sending file to phone..."
+msgid "Sending file to phone…"
 msgstr "Stel nou foon se tyd..."
 
-#: Wammu/Main.py:2273
+#: Wammu/Main.py:2274
 msgid "Transfer has been rejected by phone."
 msgstr ""
 
-#: Wammu/Main.py:2274
+#: Wammu/Main.py:2275
 msgid "Transfer rejected!"
 msgstr ""
 
-#: Wammu/Main.py:2296
-msgid "One moment please, connecting to phone..."
+#: Wammu/Main.py:2297
+#, fuzzy
+#| msgid "One moment please, connecting to phone..."
+msgid "One moment please, connecting to phone…"
 msgstr "Net 'n oomblik, verbind nou aan foon..."
 
-#: Wammu/Main.py:2304
+#: Wammu/Main.py:2305
 #, fuzzy
 msgid "Phone connection is not properly configured, can not connect to phone."
 msgstr "Verbindingstoets steeds besig - kan nie voortgaan nie."
 
-#: Wammu/Main.py:2305
+#: Wammu/Main.py:2306
 #, fuzzy
 msgid "Connection not configured!"
 msgstr "Geen foon gevind nie"
 
-#: Wammu/Main.py:2380
+#: Wammu/Main.py:2381
 #, fuzzy, python-format
 msgid "Please enter %s code:"
 msgstr "Gee asb. die bedienernaam"
 
-#: Wammu/Main.py:2381
+#: Wammu/Main.py:2382
 msgid "Phone asks for security code"
 msgstr ""
 
-#: Wammu/Main.py:2422
+#: Wammu/Main.py:2423
 msgid "Your phone has just received incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2424
+#: Wammu/Main.py:2425
 #, python-format
 msgid "Your phone has just received incoming call from %s"
 msgstr ""
 
-#: Wammu/Main.py:2426
+#: Wammu/Main.py:2427
 msgid "Incoming call"
 msgstr ""
 
-#: Wammu/Main.py:2428
+#: Wammu/Main.py:2429
 msgid "Reject"
 msgstr ""
 
-#: Wammu/Main.py:2428
+#: Wammu/Main.py:2429
 msgid "Accept"
 msgstr ""
 
-#: Wammu/Main.py:2432
-msgid "One moment please, disconnecting from phone..."
+#: Wammu/Main.py:2433
+#, fuzzy
+#| msgid "One moment please, disconnecting from phone..."
+msgid "One moment please, disconnecting from phone…"
 msgstr "Net 'n oomblik, ontkoppel vanaf foon..."
 
-#: Wammu/Main.py:2467
+#: Wammu/Main.py:2468
 msgid ""
 "Searching for phone can not be performed while you are connected to phone, "
 "please disconnect first."
 msgstr ""
 
-#: Wammu/Main.py:2468
+#: Wammu/Main.py:2469
 #, fuzzy
 msgid "You are connected to phone!"
 msgstr "Net 'n oomblik, verbind nou aan foon..."
@@ -1975,7 +2005,7 @@ msgid "No Bluetooth device found"
 msgstr "Geen Bluetooth-toestel gevind nie"
 
 #: Wammu/PhoneSearch.py:167
-msgid "All Bluetooth devices discovered, connection tests still in progress..."
+msgid "All Bluetooth devices discovered, connection tests still in progress…"
 msgstr ""
 
 #: Wammu/PhoneSearch.py:171
@@ -2034,7 +2064,9 @@ msgid "Connection test"
 msgstr "Verbindingstoets"
 
 #: Wammu/PhoneWizard.py:71 Wammu/PhoneWizard.py:85
-msgid "Wammu is now testing phone connection, please wait..."
+#, fuzzy
+#| msgid "Wammu is now testing phone connection, please wait..."
+msgid "Wammu is now testing phone connection, please wait…"
 msgstr "Wammu toets nou die foonverbinding. Wag asb..."
 
 #: Wammu/PhoneWizard.py:106
@@ -2502,10 +2534,6 @@ msgstr ""
 #, fuzzy
 msgid "Default options for new message"
 msgstr "Skep unicode-boodskap"
-
-#: Wammu/Settings.py:250
-msgid "Create concatenated message, what allows to send longer messages."
-msgstr "Skep saamgevoegde boodskap, wat langer boodskappe moontlik maak."
 
 #: Wammu/Settings.py:255
 msgid "Create unicode message"
@@ -3101,7 +3129,9 @@ msgid "Mailboxes"
 msgstr "Mailbox-lêer"
 
 #: Wammu/SMSExport.py:41
-msgid "Select mailbox file..."
+#, fuzzy
+#| msgid "Select mailbox file..."
+msgid "Select mailbox file…"
 msgstr "Kies mailbox-lêer..."
 
 #: Wammu/SMSExport.py:54
@@ -3164,7 +3194,9 @@ msgid "maildir"
 msgstr "maildir"
 
 #: Wammu/SMSExport.py:206
-msgid "Connecting to IMAP server..."
+#, fuzzy
+#| msgid "Connecting to IMAP server..."
+msgid "Connecting to IMAP server…"
 msgstr "Verbind nou aan IMAP-bediener..."
 
 #: Wammu/SMSExport.py:223
@@ -3181,7 +3213,9 @@ msgid "Login failed!"
 msgstr "Aanmelding gefaal!"
 
 #: Wammu/SMSExport.py:230
-msgid "Listing folders on IMAP server..."
+#, fuzzy
+#| msgid "Listing folders on IMAP server..."
+msgid "Listing folders on IMAP server…"
 msgstr "Kry nou lys van gidse op IMAP-bediener..."
 
 #: Wammu/SMSExport.py:239
@@ -3203,8 +3237,10 @@ msgid "Select folder"
 msgstr "Kies gids"
 
 #: Wammu/SMSExport.py:291
-msgid "Selecting folder on IMAP server..."
-msgstr ""
+#, fuzzy
+#| msgid "Listing folders on IMAP server..."
+msgid "Selecting folder on IMAP server…"
+msgstr "Kry nou lys van gidse op IMAP-bediener..."
 
 #: Wammu/SMSExport.py:300
 #, python-format
@@ -3384,7 +3420,7 @@ msgstr ""
 
 #: Wammu/TalkbackDialog.py:64
 #, fuzzy
-msgid "Please select features..."
+msgid "Please select features…"
 msgstr "Kies asb. foontipe"
 
 #: Wammu/TalkbackDialog.py:65
@@ -3804,7 +3840,7 @@ msgstr ""
 
 #: wammu-configure.py:49 wammu.py:71
 #, python-format
-msgid "Usage: %s [OPTION...]"
+msgid "Usage: %s [OPTION…]"
 msgstr ""
 
 #: wammu-configure.py:51 wammu.py:73
@@ -3839,7 +3875,7 @@ msgstr ""
 
 #: wammu-configure.py:117
 #, fuzzy
-msgid "Updating gammu configuration..."
+msgid "Updating gammu configuration…"
 msgstr "Handmatige opstelling"
 
 #: wammu.py:63
@@ -3868,13 +3904,14 @@ msgstr "Handmatige opstelling"
 
 #: wammu.py:130
 #, fuzzy
-msgid "Connecting..."
+#| msgid "Connection"
+msgid "Connecting…"
 msgstr "Verbinding"
 
 #: wammu.py:137
 #, fuzzy
-msgid "Getting phone information..."
-msgstr "Lees nou fooninligting"
+msgid "Getting phone information…"
+msgstr "Kry fooninligting"
 
 #: wammu.py:143
 #, fuzzy
@@ -3925,6 +3962,17 @@ msgid ""
 "edited in the SMS composer. It can export messages to an IMAP4 server (or "
 "other email storage)."
 msgstr ""
+
+#~ msgid "Create concatenated message, what allows to send longer messages."
+#~ msgstr "Skep saamgevoegde boodskap, wat langer boodskappe moontlik maak."
+
+#, fuzzy
+#~ msgid "Connecting..."
+#~ msgstr "Verbinding"
+
+#, fuzzy
+#~ msgid "Getting phone information..."
+#~ msgstr "Lees nou fooninligting"
 
 #~ msgid "&Import"
 #~ msgstr "&Voer in"
