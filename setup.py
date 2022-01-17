@@ -22,6 +22,7 @@ Wammu - Phone manager
 Setup script for installation using distutils
 '''
 
+from __future__ import print_function
 from setuptools import setup
 import distutils
 import distutils.command.build
@@ -129,8 +130,8 @@ class build_scripts_wammu(distutils.command.build_scripts.build_scripts, object)
                 if self.dry_run:
                     distutils.log.info("changing mode of %s", file)
                 else:
-                    oldmode = os.stat(file)[ST_MODE] & 07777
-                    newmode = (oldmode | 0555) & 07777
+                    oldmode = os.stat(file)[ST_MODE] & 0o7777
+                    newmode = (oldmode | 0o555) & 0o7777
                     if newmode != oldmode:
                         distutils.log.info(
                             "changing mode of %s from %o to %o",
@@ -265,64 +266,64 @@ class build_wammu(distutils.command.build.build, object):
         self.build_appdata_file(translations)
 
     def check_requirements(self):
-        print 'Checking for python-gammu ...',
+        print('Checking for python-gammu ...', end='')
         try:
             import gammu
             version = gammu.Version()
-            print 'found version %s using Gammu %s ...' % (version[1], version[0]),
+            print('found version %s using Gammu %s ...' % (version[1], version[0]), end='')
 
             pygver = tuple(map(int, version[1].split('.')))
             if pygver < PYTHONGAMMU_REQUIRED:
-                print 'too old!'
-                print 'You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED))
-                print 'You can get it from <https://wammu.eu/python-gammu/>'
+                print('too old!')
+                print('You need python-gammu at least %s!' % '.'.join(map(str, PYTHONGAMMU_REQUIRED)))
+                print('You can get it from <https://wammu.eu/python-gammu/>')
             else:
-                print 'OK'
-        except ImportError, message:
-            print
-            print 'Could not import python-gammu!'
-            print 'You can get it from <https://wammu.eu/python-gammu/>'
-            print 'Import failed with following error: %s' % message
+                print('OK')
+        except ImportError as message:
+            print()
+            print('Could not import python-gammu!')
+            print('You can get it from <https://wammu.eu/python-gammu/>')
+            print('Import failed with following error: %s' % message)
 
-        print 'Checking for wxPython ...',
+        print('Checking for wxPython ...', end='')
         try:
             import wx
-            print 'found version %s ...' % wx.VERSION_STRING,
+            print('found version %s ...' % wx.VERSION_STRING, end='')
             if wx.VERSION < WXPYTHON_REQUIRED:
-                print 'too old!'
-                print 'You need at least wxPython %s!' % '.'.join(map(str, WXPYTHON_REQUIRED))
-                print 'You can get it from <http://www.wxpython.org>'
+                print('too old!')
+                print('You need at least wxPython %s!' % '.'.join(map(str, WXPYTHON_REQUIRED)))
+                print('You can get it from <http://www.wxpython.org>')
             elif not wx.USE_UNICODE:
-                print 'not unicode!'
-                print 'You need at least wxPython %s with unicode enabled!' % '.'.join(map(str, WXPYTHON_REQUIRED))
-                print 'You can get it from <http://www.wxpython.org>'
+                print('not unicode!')
+                print('You need at least wxPython %s with unicode enabled!' % '.'.join(map(str, WXPYTHON_REQUIRED)))
+                print('You can get it from <http://www.wxpython.org>')
             else:
-                print 'OK'
+                print('OK')
         except ImportError:
-            print
-            print 'You need wxPython!'
-            print 'You can get it from <http://www.wxpython.org>'
+            print()
+            print('You need wxPython!')
+            print('You can get it from <http://www.wxpython.org>')
 
-        print 'Checking for Bluetooth stack ...',
+        print('Checking for Bluetooth stack ...', end='')
         try:
             import bluetooth
-            print 'OK'
+            print('OK')
         except ImportError:
-            print
-            print 'WARNING: PyBluez not found, without it you can not search for bluetooth devices'
-            print 'PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>'
+            print()
+            print('WARNING: PyBluez not found, without it you can not search for bluetooth devices')
+            print('PyBluez can be downloaded from <http://org.csail.mit.edu/pybluez/>')
 
         if sys.platform == 'win32':
-            print 'Checking for PyWin32 ...',
+            print('Checking for PyWin32 ...', end='')
             try:
                 import win32file
                 import win32com
                 import win32api
-                print 'found'
+                print('found')
             except ImportError:
-                print 'not found!'
-                print 'This module is now needed for Windows!'
-                print 'PyWin32 can be downloaded from <https://sourceforge.net/projects/pywin32/>'
+                print('not found!')
+                print('This module is now needed for Windows!')
+                print('PyWin32 can be downloaded from <https://sourceforge.net/projects/pywin32/>')
                 sys.exit(1)
 
     def run(self):

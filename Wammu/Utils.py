@@ -21,6 +21,7 @@ Wammu - Phone manager
 Misc functions like charset conversion, entries parsers,..
 '''
 
+from __future__ import print_function
 import locale
 import sys
 import re
@@ -533,7 +534,7 @@ def DBUSServiceAvailable(bus, interface, try_start_service=False):
             bus.start_service_by_name(interface)
             avail = dbus_iface.ListNames()
         except dbus.exceptions.DBusException:
-            print 'Failed to start DBus service %s' % interface
+            print('Failed to start DBus service %s' % interface)
     return interface in avail
 
 

@@ -7,7 +7,7 @@ set -e
 
 repo=wammu
 
-version=`python -c 'import Wammu; print Wammu.__version__' | tr -d '\n'`
+version=`python -c 'import Wammu; print(Wammu.__version__)' | tr -d '\n'`
 
 srcdir=`pwd`
 

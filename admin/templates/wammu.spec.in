@@ -7,7 +7,7 @@ Release:        1
 %define python_gammu_req 0.24
 
 %{!?__python: %define __python python}
-%define wammu_python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(0)")
+%define wammu_python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(0))")
 
 Summary:        Mobile phone manager
 Source:         https://dl.cihar.com/%{name}/latest/%{name}-%{version}.tar.%{extension}

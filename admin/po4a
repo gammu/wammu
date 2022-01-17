@@ -2,7 +2,7 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 
 LOCS=`ls locale/*/wammu.po | sed 's@.*/\(.*\)/[^/]*@\1@'`
-ver=`python -c 'import Wammu; print Wammu.__version__'`
+ver=`python -c 'import Wammu; print(Wammu.__version__)'`
 
 po4a \
     --msgid-bugs-address gammu-users@lists.sourceforge.net \

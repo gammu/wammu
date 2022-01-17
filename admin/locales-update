@@ -11,7 +11,7 @@ xgettext \
     --copyright-holder="Michal Čihař" \
     `find Wammu/  -name '*.py' | sort` wammu-configure.py wammu.py wammu_setup/msgfmt.py
 
-ver=`python -c 'import Wammu; print Wammu.__version__'`
+ver=`python -c 'import Wammu; print(Wammu.__version__)'`
 
 if [ "x$1" != "x--nopo4a" ] ; then
     ./admin/po4a

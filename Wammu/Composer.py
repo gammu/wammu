@@ -22,6 +22,7 @@ Wammu - Phone manager
 SMS composer
 '''
 
+from __future__ import print_function
 import wx
 import wx.lib.editor.editor
 import wx.lib.mixins.listctrl
@@ -515,7 +516,7 @@ class SMSComposer(wx.Dialog):
                     break
             if not found:
                 self.current.InsertImageStringItem(i, _('Not supported ID: %s') % x['ID'], -1)
-                print 'Not supported ID: %s' % x['ID']
+                print('Not supported ID: %s' % x['ID'])
 
         count = self.current.GetItemCount()
 

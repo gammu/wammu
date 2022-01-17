@@ -22,6 +22,7 @@ Wammu - Phone manager
 Execution script for configuration
 '''
 
+from __future__ import print_function
 import os
 import sys
 import getopt
@@ -37,8 +38,8 @@ def version():
     '''
     Displays version information.
     '''
-    print (_('Wammu Configurator - Wammu and Gammu configurator version %s')
-           % Wammu.__version__)
+    print((_('Wammu Configurator - Wammu and Gammu configurator version %s')
+           % Wammu.__version__))
 
 
 def usage():
@@ -46,22 +47,22 @@ def usage():
     Shows program usage.
     '''
     version()
-    print _('Usage: %s [OPTION…]' % os.path.basename(__file__))
-    print
-    print _('Options:')
-    print '%-20s ... %s' % (
+    print(_('Usage: %s [OPTION…]' % os.path.basename(__file__)))
+    print()
+    print(_('Options:'))
+    print('%-20s ... %s' % (
         '-h/--help',
         _('show this help')
-    )
-    print '%-20s ... %s' % (
+    ))
+    print('%-20s ... %s' % (
         '-v/--version',
         _('show program version')
-    )
-    print '%-20s ... %s' % (
+    ))
+    print('%-20s ... %s' % (
         '-l/--local-locales',
         _('force using of locales from current directory rather than system ones')
-    )
-    print
+    ))
+    print()
 
 
 def parse_options():
@@ -74,21 +75,21 @@ def parse_options():
             'hvl',
             ['help', 'version', 'local-locales']
         )
-    except getopt.GetoptError, val:
+    except getopt.GetoptError as val:
         usage()
-        print _('Command line parsing failed with error:')
-        print val
+        print(_('Command line parsing failed with error:'))
+        print(val)
         sys.exit(2)
 
     if len(args) != 0:
         usage()
-        print _('Extra unrecognized parameters passed to program')
+        print(_('Extra unrecognized parameters passed to program'))
         sys.exit(3)
 
     for opt, dummy in opts:
         if opt in ('-l', '--local-locales'):
             Wammu.Locales.UseLocal()
-            print _('Using local built locales!')
+            print(_('Using local built locales!'))
         if opt in ('-h', '--help'):
             usage()
             sys.exit()
