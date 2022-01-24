@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2022-01-05 08:58+0100\n"
 "PO-Revision-Date: 2022-01-25 08:56+0000\n"
-"Last-Translator: yzqzss <yzqzss@othing.xyz>\n"
+"Last-Translator: Eric <alchemillatruth@purelymail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gammu/wammu/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -43,12 +43,6 @@ msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> 是基于 wxPython 的 Gammu 图形用户界面程序。"
 
 #: Wammu/About.py:104
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "This program is free software; you can redistribute it and/or modify\n"
-#| "it under the terms of the GNU General Public License version 2 as\n"
-#| "published by the Free Software Foundation.\n"
 msgid ""
 "\n"
 "This program is free software: you can redistribute it and/or modify\n"
@@ -57,8 +51,10 @@ msgid ""
 "(at your option) any later version.\n"
 msgstr ""
 "\n"
-"本程序为自由软件；您可依据自由软件基金会所发表的GNU通用公共授权条款第二版之规"
-"定，就本程序再为散布与／或修改。\n"
+"这个程序是自由软件：你可以根据自由软件基金会发布的 \n"
+"GNU 通用公共许可证的第三版，\n"
+"或(由您选择)任何后期版本，\n"
+"重新发布和/或修改它。\n"
 
 #: Wammu/About.py:110
 msgid ""
@@ -69,9 +65,8 @@ msgid ""
 "GNU General Public License for more details.\n"
 msgstr ""
 "\n"
-"本程序系基于使用目的而加以散布，\n"
-"然而不负任何担保责任；\n"
-"亦无对适售性或特定目的\n"
+"分发本程序是希望它将有所裨益，然而作者\n"
+"不负任何担保责任；亦无对适售性或特定目的\n"
 "适用性所为的默示性担保。\n"
 "详情请参照GNU通用公共授权。\n"
 
@@ -327,10 +322,8 @@ msgid "Available message parts"
 msgstr "可用的消息内容成分"
 
 #: Wammu/Composer.py:442 Wammu/Composer.py:531
-#, fuzzy
-#| msgid "Create new message by adding part to left list..."
 msgid "Create new message by adding part to left list…"
-msgstr "请将右侧的消息内容成分添加到左侧列表以创建新短信..."
+msgstr "添加部分到左侧列表创建新消息…"
 
 #: Wammu/Composer.py:447
 msgid "Preview"
@@ -370,10 +363,8 @@ msgid "All files"
 msgstr "所有文件"
 
 #: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:87
-#, fuzzy
-#| msgid "Select XML file..."
 msgid "Select XML file…"
-msgstr "选择m XML 文件..."
+msgstr "选择 XML 文件…"
 
 #: Wammu/ContactsXML.py:160
 msgid "Saving contacts to XML"
@@ -610,7 +601,7 @@ msgstr "创建新的%s"
 #: Wammu/Editor.py:243
 #, python-format
 msgid "Editing %(name)s %(location)s"
-msgstr "正在编辑%(name)s  %(location)s"
+msgstr "正在编辑 %(name)s %(location)s"
 
 #: Wammu/Editor.py:265
 #, fuzzy
@@ -650,10 +641,8 @@ msgid ""
 msgstr "调试日志已经自动存为%s,请在报告错误的时候附上此文件。"
 
 #: Wammu/ErrorMessage.py:74
-#, fuzzy
-#| msgid "&Save debug log"
 msgid "Save debug log…"
-msgstr "保存调试日志(&S)"
+msgstr "保存调试日志…"
 
 #: Wammu/ErrorMessage.py:79
 msgid "Search for similar reports"
@@ -664,10 +653,8 @@ msgid "Report bug"
 msgstr "报告错误"
 
 #: Wammu/ErrorMessage.py:100 Wammu/Main.py:2507
-#, fuzzy
-#| msgid "Save debug log as..."
 msgid "Save debug log as…"
-msgstr "保存调试日志到..."
+msgstr "另存调试日志为…"
 
 #: Wammu/Error.py:54
 #, python-format
@@ -1549,10 +1536,8 @@ msgid "Folder"
 msgstr "文件夹"
 
 #: Wammu/Main.py:1084
-#, fuzzy
-#| msgid "Writing message(s)..."
 msgid "Writing message(s)…"
-msgstr "正在保存短消息..."
+msgstr "撰写消息…"
 
 #: Wammu/Main.py:1116
 msgid ""
@@ -1568,10 +1553,8 @@ msgid "Could not read saved message!"
 msgstr "不能读入已保存的短消息！"
 
 #: Wammu/Main.py:1150
-#, fuzzy
-#| msgid "Writing contact..."
 msgid "Writing contact…"
-msgstr "正在保存联系人..."
+msgstr "写入联系人…"
 
 #: Wammu/Main.py:1189 Wammu/Main.py:1256 Wammu/Main.py:1313
 msgid ""
@@ -1586,16 +1569,12 @@ msgid "Could not read saved entry!"
 msgstr "不能读取已保存的记录！"
 
 #: Wammu/Main.py:1224
-#, fuzzy
-#| msgid "Writing calendar..."
 msgid "Writing calendar…"
-msgstr "正在保存日程表..."
+msgstr "写入日程表…"
 
 #: Wammu/Main.py:1284
-#, fuzzy
-#| msgid "Writing todo..."
 msgid "Writing todo…"
-msgstr "正在写入任务..."
+msgstr "写入待办事项…"
 
 #: Wammu/Main.py:1445
 msgid "Gammu messages backup"
@@ -1630,20 +1609,16 @@ msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar 格式 [日程表，日历]"
 
 #: Wammu/Main.py:1477
-#, fuzzy
-#| msgid "Save data as..."
 msgid "Save data as…"
-msgstr "数据保存为..."
+msgstr "数据另存为…"
 
 #: Wammu/Main.py:1486
 msgid "Read data"
 msgstr "读取数据"
 
 #: Wammu/Main.py:1496
-#, fuzzy
-#| msgid "Save backup as..."
 msgid "Save backup as…"
-msgstr "保存备份为..."
+msgstr "另存备份为…"
 
 #: Wammu/Main.py:1505
 msgid "Import backup"
@@ -1683,10 +1658,8 @@ msgid "Select what to import"
 msgstr "选择导入的内如"
 
 #: Wammu/Main.py:1612 Wammu/Main.py:1709
-#, fuzzy
-#| msgid "Importing data..."
 msgid "Importing data…"
-msgstr "正在导入数据..."
+msgstr "导入数据…"
 
 #: Wammu/Main.py:1640 Wammu/Main.py:1764
 #, python-format
@@ -1831,28 +1804,20 @@ msgid "Confirm deleting"
 msgstr "确认删除"
 
 #: Wammu/Main.py:1961
-#, fuzzy
-#| msgid "Deleting contact(s)..."
 msgid "Deleting contact(s)…"
-msgstr "正在删除联系人..."
+msgstr "删除联系人…"
 
 #: Wammu/Main.py:1971
-#, fuzzy
-#| msgid "Deleting message(s)..."
 msgid "Deleting message(s)…"
-msgstr "正在删除消息..."
+msgstr "删除消息…"
 
 #: Wammu/Main.py:1982
-#, fuzzy
-#| msgid "Deleting todo(s)..."
 msgid "Deleting todo(s)…"
-msgstr "正在删除任务..."
+msgstr "删除待办事项…"
 
 #: Wammu/Main.py:1992
-#, fuzzy
-#| msgid "Deleting calendar event(s)..."
 msgid "Deleting calendar event(s)…"
-msgstr "正在删除日程表事件..."
+msgstr "删除日程表事件…"
 
 #: Wammu/Main.py:2071 Wammu/Main.py:2162
 msgid "Reading phone information"
@@ -1881,20 +1846,16 @@ msgid "Reading calendar"
 msgstr "正在读取日程表"
 
 #: Wammu/Main.py:2215
-#, fuzzy
-#| msgid "Setting time in phone..."
 msgid "Setting time in phone…"
-msgstr "正在校对手机的时钟..."
+msgstr "设置手机时钟…"
 
 #: Wammu/Main.py:2239
 msgid "Send file to phone"
 msgstr "发送文件到手机"
 
 #: Wammu/Main.py:2265
-#, fuzzy
-#| msgid "Sending file to phone..."
 msgid "Sending file to phone…"
-msgstr "正在发送文件到手机..."
+msgstr "发送文件到手机…"
 
 #: Wammu/Main.py:2274
 msgid "Transfer has been rejected by phone."
@@ -1905,10 +1866,8 @@ msgid "Transfer rejected!"
 msgstr "传输被拒绝！"
 
 #: Wammu/Main.py:2297
-#, fuzzy
-#| msgid "One moment please, connecting to phone..."
 msgid "One moment please, connecting to phone…"
-msgstr "请稍等，正在连接手机..."
+msgstr "请稍等，正在连接到手机…"
 
 #: Wammu/Main.py:2305
 msgid "Phone connection is not properly configured, can not connect to phone."
@@ -1949,10 +1908,8 @@ msgid "Accept"
 msgstr "接听"
 
 #: Wammu/Main.py:2433
-#, fuzzy
-#| msgid "One moment please, disconnecting from phone..."
 msgid "One moment please, disconnecting from phone…"
-msgstr "请稍等，正从手机断开连接..."
+msgstr "请稍等，正从手机断开连接…"
 
 #: Wammu/Main.py:2468
 msgid ""
@@ -2004,11 +1961,8 @@ msgid "No Bluetooth device found"
 msgstr "未找到蓝牙设备"
 
 #: Wammu/PhoneSearch.py:167
-#, fuzzy
-#| msgid ""
-#| "All Bluetooth devices discovered, connection tests still in progress..."
 msgid "All Bluetooth devices discovered, connection tests still in progress…"
-msgstr "所有蓝牙设备已发现，正在进行连接测试。。。"
+msgstr "已发现所有蓝牙设备，连接测试进行中…"
 
 #: Wammu/PhoneSearch.py:171
 #, python-format
@@ -2062,10 +2016,8 @@ msgid "Connection test"
 msgstr "连接测试"
 
 #: Wammu/PhoneWizard.py:71 Wammu/PhoneWizard.py:85
-#, fuzzy
-#| msgid "Wammu is now testing phone connection, please wait..."
 msgid "Wammu is now testing phone connection, please wait…"
-msgstr "Wammu正在测试手机连接，请等待。。。"
+msgstr "Wammu 正在测试手机连接，请等待…"
 
 #: Wammu/PhoneWizard.py:106
 msgid "Phone has been found."
@@ -3064,10 +3016,8 @@ msgid "Mailboxes"
 msgstr "收件箱"
 
 #: Wammu/SMSExport.py:41
-#, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select mailbox file…"
-msgstr "选择mailbox文件..."
+msgstr "选择 mailbox 文件…"
 
 #: Wammu/SMSExport.py:54
 msgid "Saving messages to mailbox"
@@ -3135,10 +3085,8 @@ msgid "maildir"
 msgstr "文件夹"
 
 #: Wammu/SMSExport.py:206
-#, fuzzy
-#| msgid "Connecting to IMAP server..."
 msgid "Connecting to IMAP server…"
-msgstr "正在连接到IMAP服务器..."
+msgstr "连接到 IMAP 服务器…"
 
 #: Wammu/SMSExport.py:223
 msgid ""
@@ -3151,10 +3099,8 @@ msgid "Login failed!"
 msgstr "登录失败！"
 
 #: Wammu/SMSExport.py:230
-#, fuzzy
-#| msgid "Listing folders on IMAP server..."
 msgid "Listing folders on IMAP server…"
-msgstr "正在列出IMAP服务器上的文件夹..."
+msgstr "列出 IMAP 服务器上的文件夹…"
 
 #: Wammu/SMSExport.py:239
 msgid "Can not list folders on server, bailing out."
@@ -3174,10 +3120,8 @@ msgid "Select folder"
 msgstr "选择文件夹"
 
 #: Wammu/SMSExport.py:291
-#, fuzzy
-#| msgid "Selecting folder on IMAP server..."
 msgid "Selecting folder on IMAP server…"
-msgstr "正在选择IMAP服务器上的文件夹..."
+msgstr "选择 IMAP 服务器上的文件夹…"
 
 #: Wammu/SMSExport.py:300
 #, python-format
@@ -3348,10 +3292,8 @@ msgid "Working features:"
 msgstr "可用的功能："
 
 #: Wammu/TalkbackDialog.py:64
-#, fuzzy
-#| msgid "Please select features..."
 msgid "Please select features…"
-msgstr "请选择功能..."
+msgstr "请选择功能…"
 
 #: Wammu/TalkbackDialog.py:65
 msgid "Gammu version:"
@@ -3755,7 +3697,7 @@ msgstr "您可能需要成为 %s 组的成员。"
 #: wammu-configure.py:40
 #, python-format
 msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
-msgstr "Wammu配置器-Wammu和Gammu的配置器  版本%s"
+msgstr "Wammu 配置器 - Wammu 和 Gammu 配置器版本%s"
 
 #: wammu-configure.py:49 wammu.py:71
 #, fuzzy, python-format
@@ -3792,10 +3734,8 @@ msgid "Using local built locales!"
 msgstr "正在使用本地编译的locale文件！"
 
 #: wammu-configure.py:117
-#, fuzzy
-#| msgid "Updating gammu configuration..."
 msgid "Updating gammu configuration…"
-msgstr "正在更新gammu配置..."
+msgstr "更新 gammu 配置…"
 
 #: wammu.py:63
 #, python-format
@@ -3819,15 +3759,12 @@ msgid "Wammu configuration:"
 msgstr "Wammu 配置："
 
 #: wammu.py:130
-#, fuzzy
-#| msgid "Connection"
 msgid "Connecting…"
-msgstr "连接"
+msgstr "连接中…"
 
 #: wammu.py:137
-#, fuzzy
 msgid "Getting phone information…"
-msgstr "手机信息"
+msgstr "获取手机信息…"
 
 #: wammu.py:143
 msgid "Phone infomation:"
