@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2022-01-05 08:58+0100\n"
-"PO-Revision-Date: 2014-05-27 00:42+0200\n"
-"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gammu/wammu/es/"
-">\n"
+"PO-Revision-Date: 2023-09-28 14:00+0000\n"
+"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/gammu/wammu/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: Wammu/About.py:44
 msgid "About Wammu"
@@ -44,12 +44,6 @@ msgid "<b>Wammu</b> is a wxPython based GUI for Gammu."
 msgstr "<b>Wammu</b> es una interfaz basada en wxPython para Gammu."
 
 #: Wammu/About.py:104
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "This program is free software; you can redistribute it and/or modify\n"
-#| "it under the terms of the GNU General Public License version 2 as\n"
-#| "published by the Free Software Foundation.\n"
 msgid ""
 "\n"
 "This program is free software: you can redistribute it and/or modify\n"
@@ -58,9 +52,10 @@ msgid ""
 "(at your option) any later version.\n"
 msgstr ""
 "\n"
-"Este programa es software libre; puede redistribuirlo y/o modificarlo\n"
-"bajo los términos de la Licencia Pública General de GNU versión 2,\n"
-"publicada por la Free Software Foundation.\n"
+"Este programa es software libre: puedes redistribuirlo y/o modificarlo\n"
+"bajo los términos de la Licencia Pública General GNU publicada por\n"
+"la Free Software Foundation, ya sea la versión 3 de la Licencia, o\n"
+"(a tu elección) cualquier versión posterior.\n"
 
 #: Wammu/About.py:110
 msgid ""
@@ -213,10 +208,8 @@ msgid "Concatenated"
 msgstr "Concatenados"
 
 #: Wammu/Composer.py:167 Wammu/Settings.py:250
-#, fuzzy
-#| msgid "Create concatenated message, what allows to send longer messages."
 msgid "Create concatenated message, which allows to send longer messages."
-msgstr "Crear mensajes concatenados, para permitir enviar mensajes largos."
+msgstr "Crea mensajes concatenados, lo que permite enviar mensajes más largos."
 
 #: Wammu/Composer.py:175
 msgid "Style"
@@ -306,14 +299,11 @@ msgid "Sent"
 msgstr "Enviado"
 
 #: Wammu/Composer.py:399
-#, fuzzy
-#| msgid ""
-#| "Check to save message as sent (has only effect when only saving message)."
 msgid ""
 "Check to save message as sent (only has effect when saving the message)."
 msgstr ""
-"Active para guardar el mensaje como enviado (solo tiene efecto cuando se "
-"guarda el mensaje)."
+"Marcar para guardar el mensaje como enviado (sólo tiene efecto al guardar el "
+"mensaje)."
 
 #: Wammu/Composer.py:402
 msgid "Flash"
@@ -337,21 +327,17 @@ msgid "Available message parts"
 msgstr "Partes del mensaje disponibles"
 
 #: Wammu/Composer.py:442 Wammu/Composer.py:531
-#, fuzzy
-#| msgid "Create new message by adding part to left list..."
 msgid "Create new message by adding part to left list…"
-msgstr ""
-"Crear un mensaje nuevo añadiendo una parte a la lista de la izquierda..."
+msgstr "Crear un nuevo mensaje añadiendo una parte a la lista de la izquierda…"
 
 #: Wammu/Composer.py:447
 msgid "Preview"
 msgstr "Previsualización"
 
 #: Wammu/Composer.py:517
-#, fuzzy, python-format
-#| msgid "Not supported id: %s"
+#, python-format
 msgid "Not supported ID: %s"
-msgstr "Id. no permitido: %s"
+msgstr "ID no admitido: %s"
 
 #: Wammu/Composer.py:558
 #, python-format
@@ -381,10 +367,8 @@ msgid "All files"
 msgstr "Todos los archivos"
 
 #: Wammu/ContactsXML.py:148 Wammu/SMSXML.py:87
-#, fuzzy
-#| msgid "Select XML file..."
 msgid "Select XML file…"
-msgstr "Seleccionar archivo XML..."
+msgstr "Seleccione el archivo XML…"
 
 #: Wammu/ContactsXML.py:160
 msgid "Saving contacts to XML"
@@ -624,10 +608,8 @@ msgid "Editing %(name)s %(location)s"
 msgstr "Editando %(name)s %(location)s"
 
 #: Wammu/Editor.py:265
-#, fuzzy
-#| msgid "Location (0 = auto):"
 msgid "Location (0=auto):"
-msgstr "Ubicación (0 = auto):"
+msgstr "Ubicación (0=automática):"
 
 #: Wammu/Editor.py:301
 msgid "Add one more field."
@@ -663,10 +645,8 @@ msgstr ""
 "recomienda encarecidamente que lo incluya en el reporte de error."
 
 #: Wammu/ErrorMessage.py:74
-#, fuzzy
-#| msgid "&Save debug log"
 msgid "Save debug log…"
-msgstr "Guardar regi&stro de errores"
+msgstr "Guardar el registro de la depuración…"
 
 #: Wammu/ErrorMessage.py:79
 msgid "Search for similar reports"
@@ -677,10 +657,8 @@ msgid "Report bug"
 msgstr "Informar de un error"
 
 #: Wammu/ErrorMessage.py:100 Wammu/Main.py:2507
-#, fuzzy
-#| msgid "Save debug log as..."
 msgid "Save debug log as…"
-msgstr "Guardar registro de depuración como..."
+msgstr "Guardar el registro de la depuración como…"
 
 #: Wammu/Error.py:54
 #, python-format
@@ -836,10 +814,8 @@ msgid "Wammu debug log"
 msgstr "Registro de depuración de Wammu"
 
 #: Wammu/Logger.py:139
-#, fuzzy
-#| msgid "Here will appear debug messages from Gammu...\n"
 msgid "Here will appear debug messages from Gammu…\n"
-msgstr "Aquí aparecerán mensajes de depuración de Gammu...\n"
+msgstr "Aquí aparecerán los mensajes de depuración de Gammu...\n"
 
 #: Wammu/Main.py:112 Wammu/Main.py:140
 msgid "Phone"
@@ -1211,21 +1187,18 @@ msgid "&Save"
 msgstr "&Guardar"
 
 #: Wammu/Main.py:350
-#, fuzzy
-#| msgid "Save currently retrieved data (except messages) to backup."
 msgid "Backup currently retrieved data (except messages)."
 msgstr ""
-"Guardar los datos obtenidos (excepto los mensajes) a una copia de seguridad."
+"Copia de seguridad de los datos recuperados actualmente (excepto los "
+"mensajes)."
 
 #: Wammu/Main.py:351
 msgid "S&ave messages"
 msgstr "&Guardar mensajes"
 
 #: Wammu/Main.py:351
-#, fuzzy
-#| msgid "Save currently retrieved messages to backup."
 msgid "Backup currently retrieved messages."
-msgstr "Guardar los mensajes obtenidos a una copia de seguridad."
+msgstr "Copia de seguridad de los mensajes recuperados actualmente."
 
 #: Wammu/Main.py:352
 msgid "&Import to phone"
@@ -1558,10 +1531,8 @@ msgid "Folder"
 msgstr "Carpeta"
 
 #: Wammu/Main.py:1084
-#, fuzzy
-#| msgid "Writing message(s)..."
 msgid "Writing message(s)…"
-msgstr "Escribiendo mensaje(s)..."
+msgstr "Escribiendo el(los) mensaje(s)…"
 
 #: Wammu/Main.py:1116
 msgid ""
@@ -1578,10 +1549,8 @@ msgid "Could not read saved message!"
 msgstr "¡No se pueden leer los mensajes guardados!"
 
 #: Wammu/Main.py:1150
-#, fuzzy
-#| msgid "Writing contact..."
 msgid "Writing contact…"
-msgstr "Escribiendo contacto..."
+msgstr "Escribiendo un contacto…"
 
 #: Wammu/Main.py:1189 Wammu/Main.py:1256 Wammu/Main.py:1313
 msgid ""
@@ -1596,16 +1565,12 @@ msgid "Could not read saved entry!"
 msgstr "¡No se pueden leer las entradas guardados!"
 
 #: Wammu/Main.py:1224
-#, fuzzy
-#| msgid "Writing calendar..."
 msgid "Writing calendar…"
-msgstr "Escribiendo calendario..."
+msgstr "Escribiendo en el calendario…"
 
 #: Wammu/Main.py:1284
-#, fuzzy
-#| msgid "Writing todo..."
 msgid "Writing todo…"
-msgstr "Escribiendo tareas..."
+msgstr "Escribiendo las tareas…"
 
 #: Wammu/Main.py:1445
 msgid "Gammu messages backup"
@@ -1640,20 +1605,16 @@ msgid "iCalendar [todo,calendar]"
 msgstr "iCalendar [tareas, calendario]"
 
 #: Wammu/Main.py:1477
-#, fuzzy
-#| msgid "Save data as..."
 msgid "Save data as…"
-msgstr "Guardar datos como..."
+msgstr "Guardar los datos como…"
 
 #: Wammu/Main.py:1486
 msgid "Read data"
 msgstr "Leer datos"
 
 #: Wammu/Main.py:1496
-#, fuzzy
-#| msgid "Save backup as..."
 msgid "Save backup as…"
-msgstr "Guardar copia de seguridad como..."
+msgstr "Guardar la copia de seguridad como…"
 
 #: Wammu/Main.py:1505
 msgid "Import backup"
@@ -1695,10 +1656,8 @@ msgid "Select what to import"
 msgstr "Seleccionar qué importar"
 
 #: Wammu/Main.py:1612 Wammu/Main.py:1709
-#, fuzzy
-#| msgid "Importing data..."
 msgid "Importing data…"
-msgstr "Importando datos..."
+msgstr "Importando los datos…"
 
 #: Wammu/Main.py:1640 Wammu/Main.py:1764
 #, python-format
@@ -1856,28 +1815,20 @@ msgid "Confirm deleting"
 msgstr "Confirmar borrado"
 
 #: Wammu/Main.py:1961
-#, fuzzy
-#| msgid "Deleting contact(s)..."
 msgid "Deleting contact(s)…"
-msgstr "Borrando contacto(s)..."
+msgstr "Borrando el(los) contacto(s)…"
 
 #: Wammu/Main.py:1971
-#, fuzzy
-#| msgid "Deleting message(s)..."
 msgid "Deleting message(s)…"
-msgstr "Borrando mensaje(s)..."
+msgstr "Borrando el(los) mensaje(s)…"
 
 #: Wammu/Main.py:1982
-#, fuzzy
-#| msgid "Deleting todo(s)..."
 msgid "Deleting todo(s)…"
-msgstr "Borrando tarea(s)..."
+msgstr "Borrando la(s) tarea(s)…"
 
 #: Wammu/Main.py:1992
-#, fuzzy
-#| msgid "Deleting calendar event(s)..."
 msgid "Deleting calendar event(s)…"
-msgstr "Borrando evento(s) del calendario..."
+msgstr "Borrando el(los) evento(s) del calendario…"
 
 #: Wammu/Main.py:2071 Wammu/Main.py:2162
 msgid "Reading phone information"
@@ -1906,20 +1857,16 @@ msgid "Reading calendar"
 msgstr "Leyendo calendario"
 
 #: Wammu/Main.py:2215
-#, fuzzy
-#| msgid "Setting time in phone..."
 msgid "Setting time in phone…"
-msgstr "Poniendo en hora el teléfono..."
+msgstr "Ajustar la hora en el teléfono…"
 
 #: Wammu/Main.py:2239
 msgid "Send file to phone"
 msgstr "Envio de archivo al teléfono"
 
 #: Wammu/Main.py:2265
-#, fuzzy
-#| msgid "Sending file to phone..."
 msgid "Sending file to phone…"
-msgstr "Enviando archivo al teléfono..."
+msgstr "Enviando el archivo al teléfono…"
 
 #: Wammu/Main.py:2274
 msgid "Transfer has been rejected by phone."
@@ -1930,10 +1877,8 @@ msgid "Transfer rejected!"
 msgstr "¡Transferencia denegada!"
 
 #: Wammu/Main.py:2297
-#, fuzzy
-#| msgid "One moment please, connecting to phone..."
 msgid "One moment please, connecting to phone…"
-msgstr "Un momento por favor, conectando con el teléfono..."
+msgstr "Un momento por favor, conectando con el teléfono…"
 
 #: Wammu/Main.py:2305
 msgid "Phone connection is not properly configured, can not connect to phone."
@@ -1976,10 +1921,8 @@ msgid "Accept"
 msgstr "Aceptar"
 
 #: Wammu/Main.py:2433
-#, fuzzy
-#| msgid "One moment please, disconnecting from phone..."
 msgid "One moment please, disconnecting from phone…"
-msgstr "Un momento por favor, desconectando del teléfono..."
+msgstr "Un momento por favor, desconectando del teléfono…"
 
 #: Wammu/Main.py:2468
 msgid ""
@@ -2035,13 +1978,10 @@ msgid "No Bluetooth device found"
 msgstr "Ningún dispositivo Bluetooth encontrado"
 
 #: Wammu/PhoneSearch.py:167
-#, fuzzy
-#| msgid ""
-#| "All Bluetooth devices discovered, connection tests still in progress..."
 msgid "All Bluetooth devices discovered, connection tests still in progress…"
 msgstr ""
-"Se han encontrado todos los dispositivos Bluetooth, aún se está probando la "
-"conexión..."
+"Todos los dispositivos Bluetooth descubiertos, las pruebas de conexión aún "
+"en curso…"
 
 #: Wammu/PhoneSearch.py:171
 #, python-format
@@ -2100,10 +2040,8 @@ msgid "Connection test"
 msgstr "Test de conexión"
 
 #: Wammu/PhoneWizard.py:71 Wammu/PhoneWizard.py:85
-#, fuzzy
-#| msgid "Wammu is now testing phone connection, please wait..."
 msgid "Wammu is now testing phone connection, please wait…"
-msgstr "Wammu está probando la conexión con el teléfono, espere, por favor..."
+msgstr "Wammu está probando la conexión del teléfono, por favor espera…"
 
 #: Wammu/PhoneWizard.py:106
 msgid "Phone has been found."
@@ -2160,11 +2098,11 @@ msgstr "¡No se encontró ningún teléfono!"
 
 #: Wammu/PhoneWizard.py:199
 msgid "Wammu is now searching for phone:"
-msgstr "Wammu está buscando teléfono(s):"
+msgstr "Wammu está buscando el(los) teléfono(s):"
 
 #: Wammu/PhoneWizard.py:250
 msgid "No phone has been found!"
-msgstr "¡No se encontró ningún teléfono!"
+msgstr "¡No se ha encontrado ningún teléfono!"
 
 #: Wammu/PhoneWizard.py:258 Wammu/PhoneWizard.py:286
 #, python-format
@@ -2668,22 +2606,16 @@ msgid "Default time"
 msgstr "Hora por defecto"
 
 #: Wammu/Settings.py:410
-#, fuzzy
-#| msgid ""
-#| "Default date to be used for newly created time fields. Enter amount of "
-#| "days from today (1 = tomorrow)."
 msgid ""
 "Default date to be used for newly created time fields. Enter amount of days "
 "from today (1=tomorrow)."
 msgstr ""
-"Fecha por defecto a utilizar para campos de fecha recién creados. Introduzca "
-"el número de días desde hoy (1 = mañana)."
+"Fecha por defecto que se utilizará para los nuevos campos de tiempo creados. "
+"Introduce la cantidad de días a partir de hoy (1=mañana)."
 
 #: Wammu/Settings.py:411
-#, fuzzy
-#| msgid "Default date = now + x days"
 msgid "Default date=now + x days"
-msgstr "fecha por defecto = hoy + x días"
+msgstr "Fecha por defecto=ahora + x días"
 
 #: Wammu/Settings.py:425
 msgid "How many entries will be shown in newly created item."
@@ -3183,10 +3115,8 @@ msgid "Mailboxes"
 msgstr "Buzones de correo"
 
 #: Wammu/SMSExport.py:41
-#, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select mailbox file…"
-msgstr "Seleccione el archivo de buzón de correo..."
+msgstr "Seleccionar un archivo del buzón…"
 
 #: Wammu/SMSExport.py:54
 msgid "Saving messages to mailbox"
@@ -3256,10 +3186,8 @@ msgid "maildir"
 msgstr "Carpeta de correos"
 
 #: Wammu/SMSExport.py:206
-#, fuzzy
-#| msgid "Connecting to IMAP server..."
 msgid "Connecting to IMAP server…"
-msgstr "Conectando con el servidor IMAP..."
+msgstr "Conectando al servidor IMAP…"
 
 #: Wammu/SMSExport.py:223
 msgid ""
@@ -3274,10 +3202,8 @@ msgid "Login failed!"
 msgstr "¡Inicio de sesión fallido!"
 
 #: Wammu/SMSExport.py:230
-#, fuzzy
-#| msgid "Listing folders on IMAP server..."
 msgid "Listing folders on IMAP server…"
-msgstr "Listar carpetas en servidor IMAP..."
+msgstr "Listado de carpetas en el servidor IMAP…"
 
 #: Wammu/SMSExport.py:239
 msgid "Can not list folders on server, bailing out."
@@ -3298,10 +3224,8 @@ msgid "Select folder"
 msgstr "Seleccionar carpeta"
 
 #: Wammu/SMSExport.py:291
-#, fuzzy
-#| msgid "Selecting folder on IMAP server..."
 msgid "Selecting folder on IMAP server…"
-msgstr "Seleccionar carpeta en servidor IMAP..."
+msgstr "Seleccionar una carpeta en el servidor IMAP…"
 
 #: Wammu/SMSExport.py:300
 #, python-format
@@ -3478,10 +3402,8 @@ msgid "Working features:"
 msgstr "Características funcionales:"
 
 #: Wammu/TalkbackDialog.py:64
-#, fuzzy
-#| msgid "Please select features..."
 msgid "Please select features…"
-msgstr "Seleccione funcionalidades..."
+msgstr "Por favor, selecciona las características…"
 
 #: Wammu/TalkbackDialog.py:65
 msgid "Gammu version:"
@@ -3918,8 +3840,7 @@ msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Configurador Wammu - versión configurador Wammu y Gammu %s"
 
 #: wammu-configure.py:49 wammu.py:71
-#, fuzzy, python-format
-#| msgid "Usage: %s [OPTION...]"
+#, python-format
 msgid "Usage: %s [OPTION…]"
 msgstr "Uso: %s [OPCIÓN...]"
 
@@ -3954,10 +3875,8 @@ msgid "Using local built locales!"
 msgstr "¡Usando las configuraciones de región compiladas localmente!"
 
 #: wammu-configure.py:117
-#, fuzzy
-#| msgid "Updating gammu configuration..."
 msgid "Updating gammu configuration…"
-msgstr "Actualizando la configuración de gammu..."
+msgstr "Actualizando la configuración de gammu…"
 
 #: wammu.py:63
 #, python-format
@@ -3981,16 +3900,12 @@ msgid "Wammu configuration:"
 msgstr "Configuración de Wammu:"
 
 #: wammu.py:130
-#, fuzzy
-#| msgid "Connection"
 msgid "Connecting…"
-msgstr "Conexión"
+msgstr "Conectando…"
 
 #: wammu.py:137
-#, fuzzy
-#| msgid "Getting phone information"
 msgid "Getting phone information…"
-msgstr "Información del teléfono"
+msgstr "Obteniendo la información del teléfono…"
 
 #: wammu.py:143
 msgid "Phone infomation:"
