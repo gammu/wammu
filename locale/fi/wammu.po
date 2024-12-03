@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: wammu\n"
 "Report-Msgid-Bugs-To: gammu-users@lists.sourceforge.net\n"
 "POT-Creation-Date: 2022-01-05 08:58+0100\n"
-"PO-Revision-Date: 2022-03-16 18:58+0000\n"
-"Last-Translator: Tuomas Lähteenmäki <lahtis@gmail.com>\n"
+"PO-Revision-Date: 2024-12-03 12:59+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gammu/wammu/fi/>"
 "\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: Wammu/About.py:44
 msgid "About Wammu"
@@ -1849,10 +1849,8 @@ msgid "Transfer rejected!"
 msgstr "Siirto hylätty!"
 
 #: Wammu/Main.py:2297
-#, fuzzy
-#| msgid "One moment please, connecting to phone..."
 msgid "One moment please, connecting to phone…"
-msgstr "Hetkinen, yhdistetään puhelimeen..."
+msgstr "Hetkinen, yhdistetään puhelimeen…"
 
 #: Wammu/Main.py:2305
 msgid "Phone connection is not properly configured, can not connect to phone."
@@ -1893,10 +1891,8 @@ msgid "Accept"
 msgstr "Hyväksy"
 
 #: Wammu/Main.py:2433
-#, fuzzy
-#| msgid "One moment please, disconnecting from phone..."
 msgid "One moment please, disconnecting from phone…"
-msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen..."
+msgstr "Hetkinen, katkaistaan yhteyttä puhelimeen…"
 
 #: Wammu/Main.py:2468
 msgid ""
@@ -1952,11 +1948,8 @@ msgid "No Bluetooth device found"
 msgstr "Bluetooth-laitetta ei löydetty"
 
 #: Wammu/PhoneSearch.py:167
-#, fuzzy
-#| msgid ""
-#| "All Bluetooth devices discovered, connection tests still in progress..."
 msgid "All Bluetooth devices discovered, connection tests still in progress…"
-msgstr "Kaikki Bluetooth-laitteet löydetty, yhteystestit vielä käynnissä..."
+msgstr "Kaikki Bluetooth-laitteet löydetty, yhteystestit vielä käynnissä…"
 
 #: Wammu/PhoneSearch.py:171
 #, python-format
@@ -2010,10 +2003,8 @@ msgid "Connection test"
 msgstr "Yhteyden testaus"
 
 #: Wammu/PhoneWizard.py:71 Wammu/PhoneWizard.py:85
-#, fuzzy
-#| msgid "Wammu is now testing phone connection, please wait..."
 msgid "Wammu is now testing phone connection, please wait…"
-msgstr "Wammu testaa yhteyttä puhelimeen, oottele ihan rauhassa..."
+msgstr "Wammu testaa yhteyttä puhelimeen, oottele ihan rauhassa…"
 
 #: Wammu/PhoneWizard.py:106
 msgid "Phone has been found."
@@ -3067,10 +3058,8 @@ msgid "Mailboxes"
 msgstr "Postilaatikot"
 
 #: Wammu/SMSExport.py:41
-#, fuzzy
-#| msgid "Select mailbox file..."
 msgid "Select mailbox file…"
-msgstr "Valitse postilaatikkotiedosto..."
+msgstr "Valitse postilaatikkotiedosto…"
 
 #: Wammu/SMSExport.py:54
 msgid "Saving messages to mailbox"
@@ -3140,10 +3129,8 @@ msgid "maildir"
 msgstr "postihakemisto"
 
 #: Wammu/SMSExport.py:206
-#, fuzzy
-#| msgid "Connecting to IMAP server..."
 msgid "Connecting to IMAP server…"
-msgstr "Yhdistetään IMAP palvelimeen..."
+msgstr "Yhdistetään IMAP palvelimeen…"
 
 #: Wammu/SMSExport.py:223
 msgid ""
@@ -3158,10 +3145,8 @@ msgid "Login failed!"
 msgstr "Kirjautuminen epäonnistui!"
 
 #: Wammu/SMSExport.py:230
-#, fuzzy
-#| msgid "Listing folders on IMAP server..."
 msgid "Listing folders on IMAP server…"
-msgstr "Listataan IMAP palvelimen kansioita..."
+msgstr "Listataan IMAP palvelimen kansioita…"
 
 #: Wammu/SMSExport.py:239
 msgid "Can not list folders on server, bailing out."
@@ -3181,10 +3166,8 @@ msgid "Select folder"
 msgstr "Valitse kansio"
 
 #: Wammu/SMSExport.py:291
-#, fuzzy
-#| msgid "Selecting folder on IMAP server..."
 msgid "Selecting folder on IMAP server…"
-msgstr "Valitaan kansio IMAP palvelimella..."
+msgstr "Valitaan kansio IMAP palvelimella…"
 
 #: Wammu/SMSExport.py:300
 #, python-format
@@ -3358,10 +3341,8 @@ msgid "Working features:"
 msgstr "Toimivat ominaisuudet:"
 
 #: Wammu/TalkbackDialog.py:64
-#, fuzzy
-#| msgid "Please select features..."
 msgid "Please select features…"
-msgstr "Valitse ominaisuudet..."
+msgstr "Valitse ominaisuudet…"
 
 #: Wammu/TalkbackDialog.py:65
 msgid "Gammu version:"
@@ -3790,10 +3771,9 @@ msgid "Wammu Configurator - Wammu and Gammu configurator version %s"
 msgstr "Wammu Configurator - Wammu ja Gammu asetusohjelman versio %s"
 
 #: wammu-configure.py:49 wammu.py:71
-#, fuzzy, python-format
-#| msgid "Usage: %s [OPTION...]"
+#, python-format
 msgid "Usage: %s [OPTION…]"
-msgstr "Käyttö: %s [OPTION...]"
+msgstr "Käyttö: %s [VAIHTOEHTO…]"
 
 #: wammu-configure.py:51 wammu.py:73
 msgid "Options:"
@@ -3826,10 +3806,8 @@ msgid "Using local built locales!"
 msgstr "Käytetään paikallisesti käännettyjä lokalisointitietoja!"
 
 #: wammu-configure.py:117
-#, fuzzy
-#| msgid "Updating gammu configuration..."
 msgid "Updating gammu configuration…"
-msgstr "Lähetetään gammu-konfiguraatiota..."
+msgstr "Päivitetään gammu-kokoonpanoa…"
 
 #: wammu.py:63
 #, python-format
@@ -3853,16 +3831,12 @@ msgid "Wammu configuration:"
 msgstr "Wammu-konfiguraatio:"
 
 #: wammu.py:130
-#, fuzzy
-#| msgid "Connection"
 msgid "Connecting…"
-msgstr "Yhteys"
+msgstr "Yhdistetään…"
 
 #: wammu.py:137
-#, fuzzy
-#| msgid "Getting phone information"
 msgid "Getting phone information…"
-msgstr "Puhelimen tiedot"
+msgstr "Haetaan puhelintietoja…"
 
 #: wammu.py:143
 msgid "Phone infomation:"
