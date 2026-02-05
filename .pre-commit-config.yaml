@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v6.0.0
     hooks:
       - id: requirements-txt-fixer
       - id: check-merge-conflict
@@ -12,6 +12,6 @@ repos:
       - id: check-hooks-apply
       - id: check-useless-excludes
   - repo: https://github.com/WeblateOrg/locale_lint
-    rev: v0.2.2
+    rev: v0.3.1
     hooks:
         - id: locale_lint
