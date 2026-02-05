@@ -1,13 +1,10 @@
 Wammu
 =====
 
-**This project is not compatible with current Python and wxPython.**
-
+**This project is `looking for a new maintainer <https://github.com/gammu/wammu/issues/83>`_
+and `lacks support for Python 3 <https://github.com/gammu/wammu/issues/78>`_.**
 
 GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
-
-This package is `looking for a new maintainer <https://github.com/gammu/wammu/issues/83>`_
-and `lacks support for Python 3 <https://github.com/gammu/wammu/issues/78>`_.
 
 .. image:: https://hosted.weblate.org/widgets/gammu/-/svg-badge.svg
     :alt: Translation status
