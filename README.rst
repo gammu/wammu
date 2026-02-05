@@ -1,9 +1,7 @@
 Wammu
 =====
 
-.. warning::
-
-   This project is not compatible with current Python and wxPython.
+**This project is not compatible with current Python and wxPython.**
 
 
 GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
