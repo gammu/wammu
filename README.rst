@@ -1,7 +1,7 @@
 Wammu
 =====
 
-.. caution::
+.. warning::
 
    This project is not compatible with current Python and wxPython.
 
