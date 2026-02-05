@@ -1,8 +1,8 @@
 Wammu
 =====
 
-**This project is `looking for a new maintainer <https://github.com/gammu/wammu/issues/83>`_
-and `lacks support for Python 3 <https://github.com/gammu/wammu/issues/78>`_.**
+This project is `looking for a new maintainer <https://github.com/gammu/wammu/issues/83>`_
+and `lacks support for Python 3 <https://github.com/gammu/wammu/issues/78>`_.
 
 GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
 
