@@ -1,6 +1,11 @@
 Wammu
 =====
 
+.. caution::
+
+   This project is not compatible with current Python and wxPython.
+
+
 GUI for the `Gammu library <https://wammu.eu/gammu/>`_.
 
 This package is `looking for a new maintainer <https://github.com/gammu/wammu/issues/83>`_
