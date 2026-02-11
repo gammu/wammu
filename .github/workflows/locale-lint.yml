@@ -14,6 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Weblate Locale Linter
       uses: WeblateOrg/locale_lint@v0.2.2
